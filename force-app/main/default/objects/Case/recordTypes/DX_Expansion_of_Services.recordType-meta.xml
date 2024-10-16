@@ -494,31 +494,35 @@
     <picklistValues>
         <picklist>Reason</picklist>
         <values>
-            <fullName>Breakdown</fullName>
+            <fullName>Customer Request for Cross Connection</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Equipment Complexity</fullName>
+            <fullName>Customer Request for Power</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Equipment Design</fullName>
+            <fullName>Customer request Disco</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Feedback</fullName>
+            <fullName>Customer request for assistance</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Installation</fullName>
+            <fullName>Customer request restively of material</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Other</fullName>
+            <fullName>Duplicate case%2E Close case%2E</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Performance</fullName>
+            <fullName>Package received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Troubleshooting</fullName>
             <default>false</default>
         </values>
     </picklistValues>
