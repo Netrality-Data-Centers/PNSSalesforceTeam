@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_Acconting_Request_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Request Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Update Billing Email</fullName>
+                <default>false</default>
+                <label>Update Billing Email</label>
+            </value>
+            <value>
+                <fullName>Update Address</fullName>
+                <default>false</default>
+                <label>Update Address</label>
+            </value>
+            <value>
+                <fullName>Update Contact Info</fullName>
+                <default>false</default>
+                <label>Update Contact Info</label>
+            </value>
+            <value>
+                <fullName>Update PO #</fullName>
+                <default>false</default>
+                <label>Update PO #</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
