@@ -17,12 +17,6 @@
                 <elementReference>Get_Bussines_Hours.Id</elementReference>
             </value>
         </inputParameters>
-        <inputParameters>
-            <name>TimeZoneBH</name>
-            <value>
-                <elementReference>timeZoneBH</elementReference>
-            </value>
-        </inputParameters>
         <nameSegment>DX_BusinesHoursHelper</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
         <versionSegment>1</versionSegment>
