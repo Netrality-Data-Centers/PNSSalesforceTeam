@@ -8,7 +8,6 @@ public class DX_BusinesHoursHelper_tst {
         // Set up test input
         DX_BusinesHoursHelper.FlowInput input = new DX_BusinesHoursHelper.FlowInput();
         input.BHId = bh.Id;
-        input.TimeZoneBH = 'America/Indiana/Indianapolis';
         
         List<DX_BusinesHoursHelper.FlowInput> inputs = new List<DX_BusinesHoursHelper.FlowInput>();
         inputs.add(input);
