@@ -3,7 +3,7 @@
     <fullName>DX_Reason_For_Hold__c</fullName>
     <externalId>false</externalId>
     <label>Reason for Hold</label>
-    <length>100</length>
+    <length>200</length>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
