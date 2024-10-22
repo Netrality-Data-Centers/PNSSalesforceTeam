@@ -130,6 +130,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.DX_Conditions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.DX_Connector_Type__c</field>
         <readable>true</readable>
@@ -275,8 +280,13 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.DX_Initiator_Phone__c</field>
+        <editable>true</editable>
+        <field>Case.DX_InitiatorPhone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.DX_Initiator_Title__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -532,11 +542,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.DX_Time_of_Issue__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.DX_Title__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
