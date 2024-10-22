@@ -62,7 +62,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.DX_How_Help_You__c</fieldItem>
                 <identifier>RecordDX_How_Help_You_cField</identifier>
@@ -128,6 +128,29 @@
                 <fieldItem>Record.DX_Related_Service_Order__c</fieldItem>
                 <identifier>RecordDX_Related_Service_Order_cField2</identifier>
                 <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Type}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>General Questions</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DX_Related_Ticket__c</fieldItem>
+                <identifier>RecordDX_Related_Ticket_cField2</identifier>
+                <visibilityRule>
+                    <booleanFilter>1 OR 2</booleanFilter>
+                    <criteria>
+                        <leftValue>{!Record.Type}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Feedback</rightValue>
+                    </criteria>
                     <criteria>
                         <leftValue>{!Record.Type}</leftValue>
                         <operator>EQUAL</operator>
@@ -222,39 +245,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.DX_Billing_Account_Number__c</fieldItem>
                 <identifier>RecordDX_Billing_Account_Number_cField</identifier>
-                <visibilityRule>
-                    <booleanFilter>1 OR 2 OR 3 OR 4 OR 5 OR 6</booleanFilter>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Training/Portal Help</rightValue>
-                    </criteria>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Strategic Business Review Request</rightValue>
-                    </criteria>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Inventory Related Questions</rightValue>
-                    </criteria>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Feedback</rightValue>
-                    </criteria>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>General Questions</rightValue>
-                    </criteria>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Disconnect Request</rightValue>
-                    </criteria>
-                </visibilityRule>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -304,29 +294,6 @@
                         <leftValue>{!Record.Type}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>Inventory Related Questions</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_Related_Ticket__c</fieldItem>
-                <identifier>RecordDX_Related_Ticket_cField2</identifier>
-                <visibilityRule>
-                    <booleanFilter>1 OR 2</booleanFilter>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Feedback</rightValue>
-                    </criteria>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>General Questions</rightValue>
                     </criteria>
                 </visibilityRule>
             </fieldInstance>
