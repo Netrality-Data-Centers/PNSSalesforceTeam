@@ -218,7 +218,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.DX_Billing_Account_Number__c</fieldItem>
                 <identifier>RecordDX_Billing_Account_Number_cField</identifier>
