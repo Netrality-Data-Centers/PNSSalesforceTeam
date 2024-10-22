@@ -247,6 +247,23 @@
                 <identifier>RecordDX_I_Accept_cField2</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DX_Conditions__c</fieldItem>
+                <identifier>RecordDX_Conditions__cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.DX_I_Accept__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>true</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-1582e00c-66b1-4b87-b11d-a4d422c55242</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -535,20 +552,6 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
                 <identifier>flexipage_fieldSection</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>decorate</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>richTextValue</name>
-                    <value>&lt;p&gt;&lt;span style=&quot;font-family: Arial; color: rgb(0, 0, 0);&quot;&gt;By clicking accept, Customer acknowledges that certain fees may apply, as prescribed in the Customer Handbook, and payment shall be made in accordance with the terms of the Agreement with Licensor.&lt;/span&gt;&lt;/p&gt;</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:richText</componentName>
-                <identifier>flexipage_richText</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
