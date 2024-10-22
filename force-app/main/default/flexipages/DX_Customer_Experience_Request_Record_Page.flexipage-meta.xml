@@ -218,7 +218,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.DX_Billing_Account_Number__c</fieldItem>
                 <identifier>RecordDX_Billing_Account_Number_cField</identifier>
@@ -317,7 +317,7 @@
                 <fieldItem>Record.DX_Related_Ticket__c</fieldItem>
                 <identifier>RecordDX_Related_Ticket_cField2</identifier>
                 <visibilityRule>
-                    <booleanFilter>1 AND 2</booleanFilter>
+                    <booleanFilter>1 OR 2</booleanFilter>
                     <criteria>
                         <leftValue>{!Record.Type}</leftValue>
                         <operator>EQUAL</operator>
