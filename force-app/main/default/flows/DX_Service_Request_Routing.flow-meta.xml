@@ -191,7 +191,7 @@
             <assignToReference>QueueName</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>QUEUE_NAME_KC</elementReference>
+                <elementReference>QUEUE_NAME_KC_OPS</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -239,7 +239,7 @@
             <assignToReference>QueueName</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>QUEUE_NAME_KC</elementReference>
+                <elementReference>QUEUE_NAME_KC_AFTER_HOUR</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -255,7 +255,7 @@
             <assignToReference>QueueName</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>QUEUE_NAME_PHL</elementReference>
+                <elementReference>QUEUE_NAME_PHL_AFTER_HOURS</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -289,7 +289,7 @@
             <assignToReference>QueueName</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>QUEUE_NAME_INDI</elementReference>
+                <elementReference>QUEUE_NAME_INDY</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -306,7 +306,7 @@
             <assignToReference>QueueName</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>QUEUE_NAME_KC</elementReference>
+                <elementReference>QUEUE_NAME_STL_OPS</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -350,17 +350,24 @@
         </value>
     </constants>
     <constants>
-        <name>QUEUE_NAME_INDI</name>
+        <name>QUEUE_NAME_INDY</name>
         <dataType>String</dataType>
         <value>
-            <stringValue>DX_INDI_OPS_Queue</stringValue>
+            <stringValue>DX_INDY_OPS_Queue</stringValue>
         </value>
     </constants>
     <constants>
-        <name>QUEUE_NAME_KC</name>
+        <name>QUEUE_NAME_KC_AFTER_HOUR</name>
         <dataType>String</dataType>
         <value>
-            <stringValue>DX_KC_OPS_Queue</stringValue>
+            <stringValue>DX_KC_After_Hour_Queue</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>QUEUE_NAME_KC_OPS</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>DX_KC_Ops_Queue</stringValue>
         </value>
     </constants>
     <constants>
@@ -368,6 +375,20 @@
         <dataType>String</dataType>
         <value>
             <stringValue>DX_PHL_OPS_Queue</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>QUEUE_NAME_PHL_AFTER_HOURS</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>DX_PHL_After_Hours_Queue</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>QUEUE_NAME_STL_OPS</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>DX_STL_Ops_Queue</stringValue>
         </value>
     </constants>
     <constants>
