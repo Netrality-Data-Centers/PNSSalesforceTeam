@@ -249,10 +249,10 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.AccountId</fieldItem>
-                <identifier>RecordAccountIdField2</identifier>
+                <fieldItem>Record.DX_Account_Name_Initiator_Information__c</fieldItem>
+                <identifier>RecordDX_Account_Name_Initiator_Information__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -403,10 +403,10 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.AccountId</fieldItem>
-                <identifier>RecordAccountIdField3</identifier>
+                <fieldItem>Record.DX_Account_Name_Order_Initiator__c</fieldItem>
+                <identifier>RecordDX_Account_Name_Order_Initiator__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
