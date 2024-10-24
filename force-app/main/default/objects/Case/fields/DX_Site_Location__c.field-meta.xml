@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_Site_Location__c</fullName>
+    <externalId>false</externalId>
+    <label>Site Location</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Houston, Texas 77002</fullName>
+                <default>false</default>
+                <label>Houston, Texas 77002</label>
+            </value>
+            <value>
+                <fullName>Chicago, IL 60482</fullName>
+                <default>false</default>
+                <label>Chicago, IL 60482</label>
+            </value>
+            <value>
+                <fullName>St. Louis, MO 63101</fullName>
+                <default>false</default>
+                <label>St. Louis, MO 63101</label>
+            </value>
+            <value>
+                <fullName>St. Louis, MO 63102</fullName>
+                <default>false</default>
+                <label>St. Louis, MO 63102</label>
+            </value>
+            <value>
+                <fullName>Kansas City, MO 64106</fullName>
+                <default>false</default>
+                <label>Kansas City, MO 64106</label>
+            </value>
+            <value>
+                <fullName>Indianapolis, IN 46225</fullName>
+                <default>false</default>
+                <label>Indianapolis, IN 46225</label>
+            </value>
+            <value>
+                <fullName>Philadelphia, PA 19108</fullName>
+                <default>false</default>
+                <label>Philadelphia, PA 19108</label>
+            </value>
+            <value>
+                <fullName>Shawnee, KS 66214</fullName>
+                <default>false</default>
+                <label>Shawnee, KS 66214</label>
+            </value>
+            <value>
+                <fullName>401 N Broad Street</fullName>
+                <default>false</default>
+                <label>401 N Broad Street</label>
+            </value>
+            <value>
+                <fullName>Philadelphia PA 19107</fullName>
+                <default>false</default>
+                <label>Philadelphia PA 19107</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
