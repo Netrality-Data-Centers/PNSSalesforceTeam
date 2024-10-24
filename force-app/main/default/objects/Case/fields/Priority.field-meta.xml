@@ -2,7 +2,9 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Priority</fullName>
     <inlineHelpText>Urgent - Target Response to Ticket - 30 Minutes/ Technician to Begin work - 1 Hour
+-----------------------------------------------------------------
 High - Target Response to Ticket - 1 Hour/ Technician to Begin work - 2 Hours
+----------------------------------------------------------------------
 Normal - Target Response to Ticket - 2 Hours/ Technician to Begin work - 24 Hours</inlineHelpText>
     <trackFeedHistory>true</trackFeedHistory>
     <trackHistory>true</trackHistory>
