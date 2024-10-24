@@ -460,10 +460,10 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DX_Rack_RU__c</fieldItem>
-                <identifier>RecordDX_Rack_RU_cField</identifier>
+                <fieldItem>Record.DX_Rack_RU_Order_Initiator__c</fieldItem>
+                <identifier>RecordDX_Rack_RU_Order_Initiator__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
