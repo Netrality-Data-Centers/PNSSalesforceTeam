@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Port Status --></label>
+    <name>Port_Status__c</name>
+    <picklistValues>
+        <masterLabel>Active Cross Connect</masterLabel>
+        <translation><!-- Active Cross Connect --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Installed Homerun not Contracted</masterLabel>
+        <translation><!-- Installed Homerun not Contracted --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No Homerun</masterLabel>
+        <translation><!-- No Homerun --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ready for Cross Connect</masterLabel>
+        <translation><!-- Ready for Cross Connect --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

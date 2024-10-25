@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <description>This flow takes input from flow and apex runtime exception and inserts Error Log record</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>forCurrentUserNameAndID</name>
+        <dataType>String</dataType>
+        <expression>{!$User.FirstName} &amp; &apos; &apos; &amp; {!$User.LastName} &amp; &apos; (&apos; &amp; {!$User.Id} &amp; &apos;)&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>forExceptionType</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!ErrorMessage}), &apos;Exception Type not found&apos;,
+(MID(
+      {!ErrorMessage}, 
+      Find(&quot;This error occurred:&quot;, {!ErrorMessage})+20, 
+      200))
+)</expression>
+    </formulas>
+    <interviewLabel>CX Error Log Creation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>DX Error Log Creation</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Records_1</name>
+        <label>Insert Error Log</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <inputAssignments>
+            <field>Current_User__c</field>
+            <value>
+                <elementReference>forCurrentUserNameAndID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Error_Message__c</field>
+            <value>
+                <elementReference>ErrorMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Exception_Type__c</field>
+            <value>
+                <elementReference>forExceptionType</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Flow_Name__c</field>
+            <value>
+                <elementReference>FlowName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Method_Name__c</field>
+            <value>
+                <elementReference>MethodName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Object_Name__c</field>
+            <value>
+                <elementReference>ObjectName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Operation__c</field>
+            <value>
+                <elementReference>TypeOfOperation</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordId__c</field>
+            <value>
+                <elementReference>RecordId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>DX_Error_Log__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Create_Records_1</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Just send {!Flow.FaultMessage)</description>
+        <name>ErrorMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>FlowName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>In case of Apex Class it&apos;s Method Name; In case of Flow it&apos;s a Failure Node Name</description>
+        <name>MethodName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ObjectName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Provide the record Id that causes this error.</description>
+        <name>RecordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>TypeOfOperation</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

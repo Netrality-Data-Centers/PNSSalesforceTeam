@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Floors</fullName>
+    <columns>NAME</columns>
+    <columns>Building__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>CREATEDBY_USER.ALIAS</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Floor_Description__c</columns>
+    <columns>Floor_Number__c</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <columns>OWNER.LAST_NAME</columns>
+    <columns>OBJECT_ID</columns>
+    <columns>Short_Name__c</columns>
+    <columns>Total_Square_Feet__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>Floors</label>
+</ListView>
