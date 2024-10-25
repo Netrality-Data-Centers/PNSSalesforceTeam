@@ -354,6 +354,13 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.DX_Case_Number__c</fieldItem>
                 <identifier>RecordDX_Case_Number_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Type}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>NRC Detail Request</rightValue>
+                    </criteria>
+                </visibilityRule>
             </fieldInstance>
         </itemInstances>
         <name>Facet-94503a60-32d5-40b0-8003-ea2d299bcaf4</name>
