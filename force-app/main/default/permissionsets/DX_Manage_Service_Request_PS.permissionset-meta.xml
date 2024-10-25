@@ -56,6 +56,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.DX_Account_Name_Initiator_Information__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.DX_Account_Name_Order_Initiator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.DX_Account_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -132,6 +142,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.DX_Conditions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.DX_Connector_Type_Order_Initiator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -285,6 +300,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.DX_Initiator_Phone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.DX_Initiator_Title__c</field>
         <readable>true</readable>
@@ -386,6 +406,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.DX_Ports_Order_Initiator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.DX_Ports__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -402,6 +427,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.DX_Rack_Cage_Location__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.DX_Rack_RU_Order_Initiator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -496,7 +526,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.DX_Tech_Contact_Name_Order_Initiator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.DX_Tech_Contact_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.DX_Tech_Contact_Tel_Order_Initiator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -542,6 +582,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.DX_Time_of_Issue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.DX_Title__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -3,7 +3,7 @@
     <fullName>DX_Purpose_of_Visit__c</fullName>
     <externalId>false</externalId>
     <label>Purpose of the Visit</label>
-    <length>100</length>
+    <length>200</length>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
