@@ -520,7 +520,7 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DX_Account_Name__c</fieldItem>
+                <fieldItem>Record.DX_Account_Name_ZLOA__c</fieldItem>
                 <identifier>RecordDX_Account_Name_cField</identifier>
             </fieldInstance>
         </itemInstances>
@@ -530,7 +530,7 @@
                     <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DX_Rack_RU__c</fieldItem>
+                <fieldItem>Record.DX_Rack_RU_ZLOA__c</fieldItem>
                 <identifier>RecordDX_Rack_RU_cField2</identifier>
             </fieldInstance>
         </itemInstances>
@@ -540,7 +540,7 @@
                     <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DX_Connector_Type__c</fieldItem>
+                <fieldItem>Record.DX_Connector_Type_ZLOA__c</fieldItem>
                 <identifier>RecordDX_Connector_Type_cField2</identifier>
             </fieldInstance>
         </itemInstances>
@@ -550,7 +550,7 @@
                     <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DX_Tech_Contact_Tel__c</fieldItem>
+                <fieldItem>Record.DX_Tech_Contact_Tel_ZLOA__c</fieldItem>
                 <identifier>RecordDX_Tech_Contact_Tel_cField2</identifier>
             </fieldInstance>
         </itemInstances>
@@ -574,7 +574,7 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DX_Ports__c</fieldItem>
+                <fieldItem>Record.DX_Ports_ZLOA__c</fieldItem>
                 <identifier>RecordDX_Ports_cField2</identifier>
             </fieldInstance>
         </itemInstances>
@@ -584,7 +584,7 @@
                     <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DX_Tech_Contact_Name__c</fieldItem>
+                <fieldItem>Record.DX_Tech_Contact_Name_ZLOA__c</fieldItem>
                 <identifier>RecordDX_Tech_Contact_Name_cField2</identifier>
             </fieldInstance>
         </itemInstances>
