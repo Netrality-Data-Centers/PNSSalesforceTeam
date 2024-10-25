@@ -415,18 +415,18 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DX_Ports__c</fieldItem>
-                <identifier>RecordDX_Ports_cField</identifier>
+                <fieldItem>Record.DX_Ports_Order_Initiator__c</fieldItem>
+                <identifier>RecordDX_Ports_Order_Initiator_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DX_Tech_Contact_Name__c</fieldItem>
-                <identifier>RecordDX_Tech_Contact_Name_cField</identifier>
+                <fieldItem>Record.DX_Tech_Contact_Name_Order_Initiator__c</fieldItem>
+                <identifier>RecordDX_Tech_Contact_Name_Order_Initiator_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -470,20 +470,20 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DX_Connector_Type__c</fieldItem>
-                <identifier>RecordDX_Connector_Type_cField</identifier>
+                <fieldItem>Record.DX_Connector_Type_Order_Initiator__c</fieldItem>
+                <identifier>RecordDX_Connector_Type_Order_Initiator_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DX_Tech_Contact_Tel__c</fieldItem>
-                <identifier>RecordDX_Tech_Contact_Tel_cField</identifier>
+                <fieldItem>Record.DX_Tech_Contact_Tel_Order_Initiator__c</fieldItem>
+                <identifier>RecordDX_Tech_Contact_Tel_Order_Initiator_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-db876038-fb76-4f8a-9932-fbe2e168b4bd</name>
