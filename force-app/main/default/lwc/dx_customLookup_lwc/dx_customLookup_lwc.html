@@ -1,0 +1,50 @@
+<!--
+  @Description       : 
+  @Author            : cristianivan.ruiz@salesforce.com
+  @Code Coverage     : 
+  @last modified on  : 10-23-2024
+  @last modified by  : cristianivan.ruiz@salesforce.com
+-->
+<template>
+    <!--<lightning-input
+        label="Account Name"
+        value={searchKey}
+        onchange={handleSearchKeyChange}
+        placeholder="Search Account..."
+        onfocus={handleFocus}
+    ></lightning-input>
+
+    <template if:true={isSearchOpen}>
+        <ul class="lookup-results">
+            <template for:each={results} for:item="result">
+                <li key={result.id} onclick={handleSelect}>
+                    {result.label}
+                </li>
+            </template>
+        </ul>
+    </template>
+    -->
+        <lightning-input type="text" label="Account Lookup" 
+        value={accountName} 
+        onchange={handleInputChange}
+        placeholder="Search for an account..."></lightning-input>
+
+    <template if:true={selectedAccount}>
+    <lightning-card title="Selected Account">
+    <p>{selectedAccount.Name}</p>
+    <lightning-button label="Remove" onclick={handleRemoveSelection}></lightning-button>
+    </lightning-card>
+    </template>
+
+    <template if:true={accounts}>
+    <lightning-card title="Related Accounts">
+    <ul>
+    <template for:each={accounts} for:item="account">
+    <li key={account.Id} onclick={handleAccountSelect} data-id={account.Id} data-name={account.Name}>
+        {account.Name}
+    </li>
+    </template>
+    </ul>
+    </lightning-card>
+    </template>
+</template>

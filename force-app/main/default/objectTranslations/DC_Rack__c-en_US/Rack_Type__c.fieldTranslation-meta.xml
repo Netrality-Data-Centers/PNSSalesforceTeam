@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Rack Type --></label>
+    <name>Rack_Type__c</name>
+    <picklistValues>
+        <masterLabel>Legacy Customer Owned</masterLabel>
+        <translation><!-- Legacy Customer Owned --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Netrality Owned</masterLabel>
+        <translation><!-- Netrality Owned --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

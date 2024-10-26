@@ -1,0 +1,356 @@
+<!--
+  @Description       : 
+  @Author            : cristianivan.ruiz@salesforce.com
+  @Code Coverage     : 
+  @last modified on  : 10-23-2024
+  @last modified by  : cristianivan.ruiz@salesforce.com
+-->
+<template>
+
+  <div class="slds-box slds-theme_default slds-grid_vertical">
+    <div class="slds-col slds-theme_default">
+
+      <div class="slds-align_absolute-center slds-border_bottom" style="height:5rem">
+        <div class="slds-text-heading_large">New Service Request</div>
+      </div>
+      
+      
+
+      <template lwc:if={showRecordTypes}>
+        <lightning-radio-group label="Select a record type" options={options} value={value} onchange={handleChange}
+          required>
+        </lightning-radio-group>
+      </template>
+
+      <template lwc:if={showFields}>
+        <div class="slds-grid slds-gutters">
+          <div class="slds-col">
+            <span>
+              <div class="slds-grid slds-grid_vertical">
+                <div class="slds-col">
+                  <span>
+                    <div class="slds-p-around_medium lgc-bg">
+                      <lightning-input type="text" label={OwnerId_lbl} value={OwnerId_value} data-id="OwnerId_lbl" onchange={handleInputChange}></lightning-input>
+                    </div>
+                  </span>
+                </div>
+                <div class="slds-col">
+                  <span>
+                    <div class="slds-p-around_medium lgc-bg">
+                      <lightning-input type="text" label={CaseNumber_lbl}></lightning-input>
+                    </div>
+                  </span>
+                </div>
+                <div class="slds-col">
+                  <span>
+                    <div class="slds-p-around_medium lgc-bg">
+                      <!--<lightning-input type="text" label={AccountId_lbl}></lightning-input>-->
+                      <c-dx_custom-lookup_lwc some-property={someValue}></c-dx_custom-lookup_lwc>
+                    </div>
+                  </span>
+                </div>
+                <div class="slds-col">
+                  <span>
+                    <div class="slds-p-around_medium lgc-bg">
+                      <!--<lightning-input type="text" label={Status_lbl}></lightning-input>-->
+                      <lightning-combobox
+                        label="Select Case Status"
+                        value={value}
+                        options={statusOptions}
+                        onchange={handleChange}>
+                      </lightning-combobox>
+                    </div>
+                  </span>
+                </div>
+                <div class="slds-col">
+                  <span>
+                    <div class="slds-p-around_medium lgc-bg">
+                      <lightning-input type="text" label={Priority_lbl}></lightning-input>
+                    </div>
+                  </span>
+                </div>
+                <div class="slds-col">
+                  <span>
+                    <div class="slds-p-around_medium lgc-bg">
+                      <lightning-input type="text" label={DX_Billing_Account_Number__c_lbl}></lightning-input>
+                    </div>
+                  </span>
+                </div>
+                <div class="slds-col">
+                  <span>
+                    <div class="slds-p-around_medium lgc-bg">
+                      <lightning-input type="text" label={DX_Xconnect_Order_Number__c_lbl}></lightning-input>
+                    </div>
+                  </span>
+                </div>
+
+              </div>
+            </span>
+          </div>
+          <div class="slds-col">
+            <span>
+              <div class="slds-grid slds-grid_vertical">
+                <div class="slds-col">
+                  <span>
+                    <div class="slds-p-around_medium lgc-bg">
+                      <lightning-input type="text" label={RecordTypeId_lbl}></lightning-input>
+                    </div>
+                    <div class="slds-p-around_medium lgc-bg">
+                      <!--<lightning-input type="text" label={Type_lbl}></lightning-input>-->
+                      <lightning-combobox
+                        label="Select Case Type"
+                        value={value}
+                        options={typeOptions}
+                        onchange={handleChange}>
+                      </lightning-combobox>
+                    </div>
+                    <div class="slds-p-around_medium lgc-bg">
+                      <lightning-input type="text" label={DX_Site__c_lbl}></lightning-input>
+                    </div>
+                    <div class="slds-p-around_medium lgc-bg">
+                      <lightning-input type="text" label={DX_Reason_For_Hold__c_lbl}></lightning-input>
+                    </div>
+                    <div class="slds-p-around_medium lgc-bg">
+                      <lightning-input type="text" label={DX_Default_Account__c_lbl}></lightning-input>
+                    </div>
+                    <div class="slds-p-around_medium lgc-bg">
+                      <lightning-input type="text" label={DX_How_Help_You__c_lbl}></lightning-input>
+                    </div>
+                    <div class="slds-p-around_medium lgc-bg">
+                      <lightning-input type="text" label={DX_I_Accept__c_lbl}></lightning-input>
+                    </div>
+                    <div class="slds-p-around_medium lgc-bg">
+                      <lightning-input type="text" label={DX_Conditions__c_lbl}></lightning-input>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+
+        <lightning-accordion allow-multiple-sections-open onsectiontoggle={handleSectionToggle}
+          active-section-name={activeSections}>
+          <lightning-accordion-section name="A" label="Initiator Information">
+
+            <div class="slds-grid slds-gutters">
+              <div class="slds-col">
+                <span>
+                  <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                      <span>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={AccountId_lbl}></lightning-input>
+                        </div>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Initiator_Title__c_lbl}></lightning-input>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+              <div class="slds-col">
+                <span>
+                  <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                      <span>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={AccountId_lbl}></lightning-input>
+                        </div>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Initiator_Title__c_lbl}></lightning-input>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </div>
+
+          </lightning-accordion-section>
+
+          <lightning-accordion-section name="B" label="Order Information">
+            <div class="slds-grid slds-gutters">
+              <div class="slds-col">
+                <span>
+                  <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                      <span>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Order_Date__c_lbl}></lightning-input>
+                        </div>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Requested_Due__c_lbl}></lightning-input>
+                        </div>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_LOA_Attached__c_lbl}></lightning-input>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+              <div class="slds-col">
+                <span>
+                  <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                      <span>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Contract_Term__c_lbl}></lightning-input>
+                        </div>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Completion_Date__c_lbl}></lightning-input>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </div>
+          </lightning-accordion-section>
+
+          <lightning-accordion-section name="C" label="A (Order Initiator)">
+            <div class="slds-grid slds-gutters">
+              <div class="slds-col">
+                <span>
+                  <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                      <span>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={AccountId_lbl}></lightning-input>
+                        </div>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Ports__c_lbl}></lightning-input>
+                        </div>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Tech_Contact_Name__c_lbl}></lightning-input>
+                        </div>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Cross_Connect_ID__c_lbl}></lightning-input>
+                        </div>
+                      </span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </div>
+              <div class="slds-col">
+                <span>
+                  <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                      <span>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Rack_RU__c_lbl}></lightning-input>
+                        </div>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Connector_Type__c_lbl}></lightning-input>
+                        </div>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Tech_Contact_Tel__c_lbl}></lightning-input>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </div>
+          </lightning-accordion-section>
+          <lightning-accordion-section name="D" label="Z(LOA Info)">
+            <div class="slds-grid slds-gutters">
+              <div class="slds-col">
+                <span>
+                  <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                      <span>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Account_Name__c_lbl}></lightning-input>
+                        </div>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Rack_RU__c_lbl}></lightning-input>
+                        </div>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Connector_Type__c_lbl}></lightning-input>
+                        </div>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Tech_Contact_Tel__c_lbl}></lightning-input>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+              <div class="slds-col">
+                <span>
+                  <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                      <span>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Site_Location__c_lbl}></lightning-input>
+                        </div><div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Ports__c_lbl}></lightning-input>
+                        </div>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={DX_Tech_Contact_Name__c_lbl}></lightning-input>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </div>
+          </lightning-accordion-section>
+          <lightning-accordion-section name="E" label="System Information">
+            <div class="slds-grid slds-gutters">
+              <div class="slds-col">
+                <span>
+                  <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                      <span>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={CreatedById_lbl}></lightning-input>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+              <div class="slds-col">
+                <span>
+                  <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                      <span>
+                        <div class="slds-p-around_medium lgc-bg">
+                          <lightning-input type="text" label={LastModifiedById_lbl}></lightning-input>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </div>
+          </lightning-accordion-section>
+        </lightning-accordion>
+
+      </template>
+    </div>
+    <div class="slds-col slds-theme_default slds-align_absolute-center" style="height:3rem">
+      <div class="slds-grid">
+        <div class="slds-col slds-p-horizontal_medium">
+          <span>
+            <lightning-button variant="brand-outline" label="Cancel" title="Cancel" onclick={handleClickCancel}
+              class="slds-m-left_x-small"></lightning-button>
+          </span>
+        </div>
+        <div class="slds-col slds-p-horizontal_medium">
+          <span>
+            <lightning-button variant="brand" label="Next" title="Next" onclick={handleClickNext}
+              class="slds-m-left_x-small"></lightning-button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</template>
