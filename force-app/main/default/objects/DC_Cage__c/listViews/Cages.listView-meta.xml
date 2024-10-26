@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cages</fullName>
+    <columns>NAME</columns>
+    <columns>Access_Code__c</columns>
+    <columns>Account__c</columns>
+    <columns>Asset__c</columns>
+    <columns>Customer_Cage_Sq_FT__c</columns>
+    <columns>Data_Hall__c</columns>
+    <columns>MRI_Suite_ID__c</columns>
+    <columns>OBJECT_ID</columns>
+    <columns>Short_Name__c</columns>
+    <columns>Service_Order__c</columns>
+    <columns>Square_Footage__c</columns>
+    <columns>Status__c</columns>
+    <columns>Type__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>Cages</label>
+</ListView>
