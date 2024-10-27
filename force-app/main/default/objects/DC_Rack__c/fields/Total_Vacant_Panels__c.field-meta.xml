@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Vacant_Panels__c</fullName>
+    <description>Number of Rack Units - Total Occupied Panels</description>
+    <externalId>false</externalId>
+    <label>Total Vacant Panels</label>
+    <summaryForeignKey>DC_Panel__c.Rack__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>
