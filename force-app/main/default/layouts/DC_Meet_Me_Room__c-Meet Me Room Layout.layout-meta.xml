@@ -14,6 +14,10 @@
                 <behavior>Required</behavior>
                 <field>Data_Hall__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Short_Name__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
