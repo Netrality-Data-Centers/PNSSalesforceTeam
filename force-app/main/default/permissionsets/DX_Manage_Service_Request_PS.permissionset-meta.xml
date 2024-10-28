@@ -66,6 +66,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.DX_Account_Name_ZLOA__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.DX_Account_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -147,6 +152,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.DX_Connector_Type_Order_Initiator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.DX_Connector_Type_ZLOA__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -411,6 +421,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.DX_Ports_ZLOA__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.DX_Ports__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -432,6 +447,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.DX_Rack_RU_Order_Initiator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.DX_Rack_RU_ZLOA__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -531,12 +551,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.DX_Tech_Contact_Name_ZLOA__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.DX_Tech_Contact_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.DX_Tech_Contact_Tel_Order_Initiator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.DX_Tech_Contact_Tel_ZLOA__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
