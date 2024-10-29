@@ -7,7 +7,17 @@
     <status>Design</status>
     <userAccessPolicyActions>
         <action>Grant</action>
-        <target>DCIM_Model</target>
+        <target>DCIM_Model_View</target>
+        <type>PermissionSet</type>
+    </userAccessPolicyActions>
+    <userAccessPolicyActions>
+        <action>Grant</action>
+        <target>DCIM_Model_Create</target>
+        <type>PermissionSet</type>
+    </userAccessPolicyActions>
+    <userAccessPolicyActions>
+        <action>Grant</action>
+        <target>DCIM_Model_Edit</target>
         <type>PermissionSet</type>
     </userAccessPolicyActions>
     <userAccessPolicyFilters>
