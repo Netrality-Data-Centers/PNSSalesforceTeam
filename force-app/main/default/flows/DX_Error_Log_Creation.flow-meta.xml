@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
+    <description>Creates a Log Entry</description>
     <environments>Default</environments>
     <formulas>
         <name>forCurrentUserNameAndID</name>
@@ -16,6 +17,11 @@
       Find(&quot;This error occurred:&quot;, {!ErrorMessage})+20, 
       200))
 )</expression>
+    </formulas>
+    <formulas>
+        <name>LeftErrorMessage</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!ErrorMessage}, 255)</expression>
     </formulas>
     <interviewLabel>DX Error Log Creation {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Error Log Creation</label>
@@ -52,7 +58,7 @@
         <inputAssignments>
             <field>Error_Message__c</field>
             <value>
-                <elementReference>ErrorMessage</elementReference>
+                <elementReference>LeftErrorMessage</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
