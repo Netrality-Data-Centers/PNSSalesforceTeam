@@ -1,23 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <actionCalls>
-        <name>Redirect_to_Open_Cases_Page</name>
-        <label>Redirect to Open Cases Page</label>
+        <name>Get_Primary_Account_for_Contact</name>
+        <label>Get Primary Account for Contact</label>
         <locationX>2162</locationX>
-        <locationY>1838</locationY>
-        <actionName>c:fsc_openUrl</actionName>
-        <actionType>component</actionType>
+        <locationY>674</locationY>
+        <actionName>DX_PrimaryAccountContactHelper</actionName>
+        <actionType>apex</actionType>
         <connector>
-            <targetReference>Case_Created_Screen</targetReference>
+            <targetReference>Get_Related_AccountIds_for_Contact</targetReference>
         </connector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <flowTransactionModel>Automatic</flowTransactionModel>
         <inputParameters>
-            <name>url</name>
+            <name>contactId</name>
             <value>
-                <stringValue>/{!CreatedCaseId}</stringValue>
+                <elementReference>curContact.Id</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>c:fsc_openUrl</nameSegment>
+        <nameSegment>DX_PrimaryAccountContactHelper</nameSegment>
+        <outputParameters>
+            <assignToReference>primaryAccountForContact</assignToReference>
+            <name>output</name>
+        </outputParameters>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Get_Related_AccountIds_for_Contact</name>
+        <label>Get Related AccountIds for Contact</label>
+        <locationX>2162</locationX>
+        <locationY>782</locationY>
+        <actionName>DX_RelatedAccountsContactHelper</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Related_Accounts_for_Contact</targetReference>
+        </connector>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <inputParameters>
+            <name>contactId</name>
+            <value>
+                <elementReference>curContact.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>DX_RelatedAccountsContactHelper</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
         <versionSegment>1</versionSegment>
     </actionCalls>
@@ -42,7 +66,7 @@
         <name>Assign_Stage_2</name>
         <label>Assign Stage 2</label>
         <locationX>2162</locationX>
-        <locationY>974</locationY>
+        <locationY>1298</locationY>
         <assignmentItems>
             <assignToReference>$Flow.CurrentStage</assignToReference>
             <operator>Assign</operator>
@@ -58,7 +82,7 @@
         <name>Set_Contact_on_SR</name>
         <label>Set Contact on SR</label>
         <locationX>2162</locationX>
-        <locationY>1082</locationY>
+        <locationY>1406</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.ContactId</assignToReference>
             <operator>Assign</operator>
@@ -83,7 +107,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Record_Type</targetReference>
+            <targetReference>Contact_Lookup</targetReference>
         </connector>
     </assignments>
     <choices>
@@ -151,7 +175,7 @@
         <name>Case_Type</name>
         <label>Case Type?</label>
         <locationX>2162</locationX>
-        <locationY>1190</locationY>
+        <locationY>1514</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
             <targetReference>Contact_Error_Screen</targetReference>
@@ -401,7 +425,7 @@
         <name>Record_Type</name>
         <label>Record Type?</label>
         <locationX>2162</locationX>
-        <locationY>566</locationY>
+        <locationY>998</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
             <targetReference>Unsupported_SR_Error</targetReference>
@@ -744,6 +768,22 @@
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
+        <name>PrimaryAccountForContactChoiceSet</name>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>primaryAccountForContact</elementReference>
+            </value>
+        </filters>
+        <limit>1</limit>
+        <object>Account</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
         <name>PriorityChoiceSet</name>
         <dataType>Picklist</dataType>
         <displayField xsi:nil="true"/>
@@ -770,6 +810,14 @@
         </outputAssignments>
         <sortField>Name</sortField>
         <sortOrder>Asc</sortOrder>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>RelatedAccountsForContactChoiceSet</name>
+        <collectionReference>Related_Accounts_for_Contact</collectionReference>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <object>Account</object>
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
@@ -898,7 +946,6 @@
         <object xsi:nil="true"/>
         <picklistField>DX_Site__c</picklistField>
         <picklistObject>Case</picklistObject>
-        <sortOrder>Asc</sortOrder>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
         <name>SiteLocation</name>
@@ -973,7 +1020,7 @@
         <name>Create_AR_ServiceRequest</name>
         <label>Create AR ServiceRequest</label>
         <locationX>1106</locationX>
-        <locationY>1298</locationY>
+        <locationY>1622</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -1084,7 +1131,7 @@
         <name>Create_ARU</name>
         <label>Create ARU</label>
         <locationX>578</locationX>
-        <locationY>1298</locationY>
+        <locationY>1622</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -1219,7 +1266,7 @@
         <name>Create_CR_Service_Request</name>
         <label>Create CR Service Request</label>
         <locationX>1634</locationX>
-        <locationY>1298</locationY>
+        <locationY>1622</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -1312,7 +1359,8 @@
         <name>Create_Cross_Connect</name>
         <label>Create Cross Connect</label>
         <locationX>2162</locationX>
-        <locationY>1298</locationY>
+        <locationY>1622</locationY>
+        <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
         </connector>
@@ -1501,13 +1549,12 @@
             </value>
         </inputAssignments>
         <object>Case</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordCreates>
         <name>Create_CX_SR</name>
         <label>Create CX SR</label>
         <locationX>2690</locationX>
-        <locationY>1298</locationY>
+        <locationY>1622</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -1588,7 +1635,7 @@
         <name>Create_Logistics</name>
         <label>Create Logistics</label>
         <locationX>3218</locationX>
-        <locationY>1298</locationY>
+        <locationY>1622</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -1753,7 +1800,7 @@
         <name>Create_PSA</name>
         <label>Create PSA</label>
         <locationX>50</locationX>
-        <locationY>1298</locationY>
+        <locationY>1622</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -1917,7 +1964,7 @@
         <name>Create_RHS</name>
         <label>Create RHS</label>
         <locationX>3746</locationX>
-        <locationY>1298</locationY>
+        <locationY>1622</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -2034,10 +2081,10 @@
         <name>Case_Lookup</name>
         <label>Case Lookup</label>
         <locationX>2162</locationX>
-        <locationY>1730</locationY>
+        <locationY>2054</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
+            <targetReference>Case_Created_Screen</targetReference>
         </connector>
         <faultConnector>
             <isGoTo>true</isGoTo>
@@ -2061,15 +2108,11 @@
         <name>Contact_Lookup</name>
         <label>Contact Lookup</label>
         <locationX>2162</locationX>
-        <locationY>866</locationY>
+        <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Assign_Stage_2</targetReference>
+            <targetReference>Get_Primary_Account_for_Contact</targetReference>
         </connector>
-        <faultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Contact_Error_Screen</targetReference>
-        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>FirstName</field>
@@ -2112,16 +2155,37 @@
         <object>RecordType</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>Related_Accounts_for_Contact</name>
+        <label>Related Accounts for Contact</label>
+        <locationX>2162</locationX>
+        <locationY>890</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Record_Type</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>In</operator>
+            <value>
+                <elementReference>Get_Related_AccountIds_for_Contact</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <screens>
         <name>Access_Request_Info</name>
         <label>Access Request Info</label>
         <locationX>974</locationX>
-        <locationY>674</locationY>
+        <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Assign_Stage_2</targetReference>
         </connector>
         <fields>
             <name>AccessRequestTitle</name>
@@ -2137,7 +2201,10 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Account_AccessRequest</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
+                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
+                    <defaultValue>
+                        <elementReference>primaryAccountForContact</elementReference>
+                    </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Account Name</fieldText>
                     <fieldType>ComponentChoice</fieldType>
@@ -2628,12 +2695,12 @@
         <name>Accounting_Request_Info</name>
         <label>Accounting Request Info</label>
         <locationX>1238</locationX>
-        <locationY>674</locationY>
+        <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Assign_Stage_2</targetReference>
         </connector>
         <fields>
             <name>AccountingRequestTitle</name>
@@ -2649,7 +2716,10 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>AccountName_AccountingRequest</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
+                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
+                    <defaultValue>
+                        <elementReference>primaryAccountForContact</elementReference>
+                    </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Account Name</fieldText>
                     <fieldType>ComponentChoice</fieldType>
@@ -2917,7 +2987,7 @@
         <name>Case_Created_Screen</name>
         <label>Case Created</label>
         <locationX>2162</locationX>
-        <locationY>1946</locationY>
+        <locationY>2162</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2953,7 +3023,7 @@
         <name>Contact_Error_Screen</name>
         <label>Create SR Error</label>
         <locationX>314</locationX>
-        <locationY>1406</locationY>
+        <locationY>1730</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -2974,12 +3044,12 @@
         <name>Contracts_Request_Info</name>
         <label>Contracts Request Info</label>
         <locationX>1502</locationX>
-        <locationY>674</locationY>
+        <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Assign_Stage_2</targetReference>
         </connector>
         <fields>
             <name>ContractsRequestTitle</name>
@@ -2995,7 +3065,10 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>AccountName_ContractsRequest</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
+                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
+                    <defaultValue>
+                        <elementReference>primaryAccountForContact</elementReference>
+                    </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Account Name</fieldText>
                     <fieldType>ComponentChoice</fieldType>
@@ -3180,12 +3253,12 @@
         <name>Cross_Connect_Request_Info</name>
         <label>Cross Connect Request Info</label>
         <locationX>1766</locationX>
-        <locationY>674</locationY>
+        <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Assign_Stage_2</targetReference>
         </connector>
         <fields>
             <name>CrossConnectRequestTitle</name>
@@ -3201,7 +3274,10 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Account_Name_CrossConnectSR</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
+                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
+                    <defaultValue>
+                        <elementReference>primaryAccountForContact</elementReference>
+                    </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Account Name</fieldText>
                     <fieldType>ComponentChoice</fieldType>
@@ -3234,7 +3310,7 @@
                 </fields>
                 <fields>
                     <name>Default_Account_CrossConnectSR</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
+                    <choiceReferences>RelatedAccountsForContactChoiceSet</choiceReferences>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Default Account</fieldText>
                     <fieldType>ComponentChoice</fieldType>
@@ -3324,7 +3400,10 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Account_Name_InitiatiorInfo_CrossConnect</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
+                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
+                    <defaultValue>
+                        <elementReference>primaryAccountForContact</elementReference>
+                    </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Account Name</fieldText>
                     <fieldType>ComponentChoice</fieldType>
@@ -3352,7 +3431,7 @@
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                     <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
+                        <conditionLogic>or</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
@@ -3472,7 +3551,10 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Account_Name_AOrderInitiator</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
+                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
+                    <defaultValue>
+                        <elementReference>primaryAccountForContact</elementReference>
+                    </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Account Name</fieldText>
                     <fieldType>ComponentChoice</fieldType>
@@ -3632,7 +3714,7 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Site_Location_ZLoaInfo</name>
-                    <choiceReferences>SiteChoiceSet</choiceReferences>
+                    <choiceReferences>SiteLocation</choiceReferences>
                     <dataType>String</dataType>
                     <fieldText>Site Location</fieldText>
                     <fieldType>DropdownBox</fieldType>
@@ -3673,12 +3755,12 @@
         <name>Customer_Experience_Request_Info</name>
         <label>Customer Experience Request Info</label>
         <locationX>2030</locationX>
-        <locationY>674</locationY>
+        <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Assign_Stage_2</targetReference>
         </connector>
         <fields>
             <name>CustomerExperienceRequestTitle</name>
@@ -3694,7 +3776,10 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Account_CX</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
+                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
+                    <defaultValue>
+                        <elementReference>primaryAccountForContact</elementReference>
+                    </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Account Name</fieldText>
                     <fieldType>ComponentChoice</fieldType>
@@ -3986,12 +4071,12 @@
         <name>Logistics_Request_Info</name>
         <label>Logistics Request Info</label>
         <locationX>2558</locationX>
-        <locationY>674</locationY>
+        <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Assign_Stage_2</targetReference>
         </connector>
         <fields>
             <name>LogisticsRequestTitle</name>
@@ -4007,7 +4092,10 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>AccountName_Logistics</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
+                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
+                    <defaultValue>
+                        <elementReference>primaryAccountForContact</elementReference>
+                    </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Account Name</fieldText>
                     <fieldType>ComponentChoice</fieldType>
@@ -4311,12 +4399,12 @@
         <name>RHS_Request_Info</name>
         <label>RHS Request Info</label>
         <locationX>2822</locationX>
-        <locationY>674</locationY>
+        <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Assign_Stage_2</targetReference>
         </connector>
         <fields>
             <name>RemoteHandsSupportRequestTitle</name>
@@ -4332,7 +4420,10 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>AccountName_RHS</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
+                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
+                    <defaultValue>
+                        <elementReference>primaryAccountForContact</elementReference>
+                    </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Account Name</fieldText>
                     <fieldType>ComponentChoice</fieldType>
@@ -4573,12 +4664,12 @@
         <name>Unsupported_SR_Error</name>
         <label>Unsupported SR Error</label>
         <locationX>2294</locationX>
-        <locationY>674</locationY>
+        <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Assign_Stage_2</targetReference>
         </connector>
         <fields>
             <name>Error_Unsupported_SR_Title</name>
@@ -4687,6 +4778,20 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <name>primaryAccountForContact</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>relatedAccountIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <name>SelectedAccountId</name>
