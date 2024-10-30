@@ -693,7 +693,8 @@
         <locationX>2052</locationX>
         <locationY>539</locationY>
         <defaultConnector>
-            <targetReference>Get_Queue</targetReference>
+            <isGoTo>true</isGoTo>
+            <targetReference>Generate_Error_Log</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -840,6 +841,7 @@
             <label>Is STL BH?</label>
         </rules>
     </decisions>
+    <description>Routes a Service Request to a Queue</description>
     <environments>Default</environments>
     <formulas>
         <name>FilterBussinesHours</name>
@@ -910,6 +912,9 @@
         <connector>
             <targetReference>Update_Case_Owner</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Generate_Error_Log</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>DeveloperName</field>
@@ -927,6 +932,9 @@
         <label>Update Case Owner</label>
         <locationX>2052</locationX>
         <locationY>2237</locationY>
+        <faultConnector>
+            <targetReference>Generate_Error_Log_Update_Case_Owner</targetReference>
+        </faultConnector>
         <inputAssignments>
             <field>OwnerId</field>
             <value>
@@ -946,6 +954,92 @@
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>
+    <subflows>
+        <name>Generate_Error_Log</name>
+        <label>Generate Error Log</label>
+        <locationX>3570</locationX>
+        <locationY>2237</locationY>
+        <flowName>DX_Error_Log_Creation</flowName>
+        <inputAssignments>
+            <name>ErrorMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>FlowName</name>
+            <value>
+                <stringValue>DX_Service_Request_Routing</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>MethodName</name>
+            <value>
+                <stringValue>Get Queue</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>ObjectName</name>
+            <value>
+                <stringValue>Queue</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>RecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>TypeOfOperation</name>
+            <value>
+                <stringValue>Get Records</stringValue>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>Generate_Error_Log_Update_Case_Owner</name>
+        <label>Generate Error Log</label>
+        <locationX>3306</locationX>
+        <locationY>2345</locationY>
+        <flowName>DX_Error_Log_Creation</flowName>
+        <inputAssignments>
+            <name>ErrorMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>FlowName</name>
+            <value>
+                <stringValue>DX_Service_Request_Routing</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>MethodName</name>
+            <value>
+                <stringValue>Update Case Owner</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>ObjectName</name>
+            <value>
+                <stringValue>Case</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>RecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>TypeOfOperation</name>
+            <value>
+                <stringValue>Update Records</stringValue>
+            </value>
+        </inputAssignments>
+    </subflows>
     <variables>
         <name>BusinessHoursName</name>
         <dataType>String</dataType>
