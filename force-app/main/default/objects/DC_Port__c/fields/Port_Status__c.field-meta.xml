@@ -12,19 +12,19 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Active Cross Connect,</fullName>
+                <fullName>Active Cross Connect</fullName>
                 <default>false</default>
-                <label>Active Cross Connect,</label>
+                <label>Active Cross Connect</label>
             </value>
             <value>
-                <fullName>Ready for Cross Connect,</fullName>
+                <fullName>Ready for Cross Connect</fullName>
                 <default>false</default>
-                <label>Ready for Cross Connect,</label>
+                <label>Ready for Cross Connect</label>
             </value>
             <value>
-                <fullName>Installed Homerun not Contracted,</fullName>
+                <fullName>Installed Homerun not Contracted</fullName>
                 <default>false</default>
-                <label>Installed Homerun not Contracted,</label>
+                <label>Installed Homerun not Contracted</label>
             </value>
             <value>
                 <fullName>No Homerun</fullName>
