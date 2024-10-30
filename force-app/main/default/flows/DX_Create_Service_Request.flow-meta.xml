@@ -1060,12 +1060,6 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>DX_Contact__c</field>
-            <value>
-                <elementReference>ContactName_AccountingRequest.selectedChoiceValues</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>DX_Date_Range__c</field>
             <value>
                 <elementReference>Date_Range_AccountingRequest</elementReference>
@@ -1450,12 +1444,6 @@
             <field>DX_Order_Date__c</field>
             <value>
                 <elementReference>Order_Date</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>DX_Order_Initiator__c</field>
-            <value>
-                <elementReference>Order_Initiator.selectedChoiceValues</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2113,6 +2101,10 @@
         <connector>
             <targetReference>Get_Primary_Account_for_Contact</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Contact_Error_Screen</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>FirstName</field>
@@ -2143,6 +2135,10 @@
         <connector>
             <targetReference>Set_RecordType_on_TempCase</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Contact_Error_Screen</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -2560,18 +2556,6 @@
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
-                <fields>
-                    <name>Status</name>
-                    <choiceReferences>StatusChoiceSet</choiceReferences>
-                    <dataType>String</dataType>
-                    <fieldText>Status</fieldText>
-                    <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isDisabled>
-                        <booleanValue>true</booleanValue>
-                    </isDisabled>
-                    <isRequired>false</isRequired>
-                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -2722,16 +2706,6 @@
                     </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
-                </fields>
-                <fields>
-                    <name>ContactName_AccountingRequest</name>
-                    <choiceReferences>ContactChoiceSet</choiceReferences>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Contact Name</fieldText>
                     <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
@@ -3459,16 +3433,6 @@
             <fields>
                 <name>Initiator_Information_Column2</name>
                 <fieldType>Region</fieldType>
-                <fields>
-                    <name>Order_Initiator</name>
-                    <choiceReferences>ContactChoiceSet</choiceReferences>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Order Initiator</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
-                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
