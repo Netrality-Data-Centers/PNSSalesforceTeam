@@ -23,39 +23,18 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <recordLookups>
-        <name>Get_Data_Hall_Name</name>
-        <label>Get Data Hall Name</label>
-        <locationX>176</locationX>
-        <locationY>323</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Update_Data_Hall_Name</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>DC_Data_Hall__c</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
     <recordUpdates>
         <name>Update_Data_Hall_Name</name>
         <label>Update Data Hall Name</label>
         <locationX>176</locationX>
-        <locationY>431</locationY>
+        <locationY>323</locationY>
         <faultConnector>
             <targetReference>Create_Log_Error</targetReference>
         </faultConnector>
         <inputAssignments>
             <field>Name</field>
             <value>
-                <stringValue>{!Get_Data_Hall_Name.DC_Floor__r.Name}.{!Get_Data_Hall_Name.Short_Name__c}</stringValue>
+                <stringValue>{!$Record.DC_Floor__r.Name}.{!$Record.Short_Name__c}</stringValue>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
@@ -64,7 +43,7 @@
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Get_Data_Hall_Name</targetReference>
+            <targetReference>Update_Data_Hall_Name</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -78,12 +57,12 @@
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <name>Create_Log_Error</name>
         <label>Create Log Error</label>
         <locationX>440</locationX>
-        <locationY>539</locationY>
+        <locationY>431</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
