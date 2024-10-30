@@ -37,11 +37,11 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>$Record.Id</elementReference>
+                <elementReference>$Record.Service_Order__r.Id</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>Asset</object>
+        <object>Quote</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
@@ -55,7 +55,7 @@
         <inputAssignments>
             <field>Service_Order__c</field>
             <value>
-                <elementReference>Get_Service_Order_Reference.Service_Order_Line_Item__r.Quote.Service_Order_ID__c</elementReference>
+                <elementReference>Get_Service_Order_Reference.Id</elementReference>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
