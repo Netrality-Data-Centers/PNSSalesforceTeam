@@ -30,7 +30,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Service_Request</targetReference>
+            <targetReference>Set_Requestor</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -49,10 +49,26 @@
             <targetReference>Set_Initiator_Phone</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Set_Requestor</name>
+        <label>Set Requestor</label>
+        <locationX>50</locationX>
+        <locationY>863</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.DX_Requestor__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Customer_Contact_Info.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Service_Request</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>Found</name>
         <label>Found ?</label>
-        <locationX>182</locationX>
+        <locationX>314</locationX>
         <locationY>431</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -97,7 +113,7 @@
     <recordLookups>
         <name>Get_Customer_Contact_Info</name>
         <label>Get Customer Contact Info</label>
-        <locationX>182</locationX>
+        <locationX>314</locationX>
         <locationY>323</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -119,11 +135,14 @@
         <name>Update_Service_Request</name>
         <label>Update Service Request</label>
         <locationX>50</locationX>
-        <locationY>863</locationY>
+        <locationY>971</locationY>
+        <faultConnector>
+            <targetReference>Log_Error</targetReference>
+        </faultConnector>
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>56</locationX>
+        <locationX>188</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Customer_Contact_Info</targetReference>
@@ -133,4 +152,47 @@
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>
+    <subflows>
+        <name>Log_Error</name>
+        <label>Log Error</label>
+        <locationX>314</locationX>
+        <locationY>1079</locationY>
+        <flowName>DX_Error_Log_Creation</flowName>
+        <inputAssignments>
+            <name>ErrorMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>FlowName</name>
+            <value>
+                <stringValue>DX Auto Populate Service Request Fields</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>MethodName</name>
+            <value>
+                <stringValue>Update Service Request</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>ObjectName</name>
+            <value>
+                <stringValue>Service Request</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>RecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>TypeOfOperation</name>
+            <value>
+                <stringValue>Update</stringValue>
+            </value>
+        </inputAssignments>
+    </subflows>
 </Flow>
