@@ -23,39 +23,18 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <recordLookups>
-        <name>Get_Service_Order_Reference</name>
-        <label>Get Service Order Reference</label>
-        <locationX>176</locationX>
-        <locationY>323</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Update_Service_Order_Reference</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.Service_Order__r.Id</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>Quote</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
     <recordUpdates>
         <name>Update_Service_Order_Reference</name>
         <label>Update Service Order Reference</label>
         <locationX>176</locationX>
-        <locationY>431</locationY>
+        <locationY>323</locationY>
         <faultConnector>
             <targetReference>Create_Log_Error</targetReference>
         </faultConnector>
         <inputAssignments>
             <field>Service_Order__c</field>
             <value>
-                <elementReference>Get_Service_Order_Reference.Id</elementReference>
+                <elementReference>$Record.Service_Order_Line_Item__r.Quote.Id</elementReference>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
@@ -64,7 +43,7 @@
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Get_Service_Order_Reference</targetReference>
+            <targetReference>Update_Service_Order_Reference</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -78,12 +57,12 @@
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <subflows>
         <name>Create_Log_Error</name>
         <label>Create Log Error</label>
         <locationX>440</locationX>
-        <locationY>539</locationY>
+        <locationY>431</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
