@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
-    <description>Saves port name</description>
+    <description>Saves Cabinet Name</description>
     <environments>Default</environments>
-    <interviewLabel>DX Save Port Name {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>DX Save Port Name</label>
+    <interviewLabel>DX Save Cabinet Name {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>DX Save Cabinet Name</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -25,17 +25,17 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordUpdates>
-        <name>Update_Portal_Name</name>
-        <label>Update Portal Name</label>
+        <name>Update_Cabinet_Name</name>
+        <label>Update Cabinet Name</label>
         <locationX>176</locationX>
         <locationY>323</locationY>
         <faultConnector>
-            <targetReference>Create_Log_Error</targetReference>
+            <targetReference>Generate_Log</targetReference>
         </faultConnector>
         <inputAssignments>
             <field>Name</field>
             <value>
-                <stringValue>{!$Record.Panel__r.Name}.{!$Record.Short_Name__c}</stringValue>
+                <stringValue>{!$Record.Cage__r.Name}.{!$Record.Short_Name__c}</stringValue>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
@@ -44,24 +44,16 @@
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Update_Portal_Name</targetReference>
+            <targetReference>Update_Cabinet_Name</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Panel__c</field>
-            <operator>IsNull</operator>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </filters>
-        <object>DC_Port__c</object>
+        <object>DC_Cabinet__c</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>
     <subflows>
-        <name>Create_Log_Error</name>
-        <label>Create Log Error</label>
+        <name>Generate_Log</name>
+        <label>Generate Log</label>
         <locationX>440</locationX>
         <locationY>431</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
@@ -74,19 +66,19 @@
         <inputAssignments>
             <name>FlowName</name>
             <value>
-                <stringValue>DX Save Port Name</stringValue>
+                <stringValue>DX Save Cabinet Name</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
             <name>MethodName</name>
             <value>
-                <stringValue>Update Portal Name</stringValue>
+                <stringValue>Update Cabinet Name</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
             <name>ObjectName</name>
             <value>
-                <stringValue>Port</stringValue>
+                <stringValue>Cabinet</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
