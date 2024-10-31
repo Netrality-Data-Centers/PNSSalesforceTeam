@@ -9,7 +9,7 @@ public class DX_viewCrossConnectsInformation_ctr {
             if(!String.isBlank(AccountId)){
                 lstCrossConnect = getCrossConnectInfo(AccountId);
             }
-        }        
+        }
         return lstCrossConnect;
     }
     
@@ -27,8 +27,8 @@ public class DX_viewCrossConnectsInformation_ctr {
         List<DC_Cross_Connect__c> lstCrossConnect = [SELECT Id, 
                                                             Xconnect_ID__c,
                                                             Building__c,
-                                                            Origination_Account__c,
-                                                            Destination_Account__c,
+                                                            Origination_Account__r.Name,
+                                                            Destination_Account__r.Name,
                                                             Xconnect_Status__c  
                                                      FROM 	DC_Cross_Connect__c 
                                                      WHERE 	Origination_Account__c =: AccountId
