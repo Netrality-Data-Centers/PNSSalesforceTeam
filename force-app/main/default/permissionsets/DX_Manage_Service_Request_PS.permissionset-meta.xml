@@ -2089,6 +2089,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>DC_Cross_Connect__c.Connection_Case__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_Cross_Connect__c.Disconnect_Case__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DC_Cross_Connect__c.Media_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
