@@ -37,7 +37,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>RecordId</elementReference>
+                <elementReference>recordIdToFlow</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -328,13 +328,6 @@
         </connector>
     </start>
     <status>Active</status>
-    <variables>
-        <name>RecordId</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
     <variables>
         <name>recordIdToFlow</name>
         <dataType>String</dataType>
