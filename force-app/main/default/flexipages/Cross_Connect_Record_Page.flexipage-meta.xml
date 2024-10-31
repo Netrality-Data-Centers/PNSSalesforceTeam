@@ -158,16 +158,6 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Xconnect_ID__c</fieldItem>
-                <identifier>RecordXconnect_ID_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.OwnerId</fieldItem>
                 <identifier>RecordOwnerIdField</identifier>
             </fieldInstance>
