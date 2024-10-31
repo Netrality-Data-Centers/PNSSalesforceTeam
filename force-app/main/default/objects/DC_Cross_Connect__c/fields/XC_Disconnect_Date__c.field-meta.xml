@@ -3,7 +3,7 @@
     <fullName>XC_Disconnect_Date__c</fullName>
     <description>The date that this Cross Connect was disconnected.</description>
     <externalId>false</externalId>
-    <label>XC Disconnect Date</label>
+    <label>Disconnect Date</label>
     <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Date</type>
