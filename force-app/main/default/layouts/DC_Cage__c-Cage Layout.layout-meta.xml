@@ -54,6 +54,10 @@
                 <behavior>Required</behavior>
                 <field>MRI_Suite_ID__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Square_Footage__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
