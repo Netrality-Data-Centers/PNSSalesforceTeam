@@ -3,8 +3,8 @@
     <fullName>Xconnect_date__c</fullName>
     <description>The date that this Cross Connect was connected.</description>
     <externalId>false</externalId>
-    <label>Xconnect date</label>
-    <required>false</required>
+    <label>Connection Date</label>
+    <required>true</required>
     <trackTrending>false</trackTrending>
     <type>Date</type>
 </CustomField>
