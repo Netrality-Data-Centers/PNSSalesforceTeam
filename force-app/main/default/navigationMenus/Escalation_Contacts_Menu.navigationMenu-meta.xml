@@ -10,7 +10,7 @@
         </menuItemBranding>
         <position>1</position>
         <publiclyAvailable>false</publiclyAvailable>
-        <target>/escalation-contacts-chicago</target>
+        <target>/escalation-contacts/escalation-contacts-chicago</target>
         <type>InternalLink</type>
     </navigationMenuItem>
     <navigationMenuItem>
@@ -20,7 +20,7 @@
         </menuItemBranding>
         <position>2</position>
         <publiclyAvailable>false</publiclyAvailable>
-        <target>/escalation-contacts-houston</target>
+        <target>/escalation-contacts/escalation-contacts-houston</target>
         <type>InternalLink</type>
     </navigationMenuItem>
     <navigationMenuItem>
@@ -30,7 +30,7 @@
         </menuItemBranding>
         <position>3</position>
         <publiclyAvailable>false</publiclyAvailable>
-        <target>/escalation-contacts-indy-telecom-campus</target>
+        <target>/escalation-contacts/escalation-contacts-indy-telecom-campus</target>
         <type>InternalLink</type>
     </navigationMenuItem>
     <navigationMenuItem>
@@ -40,7 +40,7 @@
         </menuItemBranding>
         <position>4</position>
         <publiclyAvailable>false</publiclyAvailable>
-        <target>/escalation-contacts-kansas-city</target>
+        <target>/escalation-contacts/escalation-contacts-kansas-city</target>
         <type>InternalLink</type>
     </navigationMenuItem>
     <navigationMenuItem>
@@ -50,7 +50,7 @@
         </menuItemBranding>
         <position>5</position>
         <publiclyAvailable>false</publiclyAvailable>
-        <target>/escalation-contact-kc2-nieman</target>
+        <target>/escalation-contacts/escalation-contact-kc2-nieman</target>
         <type>InternalLink</type>
     </navigationMenuItem>
     <navigationMenuItem>
@@ -60,7 +60,7 @@
         </menuItemBranding>
         <position>6</position>
         <publiclyAvailable>false</publiclyAvailable>
-        <target>/escalation-contacts-philadelphia</target>
+        <target>/escalation-contacts/escalation-contacts-philadelphia</target>
         <type>InternalLink</type>
     </navigationMenuItem>
     <navigationMenuItem>
@@ -70,7 +70,7 @@
         </menuItemBranding>
         <position>7</position>
         <publiclyAvailable>false</publiclyAvailable>
-        <target>/escalation-contacts-st-louis</target>
+        <target>/escalation-contacts/escalation-contacts-st-louis</target>
         <type>InternalLink</type>
     </navigationMenuItem>
 </NavigationMenu>
