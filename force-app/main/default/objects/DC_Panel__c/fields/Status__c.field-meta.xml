@@ -21,14 +21,9 @@
                 <label>Vacant</label>
             </value>
             <value>
-                <fullName>Netrality</fullName>
+                <fullName>Netrality Shared Panel</fullName>
                 <default>false</default>
-                <label>Netrality</label>
-            </value>
-            <value>
-                <fullName>Shared Panel</fullName>
-                <default>false</default>
-                <label>Shared Panel</label>
+                <label>Netrality Shared Panel</label>
             </value>
         </valueSetDefinition>
     </valueSet>
