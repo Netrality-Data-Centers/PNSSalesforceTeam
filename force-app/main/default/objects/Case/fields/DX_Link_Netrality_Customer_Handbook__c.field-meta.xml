@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_Link_Netrality_Customer_Handbook__c</fullName>
+    <defaultValue>&quot;https://netrality--dev03.sandbox.my.salesforce.com/sfc/p/VB000002HOZR/a/VB000000ADIX/reeYzp_Vy5TsInpX87yx3nYqGB9DZh1Te9RDWKz8zVM&quot;</defaultValue>
+    <externalId>false</externalId>
+    <label>Link to Netrality Customer Handbook</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>
