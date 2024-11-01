@@ -8,7 +8,6 @@ const columns = [
     { label: 'Destination Account', fieldName: 'Destination_Account_Name'},
     { label: 'Cross Connect Status', fieldName: 'Xconnect_Status__c'}
 ];
-
 export default class Dx_viewCrossConnectsInfo_lwc extends LightningElement {
     dataInfo = [];
     columns = columns;

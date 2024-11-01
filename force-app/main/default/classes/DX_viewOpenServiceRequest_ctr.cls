@@ -1,3 +1,10 @@
+/**
+ * @Description       : 
+ * @Author            : cristianivan.ruiz@salesforce.com
+ * @Code Coverage     : 
+ * @last modified on  : 11-01-2024
+ * @last modified by  : cristianivan.ruiz@salesforce.com
+**/
 public class DX_viewOpenServiceRequest_ctr {
     @AuraEnabled(cacheable=true)
     public static List<Case> getOpenServiceRequest() {

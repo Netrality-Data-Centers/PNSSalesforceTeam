@@ -17,6 +17,7 @@ const columns = [
     { label: 'Site', fieldName: 'DX_Site__c'},
     { label: 'Closed ', fieldName: 'DX_Departure_Date__c'}
 ];
+
 export default class Dx_viewOpenServiceRequest_lwc extends LightningElement {
     dataInfo = [];
     columns = columns;
