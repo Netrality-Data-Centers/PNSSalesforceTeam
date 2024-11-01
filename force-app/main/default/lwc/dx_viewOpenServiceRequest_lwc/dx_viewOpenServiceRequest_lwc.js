@@ -10,7 +10,7 @@ const columns = [
         type: 'action',
         typeAttributes: { rowActions: actions },
     },
-    { label: 'SR Number', fieldName: 'DX_Case_Number__c' },
+    { label: 'SR Number', fieldName: 'CaseNumber' },
     { label: 'Category', fieldName: 'RecordType_Name'},
     { label: 'Type', fieldName: 'Type'},
     { label: 'Status', fieldName: 'Status'},
