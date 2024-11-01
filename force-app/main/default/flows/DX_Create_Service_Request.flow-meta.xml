@@ -2107,17 +2107,10 @@
         </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>FirstName</field>
+            <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>$User.FirstName</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>LastName</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$User.LastName</elementReference>
+                <elementReference>$User.ContactId</elementReference>
             </value>
         </filters>
         <object>Contact</object>
