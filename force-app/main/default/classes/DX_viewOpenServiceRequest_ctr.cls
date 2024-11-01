@@ -9,7 +9,7 @@ public class DX_viewOpenServiceRequest_ctr {
             if(!String.isBlank(AccountId)){
                 lstCase = getOpenSR(AccountId);
             }
-        }        
+        }
         return lstCase;
     }
     
@@ -24,7 +24,7 @@ public class DX_viewOpenServiceRequest_ctr {
     }
     
     public static List<Case> getOpenSR(String AccountId){
-        List<Case> lstCase = [SELECT Id, DX_Case_Number__c, RecordType.Name, Type, Status, DX_Site__c, DX_Departure_Date__c  FROM Case WHERE AccountId  =: AccountId AND Status = 'In Progress'];
+        List<Case> lstCase = [SELECT Id, CaseNumber, RecordType.Name, Type, Status, DX_Site__c, DX_Departure_Date__c  FROM Case WHERE AccountId  =: AccountId AND Status = 'In Progress'];
         return lstCase;
     }
 }
