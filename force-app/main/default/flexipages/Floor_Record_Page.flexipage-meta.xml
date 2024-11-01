@@ -62,6 +62,20 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Floor_description__c</fieldItem>
+                <identifier>RecordFloor_description_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-ae2e8011-904d-4143-b9ce-e186a4804758</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Total_Square_Feet__c</fieldItem>
@@ -82,26 +96,12 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Floor_description__c</fieldItem>
-                <identifier>RecordFloor_description_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Short_Name__c</fieldItem>
                 <identifier>RecordShort_Name_cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-ae2e8011-904d-4143-b9ce-e186a4804758</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
