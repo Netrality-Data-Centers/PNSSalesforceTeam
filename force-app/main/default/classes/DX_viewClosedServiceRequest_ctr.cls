@@ -1,4 +1,11 @@
-public with sharing class DX_viewClosedServiceRequest_ctr {
+/**
+ * @Description       : 
+ * @Author            : cristianivan.ruiz@salesforce.com
+ * @Code Coverage     : 
+ * @last modified on  : 11-01-2024
+ * @last modified by  : cristianivan.ruiz@salesforce.com
+**/
+public with sharing class DX_viewClosedServiceRequest_ctr { 
     @AuraEnabled(cacheable=true)
     public static List<Case> getClosedServiceRequest() {
         List<Case> lstCase = new List<Case>();
