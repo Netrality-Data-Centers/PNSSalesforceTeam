@@ -24,7 +24,13 @@ public class DX_viewOpenServiceRequest_ctr {
     }
     
     public static List<Case> getOpenSR(String AccountId){
-        List<Case> lstCase = [SELECT Id, CaseNumber, RecordType.Name, Type, Status, DX_Site__c, DX_Departure_Date__c  FROM Case WHERE AccountId  =: AccountId AND Status = 'In Progress'];
+        List<Case> lstCase = [SELECT Id, CaseNumber, RecordType.Name, Type, Status, DX_Site__c, DX_Departure_Date__c  
+                              FROM   Case 
+                              WHERE  AccountId =: AccountId 
+                              AND    (Status = 'On Hold'
+                              OR	  Status = 'New'
+                              OR	  Status = 'In Progress'
+                              OR	  Status = 'Resolved')];
         return lstCase;
     }
 }
