@@ -1102,7 +1102,7 @@
             <label>STL</label>
         </rules>
     </decisions>
-    <description>Flow to Edit Service Request</description>
+    <description>Flow to Edit Service Request V1</description>
     <dynamicChoiceSets>
         <name>AccessForChoiceSet</name>
         <dataType>Multipicklist</dataType>
