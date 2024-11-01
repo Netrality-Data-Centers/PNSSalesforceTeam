@@ -249,6 +249,12 @@
                     <isRequired>false</isRequired>
                     <objectFieldReference>Get_Access_Records.Request_Services_RH__c</objectFieldReference>
                 </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>Get_Access_Records.View_Invoices__c</objectFieldReference>
+                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -264,13 +270,13 @@
                     <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>Get_Access_Records.View_Invoices__c</objectFieldReference>
+                    <objectFieldReference>Get_Access_Records.View_Assets__c</objectFieldReference>
                 </fields>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>Get_Access_Records.View_Assets__c</objectFieldReference>
+                    <objectFieldReference>Get_Access_Records.View_Service_Orders__c</objectFieldReference>
                 </fields>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
