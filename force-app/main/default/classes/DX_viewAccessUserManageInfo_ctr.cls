@@ -5,10 +5,7 @@ public class DX_viewAccessUserManageInfo_ctr {
         String IdUser = UserInfo.getUserId();
         String ContactId = getUserInfo(IdUser);
         If(!String.isBlank(ContactId)){
-            String AccountId = getContactInfo(ContactId);
-            if(!String.isBlank(AccountId)){
-                lstAccessManage = getAccessManageInfo(AccountId);
-            }
+            lstAccessManage = getAccessManageInfo(ContactId);
         }
         return lstAccessManage;
     }
@@ -18,18 +15,13 @@ public class DX_viewAccessUserManageInfo_ctr {
         return lstUser[0].ContactId;
     }
     
-    public static String getContactInfo(String ContactId){
-        List<Contact> lstContact = [SELECT Id, AccountId FROM Contact WHERE Id =: ContactId Limit 1];
-        return lstContact[0].AccountId;
-    }
-    
-    public static List<DX_Access_Managment__c> getAccessManageInfo(String AccountId){
+    public static List<DX_Access_Managment__c> getAccessManageInfo(String ContactId){
         List<DX_Access_Managment__c> lstAccessManage = [SELECT Id, 
                                                                Contact_Name__r.Name,
                                                                Position_Role__c,
                                                                Account_Name__r.Name
                                                         FROM   DX_Access_Managment__c 
-                                                        WHERE  Contact_Name__r.AccountId =: AccountId];
+                                                        WHERE  Contact_Name__c =: ContactId];
         return lstAccessManage;
     }
 }
