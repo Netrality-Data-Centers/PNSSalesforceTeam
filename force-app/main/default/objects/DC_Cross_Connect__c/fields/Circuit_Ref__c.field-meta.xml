@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Circuit_Ref__c</fullName>
+    <description>This field will reference the Cherwell ID of the legacy case that was created from that system. Future Cross Connects will reference the Case through a different look up field.</description>
+    <externalId>false</externalId>
+    <label>Legacy Cherwell ID</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

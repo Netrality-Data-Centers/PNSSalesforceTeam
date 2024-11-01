@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Square_Feet__c</fullName>
+    <description>Total square footage of this floor</description>
+    <externalId>false</externalId>
+    <label>Total Square Feet</label>
+    <precision>7</precision>
+    <required>true</required>
+    <scale>1</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>
