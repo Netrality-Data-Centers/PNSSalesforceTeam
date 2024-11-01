@@ -2,7 +2,7 @@ import { LightningElement, wire } from 'lwc';
 import getClosedServiceRequest from "@salesforce/apex/DX_viewClosedServiceRequest_ctr.getClosedServiceRequest";
 
 const columns = [
-    { label: 'SR Number', fieldName: 'DX_Case_Number__c' },
+    { label: 'SR Number', fieldName: 'CaseNumber' },
     { label: 'Category', fieldName: 'RecordType_Name'},
     { label: 'Type', fieldName: 'Type'},
     { label: 'Status', fieldName: 'Status'},
