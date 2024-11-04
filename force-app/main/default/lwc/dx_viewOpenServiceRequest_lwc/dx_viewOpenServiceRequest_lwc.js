@@ -30,19 +30,26 @@ export default class Dx_viewOpenServiceRequest_lwc extends LightningElement {
     wiredOpenSR({ error, data }) {
         if (data) {
             if(data.length > 0){
-                var result = JSON.parse(JSON.stringify(data));
+                let result = JSON.parse(JSON.stringify(data));
+                let RecordType_Name;
+                let isoDate;
+                let date;
+                let year;
+                let month;
+                let day;
+                let formattedDate;
                 for(var item in result){
-                    var RecordType_Name = result[item].RecordType.Name;
+                    RecordType_Name = result[item].RecordType.Name;
                     result[item].RecordType_Name = RecordType_Name;
 
-                    var isoDate = result[item].CreatedDate;
-                    var date = new Date(isoDate);
+                    isoDate = result[item].CreatedDate;
+                    date = new Date(isoDate);
                     // Get date components
-                    var year = date.getUTCFullYear();
-                    var month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are 0-indexed
-                    var day = String(date.getUTCDate()).padStart(2, '0');
+                    year = date.getUTCFullYear();
+                    month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+                    day = String(date.getUTCDate()).padStart(2, '0');
                     // Format the date
-                    var formattedDate = `${year}-${month}-${day}`;
+                    formattedDate = `${year}-${month}-${day}`;
                     result[item].CreatedDate = formattedDate;
 
                 }
