@@ -35,17 +35,15 @@ export default class Dx_viewOpenServiceRequest_lwc extends LightningElement {
                     var RecordType_Name = result[item].RecordType.Name;
                     result[item].RecordType_Name = RecordType_Name;
 
-
-                    const isoDate = result[item].CreatedDate;
-                    const date = new Date(isoDate);
+                    var isoDate = result[item].CreatedDate;
+                    var date = new Date(isoDate);
                     // Get date components
-                    const year = date.getUTCFullYear();
-                    const month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are 0-indexed
-                    const day = String(date.getUTCDate()).padStart(2, '0');
+                    var year = date.getUTCFullYear();
+                    var month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+                    var day = String(date.getUTCDate()).padStart(2, '0');
                     // Format the date
-                    const formattedDate = `${year}-${month}-${day}`;
+                    var formattedDate = `${year}-${month}-${day}`;
                     result[item].CreatedDate = formattedDate;
-
 
                 }
                 this.dataInfo = [...result];
