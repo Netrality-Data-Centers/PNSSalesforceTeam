@@ -31,7 +31,7 @@ public class DX_viewOpenServiceRequest_ctr {
     }
     
     public static List<Case> getOpenSR(String AccountId){
-        List<Case> lstCase = [SELECT Id, CaseNumber, RecordType.Name, Type, Status, DX_Site__c, DX_Departure_Date__c  
+        List<Case> lstCase = [SELECT Id, CaseNumber, RecordType.Name, Type, Status, DX_Site__c, CreatedDate  
                               FROM   Case 
                               WHERE  AccountId =: AccountId 
                               AND    (Status = 'On Hold'
