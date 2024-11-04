@@ -7,7 +7,7 @@ const columns = [
     { label: 'Type', fieldName: 'Type'},
     { label: 'Status', fieldName: 'Status'},
     { label: 'Site', fieldName: 'DX_Site__c'},
-    { label: 'Closed ', fieldName: 'DX_Completion_Date__c'}
+    { label: 'SR Closed Date', fieldName: 'DX_Completion_Date__c'}
 ];
 
 export default class Dx_viewClosedServiceRequest_lwc extends LightningElement {
@@ -20,9 +20,10 @@ export default class Dx_viewClosedServiceRequest_lwc extends LightningElement {
     wiredClosedSR({ error, data }) {
         if (data) {
             if(data.length > 0){
-                var result = JSON.parse(JSON.stringify(data));
+                let result = JSON.parse(JSON.stringify(data));
+                let RecordType_Name;
                 for(var item in result){
-                    var RecordType_Name = result[item].RecordType.Name;
+                    RecordType_Name = result[item].RecordType.Name;
                     result[item].RecordType_Name = RecordType_Name;
                 }
                 this.dataInfo = [...result];

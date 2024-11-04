@@ -3,8 +3,8 @@
     <actionCalls>
         <name>Get_Primary_Account_for_Contact</name>
         <label>Get Primary Account for Contact</label>
-        <locationX>1238</locationX>
-        <locationY>458</locationY>
+        <locationX>1106</locationX>
+        <locationY>566</locationY>
         <actionName>DX_PrimaryAccountContactHelper</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -24,8 +24,8 @@
     <actionCalls>
         <name>Get_Related_AccountIds_for_Contact</name>
         <label>Get Related AccountIds for Contact</label>
-        <locationX>1238</locationX>
-        <locationY>566</locationY>
+        <locationX>1106</locationX>
+        <locationY>674</locationY>
         <actionName>DX_RelatedAccountsContactHelper</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -46,7 +46,7 @@
         <name>Redirect_to_Open_Cases_Page</name>
         <label>Redirect to Open Cases Page</label>
         <locationX>1238</locationX>
-        <locationY>1838</locationY>
+        <locationY>1922</locationY>
         <actionName>c:fsc_openUrl</actionName>
         <actionType>component</actionType>
         <connector>
@@ -91,7 +91,7 @@
         <name>Assign_Stage_2</name>
         <label>Assign Stage 2</label>
         <locationX>1238</locationX>
-        <locationY>1406</locationY>
+        <locationY>1598</locationY>
         <assignmentItems>
             <assignToReference>$Flow.CurrentStage</assignToReference>
             <operator>Assign</operator>
@@ -107,7 +107,7 @@
         <name>Set_Contact_on_SR</name>
         <label>Set Contact on SR</label>
         <locationX>1238</locationX>
-        <locationY>1514</locationY>
+        <locationY>1706</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.ContactId</assignToReference>
             <operator>Assign</operator>
@@ -123,7 +123,7 @@
         <name>Set_RecordType_on_TempCase</name>
         <label>Set RecordType on TempCase</label>
         <locationX>1238</locationX>
-        <locationY>890</locationY>
+        <locationY>1082</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.RecordTypeId</assignToReference>
             <operator>Assign</operator>
@@ -883,7 +883,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Get_Primary_Account_for_Contact</targetReference>
+            <targetReference>Has_it_Contact</targetReference>
         </connector>
     </assignments>
     <choices>
@@ -956,10 +956,35 @@
         </value>
     </constants>
     <decisions>
+        <name>Has_it_Contact</name>
+        <label>Has it Contact?</label>
+        <locationX>1238</locationX>
+        <locationY>458</locationY>
+        <defaultConnector>
+            <targetReference>Related_Accounts_for_Contact</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Has Contact</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Has_Contact</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>TempCaseVar.ContactId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Primary_Account_for_Contact</targetReference>
+            </connector>
+            <label>Yes Has Contact</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Record_Type</name>
         <label>Record Type?</label>
         <locationX>1238</locationX>
-        <locationY>998</locationY>
+        <locationY>1190</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
             <targetReference>Unsupported_SR_Error</targetReference>
@@ -1543,33 +1568,10 @@
     </processMetadataValues>
     <processType>Flow</processType>
     <recordLookups>
-        <name>Case_Lookup</name>
-        <label>Case Lookup</label>
-        <locationX>1238</locationX>
-        <locationY>1730</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>CreatedCaseId</elementReference>
-            </value>
-        </filters>
-        <object>Case</object>
-        <outputAssignments>
-            <assignToReference>case.CaseNumber</assignToReference>
-            <field>CaseNumber</field>
-        </outputAssignments>
-    </recordLookups>
-    <recordLookups>
         <name>Contact_Lookup</name>
         <label>Contact Lookup</label>
         <locationX>1238</locationX>
-        <locationY>1298</locationY>
+        <locationY>1490</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_Stage_2</targetReference>
@@ -1599,7 +1601,7 @@
         <name>Get_Record_Type_Info</name>
         <label>Get Record Type Info</label>
         <locationX>1238</locationX>
-        <locationY>782</locationY>
+        <locationY>974</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_RecordType_on_TempCase</targetReference>
@@ -1641,7 +1643,7 @@
         <name>Related_Accounts_for_Contact</name>
         <label>Related Accounts for Contact</label>
         <locationX>1238</locationX>
-        <locationY>674</locationY>
+        <locationY>866</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Record_Type_Info</targetReference>
@@ -1662,9 +1664,9 @@
         <name>Update_Service_Request</name>
         <label>Update Service Request</label>
         <locationX>1238</locationX>
-        <locationY>1622</locationY>
+        <locationY>1814</locationY>
         <connector>
-            <targetReference>Case_Lookup</targetReference>
+            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
         </connector>
         <inputReference>TempCaseVar</inputReference>
     </recordUpdates>
@@ -1672,7 +1674,7 @@
         <name>Access_Request_Info</name>
         <label>Access Request Info</label>
         <locationX>50</locationX>
-        <locationY>1106</locationY>
+        <locationY>1298</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2331,7 +2333,7 @@
         <name>Accounting_Request_Info</name>
         <label>Accounting Request Info</label>
         <locationX>314</locationX>
-        <locationY>1106</locationY>
+        <locationY>1298</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2677,7 +2679,7 @@
         <name>Case_Created_Screen</name>
         <label>Case Created</label>
         <locationX>1238</locationX>
-        <locationY>1946</locationY>
+        <locationY>2030</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2699,7 +2701,7 @@
             <inputParameters>
                 <name>recordId</name>
                 <value>
-                    <elementReference>case.CaseNumber</elementReference>
+                    <elementReference>TempCaseVar.Id</elementReference>
                 </value>
             </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -2713,7 +2715,7 @@
         <name>Contracts_Request_Info</name>
         <label>Contracts Request Info</label>
         <locationX>578</locationX>
-        <locationY>1106</locationY>
+        <locationY>1298</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2958,7 +2960,7 @@
         <name>Cross_Connect_Request_Info</name>
         <label>Cross Connect Request Info</label>
         <locationX>842</locationX>
-        <locationY>1106</locationY>
+        <locationY>1298</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -3561,7 +3563,7 @@
         <name>Customer_Experience_Request_Info</name>
         <label>Customer Experience Request Info</label>
         <locationX>1106</locationX>
-        <locationY>1106</locationY>
+        <locationY>1298</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -3900,7 +3902,7 @@
         <name>Logistics_Request_Info</name>
         <label>Logistics Request Info</label>
         <locationX>1634</locationX>
-        <locationY>1106</locationY>
+        <locationY>1298</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -4312,7 +4314,7 @@
         <name>RHS_Request_Info</name>
         <label>RHS Request Info</label>
         <locationX>1898</locationX>
-        <locationY>1106</locationY>
+        <locationY>1298</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -4625,7 +4627,7 @@
         <name>Unsupported_SR_Error</name>
         <label>Unsupported SR Error</label>
         <locationX>1370</locationX>
-        <locationY>1106</locationY>
+        <locationY>1298</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -4674,7 +4676,7 @@
     <textTemplates>
         <name>Case_Updated_Script_Template</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Your case (#{!case.CaseNumber}) has been updated! We’ll be in touch with next steps.&lt;/p&gt;</text>
+        <text>Your case (#{!TempCaseVar.CaseNumber}) has been updated! We’ll be in touch with next steps.</text>
     </textTemplates>
     <textTemplates>
         <name>Contact_Error_Title_Template</name>
