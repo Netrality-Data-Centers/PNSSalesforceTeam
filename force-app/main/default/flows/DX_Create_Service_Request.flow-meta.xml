@@ -45,6 +45,30 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
         <versionSegment>1</versionSegment>
     </actionCalls>
+    <actionCalls>
+        <name>redirect_to_open_service_requests</name>
+        <label>redirect to open service requests</label>
+        <locationX>2162</locationX>
+        <locationY>2162</locationY>
+        <actionName>c:fsc_openUrl</actionName>
+        <actionType>component</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>mode</name>
+            <value>
+                <stringValue>replace</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>url</name>
+            <value>
+                <stringValue>/s/open-service-requests</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>c:fsc_openUrl</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
     <apiVersion>62.0</apiVersion>
     <assignments>
         <name>Assign_Stage_1</name>
@@ -140,6 +164,32 @@
         <dataType>String</dataType>
         <value>
             <elementReference>SelectedSRSubtype</elementReference>
+        </value>
+    </choices>
+    <choices>
+        <name>Priority_High</name>
+        <choiceText>High</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <elementReference>Priority_High</elementReference>
+        </value>
+    </choices>
+    <choices>
+        <description>Normal</description>
+        <name>Priority_Normal</name>
+        <choiceText>Normal</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <elementReference>Priority_Normal</elementReference>
+        </value>
+    </choices>
+    <choices>
+        <description>Urgent</description>
+        <name>Priority_Urgent</name>
+        <choiceText>Urgent</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <elementReference>Priority_Urgent</elementReference>
         </value>
     </choices>
     <choices>
@@ -568,7 +618,7 @@
             <label>STL</label>
         </rules>
     </decisions>
-    <description>Creates a Service Request</description>
+    <description>Creates a Service Request - updated to redirect to open service requests</description>
     <dynamicChoiceSets>
         <name>AccessForChoiceSet</name>
         <dataType>Multipicklist</dataType>
@@ -2072,7 +2122,7 @@
         <locationY>2054</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Case_Created_Screen</targetReference>
+            <targetReference>redirect_to_open_service_requests</targetReference>
         </connector>
         <faultConnector>
             <isGoTo>true</isGoTo>
@@ -2866,7 +2916,9 @@
                 </fields>
                 <fields>
                     <name>Priority_AccountingRequest</name>
-                    <choiceReferences>PriorityChoiceSet</choiceReferences>
+                    <choiceReferences>Priority_High</choiceReferences>
+                    <choiceReferences>Priority_Normal</choiceReferences>
+                    <choiceReferences>Priority_Urgent</choiceReferences>
                     <dataType>String</dataType>
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
@@ -2949,42 +3001,6 @@
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
-    </screens>
-    <screens>
-        <name>Case_Created_Screen</name>
-        <label>Case Created</label>
-        <locationX>2162</locationX>
-        <locationY>2162</locationY>
-        <allowBack>false</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
-        <fields>
-            <name>Case_Created_Title</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 20px;&quot;&gt;Case Created&lt;/span&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <fields>
-            <name>Case_Created_Script</name>
-            <extensionName>lbpm:flowScript</extensionName>
-            <fieldType>ComponentInstance</fieldType>
-            <inputParameters>
-                <name>script</name>
-                <value>
-                    <elementReference>Case_Created_Script_Template</elementReference>
-                </value>
-            </inputParameters>
-            <inputParameters>
-                <name>recordId</name>
-                <value>
-                    <elementReference>case.CaseNumber</elementReference>
-                </value>
-            </inputParameters>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
-            <storeOutputAutomatically>true</storeOutputAutomatically>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
     </screens>
     <screens>
         <name>Contact_Error_Screen</name>
@@ -3255,6 +3271,9 @@
                 <fields>
                     <name>I_Accept_CrossConnectSR</name>
                     <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <booleanValue>false</booleanValue>
+                    </defaultValue>
                     <fieldText>I Accept</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -3319,20 +3338,12 @@
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Renewal Request</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Priority_CrossConnectSR</name>
-                    <choiceReferences>PriorityChoiceSet</choiceReferences>
+                    <choiceReferences>Priority_High</choiceReferences>
+                    <choiceReferences>Priority_Normal</choiceReferences>
+                    <choiceReferences>Priority_Urgent</choiceReferences>
                     <dataType>String</dataType>
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
@@ -3375,18 +3386,8 @@
                     <fieldText>Account Name</fieldText>
                     <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>New Cross Connect</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Company_Name</name>
@@ -3542,7 +3543,7 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
+                        <conditionLogic>or</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
@@ -4173,7 +4174,9 @@
                 </fields>
                 <fields>
                     <name>Priority_Logistics</name>
-                    <choiceReferences>PriorityChoiceSet</choiceReferences>
+                    <choiceReferences>Priority_High</choiceReferences>
+                    <choiceReferences>Priority_Normal</choiceReferences>
+                    <choiceReferences>Priority_Urgent</choiceReferences>
                     <dataType>String</dataType>
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
@@ -4514,7 +4517,9 @@
                 </fields>
                 <fields>
                     <name>Priority_RHS</name>
-                    <choiceReferences>PriorityChoiceSet</choiceReferences>
+                    <choiceReferences>Priority_High</choiceReferences>
+                    <choiceReferences>Priority_Normal</choiceReferences>
+                    <choiceReferences>Priority_Urgent</choiceReferences>
                     <dataType>String</dataType>
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
@@ -4697,6 +4702,13 @@
         <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>Phone Number</text>
     </textTemplates>
+    <variables>
+        <name>aContactID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
     <variables>
         <name>case</name>
         <dataType>SObject</dataType>
