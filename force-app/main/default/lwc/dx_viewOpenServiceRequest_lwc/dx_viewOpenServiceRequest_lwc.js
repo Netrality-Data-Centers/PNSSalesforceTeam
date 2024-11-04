@@ -15,7 +15,7 @@ const columns = [
     { label: 'Type', fieldName: 'Type'},
     { label: 'Status', fieldName: 'Status'},
     { label: 'Site', fieldName: 'DX_Site__c'},
-    { label: 'Closed ', fieldName: 'DX_Departure_Date__c'}
+    { label: 'SR Created Date', fieldName: 'CreatedDate'}
 ];
 
 export default class Dx_viewOpenServiceRequest_lwc extends LightningElement {
@@ -34,6 +34,19 @@ export default class Dx_viewOpenServiceRequest_lwc extends LightningElement {
                 for(var item in result){
                     var RecordType_Name = result[item].RecordType.Name;
                     result[item].RecordType_Name = RecordType_Name;
+
+
+                    const isoDate = result[item].CreatedDate;
+                    const date = new Date(isoDate);
+                    // Get date components
+                    const year = date.getUTCFullYear();
+                    const month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+                    const day = String(date.getUTCDate()).padStart(2, '0');
+                    // Format the date
+                    const formattedDate = `${year}-${month}-${day}`;
+                    result[item].CreatedDate = formattedDate;
+
+
                 }
                 this.dataInfo = [...result];
             }            
