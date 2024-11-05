@@ -171,7 +171,7 @@
         <choiceText>High</choiceText>
         <dataType>String</dataType>
         <value>
-            <elementReference>Priority_High</elementReference>
+            <stringValue>High</stringValue>
         </value>
     </choices>
     <choices>
@@ -180,7 +180,7 @@
         <choiceText>Normal</choiceText>
         <dataType>String</dataType>
         <value>
-            <elementReference>Priority_Normal</elementReference>
+            <stringValue>Normal</stringValue>
         </value>
     </choices>
     <choices>
@@ -189,7 +189,7 @@
         <choiceText>Urgent</choiceText>
         <dataType>String</dataType>
         <value>
-            <elementReference>Priority_Urgent</elementReference>
+            <stringValue>Urgent</stringValue>
         </value>
     </choices>
     <choices>
@@ -628,6 +628,14 @@
         <picklistObject>Case</picklistObject>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
+        <name>AddRemoveChoiceSet</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>DX_Add_Remove__c</picklistField>
+        <picklistObject>Case</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
         <name>AfterHoursChoiceSet</name>
         <dataType>Picklist</dataType>
         <displayField xsi:nil="true"/>
@@ -690,10 +698,10 @@
         <displayField>Name</displayField>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>FirstName</field>
-            <operator>StartsWith</operator>
+            <field>Id</field>
+            <operator>IsNull</operator>
             <value>
-                <stringValue>C</stringValue>
+                <booleanValue>false</booleanValue>
             </value>
         </filters>
         <object>Contact</object>
@@ -898,6 +906,21 @@
             </value>
         </filters>
         <object>Case</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>RequestorChoiceSet</name>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$User.ContactId</elementReference>
+            </value>
+        </filters>
+        <object>Contact</object>
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
@@ -1143,12 +1166,6 @@
             <field>DX_Site__c</field>
             <value>
                 <elementReference>Site_AccountingRequest</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Priority</field>
-            <value>
-                <elementReference>Priority_AccountingRequest</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1859,12 +1876,6 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>DX_Access_For__c</field>
-            <value>
-                <elementReference>Access_for</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>DX_Added_Guest_Info__c</field>
             <value>
                 <elementReference>If_more_than_one_guests_add_there_information_here</elementReference>
@@ -1927,7 +1938,7 @@
         <inputAssignments>
             <field>DX_Link_Netrality_Customer_Handbook__c</field>
             <value>
-                <elementReference>Link_to_Netrality_Customer_Handbook</elementReference>
+                <elementReference>Link_to_Netrality_Customer_Handbook.value</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2160,7 +2171,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>$User.ContactId</elementReference>
+                <stringValue>003VC00000gw8UdYAI</stringValue>
             </value>
         </filters>
         <object>Contact</object>
@@ -2296,8 +2307,7 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Add_Remove</name>
-                    <choiceReferences>Add</choiceReferences>
-                    <choiceReferences>Remove</choiceReferences>
+                    <choiceReferences>AddRemoveChoiceSet</choiceReferences>
                     <dataType>String</dataType>
                     <fieldText>Add/Remove</fieldText>
                     <fieldType>DropdownBox</fieldType>
@@ -2312,6 +2322,66 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Access_Request_Info_Section2_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Email</name>
+                    <extensionName>flowruntime:email</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <fields>
+                    <name>Phone</name>
+                    <extensionName>flowruntime:phone</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>TempCaseVar.Type</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Add / Remove User</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Access_Request_Info_Section3</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Access_Request_Info_Section3_Column1</name>
+                <fieldType>Region</fieldType>
                 <fields>
                     <name>Accounting_Contact</name>
                     <dataType>Boolean</dataType>
@@ -2361,30 +2431,8 @@
                 <isRequired>false</isRequired>
             </fields>
             <fields>
-                <name>Access_Request_Info_Section2_Column2</name>
+                <name>Access_Request_Info_Section3_Column2</name>
                 <fieldType>Region</fieldType>
-                <fields>
-                    <name>Email</name>
-                    <extensionName>flowruntime:email</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>required</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
-                </fields>
-                <fields>
-                    <name>Phone</name>
-                    <extensionName>flowruntime:phone</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
-                </fields>
                 <fields>
                     <name>Emergency_Notifications</name>
                     <dataType>Boolean</dataType>
@@ -2438,19 +2486,19 @@
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
-                    <leftValueReference>TempCaseVar.Type</leftValueReference>
+                    <leftValueReference>Add_Remove</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
-                        <stringValue>Add / Remove User</stringValue>
+                        <stringValue>Add</stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
         </fields>
         <fields>
-            <name>Access_Request_Info_Section3</name>
+            <name>Access_Request_Info_Section4</name>
             <fieldType>RegionContainer</fieldType>
             <fields>
-                <name>Access_Request_Info_Section3_Column1</name>
+                <name>Access_Request_Info_Section4_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Access_for</name>
@@ -2470,7 +2518,7 @@
                 </fields>
                 <fields>
                     <name>Requestor</name>
-                    <choiceReferences>ContactChoiceSet</choiceReferences>
+                    <choiceReferences>RequestorChoiceSet</choiceReferences>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Requestor</fieldText>
                     <fieldType>ComponentChoice</fieldType>
@@ -2480,10 +2528,10 @@
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
+                            <leftValueReference>Who_is_the_Access_for</leftValueReference>
+                            <operator>StartsWith</operator>
                             <rightValue>
-                                <stringValue>Physical Site Access</stringValue>
+                                <stringValue>Requestor</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
@@ -2495,6 +2543,16 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Who_is_the_Access_for</leftValueReference>
+                            <operator>StartsWith</operator>
+                            <rightValue>
+                                <stringValue>Third</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>After_Hours</name>
@@ -2502,6 +2560,7 @@
                     <dataType>String</dataType>
                     <fieldText>After Hours</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <helpText>&lt;p&gt;If Yes: Some sites may require scheduling for after hour access.&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
@@ -2558,6 +2617,16 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Additional_Guests</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Guest_Email</name>
@@ -2578,6 +2647,16 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Additional_Guests</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Guest_Phone</name>
@@ -2598,6 +2677,16 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Additional_Guests</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -2608,7 +2697,7 @@
                 <isRequired>false</isRequired>
             </fields>
             <fields>
-                <name>Access_Request_Info_Section3_Column2</name>
+                <name>Access_Request_Info_Section4_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Who_is_the_Access_for</name>
@@ -2626,6 +2715,16 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Who_is_the_Access_for</leftValueReference>
+                            <operator>StartsWith</operator>
+                            <rightValue>
+                                <stringValue>Third</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Third_Party_Email</name>
@@ -2640,6 +2739,16 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Who_is_the_Access_for</leftValueReference>
+                            <operator>StartsWith</operator>
+                            <rightValue>
+                                <stringValue>Third</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Third_Party_Phone</name>
@@ -2654,6 +2763,16 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Who_is_the_Access_for</leftValueReference>
+                            <operator>StartsWith</operator>
+                            <rightValue>
+                                <stringValue>Third</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Third_Party_Company</name>
@@ -2662,6 +2781,16 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Who_is_the_Access_for</leftValueReference>
+                            <operator>StartsWith</operator>
+                            <rightValue>
+                                <stringValue>Third</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Departure_Date</name>
@@ -2688,11 +2817,29 @@
                 </fields>
                 <fields>
                     <name>Link_to_Netrality_Customer_Handbook</name>
-                    <dataType>String</dataType>
-                    <fieldText>Link to Netrality Customer Handbook</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <extensionName>flowruntime:url</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>readonly</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Link to Netrality Customer Handbook</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>value</name>
+                        <value>
+                            <stringValue>https://netrality--qa.sandbox.my.salesforce.com/sfc/p/VB000002C18r/a/VB000000ARGf/YlracIV2P5uW92qTDmvWB5sm6O913s2toklN5o5K9Vc</stringValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -2862,7 +3009,7 @@
                     <fieldText>Invoice #</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
                         <conditions>
@@ -2913,17 +3060,6 @@
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
-                </fields>
-                <fields>
-                    <name>Priority_AccountingRequest</name>
-                    <choiceReferences>Priority_High</choiceReferences>
-                    <choiceReferences>Priority_Normal</choiceReferences>
-                    <choiceReferences>Priority_Urgent</choiceReferences>
-                    <dataType>String</dataType>
-                    <fieldText>Priority</fieldText>
-                    <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
                 </fields>
                 <fields>
                     <name>Tell_us_how_we_can_help_you_AccountingRequest</name>
@@ -4101,7 +4237,7 @@
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
+                    <isRequired>false</isRequired>
                 </fields>
                 <fields>
                     <name>Delivery_Site</name>
@@ -4126,6 +4262,7 @@
                     <dataType>Number</dataType>
                     <fieldText>Quantity</fieldText>
                     <fieldType>InputField</fieldType>
+                    <helpText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Total number of packages included in shipment, if multiple.&lt;/span&gt;&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <scale>0</scale>
@@ -4137,6 +4274,16 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Courier</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Other</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Tracking_Number</name>
@@ -4180,6 +4327,7 @@
                     <dataType>String</dataType>
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <helpText>&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Urgent - Target Response to Ticket - 30 Minutes/ Technician to Begin work - 1 Hour&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;High - Target Response to Ticket - 1 Hour/ Technician to Begin work - 2 Hours&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Normal - Target Response to Ticket - 2 Hours/ Technician to Begin work - 24 Hours&lt;/span&gt;&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
@@ -4203,7 +4351,7 @@
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Equipment Delivery/Storage</stringValue>
+                                <stringValue>Equipment Delivery/ Storage</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
@@ -4214,8 +4362,19 @@
                     <dataType>String</dataType>
                     <fieldText>Customer to Provide Liftgate</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <helpText>&lt;p&gt;Certain sites have restrictions on Pallet/ Freight, Cabinet deliveries , please provide additional information&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Shipping_Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Pallet/Freight</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Courier</name>
@@ -4233,6 +4392,16 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Courier</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Amazon</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Expected_Storage_Duration_Logistics</name>
@@ -4248,7 +4417,7 @@
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Equipment Delivery/Storage</stringValue>
+                                <stringValue>Equipment Delivery/ Storage</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
@@ -4287,13 +4456,34 @@
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Current_Location_Onsite</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Being held in Secured Storage</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Packaging_notes</name>
                     <fieldText>Packaging notes</fieldText>
                     <fieldType>LargeTextArea</fieldType>
+                    <helpText>&lt;p&gt;Additional fees may apply for packing materials.&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Does_this_shipment_require_packaging_prior_to_pick_up</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Yes, additional packaging is requested</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -4313,6 +4503,16 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Current_Location_Onsite</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Other</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Does_this_shipment_require_packaging_prior_to_pick_up</name>
@@ -4321,7 +4521,7 @@
                     <fieldText>Does this shipment require packaging prior to pick-up?</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>Pickup_Time</name>
@@ -4406,7 +4606,7 @@
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
-                            <leftValueReference>I_Accept_Logistics</leftValueReference>
+                            <leftValueReference>I_Accept_RHS</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <booleanValue>true</booleanValue>
@@ -4445,21 +4645,28 @@
                     <fieldText>Requested Actions</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
+                        <conditionLogic>or</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>NotEqualTo</operator>
+                            <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Documentation / Labelling/ Inventory</stringValue>
+                                <stringValue>Connectivity Troubleshooting</stringValue>
                             </rightValue>
                         </conditions>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Connectivity Troubleshooting</stringValue>
+                                <stringValue>Equipment Install</stringValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Other</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
@@ -4523,6 +4730,7 @@
                     <dataType>String</dataType>
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <helpText>&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Urgent - Target Response to Ticket - 30 Minutes/ Technician to Begin work - 1 Hour&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;High - Target Response to Ticket - 1 Hour/ Technician to Begin work - 2 Hours&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Normal - Target Response to Ticket - 2 Hours/ Technician to Begin work - 24 Hours&lt;/span&gt;&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
