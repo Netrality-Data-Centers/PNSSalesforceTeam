@@ -1070,6 +1070,11 @@
     </dynamicChoiceSets>
     <environments>Default</environments>
     <formulas>
+        <name>Account_InitiatorInformation</name>
+        <dataType>String</dataType>
+        <expression>IF( ISPICKVAL({!TempCaseVar.Type}, &apos;Change Cross Connect&apos;) ||  ISPICKVAL({!TempCaseVar.Type}, &apos;Disconnect Cross Connect&apos;), {!CompanyName_InitiatorInformation.recordId}, {!AccountName_InitiatorInformation.recordId})</expression>
+    </formulas>
+    <formulas>
         <name>User_First_Name_Formula</name>
         <dataType>String</dataType>
         <expression>{!$User.FirstName}</expression>
@@ -1105,7 +1110,7 @@
         <inputAssignments>
             <field>AccountId</field>
             <value>
-                <elementReference>AccountName_AccountingRequest.selectedChoiceValues</elementReference>
+                <elementReference>AccountName_AccountingRequest.recordId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1204,7 +1209,7 @@
         <inputAssignments>
             <field>AccountId</field>
             <value>
-                <elementReference>Account_AccessRequest.selectedChoiceValues</elementReference>
+                <elementReference>Account_Name_AccessRequest.recordId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1339,7 +1344,7 @@
         <inputAssignments>
             <field>AccountId</field>
             <value>
-                <elementReference>AccountName_ContractsRequest.selectedChoiceValues</elementReference>
+                <elementReference>AccountName_ContractsRequest.recordId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1432,7 +1437,7 @@
         <inputAssignments>
             <field>AccountId</field>
             <value>
-                <elementReference>Account_Name_CrossConnectSR.selectedChoiceValues</elementReference>
+                <elementReference>Account_Name_CrossConnectSR.recordId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1444,7 +1449,7 @@
         <inputAssignments>
             <field>DX_Account_Name_Initiator_Information__c</field>
             <value>
-                <elementReference>AccountName_InitiatorInformation.recordId</elementReference>
+                <elementReference>Account_InitiatorInformation</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1492,7 +1497,7 @@
         <inputAssignments>
             <field>DX_Default_Account__c</field>
             <value>
-                <elementReference>Default_Account_CrossConnectSR.selectedChoiceValues</elementReference>
+                <elementReference>Default_Account_CrossConnectSR.recordId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1627,7 +1632,7 @@
         <inputAssignments>
             <field>AccountId</field>
             <value>
-                <elementReference>Account_CX.selectedChoiceValues</elementReference>
+                <elementReference>Account_CX.recordId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1708,7 +1713,7 @@
         <inputAssignments>
             <field>AccountId</field>
             <value>
-                <elementReference>AccountName_Logistics.selectedChoiceValues</elementReference>
+                <elementReference>AccountName_Logistics.recordId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1872,7 +1877,7 @@
         <inputAssignments>
             <field>AccountId</field>
             <value>
-                <elementReference>Account_AccessRequest.selectedChoiceValues</elementReference>
+                <elementReference>Account_Name_AccessRequest.recordId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2031,7 +2036,7 @@
         <inputAssignments>
             <field>AccountId</field>
             <value>
-                <elementReference>AccountName_RHS.selectedChoiceValues</elementReference>
+                <elementReference>AccountName_RHS.recordId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2044,6 +2049,12 @@
             <field>DX_Billing_Account_Number__c</field>
             <value>
                 <elementReference>Billing_Account_Number_RHS</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DX_Default_Account__c</field>
+            <value>
+                <elementReference>DefaultAccount_RHS.recordId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2171,7 +2182,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>$User.ContactId</elementReference>
+                <stringValue>003VC00000gw8UdYAI</stringValue>
             </value>
         </filters>
         <object>Contact</object>
@@ -2250,14 +2261,39 @@
                 <name>Service_Request_Information_AccessRequest_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>Account_AccessRequest</name>
-                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
-                    <defaultValue>
-                        <elementReference>primaryAccountForContact</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <name>Account_Name_AccessRequest</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>primaryAccountForContact</elementReference>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -2890,13 +2926,44 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>AccountName_AccountingRequest</name>
-                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
-                    <defaultValue>
-                        <elementReference>primaryAccountForContact</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>primaryAccountForContact</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>false</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3184,13 +3251,38 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>AccountName_ContractsRequest</name>
-                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
-                    <defaultValue>
-                        <elementReference>primaryAccountForContact</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>primaryAccountForContact</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3413,13 +3505,38 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Account_Name_CrossConnectSR</name>
-                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
-                    <defaultValue>
-                        <elementReference>primaryAccountForContact</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>primaryAccountForContact</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3434,6 +3551,10 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <validationRule>
+                        <errorMessage>&lt;p&gt;Please accept.&lt;/p&gt;</errorMessage>
+                        <formulaExpression>IF({!I_Accept_CrossConnectSR}=TRUE, TRUE, FALSE)</formulaExpression>
+                    </validationRule>
                 </fields>
                 <fields>
                     <name>I_Accept_Note</name>
@@ -3452,10 +3573,38 @@
                 </fields>
                 <fields>
                     <name>Default_Account_CrossConnectSR</name>
-                    <choiceReferences>RelatedAccountsForContactChoiceSet</choiceReferences>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Default Account</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>DX_Default_Account__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Default Account</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordIds</name>
+                        <value>
+                            <elementReference>Get_Related_AccountIds_for_Contact</elementReference>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3543,15 +3692,15 @@
                         </value>
                     </inputParameters>
                     <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Case</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
                         <name>label</name>
                         <value>
                             <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
                         </value>
                     </inputParameters>
                     <inputParameters>
@@ -3565,11 +3714,33 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <name>Company_Name</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Company Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <name>CompanyName_InitiatorInformation</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>DX_Account_Name_Initiator_Information__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Company Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3579,14 +3750,14 @@
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Disconnect Cross Connect</stringValue>
+                                <stringValue>Change Cross Connect</stringValue>
                             </rightValue>
                         </conditions>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Change Cross Connect</stringValue>
+                                <stringValue>Disconnect Cross Connect</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
@@ -3928,13 +4099,38 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Account_CX</name>
-                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
-                    <defaultValue>
-                        <elementReference>primaryAccountForContact</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>primaryAccountForContact</elementReference>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -4244,13 +4440,38 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>AccountName_Logistics</name>
-                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
-                    <defaultValue>
-                        <elementReference>primaryAccountForContact</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>primaryAccountForContact</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -4262,6 +4483,10 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <validationRule>
+                        <errorMessage>&lt;p&gt;Please accept.&lt;/p&gt;</errorMessage>
+                        <formulaExpression>IF({!I_Accept_Logistics}=TRUE, TRUE, FALSE)</formulaExpression>
+                    </validationRule>
                 </fields>
                 <fields>
                     <name>accept_note_logistics</name>
@@ -4660,13 +4885,38 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>AccountName_RHS</name>
-                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
-                    <defaultValue>
-                        <elementReference>primaryAccountForContact</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>primaryAccountForContact</elementReference>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -4678,6 +4928,10 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <validationRule>
+                        <errorMessage>&lt;p&gt;Please accept.&lt;/p&gt;</errorMessage>
+                        <formulaExpression>IF({!I_Accept_RHS}=TRUE, TRUE, FALSE)</formulaExpression>
+                    </validationRule>
                 </fields>
                 <fields>
                     <name>accept_note_RHS</name>
