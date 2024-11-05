@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "11f0d22b-7ccf-4d17-9261-db7f0ed17566",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "Escalation_Contacts_St_Louis__c",
+  "id" : "e41cae68-34e6-4d2d-82f0-438bb1e3b2b5",
+  "label" : "Escalation Contacts St Louis",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-escalation-contacts-st-louis",
+  "type" : "route",
+  "urlPrefix" : "escalation-contacts/escalation-contacts-st-louis"
+}

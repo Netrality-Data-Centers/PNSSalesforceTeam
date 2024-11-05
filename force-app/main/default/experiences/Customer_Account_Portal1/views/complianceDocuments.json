@@ -1,0 +1,48 @@
+{
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "5498267c-7e59-4441-9310-5931e8ef8acc",
+  "label" : "Compliance Documents",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><br></p><p><a href=\"https://netrality--qa.sandbox.my.salesforce.com/sfc/p/VB000002C18r/a/VB000000ARIH/77FtMQVANBK7MbbCf4xVrbwUMi.MG9i8QQ4xbVnk3GI\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 28px;\"><strong>Information Disclosure Agreement</strong></a></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "ac7a148f-70c3-44bc-ba27-58f2ce449fda",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "80d12eb6-83cc-4069-81b3-325a77624646",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "45b0a6db-dc1c-4f7f-a598-48f0d5607c7c",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "385c605f-98c1-4956-b0c4-54ccc08de693",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Compliance Documents"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f1301328-c57c-4b8e-857f-698e64b4b5ae",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f855259f-a524-45ec-b08d-7de9ab6d450f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "wQIIfSmKyNZEUjGMgO40FREqN9XbSU",
+  "type" : "view",
+  "viewType" : "custom-compliance-documents"
+}
