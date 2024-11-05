@@ -2182,7 +2182,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>003VC00000gw8UdYAI</stringValue>
+                <elementReference>$User.ContactId</elementReference>
             </value>
         </filters>
         <object>Contact</object>
@@ -5236,7 +5236,7 @@
             <targetReference>Assign_Stage_1</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <textTemplates>
         <name>Case_Created_Script_Template</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
