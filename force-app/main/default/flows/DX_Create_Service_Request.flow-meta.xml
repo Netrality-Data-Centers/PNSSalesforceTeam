@@ -1075,9 +1075,59 @@
         <expression>IF( ISPICKVAL({!TempCaseVar.Type}, &apos;Change Cross Connect&apos;) ||  ISPICKVAL({!TempCaseVar.Type}, &apos;Disconnect Cross Connect&apos;), {!CompanyName_InitiatorInformation.recordId}, {!AccountName_InitiatorInformation.recordId})</expression>
     </formulas>
     <formulas>
+        <name>AccountingContact_Formula</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!Accounting_Contact} )</expression>
+    </formulas>
+    <formulas>
+        <name>AdminLevelUser_Formula</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!Admin_Level_User})</expression>
+    </formulas>
+    <formulas>
+        <name>AuthorizeThirdParty_Formula</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!Authorize_3rd_Party_Access})</expression>
+    </formulas>
+    <formulas>
+        <name>EmergencyNotifications_Formula</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!Emergency_Notifications})</expression>
+    </formulas>
+    <formulas>
+        <name>OperationsContact_Formula</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!Operations_Contact})</expression>
+    </formulas>
+    <formulas>
+        <name>OrderChangeCancelCrossConnects_Formula</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!Order_Change_Cancel_Cross_Connects})</expression>
+    </formulas>
+    <formulas>
+        <name>PermanentAccessBadge_Formula</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!Permanent_Access_Badge})</expression>
+    </formulas>
+    <formulas>
+        <name>PhysicalAccess_Formula</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!Physical_Access})</expression>
+    </formulas>
+    <formulas>
+        <name>RequestSupportRH_Formula</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!Request_Support_RH_s})</expression>
+    </formulas>
+    <formulas>
         <name>User_First_Name_Formula</name>
         <dataType>String</dataType>
         <expression>{!$User.FirstName}</expression>
+    </formulas>
+    <formulas>
+        <name>ViewInvoices_Formula</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!View_Invoices})</expression>
     </formulas>
     <interviewLabel>DX Create Service Request {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Create Service Request</label>
@@ -1221,7 +1271,7 @@
         <inputAssignments>
             <field>DX_Accounting_Contact__c</field>
             <value>
-                <elementReference>Accounting_Contact</elementReference>
+                <elementReference>AccountingContact_Formula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1233,13 +1283,13 @@
         <inputAssignments>
             <field>DX_Admin_Level_User__c</field>
             <value>
-                <elementReference>Admin_Level_User</elementReference>
+                <elementReference>AdminLevelUser_Formula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>DX_Authorize_3rd_Party_Access__c</field>
             <value>
-                <elementReference>Authorize_3rd_Party_Access</elementReference>
+                <elementReference>AuthorizeThirdParty_Formula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1251,7 +1301,7 @@
         <inputAssignments>
             <field>DX_Emergency_Notifications__c</field>
             <value>
-                <elementReference>Emergency_Notifications</elementReference>
+                <elementReference>EmergencyNotifications_Formula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1263,19 +1313,19 @@
         <inputAssignments>
             <field>DX_Operations_Contact__c</field>
             <value>
-                <elementReference>Operations_Contact</elementReference>
+                <elementReference>OperationsContact_Formula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>DX_Order_Change_Cancel_Cross_Connects__c</field>
             <value>
-                <elementReference>Order_Change_Cancel_Cross_Connects</elementReference>
+                <elementReference>OrderChangeCancelCrossConnects_Formula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>DX_Permanent_Access_Badge__c</field>
             <value>
-                <elementReference>Permanent_Access_Badge</elementReference>
+                <elementReference>PermanentAccessBadge_Formula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1287,13 +1337,13 @@
         <inputAssignments>
             <field>DX_Physical_Access__c</field>
             <value>
-                <elementReference>Physical_Access</elementReference>
+                <elementReference>PhysicalAccess_Formula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>DX_Request_Support_RHs__c</field>
             <value>
-                <elementReference>Request_Support_RH_s</elementReference>
+                <elementReference>RequestSupportRH_Formula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1305,7 +1355,7 @@
         <inputAssignments>
             <field>DX_View_Invoices__c</field>
             <value>
-                <elementReference>View_Invoices</elementReference>
+                <elementReference>ViewInvoices_Formula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -4807,7 +4857,7 @@
                     <fieldText>Other Location</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -5236,7 +5286,7 @@
             <targetReference>Assign_Stage_1</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <textTemplates>
         <name>Case_Created_Script_Template</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
