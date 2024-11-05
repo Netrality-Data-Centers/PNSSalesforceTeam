@@ -10,9 +10,24 @@
     "type" : "region"
   }, {
     "components" : [ {
-      "componentAttributes" : { },
-      "componentName" : "c:dx_viewBillingID_lwc",
-      "id" : "5ae5a9f0-6aa6-4e98-8ed6-52e566c55da5",
+      "componentAttributes" : {
+        "enableInlineEdit" : false,
+        "filterName" : "All",
+        "layout" : "STANDARD",
+        "pageSize" : 25,
+        "scope" : "MRI_ID__c",
+        "showActionBar" : false,
+        "showChartsPanel" : false,
+        "showDisplay" : "grid",
+        "showFilterPanel" : false,
+        "showImageIcon" : true,
+        "showManualRefreshButton" : true,
+        "showObjectName" : false,
+        "showPinnedList" : false,
+        "showSearchBar" : true
+      },
+      "componentName" : "forceCommunity:objectHome",
+      "id" : "f20bd491-a49f-4cbf-a555-b7ab149b6b2b",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
