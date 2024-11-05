@@ -32,8 +32,8 @@ public class DX_viewCrossConnectsInformation_ctr {
     
     public static List<DC_Cross_Connect__c> getCrossConnectInfo(String AccountId){
         List<DC_Cross_Connect__c> lstCrossConnect = [SELECT Id, 
-                                                            Xconnect_ID__c,
-                                                            Building__c,
+                                                            Name,
+                                                            Building__r.Name,
                                                             Origination_Account__r.Name,
                                                             Destination_Account__r.Name,
                                                             Xconnect_Status__c  
