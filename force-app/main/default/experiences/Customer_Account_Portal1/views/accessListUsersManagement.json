@@ -13,7 +13,7 @@
       "componentAttributes" : {
         "enableInlineEdit" : false,
         "filterName" : "AllContacts",
-        "layout" : "FULL",
+        "layout" : "STANDARD",
         "pageSize" : 25,
         "scope" : "Contact",
         "showActionBar" : false,
@@ -28,13 +28,6 @@
       },
       "componentName" : "forceCommunity:objectHome",
       "id" : "f429f40b-9866-4cac-920f-20ee26d74556",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    }, {
-      "componentAttributes" : { },
-      "componentName" : "c:dx_viewAccessUserManageInfo_lwc",
-      "id" : "1dbcf7df-aa59-406d-b0b1-d408bf141d60",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
