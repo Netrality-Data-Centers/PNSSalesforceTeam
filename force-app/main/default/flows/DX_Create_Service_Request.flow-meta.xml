@@ -2231,7 +2231,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>aContactID</elementReference>
+                <elementReference>$User.ContactId</elementReference>
             </value>
         </filters>
         <object>Contact</object>
