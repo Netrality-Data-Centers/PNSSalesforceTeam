@@ -11,7 +11,7 @@
   }, {
     "components" : [ {
       "componentAttributes" : {
-        "flowArguments" : "",
+        "flowArguments" : "[{\"label\":\"aContactID\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!User.ContactId}\"}]",
         "flowName" : "DX_Create_Service_Request"
       },
       "componentName" : "forceCommunity:flowCommunity",
