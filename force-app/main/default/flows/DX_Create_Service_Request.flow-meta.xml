@@ -368,7 +368,7 @@
                 <leftValueReference>TempCaseVar.Type</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Disconnect</stringValue>
+                    <stringValue>Disconnect Cross Connect</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -1118,6 +1118,11 @@
         <name>RequestSupportRH_Formula</name>
         <dataType>Boolean</dataType>
         <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!Request_Support_RH_s})</expression>
+    </formulas>
+    <formulas>
+        <name>RequiredActionsValue_RHS_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!TempCaseVar.Type}, &apos;Other&apos;), {!Requested_Actions_Not_Required}, {!Requested_Actions_Required_RHS})</expression>
     </formulas>
     <formulas>
         <name>User_First_Name_Formula</name>
@@ -1997,12 +2002,6 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>DX_Link_Netrality_Customer_Handbook__c</field>
-            <value>
-                <elementReference>Link_to_Netrality_Customer_Handbook.value</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>DX_Purpose_of_Visit__c</field>
             <value>
                 <elementReference>Purpose_of_the_Visit</elementReference>
@@ -2152,7 +2151,7 @@
         <inputAssignments>
             <field>DX_Requested_Actions__c</field>
             <value>
-                <elementReference>Requested_Actions_RHS</elementReference>
+                <elementReference>RequiredActionsValue_RHS_Formula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2885,6 +2884,10 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <validationRule>
+                        <errorMessage>&lt;p&gt;Departure Date can&apos;t exceed 14 calendar Days from Arrival Date&lt;/p&gt;</errorMessage>
+                        <formulaExpression>IF({!Departure_Date}&gt;= {!Arrival_Date} + 14, FALSE, TRUE)</formulaExpression>
+                    </validationRule>
                 </fields>
                 <fields>
                     <name>If_more_than_one_guests_add_there_information_here</name>
@@ -2902,30 +2905,19 @@
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Link_to_Netrality_Customer_Handbook</name>
-                    <extensionName>flowruntime:url</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>readonly</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Link to Netrality Customer Handbook</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>value</name>
-                        <value>
-                            <stringValue>https://netrality--qa.sandbox.my.salesforce.com/sfc/p/VB000002C18r/a/VB000000ARGf/YlracIV2P5uW92qTDmvWB5sm6O913s2toklN5o5K9Vc</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <name>LinkToNetralityCustomerHandbook</name>
+                    <fieldText>&lt;p&gt;&lt;a href=&quot;https://netrality--qa.sandbox.my.salesforce.com/sfc/p/VB000002C18r/a/VB000000ARGf/YlracIV2P5uW92qTDmvWB5sm6O913s2toklN5o5K9Vc&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;Link to Netrality Customer Handbook&lt;/a&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>StartsWith</operator>
+                            <rightValue>
+                                <stringValue>Physical</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -3026,44 +3018,6 @@
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
-                    <visibilityRule>
-                        <conditionLogic>or</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>NRC Detail Request</stringValue>
-                            </rightValue>
-                        </conditions>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Billing History Request</stringValue>
-                            </rightValue>
-                        </conditions>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>W9 Request</stringValue>
-                            </rightValue>
-                        </conditions>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Invoice Request</stringValue>
-                            </rightValue>
-                        </conditions>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Billing Inquiry</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Request_Type_AccountingRequest</name>
@@ -3090,7 +3044,7 @@
                     <fieldText>Other Request</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -3704,7 +3658,7 @@
                     <fieldType>DropdownBox</fieldType>
                     <helpText>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;Urgent - Target Response to Ticket - 30 Minutes/ Technician to Begin work - 1 Hour&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;High - Target Response to Ticket - 1 Hour/ Technician to Begin work - 2 Hours&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;Normal - Target Response to Ticket - 2 Hours/ Technician to Begin work - 24 Hours&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>Tell_us_how_we_can_help_you_CrossConnect</name>
@@ -3762,6 +3716,16 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>New Cross Connect</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>CompanyName_InitiatorInformation</name>
@@ -3884,6 +3848,10 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <validationRule>
+                        <errorMessage>&lt;p&gt;Please accept.&lt;/p&gt;</errorMessage>
+                        <formulaExpression>IF({!LOA_Attached}=TRUE, TRUE, FALSE)</formulaExpression>
+                    </validationRule>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -4721,12 +4689,19 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
+                        <conditionLogic>or</conditionLogic>
                         <conditions>
                             <leftValueReference>Shipping_Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <stringValue>Pallet/Freight</stringValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>Shipping_Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Cabinet</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
@@ -5053,6 +5028,47 @@
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
+                    <name>Requested_Actions_Required_RHS</name>
+                    <fieldText>Requested Actions Required</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>or</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Equipment Troubleshooting</stringValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Equipment Installation</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Requested_Actions_Not_Required</name>
+                    <fieldText>Requested Actions Not Required</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Other</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
                     <name>Requested_Actions_RHS</name>
                     <fieldText>Requested Actions</fieldText>
                     <fieldType>LargeTextArea</fieldType>
@@ -5286,7 +5302,7 @@
             <targetReference>Assign_Stage_1</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <textTemplates>
         <name>Case_Created_Script_Template</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
