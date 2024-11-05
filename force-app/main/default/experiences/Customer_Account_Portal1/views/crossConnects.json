@@ -1,0 +1,46 @@
+{
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "0eae32ff-7396-4703-8dbf-b6cfada111da",
+  "label" : "Cross Connects",
+  "regions" : [ {
+    "id" : "ca9390cd-b913-4c0e-b650-1053d70bfa88",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:dx_viewCrossConnectsInfo_lwc",
+      "id" : "b893bafa-d324-40c1-ad72-6599d10ba70d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "01fc1e8a-fc34-467c-a342-6f6ef04a7142",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "fe4a3029-c043-468c-a5dc-a87ec8cf4546",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Cross Connects"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "6b92b357-37a6-456b-a362-2012bcba5508",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4b129088-cf78-403a-811a-f7abba86b2cf",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "8vCapAgmpGeWkUb5M40f7hNDwCrfzG",
+  "type" : "view",
+  "viewType" : "custom-cross-connects"
+}
