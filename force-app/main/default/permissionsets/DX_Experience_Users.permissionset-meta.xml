@@ -1720,7 +1720,7 @@
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>MRI_ID__c</object>
@@ -1760,6 +1760,10 @@
     </tabSettings>
     <tabSettings>
         <tab>DX_Access_Managment__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>MRI_ID__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
