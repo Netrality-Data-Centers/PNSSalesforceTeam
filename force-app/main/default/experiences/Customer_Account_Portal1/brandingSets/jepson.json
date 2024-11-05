@@ -7,7 +7,7 @@
     "ActionColor" : "rgb(19, 0, 111)",
     "BorderColor" : "rgb(151, 151, 151)",
     "CardBackgroundColor" : "rgba(255, 255, 255, 0)",
-    "CompanyLogo" : "/file-asset/Blue_and_White_Logo?v=1&height=300&width=300",
+    "CompanyLogo" : "/file-asset/Blue_and_White_Logo?v=1&amp;height=300&amp;width=300",
     "DetailTextColor" : "rgb(19, 0, 111)",
     "ErrorFontColor" : "#ff9e9e",
     "HeaderFonts" : "Montserrat",
