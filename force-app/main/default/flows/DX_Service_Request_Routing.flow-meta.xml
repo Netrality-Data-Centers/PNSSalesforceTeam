@@ -143,7 +143,9 @@
             <assignToReference>Site</assignToReference>
             <operator>Assign</operator>
             <value>
+
                 <elementReference>SITE_PHILADELPHIA</elementReference>
+
             </value>
         </assignmentItems>
         <connector>

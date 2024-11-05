@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "969425c5-55fa-4131-9f68-0eea22f90369",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "Escalation_Contacts_Kansas_City__c",
+  "id" : "362ff046-099e-41a6-ba46-a2c2c6f155e3",
+  "label" : "Escalation Contacts Kansas City",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-escalation-contacts-kansas-city",
+  "type" : "route",
+  "urlPrefix" : "escalation-contacts/escalation-contacts-kansas-city"
+}

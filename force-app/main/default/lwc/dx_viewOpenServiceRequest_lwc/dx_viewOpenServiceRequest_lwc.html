@@ -1,0 +1,46 @@
+<!--
+  @Description       : 
+  @Author            : cristianivan.ruiz@salesforce.com
+  @Code Coverage     : 
+  @last modified on  : 10-31-2024
+  @last modified by  : cristianivan.ruiz@salesforce.com
+-->
+<template>
+    <div style="height: 300px;">
+        <lightning-datatable
+                key-field="id"
+                data={dataInfo}
+                columns={columns}
+                hide-checkbox-column
+                onrowaction={handleRowAction}>
+        </lightning-datatable>
+        <template lwc:if={isEmpty}>
+            <div class="slds-align_absolute-center">No data to display</div>
+        </template>
+        <template lwc:if={error}>
+            <div class="slds-align_absolute-center">Error</div>
+        </template>
+    </div>
+    <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Header -->
+                <div class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 class="slds-text-heading_medium">Edit Service Request</h2>
+                </div>
+                <!-- Modal/Popup Body -->
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-flow
+                        flow-api-name='DX_Edit_Service_Request'
+                        flow-input-variables={inputVariables}
+                        onstatuschange={handleFlowStatusChange}>
+                    </lightning-flow>
+                </div>
+            </div>
+        </section>
+    </template>
+</template>
