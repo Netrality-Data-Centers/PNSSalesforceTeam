@@ -13,7 +13,7 @@
       "componentAttributes" : {
         "enableInlineEdit" : false,
         "filterName" : "{!filterId}",
-        "layout" : "FULL",
+        "layout" : "STANDARD",
         "pageSize" : 25,
         "scope" : "{!objectName}",
         "showActionBar" : false,
@@ -23,7 +23,7 @@
         "showImageIcon" : true,
         "showManualRefreshButton" : true,
         "showObjectName" : true,
-        "showPinnedList" : true,
+        "showPinnedList" : false,
         "showSearchBar" : true
       },
       "componentName" : "forceCommunity:objectHome",
