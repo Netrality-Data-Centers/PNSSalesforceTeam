@@ -1212,6 +1212,11 @@
         <dataType>Boolean</dataType>
         <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!View_Invoices})</expression>
     </formulas>
+    <formulas>
+        <name>When_would_you_like_the_meeting_CX_Formula</name>
+        <dataType>Date</dataType>
+        <expression>IF(ISPICKVAL({!TempCaseVar.Type}, &apos;Strategic Business Review&apos;), {!When_would_you_like_the_meeting_Required}, {!When_would_you_like_the_meeting_Not_Required})</expression>
+    </formulas>
     <interviewLabel>DX Create Service Request {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Create Service Request</label>
     <processMetadataValues>
@@ -1837,7 +1842,7 @@
         <inputAssignments>
             <field>DX_When_would_you_like_the_meeting__c</field>
             <value>
-                <elementReference>When_would_you_like_the_meeting</elementReference>
+                <elementReference>When_would_you_like_the_meeting_CX_Formula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -4402,14 +4407,14 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>When_would_you_like_the_meeting</name>
+                    <name>When_would_you_like_the_meeting_Required</name>
                     <dataType>Date</dataType>
                     <fieldText>When would you like the meeting?</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <visibilityRule>
-                        <conditionLogic>or</conditionLogic>
+                        <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>StartsWith</operator>
@@ -4417,6 +4422,17 @@
                                 <stringValue>Strategic</stringValue>
                             </rightValue>
                         </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>When_would_you_like_the_meeting_Not_Required</name>
+                    <dataType>Date</dataType>
+                    <fieldText>When would you like the meeting?</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>StartsWith</operator>
@@ -4502,14 +4518,14 @@
                     <fieldText>Time Period Covered</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
+                            <operator>StartsWith</operator>
                             <rightValue>
-                                <stringValue>Strategic Business Review Request</stringValue>
+                                <stringValue>Strategic</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
