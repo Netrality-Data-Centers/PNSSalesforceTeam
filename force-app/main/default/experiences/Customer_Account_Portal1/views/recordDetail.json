@@ -21,15 +21,15 @@
     }, {
       "componentAttributes" : {
         "detailsTabLabel" : "Details",
-        "discussionsTabLabel" : "Feed",
+        "discussionsTabLabel" : "",
         "recordId" : "{!recordId}",
         "relatedTabLabel" : "Related",
         "showLegacyActivityComposer" : false,
         "tab1Type" : "details",
         "tab2Type" : "related",
-        "tab3Type" : "chatter",
+        "tab3Type" : "none",
         "tab4Type" : "none",
-        "timelineTabLabel" : "Activity"
+        "timelineTabLabel" : ""
       },
       "componentName" : "forceCommunity:recordHomeTabs",
       "id" : "25af8ec3-4a7a-4fac-8eea-9fb3cc614b1c",
