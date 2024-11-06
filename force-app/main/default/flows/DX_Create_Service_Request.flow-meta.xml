@@ -3008,6 +3008,16 @@
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Additional_Guests</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>I_have_read_and_agree_to_the_facility_rules_and_regulations_as_stated_in_the_Net</name>
@@ -3171,6 +3181,13 @@
                                 <stringValue>Update Customer Information</stringValue>
                             </rightValue>
                         </conditions>
+                        <conditions>
+                            <leftValueReference>Request_Type_AccountingRequest</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Other</stringValue>
+                            </rightValue>
+                        </conditions>
                     </visibilityRule>
                 </fields>
                 <fields>
@@ -3300,6 +3317,13 @@
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <stringValue>NRC Detail Request</stringValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>NRC_Billing_for_AccountingRequest</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Other</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
