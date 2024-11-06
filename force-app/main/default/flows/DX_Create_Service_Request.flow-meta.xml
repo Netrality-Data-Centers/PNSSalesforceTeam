@@ -46,8 +46,8 @@
         <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
-        <name>redirect_to_open_service_requests</name>
-        <label>redirect to open service requests</label>
+        <name>redirect_to_view_SR_Details</name>
+        <label>redirect to view SR Details</label>
         <locationX>2294</locationX>
         <locationY>2270</locationY>
         <actionName>c:fsc_openUrl</actionName>
@@ -62,7 +62,7 @@
         <inputParameters>
             <name>url</name>
             <value>
-                <stringValue>/s/open-service-requests</stringValue>
+                <stringValue>/s/details-service-request?recordIdToFlow={!case.Id}</stringValue>
             </value>
         </inputParameters>
         <nameSegment>c:fsc_openUrl</nameSegment>
@@ -2251,7 +2251,7 @@
         <locationY>2162</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>redirect_to_open_service_requests</targetReference>
+            <targetReference>redirect_to_view_SR_Details</targetReference>
         </connector>
         <faultConnector>
             <isGoTo>true</isGoTo>
@@ -2267,8 +2267,8 @@
         </filters>
         <object>Case</object>
         <outputAssignments>
-            <assignToReference>case.CaseNumber</assignToReference>
-            <field>CaseNumber</field>
+            <assignToReference>case.Id</assignToReference>
+            <field>Id</field>
         </outputAssignments>
     </recordLookups>
     <recordLookups>
