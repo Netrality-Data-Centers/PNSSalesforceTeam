@@ -473,7 +473,7 @@
                 <leftValueReference>TempCaseVar.Type</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Equipment Install</stringValue>
+                    <stringValue>Equipment Installation</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
