@@ -18,7 +18,7 @@
         "scope" : "Contact",
         "showActionBar" : false,
         "showChartsPanel" : false,
-        "showDisplay" : "showall",
+        "showDisplay" : "grid",
         "showFilterPanel" : false,
         "showImageIcon" : true,
         "showManualRefreshButton" : true,
@@ -44,7 +44,7 @@
       "componentAttributes" : {
         "customHeadTags" : "",
         "description" : "",
-        "title" : "Access List Users Management"
+        "title" : "Contacts / Access List "
       },
       "componentName" : "forceCommunity:seoAssistant",
       "id" : "cb7a040b-5335-4cad-9eec-97ac0680d545",
