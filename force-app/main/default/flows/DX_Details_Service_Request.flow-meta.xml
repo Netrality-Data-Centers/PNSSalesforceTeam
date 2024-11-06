@@ -46,7 +46,7 @@
         <name>Redirect_to_Open_Cases_Page</name>
         <label>Redirect to Open Cases Page</label>
         <locationX>1238</locationX>
-        <locationY>2030</locationY>
+        <locationY>1490</locationY>
         <actionName>c:fsc_openUrl</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -59,7 +59,7 @@
         <inputParameters>
             <name>url</name>
             <value>
-                <stringValue>/s/details-service-request?recordIdToFlow={!TempCaseVar.Id}</stringValue>
+                <stringValue>/s/open-service-requests</stringValue>
             </value>
         </inputParameters>
         <nameSegment>c:fsc_openUrl</nameSegment>
@@ -88,159 +88,6 @@
         </assignmentItems>
         <connector>
             <targetReference>Get_Service_Request</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Assign_Stage_2</name>
-        <label>Assign Stage 2</label>
-        <locationX>1238</locationX>
-        <locationY>1706</locationY>
-        <assignmentItems>
-            <assignToReference>$Flow.CurrentStage</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Contact_Details_Stage</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Set_Contact_on_SR</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Set_Access_Request_Values</name>
-        <label>Set Access Request Values</label>
-        <locationX>50</locationX>
-        <locationY>1406</locationY>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Site__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Site_AccessRequest</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Add_Remove__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Add_Remove</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Access_For__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Access_for</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Who_is_the_Access_for__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Who_is_the_Access_for</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_After_Hours__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>After_Hours</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Full_Name__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Full_Name</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Arrival_Date__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Arrival_Date</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Purpose_of_Visit__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Purpose_of_the_Visit</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Guest_Name__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Guest_Name</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Guest_Email__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Guest_Email.value</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Guest_Phone__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Guest_Phone.value</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Email__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Email.value</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Third_Party_Name__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Third_Party_Name</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Third_Party_Company__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Third_Party_Company</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Departure_Date__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Departure_Date</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Requestor__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Requestor.selectedChoiceValues</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Contact_Lookup</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Set_Contact_on_SR</name>
-        <label>Set Contact on SR</label>
-        <locationX>1238</locationX>
-        <locationY>1814</locationY>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.ContactId</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>curContact.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Update_Service_Request</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -1754,8 +1601,8 @@
         <dataType>String</dataType>
         <expression>{!$User.FirstName}</expression>
     </formulas>
-    <interviewLabel>DX Edit Service Request {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>DX Edit Service Request</label>
+    <interviewLabel>DX Details Service Request {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>DX Details Service Request</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -1769,36 +1616,6 @@
         </value>
     </processMetadataValues>
     <processType>Flow</processType>
-    <recordLookups>
-        <name>Contact_Lookup</name>
-        <label>Contact Lookup</label>
-        <locationX>1238</locationX>
-        <locationY>1598</locationY>
-        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Assign_Stage_2</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>FirstName</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$User.FirstName</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>LastName</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$User.LastName</elementReference>
-            </value>
-        </filters>
-        <object>Contact</object>
-        <outputAssignments>
-            <assignToReference>curContact.Id</assignToReference>
-            <field>Id</field>
-        </outputAssignments>
-    </recordLookups>
     <recordLookups>
         <name>Get_Record_Type_Info</name>
         <label>Get Record Type Info</label>
@@ -1862,16 +1679,6 @@
         <object>Account</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <recordUpdates>
-        <name>Update_Service_Request</name>
-        <label>Update Service Request</label>
-        <locationX>1238</locationX>
-        <locationY>1922</locationY>
-        <connector>
-            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
-        </connector>
-        <inputReference>TempCaseVar</inputReference>
-    </recordUpdates>
     <screens>
         <name>Access_Request_Info</name>
         <label>Access Request Info</label>
@@ -1881,7 +1688,7 @@
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Set_Access_Request_Values</targetReference>
+            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
         </connector>
         <fields>
             <name>AccessRequestTitle</name>
@@ -1910,6 +1717,12 @@
                             <elementReference>Get_Service_Request.Account.Name</elementReference>
                         </value>
                     </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -1926,10 +1739,21 @@
                 <name>Service_Request_Information_AccessRequest_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>TypeAccessRequest</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.Type</elementReference>
+                    </defaultValue>
+                    <fieldText>Type</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.Type</objectFieldReference>
                 </fields>
                 <fields>
                     <name>Site_AccessRequest</name>
@@ -1941,6 +1765,9 @@
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -1970,6 +1797,9 @@
                     <fieldText>Add/Remove</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -1981,6 +1811,12 @@
                     <fieldText>Full Name</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -2010,15 +1846,41 @@
                             <elementReference>TempCaseVar.DX_Email__c</elementReference>
                         </value>
                     </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Phone</name>
+                    <extensionName>flowruntime:phone</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>value</name>
+                        <value>
+                            <elementReference>TempCaseVar.DX_Phone__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>readonly</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Phone__c</objectFieldReference>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -2048,34 +1910,74 @@
                 <name>Access_Request_Info_Section3_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Accounting_Contact</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Accounting_Contact__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Accounting Contact</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Accounting_Contact__c</objectFieldReference>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Physical_Access</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Physical_Access__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Physical Access</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Physical_Access__c</objectFieldReference>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Order_Change_Cancel_Cross_Connects</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Order_Change_Cancel_Cross_Connects__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Order / Change / Cancel Cross Connects</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Order_Change_Cancel_Cross_Connects__c</objectFieldReference>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Operations_Contact</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Operations_Contact__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Operations Contact</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Operations_Contact__c</objectFieldReference>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>View_Invoices</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_View_Invoices__c</elementReference>
+                    </defaultValue>
+                    <fieldText>View Invoices</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_View_Invoices__c</objectFieldReference>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -2089,34 +1991,74 @@
                 <name>Access_Request_Info_Section3_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Emergency_Notifications</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Emergency_Notifications__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Emergency Notifications</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Emergency_Notifications__c</objectFieldReference>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Request_Support_RH_s</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Request_Support_RHs__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Request Support (RH&apos;s)</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Request_Support_RHs__c</objectFieldReference>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Authorize_3rd_Party_Access</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Authorize_3rd_Party_Access__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Authorize 3rd Party Access</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Authorize_3rd_Party_Access__c</objectFieldReference>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Permanent_Access_Badge</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Permanent_Access_Badge__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Permanent Access Badge</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Permanent_Access_Badge__c</objectFieldReference>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Admin_Level_User</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Admin_Level_User__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Admin Level User</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Admin_Level_User__c</objectFieldReference>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -2155,13 +2097,26 @@
                     <fieldText>Access for?</fieldText>
                     <fieldType>MultiSelectPicklist</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <name>Assets</name>
+                    <defaultValue>
+                        <stringValue>{!TempCaseVar.DX_Assets__c}</stringValue>
+                    </defaultValue>
+                    <fieldText>Assets</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Assets__c</objectFieldReference>
                 </fields>
                 <fields>
                     <name>Requestor</name>
@@ -2172,6 +2127,12 @@
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Requestor</fieldText>
                     <fieldType>ComponentChoice</fieldType>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -2195,6 +2156,12 @@
                     <fieldText>Arrival Date</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2217,6 +2184,9 @@
                     <fieldText>After Hours</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2238,6 +2208,12 @@
                     <fieldText>Purpose of the Visit</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2251,10 +2227,18 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Additional_Guests</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Additional_Guests__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Additional Guests</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Additional_Guests__c</objectFieldReference>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -2275,11 +2259,17 @@
                     <fieldText>Guest Name</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
-                            <leftValueReference>TempCaseVar.DX_Additional_Guests__c</leftValueReference>
+                            <leftValueReference>Additional_Guests</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <booleanValue>true</booleanValue>
@@ -2309,13 +2299,25 @@
                             <elementReference>TempCaseVar.DX_Guest_Email__c</elementReference>
                         </value>
                     </inputParameters>
+                    <inputParameters>
+                        <name>readonly</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
-                            <leftValueReference>TempCaseVar.DX_Additional_Guests__c</leftValueReference>
+                            <leftValueReference>Additional_Guests</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <booleanValue>true</booleanValue>
@@ -2345,13 +2347,25 @@
                             <elementReference>TempCaseVar.DX_Guest_Phone__c</elementReference>
                         </value>
                     </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>readonly</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
-                            <leftValueReference>TempCaseVar.DX_Additional_Guests__c</leftValueReference>
+                            <leftValueReference>Additional_Guests</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <booleanValue>true</booleanValue>
@@ -2380,6 +2394,9 @@
                     <fieldText>Who is the Access for?</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2391,6 +2408,12 @@
                     <fieldText>Third Party Name</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2404,15 +2427,41 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Third_Party_Phone</name>
+                    <extensionName>flowruntime:phone</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Third Party Phone</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>value</name>
+                        <value>
+                            <elementReference>TempCaseVar.DX_Third_Party_Phone__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>readonly</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Third_Party_Phone__c</objectFieldReference>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>Who_is_the_Access_for</leftValueReference>
-                            <operator>EqualTo</operator>
+                            <operator>StartsWith</operator>
                             <rightValue>
                                 <stringValue>Third</stringValue>
                             </rightValue>
@@ -2420,15 +2469,47 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Third_Party_Email</name>
+                    <extensionName>flowruntime:email</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Third Party Email</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>value</name>
+                        <value>
+                            <elementReference>TempCaseVar.DX_Third_Party_Email__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>false</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>readonly</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Third_Party_Email__c</objectFieldReference>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>Who_is_the_Access_for</leftValueReference>
-                            <operator>EqualTo</operator>
+                            <operator>StartsWith</operator>
                             <rightValue>
                                 <stringValue>Third</stringValue>
                             </rightValue>
@@ -2444,6 +2525,12 @@
                     <fieldText>Third Party Company</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2465,19 +2552,43 @@
                     <fieldText>Departure Date</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>If_more_than_one_guests_add_there_information_here</name>
+                    <defaultValue>
+                        <stringValue>{!TempCaseVar.DX_Added_Guest_Info__c}</stringValue>
+                    </defaultValue>
+                    <fieldText>If more than one guests add there information here</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Added_Guest_Info__c</objectFieldReference>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>I_have_read_and_agree_to_the_facility_rules_and_regulations_as_stated_in_the_Net</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_I_Agree_Rules_Regulations__c</elementReference>
+                    </defaultValue>
+                    <fieldText>I have read and agree to the facility rules and regulations as stated in the Netrality Customer Handbook</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_I_Agree_Rules_Regulations__c</objectFieldReference>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>Link_to_Netrality_Customer_Handbook</name>
@@ -2488,6 +2599,12 @@
                     <fieldText>Link to Netrality Customer Handbook</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2521,7 +2638,7 @@
                 </conditions>
             </visibilityRule>
         </fields>
-        <nextOrFinishButtonLabel>Update</nextOrFinishButtonLabel>
+        <nextOrFinishButtonLabel>Back</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
@@ -2534,7 +2651,7 @@
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
         </connector>
         <fields>
             <name>AccountingRequestTitle</name>
@@ -2563,6 +2680,12 @@
                             <elementReference>TempCaseVar.Account.Name</elementReference>
                         </value>
                     </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -2577,6 +2700,12 @@
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2589,6 +2718,9 @@
                     <fieldText>Request Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2610,6 +2742,12 @@
                     <fieldText>Other Request</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2631,6 +2769,12 @@
                     <fieldText>Case Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2652,6 +2796,12 @@
                     <fieldText>Invoice #</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -2690,10 +2840,21 @@
                 <name>Service_Request_Information_AccountingRequest_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>TypeAccountingRequest</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.Type</elementReference>
+                    </defaultValue>
+                    <fieldText>Type</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.Type</objectFieldReference>
                 </fields>
                 <fields>
                     <name>Site_AccountingRequest</name>
@@ -2705,6 +2866,9 @@
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2715,6 +2879,12 @@
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2727,6 +2897,9 @@
                     <fieldText>NRC Billing for</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2748,6 +2921,12 @@
                     <fieldText>Other NRC Billing for</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2770,6 +2949,9 @@
                     <fieldText>Date Range</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -2793,7 +2975,7 @@
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithHeader</regionContainerType>
         </fields>
-        <nextOrFinishButtonLabel>Update</nextOrFinishButtonLabel>
+        <nextOrFinishButtonLabel>Back</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
@@ -2806,7 +2988,7 @@
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
         </connector>
         <fields>
             <name>ContractsRequestTitle</name>
@@ -2835,6 +3017,12 @@
                             <elementReference>TempCaseVar.Account.Name</elementReference>
                         </value>
                     </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -2849,6 +3037,9 @@
                     <fieldText>Request Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2870,6 +3061,12 @@
                     <fieldText>Service Order Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2892,6 +3089,9 @@
                     <fieldText>Term</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2916,18 +3116,35 @@
                 <name>Service_Request_Information_ContractRequest_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>TypeContractsRequest</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.Type</elementReference>
+                    </defaultValue>
+                    <fieldText>Type</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.Type</objectFieldReference>
                 </fields>
                 <fields>
                     <name>Site_ContractsRequest</name>
                     <choiceReferences>SiteChoiceSet</choiceReferences>
                     <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Site__c</elementReference>
+                    </defaultValue>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2948,6 +3165,12 @@
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -2959,6 +3182,12 @@
                     <fieldText>New Name</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2981,6 +3210,9 @@
                     <fieldText>Document Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3002,6 +3234,12 @@
                     <fieldText>Other Document Type</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -3030,6 +3268,12 @@
                     <fieldText>Document Name</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3053,7 +3297,7 @@
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithHeader</regionContainerType>
         </fields>
-        <nextOrFinishButtonLabel>Update</nextOrFinishButtonLabel>
+        <nextOrFinishButtonLabel>Back</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
@@ -3066,7 +3310,7 @@
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
         </connector>
         <fields>
             <name>CrossConnectRequestTitle</name>
@@ -3106,10 +3350,18 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>I_Accept_CrossConnectSR</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>Get_Service_Request.DX_I_Accept__c</elementReference>
+                    </defaultValue>
+                    <fieldText>I Accept</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_I_Accept__c</objectFieldReference>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>I_Accept_Note</name>
@@ -3118,7 +3370,7 @@
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
-                            <leftValueReference>TempCaseVar.DX_I_Accept__c</leftValueReference>
+                            <leftValueReference>I_Accept_CrossConnectSR</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <booleanValue>true</booleanValue>
@@ -3141,6 +3393,12 @@
                             <elementReference>TempCaseVar.DX_Default_Account__r.Name</elementReference>
                         </value>
                     </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3155,6 +3413,12 @@
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                 </fields>
                 <inputParameters>
@@ -3169,10 +3433,21 @@
                 <name>Service_Request_Information_CrossConnect_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>TypeCrossConnectRequest</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.Type</elementReference>
+                    </defaultValue>
+                    <fieldText>Type</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.Type</objectFieldReference>
                 </fields>
                 <fields>
                     <name>Site_CrossConnectSR</name>
@@ -3184,6 +3459,9 @@
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3197,6 +3475,9 @@
                     <fieldType>DropdownBox</fieldType>
                     <helpText>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;Urgent - Target Response to Ticket - 30 Minutes/ Technician to Begin work - 1 Hour&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;High - Target Response to Ticket - 1 Hour/ Technician to Begin work - 2 Hours&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;Normal - Target Response to Ticket - 2 Hours/ Technician to Begin work - 24 Hours&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3207,6 +3488,12 @@
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                 </fields>
                 <inputParameters>
@@ -3242,6 +3529,12 @@
                             <elementReference>TempCaseVar.DX_Account_Name_Order_Initiator__r.Name</elementReference>
                         </value>
                     </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3269,6 +3562,12 @@
                         <name>placeholder</name>
                         <value>
                             <elementReference>TempCaseVar.DX_Account_Name_Initiator_Information__r.Name</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -3330,6 +3629,12 @@
                     <fieldText>Order Date</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3341,6 +3646,12 @@
                     <fieldText>Requested Due</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -3363,14 +3674,28 @@
                     <fieldText>Contract Term</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                     <scale>0</scale>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>LOA_Attached</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_LOA_Attached__c</elementReference>
+                    </defaultValue>
+                    <fieldText>LOA Attached</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_LOA_Attached__c</objectFieldReference>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -3405,6 +3730,12 @@
                             <elementReference>TempCaseVar.DX_Account_Name_Order_Initiator__c</elementReference>
                         </value>
                     </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3417,6 +3748,12 @@
                     <fieldText>Ports</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -3428,6 +3765,12 @@
                     <fieldText>Tech Contact Name</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3439,6 +3782,12 @@
                     <fieldText>Cross Connect ID</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -3478,6 +3827,12 @@
                     <fieldText>Rack RU (MMR panel location)</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3490,6 +3845,9 @@
                     <fieldText>Connector Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3512,6 +3870,18 @@
                         <name>value</name>
                         <value>
                             <elementReference>TempCaseVar.DX_Tech_Contact_Tel__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>readonly</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -3545,6 +3915,12 @@
                     <fieldText>Account Name</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -3556,6 +3932,12 @@
                     <fieldText>Rack RU (MMR panel location)</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3568,6 +3950,9 @@
                     <fieldText>Connector Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3579,6 +3964,12 @@
                     <fieldText>Tech Contact Tel#</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -3602,6 +3993,9 @@
                     <fieldText>Site Location</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3613,6 +4007,12 @@
                     <fieldText>Ports</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -3624,6 +4024,12 @@
                     <fieldText>Tech Contact Name</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -3637,7 +4043,7 @@
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithHeader</regionContainerType>
         </fields>
-        <nextOrFinishButtonLabel>Update</nextOrFinishButtonLabel>
+        <nextOrFinishButtonLabel>Back</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
@@ -3650,7 +4056,7 @@
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
         </connector>
         <fields>
             <name>CustomerExperienceRequestTitle</name>
@@ -3699,6 +4105,12 @@
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -3748,6 +4160,12 @@
                     <fieldText>Service Order Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -3758,6 +4176,12 @@
                     <fieldText>Services to disconnect?</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3769,6 +4193,18 @@
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Related Ticket</fieldText>
                     <fieldType>ComponentChoice</fieldType>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3800,6 +4236,9 @@
                     <fieldText>Type of Inventory</fieldText>
                     <fieldType>MultiSelectPicklist</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3821,6 +4260,12 @@
                     <fieldText>When would you like the meeting?</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -3852,10 +4297,21 @@
                 <name>Service_Request_Information_CX_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>TypeCustomerExperienceRequest</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.Type</elementReference>
+                    </defaultValue>
+                    <fieldText>Type</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.Type</objectFieldReference>
                 </fields>
                 <fields>
                     <name>Site_CX</name>
@@ -3867,6 +4323,9 @@
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3877,6 +4336,12 @@
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -3888,6 +4353,12 @@
                     <fieldText>Date of Disconnect</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3900,6 +4371,9 @@
                     <fieldText>Disconnect Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3911,6 +4385,12 @@
                     <fieldText>Related Service Order</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3932,6 +4412,12 @@
                     <fieldText>Time of Issue</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3954,6 +4440,9 @@
                     <fieldText>Time Period Covered</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3977,7 +4466,7 @@
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithHeader</regionContainerType>
         </fields>
-        <nextOrFinishButtonLabel>Update</nextOrFinishButtonLabel>
+        <nextOrFinishButtonLabel>Back</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
@@ -3990,7 +4479,7 @@
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
         </connector>
         <fields>
             <name>LogisticsRequestTitle</name>
@@ -4030,10 +4519,18 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>I_Accept_Logistics</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_I_Accept__c</elementReference>
+                    </defaultValue>
+                    <fieldText>I Accept</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_I_Accept__c</objectFieldReference>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>accept_note_logistics</name>
@@ -4042,7 +4539,7 @@
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
-                            <leftValueReference>TempCaseVar.DX_I_Accept__c</leftValueReference>
+                            <leftValueReference>I_Accept_Logistics</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <booleanValue>true</booleanValue>
@@ -4065,6 +4562,12 @@
                             <elementReference>TempCaseVar.DX_Default_Account__r.Name</elementReference>
                         </value>
                     </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -4079,6 +4582,12 @@
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -4091,6 +4600,9 @@
                     <fieldText>Delivery Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4103,6 +4615,9 @@
                     <fieldText>Shipping Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4114,6 +4629,12 @@
                     <fieldText>Quantity</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                     <scale>0</scale>
                 </fields>
@@ -4126,6 +4647,12 @@
                     <fieldText>Other Courier</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4147,6 +4674,12 @@
                     <fieldText>Tracking Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                 </fields>
                 <inputParameters>
@@ -4161,10 +4694,21 @@
                 <name>Service_Request_Information_Logistics_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>TypeLogistics</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.Type</elementReference>
+                    </defaultValue>
+                    <fieldText>Type</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.Type</objectFieldReference>
                 </fields>
                 <fields>
                     <name>Site_Logistics</name>
@@ -4176,6 +4720,9 @@
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4188,6 +4735,9 @@
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4198,6 +4748,12 @@
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4209,6 +4765,12 @@
                     <fieldText>Date</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4231,6 +4793,9 @@
                     <fieldText>Customer to Provide Liftgate</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -4260,6 +4825,9 @@
                     <fieldText>Courier</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4271,6 +4839,12 @@
                     <fieldText>Amazon Code</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4293,6 +4867,9 @@
                     <fieldText>Expected Storage Duration</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4332,6 +4909,9 @@
                     <fieldText>Current Location Onsite</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4344,6 +4924,9 @@
                     <fieldText>Duration of time in Storage</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4364,6 +4947,12 @@
                     <fieldText>Packaging notes</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4396,6 +4985,12 @@
                     <fieldText>Other Location</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4418,6 +5013,9 @@
                     <fieldText>Does this shipment require packaging prior to pick-up?</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4429,6 +5027,12 @@
                     <fieldText>Pickup Time</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                 </fields>
                 <inputParameters>
@@ -4452,7 +5056,7 @@
                 </conditions>
             </visibilityRule>
         </fields>
-        <nextOrFinishButtonLabel>Update</nextOrFinishButtonLabel>
+        <nextOrFinishButtonLabel>Back</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
@@ -4465,7 +5069,7 @@
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
         </connector>
         <fields>
             <name>RemoteHandsSupportRequestTitle</name>
@@ -4505,10 +5109,18 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>I_Accept_RHS</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_I_Accept__c</elementReference>
+                    </defaultValue>
+                    <fieldText>I Accept</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_I_Accept__c</objectFieldReference>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>accept_note_RHS</name>
@@ -4517,7 +5129,7 @@
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
-                            <leftValueReference>TempCaseVar.DX_I_Accept__c</leftValueReference>
+                            <leftValueReference>I_Accept_Logistics</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <booleanValue>true</booleanValue>
@@ -4540,6 +5152,12 @@
                             <elementReference>TempCaseVar.DX_Default_Account__r.Name</elementReference>
                         </value>
                     </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -4554,6 +5172,12 @@
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -4564,6 +5188,12 @@
                     <fieldText>Related Assets</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -4574,6 +5204,12 @@
                     <fieldText>Requested Actions Required</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -4601,6 +5237,12 @@
                     <fieldText>Requested Actions</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4629,6 +5271,12 @@
                     <fieldText>Equipment Installation ID</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -4660,18 +5308,35 @@
                 <name>Service_Request_Information_RHS_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>TypeRemoteHandsSupport</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.Type</elementReference>
+                    </defaultValue>
+                    <fieldText>Type</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.Type</objectFieldReference>
                 </fields>
                 <fields>
                     <name>Site_RHS</name>
                     <choiceReferences>SiteChoiceSet</choiceReferences>
                     <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Site__c</elementReference>
+                    </defaultValue>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4681,6 +5346,9 @@
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4691,6 +5359,12 @@
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4702,6 +5376,12 @@
                     <fieldText>Rack/Cage Location</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4730,6 +5410,12 @@
                     <fieldText>Equipment ID</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -4758,6 +5444,12 @@
                     <fieldText>Relevant Package SR Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -4788,7 +5480,7 @@
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithHeader</regionContainerType>
         </fields>
-        <nextOrFinishButtonLabel>Update</nextOrFinishButtonLabel>
+        <nextOrFinishButtonLabel>Back</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
@@ -4801,7 +5493,7 @@
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
         </connector>
         <fields>
             <name>Error_Unsupported_SR_Title</name>

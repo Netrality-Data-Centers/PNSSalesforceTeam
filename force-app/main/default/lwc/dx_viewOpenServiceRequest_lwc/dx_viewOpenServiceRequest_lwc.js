@@ -1,8 +1,13 @@
 import { LightningElement, wire, api } from 'lwc';
 import getOpenServiceRequest from "@salesforce/apex/DX_viewOpenServiceRequest_ctr.getOpenServiceRequest";
+//import { NavigationMixin } from 'lightning/navigation';
+import dx_URL_Experience_Cloud_lbl from '@salesforce/label/c.DX_URL_Experience_Cloud'; 
+import dx_NamePage_DetailsSR_Experience_Cloud_lbl from '@salesforce/label/c.DX_NamePage_DetailsSR_Experience_Cloud'; 
+import dx_NamePage_EditSR_Experience_Cloud_lbl from '@salesforce/label/c.DX_NamePage_EditSR_Experience_Cloud'; 
 
 const actions = [
-    { label: 'Edit', name: 'show_details' }
+    { label: 'Edit', name: 'edit' },
+    { label: 'View Details', name: 'show_details' }
 ];
 
 const columns = [
@@ -18,7 +23,7 @@ const columns = [
     { label: 'SR Created Date', fieldName: 'CreatedDate'}
 ];
 
-export default class Dx_viewOpenServiceRequest_lwc extends LightningElement {
+export default class Dx_viewOpenServiceRequest_lwc extends LightningElement{
     dataInfo = [];
     columns = columns;
     isEmpty = false;
@@ -31,7 +36,7 @@ export default class Dx_viewOpenServiceRequest_lwc extends LightningElement {
         if (data) {
             if(data.length > 0){
                 let result = JSON.parse(JSON.stringify(data));
-                let RecordType_Name;
+                let recordType_Name;
                 let isoDate;
                 let date;
                 let year;
@@ -39,8 +44,8 @@ export default class Dx_viewOpenServiceRequest_lwc extends LightningElement {
                 let day;
                 let formattedDate;
                 for(var item in result){
-                    RecordType_Name = result[item].RecordType.Name;
-                    result[item].RecordType_Name = RecordType_Name;
+                    recordType_Name = result[item].RecordType.Name;
+                    result[item].RecordType_Name = recordType_Name;
 
                     isoDate = result[item].CreatedDate;
                     date = new Date(isoDate);
@@ -66,43 +71,24 @@ export default class Dx_viewOpenServiceRequest_lwc extends LightningElement {
         const actionName = event.detail.action.name;
         const row = event.detail.row;
         switch (actionName) {
+            case 'edit':
+                this.EditRow(row);
+                break;
             case 'show_details':
                 this.showRowDetails(row);
                 break;
-            default:
         }
+    }
+
+    EditRow(row) {
+        const url = dx_URL_Experience_Cloud_lbl + dx_NamePage_EditSR_Experience_Cloud_lbl + `recordIdToFlow=${row.Id}`;  
+        console.log(url);
+        window.location.href = url;
     }
 
     showRowDetails(row) {
-        this.recordIdToFlow = row.Id;
-        this.handleStartFlow();
-    }
-
-    handleStartFlow() {
-        this.openModal();
-    }
-
-    handleFlowStatusChange(event) {
-        if (event.detail.status === 'FINISHED') {
-            this.closeModal();
-        }
-    }
-
-    get inputVariables() {
-        return [
-            {
-                name: 'recordIdToFlow',
-                type: 'String',
-                value: this.recordIdToFlow
-            }
-        ];
-    }
-
-    openModal() {
-        this.isModalOpen = true;
-    }
-
-    closeModal() {
-        this.isModalOpen = false;
+        const url = dx_URL_Experience_Cloud_lbl + dx_NamePage_DetailsSR_Experience_Cloud_lbl + `recordIdToFlow=${row.Id}`;  
+        console.log(url);
+        window.location.href = url;
     }
 }
