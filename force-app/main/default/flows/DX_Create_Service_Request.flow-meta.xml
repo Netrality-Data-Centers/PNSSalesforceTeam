@@ -1147,6 +1147,11 @@
         <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!Emergency_Notifications})</expression>
     </formulas>
     <formulas>
+        <name>Invoice_AccountingRequest_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!TempCaseVar.Type}, &apos;Billing Inquiry&apos;), {!Invoice_Not_Required}, {!Invoice_Required})</expression>
+    </formulas>
+    <formulas>
         <name>OperationsContact_Formula</name>
         <dataType>Boolean</dataType>
         <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!Operations_Contact})</expression>
@@ -1259,7 +1264,7 @@
         <inputAssignments>
             <field>DX_Invoice__c</field>
             <value>
-                <elementReference>Invoice_AccountingRequest</elementReference>
+                <elementReference>Invoice_AccountingRequest_Formula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1755,6 +1760,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>DX_Disconnect_Type__c</field>
+            <value>
+                <elementReference>Disconnect_Type</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>DX_How_Help_You__c</field>
             <value>
                 <elementReference>Tell_us_how_we_can_help_you_CX</elementReference>
@@ -1764,6 +1775,18 @@
             <field>DX_Related_Ticket__c</field>
             <value>
                 <elementReference>RelatedTicket.recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DX_Service_Order_Number__c</field>
+            <value>
+                <elementReference>Service_Order_Number</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DX_Services_to_disconnect__c</field>
+            <value>
+                <elementReference>Services_to_Disconnect</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -3133,9 +3156,9 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Invoice_AccountingRequest</name>
+                    <name>Invoice_Required</name>
                     <dataType>String</dataType>
-                    <fieldText>Invoice #</fieldText>
+                    <fieldText>Invoice # Required</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
@@ -3145,16 +3168,27 @@
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>NRC Detail Request</stringValue>
+                                <stringValue>Invoice Request</stringValue>
                             </rightValue>
                         </conditions>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Invoice Request</stringValue>
+                                <stringValue>NRC Detail Request</stringValue>
                             </rightValue>
                         </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Invoice_Not_Required</name>
+                    <dataType>String</dataType>
+                    <fieldText>Invoice # Not Required</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
@@ -4259,6 +4293,60 @@
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <stringValue>Feedback</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Service_Order_Number</name>
+                    <dataType>String</dataType>
+                    <fieldText>Service Order Number</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>or</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Disconnect Request</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Services_to_Disconnect</name>
+                    <fieldText>Services to Disconnect</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>or</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Disconnect Request</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Disconnect_Type</name>
+                    <choiceReferences>DisconnectTypeChoiceSet</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Disconnect Type</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>or</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Disconnect Request</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
