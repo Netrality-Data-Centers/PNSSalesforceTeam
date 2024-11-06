@@ -7,7 +7,7 @@
         <locationX>50</locationX>
         <locationY>647</locationY>
         <assignmentItems>
-            <assignToReference>$Record.DX_Initiator_Phone__c</assignToReference>
+            <assignToReference>$Record.DX_InitiatorPhone__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>Get_Customer_Contact_Info.Phone</elementReference>
