@@ -2961,6 +2961,10 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <validationRule>
+                        <errorMessage>&lt;p&gt;Please accept.&lt;/p&gt;</errorMessage>
+                        <formulaExpression>IF({!I_have_read_and_agree_to_the_facility_rules_and_regulations_as_stated_in_the_Net}=TRUE, TRUE, FALSE)</formulaExpression>
+                    </validationRule>
                 </fields>
                 <fields>
                     <name>LinkToNetralityCustomerHandbook</name>
@@ -4277,7 +4281,7 @@
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Feedback</stringValue>
+                                <stringValue>Inventory Related Questions</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
@@ -5033,7 +5037,7 @@
                 </fields>
                 <fields>
                     <name>Requested_Actions_Required_RHS</name>
-                    <fieldText>Requested Actions Required</fieldText>
+                    <fieldText>Requested Actions</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
@@ -5057,43 +5061,12 @@
                 </fields>
                 <fields>
                     <name>Requested_Actions_Not_Required</name>
-                    <fieldText>Requested Actions Not Required</fieldText>
+                    <fieldText>Requested Actions</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Other</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
-                    <name>Requested_Actions_RHS</name>
-                    <fieldText>Requested Actions</fieldText>
-                    <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <visibilityRule>
-                        <conditionLogic>or</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Equipment Troubleshooting</stringValue>
-                            </rightValue>
-                        </conditions>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Equipment Installation</stringValue>
-                            </rightValue>
-                        </conditions>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
