@@ -410,7 +410,7 @@
         </rules>
         <rules>
             <name>Types_for_Customer_Experience</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>TempCaseVar.Type</leftValueReference>
                 <operator>EqualTo</operator>
@@ -427,9 +427,30 @@
             </conditions>
             <conditions>
                 <leftValueReference>TempCaseVar.Type</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>Training</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>TempCaseVar.Type</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Training/ Portal Help</stringValue>
+                    <stringValue>Feedback</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>TempCaseVar.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>General Questions</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>TempCaseVar.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Disconnect Request</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -473,7 +494,7 @@
                 <leftValueReference>TempCaseVar.Type</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Equipment Install</stringValue>
+                    <stringValue>Equipment Installation</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
@@ -1147,6 +1168,11 @@
         <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!Emergency_Notifications})</expression>
     </formulas>
     <formulas>
+        <name>Invoice_AccountingRequest_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!TempCaseVar.Type}, &apos;Billing Inquiry&apos;), {!Invoice_Not_Required}, {!Invoice_Required})</expression>
+    </formulas>
+    <formulas>
         <name>OperationsContact_Formula</name>
         <dataType>Boolean</dataType>
         <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!Operations_Contact})</expression>
@@ -1185,6 +1211,11 @@
         <name>ViewInvoices_Formula</name>
         <dataType>Boolean</dataType>
         <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!View_Invoices})</expression>
+    </formulas>
+    <formulas>
+        <name>When_would_you_like_the_meeting_CX_Formula</name>
+        <dataType>Date</dataType>
+        <expression>IF(ISPICKVAL({!TempCaseVar.Type}, &apos;Strategic Business Review&apos;), {!When_would_you_like_the_meeting_Required}, {!When_would_you_like_the_meeting_Not_Required})</expression>
     </formulas>
     <interviewLabel>DX Create Service Request {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Create Service Request</label>
@@ -1259,7 +1290,7 @@
         <inputAssignments>
             <field>DX_Invoice__c</field>
             <value>
-                <elementReference>Invoice_AccountingRequest</elementReference>
+                <elementReference>Invoice_AccountingRequest_Formula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1503,6 +1534,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>DX_Site__c</field>
+            <value>
+                <elementReference>Site_ContractsRequest</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>DX_Term__c</field>
             <value>
                 <elementReference>Term_ContractsRequest</elementReference>
@@ -1580,7 +1617,7 @@
         <inputAssignments>
             <field>DX_Connector_Type_Order_Initiator__c</field>
             <value>
-                <elementReference>Connector_Type</elementReference>
+                <elementReference>Connector_Type_OrderInitiator</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1598,7 +1635,7 @@
         <inputAssignments>
             <field>DX_Cross_Connect_ID__c</field>
             <value>
-                <elementReference>Cross_Connect_ID</elementReference>
+                <elementReference>Cross_Connect_ID_OrderInitiator</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1634,7 +1671,7 @@
         <inputAssignments>
             <field>DX_Ports_Order_Initiator__c</field>
             <value>
-                <elementReference>Ports</elementReference>
+                <elementReference>Ports_OrderInitiator</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1646,7 +1683,7 @@
         <inputAssignments>
             <field>DX_Rack_RU_Order_Initiator__c</field>
             <value>
-                <elementReference>Rack_RU_MMR_panel_location</elementReference>
+                <elementReference>Rack_RU_MMR_panel_location_OrderInitiator</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1676,7 +1713,7 @@
         <inputAssignments>
             <field>DX_Tech_Contact_Name_Order_Initiator__c</field>
             <value>
-                <elementReference>Tech_Contact_Name</elementReference>
+                <elementReference>Tech_Contact_Name_OrderInitiator</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1688,7 +1725,7 @@
         <inputAssignments>
             <field>DX_Tech_Contact_Tel_Order_Initiator__c</field>
             <value>
-                <elementReference>Tech_Contact_Tel.value</elementReference>
+                <elementReference>Tech_Contact_Tel_OrderInitiator.value</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1755,6 +1792,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>DX_Disconnect_Type__c</field>
+            <value>
+                <elementReference>Disconnect_Type</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>DX_How_Help_You__c</field>
             <value>
                 <elementReference>Tell_us_how_we_can_help_you_CX</elementReference>
@@ -1764,6 +1807,18 @@
             <field>DX_Related_Ticket__c</field>
             <value>
                 <elementReference>RelatedTicket.recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DX_Service_Order_Number__c</field>
+            <value>
+                <elementReference>Service_Order_Number</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DX_Services_to_disconnect__c</field>
+            <value>
+                <elementReference>Services_to_Disconnect</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1787,7 +1842,7 @@
         <inputAssignments>
             <field>DX_When_would_you_like_the_meeting__c</field>
             <value>
-                <elementReference>When_would_you_like_the_meeting</elementReference>
+                <elementReference>When_would_you_like_the_meeting_CX_Formula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2961,6 +3016,10 @@
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <validationRule>
+                        <errorMessage>&lt;p&gt;Please accept.&lt;/p&gt;</errorMessage>
+                        <formulaExpression>IF({!I_have_read_and_agree_to_the_facility_rules_and_regulations_as_stated_in_the_Net}=TRUE, TRUE, FALSE)</formulaExpression>
+                    </validationRule>
                 </fields>
                 <fields>
                     <name>LinkToNetralityCustomerHandbook</name>
@@ -3133,9 +3192,9 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Invoice_AccountingRequest</name>
+                    <name>Invoice_Required</name>
                     <dataType>String</dataType>
-                    <fieldText>Invoice #</fieldText>
+                    <fieldText>Invoice # Required</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
@@ -3145,16 +3204,27 @@
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>NRC Detail Request</stringValue>
+                                <stringValue>Invoice Request</stringValue>
                             </rightValue>
                         </conditions>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Invoice Request</stringValue>
+                                <stringValue>NRC Detail Request</stringValue>
                             </rightValue>
                         </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Invoice_Not_Required</name>
+                    <dataType>String</dataType>
+                    <fieldText>Invoice # Not Required</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
@@ -3962,14 +4032,14 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <name>Ports</name>
+                    <name>Ports_OrderInitiator</name>
                     <fieldText>Ports</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
-                    <name>Tech_Contact_Name</name>
+                    <name>Tech_Contact_Name_OrderInitiator</name>
                     <dataType>String</dataType>
                     <fieldText>Tech Contact Name</fieldText>
                     <fieldType>InputField</fieldType>
@@ -3977,7 +4047,7 @@
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Cross_Connect_ID</name>
+                    <name>Cross_Connect_ID_OrderInitiator</name>
                     <dataType>String</dataType>
                     <fieldText>Cross Connect ID</fieldText>
                     <fieldType>InputField</fieldType>
@@ -4013,7 +4083,7 @@
                 <name>A_Order_Initiator_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>Rack_RU_MMR_panel_location</name>
+                    <name>Rack_RU_MMR_panel_location_OrderInitiator</name>
                     <dataType>String</dataType>
                     <fieldText>Rack RU (MMR panel location)</fieldText>
                     <fieldType>InputField</fieldType>
@@ -4021,7 +4091,7 @@
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Connector_Type</name>
+                    <name>Connector_Type_OrderInitiator</name>
                     <choiceReferences>ConnectorTypeChoiceSet</choiceReferences>
                     <dataType>String</dataType>
                     <fieldText>Connector Type</fieldText>
@@ -4030,7 +4100,7 @@
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Tech_Contact_Tel</name>
+                    <name>Tech_Contact_Tel_OrderInitiator</name>
                     <extensionName>flowruntime:phone</extensionName>
                     <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
@@ -4264,6 +4334,60 @@
                     </visibilityRule>
                 </fields>
                 <fields>
+                    <name>Service_Order_Number</name>
+                    <dataType>String</dataType>
+                    <fieldText>Service Order Number</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>or</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Disconnect Request</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Services_to_Disconnect</name>
+                    <fieldText>Services to Disconnect</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>or</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Disconnect Request</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Disconnect_Type</name>
+                    <choiceReferences>DisconnectTypeChoiceSet</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Disconnect Type</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>or</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Disconnect Request</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
                     <name>Type_of_Inventory</name>
                     <choiceReferences>TypeOfInventoryChoiceSet</choiceReferences>
                     <dataType>String</dataType>
@@ -4277,20 +4401,20 @@
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Feedback</stringValue>
+                                <stringValue>Inventory Related Questions</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>When_would_you_like_the_meeting</name>
+                    <name>When_would_you_like_the_meeting_Required</name>
                     <dataType>Date</dataType>
                     <fieldText>When would you like the meeting?</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <visibilityRule>
-                        <conditionLogic>or</conditionLogic>
+                        <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>StartsWith</operator>
@@ -4298,6 +4422,17 @@
                                 <stringValue>Strategic</stringValue>
                             </rightValue>
                         </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>When_would_you_like_the_meeting_Not_Required</name>
+                    <dataType>Date</dataType>
+                    <fieldText>When would you like the meeting?</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>StartsWith</operator>
@@ -4383,14 +4518,14 @@
                     <fieldText>Time Period Covered</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
+                            <operator>StartsWith</operator>
                             <rightValue>
-                                <stringValue>Strategic Business Review Request</stringValue>
+                                <stringValue>Strategic</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
@@ -5033,7 +5168,7 @@
                 </fields>
                 <fields>
                     <name>Requested_Actions_Required_RHS</name>
-                    <fieldText>Requested Actions Required</fieldText>
+                    <fieldText>Requested Actions</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
@@ -5057,43 +5192,12 @@
                 </fields>
                 <fields>
                     <name>Requested_Actions_Not_Required</name>
-                    <fieldText>Requested Actions Not Required</fieldText>
+                    <fieldText>Requested Actions</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Other</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
-                    <name>Requested_Actions_RHS</name>
-                    <fieldText>Requested Actions</fieldText>
-                    <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <visibilityRule>
-                        <conditionLogic>or</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Equipment Troubleshooting</stringValue>
-                            </rightValue>
-                        </conditions>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Equipment Installation</stringValue>
-                            </rightValue>
-                        </conditions>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
