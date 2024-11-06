@@ -143,7 +143,9 @@
             <assignToReference>Site</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>$Record.DX_Site__c</elementReference>
+
+                <elementReference>SITE_PHILADELPHIA</elementReference>
+
             </value>
         </assignmentItems>
         <connector>
