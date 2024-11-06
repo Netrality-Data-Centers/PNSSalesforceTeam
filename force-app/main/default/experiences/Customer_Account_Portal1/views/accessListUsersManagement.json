@@ -18,7 +18,7 @@
         "scope" : "Contact",
         "showActionBar" : false,
         "showChartsPanel" : false,
-        "showDisplay" : "showall",
+        "showDisplay" : "grid",
         "showFilterPanel" : false,
         "showImageIcon" : true,
         "showManualRefreshButton" : true,

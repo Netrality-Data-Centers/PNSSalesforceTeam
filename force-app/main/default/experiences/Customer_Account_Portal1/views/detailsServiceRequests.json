@@ -5,17 +5,6 @@
   "id" : "2213140d-cc99-4dc3-bc1f-1ab901c07296",
   "label" : "Details Service Requests",
   "regions" : [ {
-    "components" : [ {
-      "componentAttributes" : {
-        "flowArguments" : "",
-        "flowName" : "{!flowName}"
-      },
-      "componentName" : "forceCommunity:flowCommunity",
-      "id" : "3a98f1d8-7973-4be7-9067-8e565cc4d559",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    } ],
     "id" : "fade6b94-f12b-4a97-9ce3-441682885fbd",
     "regionName" : "header",
     "type" : "region"
