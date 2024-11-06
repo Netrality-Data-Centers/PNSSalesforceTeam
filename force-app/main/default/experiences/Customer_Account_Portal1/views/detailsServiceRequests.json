@@ -5,6 +5,17 @@
   "id" : "2213140d-cc99-4dc3-bc1f-1ab901c07296",
   "label" : "Details Service Requests",
   "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"recordIdToFlow\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!recordIdToFlow}\"}]",
+        "flowName" : "DX_Details_Service_Request"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "c61b14e4-2a69-4a65-8501-f5f1fc9cb90a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
     "id" : "fade6b94-f12b-4a97-9ce3-441682885fbd",
     "regionName" : "header",
     "type" : "region"
