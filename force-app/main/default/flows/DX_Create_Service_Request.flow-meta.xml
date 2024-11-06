@@ -410,7 +410,7 @@
         </rules>
         <rules>
             <name>Types_for_Customer_Experience</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>TempCaseVar.Type</leftValueReference>
                 <operator>EqualTo</operator>
@@ -427,9 +427,30 @@
             </conditions>
             <conditions>
                 <leftValueReference>TempCaseVar.Type</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>Training</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>TempCaseVar.Type</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Training/ Portal Help</stringValue>
+                    <stringValue>Feedback</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>TempCaseVar.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>General Questions</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>TempCaseVar.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Disconnect Request</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -5306,7 +5327,7 @@
             <targetReference>Assign_Stage_1</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <textTemplates>
         <name>Case_Created_Script_Template</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
