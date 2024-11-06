@@ -56,7 +56,7 @@
       "isHeroUnderHeader" : false,
       "isPageWidthFixed" : true,
       "showHeader" : true,
-      "showHero" : true
+      "showHero" : false
     },
     "componentName" : "siteforce:themeLayoutStarter",
     "id" : "9871dd10-af25-4609-a91e-2a817269c63a",
