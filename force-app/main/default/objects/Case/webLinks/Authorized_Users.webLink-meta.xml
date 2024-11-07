@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Authorized_Users</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Authorized Users</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+var result = sforce.connection.query(&quot;Select Contact.FirstName, Contact.LastName, Contact.Email, Contact.Phone, Contact.Access_Control_Admin__c, Contact.Request_Access__c, Contact.Request_Remote_Support__c,  Contact.Account.Id from Contact where Contact.Account.Id=&apos;{!Case.AccountId}&apos;&quot;);
+var records = result.getArray(&quot;records&quot;);
+var sb = &quot;&quot;
+
+if(records.length &lt; 1)
+{
+	sb += &quot;&lt;h3&gt;No records returned.&lt;/h3&gt;&quot;;
+
+} 
+else{
+	sb += &quot;&lt;style type=&apos;text/css&apos;&gt;body{font-family:Helvetica; padding:20px;} td{padding:15px;} th{padding:10px;}&lt;/style&gt;&quot;;
+	sb += &quot;&lt;h2 style=&apos;padding-left:25px;&apos;&gt;Authorized Contacts for {!Case.Account} &lt;/h2&gt;&lt;table style=&apos;border-collapse:collapse; border:1px solid gray; margin:25px; font-size:10pt;&apos;&gt;&quot;;
+	sb += &quot;&lt;tr style=&apos;background-color:#1797C0; color:white; font-size:11pt;&apos;&gt;&lt;th&gt;Contact Name&lt;/th&gt;&lt;th&gt;Email&lt;/th&gt;&lt;th&gt;Phone&lt;/th&gt;&lt;th&gt;Access Control Admin&lt;/th&gt;&lt;th&gt;Request Access&lt;/th&gt;&lt;th&gt;Request Remote Support&lt;/th&gt;&lt;/tr&gt;&quot;;
+	
+	var count = 0;
+	for (var i=0; i&lt; records.length; i++) 
+	{
+		if(isAuthorized(records[i].Access_Control_Admin__c, records[i].Request_Access__c, records[i].Request_Remote_Support__c))
+		{ 
+			if(count%2==0)
+			sb += &quot;&lt;tr style=&apos;background-color:white;&apos;&gt;&lt;td style=&apos;width:100px;&apos;&gt;&quot; + chkNull(records[i].FirstName) + &quot; &quot; + chkNull(records[i].LastName) + &quot;&lt;/td&gt;&lt;td&gt;&lt;a href=&apos;mailto:&quot; + chkNull(records[i].Email) + &quot;&apos;&gt;&quot; + chkNull(records[i].Email) + &quot;&lt;/a&gt;&lt;/td&gt;&lt;td style=&apos;width:120px;&apos;&gt;&quot; + chkNull(records[i].Phone) + &quot;&lt;/td&gt;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; + chkNull(records[i].Access_Control_Admin__c) + &quot;&lt;/td&gt;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; + chkNull(records[i].Request_Access__c) + &quot;&lt;/td&gt;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; + chkNull(records[i].Request_Remote_Support__c) + &quot;&lt;/td&gt;&lt;/tr&gt;&quot;;
+			else
+			sb += &quot;&lt;tr style=&apos;background-color:#eeeeee;&apos;&gt;&lt;td style=&apos;width:100px;&apos;&gt;&quot; + chkNull(records[i].FirstName) + &quot; &quot; + chkNull(records[i].LastName) + &quot;&lt;/td&gt;&lt;td&gt;&lt;a href=&apos;mailto:&quot; + chkNull(records[i].Email) + &quot;&apos;&gt;&quot; + chkNull(records[i].Email) + &quot;&lt;/a&gt;&lt;/td&gt;&lt;td style=&apos;width:120px;&apos;&gt;&quot; + chkNull(records[i].Phone) + &quot;&lt;/td&gt;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; + chkNull(records[i].Access_Control_Admin__c) + &quot;&lt;/td&gt;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; + chkNull(records[i].Request_Access__c) + &quot;&lt;/td&gt;&lt;td style=&apos;text-align:center;&apos;&gt;&quot; + chkNull(records[i].Request_Remote_Support__c) + &quot;&lt;/td&gt;&lt;/tr&gt;&quot;;
+			count++;
+		}
+	}
+	sb += &quot;&lt;/table&gt;&quot;;
+}
+
+function chkNull(str)
+{
+	if(!str)
+		return &quot;&quot;;
+	else if (str == &quot;true&quot;)
+		return &quot;Yes&quot;;
+	else if (str == &quot;false&quot;)
+		return &quot;No&quot;;
+	else
+		return str;
+}
+
+function isAuthorized(a, b, c)
+{
+	if(a==&quot;true&quot; || b==&quot;true&quot; || c==&quot;true&quot;)
+		return true;
+	else 
+		return false;
+}
+
+var newwindow=window.open(&quot;&quot;, &quot;&quot;, &quot;scrollbars=yes, alwaysRaised=yes&quot;);
+newdocument=newwindow.document;
+newdocument.write(sb);
+newdocument.close();</url>
+</WebLink>
