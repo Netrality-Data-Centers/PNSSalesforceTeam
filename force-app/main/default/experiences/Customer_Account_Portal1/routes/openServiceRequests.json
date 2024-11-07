@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "524f2110-f629-4bbe-b601-004c58156e17",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "Open_Service_Requests__c",
+  "id" : "bfb6f473-f5de-462a-a7c7-fc7fd8e95d57",
+  "label" : "Open Service Requests",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-open-service-requests",
+  "type" : "route",
+  "urlPrefix" : "open-service-requests"
+}
