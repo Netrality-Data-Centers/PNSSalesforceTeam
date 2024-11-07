@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "2692a068-65f0-4f46-ba90-6ce98f1a5bf7",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "COI_Documents__c",
+  "id" : "3c97c7f4-54dd-4f40-878b-299566ede4ea",
+  "label" : "COI Documents",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-coi-documents",
+  "type" : "route",
+  "urlPrefix" : "coi-documents"
+}
