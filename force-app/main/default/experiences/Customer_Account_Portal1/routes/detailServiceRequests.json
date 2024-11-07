@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "2213140d-cc99-4dc3-bc1f-1ab901c07296",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "Details_Service_Requests__c",
+  "id" : "952513ab-d49c-4085-ad19-3d8a5baaac11",
+  "label" : "Detail Service Requests",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-details-service-requests",
+  "type" : "route",
+  "urlPrefix" : "details-service-requests"
+}

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "dfd0d1a5-bbc5-45c4-a302-b0c77a9a5c1b",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "Escalation_Contacts_Chicago__c",
+  "id" : "cdfd1c3f-471f-4853-95c2-59d6a22a4d29",
+  "label" : "Escalation Contacts Chicago",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-escalation-contacts-chicago",
+  "type" : "route",
+  "urlPrefix" : "escalation-contacts/escalation-contacts-chicago"
+}

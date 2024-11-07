@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "700e094a-81f3-4e97-95fa-d58273daf1ef",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "Access_List_Users_Management__c",
+  "id" : "d325b1c5-69e6-4206-ae32-be7762a9a920",
+  "label" : "Access List Users Management",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-access-list-users-management",
+  "type" : "route",
+  "urlPrefix" : "access-list-users-management"
+}
