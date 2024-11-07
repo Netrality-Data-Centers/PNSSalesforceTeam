@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Port_Status__c</fullName>
+    <description>Determines the status of this port with respect to fiber availability of Homeruns and the Usage of Cross Connects.</description>
+    <externalId>false</externalId>
+    <label>Port Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Active Cross Connect</fullName>
+                <default>false</default>
+                <label>Active Cross Connect</label>
+            </value>
+            <value>
+                <fullName>Ready for Cross Connect</fullName>
+                <default>false</default>
+                <label>Ready for Cross Connect</label>
+            </value>
+            <value>
+                <fullName>Installed Homerun not Contracted</fullName>
+                <default>false</default>
+                <label>Installed Homerun not Contracted</label>
+            </value>
+            <value>
+                <fullName>No Homerun</fullName>
+                <default>false</default>
+                <label>No Homerun</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
