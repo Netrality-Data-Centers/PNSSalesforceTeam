@@ -902,6 +902,48 @@
                 <elementReference>Get_Service_Request.DX_Phone__c</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Equipment_ID__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Service_Request.DX_Equipment_ID__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Requestor__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Service_Request.DX_Requestor__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_InitiatorPhone__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Service_Request.DX_InitiatorPhone__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Initiator_Title__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Service_Request.DX_Initiator_Title__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Order_Initiator__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Service_Request.DX_Order_Initiator__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Requestor__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Service_Request.DX_Requestor__c</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Has_it_Contact</targetReference>
         </connector>
@@ -2702,31 +2744,6 @@
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Request_Type_AccountingRequest</name>
-                    <choiceReferences>RequestTypeAccountingRequestChoiceSet</choiceReferences>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Acconting_Request_Type__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Request Type</fieldText>
-                    <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isDisabled>
-                        <booleanValue>true</booleanValue>
-                    </isDisabled>
-                    <isRequired>true</isRequired>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Update Customer Information</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
                     <name>Other_Requests_AccountingRequest</name>
                     <dataType>String</dataType>
                     <defaultValue>
@@ -2741,7 +2758,39 @@
                     <isReadOnly>
                         <booleanValue>true</booleanValue>
                     </isReadOnly>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Update Customer Information</stringValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>Request_Type_AccountingRequest</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Other</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Request_Type_AccountingRequest</name>
+                    <choiceReferences>RequestTypeAccountingRequestChoiceSet</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Acconting_Request_Type__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Request Type</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -2928,6 +2977,13 @@
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <stringValue>NRC Detail Request</stringValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>NRC_Billing_for_AccountingRequest</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Other</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
@@ -3188,7 +3244,34 @@
                             <leftValueReference>Request_Type_ContractsRequest</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>New Name</stringValue>
+                                <stringValue>Name Change</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Document_Name_ContractsRequest</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Document_Name__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Document Name</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Document Request</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
@@ -3235,46 +3318,12 @@
                     </isReadOnly>
                     <isRequired>true</isRequired>
                     <visibilityRule>
-                        <conditionLogic>or</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Document Request</stringValue>
-                            </rightValue>
-                        </conditions>
+                        <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>Document_Type_ContractsRequest</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <stringValue>Other</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
-                    <name>Document_Name_ContractsRequest</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Document_Name__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Document Name</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isDisabled>
-                        <booleanValue>true</booleanValue>
-                    </isDisabled>
-                    <isReadOnly>
-                        <booleanValue>true</booleanValue>
-                    </isReadOnly>
-                    <isRequired>false</isRequired>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Document Request</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
@@ -3546,7 +3595,7 @@
                     <name>Company_Name</name>
                     <choiceReferences>RelatedAccounts</choiceReferences>
                     <defaultValue>
-                        <elementReference>TempCaseVar.DX_Account_Name_Initiator_Information__r.Id</elementReference>
+                        <elementReference>TempCaseVar.DX_Account_Name_Initiator_Information__r.Name</elementReference>
                     </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Company Name</fieldText>
@@ -3584,6 +3633,61 @@
                         </conditions>
                     </visibilityRule>
                 </fields>
+                <fields>
+                    <name>InitiatorTitleCrossConnect</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Initiator_Title__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Title</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>RequestorCrossConnect</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>DX_Requestor__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Requestor</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>TempCaseVar.DX_Requestor__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -3595,6 +3699,61 @@
             <fields>
                 <name>Initiator_Information_Column2</name>
                 <fieldType>Region</fieldType>
+                <fields>
+                    <name>OrderInitiatorCrossConnect</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Order_Initiator__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Order Initiator</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>InitiatorPhone</name>
+                    <extensionName>flowruntime:phone</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Initiator Phone</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>readonly</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>value</name>
+                        <value>
+                            <elementReference>TempCaseVar.DX_InitiatorPhone__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value>
+                            <elementReference>TempCaseVar.DX_InitiatorPhone__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -3736,7 +3895,7 @@
                 <fields>
                     <name>Ports</name>
                     <defaultValue>
-                        <stringValue>{!TempCaseVar.DX_Ports__c}</stringValue>
+                        <stringValue>{!TempCaseVar.DX_Ports_Order_Initiator__c}</stringValue>
                     </defaultValue>
                     <fieldText>Ports</fieldText>
                     <fieldType>LargeTextArea</fieldType>
@@ -3753,7 +3912,7 @@
                     <name>Tech_Contact_Name</name>
                     <dataType>String</dataType>
                     <defaultValue>
-                        <elementReference>TempCaseVar.DX_Tech_Contact_Name__c</elementReference>
+                        <elementReference>TempCaseVar.DX_Tech_Contact_Name_Order_Initiator__c</elementReference>
                     </defaultValue>
                     <fieldText>Tech Contact Name</fieldText>
                     <fieldType>InputField</fieldType>
@@ -3815,7 +3974,7 @@
                     <name>Rack_RU_MMR_panel_location</name>
                     <dataType>String</dataType>
                     <defaultValue>
-                        <elementReference>TempCaseVar.DX_Rack_RU__c</elementReference>
+                        <elementReference>TempCaseVar.DX_Rack_RU_Order_Initiator__c</elementReference>
                     </defaultValue>
                     <fieldText>Rack RU (MMR panel location)</fieldText>
                     <fieldType>InputField</fieldType>
@@ -3862,7 +4021,7 @@
                     <inputParameters>
                         <name>value</name>
                         <value>
-                            <elementReference>TempCaseVar.DX_Tech_Contact_Tel__c</elementReference>
+                            <elementReference>TempCaseVar.DX_Tech_Contact_Tel_Order_Initiator__c</elementReference>
                         </value>
                     </inputParameters>
                     <inputParameters>
