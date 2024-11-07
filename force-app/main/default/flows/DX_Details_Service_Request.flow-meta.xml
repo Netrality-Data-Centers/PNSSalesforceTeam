@@ -14,7 +14,7 @@
         <inputParameters>
             <name>contactId</name>
             <value>
-                <elementReference>TempCaseVar.Contact.Id</elementReference>
+                <elementReference>TempCaseVar.ContactId</elementReference>
             </value>
         </inputParameters>
         <nameSegment>DX_PrimaryAccountContactHelper</nameSegment>
@@ -305,13 +305,6 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>Get_Service_Request.DX_LOA_Attached__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Connector_Type_Order_Initiator__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Service_Request.DX_Connector_Type_Order_Initiator__c</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -5343,6 +5336,9 @@
                     <name>Priority_RHS</name>
                     <choiceReferences>PriorityChoiceSet</choiceReferences>
                     <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.Priority</elementReference>
+                    </defaultValue>
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>

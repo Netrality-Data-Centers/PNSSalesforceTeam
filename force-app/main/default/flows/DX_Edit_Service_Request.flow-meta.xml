@@ -14,7 +14,7 @@
         <inputParameters>
             <name>contactId</name>
             <value>
-                <elementReference>TempCaseVar.Contact.Id</elementReference>
+                <elementReference>TempCaseVar.ContactId</elementReference>
             </value>
         </inputParameters>
         <nameSegment>DX_PrimaryAccountContactHelper</nameSegment>
