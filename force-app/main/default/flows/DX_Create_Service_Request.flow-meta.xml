@@ -3,7 +3,7 @@
     <actionCalls>
         <name>Get_Primary_Account_for_Contact</name>
         <label>Get Primary Account for Contact</label>
-        <locationX>2294</locationX>
+        <locationX>2426</locationX>
         <locationY>674</locationY>
         <actionName>DX_PrimaryAccountContactHelper</actionName>
         <actionType>apex</actionType>
@@ -27,7 +27,7 @@
     <actionCalls>
         <name>Get_Related_AccountIds_for_Contact</name>
         <label>Get Related AccountIds for Contact</label>
-        <locationX>2294</locationX>
+        <locationX>2426</locationX>
         <locationY>782</locationY>
         <actionName>DX_RelatedAccountsContactHelper</actionName>
         <actionType>apex</actionType>
@@ -48,8 +48,8 @@
     <actionCalls>
         <name>redirect_to_view_SR_Details</name>
         <label>redirect to view SR Details</label>
-        <locationX>2294</locationX>
-        <locationY>2270</locationY>
+        <locationX>2426</locationX>
+        <locationY>2330</locationY>
         <actionName>c:fsc_openUrl</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -73,7 +73,7 @@
     <assignments>
         <name>Assign_Stage_1</name>
         <label>Assign Stage 1</label>
-        <locationX>2294</locationX>
+        <locationX>2426</locationX>
         <locationY>134</locationY>
         <assignmentItems>
             <assignToReference>$Flow.CurrentStage</assignToReference>
@@ -89,7 +89,7 @@
     <assignments>
         <name>Assign_Stage_2</name>
         <label>Assign Stage 2</label>
-        <locationX>2294</locationX>
+        <locationX>2426</locationX>
         <locationY>1298</locationY>
         <assignmentItems>
             <assignToReference>$Flow.CurrentStage</assignToReference>
@@ -119,6 +119,22 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Set_Authorize_Third_Party_Access</name>
+        <label>Set Authorize Third Party Access</label>
+        <locationX>578</locationX>
+        <locationY>1622</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Authorize_3rd_Party_Access__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AuthorizeThirdParty_Formula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_ARU</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_Company_Name</name>
         <label>Set Company Name</label>
         <locationX>2426</locationX>
@@ -137,7 +153,7 @@
     <assignments>
         <name>Set_Contact_on_SR</name>
         <label>Set Contact on SR</label>
-        <locationX>2294</locationX>
+        <locationX>2426</locationX>
         <locationY>1406</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.ContactId</assignToReference>
@@ -153,7 +169,7 @@
     <assignments>
         <name>Set_RecordType_on_TempCase</name>
         <label>Set RecordType on TempCase</label>
-        <locationX>2294</locationX>
+        <locationX>2426</locationX>
         <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.RecordTypeId</assignToReference>
@@ -164,6 +180,38 @@
         </assignmentItems>
         <connector>
             <targetReference>Contact_Lookup</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>When_would_you_like_the_meeting_Not_Required_assign</name>
+        <label>When_would_you_like_the_meeting_Not_Required</label>
+        <locationX>3218</locationX>
+        <locationY>1730</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_When_would_you_like_the_meeting__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>When_would_you_like_the_meeting_Not_Required</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_CX_SR</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>When_would_you_like_the_meeting_Required_assign</name>
+        <label>When_would_you_like_the_meeting_Required</label>
+        <locationX>2954</locationX>
+        <locationY>1730</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_When_would_you_like_the_meeting__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>When_would_you_like_the_meeting_Required</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_CX_SR</targetReference>
         </connector>
     </assignments>
     <choices>
@@ -256,7 +304,7 @@
     <decisions>
         <name>Case_Type</name>
         <label>Case Type?</label>
-        <locationX>2294</locationX>
+        <locationX>2426</locationX>
         <locationY>1514</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
@@ -289,7 +337,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Create_ARU</targetReference>
+                <targetReference>Set_Authorize_Third_Party_Access</targetReference>
             </connector>
             <label>Add/ Remove User</label>
         </rules>
@@ -454,7 +502,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Create_CX_SR</targetReference>
+                <targetReference>CX_Type</targetReference>
             </connector>
             <label>Types for Customer Experience</label>
         </rules>
@@ -550,9 +598,35 @@
         </rules>
     </decisions>
     <decisions>
+        <description>IF(ISPICKVAL({!TempCaseVar.Type}, &apos;Strategic Business Review&apos;), {!When_would_you_like_the_meeting_Required}, {!When_would_you_like_the_meeting_Not_Required})</description>
+        <name>CX_Type</name>
+        <label>CC Type?</label>
+        <locationX>3086</locationX>
+        <locationY>1622</locationY>
+        <defaultConnector>
+            <targetReference>When_would_you_like_the_meeting_Not_Required_assign</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Strategic_Business_Review</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>TempCaseVar.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Strategic Business Review Request</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>When_would_you_like_the_meeting_Required_assign</targetReference>
+            </connector>
+            <label>Strategic Business Review</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Record_Type</name>
         <label>Record Type?</label>
-        <locationX>2294</locationX>
+        <locationX>2426</locationX>
         <locationY>998</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
@@ -1212,11 +1286,6 @@
         <dataType>Boolean</dataType>
         <expression>IF( {!Add_Remove} = &apos;Remove&apos;, FALSE, {!View_Invoices})</expression>
     </formulas>
-    <formulas>
-        <name>When_would_you_like_the_meeting_CX_Formula</name>
-        <dataType>Date</dataType>
-        <expression>IF(ISPICKVAL({!TempCaseVar.Type}, &apos;Strategic Business Review&apos;), {!When_would_you_like_the_meeting_Required}, {!When_would_you_like_the_meeting_Not_Required})</expression>
-    </formulas>
     <interviewLabel>DX Create Service Request {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Create Service Request</label>
     <processMetadataValues>
@@ -1335,7 +1404,7 @@
         <name>Create_ARU</name>
         <label>Create ARU</label>
         <locationX>578</locationX>
-        <locationY>1622</locationY>
+        <locationY>1730</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -1377,7 +1446,7 @@
         <inputAssignments>
             <field>DX_Authorize_3rd_Party_Access__c</field>
             <value>
-                <elementReference>AuthorizeThirdParty_Formula</elementReference>
+                <elementReference>TempCaseVar.DX_Authorize_3rd_Party_Access__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1763,8 +1832,8 @@
     <recordCreates>
         <name>Create_CX_SR</name>
         <label>Create CX SR</label>
-        <locationX>2954</locationX>
-        <locationY>1622</locationY>
+        <locationX>3086</locationX>
+        <locationY>1922</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -1842,7 +1911,7 @@
         <inputAssignments>
             <field>DX_When_would_you_like_the_meeting__c</field>
             <value>
-                <elementReference>When_would_you_like_the_meeting_CX_Formula</elementReference>
+                <elementReference>TempCaseVar.DX_When_would_you_like_the_meeting__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1868,7 +1937,7 @@
     <recordCreates>
         <name>Create_Logistics</name>
         <label>Create Logistics</label>
-        <locationX>3482</locationX>
+        <locationX>3746</locationX>
         <locationY>1622</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
@@ -2185,7 +2254,7 @@
     <recordCreates>
         <name>Create_RHS</name>
         <label>Create RHS</label>
-        <locationX>4010</locationX>
+        <locationX>4274</locationX>
         <locationY>1622</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
@@ -2302,8 +2371,8 @@
     <recordLookups>
         <name>Case_Lookup</name>
         <label>Case Lookup</label>
-        <locationX>2294</locationX>
-        <locationY>2162</locationY>
+        <locationX>2426</locationX>
+        <locationY>2222</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>redirect_to_view_SR_Details</targetReference>
@@ -2329,7 +2398,7 @@
     <recordLookups>
         <name>Contact_Lookup</name>
         <label>Contact Lookup</label>
-        <locationX>2294</locationX>
+        <locationX>2426</locationX>
         <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -2356,7 +2425,7 @@
     <recordLookups>
         <name>Get_Record_Type_Info</name>
         <label>Get Record Type Info</label>
-        <locationX>2294</locationX>
+        <locationX>2426</locationX>
         <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -2381,7 +2450,7 @@
     <recordLookups>
         <name>Related_Accounts_for_Contact</name>
         <label>Related Accounts for Contact</label>
-        <locationX>2294</locationX>
+        <locationX>2426</locationX>
         <locationY>890</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -2402,7 +2471,7 @@
     <screens>
         <name>Access_Request_Info</name>
         <label>Access Request Info</label>
-        <locationX>1106</locationX>
+        <locationX>1238</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -3073,7 +3142,7 @@
     <screens>
         <name>Accounting_Request_Info</name>
         <label>Accounting Request Info</label>
-        <locationX>1370</locationX>
+        <locationX>1502</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -3385,7 +3454,7 @@
     <screens>
         <name>Contracts_Request_Info</name>
         <label>Contracts Request Info</label>
-        <locationX>1634</locationX>
+        <locationX>1766</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -3639,7 +3708,7 @@
     <screens>
         <name>Cross_Connect_Request_Info</name>
         <label>Cross Connect Request Info</label>
-        <locationX>1898</locationX>
+        <locationX>2030</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -4247,7 +4316,7 @@
     <screens>
         <name>Customer_Experience_Request_Info</name>
         <label>Customer Experience Request Info</label>
-        <locationX>2162</locationX>
+        <locationX>2294</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -4571,7 +4640,7 @@
     <screens>
         <name>GetRecordType</name>
         <label>Record Type</label>
-        <locationX>2294</locationX>
+        <locationX>2426</locationX>
         <locationY>242</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -4599,7 +4668,7 @@
     <screens>
         <name>Logistics_Request_Info</name>
         <label>Logistics Request Info</label>
-        <locationX>2690</locationX>
+        <locationX>2822</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5051,7 +5120,7 @@
     <screens>
         <name>RHS_Request_Info</name>
         <label>RHS Request Info</label>
-        <locationX>2954</locationX>
+        <locationX>3086</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5393,7 +5462,7 @@
     <screens>
         <name>Unsupported_SR_Error</name>
         <label>Unsupported SR Error</label>
-        <locationX>2426</locationX>
+        <locationX>2558</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5428,13 +5497,13 @@
         <stageOrder>10</stageOrder>
     </stages>
     <start>
-        <locationX>2168</locationX>
+        <locationX>2300</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Assign_Stage_1</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <textTemplates>
         <name>Case_Created_Script_Template</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
