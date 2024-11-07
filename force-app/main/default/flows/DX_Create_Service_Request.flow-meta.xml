@@ -1834,6 +1834,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>DX_Time_of_Issue__c</field>
+            <value>
+                <elementReference>Time_of_Issue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>DX_Type_of_Inventory__c</field>
             <value>
                 <elementReference>Type_of_Inventory</elementReference>
@@ -3211,7 +3217,7 @@
                 <fields>
                     <name>Invoice_Required</name>
                     <dataType>String</dataType>
-                    <fieldText>Invoice # Required</fieldText>
+                    <fieldText>Invoice #</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
@@ -3236,7 +3242,7 @@
                 <fields>
                     <name>Invoice_Not_Required</name>
                     <dataType>String</dataType>
-                    <fieldText>Invoice # Not Required</fieldText>
+                    <fieldText>Invoice #</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
