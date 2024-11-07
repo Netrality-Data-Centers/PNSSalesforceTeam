@@ -49,7 +49,7 @@
         <name>redirect_to_view_SR_Details</name>
         <label>redirect to view SR Details</label>
         <locationX>2294</locationX>
-        <locationY>2270</locationY>
+        <locationY>2330</locationY>
         <actionName>c:fsc_openUrl</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -62,7 +62,7 @@
         <inputParameters>
             <name>url</name>
             <value>
-                <stringValue>/s/details-service-request?recordIdToFlow={!case.Id}</stringValue>
+                <stringValue>{!$Label.DX_NamePage_DetailsSR_Experience_Cloud}recordIdToFlow={!case.Id}</stringValue>
             </value>
         </inputParameters>
         <nameSegment>c:fsc_openUrl</nameSegment>
@@ -1572,7 +1572,7 @@
         <locationY>1922</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
-            <targetReference>Case_Lookup</targetReference>
+            <targetReference>Get_LOA_File</targetReference>
         </connector>
         <faultConnector>
             <isGoTo>true</isGoTo>
@@ -1831,6 +1831,12 @@
             <field>DX_Time_Period_Covered__c</field>
             <value>
                 <elementReference>Time_Period_Covered</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DX_Time_of_Issue__c</field>
+            <value>
+                <elementReference>Time_of_Issue</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2303,7 +2309,7 @@
         <name>Case_Lookup</name>
         <label>Case Lookup</label>
         <locationX>2294</locationX>
-        <locationY>2162</locationY>
+        <locationY>2222</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>redirect_to_view_SR_Details</targetReference>
@@ -3211,7 +3217,7 @@
                 <fields>
                     <name>Invoice_Required</name>
                     <dataType>String</dataType>
-                    <fieldText>Invoice # Required</fieldText>
+                    <fieldText>Invoice #</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
@@ -3236,7 +3242,7 @@
                 <fields>
                     <name>Invoice_Not_Required</name>
                     <dataType>String</dataType>
-                    <fieldText>Invoice # Not Required</fieldText>
+                    <fieldText>Invoice #</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
@@ -4564,6 +4570,45 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithHeader</regionContainerType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Get_LOA_File</name>
+        <label>Get LOA File</label>
+        <locationX>2294</locationX>
+        <locationY>2030</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Case_Lookup</targetReference>
+        </connector>
+        <fields>
+            <name>LOA_File_Title</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 20px; color: rgb(62, 62, 60);&quot;&gt;Service Request Information: Cross Connect Request&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>CC_LOA_File</name>
+            <extensionName>forceContent:fileUpload</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>LOA File</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>recordId</name>
+                <value>
+                    <elementReference>CreatedCaseId</elementReference>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
