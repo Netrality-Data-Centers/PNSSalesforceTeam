@@ -59,7 +59,7 @@
         <inputParameters>
             <name>url</name>
             <value>
-                <stringValue>/s/details-service-request?recordIdToFlow={!TempCaseVar.Id}</stringValue>
+                <stringValue>{!$Label.DX_NamePage_DetailsSR_Experience_Cloud}recordIdToFlow={!case.Id}</stringValue>
             </value>
         </inputParameters>
         <nameSegment>c:fsc_openUrl</nameSegment>
@@ -217,10 +217,61 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Requestor__c</assignToReference>
+            <assignToReference>TempCaseVar.AccountId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Requestor.selectedChoiceValues</elementReference>
+                <elementReference>Account_Name_AccessRequest.recordId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Contact_Lookup</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Accounting_Request</name>
+        <label>Set Accounting Request</label>
+        <locationX>314</locationX>
+        <locationY>1406</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Billing_Account_Number__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Billing_Account_Number_AccountingRequest</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Acconting_Request_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Request_Type_AccountingRequest</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Site__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Site_AccountingRequest</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_How_Help_You__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Tell_us_how_we_can_help_you_AccountingRequest</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Date_Range__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Date_Range_AccountingRequest</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AccountName_AccountingRequest.recordId</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -244,6 +295,375 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Set_Contracts_Request</name>
+        <label>Set Contracts Request</label>
+        <locationX>578</locationX>
+        <locationY>1406</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Request_Type_Contracts__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Request_Type_ContractsRequest</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Service_Order_Number__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Service_Order_Number_ContractsRequest</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Site__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Site_ContractsRequest</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Document_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Document_Type_ContractsRequest</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Other_Document_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Other_Document_Type_ContractsRequest</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AccountName_ContractsRequest.recordId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Contact_Lookup</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Cross_Connect</name>
+        <label>Set Cross Connect</label>
+        <locationX>842</locationX>
+        <locationY>1406</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Account_Name_CrossConnectSR.recordId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Default_Account__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Default_Account_CrossConnectSR.selectedChoiceValues</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Account_Name_Order_Initiator__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Account_Name_InitiatiorInfo_CrossConnect.selectedChoiceValues</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Account_Name_Initiator_Information__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Company_Name.selectedChoiceValues</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Order_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Order_Date</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Requested_Due__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Requested_Due</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Account_Name_Initiator_Information__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Account_Name_AOrderInitiator.selectedChoiceValues</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Tech_Contact_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Tech_Contact_Name</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Cross_Connect_ID__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Cross_Connect_ID</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Rack_RU_ZLOA__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Rack_RU_MMR_panel_location_ZLoaInfo</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Connector_Type_ZLOA__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Connector_Type_ZLoaInfo</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Tech_Contact_Tel_ZLOA__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Tech_Contact_Tel_ZLoaInfo</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Site__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Site_CrossConnectSR</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.Priority</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Priority_CrossConnectSR</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Rack_RU__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Rack_RU_MMR_panel_location</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Connector_Type_Order_Initiator__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Connector_Type</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Tech_Contact_Tel__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Tech_Contact_Tel.value</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Contact_Lookup</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Customer_Experience_Request</name>
+        <label>Set Customer Experience Request</label>
+        <locationX>1106</locationX>
+        <locationY>1406</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.AccountId</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Billing_Account_Number__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Billing_Account_Number_CX</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Services_to_disconnect__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Services_to_disconnect</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Type_of_Inventory__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Type_of_Inventory</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_When_would_you_like_the_meeting__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>When_would_you_like_the_meeting</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Site__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Site_CX</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Date_of_Disconnect__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Date_of_Disconnect</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Disconnect_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Disconnect_Type</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Contact_Lookup</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Logistics_Request</name>
+        <label>Set Logistics Request</label>
+        <locationX>1634</locationX>
+        <locationY>1406</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AccountName_Logistics.recordId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Default_Account__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Default_Account.selectedChoiceValues</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Delivery_Site__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Delivery_Site</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Shipping_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Shipping_Type</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Quantity__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Quantity</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Other_Courier__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Other_Courier</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Current_Location_Onsite__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Current_Location_Onsite</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Time_In_Storage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Duration_of_time_in_Storage</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Site__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Site_Logistics</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.Priority</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Priority_Logistics</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_How_Help_You__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Tell_us_how_we_can_help_you_Logistics</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Date</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Customer_Provide_Liftgate__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Customer_to_Provide_Liftgate</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Courier__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Courier</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Expected_Storage_Duration__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Expected_Storage_Duration_Logistics</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Other_Location__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Other_Location</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Shipment_Requires_Packaging_to_Pickup__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Does_this_shipment_require_packaging_prior_to_pick_up</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Contact_Lookup</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_RecordType_on_TempCase</name>
         <label>Set RecordType on TempCase</label>
         <locationX>1238</locationX>
@@ -257,6 +677,64 @@
         </assignmentItems>
         <connector>
             <targetReference>Record_Type</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_RHS_Request</name>
+        <label>Set RHS Request</label>
+        <locationX>1898</locationX>
+        <locationY>1406</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AccountName_RHS.recordId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Default_Account__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Default_Account_RHS.selectedChoiceValues</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Requested_Actions__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Requested_Actions_RHS_Formula_value</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Site__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Site_RHS</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.Priority</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Priority_RHS</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_How_Help_You__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Tell_us_how_we_can_help_you_RHS</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Equipment_ID__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Equipment_ID</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Contact_Lookup</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -1750,6 +2228,14 @@
     </dynamicChoiceSets>
     <environments>Default</environments>
     <formulas>
+        <description>Get the value of the field Requested Action depending of the Type field</description>
+        <name>Requested_Actions_RHS_Formula_value</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISBLANK( {!Requested_Actions_Required_RHS} )), {!Requested_Actions_Required_RHS}, 
+IF(NOT(ISBLANK( {!Requested_Actions_Not_Required} )), {!Requested_Actions_Not_Required}, &apos;&apos;)
+)</expression>
+    </formulas>
+    <formulas>
         <name>User_First_Name_Formula</name>
         <dataType>String</dataType>
         <expression>{!$User.FirstName}</expression>
@@ -1896,18 +2382,37 @@
                 <name>Service_Request_Information_AccessRequest_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>Account_AccessRequest</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
-                    <defaultValue>
-                        <elementReference>Get_Service_Request.Account.Id</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <name>Account_Name_AccessRequest</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
-                        <name>placeholder</name>
+                        <name>fieldApiName</name>
                         <value>
-                            <elementReference>Get_Service_Request.Account.Name</elementReference>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>Get_Primary_Account_for_Contact</elementReference>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -2165,15 +2670,40 @@
                 </fields>
                 <fields>
                     <name>Requestor</name>
-                    <choiceReferences>RequestorChoiceSet</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Requestor__c</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Requestor</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>DX_Requestor__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Requestor</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>false</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>$User.ContactId</elementReference>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2534,7 +3064,7 @@
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Set_Accounting_Request</targetReference>
         </connector>
         <fields>
             <name>AccountingRequestTitle</name>
@@ -2550,17 +3080,36 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>AccountName_AccountingRequest</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.Account.Id</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
-                        <name>placeholder</name>
+                        <name>required</name>
                         <value>
-                            <elementReference>TempCaseVar.Account.Name</elementReference>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>Get_Primary_Account_for_Contact</elementReference>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -2602,15 +3151,10 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Other_Requests_AccountingRequest</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Other_Request__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Other Request</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Other_Request__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -2623,15 +3167,10 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Case_Number_AccountingRequest</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Case_Number__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Case Number</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Case_Number__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -2644,15 +3183,10 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Invoice_AccountingRequest</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Invoice__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Invoice #</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Invoice__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
                         <conditions>
@@ -2718,16 +3252,10 @@
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>NRC_Billing_for_AccountingRequest</name>
-                    <choiceReferences>NRCBillingforChoiceSet</choiceReferences>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_NRC_Billing_for__c</elementReference>
-                    </defaultValue>
-                    <fieldText>NRC Billing for</fieldText>
-                    <fieldType>DropdownBox</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_NRC_Billing_for__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -2740,15 +3268,10 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Other_NRC_Billing_for_AccountingRequest</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Other_NRC_Billing_for__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Other NRC Billing for</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Other_NRC_Billing_for__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -2806,7 +3329,7 @@
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Set_Contracts_Request</targetReference>
         </connector>
         <fields>
             <name>ContractsRequestTitle</name>
@@ -2822,17 +3345,36 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>AccountName_ContractsRequest</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.Account.Id</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
-                        <name>placeholder</name>
+                        <name>label</name>
                         <value>
-                            <elementReference>TempCaseVar.Account.Name</elementReference>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>Get_Primary_Account_for_Contact</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -2883,16 +3425,10 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Term_ContractsRequest</name>
-                    <choiceReferences>TermChoiceSet</choiceReferences>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Term__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Term</fieldText>
-                    <fieldType>DropdownBox</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Term__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -2941,25 +3477,16 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Tell_us_how_we_can_help_you_ContractsRequest</name>
-                    <defaultValue>
-                        <stringValue>{!TempCaseVar.DX_How_Help_You__c}</stringValue>
-                    </defaultValue>
-                    <fieldText>Tell us how we can help you</fieldText>
-                    <fieldType>LargeTextArea</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_How_Help_You__c</objectFieldReference>
                 </fields>
                 <fields>
-                    <name>New_Name_ContractsRequest</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_New_Name__c</elementReference>
-                    </defaultValue>
-                    <fieldText>New Name</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_New_Name__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -3022,15 +3549,10 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Document_Name_ContractsRequest</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Document_Name__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Document Name</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Document_Name__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -3066,7 +3588,7 @@
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Set_Cross_Connect</targetReference>
         </connector>
         <fields>
             <name>CrossConnectRequestTitle</name>
@@ -3082,21 +3604,34 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Account_Name_CrossConnectSR</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.Account.Id</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
-                        <name>placeholder</name>
+                        <name>fieldApiName</name>
                         <value>
-                            <elementReference>TempCaseVar.Account.Name</elementReference>
+                            <stringValue>AccountId</stringValue>
                         </value>
                     </inputParameters>
                     <inputParameters>
-                        <name>disabled</name>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>Get_Primary_Account_for_Contact</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
                         <value>
                             <booleanValue>true</booleanValue>
                         </value>
@@ -3146,16 +3681,10 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <name>Billing_Account_Number_CrossConnect</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Billing_Account_Number__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Billing Account Number</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Billing_Account_Number__c</objectFieldReference>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -3200,14 +3729,10 @@
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Tell_us_how_we_can_help_you_CrossConnect</name>
-                    <defaultValue>
-                        <stringValue>{!TempCaseVar.DX_How_Help_You__c}</stringValue>
-                    </defaultValue>
-                    <fieldText>Tell us how we can help you</fieldText>
-                    <fieldType>LargeTextArea</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_How_Help_You__c</objectFieldReference>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -3355,16 +3880,10 @@
                 <name>Order_Information_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>Contract_Term</name>
-                    <dataType>Number</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Contract_Term__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Contract Term</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
-                    <scale>0</scale>
+                    <objectFieldReference>TempCaseVar.DX_Contract_Term__c</objectFieldReference>
                 </fields>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
@@ -3410,14 +3929,10 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <name>Ports</name>
-                    <defaultValue>
-                        <stringValue>{!TempCaseVar.DX_Ports__c}</stringValue>
-                    </defaultValue>
-                    <fieldText>Ports</fieldText>
-                    <fieldType>LargeTextArea</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Ports__c</objectFieldReference>
                 </fields>
                 <fields>
                     <name>Tech_Contact_Name</name>
@@ -3537,15 +4052,10 @@
                 <name>Z_LOA_info_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>Account_Name_ZLoaInfo</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Account_Name_ZLOA__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Account_Name_ZLOA__c</objectFieldReference>
                 </fields>
                 <fields>
                     <name>Rack_RU_MMR_panel_location_ZLoaInfo</name>
@@ -3605,15 +4115,10 @@
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Ports_ZLoaInfo</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Ports_ZLOA__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Ports</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Ports_ZLOA__c</objectFieldReference>
                 </fields>
                 <fields>
                     <name>Tech_Contact_Name_ZLoaInfo</name>
@@ -3650,7 +4155,7 @@
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Set_Customer_Experience_Request</targetReference>
         </connector>
         <fields>
             <name>CustomerExperienceRequestTitle</name>
@@ -3666,21 +4171,34 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Account_CX</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.Account.Id</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
-                        <name>placeholder</name>
+                        <name>label</name>
                         <value>
-                            <elementReference>TempCaseVar.Account.Name</elementReference>
+                            <stringValue>Account Name</stringValue>
                         </value>
                     </inputParameters>
                     <inputParameters>
-                        <name>disabled</name>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>Get_Primary_Account_for_Contact</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
                         <value>
                             <booleanValue>true</booleanValue>
                         </value>
@@ -3740,15 +4258,10 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Service_Order_NumberCXSR</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Service_Order_Number__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Service Order Number</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Service_Order_Number__c</objectFieldReference>
                 </fields>
                 <fields>
                     <name>Services_to_disconnect</name>
@@ -3761,17 +4274,10 @@
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Related_Ticket</name>
-                    <choiceReferences>RelatedTicketsChoiceSet</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.CaseNumber</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Related Ticket</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <objectFieldReference>TempCaseVar.DX_Related_Ticket__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
                         <conditions>
@@ -3870,14 +4376,10 @@
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Tell_us_how_we_can_help_you_CX</name>
-                    <defaultValue>
-                        <stringValue>{!TempCaseVar.DX_How_Help_You__c}</stringValue>
-                    </defaultValue>
-                    <fieldText>Tell us how we can help you</fieldText>
-                    <fieldType>LargeTextArea</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_How_Help_You__c</objectFieldReference>
                 </fields>
                 <fields>
                     <name>Date_of_Disconnect</name>
@@ -3903,15 +4405,10 @@
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Related_Service_Order</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Related_Service_Order__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Related Service Order</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Related_Service_Order__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -3924,15 +4421,10 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Time_of_Issue</name>
-                    <dataType>DateTime</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Time_of_Issue__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Time of Issue</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Time_of_Issue__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -3945,16 +4437,10 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Time_Period_Covered</name>
-                    <choiceReferences>TimePeriodCoveredChoiceSet</choiceReferences>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Time_Period_Covered__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Time Period Covered</fieldText>
-                    <fieldType>DropdownBox</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Time_Period_Covered__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -3990,7 +4476,7 @@
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Set_Logistics_Request</targetReference>
         </connector>
         <fields>
             <name>LogisticsRequestTitle</name>
@@ -4006,23 +4492,36 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>AccountName_Logistics</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.Account.Id</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
-                        <name>placeholder</name>
+                        <name>fieldApiName</name>
                         <value>
-                            <elementReference>TempCaseVar.Account.Name</elementReference>
+                            <stringValue>AccountId</stringValue>
                         </value>
                     </inputParameters>
                     <inputParameters>
-                        <name>disabled</name>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
                         <value>
                             <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>Get_Primary_Account_for_Contact</elementReference>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -4070,16 +4569,10 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <name>Billing_Account_Number_Logistics</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Billing_Account_Number__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Billing Account Number</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Billing_Account_Number__c</objectFieldReference>
                 </fields>
                 <fields>
                     <name>Delivery_Site</name>
@@ -4139,15 +4632,10 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Tracking_Number</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Tracking_Number__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Tracking Number</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Tracking_Number__c</objectFieldReference>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -4263,15 +4751,10 @@
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Amazon_Code</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Amazon_Code__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Amazon Code</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Amazon_Code__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -4357,14 +4840,10 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Packaging_notes</name>
-                    <defaultValue>
-                        <stringValue>{!TempCaseVar.DX_Packaging_Notes__c}</stringValue>
-                    </defaultValue>
-                    <fieldText>Packaging notes</fieldText>
-                    <fieldType>LargeTextArea</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Packaging_Notes__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -4421,15 +4900,10 @@
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Pickup_Time</name>
-                    <dataType>DateTime</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Pickup_Time__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Pickup Time</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Pickup_Time__c</objectFieldReference>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -4465,7 +4939,7 @@
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Contact_Lookup</targetReference>
+            <targetReference>Set_RHS_Request</targetReference>
         </connector>
         <fields>
             <name>RemoteHandsSupportRequestTitle</name>
@@ -4481,23 +4955,36 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>AccountName_RHS</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.Account.Id</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
-                        <name>placeholder</name>
+                        <name>fieldApiName</name>
                         <value>
-                            <elementReference>TempCaseVar.Account.Name</elementReference>
+                            <stringValue>AccountId</stringValue>
                         </value>
                     </inputParameters>
                     <inputParameters>
-                        <name>disabled</name>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
                         <value>
                             <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>Get_Primary_Account_for_Contact</elementReference>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -4545,56 +5032,19 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <name>Billing_Account_Number_RHS</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Billing_Account_Number__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Billing Account Number</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Billing_Account_Number__c</objectFieldReference>
                 </fields>
                 <fields>
-                    <name>Related_Assets_RHS</name>
-                    <defaultValue>
-                        <stringValue>{!TempCaseVar.DX_Related_Assets__c}</stringValue>
-                    </defaultValue>
-                    <fieldText>Related Assets</fieldText>
-                    <fieldType>LargeTextArea</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Related_Assets__c</objectFieldReference>
                 </fields>
                 <fields>
                     <name>Requested_Actions_Required_RHS</name>
-                    <defaultValue>
-                        <stringValue>{!TempCaseVar.DX_Requested_Actions__c}</stringValue>
-                    </defaultValue>
-                    <fieldText>Requested Actions Required</fieldText>
-                    <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <visibilityRule>
-                        <conditionLogic>or</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Equipment Troubleshooting</stringValue>
-                            </rightValue>
-                        </conditions>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Equipment Installation</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
-                    <name>Requested_Actions_RHS</name>
                     <defaultValue>
                         <stringValue>{!TempCaseVar.DX_Requested_Actions__c}</stringValue>
                     </defaultValue>
@@ -4621,22 +5071,37 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Equipment_Installation_ID</name>
-                    <dataType>String</dataType>
+                    <name>Requested_Actions_Not_Required</name>
                     <defaultValue>
-                        <elementReference>TempCaseVar.DX_Equipment_Installation_ID__c</elementReference>
+                        <stringValue>{!TempCaseVar.DX_Requested_Actions__c}</stringValue>
                     </defaultValue>
-                    <fieldText>Equipment Installation ID</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldText>Requested Actions</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Other</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Equipment_Installation_ID__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Equipment Install</stringValue>
+                                <stringValue>Equipment Installation</stringValue>
                             </rightValue>
                         </conditions>
                         <conditions>
@@ -4669,6 +5134,9 @@
                     <name>Site_RHS</name>
                     <choiceReferences>SiteChoiceSet</choiceReferences>
                     <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Site__c</elementReference>
+                    </defaultValue>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -4678,6 +5146,9 @@
                     <name>Priority_RHS</name>
                     <choiceReferences>PriorityChoiceSet</choiceReferences>
                     <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.Priority</elementReference>
+                    </defaultValue>
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -4694,15 +5165,10 @@
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Rack_Cage_Location_RHS</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Rack_Cage_Location__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Rack/Cage Location</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Rack_Cage_Location__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -4750,15 +5216,10 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Relevant_Package_SR_Number</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Relevant_Package_SR_Number__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Relevant Package SR Number</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.DX_Relevant_Package_SR_Number__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
                         <conditions>
