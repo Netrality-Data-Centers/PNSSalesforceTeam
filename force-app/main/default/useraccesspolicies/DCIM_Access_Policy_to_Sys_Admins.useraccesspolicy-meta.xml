@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UserAccessPolicy xmlns="http://soap.sforce.com/2006/04/metadata">
+    <booleanFilter>1 AND 2</booleanFilter>
+    <description>Grants access to permission set DCIM_Model to System Admins</description>
+    <masterLabel>DCIM Access Policy to Sys Admins</masterLabel>
+    <order>4</order>
+    <status>Design</status>
+    <userAccessPolicyActions>
+        <action>Grant</action>
+        <target>DCIM_Model_View</target>
+        <type>PermissionSet</type>
+    </userAccessPolicyActions>
+    <userAccessPolicyActions>
+        <action>Grant</action>
+        <target>DCIM_Model_Create</target>
+        <type>PermissionSet</type>
+    </userAccessPolicyActions>
+    <userAccessPolicyActions>
+        <action>Grant</action>
+        <target>DCIM_Model_Edit</target>
+        <type>PermissionSet</type>
+    </userAccessPolicyActions>
+    <userAccessPolicyFilters>
+        <operation>equals</operation>
+        <sortOrder>1</sortOrder>
+        <target>admin</target>
+        <type>Profile</type>
+    </userAccessPolicyFilters>
+    <userAccessPolicyFilters>
+        <columnName>IsActive</columnName>
+        <operation>equals</operation>
+        <sortOrder>2</sortOrder>
+        <target>User</target>
+        <type>User</type>
+        <value>true</value>
+    </userAccessPolicyFilters>
+</UserAccessPolicy>
