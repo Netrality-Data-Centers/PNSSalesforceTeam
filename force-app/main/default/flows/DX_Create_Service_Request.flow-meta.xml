@@ -1792,6 +1792,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>DX_Date_of_Disconnect__c</field>
+            <value>
+                <elementReference>Date_of_Disconnect</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>DX_Disconnect_Type__c</field>
             <value>
                 <elementReference>Disconnect_Type</elementReference>
@@ -1801,6 +1807,12 @@
             <field>DX_How_Help_You__c</field>
             <value>
                 <elementReference>Tell_us_how_we_can_help_you_CX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DX_Related_Service_Order__c</field>
+            <value>
+                <elementReference>Related_Service_Order</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1945,6 +1957,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>DX_Expected_Storage_Duration__c</field>
+            <value>
+                <elementReference>Expected_Storage_Duration_Logistics</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>DX_How_Help_You__c</field>
             <value>
                 <elementReference>Tell_us_how_we_can_help_you_Logistics</elementReference>
@@ -2058,6 +2076,12 @@
             <field>ContactId</field>
             <value>
                 <elementReference>curContact.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DX_Access_For__c</field>
+            <value>
+                <elementReference>Access_for</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -3561,7 +3585,7 @@
                             <leftValueReference>Request_Type_ContractsRequest</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>New Name</stringValue>
+                                <stringValue>Name Change</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
@@ -3611,14 +3635,7 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
-                        <conditionLogic>or</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Document Request</stringValue>
-                            </rightValue>
-                        </conditions>
+                        <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>Document_Type_ContractsRequest</leftValueReference>
                             <operator>EqualTo</operator>
@@ -4560,6 +4577,24 @@
                         </conditions>
                     </visibilityRule>
                 </fields>
+                <fields>
+                    <name>Date_of_Disconnect</name>
+                    <dataType>Date</dataType>
+                    <fieldText>Date of Disconnect</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Disconnect Request</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -4953,9 +4988,9 @@
                         <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
+                            <operator>Contains</operator>
                             <rightValue>
-                                <stringValue>Equipment Delivery/ Storage</stringValue>
+                                <stringValue>Equipment Delivery</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
