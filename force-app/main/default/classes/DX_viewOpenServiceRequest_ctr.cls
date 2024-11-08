@@ -37,7 +37,7 @@ public class DX_viewOpenServiceRequest_ctr {
                               AND    (Status = 'On Hold'
                               OR	  Status = 'New'
                               OR	  Status = 'In Progress'
-                              OR	  Status = 'Resolved')];
+                              OR	  Status = 'Resolved') ORDER BY CaseNumber DESC];
         return lstCase;
     }
 }
