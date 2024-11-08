@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Destination_Account__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>The Account that the requesting party of the Cross Connect is seeking to connect to.</description>
+    <externalId>false</externalId>
+    <label>Destination Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Cross Connects (Destination Account)</relationshipLabel>
+    <relationshipName>Cross_Connects1</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>
