@@ -31,7 +31,7 @@ public with sharing class DX_viewClosedServiceRequest_ctr {
     }
     
     public static List<Case> getClosedSR(String AccountId){
-        List<Case> lstCase = [SELECT Id, CaseNumber, RecordType.Name, Type, Status, DX_Site__c, ClosedDate FROM Case WHERE AccountId  =: AccountId AND Status = 'Closed'];
+        List<Case> lstCase = [SELECT Id, CaseNumber, RecordType.Name, Type, Status, DX_Site__c, ClosedDate FROM Case WHERE AccountId  =: AccountId AND Status = 'Closed' ORDER BY CaseNumber DESC];
         return lstCase;
     }
 }
