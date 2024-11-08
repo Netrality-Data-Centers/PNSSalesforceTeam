@@ -12,6 +12,12 @@
         <objectField>Account</objectField>
         <userField>Contact.Account</userField>
     </accessMappings>
+    <accessMappings>
+        <accessLevel>Edit</accessLevel>
+        <object>DX_Access_Managment__c</object>
+        <objectField>Contact_Name__c</objectField>
+        <userField>Contact</userField>
+    </accessMappings>
     <name>Service Request Acces</name>
     <profiles>customer community login user</profiles>
     <profiles>customer portal manager standard</profiles>
