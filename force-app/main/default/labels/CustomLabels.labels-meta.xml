@@ -5,14 +5,14 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Page Name of Details SR</shortDescription>
-        <value>/s/details-service-request?</value>
+        <value>/s/details-service-requests?</value>
     </labels>
     <labels>
         <fullName>DX_NamePage_EditSR_Experience_Cloud</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>NamePage DetailsSR Experience Cloud</shortDescription>
-        <value>/s/edit-service-request?</value>
+        <value>/s/edit-service-requests?</value>
     </labels>
     <labels>
         <fullName>DX_URL_Experience_Cloud</fullName>
