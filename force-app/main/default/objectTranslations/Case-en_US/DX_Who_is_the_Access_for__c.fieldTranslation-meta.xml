@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Who is the Access for? --></label>
+    <name>DX_Who_is_the_Access_for__c</name>
+    <picklistValues>
+        <masterLabel>Requestor</masterLabel>
+        <translation><!-- Requestor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Third- Party</masterLabel>
+        <translation><!-- Third- Party --></translation>
+    </picklistValues>
+</CustomFieldTranslation>
