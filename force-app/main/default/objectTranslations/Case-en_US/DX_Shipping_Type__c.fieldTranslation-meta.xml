@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Shipping Type --></label>
+    <name>DX_Shipping_Type__c</name>
+    <picklistValues>
+        <masterLabel>Cabinet</masterLabel>
+        <translation><!-- Cabinet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Courier</masterLabel>
+        <translation><!-- Courier --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Envelope</masterLabel>
+        <translation><!-- Envelope --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Large Package (Over 20lbs)</masterLabel>
+        <translation><!-- Large Package (Over 20lbs) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pallet/Freight</masterLabel>
+        <translation><!-- Pallet/Freight --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Small Package (Under 20lbs)</masterLabel>
+        <translation><!-- Small Package (Under 20lbs) --></translation>
+    </picklistValues>
+</CustomFieldTranslation>
