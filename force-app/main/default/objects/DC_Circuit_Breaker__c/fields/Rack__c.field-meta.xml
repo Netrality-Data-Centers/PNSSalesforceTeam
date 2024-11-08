@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rack__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The Rack this Circuit Breaker is connected to.</description>
+    <externalId>false</externalId>
+    <label>Rack</label>
+    <referenceTo>DC_Rack__c</referenceTo>
+    <relationshipLabel>Circuit Breakers</relationshipLabel>
+    <relationshipName>Circuit_Breakers</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>
