@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If more than one guests add there information here: --></help>
+    <label><!-- Additional Guest Info --></label>
+    <name>DX_Added_Guest_Info__c</name>
+</CustomFieldTranslation>
