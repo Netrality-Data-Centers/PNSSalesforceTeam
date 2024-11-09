@@ -46,7 +46,7 @@
         <name>Redirect_to_Open_Cases_Page</name>
         <label>Redirect to Open Cases Page</label>
         <locationX>1238</locationX>
-        <locationY>1490</locationY>
+        <locationY>1598</locationY>
         <actionName>c:fsc_openUrl</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -944,6 +944,13 @@
                 <elementReference>Get_Service_Request.DX_Requestor__c</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Contact__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Service_Request.DX_Contact__c</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Has_it_Contact</targetReference>
         </connector>
@@ -1078,7 +1085,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Accounting_Request_Info</targetReference>
+                <targetReference>Get_Contact_for_Account</targetReference>
             </connector>
             <label>Accounting Request</label>
         </rules>
@@ -1651,6 +1658,27 @@
         </value>
     </processMetadataValues>
     <processType>Flow</processType>
+    <recordLookups>
+        <name>Get_Contact_for_Account</name>
+        <label>Get Contact for Account</label>
+        <locationX>314</locationX>
+        <locationY>1298</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Accounting_Request_Info</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TempCaseVar.DX_Contact__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordLookups>
         <name>Get_Record_Type_Info</name>
         <label>Get Record Type Info</label>
@@ -2681,7 +2709,7 @@
         <name>Accounting_Request_Info</name>
         <label>Accounting Request Info</label>
         <locationX>314</locationX>
-        <locationY>1298</locationY>
+        <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2869,6 +2897,23 @@
                             </rightValue>
                         </conditions>
                     </visibilityRule>
+                </fields>
+                <fields>
+                    <name>ContactAccountingRequest</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_Contact_for_Account.Name</elementReference>
+                    </defaultValue>
+                    <fieldText>Contact</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
+                    <isRequired>false</isRequired>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -3257,6 +3302,7 @@
                     </defaultValue>
                     <fieldText>Document Name</fieldText>
                     <fieldType>InputField</fieldType>
+                    <helpText>&lt;p&gt;Document that you&apos;re looking for.&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
@@ -5051,7 +5097,7 @@
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>Contains</operator>
                             <rightValue>
-                                <stringValue>Equipment Delivery/Storage</stringValue>
+                                <stringValue>Equipment Delivery</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
