@@ -5,8 +5,27 @@ import dx_URL_Experience_Cloud_lbl from '@salesforce/label/c.DX_URL_Experience_C
 import dx_NamePage_DetailsSR_Experience_Cloud_lbl from '@salesforce/label/c.DX_NamePage_DetailsSR_Experience_Cloud'; 
 import dx_NamePage_EditSR_Experience_Cloud_lbl from '@salesforce/label/c.DX_NamePage_EditSR_Experience_Cloud'; 
 
+const actions = [
+    { label: 'Edit', name: 'edit' },
+    { label: 'View Details', name: 'show_details' }
+];
+
+const columns = [
+    {
+        type: 'action',
+        typeAttributes: { rowActions: actions },
+    },
+    { label: 'SR Number', fieldName: 'CaseNumber' },
+    { label: 'Category', fieldName: 'RecordType_Name'},
+    { label: 'Type', fieldName: 'Type'},
+    { label: 'Status', fieldName: 'Status'},
+    { label: 'Site', fieldName: 'DX_Site__c'},
+    { label: 'SR Created Date', fieldName: 'CreatedDate'}
+];
+
 export default class Dx_viewOpenServiceRequest_lwc extends LightningElement{
     dataInfo = [];
+    columns = columns;
     isEmpty = false;
     error = false;
     @api recordIdToFlow;
@@ -24,7 +43,6 @@ export default class Dx_viewOpenServiceRequest_lwc extends LightningElement{
                 let month;
                 let day;
                 let formattedDate;
-                let urlCaseNumber;
                 for(var item in result){
                     recordType_Name = result[item].RecordType.Name;
                     result[item].RecordType_Name = recordType_Name;
@@ -39,11 +57,9 @@ export default class Dx_viewOpenServiceRequest_lwc extends LightningElement{
                     formattedDate = `${year}-${month}-${day}`;
                     result[item].CreatedDate = formattedDate;
 
-                    urlCaseNumber = dx_URL_Experience_Cloud_lbl + dx_NamePage_DetailsSR_Experience_Cloud_lbl + result[item].Id;
-                    result[item].urlCaseNumber = urlCaseNumber;
                 }
                 this.dataInfo = [...result];
-            }
+            }            
             if(data.length === 0){this.isEmpty = true;}
         } else if (error) {
             this.error = true;            
@@ -51,8 +67,28 @@ export default class Dx_viewOpenServiceRequest_lwc extends LightningElement{
         }
     }
 
-    EditRow(event) {
-        const url = dx_URL_Experience_Cloud_lbl + dx_NamePage_EditSR_Experience_Cloud_lbl + `recordIdToFlow=${event.target.value}`;
+    handleRowAction(event) {
+        const actionName = event.detail.action.name;
+        const row = event.detail.row;
+        switch (actionName) {
+            case 'edit':
+                this.EditRow(row);
+                break;
+            case 'show_details':
+                this.showRowDetails(row);
+                break;
+        }
+    }
+
+    EditRow(row) {
+        const url = dx_URL_Experience_Cloud_lbl + dx_NamePage_EditSR_Experience_Cloud_lbl + `recordIdToFlow=${row.Id}`;  
+        console.log(url);
+        window.location.href = url;
+    }
+
+    showRowDetails(row) {
+        const url = dx_URL_Experience_Cloud_lbl + dx_NamePage_DetailsSR_Experience_Cloud_lbl + `recordIdToFlow=${row.Id}`;  
+        console.log(url);
         window.location.href = url;
     }
 }
