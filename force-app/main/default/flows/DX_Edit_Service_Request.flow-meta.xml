@@ -46,7 +46,7 @@
         <name>Redirect_to_Open_Cases_Page</name>
         <label>Redirect to Open Cases Page</label>
         <locationX>1238</locationX>
-        <locationY>2030</locationY>
+        <locationY>2138</locationY>
         <actionName>c:fsc_openUrl</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -94,7 +94,7 @@
         <name>Assign_Stage_2</name>
         <label>Assign Stage 2</label>
         <locationX>1238</locationX>
-        <locationY>1706</locationY>
+        <locationY>1814</locationY>
         <assignmentItems>
             <assignToReference>$Flow.CurrentStage</assignToReference>
             <operator>Assign</operator>
@@ -231,7 +231,7 @@
         <name>Set_Accounting_Request</name>
         <label>Set Accounting Request</label>
         <locationX>314</locationX>
-        <locationY>1406</locationY>
+        <locationY>1514</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_Billing_Account_Number__c</assignToReference>
             <operator>Assign</operator>
@@ -289,7 +289,7 @@
         <name>Set_Contact_on_SR</name>
         <label>Set Contact on SR</label>
         <locationX>1238</locationX>
-        <locationY>1814</locationY>
+        <locationY>1922</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.ContactId</assignToReference>
             <operator>Assign</operator>
@@ -1603,6 +1603,13 @@
                 <elementReference>Get_Service_Request.DX_Requestor__c</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Contact__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Service_Request.DX_Contact__c</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Has_it_Contact</targetReference>
         </connector>
@@ -1737,7 +1744,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Accounting_Request_Info</targetReference>
+                <targetReference>Get_Contact_for_Accounting</targetReference>
             </connector>
             <label>Accounting Request</label>
         </rules>
@@ -2329,7 +2336,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <name>Contact_Lookup</name>
         <label>Contact Lookup</label>
         <locationX>1238</locationX>
-        <locationY>1598</locationY>
+        <locationY>1706</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_Stage_2</targetReference>
@@ -2354,6 +2361,27 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
             <assignToReference>curContact.Id</assignToReference>
             <field>Id</field>
         </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Contact_for_Accounting</name>
+        <label>Get Contact for Accounting</label>
+        <locationX>314</locationX>
+        <locationY>1298</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Accounting_Request_Info</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TempCaseVar.Contact.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Record_Type_Info</name>
@@ -2422,7 +2450,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <name>Update_Service_Request</name>
         <label>Update Service Request</label>
         <locationX>1238</locationX>
-        <locationY>1922</locationY>
+        <locationY>2030</locationY>
         <connector>
             <targetReference>Redirect_to_Open_Cases_Page</targetReference>
         </connector>
@@ -3129,7 +3157,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <name>Accounting_Request_Info</name>
         <label>Accounting Request Info</label>
         <locationX>314</locationX>
-        <locationY>1298</locationY>
+        <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -3293,6 +3321,23 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                             </rightValue>
                         </conditions>
                     </visibilityRule>
+                </fields>
+                <fields>
+                    <name>ContactAccountingRequest</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_Contact_for_Accounting.Name</elementReference>
+                    </defaultValue>
+                    <fieldText>Contact</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
+                    <isRequired>false</isRequired>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -4985,7 +5030,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>Contains</operator>
                             <rightValue>
-                                <stringValue>Equipment Delivery/Storage</stringValue>
+                                <stringValue>Equipment Delivery</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
