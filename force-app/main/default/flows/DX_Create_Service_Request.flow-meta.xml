@@ -1700,7 +1700,7 @@
         <inputAssignments>
             <field>DX_Default_Account__c</field>
             <value>
-                <elementReference>Default_Account_CrossConnectSR.recordId</elementReference>
+                <elementReference>Default_Account_CrossConnectSR.selectedChoiceValues</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2305,7 +2305,7 @@
         <inputAssignments>
             <field>DX_Default_Account__c</field>
             <value>
-                <elementReference>DefaultAccount_RHS.recordId</elementReference>
+                <elementReference>Default_Account_CrossConnectSR1.recordId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2433,7 +2433,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>$User.ContactId</elementReference>
+                <stringValue>003VC00000jNGBrYAO</stringValue>
             </value>
         </filters>
         <object>Contact</object>
@@ -3840,6 +3840,16 @@
                 </fields>
                 <fields>
                     <name>Default_Account_CrossConnectSR</name>
+                    <choiceReferences>RelatedAccountsForContactChoiceSet</choiceReferences>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Default Account</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <fields>
+                    <name>Default_Account_CrossConnectSR1</name>
                     <extensionName>flowruntime:lookup</extensionName>
                     <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
@@ -5328,38 +5338,10 @@
                 </fields>
                 <fields>
                     <name>DefaultAccount_RHS</name>
-                    <extensionName>flowruntime:lookup</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>fieldApiName</name>
-                        <value>
-                            <stringValue>DX_Default_Account__c</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Default Account</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Case</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>disabled</name>
-                        <value>
-                            <booleanValue>false</booleanValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>required</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
+                    <choiceReferences>RelatedAccountsForContactChoiceSet</choiceReferences>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Default Account</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
