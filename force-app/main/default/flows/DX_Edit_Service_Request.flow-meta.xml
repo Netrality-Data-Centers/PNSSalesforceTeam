@@ -3792,7 +3792,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     <name>Default_Account_CrossConnectSR</name>
                     <choiceReferences>ReleatedDefaultAccount</choiceReferences>
                     <defaultValue>
-                        <elementReference>TempCaseVar.DX_Default_Account__r.Id</elementReference>
+                        <elementReference>TempCaseVar.DX_Default_Account__c</elementReference>
                     </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Default Account</fieldText>

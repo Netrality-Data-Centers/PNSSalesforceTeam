@@ -3415,9 +3415,6 @@
                 <fields>
                     <name>Account_Name_CrossConnectSR</name>
                     <choiceReferences>RelatedAccounts</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.Account.Id</elementReference>
-                    </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Account Name</fieldText>
                     <fieldType>ComponentChoice</fieldType>
@@ -3434,7 +3431,7 @@
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
+                    <isRequired>false</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
@@ -3916,9 +3913,6 @@
                 <fields>
                     <name>Account_Name_AOrderInitiator</name>
                     <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Account_Name_Initiator_Information__c</elementReference>
-                    </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Account Name</fieldText>
                     <fieldType>ComponentChoice</fieldType>
@@ -3935,7 +3929,7 @@
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
+                    <isRequired>false</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
