@@ -365,13 +365,6 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Default_Account__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Default_Account_CrossConnectSR.selectedChoiceValues</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
             <assignToReference>TempCaseVar.DX_Account_Name_Order_Initiator__c</assignToReference>
             <operator>Assign</operator>
             <value>
@@ -397,13 +390,6 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>Requested_Due</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Account_Name_Initiator_Information__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Account_Name_AOrderInitiator.selectedChoiceValues</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -495,6 +481,27 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>RequestorCrossConnect.recordId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Account_Name_Order_Initiator__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Account_Name_OrderInitiator.recordId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Account_Name_CrossConnectSR.recordId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Default_Account__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Default_Account_CrossConnectSR.recordId</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -2134,6 +2141,14 @@
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
+        <name>RelatedAccountsForContact</name>
+        <collectionReference>Related_Accounts_for_Contact</collectionReference>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <object>Account</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
         <name>RelatedTicketChoiceSet</name>
         <dataType>String</dataType>
         <displayField>CaseNumber</displayField>
@@ -2470,7 +2485,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                 <elementReference>Get_Related_AccountIds_for_Contact</elementReference>
             </value>
         </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Account</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
@@ -3782,7 +3797,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     <inputParameters>
                         <name>recordId</name>
                         <value>
-                            <elementReference>Get_Primary_Account_for_Contact</elementReference>
+                            <elementReference>TempCaseVar.AccountId</elementReference>
                         </value>
                     </inputParameters>
                     <inputParameters>
@@ -3818,17 +3833,36 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                 </fields>
                 <fields>
                     <name>Default_Account_CrossConnectSR</name>
-                    <choiceReferences>ReleatedDefaultAccount</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Default_Account__c</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Default Account</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
-                        <name>placeholder</name>
+                        <name>fieldApiName</name>
                         <value>
-                            <elementReference>TempCaseVar.DX_Default_Account__r.Name</elementReference>
+                            <stringValue>DX_Default_Account__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Default Account</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>TempCaseVar.DX_Default_Account__r.Id</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -4169,18 +4203,37 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                 <name>A_Order_Initiator_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>Account_Name_AOrderInitiator</name>
-                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Account_Name_Initiator_Information__c</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <name>Account_Name_OrderInitiator</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
-                        <name>placeholder</name>
+                        <name>fieldApiName</name>
                         <value>
-                            <elementReference>TempCaseVar.DX_Account_Name_Order_Initiator__r.Name</elementReference>
+                            <stringValue>DX_Account_Name_Order_Initiator__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>TempCaseVar.DX_Account_Name_Order_Initiator__c</elementReference>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -5289,7 +5342,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                 </fields>
                 <fields>
                     <name>Default_Account_RHS</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
+                    <choiceReferences>RelatedAccountsForContact</choiceReferences>
                     <defaultValue>
                         <elementReference>TempCaseVar.DX_Default_Account__r.Id</elementReference>
                     </defaultValue>
@@ -5572,7 +5625,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
             <targetReference>Assign_Stage_1</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <textTemplates>
         <name>Case_Details_Script_Template</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
