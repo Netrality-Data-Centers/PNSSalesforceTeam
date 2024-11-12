@@ -155,7 +155,7 @@
     <externalSharingModel>Private</externalSharingModel>
     <label>Generator Power</label>
     <nameField>
-        <label>Generator Power Name</label>
+        <label>Name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Generators Power</pluralLabel>
