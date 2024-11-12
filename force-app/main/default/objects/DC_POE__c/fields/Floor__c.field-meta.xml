@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Floor__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>The floor that this Point of Entry is on.</description>
+    <externalId>false</externalId>
+    <label>Floor</label>
+    <referenceTo>DC_Floor__c</referenceTo>
+    <relationshipLabel>POE&apos;s</relationshipLabel>
+    <relationshipName>POE_s</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>
