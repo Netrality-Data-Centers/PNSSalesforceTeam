@@ -17,10 +17,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Product2Id</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>AccountId</field>
             </layoutItems>
             <layoutItems>
@@ -28,40 +24,12 @@
                 <field>ContactId</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Required</behavior>
+                <field>Opportunity__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Service_Order__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Description</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>IsCompetitorProduct</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SerialNumber</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Location_A__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Location_Z__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>RU_del__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>type_count__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -69,15 +37,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Suite__c</field>
+                <field>SerialNumber</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Data_Hall__c</field>
+                <field>Lease_ID__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Opportunity__c</field>
+                <behavior>Edit</behavior>
+                <field>Allocation_Required__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -104,6 +72,22 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>UsageEndDate</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Asset_Location__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Asset_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MRI_Suite_ID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Data_Hall__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
