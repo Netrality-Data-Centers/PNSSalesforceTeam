@@ -16,15 +16,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Data_Hall__c</field>
+                <field>Tenant_Suite__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Type__c</field>
+                <field>Max_Capacity_tons__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Design_Capacity_tons__c</field>
+                <behavior>Readonly</behavior>
+                <field>Design_Capacity_kW__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
