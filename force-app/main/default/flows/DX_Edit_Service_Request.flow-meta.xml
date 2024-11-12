@@ -281,6 +281,13 @@
                 <elementReference>Get_Service_Request.DX_Other_Request__c</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Invoice__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Invoice_AccountingRequest_Formula</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Contact_Lookup</targetReference>
         </connector>
@@ -2320,6 +2327,11 @@
     </dynamicChoiceSets>
     <environments>Default</environments>
     <formulas>
+        <name>Invoice_AccountingRequest_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!TempCaseVar.Type}, &apos;Billing Inquiry&apos;), {!Invoice_Not_Required}, {!Invoice_Required})</expression>
+    </formulas>
+    <formulas>
         <description>Get the value of the field Requested Action depending of the Type field</description>
         <name>Requested_Actions_RHS_Formula_value</name>
         <dataType>String</dataType>
@@ -3315,19 +3327,17 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Invoice_Required</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Invoice__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Invoice #</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Invoice__c</objectFieldReference>
+                    <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>NRC Detail Request</stringValue>
-                            </rightValue>
-                        </conditions>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
@@ -3335,6 +3345,24 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                                 <stringValue>Invoice Request</stringValue>
                             </rightValue>
                         </conditions>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>NRC Detail Request</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Invoice_Not_Required</name>
+                    <dataType>String</dataType>
+                    <fieldText>Invoice #</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
@@ -3914,25 +3942,6 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                         <name>placeholder</name>
                         <value>
                             <elementReference>TempCaseVar.DX_Account_Name_Order_Initiator__r.Name</elementReference>
-                        </value>
-                    </inputParameters>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
-                </fields>
-                <fields>
-                    <name>Company_Name</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Account_Name_Initiator_Information__c</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Company Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
-                    <inputParameters>
-                        <name>placeholder</name>
-                        <value>
-                            <elementReference>TempCaseVar.DX_Account_Name_Initiator_Information__r.Name</elementReference>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
