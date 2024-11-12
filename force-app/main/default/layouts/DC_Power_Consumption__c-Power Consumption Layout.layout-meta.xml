@@ -12,39 +12,23 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Tenant_Suite__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Power_Source_Main_Utility__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Power_Source_Switchgear__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Power_Source_UPS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Power_Source_PDU_RPP__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Power_Source__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Meter_ID__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Connected_Power__c</field>
+                <behavior>Required</behavior>
+                <field>Device_Name__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Committed_Power__c</field>
+                <behavior>Required</behavior>
+                <field>Device_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>kVA_Usage__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
