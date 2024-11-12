@@ -281,6 +281,13 @@
                 <elementReference>Get_Service_Request.DX_Other_Request__c</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Invoice__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Invoice_AccountingRequest_Formula</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Contact_Lookup</targetReference>
         </connector>
@@ -2320,6 +2327,11 @@
     </dynamicChoiceSets>
     <environments>Default</environments>
     <formulas>
+        <name>Invoice_AccountingRequest_Formula</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!TempCaseVar.Type}, &apos;Billing Inquiry&apos;), {!Invoice_Not_Required}, {!Invoice_Required})</expression>
+    </formulas>
+    <formulas>
         <description>Get the value of the field Requested Action depending of the Type field</description>
         <name>Requested_Actions_RHS_Formula_value</name>
         <dataType>String</dataType>
@@ -3287,19 +3299,17 @@ IF(NOT(ISBLANK( {!Requested_Actions_Not_Required} )), {!Requested_Actions_Not_Re
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Invoice_Required</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Invoice__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Invoice #</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>TempCaseVar.DX_Invoice__c</objectFieldReference>
+                    <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>NRC Detail Request</stringValue>
-                            </rightValue>
-                        </conditions>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
@@ -3307,6 +3317,24 @@ IF(NOT(ISBLANK( {!Requested_Actions_Not_Required} )), {!Requested_Actions_Not_Re
                                 <stringValue>Invoice Request</stringValue>
                             </rightValue>
                         </conditions>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>NRC Detail Request</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Invoice_Not_Required</name>
+                    <dataType>String</dataType>
+                    <fieldText>Invoice #</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
@@ -3874,16 +3902,6 @@ IF(NOT(ISBLANK( {!Requested_Actions_Not_Required} )), {!Requested_Actions_Not_Re
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>New Cross Connect</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>InitiatorTitleCrossConnect</name>

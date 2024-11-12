@@ -3704,48 +3704,6 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Company_Name</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Account_Name_Initiator_Information__r.Name</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Company Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
-                    <inputParameters>
-                        <name>placeholder</name>
-                        <value>
-                            <elementReference>TempCaseVar.DX_Account_Name_Initiator_Information__r.Name</elementReference>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>disabled</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Change Cross Connect</stringValue>
-                            </rightValue>
-                        </conditions>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Disconnect Cross Connect</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
                     <name>InitiatorTitleCrossConnect</name>
                     <dataType>String</dataType>
                     <defaultValue>
@@ -5449,6 +5407,18 @@
                         <name>placeholder</name>
                         <value>
                             <elementReference>TempCaseVar.DX_Default_Account__r.Name</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>TempCaseVar.DX_Default_Account__c</elementReference>
                         </value>
                     </inputParameters>
                     <inputParameters>
