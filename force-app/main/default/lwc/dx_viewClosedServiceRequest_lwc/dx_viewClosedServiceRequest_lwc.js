@@ -5,7 +5,6 @@ import dx_NamePage_DetailsSR_Experience_Cloud_lbl from '@salesforce/label/c.DX_N
 import dx_NamePage_EditSR_Experience_Cloud_lbl from '@salesforce/label/c.DX_NamePage_EditSR_Experience_Cloud'; 
 
 const actions = [
-    { label: 'Edit', name: 'edit' },
     { label: 'View Details', name: 'show_details' }
 ];
 
@@ -68,19 +67,10 @@ export default class Dx_viewClosedServiceRequest_lwc extends LightningElement {
         const actionName = event.detail.action.name;
         const row = event.detail.row;
         switch (actionName) {
-            case 'edit':
-                this.EditRow(row);
-                break;
             case 'show_details':
                 this.showRowDetails(row);
                 break;
         }
-    }
-
-    EditRow(row) {
-        const url = dx_URL_Experience_Cloud_lbl + dx_NamePage_EditSR_Experience_Cloud_lbl + `recordIdToFlow=${row.Id}`;  
-        console.log(url);
-        window.location.href = url;
     }
 
     showRowDetails(row) {
