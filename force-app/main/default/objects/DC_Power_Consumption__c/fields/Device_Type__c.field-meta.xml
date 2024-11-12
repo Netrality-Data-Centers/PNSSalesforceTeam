@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Device_Type__c</fullName>
+    <description>The type of device drawing power.</description>
+    <externalId>false</externalId>
+    <label>Device Type</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Circuit Breaker</fullName>
+                <default>false</default>
+                <label>Circuit Breaker</label>
+            </value>
+            <value>
+                <fullName>DC Circuit</fullName>
+                <default>false</default>
+                <label>DC Circuit</label>
+            </value>
+            <value>
+                <fullName>PDU Panel</fullName>
+                <default>false</default>
+                <label>PDU Panel</label>
+            </value>
+            <value>
+                <fullName>DC Plant</fullName>
+                <default>false</default>
+                <label>DC Plant</label>
+            </value>
+            <value>
+                <fullName>PDU RPP</fullName>
+                <default>false</default>
+                <label>PDU RPP</label>
+            </value>
+            <value>
+                <fullName>UPS</fullName>
+                <default>false</default>
+                <label>UPS</label>
+            </value>
+            <value>
+                <fullName>SwitchGear</fullName>
+                <default>false</default>
+                <label>SwitchGear</label>
+            </value>
+            <value>
+                <fullName>Non-IT Load</fullName>
+                <default>false</default>
+                <label>Non-IT Load</label>
+            </value>
+            <value>
+                <fullName>Power Consumption</fullName>
+                <default>false</default>
+                <label>Power Consumption</label>
+            </value>
+            <value>
+                <fullName>Tenant Suite</fullName>
+                <default>false</default>
+                <label>Tenant Suite</label>
+            </value>
+            <value>
+                <fullName>Tenant Power</fullName>
+                <default>false</default>
+                <label>Tenant Power</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
