@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Primary Contact</fullName>
+        <default>false</default>
+        <label>Primary Contact</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Affiliate Contact</fullName>
+        <default>false</default>
+        <label>Affiliate Contact</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Third-Party Support Contact</fullName>
+        <default>false</default>
+        <label>Third-Party Support Contact</label>
+    </standardValue>
+</StandardValueSet>
