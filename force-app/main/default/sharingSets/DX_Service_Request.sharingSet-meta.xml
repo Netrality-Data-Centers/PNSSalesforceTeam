@@ -4,7 +4,7 @@
         <accessLevel>Read</accessLevel>
         <object>Account</object>
         <objectField>Id</objectField>
-        <userField>Contact.Account</userField>
+        <userField>Contact.RelatedAccount</userField>
     </accessMappings>
     <accessMappings>
         <accessLevel>Edit</accessLevel>
@@ -14,9 +14,9 @@
     </accessMappings>
     <accessMappings>
         <accessLevel>Edit</accessLevel>
-        <object>DX_Access_Managment__c</object>
-        <objectField>Contact_Name__c</objectField>
-        <userField>Contact</userField>
+        <object>Contact</object>
+        <objectField>Account</objectField>
+        <userField>Contact.RelatedAccount</userField>
     </accessMappings>
     <name>Service Request Acces</name>
     <profiles>customer community login user</profiles>

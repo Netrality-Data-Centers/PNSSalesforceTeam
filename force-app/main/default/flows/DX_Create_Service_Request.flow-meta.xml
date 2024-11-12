@@ -3,7 +3,7 @@
     <actionCalls>
         <name>Get_Primary_Account_for_Contact</name>
         <label>Get Primary Account for Contact</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>674</locationY>
         <actionName>DX_PrimaryAccountContactHelper</actionName>
         <actionType>apex</actionType>
@@ -27,7 +27,7 @@
     <actionCalls>
         <name>Get_Related_AccountIds_for_Contact</name>
         <label>Get Related AccountIds for Contact</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>782</locationY>
         <actionName>DX_RelatedAccountsContactHelper</actionName>
         <actionType>apex</actionType>
@@ -48,8 +48,8 @@
     <actionCalls>
         <name>redirect_to_view_SR_Details</name>
         <label>redirect to view SR Details</label>
-        <locationX>2294</locationX>
-        <locationY>2330</locationY>
+        <locationX>2558</locationX>
+        <locationY>2294</locationY>
         <actionName>c:fsc_openUrl</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -73,7 +73,7 @@
     <assignments>
         <name>Assign_Stage_1</name>
         <label>Assign Stage 1</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>134</locationY>
         <assignmentItems>
             <assignToReference>$Flow.CurrentStage</assignToReference>
@@ -89,7 +89,7 @@
     <assignments>
         <name>Assign_Stage_2</name>
         <label>Assign Stage 2</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>1298</locationY>
         <assignmentItems>
             <assignToReference>$Flow.CurrentStage</assignToReference>
@@ -103,41 +103,9 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Set_Account_Name</name>
-        <label>Set Account Name</label>
-        <locationX>2162</locationX>
-        <locationY>1730</locationY>
-        <assignmentItems>
-            <assignToReference>Account_InitiatorInformation.Id</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>AccountName_InitiatorInformation.recordId</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Create_Cross_Connect</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Set_Company_Name</name>
-        <label>Set Company Name</label>
-        <locationX>2426</locationX>
-        <locationY>1730</locationY>
-        <assignmentItems>
-            <assignToReference>Account_InitiatorInformation.Id</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>CompanyName_InitiatorInformation.recordId</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Create_Cross_Connect</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>Set_Contact_on_SR</name>
         <label>Set Contact on SR</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>1406</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.ContactId</assignToReference>
@@ -151,9 +119,57 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Set_LOA_Attached_Value</name>
+        <label>Set LOA Attached Value</label>
+        <locationX>2162</locationX>
+        <locationY>1838</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_LOA_Attached__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>LOA_Attached</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_LOA_Attached_Field</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_RA_Not_Required</name>
+        <label>Set RA Not Required</label>
+        <locationX>4538</locationX>
+        <locationY>1730</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Requested_Actions__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Requested_Actions_Not_Required</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_RHS</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_RA_Required</name>
+        <label>Set RA Required</label>
+        <locationX>4274</locationX>
+        <locationY>1730</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Requested_Actions__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Requested_Actions_Required_RHS</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_RHS</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_RecordType_on_TempCase</name>
         <label>Set RecordType on TempCase</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.RecordTypeId</assignToReference>
@@ -167,15 +183,31 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Set_When_would_you_like_the_meeting</name>
-        <label>Set When would you like the meeting</label>
-        <locationX>2954</locationX>
-        <locationY>1622</locationY>
+        <name>Set_WhenWouldNotRequired</name>
+        <label>Set WhenWouldNotRequired</label>
+        <locationX>3218</locationX>
+        <locationY>1730</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_When_would_you_like_the_meeting__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>When_would_you_like_the_meeting_CX_Formula</elementReference>
+                <elementReference>When_would_you_like_the_meeting_Not_Required</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_CX_SR</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_WhenWouldRequired</name>
+        <label>Set WhenWouldRequired</label>
+        <locationX>2954</locationX>
+        <locationY>1730</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_When_would_you_like_the_meeting__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>When_would_you_like_the_meeting_Required</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -272,10 +304,10 @@
     <decisions>
         <name>Case_Type</name>
         <label>Case Type?</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>1514</locationY>
         <defaultConnector>
-            <targetReference>Copy_1_of_Unsupported_SR_Error</targetReference>
+            <targetReference>Unsupported_SRType_Error</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -419,7 +451,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>CC_Type</targetReference>
+                <targetReference>Create_Cross_Connect</targetReference>
             </connector>
             <label>Types for Cross Connect</label>
         </rules>
@@ -469,7 +501,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Set_When_would_you_like_the_meeting</targetReference>
+                <targetReference>When_Would_you_like_meeting_Required</targetReference>
             </connector>
             <label>Types for Customer Experience</label>
         </rules>
@@ -534,40 +566,15 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Create_RHS</targetReference>
+                <targetReference>Requested_Actions_Required</targetReference>
             </connector>
             <label>Types of RHS</label>
         </rules>
     </decisions>
     <decisions>
-        <name>CC_Type</name>
-        <label>CC Type ?</label>
-        <locationX>2294</locationX>
-        <locationY>1622</locationY>
-        <defaultConnector>
-            <targetReference>Set_Company_Name</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>New_Cross_Connect</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>TempCaseVar.Type</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>New Cross Connect</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Set_Account_Name</targetReference>
-            </connector>
-            <label>New Cross Connect</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Record_Type</name>
         <label>Record Type?</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>998</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
@@ -709,6 +716,56 @@
                 <targetReference>Unsupported_SR_Error</targetReference>
             </connector>
             <label>STL</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Requested_Actions_Required</name>
+        <label>Requested Actions Required?</label>
+        <locationX>4406</locationX>
+        <locationY>1622</locationY>
+        <defaultConnector>
+            <targetReference>Set_RA_Not_Required</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>true</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Requested_Actions_Required_RHS</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_RA_Required</targetReference>
+            </connector>
+            <label>true</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>When_Would_you_like_meeting_Required</name>
+        <label>When Would you like meeting Required?</label>
+        <locationX>3086</locationX>
+        <locationY>1622</locationY>
+        <defaultConnector>
+            <targetReference>Set_WhenWouldNotRequired</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>trueWhenWouldYouLIkeMeetingRequired</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>When_would_you_like_the_meeting_Required</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_WhenWouldRequired</targetReference>
+            </connector>
+            <label>true</label>
         </rules>
     </decisions>
     <description>Creates a Service Request - updated to redirect to open service requests</description>
@@ -1321,6 +1378,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>DX_Other_NRC_Billing_for__c</field>
+            <value>
+                <elementReference>Other_NRC_Billing_for_AccountingRequest</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>DX_Other_Request__c</field>
             <value>
                 <elementReference>Other_Requests_AccountingRequest</elementReference>
@@ -1589,8 +1652,8 @@
     <recordCreates>
         <name>Create_Cross_Connect</name>
         <label>Create Cross Connect</label>
-        <locationX>2294</locationX>
-        <locationY>1922</locationY>
+        <locationX>2162</locationX>
+        <locationY>1622</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Get_LOA_File</targetReference>
@@ -1614,13 +1677,13 @@
         <inputAssignments>
             <field>DX_Account_Name_Initiator_Information__c</field>
             <value>
-                <elementReference>Account_InitiatorInformation.Id</elementReference>
+                <elementReference>AccountName_InitiatorInformation1.selectedChoiceValues</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>DX_Account_Name_Order_Initiator__c</field>
             <value>
-                <elementReference>AccountNameAOrderInitiator.recordId</elementReference>
+                <elementReference>AccountNameAOrderInitiator1.selectedChoiceValues</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1662,7 +1725,7 @@
         <inputAssignments>
             <field>DX_Default_Account__c</field>
             <value>
-                <elementReference>Default_Account_CrossConnectSR.recordId</elementReference>
+                <elementReference>Default_Account_CrossConnectSR.selectedChoiceValues</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1680,7 +1743,7 @@
         <inputAssignments>
             <field>DX_LOA_Attached__c</field>
             <value>
-                <elementReference>LOA_Attached</elementReference>
+                <booleanValue>false</booleanValue>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1752,7 +1815,7 @@
         <inputAssignments>
             <field>DX_Tech_Contact_Tel_ZLOA__c</field>
             <value>
-                <elementReference>Tech_Contact_Name_ZLoaInfo</elementReference>
+                <elementReference>Tech_Contact_Tel_ZLoaInfo1.value</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1784,8 +1847,8 @@
     <recordCreates>
         <name>Create_CX_SR</name>
         <label>Create CX SR</label>
-        <locationX>2954</locationX>
-        <locationY>1730</locationY>
+        <locationX>3086</locationX>
+        <locationY>1922</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -1907,7 +1970,7 @@
     <recordCreates>
         <name>Create_Logistics</name>
         <label>Create Logistics</label>
-        <locationX>3482</locationX>
+        <locationX>3746</locationX>
         <locationY>1622</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
@@ -1968,7 +2031,7 @@
         <inputAssignments>
             <field>DX_Default_Account__c</field>
             <value>
-                <elementReference>DefaultAccount_Logistics.recordId</elementReference>
+                <elementReference>DefaultAccount_Logistics.selectedChoiceValues</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2236,8 +2299,8 @@
     <recordCreates>
         <name>Create_RHS</name>
         <label>Create RHS</label>
-        <locationX>4010</locationX>
-        <locationY>1622</locationY>
+        <locationX>4406</locationX>
+        <locationY>1922</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -2267,7 +2330,7 @@
         <inputAssignments>
             <field>DX_Default_Account__c</field>
             <value>
-                <elementReference>DefaultAccount_RHS.recordId</elementReference>
+                <elementReference>DefaultAccount_RHS.selectedChoiceValues</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2315,7 +2378,7 @@
         <inputAssignments>
             <field>DX_Requested_Actions__c</field>
             <value>
-                <elementReference>RequiredActionsValue_RHS_Formula</elementReference>
+                <elementReference>TempCaseVar.DX_Requested_Actions__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2353,8 +2416,8 @@
     <recordLookups>
         <name>Case_Lookup</name>
         <label>Case Lookup</label>
-        <locationX>2294</locationX>
-        <locationY>2222</locationY>
+        <locationX>2558</locationX>
+        <locationY>2186</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>redirect_to_view_SR_Details</targetReference>
@@ -2380,7 +2443,7 @@
     <recordLookups>
         <name>Contact_Lookup</name>
         <label>Contact Lookup</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -2395,7 +2458,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>$User.ContactId</elementReference>
+                <stringValue>003VC00000jNGBrYAO</stringValue>
             </value>
         </filters>
         <object>Contact</object>
@@ -2407,7 +2470,7 @@
     <recordLookups>
         <name>Get_Record_Type_Info</name>
         <label>Get Record Type Info</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -2432,7 +2495,7 @@
     <recordLookups>
         <name>Related_Accounts_for_Contact</name>
         <label>Related Accounts for Contact</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>890</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -2450,10 +2513,38 @@
         <object>Account</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordUpdates>
+        <name>Update_LOA_Attached_Field</name>
+        <label>Update LOA Attached Field</label>
+        <locationX>2162</locationX>
+        <locationY>1946</locationY>
+        <connector>
+            <targetReference>Case_Lookup</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Contact_Error_Screen</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>CreatedCaseId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>DX_LOA_Attached__c</field>
+            <value>
+                <elementReference>TempCaseVar.DX_LOA_Attached__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
     <screens>
         <name>Access_Request_Info</name>
         <label>Access Request Info</label>
-        <locationX>1106</locationX>
+        <locationX>1370</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -2766,26 +2857,6 @@
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
-                    <name>Requestor</name>
-                    <choiceReferences>RequestorChoiceSet</choiceReferences>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Requestor</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>Who_is_the_Access_for</leftValueReference>
-                            <operator>StartsWith</operator>
-                            <rightValue>
-                                <stringValue>Requestor</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
                     <name>Arrival_Date</name>
                     <dataType>Date</dataType>
                     <fieldText>Arrival Date</fieldText>
@@ -2937,6 +3008,23 @@
                         </conditions>
                     </visibilityRule>
                 </fields>
+                <fields>
+                    <name>If_more_than_one_guests_add_there_information_here</name>
+                    <fieldText>If more than one guests add there information here</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Additional_Guests</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -2956,6 +3044,26 @@
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>Requestor</name>
+                    <choiceReferences>RequestorChoiceSet</choiceReferences>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Requestor</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Who_is_the_Access_for</leftValueReference>
+                            <operator>StartsWith</operator>
+                            <rightValue>
+                                <stringValue>Requestor</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Third_Party_Name</name>
@@ -3054,23 +3162,6 @@
                     </validationRule>
                 </fields>
                 <fields>
-                    <name>If_more_than_one_guests_add_there_information_here</name>
-                    <fieldText>If more than one guests add there information here</fieldText>
-                    <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>Additional_Guests</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <booleanValue>true</booleanValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
                     <name>I_have_read_and_agree_to_the_facility_rules_and_regulations_as_stated_in_the_Net</name>
                     <dataType>Boolean</dataType>
                     <fieldText>I have read and agree to the facility rules and regulations as stated in the Netrality Customer Handbook</fieldText>
@@ -3124,7 +3215,7 @@
     <screens>
         <name>Accounting_Request_Info</name>
         <label>Accounting Request Info</label>
-        <locationX>1370</locationX>
+        <locationX>1634</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -3436,7 +3527,7 @@
     <screens>
         <name>Contracts_Request_Info</name>
         <label>Contracts Request Info</label>
-        <locationX>1634</locationX>
+        <locationX>1898</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -3550,6 +3641,44 @@
                         </conditions>
                     </visibilityRule>
                 </fields>
+                <fields>
+                    <name>Document_Name_ContractsRequest</name>
+                    <dataType>String</dataType>
+                    <fieldText>Document Name</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <helpText>&lt;p&gt;Document that you&apos;re looking for.&lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Document Request</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Document_Type_ContractsRequest</name>
+                    <choiceReferences>DocumentTypeChoiceSet</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Document Type</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Document Request</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -3612,44 +3741,6 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Document_Name_ContractsRequest</name>
-                    <dataType>String</dataType>
-                    <fieldText>Document Name</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <helpText>&lt;p&gt;Document that you&apos;re looking for.&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Document Request</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
-                    <name>Document_Type_ContractsRequest</name>
-                    <choiceReferences>DocumentTypeChoiceSet</choiceReferences>
-                    <dataType>String</dataType>
-                    <fieldText>Document Type</fieldText>
-                    <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Document Request</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
                     <name>Other_Document_Type_ContractsRequest</name>
                     <dataType>String</dataType>
                     <fieldText>Other Document Type</fieldText>
@@ -3682,30 +3773,9 @@
         <showHeader>false</showHeader>
     </screens>
     <screens>
-        <name>Copy_1_of_Unsupported_SR_Error</name>
-        <label>Copy 1 of Unsupported SR Error</label>
-        <locationX>4538</locationX>
-        <locationY>1622</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
-        <fields>
-            <name>Copy_1_of_Error_Unsupported_SR_Title</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 20px; color: rgb(194, 57, 52);&quot;&gt;Unsupported Service Request Type&lt;/span&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <fields>
-            <name>Copy_1_of_Unsupported_Error_Desc</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;Please contact your Administrator for more information.&lt;/span&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
-    <screens>
         <name>Cross_Connect_Request_Info</name>
         <label>Cross Connect Request Info</label>
-        <locationX>1898</locationX>
+        <locationX>2162</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -3795,38 +3865,10 @@
                 </fields>
                 <fields>
                     <name>Default_Account_CrossConnectSR</name>
-                    <extensionName>flowruntime:lookup</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>fieldApiName</name>
-                        <value>
-                            <stringValue>DX_Default_Account__c</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Default Account</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Case</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>required</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>recordIds</name>
-                        <value>
-                            <elementReference>Get_Related_AccountIds_for_Contact</elementReference>
-                        </value>
-                    </inputParameters>
+                    <choiceReferences>RelatedAccountsForContactChoiceSet</choiceReferences>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Default Account</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3904,95 +3946,14 @@
                 <name>Initiator_Information_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>AccountName_InitiatorInformation</name>
-                    <extensionName>flowruntime:lookup</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>fieldApiName</name>
-                        <value>
-                            <stringValue>DX_Account_Name_Initiator_Information__c</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Account Name</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Case</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>required</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
+                    <name>AccountName_InitiatorInformation1</name>
+                    <choiceReferences>RelatedAccountsForContactChoiceSet</choiceReferences>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Account Name</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>New Cross Connect</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
-                    <name>CompanyName_InitiatorInformation</name>
-                    <extensionName>flowruntime:lookup</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>fieldApiName</name>
-                        <value>
-                            <stringValue>DX_Account_Name_Initiator_Information__c</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Company Name</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Case</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>required</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
-                    <visibilityRule>
-                        <conditionLogic>or</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Change Cross Connect</stringValue>
-                            </rightValue>
-                        </conditions>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Disconnect Cross Connect</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -4078,33 +4039,11 @@
                 <name>A_Order_Initiator_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>AccountNameAOrderInitiator</name>
-                    <extensionName>flowruntime:lookup</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>fieldApiName</name>
-                        <value>
-                            <stringValue>DX_Account_Name_Order_Initiator__c</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Account Name</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Case</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>required</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
+                    <name>AccountNameAOrderInitiator1</name>
+                    <choiceReferences>RelatedAccountsForContactChoiceSet</choiceReferences>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Account Name</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -4241,12 +4180,24 @@
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Tech_Contact_Tel_ZLoaInfo</name>
-                    <dataType>String</dataType>
-                    <fieldText>Tech Contact Tel#</fieldText>
-                    <fieldType>InputField</fieldType>
+                    <name>Tech_Contact_Tel_ZLoaInfo1</name>
+                    <extensionName>flowruntime:phone</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Tech Contact Tel#</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -4301,7 +4252,7 @@
     <screens>
         <name>Customer_Experience_Request_Info</name>
         <label>Customer Experience Request Info</label>
-        <locationX>2162</locationX>
+        <locationX>2426</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -4643,13 +4594,13 @@
     <screens>
         <name>Get_LOA_File</name>
         <label>Get LOA File</label>
-        <locationX>2294</locationX>
-        <locationY>2030</locationY>
+        <locationX>2162</locationX>
+        <locationY>1730</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Case_Lookup</targetReference>
+            <targetReference>Set_LOA_Attached_Value</targetReference>
         </connector>
         <fields>
             <name>LOA_File_Title</name>
@@ -4687,6 +4638,16 @@
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>LOA_Attached</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
@@ -4694,7 +4655,7 @@
     <screens>
         <name>GetRecordType</name>
         <label>Record Type</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>242</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -4722,7 +4683,7 @@
     <screens>
         <name>Logistics_Request_Info</name>
         <label>Logistics Request Info</label>
-        <locationX>2690</locationX>
+        <locationX>2954</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -4809,35 +4770,30 @@
                 </fields>
                 <fields>
                     <name>DefaultAccount_Logistics</name>
-                    <extensionName>flowruntime:lookup</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>fieldApiName</name>
-                        <value>
-                            <stringValue>DX_Default_Account__c</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Case</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Default Account</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>required</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
+                    <choiceReferences>RelatedAccountsForContactChoiceSet</choiceReferences>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Default Account</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <visibilityRule>
+                        <conditionLogic>or</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Outbound Shipping</stringValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.Type</leftValueReference>
+                            <operator>StartsWith</operator>
+                            <rightValue>
+                                <stringValue>Equipment Delivery</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Billing_Account_Number_Logistics</name>
@@ -4875,24 +4831,6 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <scale>0</scale>
-                </fields>
-                <fields>
-                    <name>Other_Courier</name>
-                    <dataType>String</dataType>
-                    <fieldText>Other Courier</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>Courier</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Other</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Tracking_Number</name>
@@ -5000,6 +4938,24 @@
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>Other_Courier</name>
+                    <dataType>String</dataType>
+                    <fieldText>Other Courier</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Courier</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Other</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Amazon_Code</name>
@@ -5174,7 +5130,7 @@
     <screens>
         <name>RHS_Request_Info</name>
         <label>RHS Request Info</label>
-        <locationX>2954</locationX>
+        <locationX>3218</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5261,38 +5217,10 @@
                 </fields>
                 <fields>
                     <name>DefaultAccount_RHS</name>
-                    <extensionName>flowruntime:lookup</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>fieldApiName</name>
-                        <value>
-                            <stringValue>DX_Default_Account__c</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Default Account</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Case</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>disabled</name>
-                        <value>
-                            <booleanValue>false</booleanValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>required</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
+                    <choiceReferences>RelatedAccountsForContactChoiceSet</choiceReferences>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Default Account</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -5516,7 +5444,7 @@
     <screens>
         <name>Unsupported_SR_Error</name>
         <label>Unsupported SR Error</label>
-        <locationX>2426</locationX>
+        <locationX>2690</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5537,6 +5465,27 @@
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
+    <screens>
+        <name>Unsupported_SRType_Error</name>
+        <label>Unsupported SR Error</label>
+        <locationX>5066</locationX>
+        <locationY>1622</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Copy_1_of_Error_Unsupported_SR_Title</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 20px; color: rgb(194, 57, 52);&quot;&gt;Unsupported Service Request Type&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Copy_1_of_Unsupported_Error_Desc</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;Please contact your Administrator for more information.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
     <sourceTemplate>setup_service_experience__Create_Case</sourceTemplate>
     <stages>
         <name>Case_Details_Stage</name>
@@ -5551,7 +5500,7 @@
         <stageOrder>10</stageOrder>
     </stages>
     <start>
-        <locationX>2168</locationX>
+        <locationX>2432</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Assign_Stage_1</targetReference>
