@@ -497,6 +497,13 @@
                 <elementReference>RequestorCrossConnect.recordId</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Account_Name_Initiator_Information__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Account_Name_AOrderInitiator.selectedChoiceValues</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Contact_Lookup</targetReference>
         </connector>
@@ -1604,10 +1611,24 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Contact__c</assignToReference>
+            <assignToReference>TempCaseVar.DX_Tech_Contact_Name_Order_Initiator__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Service_Request.DX_Contact__c</elementReference>
+                <elementReference>Get_Service_Request.DX_Tech_Contact_Name_Order_Initiator__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Rack_RU_Order_Initiator__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Service_Request.DX_Rack_RU_Order_Initiator__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Tech_Contact_Tel_Order_Initiator__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Service_Request.DX_Tech_Contact_Tel_Order_Initiator__c</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -1648,10 +1669,10 @@
     </choices>
     <choices>
         <name>ReleatedDefaultAccount</name>
-        <choiceText>{!TempCaseVar.DX_Default_Account__c}</choiceText>
+        <choiceText>{!TempCaseVar.DX_Default_Account__r.Name}</choiceText>
         <dataType>String</dataType>
         <value>
-            <elementReference>TempCaseVar.DX_Default_Account__r.Id</elementReference>
+            <elementReference>TempCaseVar.DX_Default_Account__c</elementReference>
         </value>
     </choices>
     <choices>
@@ -3754,7 +3775,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     <inputParameters>
                         <name>recordId</name>
                         <value>
-                            <elementReference>Get_Primary_Account_for_Contact</elementReference>
+                            <elementReference>TempCaseVar.AccountId</elementReference>
                         </value>
                     </inputParameters>
                     <inputParameters>
@@ -3792,7 +3813,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     <name>Default_Account_CrossConnectSR</name>
                     <choiceReferences>ReleatedDefaultAccount</choiceReferences>
                     <defaultValue>
-                        <elementReference>TempCaseVar.DX_Default_Account__r.Id</elementReference>
+                        <elementReference>TempCaseVar.DX_Default_Account__c</elementReference>
                     </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Default Account</fieldText>
@@ -4008,7 +4029,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     <name>OrderInitiatorCrossConnect</name>
                     <dataType>String</dataType>
                     <defaultValue>
-                        <elementReference>TempCaseVar.DX_Order_Initiator__c</elementReference>
+                        <elementReference>TempCaseVar.DX_Order_Initiator__r.FirstName</elementReference>
                     </defaultValue>
                     <fieldText>Order Initiator</fieldText>
                     <fieldType>InputField</fieldType>
@@ -4152,7 +4173,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     <inputParameters>
                         <name>placeholder</name>
                         <value>
-                            <elementReference>TempCaseVar.DX_Account_Name_Order_Initiator__c</elementReference>
+                            <elementReference>TempCaseVar.DX_Account_Name_Order_Initiator__r.Name</elementReference>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>

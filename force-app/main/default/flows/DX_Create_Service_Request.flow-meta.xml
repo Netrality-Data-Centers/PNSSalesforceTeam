@@ -3,7 +3,7 @@
     <actionCalls>
         <name>Get_Primary_Account_for_Contact</name>
         <label>Get Primary Account for Contact</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>674</locationY>
         <actionName>DX_PrimaryAccountContactHelper</actionName>
         <actionType>apex</actionType>
@@ -27,7 +27,7 @@
     <actionCalls>
         <name>Get_Related_AccountIds_for_Contact</name>
         <label>Get Related AccountIds for Contact</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>782</locationY>
         <actionName>DX_RelatedAccountsContactHelper</actionName>
         <actionType>apex</actionType>
@@ -48,8 +48,8 @@
     <actionCalls>
         <name>redirect_to_view_SR_Details</name>
         <label>redirect to view SR Details</label>
-        <locationX>2294</locationX>
-        <locationY>2330</locationY>
+        <locationX>2558</locationX>
+        <locationY>2294</locationY>
         <actionName>c:fsc_openUrl</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -73,7 +73,7 @@
     <assignments>
         <name>Assign_Stage_1</name>
         <label>Assign Stage 1</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>134</locationY>
         <assignmentItems>
             <assignToReference>$Flow.CurrentStage</assignToReference>
@@ -89,7 +89,7 @@
     <assignments>
         <name>Assign_Stage_2</name>
         <label>Assign Stage 2</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>1298</locationY>
         <assignmentItems>
             <assignToReference>$Flow.CurrentStage</assignToReference>
@@ -137,7 +137,7 @@
     <assignments>
         <name>Set_Contact_on_SR</name>
         <label>Set Contact on SR</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>1406</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.ContactId</assignToReference>
@@ -151,9 +151,57 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Set_LOA_Attached_Value</name>
+        <label>Set LOA Attached Value</label>
+        <locationX>2162</locationX>
+        <locationY>1838</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_LOA_Attached__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>LOA_Attached</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_LOA_Attached_Field</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_RA_Not_Required</name>
+        <label>Set RA Not Required</label>
+        <locationX>4538</locationX>
+        <locationY>1730</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Requested_Actions__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Requested_Actions_Not_Required</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_RHS</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_RA_Required</name>
+        <label>Set RA Required</label>
+        <locationX>4274</locationX>
+        <locationY>1730</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Requested_Actions__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Requested_Actions_Required_RHS</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_RHS</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_RecordType_on_TempCase</name>
         <label>Set RecordType on TempCase</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.RecordTypeId</assignToReference>
@@ -167,15 +215,31 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Set_When_would_you_like_the_meeting</name>
-        <label>Set When would you like the meeting</label>
-        <locationX>2954</locationX>
-        <locationY>1622</locationY>
+        <name>Set_WhenWouldNotRequired</name>
+        <label>Set WhenWouldNotRequired</label>
+        <locationX>3218</locationX>
+        <locationY>1730</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_When_would_you_like_the_meeting__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>When_would_you_like_the_meeting_CX_Formula</elementReference>
+                <elementReference>When_would_you_like_the_meeting_Not_Required</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_CX_SR</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_WhenWouldRequired</name>
+        <label>Set WhenWouldRequired</label>
+        <locationX>2954</locationX>
+        <locationY>1730</locationY>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_When_would_you_like_the_meeting__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>When_would_you_like_the_meeting_Required</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -272,7 +336,7 @@
     <decisions>
         <name>Case_Type</name>
         <label>Case Type?</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>1514</locationY>
         <defaultConnector>
             <targetReference>Copy_1_of_Unsupported_SR_Error</targetReference>
@@ -469,7 +533,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Set_When_would_you_like_the_meeting</targetReference>
+                <targetReference>When_Would_you_like_meeting_Required</targetReference>
             </connector>
             <label>Types for Customer Experience</label>
         </rules>
@@ -534,7 +598,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Create_RHS</targetReference>
+                <targetReference>Requested_Actions_Required</targetReference>
             </connector>
             <label>Types of RHS</label>
         </rules>
@@ -567,7 +631,7 @@
     <decisions>
         <name>Record_Type</name>
         <label>Record Type?</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>998</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
@@ -709,6 +773,56 @@
                 <targetReference>Unsupported_SR_Error</targetReference>
             </connector>
             <label>STL</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Requested_Actions_Required</name>
+        <label>Requested Actions Required?</label>
+        <locationX>4406</locationX>
+        <locationY>1622</locationY>
+        <defaultConnector>
+            <targetReference>Set_RA_Not_Required</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>true</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Requested_Actions_Required_RHS</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_RA_Required</targetReference>
+            </connector>
+            <label>true</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>When_Would_you_like_meeting_Required</name>
+        <label>When Would you like meeting Required?</label>
+        <locationX>3086</locationX>
+        <locationY>1622</locationY>
+        <defaultConnector>
+            <targetReference>Set_WhenWouldNotRequired</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>trueWhenWouldYouLIkeMeetingRequired</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>When_would_you_like_the_meeting_Required</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_WhenWouldRequired</targetReference>
+            </connector>
+            <label>true</label>
         </rules>
     </decisions>
     <description>Creates a Service Request - updated to redirect to open service requests</description>
@@ -1784,8 +1898,8 @@
     <recordCreates>
         <name>Create_CX_SR</name>
         <label>Create CX SR</label>
-        <locationX>2954</locationX>
-        <locationY>1730</locationY>
+        <locationX>3086</locationX>
+        <locationY>1922</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -1907,7 +2021,7 @@
     <recordCreates>
         <name>Create_Logistics</name>
         <label>Create Logistics</label>
-        <locationX>3482</locationX>
+        <locationX>3746</locationX>
         <locationY>1622</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
@@ -2236,8 +2350,8 @@
     <recordCreates>
         <name>Create_RHS</name>
         <label>Create RHS</label>
-        <locationX>4010</locationX>
-        <locationY>1622</locationY>
+        <locationX>4406</locationX>
+        <locationY>1922</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -2353,8 +2467,8 @@
     <recordLookups>
         <name>Case_Lookup</name>
         <label>Case Lookup</label>
-        <locationX>2294</locationX>
-        <locationY>2222</locationY>
+        <locationX>2558</locationX>
+        <locationY>2186</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>redirect_to_view_SR_Details</targetReference>
@@ -2380,7 +2494,7 @@
     <recordLookups>
         <name>Contact_Lookup</name>
         <label>Contact Lookup</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -2395,7 +2509,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>$User.ContactId</elementReference>
+                <stringValue>003VC00000jNGBrYAO</stringValue>
             </value>
         </filters>
         <object>Contact</object>
@@ -2407,7 +2521,7 @@
     <recordLookups>
         <name>Get_Record_Type_Info</name>
         <label>Get Record Type Info</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -2432,7 +2546,7 @@
     <recordLookups>
         <name>Related_Accounts_for_Contact</name>
         <label>Related Accounts for Contact</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>890</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -2453,7 +2567,7 @@
     <screens>
         <name>Access_Request_Info</name>
         <label>Access Request Info</label>
-        <locationX>1106</locationX>
+        <locationX>1370</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -3124,7 +3238,7 @@
     <screens>
         <name>Accounting_Request_Info</name>
         <label>Accounting Request Info</label>
-        <locationX>1370</locationX>
+        <locationX>1634</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -3436,7 +3550,7 @@
     <screens>
         <name>Contracts_Request_Info</name>
         <label>Contracts Request Info</label>
-        <locationX>1634</locationX>
+        <locationX>1898</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -3705,7 +3819,7 @@
     <screens>
         <name>Cross_Connect_Request_Info</name>
         <label>Cross Connect Request Info</label>
-        <locationX>1898</locationX>
+        <locationX>2162</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -4301,7 +4415,7 @@
     <screens>
         <name>Customer_Experience_Request_Info</name>
         <label>Customer Experience Request Info</label>
-        <locationX>2162</locationX>
+        <locationX>2426</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -4694,7 +4808,7 @@
     <screens>
         <name>GetRecordType</name>
         <label>Record Type</label>
-        <locationX>2294</locationX>
+        <locationX>2558</locationX>
         <locationY>242</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -4722,7 +4836,7 @@
     <screens>
         <name>Logistics_Request_Info</name>
         <label>Logistics Request Info</label>
-        <locationX>2690</locationX>
+        <locationX>2954</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5174,7 +5288,7 @@
     <screens>
         <name>RHS_Request_Info</name>
         <label>RHS Request Info</label>
-        <locationX>2954</locationX>
+        <locationX>3218</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5516,7 +5630,7 @@
     <screens>
         <name>Unsupported_SR_Error</name>
         <label>Unsupported SR Error</label>
-        <locationX>2426</locationX>
+        <locationX>2690</locationX>
         <locationY>1106</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5537,6 +5651,27 @@
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
+    <screens>
+        <name>Unsupported_SRType_Error</name>
+        <label>Unsupported SR Error</label>
+        <locationX>5066</locationX>
+        <locationY>1622</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Copy_1_of_Error_Unsupported_SR_Title</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 20px; color: rgb(194, 57, 52);&quot;&gt;Unsupported Service Request Type&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Copy_1_of_Unsupported_Error_Desc</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;Please contact your Administrator for more information.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
     <sourceTemplate>setup_service_experience__Create_Case</sourceTemplate>
     <stages>
         <name>Case_Details_Stage</name>
@@ -5551,7 +5686,7 @@
         <stageOrder>10</stageOrder>
     </stages>
     <start>
-        <locationX>2168</locationX>
+        <locationX>2432</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Assign_Stage_1</targetReference>

@@ -3414,17 +3414,36 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Account_Name_CrossConnectSR</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.Account.Id</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
-                        <name>placeholder</name>
+                        <name>fieldApiName</name>
                         <value>
-                            <elementReference>TempCaseVar.Account.Name</elementReference>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>TempCaseVar.AccountId</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
                         </value>
                     </inputParameters>
                     <inputParameters>
@@ -3468,17 +3487,36 @@
                 </fields>
                 <fields>
                     <name>Default_Account_CrossConnectSR</name>
-                    <choiceReferences>ReleatedDefaultAccount</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Default_Account__r.Id</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Default Account</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
-                        <name>placeholder</name>
+                        <name>fieldApiName</name>
                         <value>
-                            <elementReference>TempCaseVar.DX_Default_Account__r.Name</elementReference>
+                            <stringValue>DX_Default_Account__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Default Account</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>TempCaseVar.DX_Default_Account__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
                         </value>
                     </inputParameters>
                     <inputParameters>
@@ -3914,24 +3952,37 @@
                 <name>A_Order_Initiator_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>Account_Name_AOrderInitiator</name>
-                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Account_Name_Initiator_Information__c</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <name>Account_Name_OrderInitiator</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
-                        <name>placeholder</name>
+                        <name>fieldApiName</name>
                         <value>
-                            <elementReference>TempCaseVar.DX_Account_Name_Order_Initiator__c</elementReference>
+                            <stringValue>DX_Account_Name_Order_Initiator__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
                         </value>
                     </inputParameters>
                     <inputParameters>
                         <name>disabled</name>
                         <value>
                             <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>TempCaseVar.DX_Account_Name_Order_Initiator__c</elementReference>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
