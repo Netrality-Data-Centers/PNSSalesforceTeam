@@ -2120,6 +2120,14 @@
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
+        <name>RelatedAccountsForContact</name>
+        <collectionReference>Related_Accounts_for_Contact</collectionReference>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <object>Account</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
         <name>RelatedTicketChoiceSet</name>
         <dataType>String</dataType>
         <displayField>CaseNumber</displayField>
@@ -2428,7 +2436,7 @@ IF(NOT(ISBLANK( {!Requested_Actions_Not_Required} )), {!Requested_Actions_Not_Re
                 <elementReference>Get_Related_AccountIds_for_Contact</elementReference>
             </value>
         </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Account</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
@@ -3759,7 +3767,7 @@ IF(NOT(ISBLANK( {!Requested_Actions_Not_Required} )), {!Requested_Actions_Not_Re
                 </fields>
                 <fields>
                     <name>Default_Account_CrossConnectSR</name>
-                    <choiceReferences>ReleatedDefaultAccount</choiceReferences>
+                    <choiceReferences>RelatedAccountsForContact</choiceReferences>
                     <defaultValue>
                         <elementReference>TempCaseVar.DX_Default_Account__c</elementReference>
                     </defaultValue>
@@ -3850,7 +3858,7 @@ IF(NOT(ISBLANK( {!Requested_Actions_Not_Required} )), {!Requested_Actions_Not_Re
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Account_Name_InitiatiorInfo_CrossConnect</name>
-                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
+                    <choiceReferences>RelatedAccountsForContact</choiceReferences>
                     <defaultValue>
                         <elementReference>TempCaseVar.DX_Account_Name_Order_Initiator__c</elementReference>
                     </defaultValue>
@@ -4075,7 +4083,7 @@ IF(NOT(ISBLANK( {!Requested_Actions_Not_Required} )), {!Requested_Actions_Not_Re
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Account_Name_AOrderInitiator</name>
-                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
+                    <choiceReferences>RelatedAccountsForContact</choiceReferences>
                     <defaultValue>
                         <elementReference>TempCaseVar.DX_Account_Name_Initiator_Information__c</elementReference>
                     </defaultValue>
@@ -4715,7 +4723,7 @@ IF(NOT(ISBLANK( {!Requested_Actions_Not_Required} )), {!Requested_Actions_Not_Re
                 </fields>
                 <fields>
                     <name>Default_Account</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
+                    <choiceReferences>RelatedAccountsForContact</choiceReferences>
                     <defaultValue>
                         <elementReference>TempCaseVar.DX_Default_Account__r.Id</elementReference>
                     </defaultValue>
@@ -5178,7 +5186,7 @@ IF(NOT(ISBLANK( {!Requested_Actions_Not_Required} )), {!Requested_Actions_Not_Re
                 </fields>
                 <fields>
                     <name>Default_Account_RHS</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
+                    <choiceReferences>RelatedAccountsForContact</choiceReferences>
                     <defaultValue>
                         <elementReference>TempCaseVar.DX_Default_Account__r.Id</elementReference>
                     </defaultValue>
@@ -5217,19 +5225,19 @@ IF(NOT(ISBLANK( {!Requested_Actions_Not_Required} )), {!Requested_Actions_Not_Re
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
+                        <conditionLogic>or</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>NotEqualTo</operator>
+                            <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Documentation / Labelling/ Inventory</stringValue>
+                                <stringValue>Equipment Troubleshooting</stringValue>
                             </rightValue>
                         </conditions>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Connectivity Troubleshooting</stringValue>
+                                <stringValue>Equipment Installation</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
