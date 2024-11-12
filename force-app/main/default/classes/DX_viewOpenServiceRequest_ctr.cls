@@ -2,7 +2,7 @@
  * @Description       : 
  * @Author            : cristianivan.ruiz@salesforce.com
  * @Code Coverage     : 
- * @last modified on  : 11-01-2024
+ * @last modified on  : 11-08-2024
  * @last modified by  : cristianivan.ruiz@salesforce.com
 **/
 public class DX_viewOpenServiceRequest_ctr {
@@ -37,7 +37,7 @@ public class DX_viewOpenServiceRequest_ctr {
                               AND    (Status = 'On Hold'
                               OR	  Status = 'New'
                               OR	  Status = 'In Progress'
-                              OR	  Status = 'Resolved')];
+                              OR	  Status = 'Resolved') ORDER BY CaseNumber DESC];
         return lstCase;
     }
 }

@@ -509,6 +509,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.TenantId__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account.Termination_Date__c</field>
         <readable>true</readable>
@@ -2151,11 +2156,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DX_Access_Managment__c.Authorize_3rd_Party_Access__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DX_Access_Managment__c.Contact_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

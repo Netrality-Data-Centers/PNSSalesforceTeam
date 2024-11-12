@@ -1,7 +1,18 @@
-import { LightningElement, wire } from 'lwc';
+import { LightningElement, wire, api } from 'lwc';
 import getClosedServiceRequest from "@salesforce/apex/DX_viewClosedServiceRequest_ctr.getClosedServiceRequest";
+import dx_URL_Experience_Cloud_lbl from '@salesforce/label/c.DX_URL_Experience_Cloud'; 
+import dx_NamePage_DetailsSR_Experience_Cloud_lbl from '@salesforce/label/c.DX_NamePage_DetailsSR_Experience_Cloud'; 
+import dx_NamePage_EditSR_Experience_Cloud_lbl from '@salesforce/label/c.DX_NamePage_EditSR_Experience_Cloud'; 
+
+const actions = [
+    { label: 'View Details', name: 'show_details' }
+];
 
 const columns = [
+    {
+        type: 'action',
+        typeAttributes: { rowActions: actions },
+    },
     { label: 'SR Number', fieldName: 'CaseNumber' },
     { label: 'Category', fieldName: 'RecordType_Name'},
     { label: 'Type', fieldName: 'Type'},
@@ -15,6 +26,7 @@ export default class Dx_viewClosedServiceRequest_lwc extends LightningElement {
     columns = columns;
     isEmpty = false;
     error = false;
+    @api recordIdToFlow;
 
     @wire(getClosedServiceRequest)
     wiredClosedSR({ error, data }) {
@@ -49,5 +61,21 @@ export default class Dx_viewClosedServiceRequest_lwc extends LightningElement {
             this.error = true;            
             console.error(error);
         }
+    }
+
+    handleRowAction(event) {
+        const actionName = event.detail.action.name;
+        const row = event.detail.row;
+        switch (actionName) {
+            case 'show_details':
+                this.showRowDetails(row);
+                break;
+        }
+    }
+
+    showRowDetails(row) {
+        const url = dx_URL_Experience_Cloud_lbl + dx_NamePage_DetailsSR_Experience_Cloud_lbl + `recordIdToFlow=${row.Id}`;  
+        console.log(url);
+        window.location.href = url;
     }
 }
