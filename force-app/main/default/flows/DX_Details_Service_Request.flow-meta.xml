@@ -1,52 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <actionCalls>
-        <name>Get_Primary_Account_for_Contact</name>
-        <label>Get Primary Account for Contact</label>
-        <locationX>1106</locationX>
-        <locationY>566</locationY>
-        <actionName>DX_PrimaryAccountContactHelper</actionName>
-        <actionType>apex</actionType>
-        <connector>
-            <targetReference>Get_Related_AccountIds_for_Contact</targetReference>
-        </connector>
-        <flowTransactionModel>Automatic</flowTransactionModel>
-        <inputParameters>
-            <name>contactId</name>
-            <value>
-                <elementReference>TempCaseVar.ContactId</elementReference>
-            </value>
-        </inputParameters>
-        <nameSegment>DX_PrimaryAccountContactHelper</nameSegment>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
-    </actionCalls>
-    <actionCalls>
-        <name>Get_Related_AccountIds_for_Contact</name>
-        <label>Get Related AccountIds for Contact</label>
-        <locationX>1106</locationX>
-        <locationY>674</locationY>
-        <actionName>DX_RelatedAccountsContactHelper</actionName>
-        <actionType>apex</actionType>
-        <connector>
-            <targetReference>Related_Accounts_for_Contact</targetReference>
-        </connector>
-        <flowTransactionModel>Automatic</flowTransactionModel>
-        <inputParameters>
-            <name>contactId</name>
-            <value>
-                <elementReference>TempCaseVar.ContactId</elementReference>
-            </value>
-        </inputParameters>
-        <nameSegment>DX_RelatedAccountsContactHelper</nameSegment>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
-    </actionCalls>
-    <actionCalls>
         <name>Redirect_to_Closede_Cases_Page</name>
         <label>Redirect to Closede Cases Page</label>
         <locationX>1370</locationX>
-        <locationY>1706</locationY>
+        <locationY>1298</locationY>
         <actionName>c:fsc_openUrl</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -70,7 +28,7 @@
         <name>Redirect_to_Open_Cases_Page</name>
         <label>Redirect to Open Cases Page</label>
         <locationX>1106</locationX>
-        <locationY>1706</locationY>
+        <locationY>1298</locationY>
         <actionName>c:fsc_openUrl</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -118,7 +76,7 @@
         <name>Set_RecordType_on_TempCase</name>
         <label>Set RecordType on TempCase</label>
         <locationX>1238</locationX>
-        <locationY>1082</locationY>
+        <locationY>674</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.RecordTypeId</assignToReference>
             <operator>Assign</operator>
@@ -1011,7 +969,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Has_it_Contact</targetReference>
+            <targetReference>Related_Accounts_for_Contact</targetReference>
         </connector>
     </assignments>
     <choices>
@@ -1084,35 +1042,10 @@
         </value>
     </constants>
     <decisions>
-        <name>Has_it_Contact</name>
-        <label>Has it Contact?</label>
-        <locationX>1238</locationX>
-        <locationY>458</locationY>
-        <defaultConnector>
-            <targetReference>Related_Accounts_for_Contact</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>No Has Contact</defaultConnectorLabel>
-        <rules>
-            <name>Yes_Has_Contact</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>TempCaseVar.ContactId</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Get_Primary_Account_for_Contact</targetReference>
-            </connector>
-            <label>Yes Has Contact</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Is_Open_Service_Request</name>
         <label>Is Open Service Request?</label>
         <locationX>1238</locationX>
-        <locationY>1598</locationY>
+        <locationY>1190</locationY>
         <defaultConnector>
             <targetReference>Redirect_to_Closede_Cases_Page</targetReference>
         </defaultConnector>
@@ -1137,7 +1070,7 @@
         <name>Record_Type</name>
         <label>Record Type?</label>
         <locationX>1238</locationX>
-        <locationY>1190</locationY>
+        <locationY>782</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
             <targetReference>Unsupported_SR_Error</targetReference>
@@ -1487,21 +1420,6 @@
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
-        <name>PrimaryAccountForContactChoiceSet</name>
-        <dataType>String</dataType>
-        <displayField>Name</displayField>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Get_Primary_Account_for_Contact</elementReference>
-            </value>
-        </filters>
-        <object>Account</object>
-        <valueField>Id</valueField>
-    </dynamicChoiceSets>
-    <dynamicChoiceSets>
         <name>PriorityChoiceSet</name>
         <dataType>Picklist</dataType>
         <displayField xsi:nil="true"/>
@@ -1518,7 +1436,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_Primary_Account_for_Contact</elementReference>
+                <elementReference>TempCaseVar.AccountId</elementReference>
             </value>
         </filters>
         <object>Account</object>
@@ -1754,7 +1672,7 @@
         <name>Get_Contact_for_Account</name>
         <label>Get Contact for Account</label>
         <locationX>314</locationX>
-        <locationY>1298</locationY>
+        <locationY>890</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Accounting_Request_Info</targetReference>
@@ -1775,7 +1693,7 @@
         <name>Get_Record_Type_Info</name>
         <label>Get Record Type Info</label>
         <locationX>1238</locationX>
-        <locationY>974</locationY>
+        <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_RecordType_on_TempCase</targetReference>
@@ -1817,7 +1735,7 @@
         <name>Related_Accounts_for_Contact</name>
         <label>Related Accounts for Contact</label>
         <locationX>1238</locationX>
-        <locationY>866</locationY>
+        <locationY>458</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Record_Type_Info</targetReference>
@@ -1825,9 +1743,9 @@
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
-            <operator>In</operator>
+            <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_Related_AccountIds_for_Contact</elementReference>
+                <elementReference>TempCaseVar.AccountId</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
@@ -1838,7 +1756,7 @@
         <name>Access_Request_Info</name>
         <label>Access Request Info</label>
         <locationX>50</locationX>
-        <locationY>1298</locationY>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2811,7 +2729,7 @@
         <name>Accounting_Request_Info</name>
         <label>Accounting Request Info</label>
         <locationX>314</locationX>
-        <locationY>1406</locationY>
+        <locationY>998</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -3179,7 +3097,7 @@
         <name>Contracts_Request_Info</name>
         <label>Contracts Request Info</label>
         <locationX>578</locationX>
-        <locationY>1298</locationY>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -3495,7 +3413,7 @@
         <name>Cross_Connect_Request_Info</name>
         <label>Cross Connect Request Info</label>
         <locationX>842</locationX>
-        <locationY>1298</locationY>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -4312,7 +4230,7 @@
         <name>Customer_Experience_Request_Info</name>
         <label>Customer Experience Request Info</label>
         <locationX>1106</locationX>
-        <locationY>1298</locationY>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -4757,7 +4675,7 @@
         <name>Logistics_Request_Info</name>
         <label>Logistics Request Info</label>
         <locationX>1634</locationX>
-        <locationY>1298</locationY>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -5360,7 +5278,7 @@
         <name>RHS_Request_Info</name>
         <label>RHS Request Info</label>
         <locationX>1898</locationX>
-        <locationY>1298</locationY>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -5799,7 +5717,7 @@
         <name>Unsupported_SR_Error</name>
         <label>Unsupported SR Error</label>
         <locationX>1370</locationX>
-        <locationY>1298</locationY>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
