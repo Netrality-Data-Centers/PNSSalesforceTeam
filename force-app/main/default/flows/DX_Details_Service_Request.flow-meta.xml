@@ -2528,6 +2528,32 @@
                         </conditions>
                     </visibilityRule>
                 </fields>
+                <fields>
+                    <name>If_more_than_one_guests_add_there_information_here</name>
+                    <defaultValue>
+                        <stringValue>{!TempCaseVar.DX_Added_Guest_Info__c}</stringValue>
+                    </defaultValue>
+                    <fieldText>If more than one guests add there information here</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Additional_Guests</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -2714,22 +2740,6 @@
                         <booleanValue>true</booleanValue>
                     </isReadOnly>
                     <isRequired>true</isRequired>
-                </fields>
-                <fields>
-                    <name>If_more_than_one_guests_add_there_information_here</name>
-                    <defaultValue>
-                        <stringValue>{!TempCaseVar.DX_Added_Guest_Info__c}</stringValue>
-                    </defaultValue>
-                    <fieldText>If more than one guests add there information here</fieldText>
-                    <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isDisabled>
-                        <booleanValue>true</booleanValue>
-                    </isDisabled>
-                    <isReadOnly>
-                        <booleanValue>true</booleanValue>
-                    </isReadOnly>
-                    <isRequired>false</isRequired>
                 </fields>
                 <fields>
                     <name>I_have_read_and_agree_to_the_facility_rules_and_regulations_as_stated_in_the_Net</name>
