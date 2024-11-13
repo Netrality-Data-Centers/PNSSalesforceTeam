@@ -3815,7 +3815,7 @@
                     <name>OrderInitiatorCrossConnect</name>
                     <dataType>String</dataType>
                     <defaultValue>
-                        <elementReference>TempCaseVar.DX_Order_Initiator__r.FirstName</elementReference>
+                        <stringValue>{!Get_Service_Request.DX_Order_Initiator__r.FirstName} {!Get_Service_Request.DX_Order_Initiator__r.LastName}</stringValue>
                     </defaultValue>
                     <fieldText>Order Initiator</fieldText>
                     <fieldType>InputField</fieldType>
