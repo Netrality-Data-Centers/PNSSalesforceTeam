@@ -1,52 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <actionCalls>
-        <name>Get_Primary_Account_for_Contact</name>
-        <label>Get Primary Account for Contact</label>
-        <locationX>1106</locationX>
-        <locationY>566</locationY>
-        <actionName>DX_PrimaryAccountContactHelper</actionName>
-        <actionType>apex</actionType>
-        <connector>
-            <targetReference>Get_Related_AccountIds_for_Contact</targetReference>
-        </connector>
-        <flowTransactionModel>Automatic</flowTransactionModel>
-        <inputParameters>
-            <name>contactId</name>
-            <value>
-                <elementReference>TempCaseVar.ContactId</elementReference>
-            </value>
-        </inputParameters>
-        <nameSegment>DX_PrimaryAccountContactHelper</nameSegment>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
-    </actionCalls>
-    <actionCalls>
-        <name>Get_Related_AccountIds_for_Contact</name>
-        <label>Get Related AccountIds for Contact</label>
-        <locationX>1106</locationX>
-        <locationY>674</locationY>
-        <actionName>DX_RelatedAccountsContactHelper</actionName>
-        <actionType>apex</actionType>
-        <connector>
-            <targetReference>Related_Accounts_for_Contact</targetReference>
-        </connector>
-        <flowTransactionModel>Automatic</flowTransactionModel>
-        <inputParameters>
-            <name>contactId</name>
-            <value>
-                <elementReference>TempCaseVar.ContactId</elementReference>
-            </value>
-        </inputParameters>
-        <nameSegment>DX_RelatedAccountsContactHelper</nameSegment>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
-    </actionCalls>
-    <actionCalls>
         <name>Redirect_to_Open_Cases_Page</name>
         <label>Redirect to Open Cases Page</label>
         <locationX>1238</locationX>
-        <locationY>2138</locationY>
+        <locationY>2246</locationY>
         <actionName>c:fsc_openUrl</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -94,7 +52,7 @@
         <name>Assign_Stage_2</name>
         <label>Assign Stage 2</label>
         <locationX>1238</locationX>
-        <locationY>1814</locationY>
+        <locationY>1922</locationY>
         <assignmentItems>
             <assignToReference>$Flow.CurrentStage</assignToReference>
             <operator>Assign</operator>
@@ -110,7 +68,7 @@
         <name>Set_Access_Request_Values</name>
         <label>Set Access Request Values</label>
         <locationX>50</locationX>
-        <locationY>1406</locationY>
+        <locationY>1514</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_Site__c</assignToReference>
             <operator>Assign</operator>
@@ -228,10 +186,26 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Set_Account_Id</name>
+        <label>Set Account Id</label>
+        <locationX>1326</locationX>
+        <locationY>782</locationY>
+        <assignmentItems>
+            <assignToReference>AccountIdLIst</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Save_AccountIds.Account.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Save_AccountIds</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_Accounting_Request</name>
         <label>Set Accounting Request</label>
         <locationX>314</locationX>
-        <locationY>1514</locationY>
+        <locationY>1622</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_Billing_Account_Number__c</assignToReference>
             <operator>Assign</operator>
@@ -296,7 +270,7 @@
         <name>Set_Contact_on_SR</name>
         <label>Set Contact on SR</label>
         <locationX>1238</locationX>
-        <locationY>1922</locationY>
+        <locationY>2030</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.ContactId</assignToReference>
             <operator>Assign</operator>
@@ -312,7 +286,7 @@
         <name>Set_Contracts_Request</name>
         <label>Set Contracts Request</label>
         <locationX>578</locationX>
-        <locationY>1406</locationY>
+        <locationY>1514</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_Request_Type_Contracts__c</assignToReference>
             <operator>Assign</operator>
@@ -363,7 +337,7 @@
         <name>Set_Cross_Connect</name>
         <label>Set Cross Connect</label>
         <locationX>842</locationX>
-        <locationY>1406</locationY>
+        <locationY>1514</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.AccountId</assignToReference>
             <operator>Assign</operator>
@@ -519,7 +493,7 @@
         <name>Set_Customer_Experience_Request</name>
         <label>Set Customer Experience Request</label>
         <locationX>1106</locationX>
-        <locationY>1406</locationY>
+        <locationY>1514</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.AccountId</assignToReference>
             <operator>Assign</operator>
@@ -581,7 +555,7 @@
         <name>Set_Logistics_Request</name>
         <label>Set Logistics Request</label>
         <locationX>1634</locationX>
-        <locationY>1406</locationY>
+        <locationY>1514</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.AccountId</assignToReference>
             <operator>Assign</operator>
@@ -709,7 +683,7 @@
         <name>Set_RecordType_on_TempCase</name>
         <label>Set RecordType on TempCase</label>
         <locationX>1238</locationX>
-        <locationY>1082</locationY>
+        <locationY>1190</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.RecordTypeId</assignToReference>
             <operator>Assign</operator>
@@ -725,7 +699,7 @@
         <name>Set_RHS_Request</name>
         <label>Set RHS Request</label>
         <locationX>1898</locationX>
-        <locationY>1406</locationY>
+        <locationY>1514</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.AccountId</assignToReference>
             <operator>Assign</operator>
@@ -1646,7 +1620,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Has_it_Contact</targetReference>
+            <targetReference>Get_Primary_Account_for_Contact</targetReference>
         </connector>
     </assignments>
     <choices>
@@ -1719,35 +1693,10 @@
         </value>
     </constants>
     <decisions>
-        <name>Has_it_Contact</name>
-        <label>Has it Contact?</label>
-        <locationX>1238</locationX>
-        <locationY>458</locationY>
-        <defaultConnector>
-            <targetReference>Related_Accounts_for_Contact</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>No Has Contact</defaultConnectorLabel>
-        <rules>
-            <name>Yes_Has_Contact</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>TempCaseVar.ContactId</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Get_Primary_Account_for_Contact</targetReference>
-            </connector>
-            <label>Yes Has Contact</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Record_Type</name>
         <label>Record Type?</label>
         <locationX>1238</locationX>
-        <locationY>1190</locationY>
+        <locationY>1298</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
             <targetReference>Unsupported_SR_Error</targetReference>
@@ -2105,7 +2054,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_Primary_Account_for_Contact</elementReference>
+                <elementReference>primaryAccountForContact</elementReference>
             </value>
         </filters>
         <object>Account</object>
@@ -2128,7 +2077,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_Primary_Account_for_Contact</elementReference>
+                <elementReference>primaryAccountForContact</elementReference>
             </value>
         </filters>
         <object>Account</object>
@@ -2367,6 +2316,20 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
     </formulas>
     <interviewLabel>DX Edit Service Request {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Edit Service Request</label>
+    <loops>
+        <name>Save_AccountIds</name>
+        <label>Save AccountIds</label>
+        <locationX>1238</locationX>
+        <locationY>674</locationY>
+        <collectionReference>Get_AccountContactRelationships</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Set_Account_Id</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Related_Accounts_for_Contact</targetReference>
+        </noMoreValuesConnector>
+    </loops>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -2384,7 +2347,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <name>Contact_Lookup</name>
         <label>Contact Lookup</label>
         <locationX>1238</locationX>
-        <locationY>1706</locationY>
+        <locationY>1814</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_Stage_2</targetReference>
@@ -2411,10 +2374,31 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         </outputAssignments>
     </recordLookups>
     <recordLookups>
+        <name>Get_AccountContactRelationships</name>
+        <label>Get AccountContactRelationships</label>
+        <locationX>1238</locationX>
+        <locationY>566</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Save_AccountIds</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Service_Request.ContactId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>AccountContactRelation</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Contact_for_Accounting</name>
         <label>Get Contact for Accounting</label>
         <locationX>314</locationX>
-        <locationY>1298</locationY>
+        <locationY>1406</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Accounting_Request_Info</targetReference>
@@ -2432,10 +2416,40 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Get_Primary_Account_for_Contact</name>
+        <label>Get Primary Account for Contact</label>
+        <locationX>1238</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_AccountContactRelationships</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Service_Request.ContactId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Roles</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Primary Contact</stringValue>
+            </value>
+        </filters>
+        <object>AccountContactRelation</object>
+        <outputAssignments>
+            <assignToReference>primaryAccountForContact</assignToReference>
+            <field>AccountId</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Record_Type_Info</name>
         <label>Get Record Type Info</label>
         <locationX>1238</locationX>
-        <locationY>974</locationY>
+        <locationY>1082</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_RecordType_on_TempCase</targetReference>
@@ -2477,7 +2491,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <name>Related_Accounts_for_Contact</name>
         <label>Related Accounts for Contact</label>
         <locationX>1238</locationX>
-        <locationY>866</locationY>
+        <locationY>974</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Record_Type_Info</targetReference>
@@ -2487,7 +2501,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
             <field>Id</field>
             <operator>In</operator>
             <value>
-                <elementReference>Get_Related_AccountIds_for_Contact</elementReference>
+                <elementReference>AccountIdLIst</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
@@ -2498,7 +2512,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <name>Update_Service_Request</name>
         <label>Update Service Request</label>
         <locationX>1238</locationX>
-        <locationY>2030</locationY>
+        <locationY>2138</locationY>
         <connector>
             <targetReference>Redirect_to_Open_Cases_Page</targetReference>
         </connector>
@@ -2508,7 +2522,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <name>Access_Request_Info</name>
         <label>Access Request Info</label>
         <locationX>50</locationX>
-        <locationY>1298</locationY>
+        <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2558,7 +2572,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     <inputParameters>
                         <name>recordId</name>
                         <value>
-                            <elementReference>Get_Primary_Account_for_Contact</elementReference>
+                            <elementReference>TempCaseVar.AccountId</elementReference>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -3215,7 +3229,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <name>Accounting_Request_Info</name>
         <label>Accounting Request Info</label>
         <locationX>314</locationX>
-        <locationY>1406</locationY>
+        <locationY>1514</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -3265,7 +3279,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     <inputParameters>
                         <name>recordId</name>
                         <value>
-                            <elementReference>Get_Primary_Account_for_Contact</elementReference>
+                            <elementReference>TempCaseVar.AccountId</elementReference>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -3532,7 +3546,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <name>Contracts_Request_Info</name>
         <label>Contracts Request Info</label>
         <locationX>578</locationX>
-        <locationY>1298</locationY>
+        <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -3576,7 +3590,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     <inputParameters>
                         <name>recordId</name>
                         <value>
-                            <elementReference>Get_Primary_Account_for_Contact</elementReference>
+                            <elementReference>TempCaseVar.AccountId</elementReference>
                         </value>
                     </inputParameters>
                     <inputParameters>
@@ -3784,7 +3798,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <name>Cross_Connect_Request_Info</name>
         <label>Cross Connect Request Info</label>
         <locationX>842</locationX>
-        <locationY>1298</locationY>
+        <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -4377,7 +4391,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <name>Customer_Experience_Request_Info</name>
         <label>Customer Experience Request Info</label>
         <locationX>1106</locationX>
-        <locationY>1298</locationY>
+        <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -4421,7 +4435,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     <inputParameters>
                         <name>recordId</name>
                         <value>
-                            <elementReference>Get_Primary_Account_for_Contact</elementReference>
+                            <elementReference>TempCaseVar.AccountId</elementReference>
                         </value>
                     </inputParameters>
                     <inputParameters>
@@ -4714,7 +4728,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <name>Logistics_Request_Info</name>
         <label>Logistics Request Info</label>
         <locationX>1634</locationX>
-        <locationY>1298</locationY>
+        <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -4764,7 +4778,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     <inputParameters>
                         <name>recordId</name>
                         <value>
-                            <elementReference>Get_Primary_Account_for_Contact</elementReference>
+                            <elementReference>TempCaseVar.AccountId</elementReference>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -5177,7 +5191,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <name>RHS_Request_Info</name>
         <label>RHS Request Info</label>
         <locationX>1898</locationX>
-        <locationY>1298</locationY>
+        <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -5227,7 +5241,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     <inputParameters>
                         <name>recordId</name>
                         <value>
-                            <elementReference>Get_Primary_Account_for_Contact</elementReference>
+                            <elementReference>TempCaseVar.AccountId</elementReference>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -5500,7 +5514,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <name>Unsupported_SR_Error</name>
         <label>Unsupported SR Error</label>
         <locationX>1370</locationX>
-        <locationY>1298</locationY>
+        <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -5572,6 +5586,13 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <text>Phone Number</text>
     </textTemplates>
     <variables>
+        <name>AccountIdLIst</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <name>case</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
@@ -5609,6 +5630,13 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <name>primaryAccountForContact</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <name>recordIdToFlow</name>
