@@ -484,13 +484,6 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Requestor__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>RequestorCrossConnect.recordId</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
             <assignToReference>TempCaseVar.DX_Account_Name_Initiator_Information__c</assignToReference>
             <operator>Assign</operator>
             <value>
@@ -1622,6 +1615,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>Get_Service_Request.DX_Tech_Contact_Tel_Order_Initiator__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Related_Ticket__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Service_Request.DX_Related_Ticket__c</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -3902,38 +3902,6 @@ IF(NOT(ISBLANK( {!Requested_Actions_Not_Required} )), {!Requested_Actions_Not_Re
                     </isReadOnly>
                     <isRequired>false</isRequired>
                 </fields>
-                <fields>
-                    <name>RequestorCrossConnect</name>
-                    <extensionName>flowruntime:lookup</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Requestor</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>fieldApiName</name>
-                        <value>
-                            <stringValue>DX_Requestor__c</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Case</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>recordId</name>
-                        <value>
-                            <elementReference>TempCaseVar.DX_Requestor__c</elementReference>
-                        </value>
-                    </inputParameters>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
-                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -3949,7 +3917,7 @@ IF(NOT(ISBLANK( {!Requested_Actions_Not_Required} )), {!Requested_Actions_Not_Re
                     <name>OrderInitiatorCrossConnect</name>
                     <dataType>String</dataType>
                     <defaultValue>
-                        <elementReference>TempCaseVar.DX_Order_Initiator__r.FirstName</elementReference>
+                        <elementReference>TempCaseVar.DX_Order_Initiator__r.Name</elementReference>
                     </defaultValue>
                     <fieldText>Order Initiator</fieldText>
                     <fieldType>InputField</fieldType>
