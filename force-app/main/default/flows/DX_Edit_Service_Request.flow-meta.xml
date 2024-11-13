@@ -278,7 +278,7 @@
             <assignToReference>TempCaseVar.DX_Other_Request__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Service_Request.DX_Other_Request__c</elementReference>
+                <elementReference>Other_Requests_AccountingRequest</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -407,10 +407,10 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Tech_Contact_Name__c</assignToReference>
+            <assignToReference>TempCaseVar.DX_Tech_Contact_Name_ZLOA__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Tech_Contact_Name</elementReference>
+                <elementReference>Tech_Contact_Name_ZLoaInfo</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -424,7 +424,7 @@
             <assignToReference>TempCaseVar.DX_Rack_RU_ZLOA__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Rack_RU_MMR_panel_location_ZLoaInfo</elementReference>
+                <elementReference>Rack_RU_MMR_panel_location_ZLOAInfo</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -456,7 +456,7 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Rack_RU__c</assignToReference>
+            <assignToReference>TempCaseVar.DX_Rack_RU_Order_Initiator__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>Rack_RU_MMR_panel_location</elementReference>
@@ -470,7 +470,7 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>TempCaseVar.DX_Tech_Contact_Tel__c</assignToReference>
+            <assignToReference>TempCaseVar.DX_Tech_Contact_Tel_Order_Initiator__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>Tech_Contact_Tel.value</elementReference>
@@ -495,6 +495,20 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>Account_Name_AOrderInitiator.selectedChoiceValues</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Site_Location__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Site_Location_ZLoaInfo</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Tech_Contact_Name_Order_Initiator__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Tech_Contact_Name</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -2801,54 +2815,6 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     <objectFieldReference>TempCaseVar.DX_Assets__c</objectFieldReference>
                 </fields>
                 <fields>
-                    <name>Requestor</name>
-                    <extensionName>flowruntime:lookup</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>fieldApiName</name>
-                        <value>
-                            <stringValue>DX_Requestor__c</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Requestor</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Case</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>disabled</name>
-                        <value>
-                            <booleanValue>false</booleanValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>recordId</name>
-                        <value>
-                            <elementReference>$User.ContactId</elementReference>
-                        </value>
-                    </inputParameters>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>Who_is_the_Access_for</leftValueReference>
-                            <operator>StartsWith</operator>
-                            <rightValue>
-                                <stringValue>Requestor</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
                     <name>Arrival_Date</name>
                     <dataType>Date</dataType>
                     <defaultValue>
@@ -3026,6 +2992,16 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <objectFieldReference>TempCaseVar.DX_Added_Guest_Info__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>TempCaseVar.DX_Additional_Guests__c</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -3049,6 +3025,54 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     <fieldType>DropdownBox</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>Requestor</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>DX_Requestor__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Requestor</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>false</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>$User.ContactId</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Who_is_the_Access_for</leftValueReference>
+                            <operator>StartsWith</operator>
+                            <rightValue>
+                                <stringValue>Requestor</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>Third_Party_Name</name>
@@ -3080,7 +3104,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                         <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>Who_is_the_Access_for</leftValueReference>
-                            <operator>EqualTo</operator>
+                            <operator>StartsWith</operator>
                             <rightValue>
                                 <stringValue>Third</stringValue>
                             </rightValue>
@@ -3096,7 +3120,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                         <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>Who_is_the_Access_for</leftValueReference>
-                            <operator>EqualTo</operator>
+                            <operator>StartsWith</operator>
                             <rightValue>
                                 <stringValue>Third</stringValue>
                             </rightValue>
@@ -4261,7 +4285,7 @@ IF(NOT(ISBLANK( {!When_would_you_like_the_meeting_Required} )), {!When_would_you
                     <objectFieldReference>TempCaseVar.DX_Account_Name_ZLOA__c</objectFieldReference>
                 </fields>
                 <fields>
-                    <name>Rack_RU_MMR_panel_location_ZLoaInfo</name>
+                    <name>Rack_RU_MMR_panel_location_ZLOAInfo</name>
                     <dataType>String</dataType>
                     <defaultValue>
                         <elementReference>TempCaseVar.DX_Rack_RU_ZLOA__c</elementReference>
