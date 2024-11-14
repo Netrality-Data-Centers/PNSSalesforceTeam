@@ -72,7 +72,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.A_Side_Data_Hall__c</fieldItem>
                 <identifier>RecordA_Side_Data_Hall_cField</identifier>
@@ -89,7 +89,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.A_Side_Tenant_Suite__c</fieldItem>
                 <identifier>RecordA_Side_Tenant_Suite_cField</identifier>
@@ -106,7 +106,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.A_Side_POE_Allocation__c</fieldItem>
                 <identifier>RecordA_Side_POE_Allocation_cField</identifier>
@@ -157,13 +157,13 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Z_Side_Data_Hall__c</fieldItem>
                 <identifier>RecordZ_Side_Data_Hall_cField</identifier>
                 <visibilityRule>
                     <criteria>
-                        <leftValue>{!Record.A_Side_Type__c}</leftValue>
+                        <leftValue>{!Record.Z_Side_Type__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>Datahall</rightValue>
                     </criteria>
@@ -174,7 +174,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Z_Side_Tenant_Suite__c</fieldItem>
                 <identifier>RecordZ_Side_Tenant_Suite_cField</identifier>
@@ -191,7 +191,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Z_Side_POE_Allocation__c</fieldItem>
                 <identifier>RecordZ_Side_POE_Allocation_cField</identifier>
