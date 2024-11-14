@@ -13,7 +13,7 @@
             <sorted>false</sorted>
             <value>
                 <fullName>Cabinet</fullName>
-                <default>false</default>
+                <default>true</default>
                 <label>Cabinet</label>
             </value>
             <value>
