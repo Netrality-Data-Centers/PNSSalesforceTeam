@@ -14,6 +14,10 @@
                 <behavior>Required</behavior>
                 <field>Floor__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>POE_Allocations__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
