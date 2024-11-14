@@ -208,11 +208,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Asset.Service_Order_Line_Item__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Asset.Service_Order__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -658,6 +653,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>DC_POE__c.POE_Allocations__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>DC_Panel__c.Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -733,17 +733,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DC_Roof__c.Asset__c</field>
+        <field>DC_Roof_Product__c.Asset__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DC_Roof__c.Diameter_in__c</field>
+        <field>DC_Roof_Product__c.Diameter_in__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DC_Roof__c.Floor__c</field>
+        <field>DC_Roof_Product__c.Floor__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1114,7 +1114,7 @@
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>DC_Roof__c</object>
+        <object>DC_Roof_Product__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -1321,7 +1321,7 @@
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>DC_Roof__c</tab>
+        <tab>DC_Roof_Product__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
