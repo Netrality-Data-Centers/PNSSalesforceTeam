@@ -6,7 +6,6 @@
     <externalId>false</externalId>
     <label>Data Hall</label>
     <referenceTo>DC_Data_Hall__c</referenceTo>
-    <relationshipLabel>Roofs</relationshipLabel>
     <relationshipName>Roofs</relationshipName>
     <required>true</required>
     <trackTrending>false</trackTrending>
