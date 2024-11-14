@@ -52,74 +52,77 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Associated_Space_Type__c</fieldItem>
+                <identifier>RecordAssociated_Space_Type_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Cabinet__c</fieldItem>
+                <identifier>RecordCabinet_cField2</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Associated_Space_Type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Cabinet</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Rack__c</fieldItem>
+                <identifier>RecordRack_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Associated_Space_Type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Rack</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Phase__c</fieldItem>
+                <identifier>RecordPhase_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Committed_Power__c</fieldItem>
+                <identifier>RecordCommitted_Power_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Type__c</fieldItem>
-                <identifier>RecordType__cField</identifier>
+                <fieldItem>Record.Meter_ID__c</fieldItem>
+                <identifier>RecordMeter_ID_cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.A_Side_Type__c</fieldItem>
-                <identifier>RecordA_Side_Type_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.A_Side_Data_Hall__c</fieldItem>
-                <identifier>RecordA_Side_Data_Hall_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.A_Side_Type__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Datahall</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.A_Side_Tenant_Suite__c</fieldItem>
-                <identifier>RecordA_Side_Tenant_Suite_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.A_Side_Type__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Tenant Suite</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.A_Side_POE_Allocation__c</fieldItem>
-                <identifier>RecordA_Side_POE_Allocation_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.A_Side_Type__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>POE Allocation</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <name>Facet-a527145d-626f-4274-8adb-11e9bb04e368</name>
+        <name>Facet-7a2c09f5-3264-4167-806d-0aa2bd34124b</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -127,7 +130,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Asset__c</fieldItem>
                 <identifier>RecordAsset_cField</identifier>
@@ -139,82 +142,51 @@
                     <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.PDU_Panel__c</fieldItem>
+                <identifier>RecordPDU_Panel_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Amperage__c</fieldItem>
+                <identifier>RecordAmperage_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Voltage__c</fieldItem>
+                <identifier>RecordVoltage_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Connected_Power__c</fieldItem>
+                <identifier>RecordConnected_Power_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Related_MRI_Suite_ID__c</fieldItem>
                 <identifier>RecordRelated_MRI_Suite_ID_cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Z_Side_Type__c</fieldItem>
-                <identifier>RecordZ_Side_Type_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Z_Side_Data_Hall__c</fieldItem>
-                <identifier>RecordZ_Side_Data_Hall_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Z_Side_Type__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Datahall</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Z_Side_Tenant_Suite__c</fieldItem>
-                <identifier>RecordZ_Side_Tenant_Suite_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Z_Side_Type__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Tenant Suite</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Z_Side_POE_Allocation__c</fieldItem>
-                <identifier>RecordZ_Side_POE_Allocation_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Z_Side_Type__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>POE Allocation</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.OwnerId</fieldItem>
-                <identifier>RecordOwnerIdField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <name>Facet-de19a221-e9a0-4f28-84b9-bc808d6549db</name>
+        <name>Facet-e79f9ec5-e96f-4b15-8444-49fbb828390c</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -222,7 +194,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-a527145d-626f-4274-8adb-11e9bb04e368</value>
+                    <value>Facet-7a2c09f5-3264-4167-806d-0aa2bd34124b</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
                 <identifier>flexipage_column</identifier>
@@ -232,13 +204,13 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-de19a221-e9a0-4f28-84b9-bc808d6549db</value>
+                    <value>Facet-e79f9ec5-e96f-4b15-8444-49fbb828390c</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
                 <identifier>flexipage_column2</identifier>
             </componentInstance>
         </itemInstances>
-        <name>Facet-3caf5b0e-acf6-4218-8b0b-c2d4ce423c53</name>
+        <name>Facet-914eebde-45cb-4055-b33f-4aab1b291fe4</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -252,7 +224,7 @@
                 <identifier>RecordCreatedByIdField</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-1f2e563a-0430-4550-947b-404367152184</name>
+        <name>Facet-be27d7fe-722c-49e5-a2f4-b5b521863985</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -266,7 +238,7 @@
                 <identifier>RecordLastModifiedByIdField</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-bb6ea2e2-f302-4af4-b3fa-197686afb49a</name>
+        <name>Facet-998f89c1-9720-405a-b889-7d57d971bab7</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -274,7 +246,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-1f2e563a-0430-4550-947b-404367152184</value>
+                    <value>Facet-be27d7fe-722c-49e5-a2f4-b5b521863985</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
                 <identifier>flexipage_column3</identifier>
@@ -284,13 +256,13 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-bb6ea2e2-f302-4af4-b3fa-197686afb49a</value>
+                    <value>Facet-998f89c1-9720-405a-b889-7d57d971bab7</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
                 <identifier>flexipage_column4</identifier>
             </componentInstance>
         </itemInstances>
-        <name>Facet-29f4f64d-1cc9-41a5-aa4f-da4d61976b84</name>
+        <name>Facet-06ed88f2-bade-4950-b506-822b5397abf7</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -298,7 +270,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>columns</name>
-                    <value>Facet-3caf5b0e-acf6-4218-8b0b-c2d4ce423c53</value>
+                    <value>Facet-914eebde-45cb-4055-b33f-4aab1b291fe4</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>horizontalAlignment</name>
@@ -316,7 +288,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>columns</name>
-                    <value>Facet-29f4f64d-1cc9-41a5-aa4f-da4d61976b84</value>
+                    <value>Facet-06ed88f2-bade-4950-b506-822b5397abf7</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>horizontalAlignment</name>
@@ -388,9 +360,9 @@
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Inside Plant Record Page</masterLabel>
+    <masterLabel>Circuit Breaker Record Page</masterLabel>
     <parentFlexiPage>force__Default_rec_simple</parentFlexiPage>
-    <sobjectType>DC_Inside_Plant__c</sobjectType>
+    <sobjectType>DC_Circuit_Breaker__c</sobjectType>
     <template>
         <name>flexipage:recordHomeSimpleViewTemplate</name>
     </template>
