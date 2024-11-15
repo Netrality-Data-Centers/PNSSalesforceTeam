@@ -3662,17 +3662,36 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Account_Name_InitiatiorInfo_CrossConnect</name>
-                    <choiceReferences>RelatedAccountsForContact</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Account_Name_Order_Initiator__c</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
-                        <name>placeholder</name>
+                        <name>fieldApiName</name>
                         <value>
-                            <elementReference>TempCaseVar.DX_Account_Name_Order_Initiator__r.Name</elementReference>
+                            <stringValue>DX_Account_Name_Initiator_Information__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>TempCaseVar.DX_Account_Name_Initiator_Information__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
                         </value>
                     </inputParameters>
                     <inputParameters>
