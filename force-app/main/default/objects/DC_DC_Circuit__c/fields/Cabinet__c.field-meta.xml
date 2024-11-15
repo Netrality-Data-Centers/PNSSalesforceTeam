@@ -8,7 +8,7 @@
     <referenceTo>DC_Cabinet__c</referenceTo>
     <relationshipLabel>DC Circuits</relationshipLabel>
     <relationshipName>DC_Circuits</relationshipName>
-    <required>true</required>
+    <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>
