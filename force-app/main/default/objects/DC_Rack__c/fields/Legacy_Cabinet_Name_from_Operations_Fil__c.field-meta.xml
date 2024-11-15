@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Short_Name__c</fullName>
-    <description>Two character short name of the MMR used to support naming convention.</description>
+    <fullName>Legacy_Cabinet_Name_from_Operations_Fil__c</fullName>
     <externalId>false</externalId>
-    <label>Short Name</label>
-    <length>8</length>
-    <required>true</required>
+    <label>Legacy Cabinet Name (from Operations Fil</label>
+    <length>30</length>
+    <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Text</type>
     <unique>false</unique>
