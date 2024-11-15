@@ -98,6 +98,12 @@
                 <identifier>RecordShort_Name_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Legacy_Cabinet_Name_from_Operations_Fil__c</fieldItem>
+                <identifier>RecordLegacy_Cabinet_Name_from_Operations_Fil__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-54194d4b-a63a-458a-992d-92f010ba45d0</name>
         <type>Facet</type>
     </flexiPageRegions>
