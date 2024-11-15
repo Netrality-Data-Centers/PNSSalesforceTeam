@@ -19,10 +19,20 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Voltage__c</fieldItem>
+                <identifier>RecordVoltage_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Associated_Space_Type__c</fieldItem>
-                <identifier>RecordAssociated_Space_Type_cField</identifier>
+                <fieldItem>Record.Committed_Power__c</fieldItem>
+                <identifier>RecordCommitted_Power_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -46,17 +56,34 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Related_MRI_Suite_ID__c</fieldItem>
+                <identifier>RecordRelated_MRI_Suite_ID_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Rack__c</fieldItem>
-                <identifier>RecordRack_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Associated_Space_Type__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Rack</rightValue>
-                    </criteria>
-                </visibilityRule>
+                <fieldItem>Record.DC_Plant__c</fieldItem>
+                <identifier>RecordDC_Plant_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-25c147a5-f1b0-4a57-97cf-3b54e9dee744</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Amperage__c</fieldItem>
+                <identifier>RecordAmperage_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -75,14 +102,27 @@
                     <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Committed_Power__c</fieldItem>
-                <identifier>RecordCommitted_Power_cField</identifier>
+                <fieldItem>Record.Associated_Space_Type__c</fieldItem>
+                <identifier>RecordAssociated_Space_Type_cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-25c147a5-f1b0-4a57-97cf-3b54e9dee744</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Rack__c</fieldItem>
+                <identifier>RecordRack_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Associated_Space_Type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Rack</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
@@ -91,46 +131,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Asset__c</fieldItem>
                 <identifier>RecordAsset_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DC_Plant__c</fieldItem>
-                <identifier>RecordDC_Plant_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Amperage__c</fieldItem>
-                <identifier>RecordAmperage_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Voltage__c</fieldItem>
-                <identifier>RecordVoltage_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>readonly</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Related_MRI_Suite_ID__c</fieldItem>
-                <identifier>RecordRelated_MRI_Suite_ID_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>

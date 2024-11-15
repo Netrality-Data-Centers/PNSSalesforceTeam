@@ -26,6 +26,10 @@
                 <behavior>Required</behavior>
                 <field>Design_Capacity_tons__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Design_Capacity_kW__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
