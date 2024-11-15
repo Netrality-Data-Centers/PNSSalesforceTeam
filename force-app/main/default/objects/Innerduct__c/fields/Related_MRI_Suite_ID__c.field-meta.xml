@@ -3,7 +3,7 @@
     <fullName>Related_MRI_Suite_ID__c</fullName>
     <description>The MRI Suite ID from asset related to this Innerduct.</description>
     <externalId>false</externalId>
-    <formula>HYPERLINK(&apos;/&apos; &amp;  Asset__r.MRI_Suite_ID__c , Asset__r.MRI_Suite_ID__c, &quot;_self&quot;)</formula>
+    <formula>HYPERLINK(&apos;/&apos; &amp;   Asset__r.Id, Asset__r.MRI_Suite_ID__c, &quot;_self&quot;)</formula>
     <label>Related MRI Suite ID</label>
     <required>false</required>
     <trackTrending>false</trackTrending>
