@@ -4,7 +4,7 @@
     <containerType>Network</containerType>
     <label>Escalation Contacts Menu</label>
     <navigationMenuItem>
-        <label>Escalation Contacts Chicago</label>
+        <label>Chicago</label>
         <menuItemBranding>
             <tileImage>Chicago_Contacts</tileImage>
         </menuItemBranding>
@@ -14,7 +14,7 @@
         <type>InternalLink</type>
     </navigationMenuItem>
     <navigationMenuItem>
-        <label>Escalation Contacts Houston</label>
+        <label>Houston</label>
         <menuItemBranding>
             <tileImage>Houston_Campus</tileImage>
         </menuItemBranding>
@@ -24,7 +24,7 @@
         <type>InternalLink</type>
     </navigationMenuItem>
     <navigationMenuItem>
-        <label>Escalation Contacts Indy Telecom Campus</label>
+        <label>Indy Telecom Campus</label>
         <menuItemBranding>
             <tileImage>Indy_Telecom_Campus</tileImage>
         </menuItemBranding>
@@ -34,7 +34,7 @@
         <type>InternalLink</type>
     </navigationMenuItem>
     <navigationMenuItem>
-        <label>Escalation Contacts Kansas City</label>
+        <label>Kansas City</label>
         <menuItemBranding>
             <tileImage>Kansas_City_Icon</tileImage>
         </menuItemBranding>
@@ -44,7 +44,7 @@
         <type>InternalLink</type>
     </navigationMenuItem>
     <navigationMenuItem>
-        <label>Escalation Contact KC2 - Nieman</label>
+        <label>KC2 - Nieman</label>
         <menuItemBranding>
             <tileImage>KC2_Nieman_Icon</tileImage>
         </menuItemBranding>
@@ -54,7 +54,7 @@
         <type>InternalLink</type>
     </navigationMenuItem>
     <navigationMenuItem>
-        <label>Escalation Contacts - Philadelphia</label>
+        <label>Philadelphia</label>
         <menuItemBranding>
             <tileImage>Philadelphia_Icon</tileImage>
         </menuItemBranding>
@@ -64,7 +64,7 @@
         <type>InternalLink</type>
     </navigationMenuItem>
     <navigationMenuItem>
-        <label>Escalation Contacts St. Louis</label>
+        <label>St. Louis</label>
         <menuItemBranding>
             <tileImage>St_Louis_Icon</tileImage>
         </menuItemBranding>
