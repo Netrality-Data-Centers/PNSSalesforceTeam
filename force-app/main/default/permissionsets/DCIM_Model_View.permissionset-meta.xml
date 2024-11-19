@@ -573,11 +573,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DC_Central_Plant__c.Building__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>DC_Central_Plant__c.Max_Capacity_kW__c</field>
         <readable>true</readable>
     </fieldPermissions>
