@@ -8,7 +8,7 @@
     <referenceTo>Building__c</referenceTo>
     <relationshipLabel>Central Plants</relationshipLabel>
     <relationshipName>Central_Plants</relationshipName>
-    <required>true</required>
+    <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>
