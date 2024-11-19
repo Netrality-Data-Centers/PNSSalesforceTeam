@@ -20,17 +20,12 @@
                 <behavior>Edit</behavior>
                 <field>Meter_ID__c</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>OwnerId</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Max_Capacity_kw__c</field>
             </layoutItems>
         </layoutColumns>
+        <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
@@ -64,23 +59,35 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Max_Capacity_kw__c</fields>
+        <relatedList>DC_UPS__c.Switchgear__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Max_Capacity_kw__c</fields>
         <relatedList>DC_DC_Plant__c.Switchgear__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Generator__c</fields>
+        <fields>Max_Capacity_kw__c</fields>
         <relatedList>DC_Generator_Switchgear__c.Switchgear__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Data_Hall__c</fields>
+        <fields>Connected_Power__c</fields>
         <relatedList>DC_Non_IT_Load__c.Switchgear__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Committed_Power__c</fields>
+        <fields>Connected_Power__c</fields>
+        <fields>Tenant_Suite__c</fields>
         <relatedList>DC_Tenant_Power__c.Power_Source_Switchgear__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>DC_UPS__c.Switchgear__c</relatedList>
+        <relatedList>RelatedFileList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
