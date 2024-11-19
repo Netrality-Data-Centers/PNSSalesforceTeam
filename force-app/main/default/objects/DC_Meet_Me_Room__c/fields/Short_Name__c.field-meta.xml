@@ -4,7 +4,7 @@
     <description>Two character short name of the MMR used to support naming convention.</description>
     <externalId>false</externalId>
     <label>Short Name</label>
-    <length>2</length>
+    <length>8</length>
     <required>true</required>
     <trackTrending>false</trackTrending>
     <type>Text</type>

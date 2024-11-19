@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <description>The type of Central Plant.</description>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cooling Tower</fullName>
+                <default>false</default>
+                <label>Cooling Tower</label>
+            </value>
+            <value>
+                <fullName>Condensor</fullName>
+                <default>false</default>
+                <label>Condensor</label>
+            </value>
+            <value>
+                <fullName>Chiller</fullName>
+                <default>false</default>
+                <label>Chiller</label>
+            </value>
+            <value>
+                <fullName>Roof Top Unit</fullName>
+                <default>false</default>
+                <label>Roof Top Unit</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
