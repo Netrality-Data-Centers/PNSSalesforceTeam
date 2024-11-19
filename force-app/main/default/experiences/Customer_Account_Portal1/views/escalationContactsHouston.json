@@ -25,7 +25,7 @@
   }, {
     "components" : [ {
       "componentAttributes" : {
-        "richTextValue" : "<p><strong style=\"font-size: 18px;\">In the event of an emergency, contact the following Netrality personnel in this order of escalation.</strong></p><p><br></p><p><strong style=\"font-size: 18px;\">For all non-emergencies or other general requests for service, access the Netrality Customer Portal at </strong><a href=\"http://netrality.com/support\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 18px;\"><strong>http://netrality.com/support</strong></a><strong style=\"font-size: 18px;\">, or send an email to </strong><a href=\"https://netrality--dev03.sandbox.live-preview.salesforce-experience.com/customeraccountportal/s/support@netrality.com\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 18px;\"><strong>support@netrality.com</strong></a><strong style=\"font-size: 18px;\">.</strong></p>"
+        "richTextValue" : "<p><br></p><p><strong style=\"font-size: 18px;\">In the event of an emergency, contact the following Netrality personnel in this order of escalation.</strong></p><p><br></p><p><strong style=\"font-size: 18px;\">For all non-emergencies or other general requests for service, please navigate to the </strong><a href=\"/s/new-service-request\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 18px;\"><strong>New Service Request</strong></a><strong style=\"font-size: 18px;\"> option in our portal.</strong></p>"
       },
       "componentName" : "forceCommunity:richTextInline",
       "id" : "88c9b775-9e0c-44ca-9c5c-789045a7cfe0",
