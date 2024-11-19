@@ -100,7 +100,11 @@
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.Legacy_Cabinet_Name_from_Operations_Fil__c</fieldItem>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Legacy_Cabinet_Name__c</fieldItem>
                 <identifier>RecordLegacy_Cabinet_Name_from_Operations_Fil__cField</identifier>
             </fieldInstance>
         </itemInstances>
