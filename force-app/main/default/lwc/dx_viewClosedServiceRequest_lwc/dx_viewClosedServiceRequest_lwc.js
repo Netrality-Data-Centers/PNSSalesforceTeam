@@ -1,13 +1,22 @@
-import { LightningElement, wire } from 'lwc';
+import { LightningElement, api, wire } from 'lwc';
+import dxNamePageDetailsSRExperienceCloudLabel from '@salesforce/label/c.DX_NamePage_DetailsSR_Experience_Cloud';
+import dxURLExperienceCloudLabel from '@salesforce/label/c.DX_URL_Experience_Cloud'; 
 import getClosedServiceRequest from "@salesforce/apex/DX_viewClosedServiceRequest_ctr.getClosedServiceRequest";
 
-const columns = [
-    { label: 'SR Number', fieldName: 'CaseNumber' },
-    { label: 'Category', fieldName: 'RecordType_Name'},
-    { label: 'Type', fieldName: 'Type'},
-    { label: 'Status', fieldName: 'Status'},
-    { label: 'Site', fieldName: 'DX_Site__c'},
-    { label: 'SR Closed Date', fieldName: 'ClosedDate'}
+const actions = [
+    { label: 'View Details', name: 'show_details' }
+],
+columns = [
+    {
+        type: 'action',
+        typeAttributes: { rowActions: actions },
+    },
+    { fieldName: 'CaseNumber', label: 'SR Number' },
+    { fieldName: 'recordTypeName', label: 'Category'},
+    { fieldName: 'Type', label: 'Type'},
+    { fieldName: 'Status', label: 'Status'},
+    { fieldName: 'DX_Site__c', label: 'Site' },
+    { fieldName: 'ClosedDate', label: 'SR Closed Date'}
 ];
 
 export default class Dx_viewClosedServiceRequest_lwc extends LightningElement {
@@ -15,39 +24,69 @@ export default class Dx_viewClosedServiceRequest_lwc extends LightningElement {
     columns = columns;
     isEmpty = false;
     error = false;
+    @api recordIdToFlow;
+    strRecordtoflow = 'recordIdToFlow=';
+    url = dxURLExperienceCloudLabel + dxNamePageDetailsSRExperienceCloudLabel + this.strRecordtoflow;
 
     @wire(getClosedServiceRequest)
     wiredClosedSR({ error, data }) {
         if (data) {
-            if(data.length > 0){
-                let result = JSON.parse(JSON.stringify(data));
-                let recordType_Name;
-                let isoDate;
-                let date;
-                let year;
-                let month;
-                let day;
-                let formattedDate;
-                for(var item in result){
-                    recordType_Name = result[item].RecordType.Name;
-                    result[item].RecordType_Name = recordType_Name;
-
-                    isoDate = result[item].ClosedDate;
-                    date = new Date(isoDate);
-                    // Get date components
-                    year = date.getUTCFullYear();
-                    month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are 0-indexed
-                    day = String(date.getUTCDate()).padStart(2, '0');
-                    // Format the date
-                    formattedDate = `${year}-${month}-${day}`;
-                    result[item].ClosedDate = formattedDate;
-                }
-                this.dataInfo = [...result];
+            const cero = 0;
+            let result = null;
+            if(data.length > cero){
+                result = JSON.parse(JSON.stringify(data));
+                this.funtionIteratorData(result);
             }      
-            if(data.length === 0){this.isEmpty = true;}
+            if(data.length === cero){this.isEmpty = true;}
         } else if (error) {
-            this.error = true;            
-            console.error(error);
+            this.error = true;
         }
+    }
+
+    handleRowAction(event) {
+        const objEvent = event;
+        switch (objEvent.detail.action.name) {
+            case 'show_details':
+                this.showRowDetails(objEvent.detail.row);
+                break;
+            default:
+                // Do nothing
+        }
+    }
+
+    showRowDetails(row) {
+        const urlFormed = this.url + row.Id;
+        window.location.href = urlFormed;
+    }
+
+    funtionIteratorData(result){
+        let item = null;
+        for( item in result ){
+            result[item] = this.funtionFormatRecordType( item, result );
+            result[item] = this.funtionFormatDate( item, result );
+        }
+        this.dataInfo = [...result];
+    }
+
+    funtionFormatRecordType( item, result ){
+        let recordTypeName = null;
+        recordTypeName = result[item].RecordType.Name;
+        result[item].recordTypeName = recordTypeName;
+        return result[item];
+    }
+
+    funtionFormatDate( item, result ){
+        const indexStar = 2, monthPlusone = 1;
+        let date = null, day = null, formattedDate = null, isoDate = null, month = null, year = null;
+        isoDate = result[item].ClosedDate;
+        date = new Date(isoDate);
+        // Get date components
+        year = date.getUTCFullYear();
+        month = String(date.getUTCMonth() + monthPlusone).padStart(indexStar, '0');
+        day = String(date.getUTCDate()).padStart(indexStar, '0');
+        // Format the date
+        formattedDate = `${year}-${month}-${day}`;
+        result[item].ClosedDate = formattedDate;
+        return result[item];
     }
 }
