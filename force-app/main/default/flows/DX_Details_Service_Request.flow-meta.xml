@@ -1,52 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <actionCalls>
-        <name>Get_Primary_Account_for_Contact</name>
-        <label>Get Primary Account for Contact</label>
-        <locationX>1106</locationX>
-        <locationY>566</locationY>
-        <actionName>DX_PrimaryAccountContactHelper</actionName>
-        <actionType>apex</actionType>
-        <connector>
-            <targetReference>Get_Related_AccountIds_for_Contact</targetReference>
-        </connector>
-        <flowTransactionModel>Automatic</flowTransactionModel>
+        <name>Redirect_to_Closede_Cases_Page</name>
+        <label>Redirect to Closede Cases Page</label>
+        <locationX>1370</locationX>
+        <locationY>1298</locationY>
+        <actionName>c:fsc_openUrl</actionName>
+        <actionType>component</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
-            <name>contactId</name>
+            <name>mode</name>
             <value>
-                <elementReference>TempCaseVar.ContactId</elementReference>
+                <stringValue>replace</stringValue>
             </value>
         </inputParameters>
-        <nameSegment>DX_PrimaryAccountContactHelper</nameSegment>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
-    </actionCalls>
-    <actionCalls>
-        <name>Get_Related_AccountIds_for_Contact</name>
-        <label>Get Related AccountIds for Contact</label>
-        <locationX>1106</locationX>
-        <locationY>674</locationY>
-        <actionName>DX_RelatedAccountsContactHelper</actionName>
-        <actionType>apex</actionType>
-        <connector>
-            <targetReference>Related_Accounts_for_Contact</targetReference>
-        </connector>
-        <flowTransactionModel>Automatic</flowTransactionModel>
         <inputParameters>
-            <name>contactId</name>
+            <name>url</name>
             <value>
-                <elementReference>TempCaseVar.ContactId</elementReference>
+                <stringValue>/s/closed-service-requests</stringValue>
             </value>
         </inputParameters>
-        <nameSegment>DX_RelatedAccountsContactHelper</nameSegment>
+        <nameSegment>c:fsc_openUrl</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
         <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>Redirect_to_Open_Cases_Page</name>
         <label>Redirect to Open Cases Page</label>
-        <locationX>1238</locationX>
-        <locationY>1598</locationY>
+        <locationX>1106</locationX>
+        <locationY>1298</locationY>
         <actionName>c:fsc_openUrl</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -94,7 +76,7 @@
         <name>Set_RecordType_on_TempCase</name>
         <label>Set RecordType on TempCase</label>
         <locationX>1238</locationX>
-        <locationY>1082</locationY>
+        <locationY>674</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.RecordTypeId</assignToReference>
             <operator>Assign</operator>
@@ -979,8 +961,15 @@
                 <elementReference>Get_Service_Request.DX_Tech_Contact_Tel_Order_Initiator__c</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TempCaseVar.DX_Related_Ticket__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Service_Request.DX_Related_Ticket__c</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
-            <targetReference>Has_it_Contact</targetReference>
+            <targetReference>Related_Accounts_for_Contact</targetReference>
         </connector>
     </assignments>
     <choices>
@@ -1053,35 +1042,35 @@
         </value>
     </constants>
     <decisions>
-        <name>Has_it_Contact</name>
-        <label>Has it Contact?</label>
+        <name>Is_Open_Service_Request</name>
+        <label>Is Open Service Request?</label>
         <locationX>1238</locationX>
-        <locationY>458</locationY>
+        <locationY>1190</locationY>
         <defaultConnector>
-            <targetReference>Related_Accounts_for_Contact</targetReference>
+            <targetReference>Redirect_to_Closede_Cases_Page</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>No Has Contact</defaultConnectorLabel>
+        <defaultConnectorLabel>Is Closed</defaultConnectorLabel>
         <rules>
-            <name>Yes_Has_Contact</name>
+            <name>Yes_Is_Open</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>TempCaseVar.ContactId</leftValueReference>
-                <operator>IsNull</operator>
+                <leftValueReference>TempCaseVar.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
                 <rightValue>
-                    <booleanValue>false</booleanValue>
+                    <stringValue>Closed</stringValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_Primary_Account_for_Contact</targetReference>
+                <targetReference>Redirect_to_Open_Cases_Page</targetReference>
             </connector>
-            <label>Yes Has Contact</label>
+            <label>Yes Is Open</label>
         </rules>
     </decisions>
     <decisions>
         <name>Record_Type</name>
         <label>Record Type?</label>
         <locationX>1238</locationX>
-        <locationY>1190</locationY>
+        <locationY>782</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
             <targetReference>Unsupported_SR_Error</targetReference>
@@ -1431,21 +1420,6 @@
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
-        <name>PrimaryAccountForContactChoiceSet</name>
-        <dataType>String</dataType>
-        <displayField>Name</displayField>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Get_Primary_Account_for_Contact</elementReference>
-            </value>
-        </filters>
-        <object>Account</object>
-        <valueField>Id</valueField>
-    </dynamicChoiceSets>
-    <dynamicChoiceSets>
         <name>PriorityChoiceSet</name>
         <dataType>Picklist</dataType>
         <displayField xsi:nil="true"/>
@@ -1462,7 +1436,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_Primary_Account_for_Contact</elementReference>
+                <elementReference>TempCaseVar.AccountId</elementReference>
             </value>
         </filters>
         <object>Account</object>
@@ -1472,6 +1446,14 @@
         </outputAssignments>
         <sortField>Name</sortField>
         <sortOrder>Asc</sortOrder>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>RelatedAccountsForContact</name>
+        <collectionReference>Related_Accounts_for_Contact</collectionReference>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <object>Account</object>
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
@@ -1690,7 +1672,7 @@
         <name>Get_Contact_for_Account</name>
         <label>Get Contact for Account</label>
         <locationX>314</locationX>
-        <locationY>1298</locationY>
+        <locationY>890</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Accounting_Request_Info</targetReference>
@@ -1711,7 +1693,7 @@
         <name>Get_Record_Type_Info</name>
         <label>Get Record Type Info</label>
         <locationX>1238</locationX>
-        <locationY>974</locationY>
+        <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_RecordType_on_TempCase</targetReference>
@@ -1753,7 +1735,7 @@
         <name>Related_Accounts_for_Contact</name>
         <label>Related Accounts for Contact</label>
         <locationX>1238</locationX>
-        <locationY>866</locationY>
+        <locationY>458</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Record_Type_Info</targetReference>
@@ -1761,12 +1743,12 @@
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
-            <operator>In</operator>
+            <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_Related_AccountIds_for_Contact</elementReference>
+                <elementReference>TempCaseVar.AccountId</elementReference>
             </value>
         </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Account</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
@@ -1774,12 +1756,12 @@
         <name>Access_Request_Info</name>
         <label>Access Request Info</label>
         <locationX>50</locationX>
-        <locationY>1298</locationY>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
+            <targetReference>Is_Open_Service_Request</targetReference>
         </connector>
         <fields>
             <name>AccessRequestTitle</name>
@@ -2464,6 +2446,32 @@
                         </conditions>
                     </visibilityRule>
                 </fields>
+                <fields>
+                    <name>If_more_than_one_guests_add_there_information_here</name>
+                    <defaultValue>
+                        <stringValue>{!TempCaseVar.DX_Added_Guest_Info__c}</stringValue>
+                    </defaultValue>
+                    <fieldText>If more than one guests add there information here</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
+                    <isRequired>false</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Additional_Guests</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -2652,22 +2660,6 @@
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>If_more_than_one_guests_add_there_information_here</name>
-                    <defaultValue>
-                        <stringValue>{!TempCaseVar.DX_Added_Guest_Info__c}</stringValue>
-                    </defaultValue>
-                    <fieldText>If more than one guests add there information here</fieldText>
-                    <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isDisabled>
-                        <booleanValue>true</booleanValue>
-                    </isDisabled>
-                    <isReadOnly>
-                        <booleanValue>true</booleanValue>
-                    </isReadOnly>
-                    <isRequired>false</isRequired>
-                </fields>
-                <fields>
                     <name>I_have_read_and_agree_to_the_facility_rules_and_regulations_as_stated_in_the_Net</name>
                     <dataType>Boolean</dataType>
                     <defaultValue>
@@ -2737,12 +2729,12 @@
         <name>Accounting_Request_Info</name>
         <label>Accounting Request Info</label>
         <locationX>314</locationX>
-        <locationY>1406</locationY>
+        <locationY>998</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
+            <targetReference>Is_Open_Service_Request</targetReference>
         </connector>
         <fields>
             <name>AccountingRequestTitle</name>
@@ -3105,12 +3097,12 @@
         <name>Contracts_Request_Info</name>
         <label>Contracts Request Info</label>
         <locationX>578</locationX>
-        <locationY>1298</locationY>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
+            <targetReference>Is_Open_Service_Request</targetReference>
         </connector>
         <fields>
             <name>ContractsRequestTitle</name>
@@ -3421,12 +3413,12 @@
         <name>Cross_Connect_Request_Info</name>
         <label>Cross Connect Request Info</label>
         <locationX>842</locationX>
-        <locationY>1298</locationY>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
+            <targetReference>Is_Open_Service_Request</targetReference>
         </connector>
         <fields>
             <name>CrossConnectRequestTitle</name>
@@ -3670,17 +3662,36 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Account_Name_InitiatiorInfo_CrossConnect</name>
-                    <choiceReferences>PrimaryAccountForContactChoiceSet</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Account_Name_Order_Initiator__c</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Account Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
-                        <name>placeholder</name>
+                        <name>fieldApiName</name>
                         <value>
-                            <elementReference>TempCaseVar.DX_Account_Name_Order_Initiator__r.Name</elementReference>
+                            <stringValue>DX_Account_Name_Initiator_Information__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>TempCaseVar.DX_Account_Name_Initiator_Information__c</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
                         </value>
                     </inputParameters>
                     <inputParameters>
@@ -3692,58 +3703,6 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>New Cross Connect</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
-                    <name>Company_Name</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Account_Name_Initiator_Information__r.Name</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Company Name</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
-                    <inputParameters>
-                        <name>placeholder</name>
-                        <value>
-                            <elementReference>TempCaseVar.DX_Account_Name_Initiator_Information__r.Name</elementReference>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>disabled</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Change Cross Connect</stringValue>
-                            </rightValue>
-                        </conditions>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Disconnect Cross Connect</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>InitiatorTitleCrossConnect</name>
@@ -3762,44 +3721,6 @@
                     </isReadOnly>
                     <isRequired>false</isRequired>
                 </fields>
-                <fields>
-                    <name>RequestorCrossConnect</name>
-                    <extensionName>flowruntime:lookup</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>fieldApiName</name>
-                        <value>
-                            <stringValue>DX_Requestor__c</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Requestor</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Case</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>recordId</name>
-                        <value>
-                            <elementReference>TempCaseVar.DX_Requestor__c</elementReference>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>disabled</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
-                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -3815,7 +3736,7 @@
                     <name>OrderInitiatorCrossConnect</name>
                     <dataType>String</dataType>
                     <defaultValue>
-                        <elementReference>TempCaseVar.DX_Order_Initiator__r.FirstName</elementReference>
+                        <stringValue>{!Get_Service_Request.DX_Order_Initiator__r.FirstName} {!Get_Service_Request.DX_Order_Initiator__r.LastName}</stringValue>
                     </defaultValue>
                     <fieldText>Order Initiator</fieldText>
                     <fieldType>InputField</fieldType>
@@ -4328,12 +4249,12 @@
         <name>Customer_Experience_Request_Info</name>
         <label>Customer Experience Request Info</label>
         <locationX>1106</locationX>
-        <locationY>1298</locationY>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
+            <targetReference>Is_Open_Service_Request</targetReference>
         </connector>
         <fields>
             <name>CustomerExperienceRequestTitle</name>
@@ -4447,7 +4368,7 @@
                     <name>Related_Ticket</name>
                     <choiceReferences>RelatedTicketsChoiceSet</choiceReferences>
                     <defaultValue>
-                        <elementReference>TempCaseVar.CaseNumber</elementReference>
+                        <elementReference>TempCaseVar.DX_Related_Ticket__r.CaseNumber</elementReference>
                     </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Related Ticket</fieldText>
@@ -4461,7 +4382,7 @@
                     <inputParameters>
                         <name>placeholder</name>
                         <value>
-                            <elementReference>TempCaseVar.CaseNumber</elementReference>
+                            <elementReference>TempCaseVar.DX_Related_Ticket__r.CaseNumber</elementReference>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -4749,7 +4670,7 @@
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Strategic Business Review Request</stringValue>
+                                <stringValue>Strategic</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
@@ -4773,12 +4694,12 @@
         <name>Logistics_Request_Info</name>
         <label>Logistics Request Info</label>
         <locationX>1634</locationX>
-        <locationY>1298</locationY>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
+            <targetReference>Is_Open_Service_Request</targetReference>
         </connector>
         <fields>
             <name>LogisticsRequestTitle</name>
@@ -4848,23 +4769,36 @@
                 </fields>
                 <fields>
                     <name>Default_Account</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Default_Account__r.Id</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Default Account</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
-                        <name>placeholder</name>
+                        <name>fieldApiName</name>
                         <value>
-                            <elementReference>TempCaseVar.DX_Default_Account__r.Name</elementReference>
+                            <stringValue>DX_Default_Account__c</stringValue>
                         </value>
                     </inputParameters>
                     <inputParameters>
-                        <name>disabled</name>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Default Account</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
                         <value>
                             <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>TempCaseVar.DX_Default_Account__c</elementReference>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -5363,12 +5297,12 @@
         <name>RHS_Request_Info</name>
         <label>RHS Request Info</label>
         <locationX>1898</locationX>
-        <locationY>1298</locationY>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
+            <targetReference>Is_Open_Service_Request</targetReference>
         </connector>
         <fields>
             <name>RemoteHandsSupportRequestTitle</name>
@@ -5438,17 +5372,36 @@
                 </fields>
                 <fields>
                     <name>Default_Account_RHS</name>
-                    <choiceReferences>RelatedAccounts</choiceReferences>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Default_Account__r.Id</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Default Account</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
                     <inputParameters>
-                        <name>placeholder</name>
+                        <name>fieldApiName</name>
                         <value>
-                            <elementReference>TempCaseVar.DX_Default_Account__r.Name</elementReference>
+                            <stringValue>DX_Default_Account__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Default Account</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>TempCaseVar.DX_Default_Account__c</elementReference>
                         </value>
                     </inputParameters>
                     <inputParameters>
@@ -5500,7 +5453,7 @@
                     <defaultValue>
                         <stringValue>{!TempCaseVar.DX_Requested_Actions__c}</stringValue>
                     </defaultValue>
-                    <fieldText>Requested Actions Required</fieldText>
+                    <fieldText>Requested Actions</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
@@ -5509,7 +5462,7 @@
                     <isReadOnly>
                         <booleanValue>true</booleanValue>
                     </isReadOnly>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
                         <conditions>
@@ -5542,21 +5495,14 @@
                     <isReadOnly>
                         <booleanValue>true</booleanValue>
                     </isReadOnly>
-                    <isRequired>true</isRequired>
+                    <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>TempCaseVar.Type</leftValueReference>
-                            <operator>NotEqualTo</operator>
-                            <rightValue>
-                                <stringValue>Documentation / Labelling/ Inventory</stringValue>
-                            </rightValue>
-                        </conditions>
-                        <conditions>
-                            <leftValueReference>TempCaseVar.Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Connectivity Troubleshooting</stringValue>
+                                <stringValue>Other</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
@@ -5790,12 +5736,12 @@
         <name>Unsupported_SR_Error</name>
         <label>Unsupported SR Error</label>
         <locationX>1370</locationX>
-        <locationY>1298</locationY>
+        <locationY>890</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Redirect_to_Open_Cases_Page</targetReference>
+            <targetReference>Is_Open_Service_Request</targetReference>
         </connector>
         <fields>
             <name>Error_Unsupported_SR_Title</name>

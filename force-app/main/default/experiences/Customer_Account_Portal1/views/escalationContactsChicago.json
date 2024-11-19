@@ -29,7 +29,7 @@
   }, {
     "components" : [ {
       "componentAttributes" : {
-        "richTextValue" : "<p><strong style=\"font-size: 18px;\">In the event of an emergency, contact the following Netrality personnel in this order of escalation.</strong></p><p><br></p><p><strong style=\"font-size: 18px;\">For all non-emergencies or other general requests for service, access the Netrality Customer Portal at </strong><a href=\"http://netrality.com/support\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 18px;\"><strong>http://netrality.com/support</strong></a><strong style=\"font-size: 18px;\">, or send an email to </strong><a href=\"support@netrality.com\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 18px;\"><strong>support@netrality.com</strong></a><strong style=\"font-size: 18px;\">.</strong></p>"
+        "richTextValue" : "<p><br></p><p><strong style=\"font-size: 18px;\">In the event of an emergency, contact the following Netrality personnel in this order of escalation.</strong></p><p><br></p><p><strong style=\"font-size: 18px;\">For all non-emergencies or other general requests for service, please navigate to the </strong><a href=\"/s/new-service-request\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 18px; background-color: rgb(255, 255, 255);\"><strong>New Service Request</strong></a><strong style=\"font-size: 18px;\"> option in our portal.</strong></p>"
       },
       "componentName" : "forceCommunity:richTextInline",
       "id" : "96811cca-82c2-44e8-97b8-7731309b74f1",
