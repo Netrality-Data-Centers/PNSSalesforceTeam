@@ -1414,7 +1414,7 @@
     "type" : "view"
   }, {
     "componentAttributes" : {
-      "fixedPageWidth" : 1440,
+      "fixedPageWidth" : 1445,
       "headerBgColor" : "rgba(255, 255, 255, 0.8)",
       "isHeaderPinned" : false,
       "isHeroUnderHeader" : false,
