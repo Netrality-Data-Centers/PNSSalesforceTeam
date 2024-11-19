@@ -202,6 +202,16 @@
                 <identifier>RecordLinkedIn_URL_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.TenantId__c</fieldItem>
+                <identifier>RecordTenantId_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-7f740433-6434-41fd-8661-8e67546054af</name>
         <type>Facet</type>
     </flexiPageRegions>
