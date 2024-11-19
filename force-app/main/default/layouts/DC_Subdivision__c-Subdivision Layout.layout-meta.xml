@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -25,12 +24,7 @@
                 <field>Max_Capacity_kW__c</field>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>OwnerId</field>
-            </layoutItems>
-        </layoutColumns>
+        <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
@@ -64,10 +58,16 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Type__c</fields>
+        <fields>Data_Hall__c</fields>
+        <fields>Design_Capacity_kW__c</fields>
+        <fields>Design_Capacity_tons__c</fields>
         <relatedList>DC_IT_Cooling__c.Subdivision__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Design_Capacity_kW__c</fields>
+        <fields>Tenant_Suite__c</fields>
         <relatedList>DC_Tenant_Subdivision__c.Subdivision__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

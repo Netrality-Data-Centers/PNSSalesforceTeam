@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -59,6 +58,8 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Committed_Power__c</fields>
+        <fields>Connected_Power__c</fields>
         <relatedList>DC_Circuit_Breaker__c.PDU_Panel__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
