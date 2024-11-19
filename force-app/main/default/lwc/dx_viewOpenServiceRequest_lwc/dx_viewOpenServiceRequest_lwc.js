@@ -1,26 +1,22 @@
-import { LightningElement, wire, api } from 'lwc';
+import { LightningElement, api, wire } from 'lwc';
+import dxNamePageDetailsSRExperienceCloudLabel from '@salesforce/label/c.DX_NamePage_DetailsSR_Experience_Cloud';
+import dxURLExperienceCloudLabel from '@salesforce/label/c.DX_URL_Experience_Cloud'; 
 import getOpenServiceRequest from "@salesforce/apex/DX_viewOpenServiceRequest_ctr.getOpenServiceRequest";
-//import { NavigationMixin } from 'lightning/navigation';
-import dx_URL_Experience_Cloud_lbl from '@salesforce/label/c.DX_URL_Experience_Cloud'; 
-import dx_NamePage_DetailsSR_Experience_Cloud_lbl from '@salesforce/label/c.DX_NamePage_DetailsSR_Experience_Cloud'; 
-import dx_NamePage_EditSR_Experience_Cloud_lbl from '@salesforce/label/c.DX_NamePage_EditSR_Experience_Cloud'; 
 
 const actions = [
-    { label: 'Edit', name: 'edit' },
     { label: 'View Details', name: 'show_details' }
-];
-
-const columns = [
+],
+columns = [
     {
         type: 'action',
         typeAttributes: { rowActions: actions },
     },
-    { label: 'SR Number', fieldName: 'CaseNumber' },
-    { label: 'Category', fieldName: 'RecordType_Name'},
-    { label: 'Type', fieldName: 'Type'},
-    { label: 'Status', fieldName: 'Status'},
-    { label: 'Site', fieldName: 'DX_Site__c'},
-    { label: 'SR Created Date', fieldName: 'CreatedDate'}
+    { fieldName: 'CaseNumber', label: 'SR Number' },
+    { fieldName: 'RecordType_Name', label: 'Category'},
+    { fieldName: 'Type', label: 'Type'},
+    { fieldName: 'Status', label: 'Status'},
+    { fieldName: 'DX_Site__c', label: 'Site'},
+    { fieldName: 'CreatedDate', label: 'SR Created Date'}
 ];
 
 export default class Dx_viewOpenServiceRequest_lwc extends LightningElement{
@@ -29,66 +25,68 @@ export default class Dx_viewOpenServiceRequest_lwc extends LightningElement{
     isEmpty = false;
     error = false;
     @api recordIdToFlow;
-    isModalOpen = false;
+    strRecordtoflow = 'recordIdToFlow=';
+    url = dxURLExperienceCloudLabel + dxNamePageDetailsSRExperienceCloudLabel + this.strRecordtoflow;
 
     @wire(getOpenServiceRequest)
     wiredOpenSR({ error, data }) {
         if (data) {
-            if(data.length > 0){
-                let result = JSON.parse(JSON.stringify(data));
-                let recordType_Name;
-                let isoDate;
-                let date;
-                let year;
-                let month;
-                let day;
-                let formattedDate;
-                for(var item in result){
-                    recordType_Name = result[item].RecordType.Name;
-                    result[item].RecordType_Name = recordType_Name;
-
-                    isoDate = result[item].CreatedDate;
-                    date = new Date(isoDate);
-                    // Get date components
-                    year = date.getUTCFullYear();
-                    month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are 0-indexed
-                    day = String(date.getUTCDate()).padStart(2, '0');
-                    // Format the date
-                    formattedDate = `${year}-${month}-${day}`;
-                    result[item].CreatedDate = formattedDate;
-
-                }
-                this.dataInfo = [...result];
+            const cero = 0;
+            let result = null;
+            if(data.length > cero){
+                result = JSON.parse(JSON.stringify(data));
+                this.funtionIteratorData(result);
             }            
-            if(data.length === 0){this.isEmpty = true;}
+            if(data.length === cero){this.isEmpty = true;}
         } else if (error) {
-            this.error = true;            
-            console.error(error);
+            this.error = true;
         }
     }
 
     handleRowAction(event) {
-        const actionName = event.detail.action.name;
-        const row = event.detail.row;
-        switch (actionName) {
-            case 'edit':
-                this.EditRow(row);
-                break;
+        const objEvent = event;
+        switch (objEvent.detail.action.name) {
             case 'show_details':
-                this.showRowDetails(row);
+                this.showRowDetails(objEvent.detail.row);
                 break;
+            default:
+                // Do nothing
         }
     }
 
-    EditRow(row) {
-        const url = dx_URL_Experience_Cloud_lbl + dx_NamePage_EditSR_Experience_Cloud_lbl + `recordIdToFlow=${row.Id}`;  
-        console.log(url);
-        window.location.href = url;
+    showRowDetails(row) {
+        const urlFormed = this.url + row.Id;
+        window.location.href = urlFormed;
     }
 
-    showRowDetails(row) {
-        const url = dx_URL_Experience_Cloud_lbl + dx_NamePage_DetailsSR_Experience_Cloud_lbl + `recordIdToFlow=${row.Id}`;  
-        console.log(url);
-        window.location.href = url;
+    funtionIteratorData(result){
+        let item = null;
+        for( item in result ){
+            result[item] = this.funtionFormatRecordType( item, result );
+            result[item] = this.funtionFormatDate( item, result );
+        }
+        this.dataInfo = [...result];
+    }
+
+    funtionFormatRecordType( item, result ){
+        let recordTypeName = null;
+        recordTypeName = result[item].RecordType.Name;
+        result[item].recordTypeName = recordTypeName;
+        return result[item];
+    }
+
+    funtionFormatDate( item, result ){
+        const indexStar = 2, monthPlusone = 1;
+        let date = null, day = null, formattedDate = null, isoDate = null, month = null, year = null;
+        isoDate = result[item].CreatedDate;
+        date = new Date(isoDate);
+        // Get date components
+        year = date.getUTCFullYear();
+        month = String(date.getUTCMonth() + monthPlusone).padStart(indexStar, '0');
+        day = String(date.getUTCDate()).padStart(indexStar, '0');
+        // Format the date
+        formattedDate = `${year}-${month}-${day}`;
+        result[item].CreatedDate = formattedDate;
+        return result[item];
     }
 }
