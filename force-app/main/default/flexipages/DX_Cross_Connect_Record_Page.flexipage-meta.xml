@@ -119,6 +119,36 @@
                 <identifier>RecordDX_Xconnect_Order_Number_cField2</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DX_Pickup_Time__c</fieldItem>
+                <identifier>RecordDX_Pickup_Time_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DX_SLA__c</fieldItem>
+                <identifier>RecordDX_SLA__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DX_SLA_In_Violation__c</fieldItem>
+                <identifier>RecordDX_SLA_In_Violation_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-a00c7090-328f-4cd6-84cd-ee246e4335ac</name>
         <type>Facet</type>
     </flexiPageRegions>
