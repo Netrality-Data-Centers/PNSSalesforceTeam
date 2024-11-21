@@ -527,6 +527,12 @@
                 <elementReference>Get_Single_Record_MRI_ID.Name</elementReference>
             </value>
         </inputAssignments>
+        <inputAssignments>
+            <field>DX_MRI_Occupant_Name__c</field>
+            <value>
+                <elementReference>Get_Single_Record_MRI_ID.MRI_Occupant_Name__c</elementReference>
+            </value>
+        </inputAssignments>
         <object>Quote</object>
     </recordUpdates>
     <recordUpdates>
@@ -549,6 +555,12 @@
             <field>DX_MRI_ID__c</field>
             <value>
                 <elementReference>Loop_MRI_ID_Records.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DX_MRI_Occupant_Name__c</field>
+            <value>
+                <elementReference>Loop_MRI_ID_Records.MRI_Occupant_Name__c</elementReference>
             </value>
         </inputAssignments>
         <object>Quote</object>
