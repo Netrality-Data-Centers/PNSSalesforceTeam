@@ -25,7 +25,7 @@
   }, {
     "components" : [ {
       "componentAttributes" : {
-        "richTextValue" : "<p><br></p><p><strong style=\"font-size: 18px;\">In the event of an emergency, contact the following Netrality personnel in this order of escalation.</strong></p><p><br></p><p><strong style=\"font-size: 18px;\">For all non-emergencies or other general requests for service, please navigate to the </strong><a href=\"/s/new-service-request\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 18px;\"><strong>New Service Request</strong></a><strong style=\"font-size: 18px;\"> option in our portal.</strong></p>"
+        "richTextValue" : "<p><br></p><p><span style=\"font-size: 18px;\">In the event of an emergency, contact the following Netrality personnel in this order of escalation.</span></p><p><br></p><p><span style=\"font-size: 18px;\">For all non-emergencies or other general requests for service, please navigate to the </span><a href=\"/s/new-service-request\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 18px;\"><strong>New Service Request</strong></a><span style=\"font-size: 18px;\"> option in our portal.</span></p>"
       },
       "componentName" : "forceCommunity:richTextInline",
       "id" : "88c9b775-9e0c-44ca-9c5c-789045a7cfe0",
