@@ -12,7 +12,7 @@ columns = [
         typeAttributes: { rowActions: actions },
     },
     { fieldName: 'CaseNumber', label: 'SR Number' },
-    { fieldName: 'RecordType_Name', label: 'Category'},
+    { fieldName: 'recordTypeName', label: 'Category'},
     { fieldName: 'Type', label: 'Type'},
     { fieldName: 'Status', label: 'Status'},
     { fieldName: 'DX_Site__c', label: 'Site'},
