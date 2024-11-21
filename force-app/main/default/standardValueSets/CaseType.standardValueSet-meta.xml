@@ -191,4 +191,14 @@
         <default>false</default>
         <label>Disconnect Request</label>
     </standardValue>
+    <standardValue>
+        <fullName>Issuing CRN</fullName>
+        <default>false</default>
+        <label>Issuing CRN</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Internal CRN</fullName>
+        <default>false</default>
+        <label>Internal CRN</label>
+    </standardValue>
 </StandardValueSet>
