@@ -226,26 +226,6 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DX_Pickup_Time__c</fieldItem>
-                <identifier>RecordDX_Pickup_Time_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_SLA__c</fieldItem>
-                <identifier>RecordDX_SLA_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.DX_SLA_In_Violation__c</fieldItem>
                 <identifier>RecordDX_SLA_In_Violation__cField</identifier>
             </fieldInstance>
