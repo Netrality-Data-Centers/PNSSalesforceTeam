@@ -2350,11 +2350,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DC_Rack__c.Legacy_Cabinet_Name_from_Operations_Fil__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>DC_Rack__c.Rack_Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
