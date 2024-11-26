@@ -2055,11 +2055,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DC_Central_Plant__c.Max_Capacity_tons__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>DC_Circuit_Breaker__c.Cabinet__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2346,11 +2341,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DC_Rack__c.Connected_Power__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DC_Rack__c.Legacy_Cabinet_Name_from_Operations_Fil__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

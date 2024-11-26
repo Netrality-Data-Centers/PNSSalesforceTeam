@@ -987,7 +987,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Innerduct__c.Related_MRI_Suite_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
