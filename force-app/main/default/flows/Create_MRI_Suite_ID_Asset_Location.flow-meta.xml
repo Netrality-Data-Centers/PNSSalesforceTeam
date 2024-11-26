@@ -60,7 +60,7 @@
             <targetReference>Update_Asset_Fields</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <name>DX_Error_Log_Creation</name>
         <label>DX Error Log Creation</label>
