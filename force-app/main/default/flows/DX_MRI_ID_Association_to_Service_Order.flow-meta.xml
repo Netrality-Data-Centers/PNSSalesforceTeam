@@ -139,7 +139,7 @@
                 <leftValueReference>Loop_MRI_ID_Records.MRI_Occupant_Name__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <elementReference>Get_Service_Order.Customer_Entity_Name__c</elementReference>
+                    <elementReference>Get_Service_Order.Customer_Entinty_Name_Auto_w_Edits__c</elementReference>
                 </rightValue>
             </conditions>
             <connector>
@@ -253,7 +253,7 @@
     <decisions>
         <name>Is_There_A_Service_Order</name>
         <label>Is There A Service Order?</label>
-        <locationX>1832</locationX>
+        <locationX>1964</locationX>
         <locationY>431</locationY>
         <defaultConnectorLabel>No, There Is No a Service Order</defaultConnectorLabel>
         <rules>
@@ -328,6 +328,9 @@
         <label>Create a New MRI ID</label>
         <locationX>1898</locationX>
         <locationY>863</locationY>
+        <connector>
+            <targetReference>Get_New_MRI_ID_Info</targetReference>
+        </connector>
         <faultConnector>
             <targetReference>Create_Log_Error_Create_a_New_MRI_ID</targetReference>
         </faultConnector>
@@ -346,7 +349,7 @@
         <inputAssignments>
             <field>MRI_Occupant_Name__c</field>
             <value>
-                <elementReference>Get_Service_Order.Customer_Entity_Name__c</elementReference>
+                <elementReference>Get_Service_Order.Customer_Entinty_Name_Auto_w_Edits__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -408,9 +411,30 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Get_New_MRI_ID_Info</name>
+        <label>Get New MRI ID Info</label>
+        <locationX>1898</locationX>
+        <locationY>971</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Service_Order_With_New_MRI_ID_Record</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Create_a_New_MRI_ID</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>MRI_ID__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Service_Order</name>
         <label>Get Service Order</label>
-        <locationX>1832</locationX>
+        <locationX>1964</locationX>
         <locationY>323</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -506,6 +530,36 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
+        <name>Update_Service_Order_With_New_MRI_ID_Record</name>
+        <label>Update Service Order With New MRI ID Record</label>
+        <locationX>1898</locationX>
+        <locationY>1079</locationY>
+        <faultConnector>
+            <targetReference>Create_Log_Error_Update_Service_Order_With_New_MRI_ID_Record</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Service_Order.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>DX_MRI_ID__c</field>
+            <value>
+                <elementReference>Get_New_MRI_ID_Info.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DX_MRI_Occupant_Name__c</field>
+            <value>
+                <elementReference>Get_New_MRI_ID_Info.MRI_Occupant_Name__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Quote</object>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_the_MRI_ID_on_Service_Order</name>
         <label>Update the MRI ID on Service Order</label>
         <locationX>50</locationX>
@@ -554,7 +608,7 @@
         <object>Quote</object>
     </recordUpdates>
     <start>
-        <locationX>1706</locationX>
+        <locationX>1838</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Service_Order</targetReference>
@@ -625,7 +679,7 @@
     <subflows>
         <name>Create_Log_Error_Create_a_New_MRI_ID</name>
         <label>Create Log Error Create a New MRI ID</label>
-        <locationX>2162</locationX>
+        <locationX>2426</locationX>
         <locationY>971</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
@@ -705,6 +759,49 @@
             <name>TypeOfOperation</name>
             <value>
                 <stringValue>Update</stringValue>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>Create_Log_Error_Update_Service_Order_With_New_MRI_ID_Record</name>
+        <label>Create Log Error Update Service Order With New MRI ID Record</label>
+        <locationX>2162</locationX>
+        <locationY>1187</locationY>
+        <flowName>DX_Error_Log_Creation</flowName>
+        <inputAssignments>
+            <name>ErrorMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>FlowName</name>
+            <value>
+                <stringValue>DX MRI ID Association to Service Order</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>MethodName</name>
+            <value>
+                <stringValue>Update Service Order With New MRI ID Record</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>ObjectName</name>
+            <value>
+                <stringValue>Quoute</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>RecordId</name>
+            <value>
+                <elementReference>Get_Service_Order.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>TypeOfOperation</name>
+            <value>
+                <stringValue>Update Records</stringValue>
             </value>
         </inputAssignments>
     </subflows>
