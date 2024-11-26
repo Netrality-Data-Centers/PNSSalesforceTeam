@@ -35,7 +35,7 @@
         <inputAssignments>
             <field>Name</field>
             <value>
-                <stringValue>{!$Record.Building__r.Name}.{!$Record.Short_Name__c}</stringValue>
+                <stringValue>{!$Record.Building__r.Building_Address_No__c}.{!$Record.Short_Name__c}</stringValue>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
