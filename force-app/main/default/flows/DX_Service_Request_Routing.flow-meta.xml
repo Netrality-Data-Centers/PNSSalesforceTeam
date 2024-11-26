@@ -1015,7 +1015,7 @@
         <inputAssignments>
             <name>TypeOfOperation</name>
             <value>
-                <stringValue>Get Records</stringValue>
+                <stringValue>Get</stringValue>
             </value>
         </inputAssignments>
     </subflows>
@@ -1058,7 +1058,7 @@
         <inputAssignments>
             <name>TypeOfOperation</name>
             <value>
-                <stringValue>Update Records</stringValue>
+                <stringValue>Update</stringValue>
             </value>
         </inputAssignments>
     </subflows>
