@@ -2243,6 +2243,16 @@
         <field>DX_Access_Managment__c.View_Service_Orders__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Quote.DX_MRI_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Quote.DX_MRI_Occupant_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Manage Service Request_PS</label>
     <objectPermissions>

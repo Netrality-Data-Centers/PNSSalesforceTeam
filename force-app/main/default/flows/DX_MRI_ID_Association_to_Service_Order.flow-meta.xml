@@ -661,7 +661,7 @@
         <inputAssignments>
             <name>TypeOfOperation</name>
             <value>
-                <stringValue>Insert</stringValue>
+                <stringValue>Insert Records</stringValue>
             </value>
         </inputAssignments>
     </subflows>
