@@ -2580,11 +2580,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Innerduct__c.Related_MRI_Suite_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Product2.DC_Allocation_Required__c</field>
         <readable>true</readable>
