@@ -2,6 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Connection_Case__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
+    <description>This field will be used for New cross connect Case as well as Change Cross connect case to establish new connection</description>
     <externalId>false</externalId>
     <label>Connection Case</label>
     <referenceTo>Case</referenceTo>
