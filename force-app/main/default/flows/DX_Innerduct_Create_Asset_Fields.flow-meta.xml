@@ -71,13 +71,13 @@
         <inputAssignments>
             <name>AssetRecordId</name>
             <value>
-                <stringValue>anId</stringValue>
+                <elementReference>$Record.Asset__r.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <name>MRISuiteID</name>
             <value>
-                <stringValue>anID</stringValue>
+                <elementReference>$Record.Related_MRI_Suite_ID__c</elementReference>
             </value>
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>
