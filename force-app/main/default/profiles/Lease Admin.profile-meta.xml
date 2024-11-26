@@ -820,6 +820,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Asset.DX_Service_Request__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Asset.Data_Hall__c</field>
         <readable>true</readable>
     </fieldPermissions>
