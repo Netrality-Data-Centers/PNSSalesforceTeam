@@ -20,7 +20,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Related_MRI_Suite_ID__c</field>
+                <field>Related_MRI_Suite_ID_formula__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -45,6 +45,10 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Z_Side__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Related_MRI_Suite_ID__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

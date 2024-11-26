@@ -988,7 +988,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Innerduct__c.Related_MRI_Suite_ID__c</field>
+        <field>Innerduct__c.Related_MRI_Suite_ID_formula__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
