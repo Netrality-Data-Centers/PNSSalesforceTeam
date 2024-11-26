@@ -11,13 +11,6 @@
             <name>Yes</name>
             <conditionLogic>or</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.Asset__r.MRI_Suite_ID__c</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
                 <leftValueReference>$Record.Asset__r.Asset_Location__c</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
@@ -78,13 +71,13 @@
         <inputAssignments>
             <name>AssetRecordId</name>
             <value>
-                <elementReference>$Record.Asset__r.Id</elementReference>
+                <stringValue>anId</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
             <name>MRISuiteID</name>
             <value>
-                <elementReference>$Record.Related_MRI_Suite_ID__c</elementReference>
+                <stringValue>anID</stringValue>
             </value>
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>
