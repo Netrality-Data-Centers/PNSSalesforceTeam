@@ -3292,7 +3292,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Case.DX_Access_Request</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
