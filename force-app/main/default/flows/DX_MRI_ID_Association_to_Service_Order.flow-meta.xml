@@ -276,7 +276,7 @@
     <formulas>
         <name>MRI_ID_Name_Formula</name>
         <dataType>String</dataType>
-        <expression>&quot;M&quot;+{!Get_Service_Order.Opportunity.Building__r.Name}+{!Get_Service_Order.Opportunity.Account.TenantId__c}+&quot;MR&quot;</expression>
+        <expression>&quot;M&quot;+{!Get_Service_Order.Opportunity.Building__r.Building_Address_No__c}+{!Get_Service_Order.Opportunity.Account.TenantId__c}+&quot;MR&quot;</expression>
     </formulas>
     <formulas>
         <name>Replace_ServiceOrderLink_CeroMatch</name>
