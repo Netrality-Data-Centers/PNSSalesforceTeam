@@ -18,7 +18,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Oppty_Record_Type</targetReference>
+                <targetReference>Get_RT_for_CRN</targetReference>
             </connector>
             <label>true</label>
         </rules>
@@ -27,7 +27,7 @@
         <name>Oppty_Record_Type</name>
         <label>Oppty Record Type?</label>
         <locationX>578</locationX>
-        <locationY>647</locationY>
+        <locationY>755</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Renewal</name>
@@ -101,7 +101,7 @@
         <name>Create_SR_Internal</name>
         <label>Create SR Internal CRN</label>
         <locationX>50</locationX>
-        <locationY>755</locationY>
+        <locationY>863</locationY>
         <faultConnector>
             <targetReference>Create_Log_Error_when_Creating_Internal_SR</targetReference>
         </faultConnector>
@@ -126,7 +126,7 @@
         <inputAssignments>
             <field>RecordTypeId</field>
             <value>
-                <elementReference>Get_Record_Type_of_Oppty.Id</elementReference>
+                <elementReference>Get_RT_for_CRN.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -148,7 +148,7 @@
         <name>Create_SR_Issuing_CRN</name>
         <label>Create SR Issuing CRN</label>
         <locationX>578</locationX>
-        <locationY>755</locationY>
+        <locationY>863</locationY>
         <faultConnector>
             <targetReference>Create_Log_Error_When_Creating_Issuing_CRN</targetReference>
         </faultConnector>
@@ -173,7 +173,7 @@
         <inputAssignments>
             <field>RecordTypeId</field>
             <value>
-                <elementReference>Get_Record_Type_of_Oppty.Id</elementReference>
+                <elementReference>Get_RT_for_CRN.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -206,6 +206,34 @@
             <operator>EqualTo</operator>
             <value>
                 <elementReference>$Record.RecordTypeId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_RT_for_CRN</name>
+        <label>Get RT for CRN</label>
+        <locationX>578</locationX>
+        <locationY>647</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Oppty_Record_Type</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Case</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>CRN</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -270,7 +298,7 @@
         <name>Create_Log_Error_when_Creating_Internal_SR</name>
         <label>Create Log Error when Creating Internal SR</label>
         <locationX>314</locationX>
-        <locationY>863</locationY>
+        <locationY>971</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -313,7 +341,7 @@
         <name>Create_Log_Error_When_Creating_Issuing_CRN</name>
         <label>Create Log Error When Creating Issuing CRN</label>
         <locationX>842</locationX>
-        <locationY>863</locationY>
+        <locationY>971</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
