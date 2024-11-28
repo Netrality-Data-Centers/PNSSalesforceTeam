@@ -2550,6 +2550,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>DX_SR_CRN_Closed_Event__e.ServiceRequestId__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>DX_Settings_MRI_ID_Mail_Association__mdt.Body__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2977,7 +2982,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Case.DX_Access_Request</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
