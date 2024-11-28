@@ -4,7 +4,7 @@
     <decisions>
         <name>Found_Synced_SO</name>
         <label>Found Synced SO?</label>
-        <locationX>930</locationX>
+        <locationX>974</locationX>
         <locationY>539</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -33,7 +33,7 @@
             <name>Renewal</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_Record_Type_for_CRN.Name</leftValueReference>
+                <leftValueReference>Get_Record_Type_of_Oppty.Name</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Renewal</stringValue>
@@ -48,21 +48,21 @@
             <name>New_Market_New_Logo_Expansion</name>
             <conditionLogic>or</conditionLogic>
             <conditions>
-                <leftValueReference>Get_Record_Type_for_CRN.Name</leftValueReference>
+                <leftValueReference>Get_Record_Type_of_Oppty.Name</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>New Market</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Get_Record_Type_for_CRN.Name</leftValueReference>
+                <leftValueReference>Get_Record_Type_of_Oppty.Name</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>New Logo</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Get_Record_Type_for_CRN.Name</leftValueReference>
+                <leftValueReference>Get_Record_Type_of_Oppty.Name</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Expansion</stringValue>
@@ -126,7 +126,7 @@
         <inputAssignments>
             <field>RecordTypeId</field>
             <value>
-                <elementReference>Get_Record_Type_for_CRN.Id</elementReference>
+                <elementReference>Get_Record_Type_of_Oppty.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -173,7 +173,7 @@
         <inputAssignments>
             <field>RecordTypeId</field>
             <value>
-                <elementReference>Get_Record_Type_for_CRN.Id</elementReference>
+                <elementReference>Get_Record_Type_of_Oppty.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -192,9 +192,9 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
-        <name>Get_Record_Type_for_CRN</name>
-        <label>Get Record Type for CRN</label>
-        <locationX>930</locationX>
+        <name>Get_Record_Type_of_Oppty</name>
+        <label>Get Record Type of Oppty</label>
+        <locationX>974</locationX>
         <locationY>323</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -202,17 +202,10 @@
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>SobjectType</field>
+            <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Case</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>DeveloperName</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>DX_CRN</stringValue>
+                <elementReference>$Record.RecordTypeId</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -222,7 +215,7 @@
     <recordLookups>
         <name>Get_Synced_Service_Order</name>
         <label>Get Synced Service Order</label>
-        <locationX>930</locationX>
+        <locationX>974</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -248,10 +241,10 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
-        <locationX>804</locationX>
+        <locationX>848</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Get_Record_Type_for_CRN</targetReference>
+            <targetReference>Get_Record_Type_of_Oppty</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
