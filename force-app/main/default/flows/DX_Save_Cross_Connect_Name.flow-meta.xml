@@ -6,7 +6,7 @@
     <formulas>
         <name>CONNECTION_DATE</name>
         <dataType>String</dataType>
-        <expression>TEXT(MONTH({!Get_Cross_Connect_Details.Xconnect_date__c}))+ &quot;-&quot; + TEXT(DAY({!Get_Cross_Connect_Details.Xconnect_date__c}))+ &quot;-&quot; + TEXT(YEAR({!Get_Cross_Connect_Details.Xconnect_date__c}))</expression>
+        <expression>TEXT(MONTH({!$Record.Xconnect_date__c}))+ &quot;-&quot; + TEXT(DAY({!$Record.Xconnect_date__c}))+ &quot;-&quot; + TEXT(YEAR({!$Record.Xconnect_date__c}))</expression>
     </formulas>
     <interviewLabel>DX Save Cross Connect Name {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Save Cross Connect Name</label>
@@ -29,39 +29,18 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <recordLookups>
-        <name>Get_Cross_Connect_Details</name>
-        <label>Get Cross Connect Details</label>
-        <locationX>176</locationX>
-        <locationY>323</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Update_Cross_Connect_Name</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Origination_Port__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.Origination_Port__r.Id</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>DC_Cross_Connect__c</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
     <recordUpdates>
         <name>Update_Cross_Connect_Name</name>
         <label>Update Cross Connect Name</label>
         <locationX>176</locationX>
-        <locationY>431</locationY>
+        <locationY>323</locationY>
         <faultConnector>
             <targetReference>Create_Log_Error</targetReference>
         </faultConnector>
         <inputAssignments>
             <field>Name</field>
             <value>
-                <stringValue>{!Get_Cross_Connect_Details.Origination_Port__r.Name}.{!CONNECTION_DATE}</stringValue>
+                <stringValue>{!$Record.Origination_Port__r.Name}.{!CONNECTION_DATE}</stringValue>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
@@ -70,11 +49,18 @@
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Get_Cross_Connect_Details</targetReference>
+            <targetReference>Update_Cross_Connect_Name</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Origination_Port__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Xconnect_date__c</field>
             <operator>IsNull</operator>
             <value>
                 <booleanValue>false</booleanValue>
@@ -89,7 +75,7 @@
         <name>Create_Log_Error</name>
         <label>Create Log Error</label>
         <locationX>440</locationX>
-        <locationY>539</locationY>
+        <locationY>431</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
