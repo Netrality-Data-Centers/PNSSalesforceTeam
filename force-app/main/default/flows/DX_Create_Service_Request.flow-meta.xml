@@ -1087,6 +1087,13 @@
                 <stringValue>DX</stringValue>
             </value>
         </filters>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>DX_CRN</stringValue>
+            </value>
+        </filters>
         <object>RecordType</object>
         <outputAssignments>
             <assignToReference>SelectedRecordTypeId</assignToReference>
