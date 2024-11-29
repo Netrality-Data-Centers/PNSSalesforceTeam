@@ -2550,6 +2550,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>DX_SR_CRN_Closed_Event__e.ServiceRequestId__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>DX_Settings_MRI_ID_Mail_Association__mdt.Body__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2581,6 +2586,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Innerduct__c.Related_MRI_Suite_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Compelling_Event_Details__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
