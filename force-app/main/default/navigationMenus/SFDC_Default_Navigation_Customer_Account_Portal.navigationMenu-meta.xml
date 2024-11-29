@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>Customer Account Portal</container>
+    <containerType>Network</containerType>
+    <label>Default Navigation</label>
+    <navigationMenuItem>
+        <label>Service Request</label>
+        <position>1</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>New Service Requests</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/new-service-request</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Open Service Requests</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/open-service-requests</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Closed Service Requests</label>
+                <position>2</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/closed-service-requests</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Account</label>
+        <position>2</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>Colocation Infrastructure</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Cross Connects</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/cross-connects</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Service Orders</label>
+                <position>2</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Contacts/Access List</label>
+                <position>3</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/access-list-users-management</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Billing</label>
+        <position>3</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>Invoices</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Billing IDs</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/billing-ids</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Facility Notifications</label>
+        <position>4</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Resources</label>
+        <position>5</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>Escalation Contacts</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/escalation-contacts</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Customer Handbook</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://netrality--qa.sandbox.my.salesforce.com/sfc/p/VB000002C18r/a/VB000000ARGf/YlracIV2P5uW92qTDmvWB5sm6O913s2toklN5o5K9Vc</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Portal Guide</label>
+                <position>2</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>COI</label>
+                <position>3</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/coi-documents</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Compliance Documents</label>
+                <position>4</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/compliance-documents</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+</NavigationMenu>
