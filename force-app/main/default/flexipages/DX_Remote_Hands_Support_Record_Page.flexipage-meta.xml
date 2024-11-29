@@ -220,6 +220,16 @@
                 </visibilityRule>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DX_SLA_In_Violation__c</fieldItem>
+                <identifier>RecordDX_SLA_In_Violation__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-b6ed4964-f767-49f3-996a-ab0233ab834a</name>
         <type>Facet</type>
     </flexiPageRegions>

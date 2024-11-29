@@ -3,8 +3,8 @@
     <actionCalls>
         <name>Call_Bussines_Hours_Helper</name>
         <label>Call Bussines Hours Helper</label>
-        <locationX>314</locationX>
-        <locationY>1295</locationY>
+        <locationX>1106</locationX>
+        <locationY>1403</locationY>
         <actionName>DX_BusinesHoursHelper</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -25,8 +25,8 @@
     <assignments>
         <name>Set_AccountingQueue</name>
         <label>Set AccountingQueue</label>
-        <locationX>2514</locationX>
-        <locationY>755</locationY>
+        <locationX>3306</locationX>
+        <locationY>863</locationY>
         <assignmentItems>
             <assignToReference>QueueName</assignToReference>
             <operator>Assign</operator>
@@ -41,8 +41,8 @@
     <assignments>
         <name>Set_Chicago_BH</name>
         <label>Set Chicago BH</label>
-        <locationX>314</locationX>
-        <locationY>863</locationY>
+        <locationX>1106</locationX>
+        <locationY>971</locationY>
         <assignmentItems>
             <assignToReference>BusinessHoursName</assignToReference>
             <operator>Assign</operator>
@@ -57,8 +57,8 @@
     <assignments>
         <name>Set_ContractsQueue</name>
         <label>Set ContractsQueue</label>
-        <locationX>2250</locationX>
-        <locationY>755</locationY>
+        <locationX>3042</locationX>
+        <locationY>863</locationY>
         <assignmentItems>
             <assignToReference>QueueName</assignToReference>
             <operator>Assign</operator>
@@ -73,8 +73,8 @@
     <assignments>
         <name>Set_CX_Queue</name>
         <label>Set CX Queue</label>
-        <locationX>2778</locationX>
-        <locationY>755</locationY>
+        <locationX>3570</locationX>
+        <locationY>863</locationY>
         <assignmentItems>
             <assignToReference>QueueName</assignToReference>
             <operator>Assign</operator>
@@ -89,8 +89,8 @@
     <assignments>
         <name>Set_Houston_BH</name>
         <label>Set Houston BH</label>
-        <locationX>754</locationX>
-        <locationY>863</locationY>
+        <locationX>1546</locationX>
+        <locationY>971</locationY>
         <assignmentItems>
             <assignToReference>BusinessHoursName</assignToReference>
             <operator>Assign</operator>
@@ -105,8 +105,8 @@
     <assignments>
         <name>Set_Indianapolis_BH</name>
         <label>Set Indianapolis BH</label>
-        <locationX>1018</locationX>
-        <locationY>863</locationY>
+        <locationX>1810</locationX>
+        <locationY>971</locationY>
         <assignmentItems>
             <assignToReference>BusinessHoursName</assignToReference>
             <operator>Assign</operator>
@@ -121,7 +121,7 @@
     <assignments>
         <name>Set_Record_Type</name>
         <label>Set Record Type</label>
-        <locationX>2943</locationX>
+        <locationX>1958</locationX>
         <locationY>323</locationY>
         <assignmentItems>
             <assignToReference>CurrentRecordType</assignToReference>
@@ -131,14 +131,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Set_Site</targetReference>
+            <targetReference>Is_CRN_Record_Type</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Set_Site</name>
         <label>Set Site</label>
-        <locationX>2943</locationX>
-        <locationY>431</locationY>
+        <locationX>3735</locationX>
+        <locationY>539</locationY>
         <assignmentItems>
             <assignToReference>Site</assignToReference>
             <operator>Assign</operator>
@@ -153,8 +153,8 @@
     <assignments>
         <name>Set_STL_BH</name>
         <label>Set STL BH</label>
-        <locationX>1282</locationX>
-        <locationY>863</locationY>
+        <locationX>2074</locationX>
+        <locationY>971</locationY>
         <assignmentItems>
             <assignToReference>BusinessHoursName</assignToReference>
             <operator>Assign</operator>
@@ -169,8 +169,8 @@
     <assignments>
         <name>Set_Time_Zone_Business_Hours</name>
         <label>Set Time Zone Business Hours</label>
-        <locationX>314</locationX>
-        <locationY>1187</locationY>
+        <locationX>1106</locationX>
+        <locationY>1295</locationY>
         <assignmentItems>
             <assignToReference>timeZoneBH</assignToReference>
             <operator>Assign</operator>
@@ -185,8 +185,8 @@
     <assignments>
         <name>SetKCQueue</name>
         <label>SetKCQueue</label>
-        <locationX>1810</locationX>
-        <locationY>971</locationY>
+        <locationX>2602</locationX>
+        <locationY>1079</locationY>
         <assignmentItems>
             <assignToReference>QueueName</assignToReference>
             <operator>Assign</operator>
@@ -201,8 +201,8 @@
     <assignments>
         <name>SetPHLQueue</name>
         <label>SetPHLQueue</label>
-        <locationX>1546</locationX>
-        <locationY>971</locationY>
+        <locationX>2338</locationX>
+        <locationY>1079</locationY>
         <assignmentItems>
             <assignToReference>QueueName</assignToReference>
             <operator>Assign</operator>
@@ -217,8 +217,8 @@
     <assignments>
         <name>SetQueue</name>
         <label>SetQueueChigago</label>
-        <locationX>314</locationX>
-        <locationY>971</locationY>
+        <locationX>1106</locationX>
+        <locationY>1079</locationY>
         <assignmentItems>
             <assignToReference>QueueName</assignToReference>
             <operator>Assign</operator>
@@ -233,8 +233,8 @@
     <assignments>
         <name>SetQueueAfterHoursKC</name>
         <label>SetQueueAfterHoursKC</label>
-        <locationX>50</locationX>
-        <locationY>1877</locationY>
+        <locationX>842</locationX>
+        <locationY>1985</locationY>
         <assignmentItems>
             <assignToReference>QueueName</assignToReference>
             <operator>Assign</operator>
@@ -249,8 +249,8 @@
     <assignments>
         <name>SetQueueAfterHoursPHL</name>
         <label>SetQueueAfterHoursPHL</label>
-        <locationX>314</locationX>
-        <locationY>1619</locationY>
+        <locationX>1106</locationX>
+        <locationY>1727</locationY>
         <assignmentItems>
             <assignToReference>QueueName</assignToReference>
             <operator>Assign</operator>
@@ -266,8 +266,8 @@
     <assignments>
         <name>SetQueueHouston</name>
         <label>SetQueueHouston</label>
-        <locationX>754</locationX>
-        <locationY>971</locationY>
+        <locationX>1546</locationX>
+        <locationY>1079</locationY>
         <assignmentItems>
             <assignToReference>QueueName</assignToReference>
             <operator>Assign</operator>
@@ -283,8 +283,8 @@
     <assignments>
         <name>SetQueueIndianapolis</name>
         <label>SetQueueIndianapolis</label>
-        <locationX>1018</locationX>
-        <locationY>971</locationY>
+        <locationX>1810</locationX>
+        <locationY>1079</locationY>
         <assignmentItems>
             <assignToReference>QueueName</assignToReference>
             <operator>Assign</operator>
@@ -300,8 +300,8 @@
     <assignments>
         <name>SetQueueSTL</name>
         <label>SetQueueSTL</label>
-        <locationX>1282</locationX>
-        <locationY>971</locationY>
+        <locationX>2074</locationX>
+        <locationY>1079</locationY>
         <assignmentItems>
             <assignToReference>QueueName</assignToReference>
             <operator>Assign</operator>
@@ -534,8 +534,8 @@
     <decisions>
         <name>Decision_Site</name>
         <label>Site?</label>
-        <locationX>1810</locationX>
-        <locationY>863</locationY>
+        <locationX>2602</locationX>
+        <locationY>971</locationY>
         <defaultConnector>
             <targetReference>Get_Queue</targetReference>
         </defaultConnector>
@@ -581,8 +581,8 @@
     <decisions>
         <name>Is_After_Hours</name>
         <label>Is After Hours?</label>
-        <locationX>314</locationX>
-        <locationY>1403</locationY>
+        <locationX>1106</locationX>
+        <locationY>1511</locationY>
         <defaultConnector>
             <targetReference>Get_Queue</targetReference>
         </defaultConnector>
@@ -604,10 +604,57 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Is_CRN_Record_Type</name>
+        <label>Is CRN Record Type?</label>
+        <locationX>1958</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Set_Site</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Is Other</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Is_CRN</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>CurrentRecordType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CRN</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Opportunity_Has_Location</targetReference>
+            </connector>
+            <label>Yes Is CRN</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Opportunity_Has_Location</name>
+        <label>Opportunity Has Location?</label>
+        <locationX>182</locationX>
+        <locationY>539</locationY>
+        <defaultConnectorLabel>No, It Has No Location</defaultConnectorLabel>
+        <rules>
+            <name>Yes_it_has_Location</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.DX_Opportunity__r.Location__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Route_CRN_Cases</targetReference>
+            </connector>
+            <label>Yes, it has Location</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Record_Has_Site</name>
         <label>Record Has Site?</label>
-        <locationX>2943</locationX>
-        <locationY>539</locationY>
+        <locationX>3735</locationX>
+        <locationY>647</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Yes_It_Has_Site</name>
@@ -628,8 +675,8 @@
     <decisions>
         <name>Site_with_After_Hours</name>
         <label>Site with After Hours</label>
-        <locationX>1062</locationX>
-        <locationY>755</locationY>
+        <locationX>1854</locationX>
+        <locationY>863</locationY>
         <defaultConnector>
             <targetReference>Decision_Site</targetReference>
         </defaultConnector>
@@ -712,8 +759,8 @@
     <decisions>
         <name>SR_Type</name>
         <label>SR Type?</label>
-        <locationX>2052</locationX>
-        <locationY>647</locationY>
+        <locationX>2844</locationX>
+        <locationY>755</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
             <targetReference>Generate_Error_Log</targetReference>
@@ -804,8 +851,8 @@
     <decisions>
         <name>What_BH_Site_is</name>
         <label>What BH Site is?</label>
-        <locationX>50</locationX>
-        <locationY>1511</locationY>
+        <locationX>842</locationX>
+        <locationY>1619</locationY>
         <defaultConnector>
             <targetReference>SetQueueAfterHoursPHL</targetReference>
         </defaultConnector>
@@ -907,8 +954,8 @@
     <recordLookups>
         <name>Get_Bussines_Hours</name>
         <label>Get Bussines Hours</label>
-        <locationX>314</locationX>
-        <locationY>1079</locationY>
+        <locationX>1106</locationX>
+        <locationY>1187</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_Time_Zone_Business_Hours</targetReference>
@@ -928,8 +975,8 @@
     <recordLookups>
         <name>Get_Queue</name>
         <label>Get Queue</label>
-        <locationX>2052</locationX>
-        <locationY>2237</locationY>
+        <locationX>2844</locationX>
+        <locationY>2345</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Update_Case_Owner</targetReference>
@@ -952,8 +999,8 @@
     <recordUpdates>
         <name>Update_Case_Owner</name>
         <label>Update Case Owner</label>
-        <locationX>2052</locationX>
-        <locationY>2345</locationY>
+        <locationX>2844</locationX>
+        <locationY>2453</locationY>
         <faultConnector>
             <targetReference>Generate_Error_Log_Update_Case_Owner</targetReference>
         </faultConnector>
@@ -966,7 +1013,7 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>2817</locationX>
+        <locationX>1832</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Set_Record_Type</targetReference>
@@ -979,8 +1026,8 @@
     <subflows>
         <name>Generate_Error_Log</name>
         <label>Generate Error Log</label>
-        <locationX>3570</locationX>
-        <locationY>2345</locationY>
+        <locationX>4362</locationX>
+        <locationY>2453</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -1022,8 +1069,8 @@
     <subflows>
         <name>Generate_Error_Log_Update_Case_Owner</name>
         <label>Generate Error Log</label>
-        <locationX>3306</locationX>
-        <locationY>2453</locationY>
+        <locationX>4098</locationX>
+        <locationY>2561</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -1059,6 +1106,19 @@
             <name>TypeOfOperation</name>
             <value>
                 <stringValue>Update Records</stringValue>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>Route_CRN_Cases</name>
+        <label>Route CRN Cases</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <flowName>DX_Route_CRN_Cases</flowName>
+        <inputAssignments>
+            <name>caseRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
             </value>
         </inputAssignments>
     </subflows>
