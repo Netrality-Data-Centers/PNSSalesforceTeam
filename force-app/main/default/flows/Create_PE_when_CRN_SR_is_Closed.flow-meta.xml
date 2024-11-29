@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
-    <description>Saves Floor Name</description>
+    <decisions>
+        <name>Record_Type_is_CRN</name>
+        <label>Record Type is CRN?</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CRN</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_PE_when_CRN_SR_is_Closed</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>Creates a Platform Event when a Service Requests is being created or updated with Status=New and Record Type=CRN</description>
     <environments>Default</environments>
-    <interviewLabel>DX Save Floor Name {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>DX Save Floor Name</label>
+    <interviewLabel>Create PE when CRN SR is Closed {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Create PE when CRN SR is Closed</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -24,37 +46,45 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <recordUpdates>
-        <name>Update_Floor_Name</name>
-        <label>Update Floor Name</label>
-        <locationX>176</locationX>
-        <locationY>323</locationY>
+    <recordCreates>
+        <name>Create_PE_when_CRN_SR_is_Closed</name>
+        <label>Create PE when CRN SR is Closed</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
         <faultConnector>
             <targetReference>Create_Log_Error</targetReference>
         </faultConnector>
         <inputAssignments>
-            <field>Name</field>
+            <field>ServiceRequestId__c</field>
             <value>
-                <stringValue>{!$Record.Building__r.Building_Address_No__c}.{!$Record.Short_Name__c}</stringValue>
+                <elementReference>$Record.Id</elementReference>
             </value>
         </inputAssignments>
-        <inputReference>$Record</inputReference>
-    </recordUpdates>
+        <object>DX_SR_CRN_Closed_Event__e</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
     <start>
-        <locationX>50</locationX>
+        <locationX>188</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Update_Floor_Name</targetReference>
+            <targetReference>Record_Type_is_CRN</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>Building__c</field>
-            <operator>IsNull</operator>
+            <field>Status</field>
+            <operator>IsChanged</operator>
             <value>
-                <booleanValue>false</booleanValue>
+                <booleanValue>true</booleanValue>
             </value>
         </filters>
-        <object>DC_Floor__c</object>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </filters>
+        <object>Case</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
@@ -62,8 +92,8 @@
     <subflows>
         <name>Create_Log_Error</name>
         <label>Create Log Error</label>
-        <locationX>440</locationX>
-        <locationY>431</locationY>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -74,19 +104,19 @@
         <inputAssignments>
             <name>FlowName</name>
             <value>
-                <stringValue>DX Save Floor Name</stringValue>
+                <stringValue>Create PE when CRN SR is Closed</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
             <name>MethodName</name>
             <value>
-                <stringValue>Update Floor Name</stringValue>
+                <stringValue>Create PE when CRN SR is Closed</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
             <name>ObjectName</name>
             <value>
-                <stringValue>Floor</stringValue>
+                <stringValue>Service Request</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -98,7 +128,7 @@
         <inputAssignments>
             <name>TypeOfOperation</name>
             <value>
-                <stringValue>Update</stringValue>
+                <stringValue>Create Records</stringValue>
             </value>
         </inputAssignments>
     </subflows>
