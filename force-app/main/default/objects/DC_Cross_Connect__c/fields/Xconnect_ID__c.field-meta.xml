@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Xconnect_ID__c</fullName>
+    <description>Orgination Port.Name &amp; &quot;.&quot; &amp; Connection Date</description>
     <externalId>false</externalId>
     <label>Xconnect ID</label>
     <length>80</length>
