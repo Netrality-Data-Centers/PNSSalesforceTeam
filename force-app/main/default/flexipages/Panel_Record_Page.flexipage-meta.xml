@@ -118,6 +118,42 @@
                 <identifier>RecordMRI_Suite_ID_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Starting_Position_RU__c</fieldItem>
+                <identifier>RecordStarting_Position_RU__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Port_Pattern__c</fieldItem>
+                <identifier>RecordPort_Pattern__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Number_of_Mods__c</fieldItem>
+                <identifier>RecordNumber_of_Mods__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Number_of_Ports_Wide_per_Mod__c</fieldItem>
+                <identifier>RecordNumber_of_Ports_Wide_per_Mod__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Number_of_Ports_Tall_per_Mod__c</fieldItem>
+                <identifier>RecordNumber_of_Ports_Tall_per_Mod__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Mod_Pattern__c</fieldItem>
+                <identifier>RecordMod_Pattern__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-83bd6397-5bd3-4b0d-83c1-c91818abfb2c</name>
         <type>Facet</type>
     </flexiPageRegions>
