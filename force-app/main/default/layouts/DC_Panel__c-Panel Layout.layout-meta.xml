@@ -61,10 +61,6 @@
                 <field>Mod_Model__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Number_of_Ports_per_Mod__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Height_RU__c</field>
             </layoutItems>
@@ -126,6 +122,10 @@
         <fields>NAME</fields>
         <fields>Port_Status__c</fields>
         <relatedList>DC_Port__c.Panel__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>DC_Rack_Layout__c.Panel__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
