@@ -2261,6 +2261,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>DC_Rack_Layout__c.Account_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_Rack_Layout__c.Rack__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_Rack_Layout__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>DC_Rack__c.Account__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2865,6 +2880,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>DC_Power_Consumption__c-Power Consumption Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>DC_Rack_Layout__c-Rack Layout Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>DC_Rack__c-Rack Layout</layout>
