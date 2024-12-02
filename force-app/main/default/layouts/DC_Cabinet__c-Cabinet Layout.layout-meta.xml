@@ -53,10 +53,6 @@
                 <behavior>Edit</behavior>
                 <field>Redundancy_Factor__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Committed_Power__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
