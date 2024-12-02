@@ -17,9 +17,10 @@
     <customButtons>Deca1H3t00000GDk43EAD</customButtons>
     <customButtons>Clone</customButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
+    <excludeButtons>CreateContract</excludeButtons>
+    <excludeButtons>CreateOrder</excludeButtons>
     <excludeButtons>CreatePdf</excludeButtons>
     <excludeButtons>EmailQuote</excludeButtons>
-    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <excludeButtons>PrintableView</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
@@ -81,6 +82,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Term_Months__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DX_API__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
