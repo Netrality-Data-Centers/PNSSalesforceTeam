@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Z_Side_Data_Hall__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Reference to the Data Hall that the Innerduct is trying to get to.</description>
+    <externalId>false</externalId>
+    <label>Z-Side - Data Hall</label>
+    <referenceTo>DC_Data_Hall__c</referenceTo>
+    <relationshipLabel>Innerducts (Z-Side - Data Hall)</relationshipLabel>
+    <relationshipName>Innerducts1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>
