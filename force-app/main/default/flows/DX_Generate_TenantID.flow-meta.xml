@@ -170,4 +170,5 @@
         <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;The Tenant ID for the account {!$Record.Account.Name} could not be generated.&lt;/p&gt;</text>
     </textTemplates>
+    <triggerOrder>500</triggerOrder>
 </Flow>
