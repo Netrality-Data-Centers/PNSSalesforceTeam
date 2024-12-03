@@ -232,8 +232,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Comments</fieldItem>
-                <identifier>RecordCommentsField</identifier>
+                <fieldItem>Record.DX_Comments__c</fieldItem>
+                <identifier>RecordDX_Comments__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-f1d140c0-c32f-4fac-8805-4e5d69051cef</name>
