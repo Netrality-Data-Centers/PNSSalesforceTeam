@@ -66,6 +66,10 @@
                 <behavior>Readonly</behavior>
                 <field>DX_SLA_In_Violation__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DX_Comments__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>

@@ -3,7 +3,6 @@
     <fullName>DX_CRN</fullName>
     <active>true</active>
     <businessProcess>PNS Service Request</businessProcess>
-    <description>Service Request for CRN test</description>
     <label>CRN</label>
     <picklistValues>
         <picklist>DX_Access_For__c</picklist>
