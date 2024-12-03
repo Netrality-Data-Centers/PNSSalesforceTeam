@@ -518,6 +518,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>DC_Cabinet__c.Connected_Power__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>DC_Cabinet__c.Data_Hall__c</field>
         <readable>true</readable>
     </fieldPermissions>
