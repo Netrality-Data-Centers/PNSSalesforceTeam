@@ -858,6 +858,7 @@
             </value>
         </inputAssignments>
     </subflows>
+    <triggerOrder>600</triggerOrder>
     <variables>
         <name>countSize</name>
         <dataType>Number</dataType>
