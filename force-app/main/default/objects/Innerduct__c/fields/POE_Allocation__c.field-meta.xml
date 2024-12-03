@@ -4,7 +4,7 @@
     <deleteConstraint>SetNull</deleteConstraint>
     <description>Reference to the POE Allocation that the Innerduct is trying to get to.</description>
     <externalId>false</externalId>
-    <label>POE Allocation</label>
+    <label>Z-Side - POE Allocation</label>
     <referenceTo>DC_POE_Allocation__c</referenceTo>
     <relationshipLabel>Innerducts</relationshipLabel>
     <relationshipName>Innerducts</relationshipName>
