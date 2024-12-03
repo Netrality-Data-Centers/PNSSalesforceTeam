@@ -166,7 +166,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.POE_Allocation__c</fieldItem>
                 <identifier>RecordPOE_Allocation_cField</identifier>
