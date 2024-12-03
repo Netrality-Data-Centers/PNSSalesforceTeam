@@ -98,6 +98,18 @@
         </connector>
     </assignments>
     <environments>Default</environments>
+    <formulas>
+        <name>NewCommitedPowerValue</name>
+        <dataType>Number</dataType>
+        <expression>{!SumOfCommitedPower}/{!DCCircuitsCount}</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>NewConnectedPowerValue</name>
+        <dataType>Number</dataType>
+        <expression>{!SumOfConnectedPower}/{!DCCircuitsCount}</expression>
+        <scale>2</scale>
+    </formulas>
     <interviewLabel>DC Circuit Power Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DC Circuit Power Flow</label>
     <processMetadataValues>
@@ -158,13 +170,13 @@
         <inputAssignments>
             <field>Committed_Power__c</field>
             <value>
-                <elementReference>SumOfCommitedPower</elementReference>
+                <elementReference>NewCommitedPowerValue</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Connected_Power__c</field>
             <value>
-                <elementReference>SumOfConnectedPower</elementReference>
+                <elementReference>NewConnectedPowerValue</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
