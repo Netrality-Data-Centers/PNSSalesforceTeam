@@ -31,7 +31,24 @@ public with sharing class DX_viewClosedServiceRequest_ctr {
     }
     
     public static List<Case> getClosedSR(String AccountId){
-        List<Case> lstCase = [SELECT Id, CaseNumber, RecordType.Name, Type, Status, DX_Site__c, ClosedDate FROM Case WHERE AccountId  =: AccountId AND Status = 'Closed' ORDER BY CaseNumber DESC];
+        List<Case> lstCase = [SELECT Id, 
+                              		 CaseNumber, 
+                              		 RecordType.Name, 
+                              		 Type, 
+                              		 Status, 
+                              		 DX_Site__c, 
+                              		 ClosedDate 
+                              FROM 	 Case 
+                              WHERE  AccountId =: AccountId 
+                              AND 	 Status = 'Closed'
+                              AND 	 (RecordType.DeveloperName = 'DX_Access_Request'
+                              OR   	  RecordType.DeveloperName = 'DX_Accounting_Request'
+                              OR   	  RecordType.DeveloperName = 'DX_Contracts_Request'
+                              OR   	  RecordType.DeveloperName = 'DX_Cross_Connect'
+                              OR   	  RecordType.DeveloperName = 'DX_Customer_Experience_Request'
+                              OR   	  RecordType.DeveloperName = 'DX_Logistics'
+                              OR   	  RecordType.DeveloperName = 'DX_Remote_Hands_Support')
+                              ORDER BY CaseNumber DESC];
         return lstCase;
     }
 }
