@@ -3,10 +3,10 @@
     <fullName>Number_of_Ports_per_Mod__c</fullName>
     <description>How many ports are included on each mod?</description>
     <externalId>false</externalId>
-    <label>Number of Ports per Mod</label>
-    <precision>2</precision>
+    <label>Connected Power</label>
+    <precision>5</precision>
     <required>false</required>
-    <scale>0</scale>
+    <scale>2</scale>
     <trackTrending>false</trackTrending>
     <type>Number</type>
     <unique>false</unique>

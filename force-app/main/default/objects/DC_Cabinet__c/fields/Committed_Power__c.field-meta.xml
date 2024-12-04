@@ -5,7 +5,9 @@
     <formula>TEXT(Asset__r.Power_Circuit__c)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Committed Power</label>
+    <precision>5</precision>
     <required>false</required>
+    <scale>2</scale>
     <trackTrending>false</trackTrending>
     <type>Text</type>
     <unique>false</unique>
