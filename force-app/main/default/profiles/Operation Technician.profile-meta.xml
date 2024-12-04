@@ -3479,6 +3479,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>DC_Rack_Layout__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>DC_Rack__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
