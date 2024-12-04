@@ -685,7 +685,7 @@
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <subflows>
         <name>Create_Log_Error</name>
         <label>Create Log Error</label>
@@ -858,6 +858,7 @@
             </value>
         </inputAssignments>
     </subflows>
+    <triggerOrder>600</triggerOrder>
     <variables>
         <name>countSize</name>
         <dataType>Number</dataType>
