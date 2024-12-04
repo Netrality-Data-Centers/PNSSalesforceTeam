@@ -87,6 +87,13 @@
                 <elementReference>Replace_ServiceOrderLink_CeroMatch</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Settings_MRI_ID_Mail_Association_Cero_Match.Subject__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Replace_ServiceOrderLink_CeroMatch_Subject</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Send_Email_to_be_Manually_Updated_MRI_ID_Cero_Match</targetReference>
         </connector>
@@ -101,6 +108,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>Replace_ServiceOrderLink_MoreThanOneMatch</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Settings_MRI_ID_Mail_Association_More_Than_One_Match.Subject__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Replace_ServiceOrderLink_MoreThanOneMatch_Subject</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -325,9 +339,19 @@
         <expression>SUBSTITUTE({!Get_Settings_MRI_ID_Mail_Association_Cero_Match.Body__c}, &quot;{Service Order Link}&quot;, {!Get_Service_Order.Name})</expression>
     </formulas>
     <formulas>
+        <name>Replace_ServiceOrderLink_CeroMatch_Subject</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE({!Get_Settings_MRI_ID_Mail_Association_Cero_Match.Subject__c}, &quot;{Service Order Link}&quot;, {!Get_Service_Order.Name})</expression>
+    </formulas>
+    <formulas>
         <name>Replace_ServiceOrderLink_MoreThanOneMatch</name>
         <dataType>String</dataType>
         <expression>SUBSTITUTE({!Get_Settings_MRI_ID_Mail_Association_More_Than_One_Match.Body__c}, &quot;{Service Order Link}&quot;, {!Get_Service_Order.Name})</expression>
+    </formulas>
+    <formulas>
+        <name>Replace_ServiceOrderLink_MoreThanOneMatch_Subject</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE({!Get_Settings_MRI_ID_Mail_Association_More_Than_One_Match.Subject__c}, &quot;{Service Order Link}&quot;, {!Get_Service_Order.Name})</expression>
     </formulas>
     <interviewLabel>DX MRI ID Association to Service Order {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX MRI ID Association to Service Order</label>
@@ -685,7 +709,7 @@
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Obsolete</status>
+    <status>Active</status>
     <subflows>
         <name>Create_Log_Error</name>
         <label>Create Log Error</label>
@@ -858,7 +882,6 @@
             </value>
         </inputAssignments>
     </subflows>
-    <triggerOrder>600</triggerOrder>
     <variables>
         <name>countSize</name>
         <dataType>Number</dataType>
