@@ -4713,21 +4713,6 @@
             </validationRule>
         </fields>
         <fields>
-            <name>FileUploadRequired</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(234, 52, 52);&quot;&gt;Please upload a file.&lt;/span&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>FileCount</leftValueReference>
-                    <operator>EqualTo</operator>
-                    <rightValue>
-                        <numberValue>0.0</numberValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
-        </fields>
-        <fields>
             <name>CC_LOA_File</name>
             <extensionName>forceContent:fileUpload</extensionName>
             <fieldType>ComponentInstance</fieldType>
@@ -4756,6 +4741,21 @@
                     <operator>EqualTo</operator>
                     <rightValue>
                         <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>FileUploadRequired</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(234, 52, 52);&quot;&gt;Please upload a file.&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>FileCount</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <numberValue>0.0</numberValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
