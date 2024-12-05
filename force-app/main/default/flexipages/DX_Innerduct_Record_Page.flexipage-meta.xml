@@ -64,6 +64,16 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.Related_MRI_Suite_ID__c</fieldItem>
+                <identifier>RecordRelated_MRI_Suite_ID_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Asset__c</fieldItem>
                 <identifier>RecordAsset_cField</identifier>
             </fieldInstance>
@@ -96,16 +106,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.A_Side__c</fieldItem>
                 <identifier>RecordA_Side_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Z_Side__c</fieldItem>
-                <identifier>RecordZ_Side_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-d9744bfe-2996-4177-89e9-3c69d997ba26</name>
@@ -160,6 +160,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.A_Side_Data_Hall__c</fieldItem>
                 <identifier>RecordA_Side_Data_Hall_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Z_Side__c</fieldItem>
+                <identifier>RecordZ_Side_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
