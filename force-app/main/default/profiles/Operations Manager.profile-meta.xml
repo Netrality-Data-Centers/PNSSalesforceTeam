@@ -864,9 +864,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Asset.Lease_ID__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2301,6 +2301,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DC_Rack_Layout__c.Account_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_Rack_Layout__c.Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
