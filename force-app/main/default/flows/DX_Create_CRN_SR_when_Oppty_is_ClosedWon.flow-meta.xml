@@ -4,7 +4,7 @@
     <decisions>
         <name>Found_Synced_SO</name>
         <label>Found Synced SO?</label>
-        <locationX>974</locationX>
+        <locationX>1304</locationX>
         <locationY>539</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -26,7 +26,7 @@
     <decisions>
         <name>Oppty_Record_Type</name>
         <label>Oppty Record Type?</label>
-        <locationX>578</locationX>
+        <locationX>886</locationX>
         <locationY>755</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -40,7 +40,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Create_SR_Internal</targetReference>
+                <targetReference>Get_Previous_Internal_CRN_Records</targetReference>
             </connector>
             <label>Renewal</label>
         </rules>
@@ -69,9 +69,53 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Create_SR_Issuing_CRN</targetReference>
+                <targetReference>Get_Previous_Issuing_CRN_Records</targetReference>
             </connector>
             <label>New Market, New Logo, Expansion</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Previous_Internal_CRN_Records</name>
+        <label>Previous Internal CRN Records?</label>
+        <locationX>314</locationX>
+        <locationY>971</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No_PreviousInternal</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Previous_Internal_CRN_Records.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_SR_Internal</targetReference>
+            </connector>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Previous_Issuing_CRN_Records</name>
+        <label>Previous Issuing CRN Records?</label>
+        <locationX>1018</locationX>
+        <locationY>971</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No_PreviousIssuing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Previous_Issuing_CRN_Records.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_SR_Issuing_CRN</targetReference>
+            </connector>
+            <label>No</label>
         </rules>
     </decisions>
     <description>Creates a CRN SR when an Opportunity is Closed Won</description>
@@ -101,7 +145,7 @@
         <name>Create_SR_Internal</name>
         <label>Create SR Internal CRN</label>
         <locationX>50</locationX>
-        <locationY>863</locationY>
+        <locationY>1079</locationY>
         <faultConnector>
             <targetReference>Create_Log_Error_when_Creating_Internal_SR</targetReference>
         </faultConnector>
@@ -147,8 +191,8 @@
     <recordCreates>
         <name>Create_SR_Issuing_CRN</name>
         <label>Create SR Issuing CRN</label>
-        <locationX>578</locationX>
-        <locationY>863</locationY>
+        <locationX>754</locationX>
+        <locationY>1079</locationY>
         <faultConnector>
             <targetReference>Create_Log_Error_When_Creating_Issuing_CRN</targetReference>
         </faultConnector>
@@ -192,9 +236,107 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
+        <name>Get_Previous_Internal_CRN_Records</name>
+        <label>Get Previous Internal CRN Records</label>
+        <locationX>314</locationX>
+        <locationY>863</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Previous_Internal_CRN_Records</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DX_Opportunity__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Internal CRN</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_RT_for_CRN.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Account.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>DX_Service_Order__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Synced_Service_Order.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Previous_Issuing_CRN_Records</name>
+        <label>Get Previous Issuing CRN Records</label>
+        <locationX>1018</locationX>
+        <locationY>863</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Previous_Issuing_CRN_Records</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DX_Opportunity__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Account.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>DX_Service_Order__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Synced_Service_Order.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_RT_for_CRN.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Issuing CRN</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Record_Type_of_Oppty</name>
         <label>Get Record Type of Oppty</label>
-        <locationX>974</locationX>
+        <locationX>1304</locationX>
         <locationY>323</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -215,7 +357,7 @@
     <recordLookups>
         <name>Get_RT_for_CRN</name>
         <label>Get RT for CRN</label>
-        <locationX>578</locationX>
+        <locationX>886</locationX>
         <locationY>647</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -243,7 +385,7 @@
     <recordLookups>
         <name>Get_Synced_Service_Order</name>
         <label>Get Synced Service Order</label>
-        <locationX>974</locationX>
+        <locationX>1304</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -269,7 +411,7 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
-        <locationX>848</locationX>
+        <locationX>1178</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Record_Type_of_Oppty</targetReference>
@@ -298,7 +440,7 @@
         <name>Create_Log_Error_when_Creating_Internal_SR</name>
         <label>Create Log Error when Creating Internal SR</label>
         <locationX>314</locationX>
-        <locationY>971</locationY>
+        <locationY>1187</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -340,8 +482,8 @@
     <subflows>
         <name>Create_Log_Error_When_Creating_Issuing_CRN</name>
         <label>Create Log Error When Creating Issuing CRN</label>
-        <locationX>842</locationX>
-        <locationY>971</locationY>
+        <locationX>1018</locationX>
+        <locationY>1187</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
