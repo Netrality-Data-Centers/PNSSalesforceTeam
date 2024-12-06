@@ -14,8 +14,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Continue_or_Stop</targetReference>
+            <targetReference>Increment_NumberOfIterations</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -80,6 +79,23 @@
         </assignmentItems>
         <connector>
             <targetReference>Iterate_SO_Line_Items</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Increment_NumberOfIterations</name>
+        <label>Increment NumberOfIterations</label>
+        <locationX>792</locationX>
+        <locationY>782</locationY>
+        <assignmentItems>
+            <assignToReference>NumberOfIterations</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Continue_or_Stop</targetReference>
         </connector>
     </assignments>
     <decisions>
@@ -217,7 +233,7 @@
         <name>Create_Assets</name>
         <label>Create Assets</label>
         <locationX>176</locationX>
-        <locationY>1100</locationY>
+        <locationY>1208</locationY>
         <faultConnector>
             <targetReference>Create_Log_Error</targetReference>
         </faultConnector>
@@ -308,7 +324,7 @@
         <name>Create_Log_Error</name>
         <label>Create Log Error</label>
         <locationX>440</locationX>
-        <locationY>1208</locationY>
+        <locationY>1316</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
