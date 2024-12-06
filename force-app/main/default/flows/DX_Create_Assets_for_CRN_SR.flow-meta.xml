@@ -5,7 +5,7 @@
         <name>Add_i_Asset_to_List</name>
         <label>Add i Asset to List</label>
         <locationX>792</locationX>
-        <locationY>674</locationY>
+        <locationY>782</locationY>
         <assignmentItems>
             <assignToReference>AssetList</assignToReference>
             <operator>Add</operator>
@@ -85,7 +85,7 @@
         <name>Increment_NumberOfIterations</name>
         <label>Increment NumberOfIterations</label>
         <locationX>792</locationX>
-        <locationY>782</locationY>
+        <locationY>890</locationY>
         <assignmentItems>
             <assignToReference>NumberOfIterations</assignToReference>
             <operator>Add</operator>
@@ -98,11 +98,27 @@
             <targetReference>Continue_or_Stop</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Reset_Number_Of_Iterations</name>
+        <label>Reset Number Of Iterations</label>
+        <locationX>924</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>NumberOfIterations</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Continue_or_Stop</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>Continue_or_Stop</name>
         <label>Continue or Stop?</label>
         <locationX>924</locationX>
-        <locationY>458</locationY>
+        <locationY>566</locationY>
         <defaultConnector>
             <targetReference>Iterate_SO_Line_Items</targetReference>
         </defaultConnector>
@@ -173,7 +189,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Continue_or_Stop</targetReference>
+                <targetReference>Reset_Number_Of_Iterations</targetReference>
             </connector>
             <label>Quantity</label>
         </rules>
@@ -233,7 +249,7 @@
         <name>Create_Assets</name>
         <label>Create Assets</label>
         <locationX>176</locationX>
-        <locationY>1208</locationY>
+        <locationY>1316</locationY>
         <faultConnector>
             <targetReference>Create_Log_Error</targetReference>
         </faultConnector>
@@ -272,7 +288,7 @@
         <name>Assign_i_Asset</name>
         <label>Assign i Asset</label>
         <locationX>792</locationX>
-        <locationY>566</locationY>
+        <locationY>674</locationY>
         <connector>
             <targetReference>Add_i_Asset_to_List</targetReference>
         </connector>
@@ -324,7 +340,7 @@
         <name>Create_Log_Error</name>
         <label>Create Log Error</label>
         <locationX>440</locationX>
-        <locationY>1316</locationY>
+        <locationY>1424</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
