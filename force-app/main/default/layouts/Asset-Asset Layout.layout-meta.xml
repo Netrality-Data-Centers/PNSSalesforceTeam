@@ -35,6 +35,10 @@
                 <behavior>Edit</behavior>
                 <field>Data_Hall__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DX_Allocated__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
