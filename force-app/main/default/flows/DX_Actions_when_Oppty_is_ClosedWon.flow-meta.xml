@@ -4,7 +4,7 @@
     <decisions>
         <name>Found_Synced_SO</name>
         <label>Found Synced SO?</label>
-        <locationX>336</locationX>
+        <locationX>380</locationX>
         <locationY>431</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -72,7 +72,7 @@
     <recordLookups>
         <name>Get_Synced_Service_Order</name>
         <label>Get Synced Service Order</label>
-        <locationX>336</locationX>
+        <locationX>380</locationX>
         <locationY>323</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -98,7 +98,7 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
-        <locationX>210</locationX>
+        <locationX>254</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Synced_Service_Order</targetReference>
@@ -116,13 +116,6 @@
             <operator>EqualTo</operator>
             <value>
                 <stringValue>Closed Won</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>IsWon</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>true</booleanValue>
             </value>
         </filters>
         <object>Opportunity</object>
