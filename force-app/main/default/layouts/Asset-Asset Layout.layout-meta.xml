@@ -37,7 +37,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>DX_Service_Request__c</field>
+                <field>DX_Allocated__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
