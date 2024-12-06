@@ -14,10 +14,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DX_PanelSelectorRacks_ctr</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>DX_PrimaryAccountContactHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
