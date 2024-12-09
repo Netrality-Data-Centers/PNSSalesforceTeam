@@ -62,7 +62,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Legacy_Cabinet_Name__c</fieldItem>
                 <identifier>RecordLegacy_Cabinet_Name_cField</identifier>
