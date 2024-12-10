@@ -3,7 +3,7 @@
     <fullName>Total_Number_of_Ports__c</fullName>
     <description>Number of Ports Tall x Number of Ports Wide.</description>
     <externalId>false</externalId>
-    <formula>IF(TEXT(Mod_Model__c) = &quot;Yes&quot;, (Number_of_Ports_Wide_per_Mod__c * Number_of_Ports_Tall_per_Mod__c), ( Number_of_Ports_Wide__c * Number_of_Ports_Tall__c  ))</formula>
+    <formula>IF(TEXT(Mod_Model__c) = &quot;Yes&quot;, ( Number_of_Mods__c * Number_of_Ports_Wide_per_Mod__c * Number_of_Ports_Tall_per_Mod__c), ( Number_of_Ports_Wide__c * Number_of_Ports_Tall__c ))</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Total Number of Ports</label>
     <precision>18</precision>
