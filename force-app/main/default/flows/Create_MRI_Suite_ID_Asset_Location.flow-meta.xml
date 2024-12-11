@@ -46,6 +46,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>DX_Allocated__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>MRI_Suite_ID__c</field>
             <value>
                 <elementReference>MRISuiteID</elementReference>
