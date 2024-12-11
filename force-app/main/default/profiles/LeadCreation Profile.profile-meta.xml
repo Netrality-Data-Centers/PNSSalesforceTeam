@@ -14,6 +14,26 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DX_DCIMChoiceResource</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_DCIM_DataAccess</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_InsidePlantCreationHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_PanelSelectorCabinets_ctr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_PanelSelectorRacks_ctr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_PrimaryAccountContactHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -820,6 +840,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Asset.DX_Allocated__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Asset.DX_Service_Request__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1166,6 +1191,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.DX_Category__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.DX_Comments__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1925,8 +1955,18 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>DC_Cabinet__c.Connected_Power__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>DC_Cabinet__c.Data_Hall__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_Cabinet__c.Legacy_Cabinet_Name__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1962,6 +2002,11 @@
         <editable>false</editable>
         <field>DC_Cage__c.Customer_Cage_Sq_FT__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_Cage__c.Legacy_Cage_Name__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2210,7 +2255,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DC_POE_Allocation__c.Innerduct__c</field>
+        <field>DC_POE_Allocation__c.Floor__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2240,7 +2285,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DC_Panel__c.Number_of_Ports_per_Mod__c</field>
+        <field>DC_Panel__c.Mod_Pattern__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Panel__c.Number_of_Mods__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Panel__c.Number_of_Ports_Tall_per_Mod__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Panel__c.Number_of_Ports_Wide_per_Mod__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Panel__c.Port_Pattern__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2269,9 +2334,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>DC_Rack_Layout__c.Rack__c</field>
-        <readable>false</readable>
+        <editable>true</editable>
+        <field>DC_Rack_Layout__c.Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_Rack_Layout__c.Panel__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2605,7 +2675,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Innerduct__c.POE_Allocation__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Innerduct__c.Related_MRI_Suite_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Innerduct__c.Z_Side_Data_Hall__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3162,6 +3242,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>DC_Power_Consumption__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>DC_Rack_Layout__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
