@@ -14,6 +14,26 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DX_DCIMChoiceResource</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_DCIM_DataAccess</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_InsidePlantCreationHelper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_PanelSelectorCabinets_ctr</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_PanelSelectorRacks_ctr</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_PrimaryAccountContactHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -2315,7 +2335,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>DC_Rack_Layout__c.Rack__c</field>
+        <field>DC_Rack_Layout__c.Panel__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

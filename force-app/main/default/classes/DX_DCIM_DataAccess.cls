@@ -35,6 +35,17 @@ public with sharing class DX_DCIM_DataAccess {
     public List<DC_Tenant_Suite__c> getTenantSuitesByBuilding(Id aBuildingId) { // NOPMD
         return [SELECT Id, Name FROM DC_Tenant_Suite__c where Floor__r.Building__c=:aBuildingId WITH SECURITY_ENFORCED ORDER BY Name ASC];
     }
+
+    /**
+    * @name getCabinetsByBuildingAndAccount
+    * @description This method retrieves cabinets filtered by building and account.
+    * @param aBuildingId: The Id of the building for which to retrieve cabinets.
+    * @param aAccountId: The Id of the account for which to retrieve cabinets.
+    * @return List<DC_Cabinet__c>: A list of DC_Cabinet__c records associated with the specified building and account.
+    */
+    public List<DC_Cabinet__c> getCabinetsByBuildingAndAccount(Id aBuildingId, Id aAccountId) { // NOPMD
+        return [SELECT Id, Name FROM DC_Cabinet__c WHERE Cage__r.Data_Hall__r.DC_Floor__r.Building__c=:aBuildingId AND Asset__r.AccountId=:aAccountId WITH SECURITY_ENFORCED ORDER BY Name ASC];
+    }
     
     /**
     * @description method to get floors information by building id
