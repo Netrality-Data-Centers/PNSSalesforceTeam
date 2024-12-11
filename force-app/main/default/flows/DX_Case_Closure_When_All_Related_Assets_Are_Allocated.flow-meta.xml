@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <customErrors>
+        <name>Case_cannot_be_closed</name>
+        <label>Case cannot be closed</label>
+        <locationX>314</locationX>
+        <locationY>863</locationY>
+        <customErrorMessages>
+            <errorMessage>Case cannot be closed until all related assets are allocated.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>Allocated_Is_True</name>
+        <label>Allocated Is True</label>
+        <locationX>226</locationX>
+        <locationY>755</locationY>
+        <defaultConnector>
+            <targetReference>Case_cannot_be_closed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No, it´s False</defaultConnectorLabel>
+        <rules>
+            <name>Yes_its_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_Asstes.DX_Allocated__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_Asstes</targetReference>
+            </connector>
+            <label>Yes, it´s True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Case_has_Assets_Related</name>
+        <label>Case has Assets Related</label>
+        <locationX>182</locationX>
+        <locationY>539</locationY>
+        <defaultConnectorLabel>No, it Has No Assets Related</defaultConnectorLabel>
+        <rules>
+            <name>Yes_it_Has_Assets_Related</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Assets_Related</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_Asstes</targetReference>
+            </connector>
+            <label>Yes, it Has Assets Related</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_CRN_RecordType</name>
+        <label>Is CRN RecordType?</label>
+        <locationX>380</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>No, Is not CRN</defaultConnectorLabel>
+        <rules>
+            <name>Yes_it_s_CRN</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DX_CRN</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Assets_Related</targetReference>
+            </connector>
+            <label>Yes, it´s CRN</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>DX Case Closure When All Related Assets Are Allocated {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>DX Case Closure When All Related Assets Are Allocated</label>
+    <loops>
+        <name>Loop_Asstes</name>
+        <label>Loop Asstes</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <collectionReference>Get_Assets_Related</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Allocated_Is_True</targetReference>
+        </nextValueConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Assets_Related</name>
+        <label>Get Assets Related</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Case_has_Assets_Related</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DX_Service_Request__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Asset</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>254</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_CRN_RecordType</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsClosed</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Case</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>
