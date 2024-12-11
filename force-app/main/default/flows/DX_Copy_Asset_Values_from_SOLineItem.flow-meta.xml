@@ -99,7 +99,7 @@
             <assignToReference>iAsset.Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>{!SOLineItem.QuoteId} &amp; {!SOLineItem.DC_Asset_Type__c}</stringValue>
+                <elementReference>AssetNameFormula</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -132,6 +132,11 @@
         </rules>
     </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>AssetNameFormula</name>
+        <dataType>String</dataType>
+        <expression>{!SOLineItem.Quote.Name} + &quot; &quot; + {!SOLineItem.DC_Asset_Type__c}</expression>
+    </formulas>
     <interviewLabel>DX Asset {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Copy Asset Values from SOLineItem</label>
     <processMetadataValues>
