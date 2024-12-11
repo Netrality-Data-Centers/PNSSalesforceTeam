@@ -5,7 +5,7 @@
         <label>Get Cabinets by Building and Account</label>
         <locationX>930</locationX>
         <locationY>674</locationY>
-        <actionName>DX_InsidePlantCreationHelper</actionName>
+        <actionName>DX_DCIM_ActionHelper</actionName>
         <actionType>apex</actionType>
         <connector>
             <targetReference>Found_Cabinets</targetReference>
@@ -29,7 +29,7 @@
                 <stringValue>getCabinetsByBuildingAndAccount</stringValue>
             </value>
         </inputParameters>
-        <nameSegment>DX_InsidePlantCreationHelper</nameSegment>
+        <nameSegment>DX_DCIM_ActionHelper</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
         <versionSegment>1</versionSegment>
     </actionCalls>
@@ -38,12 +38,12 @@
         <label>Get DataHall by Building</label>
         <locationX>930</locationX>
         <locationY>242</locationY>
-        <actionName>DX_InsidePlantCreationHelper</actionName>
+        <actionName>DX_DCIM_ActionHelper</actionName>
         <actionType>apex</actionType>
         <connector>
             <targetReference>Get_POEAllocations_by_Building</targetReference>
         </connector>
-        <flowTransactionModel>Automatic</flowTransactionModel>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>buildingId</name>
             <value>
@@ -56,7 +56,7 @@
                 <stringValue>getDataHallsByBuilding</stringValue>
             </value>
         </inputParameters>
-        <nameSegment>DX_InsidePlantCreationHelper</nameSegment>
+        <nameSegment>DX_DCIM_ActionHelper</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
         <versionSegment>1</versionSegment>
     </actionCalls>
@@ -65,12 +65,12 @@
         <label>Get POEAllocations by Building</label>
         <locationX>930</locationX>
         <locationY>350</locationY>
-        <actionName>DX_InsidePlantCreationHelper</actionName>
+        <actionName>DX_DCIM_ActionHelper</actionName>
         <actionType>apex</actionType>
         <connector>
             <targetReference>Get_TenantSuits_by_Building</targetReference>
         </connector>
-        <flowTransactionModel>Automatic</flowTransactionModel>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>buildingId</name>
             <value>
@@ -83,7 +83,7 @@
                 <stringValue>getPOEAllocationsByBuilding</stringValue>
             </value>
         </inputParameters>
-        <nameSegment>DX_InsidePlantCreationHelper</nameSegment>
+        <nameSegment>DX_DCIM_ActionHelper</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
         <versionSegment>1</versionSegment>
     </actionCalls>
@@ -92,7 +92,7 @@
         <label>Get TenantSuits by Building</label>
         <locationX>930</locationX>
         <locationY>458</locationY>
-        <actionName>DX_InsidePlantCreationHelper</actionName>
+        <actionName>DX_DCIM_ActionHelper</actionName>
         <actionType>apex</actionType>
         <connector>
             <targetReference>Create_Inside_Plant_Screen</targetReference>
@@ -110,7 +110,7 @@
                 <stringValue>getTenantSuitesByBuilding</stringValue>
             </value>
         </inputParameters>
-        <nameSegment>DX_InsidePlantCreationHelper</nameSegment>
+        <nameSegment>DX_DCIM_ActionHelper</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
         <versionSegment>1</versionSegment>
     </actionCalls>
