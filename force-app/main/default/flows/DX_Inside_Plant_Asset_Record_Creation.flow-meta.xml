@@ -3,8 +3,8 @@
     <actionCalls>
         <name>Get_Cabinets_by_Building_and_Account</name>
         <label>Get Cabinets by Building and Account</label>
-        <locationX>446</locationX>
-        <locationY>566</locationY>
+        <locationX>930</locationX>
+        <locationY>674</locationY>
         <actionName>DX_InsidePlantCreationHelper</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -36,8 +36,8 @@
     <actionCalls>
         <name>Get_DataHall_by_Building</name>
         <label>Get DataHall by Building</label>
-        <locationX>446</locationX>
-        <locationY>134</locationY>
+        <locationX>930</locationX>
+        <locationY>242</locationY>
         <actionName>DX_InsidePlantCreationHelper</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -63,8 +63,8 @@
     <actionCalls>
         <name>Get_POEAllocations_by_Building</name>
         <label>Get POEAllocations by Building</label>
-        <locationX>446</locationX>
-        <locationY>242</locationY>
+        <locationX>930</locationX>
+        <locationY>350</locationY>
         <actionName>DX_InsidePlantCreationHelper</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -90,8 +90,8 @@
     <actionCalls>
         <name>Get_TenantSuits_by_Building</name>
         <label>Get TenantSuits by Building</label>
-        <locationX>446</locationX>
-        <locationY>350</locationY>
+        <locationX>930</locationX>
+        <locationY>458</locationY>
         <actionName>DX_InsidePlantCreationHelper</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -118,8 +118,8 @@
     <assignments>
         <name>Assign_Cabinet</name>
         <label>Assign Cabinet</label>
-        <locationX>138</locationX>
-        <locationY>998</locationY>
+        <locationX>754</locationX>
+        <locationY>1106</locationY>
         <assignmentItems>
             <assignToReference>CabinetResult</assignToReference>
             <operator>Assign</operator>
@@ -134,8 +134,8 @@
     <assignments>
         <name>Assign_CabinetsFound_to_False</name>
         <label>Assign CabinetsFound to False</label>
-        <locationX>842</locationX>
-        <locationY>782</locationY>
+        <locationX>1194</locationX>
+        <locationY>890</locationY>
         <assignmentItems>
             <assignToReference>CabinetsFound</assignToReference>
             <operator>Assign</operator>
@@ -151,8 +151,8 @@
     <assignments>
         <name>Increment_Index</name>
         <label>Increment Index</label>
-        <locationX>402</locationX>
-        <locationY>998</locationY>
+        <locationX>1018</locationX>
+        <locationY>1106</locationY>
         <assignmentItems>
             <assignToReference>Index</assignToReference>
             <operator>Add</operator>
@@ -167,8 +167,8 @@
     <decisions>
         <name>First_Element</name>
         <label>First Element?</label>
-        <locationX>270</locationX>
-        <locationY>890</locationY>
+        <locationX>886</locationX>
+        <locationY>998</locationY>
         <defaultConnector>
             <targetReference>Increment_Index</targetReference>
         </defaultConnector>
@@ -192,8 +192,8 @@
     <decisions>
         <name>Found_Cabinets</name>
         <label>Found Cabinets?</label>
-        <locationX>446</locationX>
-        <locationY>674</locationY>
+        <locationX>930</locationX>
+        <locationY>782</locationY>
         <defaultConnector>
             <targetReference>Assign_CabinetsFound_to_False</targetReference>
         </defaultConnector>
@@ -212,6 +212,52 @@
                 <targetReference>Loop_Cabinets</targetReference>
             </connector>
             <label>Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Required_Parameters_Passed</name>
+        <label>Required Parameters Passed?</label>
+        <locationX>490</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>Get_DataHall_by_Building</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Not_Passed</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>BuildingID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>AssetID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>AccountID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>DataHallID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Parameters_Required</targetReference>
+            </connector>
+            <label>No</label>
         </rules>
     </decisions>
     <dynamicChoiceSets>
@@ -268,8 +314,8 @@
     <loops>
         <name>Loop_Cabinets</name>
         <label>Loop Cabinets</label>
-        <locationX>50</locationX>
-        <locationY>782</locationY>
+        <locationX>666</locationX>
+        <locationY>890</locationY>
         <collectionReference>Get_Cabinets_by_Building_and_Account.cabinetsByBuildingAndAccountList</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -301,11 +347,8 @@
     <recordCreates>
         <name>Create_Inside_Plant</name>
         <label>Create Inside Plant</label>
-        <locationX>50</locationX>
-        <locationY>1382</locationY>
-        <connector>
-            <targetReference>Update_Asset</targetReference>
-        </connector>
+        <locationX>666</locationX>
+        <locationY>1490</locationY>
         <faultConnector>
             <targetReference>Create_Log_Error</targetReference>
         </faultConnector>
@@ -387,8 +430,8 @@
     <recordLookups>
         <name>Get_Cabinet_Data</name>
         <label>Get Cabinet Data</label>
-        <locationX>50</locationX>
-        <locationY>1274</locationY>
+        <locationX>666</locationX>
+        <locationY>1382</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Create_Inside_Plant</targetReference>
@@ -405,35 +448,11 @@
         <object>DC_Cabinet__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <recordUpdates>
-        <name>Update_Asset</name>
-        <label>Update Asset</label>
-        <locationX>50</locationX>
-        <locationY>1490</locationY>
-        <faultConnector>
-            <targetReference>Create_Log_Error_for_Update_Asset</targetReference>
-        </faultConnector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Asset.recordId</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <field>DX_Allocated__c</field>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputAssignments>
-        <object>Asset</object>
-    </recordUpdates>
     <screens>
         <name>Create_Inside_Plant_Screen</name>
         <label>Create Inside Plant Screen</label>
-        <locationX>446</locationX>
-        <locationY>458</locationY>
+        <locationX>930</locationX>
+        <locationY>566</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -634,21 +653,41 @@
             <regionContainerType>SectionWithoutHeader</regionContainerType>
         </fields>
         <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Parameters_Required</name>
+        <label>Parameters Required</label>
+        <locationX>50</locationX>
+        <locationY>242</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Required_Parameters_Passed</targetReference>
+        </connector>
+        <fields>
+            <name>ParametersRequired</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(234, 53, 53);&quot;&gt;To be able to execute this flow, you need to pass these parameters: AccountID, BuildingID, AssetID, DataHallID&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
     </screens>
     <start>
-        <locationX>320</locationX>
+        <locationX>364</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Get_DataHall_by_Building</targetReference>
+            <targetReference>Required_Parameters_Passed</targetReference>
         </connector>
     </start>
     <status>Active</status>
     <subflows>
         <name>Create_Log_Error</name>
         <label>Create Log Error</label>
-        <locationX>578</locationX>
-        <locationY>1490</locationY>
+        <locationX>930</locationX>
+        <locationY>1598</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -678,49 +717,6 @@
             <name>TypeOfOperation</name>
             <value>
                 <stringValue>Create</stringValue>
-            </value>
-        </inputAssignments>
-    </subflows>
-    <subflows>
-        <name>Create_Log_Error_for_Update_Asset</name>
-        <label>Create Log Error for Update Asset</label>
-        <locationX>314</locationX>
-        <locationY>1598</locationY>
-        <flowName>DX_Error_Log_Creation</flowName>
-        <inputAssignments>
-            <name>ErrorMessage</name>
-            <value>
-                <elementReference>$Flow.FaultMessage</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>FlowName</name>
-            <value>
-                <stringValue>DX Inside Plant Asset Record Creation</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>MethodName</name>
-            <value>
-                <stringValue>Update Asset</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>ObjectName</name>
-            <value>
-                <stringValue>Asset</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>RecordId</name>
-            <value>
-                <elementReference>Asset.recordId</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>TypeOfOperation</name>
-            <value>
-                <stringValue>Update</stringValue>
             </value>
         </inputAssignments>
     </subflows>
