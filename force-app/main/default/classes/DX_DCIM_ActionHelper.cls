@@ -1,10 +1,4 @@
-/**
- * @description A helper class to provide common services such as logging, configuration, custom metadata access, etc.
- *
- * @see DX_InsidePlantCreationHelper
- */
-public with sharing class DX_InsidePlantCreationHelper {
-    
+public with sharing class DX_DCIM_ActionHelper {
     /**
      * @description A class that is used to store request parameters: methodName, buildingId
      */
@@ -47,7 +41,7 @@ public with sharing class DX_InsidePlantCreationHelper {
     **/
     @InvocableMethod (
         description ='Runs method depending on param'
-        label='Inside Plant Creation Helper'
+        label='DCIM Action Helper'
         category='Utility'
         iconName='slds:standard:record_create'
     )
