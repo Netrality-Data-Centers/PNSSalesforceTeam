@@ -2,9 +2,45 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
     <decisions>
+        <name>Create_Assets</name>
+        <label>Create Assets?</label>
+        <locationX>182</locationX>
+        <locationY>755</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Market_New_Logo_Or_Expansion</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Market</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Logo</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Expansion</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Assets_for_CRN_SR</targetReference>
+            </connector>
+            <label>New Market, New Logo Or Expansion</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Found_Synced_SO</name>
         <label>Found Synced SO?</label>
-        <locationX>380</locationX>
+        <locationX>545</locationX>
         <locationY>431</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -26,7 +62,7 @@
     <decisions>
         <name>ServiceRequestID_Created</name>
         <label>ServiceRequestID Created?</label>
-        <locationX>182</locationX>
+        <locationX>336</locationX>
         <locationY>647</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -40,7 +76,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Create_Assets_for_CRN_SR</targetReference>
+                <targetReference>Create_Assets</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
@@ -72,7 +108,7 @@
     <recordLookups>
         <name>Get_Synced_Service_Order</name>
         <label>Get Synced Service Order</label>
-        <locationX>380</locationX>
+        <locationX>545</locationX>
         <locationY>323</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -98,7 +134,7 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
-        <locationX>254</locationX>
+        <locationX>419</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Synced_Service_Order</targetReference>
@@ -127,7 +163,7 @@
         <name>Create_Assets_for_CRN_SR</name>
         <label>Create Assets for CRN SR</label>
         <locationX>50</locationX>
-        <locationY>755</locationY>
+        <locationY>863</locationY>
         <flowName>DX_Create_Assets_for_CRN_SR</flowName>
         <inputAssignments>
             <name>ServiceOrderID</name>
@@ -145,7 +181,7 @@
     <subflows>
         <name>Create_CRN_SR</name>
         <label>Create CRN SR</label>
-        <locationX>182</locationX>
+        <locationX>336</locationX>
         <locationY>539</locationY>
         <connector>
             <targetReference>ServiceRequestID_Created</targetReference>
