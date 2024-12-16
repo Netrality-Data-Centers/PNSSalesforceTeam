@@ -4,9 +4,9 @@
     <description>The committed power allowed on this circuit, per the associated Service Order.</description>
     <externalId>false</externalId>
     <label>Committed Power</label>
-    <precision>3</precision>
+    <precision>5</precision>
     <required>true</required>
-    <scale>0</scale>
+    <scale>2</scale>
     <trackTrending>false</trackTrending>
     <type>Number</type>
     <unique>false</unique>
