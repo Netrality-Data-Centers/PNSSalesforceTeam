@@ -3,8 +3,8 @@
     <actionCalls>
         <name>Send_Email_to_be_Manually_Updated_MRI_ID_Cero_Match</name>
         <label>Send Email to be Manually Updated MRI ID Cero Match</label>
-        <locationX>1370</locationX>
-        <locationY>1787</locationY>
+        <locationX>1502</locationX>
+        <locationY>2087</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -17,7 +17,7 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
-                <elementReference>Get_Settings_MRI_ID_Mail_Association_Cero_Match.Subject__c</elementReference>
+                <elementReference>Replace_ServiceOrderLink_CeroMatch_Subject</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -32,8 +32,8 @@
     <actionCalls>
         <name>Send_Email_to_be_Manually_Updated_MRI_ID_More_Than_One_Match</name>
         <label>Send Email to be Manually Updated MRI ID More Than One Match</label>
-        <locationX>1106</locationX>
-        <locationY>1787</locationY>
+        <locationX>1238</locationX>
+        <locationY>2087</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -46,7 +46,7 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
-                <elementReference>Get_Settings_MRI_ID_Mail_Association_More_Than_One_Match.Subject__c</elementReference>
+                <elementReference>Replace_ServiceOrderLink_MoreThanOneMatch_Subject</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -62,7 +62,7 @@
     <assignments>
         <name>Counter_Matching</name>
         <label>Counter Matching</label>
-        <locationX>1194</locationX>
+        <locationX>1458</locationX>
         <locationY>1187</locationY>
         <assignmentItems>
             <assignToReference>Value_Counter_Matching</assignToReference>
@@ -72,19 +72,26 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_MRI_ID_Records</targetReference>
+            <targetReference>Is_More_Than_one_Matches</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Set_Body_Email_Cero_Match</name>
         <label>Set Body Email Cero Match</label>
-        <locationX>1370</locationX>
-        <locationY>1679</locationY>
+        <locationX>1502</locationX>
+        <locationY>1979</locationY>
         <assignmentItems>
             <assignToReference>Get_Settings_MRI_ID_Mail_Association_Cero_Match.Body__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>Replace_ServiceOrderLink_CeroMatch</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Settings_MRI_ID_Mail_Association_Cero_Match.Subject__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Replace_ServiceOrderLink_CeroMatch_Subject</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -94,13 +101,20 @@
     <assignments>
         <name>Set_Body_Email_More_Than_One_Match</name>
         <label>Set Body Email More Than One Match</label>
-        <locationX>1106</locationX>
-        <locationY>1679</locationY>
+        <locationX>1238</locationX>
+        <locationY>1979</locationY>
         <assignmentItems>
             <assignToReference>Get_Settings_MRI_ID_Mail_Association_More_Than_One_Match.Body__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>Replace_ServiceOrderLink_MoreThanOneMatch</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Settings_MRI_ID_Mail_Association_More_Than_One_Match.Subject__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Replace_ServiceOrderLink_MoreThanOneMatch_Subject</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -110,7 +124,7 @@
     <assignments>
         <name>Set_Count_MRI_ID_Records</name>
         <label>Set Count MRI ID Records</label>
-        <locationX>578</locationX>
+        <locationX>644</locationX>
         <locationY>755</locationY>
         <assignmentItems>
             <assignToReference>countSize</assignToReference>
@@ -123,10 +137,26 @@
             <targetReference>Is_only_one_MRI_ID</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Set_Record_Matches</name>
+        <label>Set Record Matches</label>
+        <locationX>1326</locationX>
+        <locationY>1403</locationY>
+        <assignmentItems>
+            <assignToReference>CurrentRecordMatches</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_MRI_ID_Records</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_MRI_ID_Records</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>Is_Matching_Customer_Entity_Name</name>
         <label>Is Matching Customer Entity Name</label>
-        <locationX>1326</locationX>
+        <locationX>1612</locationX>
         <locationY>1079</locationY>
         <defaultConnector>
             <targetReference>Loop_MRI_ID_Records</targetReference>
@@ -149,10 +179,35 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Is_More_Than_one_Matches</name>
+        <label>Is More Than one Matches</label>
+        <locationX>1458</locationX>
+        <locationY>1295</locationY>
+        <defaultConnector>
+            <targetReference>Loop_MRI_ID_Records</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes There Are More</defaultConnectorLabel>
+        <rules>
+            <name>No_Is_not_More_Than_One</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Value_Counter_Matching</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Record_Matches</targetReference>
+            </connector>
+            <label>No, Is Not More Than One</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Is_Only_One_Matching_Counter</name>
         <label>Is Only One Matching Counter?</label>
-        <locationX>1106</locationX>
-        <locationY>1463</locationY>
+        <locationX>1238</locationX>
+        <locationY>1763</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes</name>
@@ -203,7 +258,7 @@
     <decisions>
         <name>Is_only_one_MRI_ID</name>
         <label>Is only one MRI ID?</label>
-        <locationX>578</locationX>
+        <locationX>644</locationX>
         <locationY>863</locationY>
         <defaultConnector>
             <targetReference>Loop_MRI_ID_Records</targetReference>
@@ -228,7 +283,7 @@
     <decisions>
         <name>Is_there_a_MRI_ID</name>
         <label>Is there a MRI ID?</label>
-        <locationX>1238</locationX>
+        <locationX>1337</locationX>
         <locationY>647</locationY>
         <defaultConnector>
             <targetReference>Get_Building</targetReference>
@@ -253,7 +308,7 @@
     <decisions>
         <name>Is_There_A_Service_Order</name>
         <label>Is There A Service Order?</label>
-        <locationX>1964</locationX>
+        <locationX>2079</locationX>
         <locationY>431</locationY>
         <defaultConnectorLabel>No, There Is No a Service Order</defaultConnectorLabel>
         <rules>
@@ -284,16 +339,26 @@
         <expression>SUBSTITUTE({!Get_Settings_MRI_ID_Mail_Association_Cero_Match.Body__c}, &quot;{Service Order Link}&quot;, {!Get_Service_Order.Name})</expression>
     </formulas>
     <formulas>
+        <name>Replace_ServiceOrderLink_CeroMatch_Subject</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE({!Get_Settings_MRI_ID_Mail_Association_Cero_Match.Subject__c}, &quot;{Service Order Link}&quot;, {!Get_Service_Order.Name})</expression>
+    </formulas>
+    <formulas>
         <name>Replace_ServiceOrderLink_MoreThanOneMatch</name>
         <dataType>String</dataType>
         <expression>SUBSTITUTE({!Get_Settings_MRI_ID_Mail_Association_More_Than_One_Match.Body__c}, &quot;{Service Order Link}&quot;, {!Get_Service_Order.Name})</expression>
+    </formulas>
+    <formulas>
+        <name>Replace_ServiceOrderLink_MoreThanOneMatch_Subject</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE({!Get_Settings_MRI_ID_Mail_Association_More_Than_One_Match.Subject__c}, &quot;{Service Order Link}&quot;, {!Get_Service_Order.Name})</expression>
     </formulas>
     <interviewLabel>DX MRI ID Association to Service Order {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX MRI ID Association to Service Order</label>
     <loops>
         <name>Loop_MRI_ID_Records</name>
         <label>Loop MRI ID Records</label>
-        <locationX>1106</locationX>
+        <locationX>1238</locationX>
         <locationY>971</locationY>
         <collectionReference>Get_MRI_ID</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -326,7 +391,7 @@
     <recordCreates>
         <name>Create_a_New_MRI_ID</name>
         <label>Create a New MRI ID</label>
-        <locationX>1898</locationX>
+        <locationX>2030</locationX>
         <locationY>863</locationY>
         <connector>
             <targetReference>Get_New_MRI_ID_Info</targetReference>
@@ -364,7 +429,7 @@
     <recordLookups>
         <name>Get_Building</name>
         <label>Get Building</label>
-        <locationX>1898</locationX>
+        <locationX>2030</locationX>
         <locationY>755</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -385,7 +450,7 @@
     <recordLookups>
         <name>Get_MRI_ID</name>
         <label>Get MRI ID</label>
-        <locationX>1238</locationX>
+        <locationX>1337</locationX>
         <locationY>539</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -413,7 +478,7 @@
     <recordLookups>
         <name>Get_New_MRI_ID_Info</name>
         <label>Get New MRI ID Info</label>
-        <locationX>1898</locationX>
+        <locationX>2030</locationX>
         <locationY>971</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -434,7 +499,7 @@
     <recordLookups>
         <name>Get_Service_Order</name>
         <label>Get Service Order</label>
-        <locationX>1964</locationX>
+        <locationX>2079</locationX>
         <locationY>323</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -462,8 +527,8 @@
     <recordLookups>
         <name>Get_Settings_MRI_ID_Mail_Association_Cero_Match</name>
         <label>Get Settings MRI ID Mail Association Cero Match</label>
-        <locationX>1370</locationX>
-        <locationY>1571</locationY>
+        <locationX>1502</locationX>
+        <locationY>1871</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_Body_Email_Cero_Match</targetReference>
@@ -483,8 +548,8 @@
     <recordLookups>
         <name>Get_Settings_MRI_ID_Mail_Association_More_Than_One_Match</name>
         <label>Get Settings MRI ID Mail Association More Than One Match</label>
-        <locationX>1106</locationX>
-        <locationY>1571</locationY>
+        <locationX>1238</locationX>
+        <locationY>1871</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_Body_Email_More_Than_One_Match</targetReference>
@@ -532,7 +597,7 @@
     <recordUpdates>
         <name>Update_Service_Order_With_New_MRI_ID_Record</name>
         <label>Update Service Order With New MRI ID Record</label>
-        <locationX>1898</locationX>
+        <locationX>2030</locationX>
         <locationY>1079</locationY>
         <faultConnector>
             <targetReference>Create_Log_Error_Update_Service_Order_With_New_MRI_ID_Record</targetReference>
@@ -592,8 +657,8 @@
     <recordUpdates>
         <name>Update_the_MRI_ID_Record_Matched</name>
         <label>Update the MRI ID Record Matched</label>
-        <locationX>578</locationX>
-        <locationY>1571</locationY>
+        <locationX>710</locationX>
+        <locationY>1871</locationY>
         <faultConnector>
             <targetReference>Create_Log_Error_One_Match</targetReference>
         </faultConnector>
@@ -608,19 +673,19 @@
         <inputAssignments>
             <field>DX_MRI_ID__c</field>
             <value>
-                <elementReference>Loop_MRI_ID_Records.Name</elementReference>
+                <elementReference>CurrentRecordMatches.Name</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>DX_MRI_Occupant_Name__c</field>
             <value>
-                <elementReference>Loop_MRI_ID_Records.MRI_Occupant_Name__c</elementReference>
+                <elementReference>CurrentRecordMatches.MRI_Occupant_Name__c</elementReference>
             </value>
         </inputAssignments>
         <object>Quote</object>
     </recordUpdates>
     <start>
-        <locationX>1838</locationX>
+        <locationX>1953</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Service_Order</targetReference>
@@ -691,7 +756,7 @@
     <subflows>
         <name>Create_Log_Error_Create_a_New_MRI_ID</name>
         <label>Create Log Error Create a New MRI ID</label>
-        <locationX>2426</locationX>
+        <locationX>2558</locationX>
         <locationY>971</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
@@ -734,8 +799,8 @@
     <subflows>
         <name>Create_Log_Error_One_Match</name>
         <label>Create Log Error One Match</label>
-        <locationX>842</locationX>
-        <locationY>1679</locationY>
+        <locationX>974</locationX>
+        <locationY>1979</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -777,7 +842,7 @@
     <subflows>
         <name>Create_Log_Error_Update_Service_Order_With_New_MRI_ID_Record</name>
         <label>Create Log Error Update Service Order With New MRI ID Record</label>
-        <locationX>2162</locationX>
+        <locationX>2294</locationX>
         <locationY>1187</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
@@ -817,6 +882,7 @@
             </value>
         </inputAssignments>
     </subflows>
+    <triggerOrder>150</triggerOrder>
     <variables>
         <name>countSize</name>
         <dataType>Number</dataType>
@@ -824,6 +890,14 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <scale>0</scale>
+    </variables>
+    <variables>
+        <name>CurrentRecordMatches</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>MRI_ID__c</objectType>
     </variables>
     <variables>
         <name>Value_Counter_Matching</name>

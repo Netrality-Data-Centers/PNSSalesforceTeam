@@ -62,7 +62,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Legacy_Cabinet_Name__c</fieldItem>
                 <identifier>RecordLegacy_Cabinet_Name_cField</identifier>
@@ -122,10 +122,20 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>readonly</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Committed_Power__c</fieldItem>
-                <identifier>RecordCommitted_Power_cField</identifier>
+                <identifier>RecordCommitted_Power__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Connected_Power__c</fieldItem>
+                <identifier>RecordConnected_Power__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-40ab449d-34fb-44bf-b865-f80491ea7f18</name>

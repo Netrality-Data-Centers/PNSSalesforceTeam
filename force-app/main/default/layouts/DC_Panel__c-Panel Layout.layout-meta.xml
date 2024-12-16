@@ -19,6 +19,30 @@
                 <behavior>Required</behavior>
                 <field>Rack__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Starting_Position_RU__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Port_Pattern__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Number_of_Mods__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Number_of_Ports_Wide_per_Mod__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Number_of_Ports_Tall_per_Mod__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Mod_Pattern__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -59,10 +83,6 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Mod_Model__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Number_of_Ports_per_Mod__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -126,6 +146,10 @@
         <fields>NAME</fields>
         <fields>Port_Status__c</fields>
         <relatedList>DC_Port__c.Panel__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>DC_Rack_Layout__c.Panel__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

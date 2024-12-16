@@ -518,6 +518,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>DC_Cabinet__c.Connected_Power__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>DC_Cabinet__c.Data_Hall__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -773,11 +778,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>DC_POE_Allocation__c.Innerduct__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>DC_POE_Allocation__c.Inside_Plant__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -794,11 +794,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DC_Panel__c.Connector_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>DC_Panel__c.Number_of_Ports_per_Mod__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

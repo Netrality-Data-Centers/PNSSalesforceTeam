@@ -143,6 +143,13 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.DX_Reason_For_Hold__c</fieldItem>
                 <identifier>RecordDX_Reason_For_Hold_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Status}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>On Hold</rightValue>
+                    </criteria>
+                </visibilityRule>
             </fieldInstance>
         </itemInstances>
         <name>Facet-f79573e7-9764-4d28-956d-76dad37c454f</name>
@@ -225,8 +232,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Comments</fieldItem>
-                <identifier>RecordCommentsField</identifier>
+                <fieldItem>Record.DX_Comments__c</fieldItem>
+                <identifier>RecordDX_Comments__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-f1d140c0-c32f-4fac-8805-4e5d69051cef</name>

@@ -793,6 +793,11 @@
             <field>DX_MRI_ID__c</field>
             <table>Quote</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DX_API__c</field>
+            <table>Quote</table>
+        </columns>
         <masterLabel>Service Orders</masterLabel>
     </sections>
     <sections>
