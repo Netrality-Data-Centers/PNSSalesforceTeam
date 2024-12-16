@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>KS7801-7801 Nieman</label>
+    <protected>false</protected>
+    <values>
+        <field>Building__c</field>
+        <value xsi:type="xsd:string">7801 Nieman</value>
+    </values>
+    <values>
+        <field>Site__c</field>
+        <value xsi:type="xsd:string">KS7801</value>
+    </values>
+</CustomMetadata>
