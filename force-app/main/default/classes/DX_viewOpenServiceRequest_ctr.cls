@@ -37,7 +37,15 @@ public class DX_viewOpenServiceRequest_ctr {
                               AND    (Status = 'On Hold'
                               OR	  Status = 'New'
                               OR	  Status = 'In Progress'
-                              OR	  Status = 'Resolved') ORDER BY CaseNumber DESC];
+                              OR	  Status = 'Resolved') 
+                              AND 	 (RecordType.DeveloperName = 'DX_Access_Request'
+                              OR   	  RecordType.DeveloperName = 'DX_Accounting_Request'
+                              OR   	  RecordType.DeveloperName = 'DX_Contracts_Request'
+                              OR   	  RecordType.DeveloperName = 'DX_Cross_Connect'
+                              OR   	  RecordType.DeveloperName = 'DX_Customer_Experience_Request'
+                              OR   	  RecordType.DeveloperName = 'DX_Logistics'
+                              OR   	  RecordType.DeveloperName = 'DX_Remote_Hands_Support') 
+                              ORDER BY CaseNumber DESC];
         return lstCase;
     }
 }
