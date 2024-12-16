@@ -3,8 +3,8 @@
     <actionCalls>
         <name>redirect_to_view_SR_Details</name>
         <label>redirect to view SR Details</label>
-        <locationX>2558</locationX>
-        <locationY>2594</locationY>
+        <locationX>2690</locationX>
+        <locationY>2894</locationY>
         <actionName>c:fsc_openUrl</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -26,9 +26,25 @@
     </actionCalls>
     <apiVersion>62.0</apiVersion>
     <assignments>
+        <name>Assign_File_Count</name>
+        <label>Assign File Count</label>
+        <locationX>2294</locationX>
+        <locationY>2138</locationY>
+        <assignmentItems>
+            <assignToReference>FileCount</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>ContentDocumentIDs</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Where_Files_Uploaded</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Assign_Stage_1</name>
         <label>Assign Stage 1</label>
-        <locationX>2558</locationX>
+        <locationX>2690</locationX>
         <locationY>134</locationY>
         <assignmentItems>
             <assignToReference>$Flow.CurrentStage</assignToReference>
@@ -44,7 +60,7 @@
     <assignments>
         <name>Assign_Stage_2</name>
         <label>Assign Stage 2</label>
-        <locationX>2558</locationX>
+        <locationX>2690</locationX>
         <locationY>1598</locationY>
         <assignmentItems>
             <assignToReference>$Flow.CurrentStage</assignToReference>
@@ -60,7 +76,7 @@
     <assignments>
         <name>Set_Account_Id</name>
         <label>Set Account Id</label>
-        <locationX>2646</locationX>
+        <locationX>2778</locationX>
         <locationY>998</locationY>
         <assignmentItems>
             <assignToReference>AccountIdList</assignToReference>
@@ -76,7 +92,7 @@
     <assignments>
         <name>Set_Contact_on_SR</name>
         <label>Set Contact on SR</label>
-        <locationX>2558</locationX>
+        <locationX>2690</locationX>
         <locationY>1706</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.ContactId</assignToReference>
@@ -92,8 +108,8 @@
     <assignments>
         <name>Set_LOA_Attached_Value</name>
         <label>Set LOA Attached Value</label>
-        <locationX>2162</locationX>
-        <locationY>2138</locationY>
+        <locationX>2426</locationX>
+        <locationY>2354</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_LOA_Attached__c</assignToReference>
             <operator>Assign</operator>
@@ -108,7 +124,7 @@
     <assignments>
         <name>Set_RA_Not_Required</name>
         <label>Set RA Not Required</label>
-        <locationX>4538</locationX>
+        <locationX>4802</locationX>
         <locationY>2030</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_Requested_Actions__c</assignToReference>
@@ -124,7 +140,7 @@
     <assignments>
         <name>Set_RA_Required</name>
         <label>Set RA Required</label>
-        <locationX>4274</locationX>
+        <locationX>4538</locationX>
         <locationY>2030</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_Requested_Actions__c</assignToReference>
@@ -140,7 +156,7 @@
     <assignments>
         <name>Set_RecordType_on_TempCase</name>
         <label>Set RecordType on TempCase</label>
-        <locationX>2558</locationX>
+        <locationX>2690</locationX>
         <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.RecordTypeId</assignToReference>
@@ -156,7 +172,7 @@
     <assignments>
         <name>Set_WhenWouldNotRequired</name>
         <label>Set WhenWouldNotRequired</label>
-        <locationX>3218</locationX>
+        <locationX>3482</locationX>
         <locationY>2030</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_When_would_you_like_the_meeting__c</assignToReference>
@@ -172,7 +188,7 @@
     <assignments>
         <name>Set_WhenWouldRequired</name>
         <label>Set WhenWouldRequired</label>
-        <locationX>2954</locationX>
+        <locationX>3218</locationX>
         <locationY>2030</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_When_would_you_like_the_meeting__c</assignToReference>
@@ -275,7 +291,7 @@
     <decisions>
         <name>Case_Type</name>
         <label>Case Type?</label>
-        <locationX>2558</locationX>
+        <locationX>2690</locationX>
         <locationY>1814</locationY>
         <defaultConnector>
             <targetReference>Unsupported_SRType_Error</targetReference>
@@ -545,7 +561,7 @@
     <decisions>
         <name>Record_Type</name>
         <label>Record Type?</label>
-        <locationX>2558</locationX>
+        <locationX>2690</locationX>
         <locationY>1298</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
@@ -692,7 +708,7 @@
     <decisions>
         <name>Requested_Actions_Required</name>
         <label>Requested Actions Required?</label>
-        <locationX>4406</locationX>
+        <locationX>4670</locationX>
         <locationY>1922</locationY>
         <defaultConnector>
             <targetReference>Set_RA_Not_Required</targetReference>
@@ -717,7 +733,7 @@
     <decisions>
         <name>When_Would_you_like_meeting_Required</name>
         <label>When Would you like meeting Required?</label>
-        <locationX>3086</locationX>
+        <locationX>3350</locationX>
         <locationY>1922</locationY>
         <defaultConnector>
             <targetReference>Set_WhenWouldNotRequired</targetReference>
@@ -737,6 +753,32 @@
                 <targetReference>Set_WhenWouldRequired</targetReference>
             </connector>
             <label>true</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Where_Files_Uploaded</name>
+        <label>Where Files Uploaded?</label>
+        <locationX>2294</locationX>
+        <locationY>2246</locationY>
+        <defaultConnector>
+            <targetReference>Set_LOA_Attached_Value</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>FileCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Get_LOA_File</targetReference>
+            </connector>
+            <label>No</label>
         </rules>
     </decisions>
     <description>Creates a Service Request - updated to redirect to open service requests</description>
@@ -1280,7 +1322,7 @@
     <loops>
         <name>Save_AccountIds</name>
         <label>Save AccountIds</label>
-        <locationX>2558</locationX>
+        <locationX>2690</locationX>
         <locationY>890</locationY>
         <collectionReference>Get_AccountContactRelationships</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -1652,7 +1694,7 @@
     <recordCreates>
         <name>Create_Cross_Connect</name>
         <label>Create Cross Connect</label>
-        <locationX>2162</locationX>
+        <locationX>2294</locationX>
         <locationY>1922</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
@@ -1847,7 +1889,7 @@
     <recordCreates>
         <name>Create_CX_SR</name>
         <label>Create CX SR</label>
-        <locationX>3086</locationX>
+        <locationX>3350</locationX>
         <locationY>2222</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
@@ -1970,7 +2012,7 @@
     <recordCreates>
         <name>Create_Logistics</name>
         <label>Create Logistics</label>
-        <locationX>3746</locationX>
+        <locationX>4010</locationX>
         <locationY>1922</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
@@ -2299,7 +2341,7 @@
     <recordCreates>
         <name>Create_RHS</name>
         <label>Create RHS</label>
-        <locationX>4406</locationX>
+        <locationX>4670</locationX>
         <locationY>2222</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
@@ -2416,8 +2458,8 @@
     <recordLookups>
         <name>Case_Lookup</name>
         <label>Case Lookup</label>
-        <locationX>2558</locationX>
-        <locationY>2486</locationY>
+        <locationX>2690</locationX>
+        <locationY>2786</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>redirect_to_view_SR_Details</targetReference>
@@ -2443,7 +2485,7 @@
     <recordLookups>
         <name>Contact_Lookup</name>
         <label>Contact Lookup</label>
-        <locationX>2558</locationX>
+        <locationX>2690</locationX>
         <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -2470,7 +2512,7 @@
     <recordLookups>
         <name>Get_AccountContactRelationships</name>
         <label>Get AccountContactRelationships</label>
-        <locationX>2558</locationX>
+        <locationX>2690</locationX>
         <locationY>782</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -2491,7 +2533,7 @@
     <recordLookups>
         <name>Get_Primary_Account_for_Contact</name>
         <label>Get Primary Account for Contact</label>
-        <locationX>2558</locationX>
+        <locationX>2690</locationX>
         <locationY>674</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -2521,7 +2563,7 @@
     <recordLookups>
         <name>Get_Record_Type_Info</name>
         <label>Get Record Type Info</label>
-        <locationX>2558</locationX>
+        <locationX>2690</locationX>
         <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -2546,7 +2588,7 @@
     <recordLookups>
         <name>Get_Related_Accounts_for_Contact</name>
         <label>Get Related Accounts for Contact</label>
-        <locationX>2558</locationX>
+        <locationX>2690</locationX>
         <locationY>1190</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -2567,8 +2609,8 @@
     <recordUpdates>
         <name>Update_LOA_Attached_Field</name>
         <label>Update LOA Attached Field</label>
-        <locationX>2162</locationX>
-        <locationY>2246</locationY>
+        <locationX>2426</locationX>
+        <locationY>2462</locationY>
         <connector>
             <targetReference>Case_Lookup</targetReference>
         </connector>
@@ -2595,7 +2637,7 @@
     <screens>
         <name>Access_Request_Info</name>
         <label>Access Request Info</label>
-        <locationX>1370</locationX>
+        <locationX>1502</locationX>
         <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -3266,7 +3308,7 @@
     <screens>
         <name>Accounting_Request_Info</name>
         <label>Accounting Request Info</label>
-        <locationX>1634</locationX>
+        <locationX>1766</locationX>
         <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -3578,7 +3620,7 @@
     <screens>
         <name>Contracts_Request_Info</name>
         <label>Contracts Request Info</label>
-        <locationX>1898</locationX>
+        <locationX>2030</locationX>
         <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -3826,7 +3868,7 @@
     <screens>
         <name>Cross_Connect_Request_Info</name>
         <label>Cross Connect Request Info</label>
-        <locationX>2162</locationX>
+        <locationX>2294</locationX>
         <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -4303,7 +4345,7 @@
     <screens>
         <name>Customer_Experience_Request_Info</name>
         <label>Customer Experience Request Info</label>
-        <locationX>2426</locationX>
+        <locationX>2558</locationX>
         <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -4645,13 +4687,13 @@
     <screens>
         <name>Get_LOA_File</name>
         <label>Get LOA File</label>
-        <locationX>2162</locationX>
+        <locationX>2294</locationX>
         <locationY>2030</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Set_LOA_Attached_Value</targetReference>
+            <targetReference>Assign_File_Count</targetReference>
         </connector>
         <fields>
             <name>LOA_File_Title</name>
@@ -4688,7 +4730,10 @@
             </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
-            <storeOutputAutomatically>true</storeOutputAutomatically>
+            <outputParameters>
+                <assignToReference>ContentDocumentIDs</assignToReference>
+                <name>contentDocIds</name>
+            </outputParameters>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
@@ -4700,13 +4745,28 @@
                 </conditions>
             </visibilityRule>
         </fields>
+        <fields>
+            <name>FileUploadRequired</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(234, 52, 52);&quot;&gt;Please upload a file.&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>FileCount</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <numberValue>0.0</numberValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>GetRecordType</name>
         <label>Record Type</label>
-        <locationX>2558</locationX>
+        <locationX>2690</locationX>
         <locationY>242</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -4734,7 +4794,7 @@
     <screens>
         <name>Logistics_Request_Info</name>
         <label>Logistics Request Info</label>
-        <locationX>2954</locationX>
+        <locationX>3086</locationX>
         <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5181,7 +5241,7 @@
     <screens>
         <name>RHS_Request_Info</name>
         <label>RHS Request Info</label>
-        <locationX>3218</locationX>
+        <locationX>3350</locationX>
         <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5495,7 +5555,7 @@
     <screens>
         <name>Unsupported_SR_Error</name>
         <label>Unsupported SR Error</label>
-        <locationX>2690</locationX>
+        <locationX>2822</locationX>
         <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5519,7 +5579,7 @@
     <screens>
         <name>Unsupported_SRType_Error</name>
         <label>Unsupported SR Error</label>
-        <locationX>5066</locationX>
+        <locationX>5330</locationX>
         <locationY>1922</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5551,7 +5611,7 @@
         <stageOrder>10</stageOrder>
     </stages>
     <start>
-        <locationX>2432</locationX>
+        <locationX>2564</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Assign_Stage_1</targetReference>
@@ -5632,6 +5692,13 @@
         <objectType>Contact</objectType>
     </variables>
     <variables>
+        <name>ContentDocumentIDs</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <name>CreatedCase</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
@@ -5653,6 +5720,14 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <name>FileCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
     </variables>
     <variables>
         <name>primaryAccountForContact</name>
