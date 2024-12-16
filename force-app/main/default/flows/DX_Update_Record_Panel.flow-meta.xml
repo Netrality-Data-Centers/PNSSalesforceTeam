@@ -123,15 +123,15 @@
         <label>Find Port To Delete</label>
         <locationX>754</locationX>
         <locationY>1271</locationY>
-        <assignNextValueToReference>currentItem_Collection_Filter_2</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_Find_Port_To_Delete</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>Get_Port_Records_Related</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_Collection_Filter_2.Short_Name__c</leftValueReference>
+            <leftValueReference>currentItem_Find_Port_To_Delete.Short_Name__c</leftValueReference>
             <operator>EndsWith</operator>
             <rightValue>
-                <elementReference>Position_Iteration</elementReference>
+                <elementReference>CurrentShortName</elementReference>
             </rightValue>
         </conditions>
         <connector>
@@ -275,6 +275,11 @@
         </rules>
     </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>CurrentShortName</name>
+        <dataType>String</dataType>
+        <expression>TEXT({!Position_Iteration}-1) &amp; &quot;/&quot; &amp; TEXT({!Position_Iteration})</expression>
+    </formulas>
     <formulas>
         <name>NumberOfPorts_No_After</name>
         <dataType>Number</dataType>
@@ -519,7 +524,7 @@
         <objectType>DC_Port__c</objectType>
     </variables>
     <variables>
-        <name>currentItem_Collection_Filter_2</name>
+        <name>currentItem_Find_Port_To_Delete</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
