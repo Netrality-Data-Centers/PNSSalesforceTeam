@@ -112,6 +112,17 @@ public with sharing class DX_DCIM_DataAccess {
         List<DC_Cabinet__c> lstCabinets = [SELECT Id, Name FROM DC_Cabinet__c WHERE Cage__c = :cageId WITH SECURITY_ENFORCED ORDER BY Name ASC];
         return lstCabinets;
     }
+    
+    /**
+    * @description method to get POES information by floor id
+    * @author cristianivan.ruiz@salesforce.com | 12-12-2024 
+    * @param floorId 
+    * @return List<DC_POE__c> 
+    **/
+    public static List<DC_POE__c> getPOES(String floorId) {
+        List<DC_POE__c> lstCabinets = [SELECT Id, Name FROM DC_POE__c WHERE Floor__c = :floorId WITH SECURITY_ENFORCED ORDER BY Name ASC];
+        return lstCabinets;
+    }
 
     /**
     * @description method to get wrapper structure
