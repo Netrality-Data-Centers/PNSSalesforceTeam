@@ -18,15 +18,19 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DX_DCIM_ActionHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_DCIM_DataAccess</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DX_InsidePlantCreationHelper</apexClass>
+        <apexClass>DX_PanelSelectorCabinets_ctr</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DX_PanelSelectorCabinets_ctr</apexClass>
+        <apexClass>DX_PanelSelectorFloorPOE_ctr</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -2259,6 +2263,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_POE_Allocation__c.MRI_Suite_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>DC_POE__c.POE_Allocations__c</field>
         <readable>false</readable>
@@ -2397,6 +2406,11 @@
         <editable>false</editable>
         <field>DC_Roof_Product__c.Floor__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_Roof_Product__c.MRI_Suite_ID__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3003,6 +3017,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>DX_Settings_MRI_ID_Mail_Association__mdt-Settings MRI ID Mail Association Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>DX_Site_Building_Relationship__mdt-DX Site Building Relationship Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Innerduct__c-Innerduct Layout</layout>
