@@ -1,90 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionCalls>
-        <name>SumOfCommittedPowerOnCabinet</name>
-        <label>SumOfCommittedPowerOnCabinet</label>
-        <locationX>176</locationX>
-        <locationY>539</locationY>
-        <actionName>CollectionCalculate</actionName>
-        <actionType>apex</actionType>
-        <connector>
-            <targetReference>SumOfConnectedPowerOnCabinet</targetReference>
-        </connector>
-        <dataTypeMappings>
-            <typeName>T__inputCollection</typeName>
-            <typeValue>DC_DC_Circuit__c</typeValue>
-        </dataTypeMappings>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>fieldName</name>
-            <value>
-                <stringValue>Committed_Power__c</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>inputCollection</name>
-            <value>
-                <elementReference>DCCircuitsForCabinetList</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>operation</name>
-            <value>
-                <stringValue>Add</stringValue>
-            </value>
-        </inputParameters>
-        <nameSegment>CollectionCalculate</nameSegment>
-        <outputParameters>
-            <assignToReference>SumOfCommitedPower</assignToReference>
-            <name>outputDecimalResult</name>
-        </outputParameters>
-        <versionSegment>1</versionSegment>
-    </actionCalls>
-    <actionCalls>
-        <name>SumOfConnectedPowerOnCabinet</name>
-        <label>SumOfConnectedPowerOnCabinet</label>
-        <locationX>176</locationX>
-        <locationY>647</locationY>
-        <actionName>CollectionCalculate</actionName>
-        <actionType>apex</actionType>
-        <connector>
-            <targetReference>Update_Cabinet_Values</targetReference>
-        </connector>
-        <dataTypeMappings>
-            <typeName>T__inputCollection</typeName>
-            <typeValue>DC_DC_Circuit__c</typeValue>
-        </dataTypeMappings>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>fieldName</name>
-            <value>
-                <stringValue>Connected_Power__c</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>inputCollection</name>
-            <value>
-                <elementReference>DCCircuitsForCabinetList</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>operation</name>
-            <value>
-                <stringValue>Add</stringValue>
-            </value>
-        </inputParameters>
-        <nameSegment>CollectionCalculate</nameSegment>
-        <outputParameters>
-            <assignToReference>SumOfConnectedPower</assignToReference>
-            <name>outputDecimalResult</name>
-        </outputParameters>
-        <versionSegment>1</versionSegment>
-    </actionCalls>
     <apiVersion>62.0</apiVersion>
+    <assignments>
+        <name>Add_Commited_Power</name>
+        <label>Add Commited Power</label>
+        <locationX>138</locationX>
+        <locationY>863</locationY>
+        <assignmentItems>
+            <assignToReference>SumOfCommitedPower</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_to_calculate_sum_of_commited_power.Committed_Power__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>connected_power_with_value</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_Connected_Power</name>
+        <label>Add Connected Power</label>
+        <locationX>138</locationX>
+        <locationY>1163</locationY>
+        <assignmentItems>
+            <assignToReference>SumOfConnectedPower</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_to_calculate_sum_of_commited_power.Connected_Power__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_to_calculate_sum_of_commited_power</targetReference>
+        </connector>
+    </assignments>
     <assignments>
         <name>Assign_DCCircuit_Count</name>
         <label>Assign DCCircuit Count</label>
-        <locationX>176</locationX>
+        <locationX>182</locationX>
         <locationY>431</locationY>
         <assignmentItems>
             <assignToReference>DCCircuitsCount</assignToReference>
@@ -94,24 +46,110 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>SumOfCommittedPowerOnCabinet</targetReference>
+            <targetReference>DCCircuitCount_Greater_than_zero</targetReference>
         </connector>
     </assignments>
+    <decisions>
+        <name>commited_power_with_value</name>
+        <label>commited power with value?</label>
+        <locationX>270</locationX>
+        <locationY>755</locationY>
+        <defaultConnector>
+            <targetReference>connected_power_with_value</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>has_value_CommitedPower</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_to_calculate_sum_of_commited_power.Committed_Power__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_Commited_Power</targetReference>
+            </connector>
+            <label>has value</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>connected_power_with_value</name>
+        <label>connected power with value?</label>
+        <locationX>270</locationX>
+        <locationY>1055</locationY>
+        <defaultConnector>
+            <targetReference>Loop_to_calculate_sum_of_commited_power</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>has_Value_ConnectedPower</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_to_calculate_sum_of_commited_power.Connected_Power__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_Connected_Power</targetReference>
+            </connector>
+            <label>has value</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>DCCircuitCount_Greater_than_zero</name>
+        <label>DCCircuitCount Greater than zero?</label>
+        <locationX>182</locationX>
+        <locationY>539</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Greater</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>DCCircuitsCount</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_to_calculate_sum_of_commited_power</targetReference>
+            </connector>
+            <label>Greater</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
     <formulas>
         <name>NewCommitedPowerValue</name>
         <dataType>Number</dataType>
-        <expression>{!SumOfCommitedPower}/{!DCCircuitsCount}</expression>
+        <expression>ROUND({!SumOfCommitedPower}/{!DCCircuitsCount},2)</expression>
         <scale>2</scale>
     </formulas>
     <formulas>
         <name>NewConnectedPowerValue</name>
         <dataType>Number</dataType>
-        <expression>{!SumOfConnectedPower}/{!DCCircuitsCount}</expression>
+        <expression>ROUND({!SumOfConnectedPower}/{!DCCircuitsCount},2)</expression>
         <scale>2</scale>
     </formulas>
     <interviewLabel>DC Circuit Power Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DC Circuit Power Flow</label>
+    <loops>
+        <name>Loop_to_calculate_sum_of_commited_power</name>
+        <label>Loop to calculate sum of commited power</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <collectionReference>DCCircuitsForCabinetList</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>commited_power_with_value</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_Cabinet_Values</targetReference>
+        </noMoreValuesConnector>
+    </loops>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -134,7 +172,7 @@
     <recordLookups>
         <name>Get_DC_Circuits_for_Cabinet</name>
         <label>Get DC Circuits for Cabinet</label>
-        <locationX>176</locationX>
+        <locationX>182</locationX>
         <locationY>323</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -157,8 +195,8 @@
     <recordUpdates>
         <name>Update_Cabinet_Values</name>
         <label>Update Cabinet Values</label>
-        <locationX>176</locationX>
-        <locationY>755</locationY>
+        <locationX>50</locationX>
+        <locationY>1439</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -188,7 +226,7 @@
         <object>DC_Cabinet__c</object>
     </recordUpdates>
     <start>
-        <locationX>50</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_DC_Circuits_for_Cabinet</targetReference>
