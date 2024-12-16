@@ -32,6 +32,9 @@ public with sharing class DX_DCIM_ActionHelper {
         @InvocableVariable(label='Cabinets by Building and Account' description='Cabinets by Building and Account')
         public List<DX_DCIMChoiceResource> cabinetsByBuildingAndAccountList;
 
+        @InvocableVariable(label='Floors by Building' description='Floors by Building')
+        public List<DX_DCIMChoiceResource> floorsByBuildingList;
+
     }
 
     /**
@@ -73,6 +76,11 @@ public with sharing class DX_DCIM_ActionHelper {
                 when 'getCabinetsByBuildingAndAccount' {
 
                     output.cabinetsByBuildingAndAccountList = getCabinetsByBuildingAndAccount(fi.buildingId, fi.accountId);
+
+                }
+                when 'getFloorsByBuilding' {
+
+                    output.floorsByBuildingList = getFloorsByBuilding(fi.buildingId);
 
                 }
 
@@ -139,5 +147,18 @@ public with sharing class DX_DCIM_ActionHelper {
             }
         }
         return cabinetsByBuildingAndAccountList;
+    }
+
+    private static List<DX_DCIMChoiceResource> getFloorsByBuilding(Id buildingId) {
+        List<DX_DCIMChoiceResource> floorsByBuildingList = new List<DX_DCIMChoiceResource>();
+        List<DC_Floor__c> floors = DX_DCIM_DataAccess.getFloors(buildingId);
+        if(!floors.isEmpty()){
+            for(DC_Floor__c item : floors){
+                DX_DCIMChoiceResource choiceResourceItem = createChoiceResourceItem(item.Id, item.Name);
+                floorsByBuildingList.add(choiceResourceItem);
+            }
+            
+        }
+        return floorsByBuildingList;
     }
 }
