@@ -17,6 +17,13 @@
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.Asset__r.MRI_Suite_ID__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Create_MRI_Suite_ID_Asset_Location</targetReference>
             </connector>
@@ -71,13 +78,13 @@
         <inputAssignments>
             <name>AssetRecordId</name>
             <value>
-                <stringValue>anId</stringValue>
+                <elementReference>$Record.Asset__r.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <name>MRISuiteID</name>
             <value>
-                <stringValue>anID</stringValue>
+                <elementReference>$Record.Related_MRI_Suite_ID__c</elementReference>
             </value>
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>
