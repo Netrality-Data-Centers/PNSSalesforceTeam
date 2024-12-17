@@ -5,7 +5,7 @@
     <formulas>
         <name>MRISuiteID</name>
         <dataType>String</dataType>
-        <expression>&quot;POE&quot; + {!$Record.Floor__r.Building__r.Building_Address_No__c}+ RIGHT({!$Record.Id}, 3)</expression>
+        <expression>&quot;P&quot; + {!$Record.Floor__r.Building__r.Building_Address_No__c}+ RIGHT({!$Record.Id}, 5)</expression>
     </formulas>
     <interviewLabel>DX Create MRI ID - POE Allocation {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Create MRI ID - POE Allocation</label>
