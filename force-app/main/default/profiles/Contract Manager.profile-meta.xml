@@ -2259,11 +2259,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>DC_POE_Allocation__c.Inside_Plant__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>DC_POE_Allocation__c.MRI_Suite_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2695,11 +2690,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Innerduct__c.Z_Side_Data_Hall__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.Compelling_Event_Details__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
