@@ -5,7 +5,7 @@
     <formulas>
         <name>MRISuiteID</name>
         <dataType>String</dataType>
-        <expression>&quot;ANT&quot; + {!$Record.Data_Hall__r.DC_Floor__r.Building__r.Building_Address_No__c} + RIGHT({!$Record.Id}, 3)</expression>
+        <expression>&quot;A&quot; + {!$Record.Data_Hall__r.DC_Floor__r.Building__r.Building_Address_No__c} + RIGHT({!$Record.Id}, 5)</expression>
     </formulas>
     <interviewLabel>DX Create MRI ID - Roof Product {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Create MRI ID - Roof Product</label>
@@ -51,10 +51,10 @@
             <targetReference>Update_MRI_Suite_ID</targetReference>
         </connector>
         <object>DC_Roof_Product__c</object>
-        <recordTriggerType>Update</recordTriggerType>
+        <recordTriggerType>Create</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <subflows>
         <name>Error_Log_Creation</name>
         <label>Error Log Creation</label>
