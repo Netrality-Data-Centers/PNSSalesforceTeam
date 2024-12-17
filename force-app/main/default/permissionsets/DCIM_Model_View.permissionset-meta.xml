@@ -783,11 +783,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DC_POE_Allocation__c.Inside_Plant__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>DC_POE__c.POE_Allocations__c</field>
         <readable>true</readable>
     </fieldPermissions>
