@@ -16,6 +16,16 @@ public with sharing class DX_DCIM_DataAccess {
         return [SELECT Id, Name FROM DC_Data_Hall__c where DC_Floor__r.Building__c=:aBuildingId WITH SECURITY_ENFORCED ORDER BY Name ASC];
     }
 
+     /**
+    * @name getPoeAllocationsByBuilding
+    * @description This method retrieves Power of End (PoE) allocations by building.
+    * @param aBuildingId: The Id of the building for which to retrieve PoE allocations.
+    * @return List<POE_Allocation__c>: A list of POE_Allocation__c records associated with the specified building.
+    */
+    public List<DC_POE_Allocation__c> getPoeAllocationsByBuilding(Id aBuildingId) { // NOPMD
+        return [SELECT Id, Name FROM DC_POE_Allocation__c where Floor__r.Building__c=:aBuildingId WITH SECURITY_ENFORCED ORDER BY Name ASC];
+    }
+
     /**
     * @name getPoeAllocationsByBuilding
     * @description This method retrieves Power of End (PoE) allocations by building.
