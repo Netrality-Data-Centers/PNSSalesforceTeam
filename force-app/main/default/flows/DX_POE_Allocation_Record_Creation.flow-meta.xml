@@ -34,6 +34,13 @@
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>AccountID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>POE_Allocation_Record_Creation</targetReference>
             </connector>
@@ -122,7 +129,7 @@
         <allowPause>true</allowPause>
         <fields>
             <name>ParametersRequired</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(234, 53, 53);&quot;&gt;To be able to execute this flow, you need to pass these parameters: AssetID, BuildingID, FloorID&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(234, 53, 53); background-color: rgb(255, 255, 255);&quot;&gt;To be able to execute this flow, you need to pass these parameters: AccountID, AssetID, BuildingID, FloorID&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
