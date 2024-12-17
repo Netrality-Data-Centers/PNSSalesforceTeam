@@ -17,18 +17,48 @@
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
+        <name>ConnectionCaseCS</name>
+        <dataType>String</dataType>
+        <displayField>CaseNumber</displayField>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Service_Request_Info.Id</elementReference>
+            </value>
+        </filters>
+        <object>Case</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
         <name>DestinationAccountCS</name>
         <dataType>String</dataType>
         <displayField>Name</displayField>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>Id</field>
+            <field>Name</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>Get_Service_Request_Info.DX_Account_Name_ZLOA__c</elementReference>
             </value>
         </filters>
         <object>Account</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>DisconnectCaseCS</name>
+        <dataType>String</dataType>
+        <displayField>CaseNumber</displayField>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Service_Request_Info.AccountId</elementReference>
+            </value>
+        </filters>
+        <object>Case</object>
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
@@ -84,6 +114,77 @@
         </value>
     </processMetadataValues>
     <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Cross_Connect</name>
+        <label>Create Cross Connect</label>
+        <locationX>176</locationX>
+        <locationY>566</locationY>
+        <faultConnector>
+            <targetReference>Log_Error</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Building__c</field>
+            <value>
+                <elementReference>Buiilding.selectedChoiceValues</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Circuit_Ref__c</field>
+            <value>
+                <elementReference>Legacy_Cherwell_ID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Connection_Case__c</field>
+            <value>
+                <elementReference>Connection_Case.selectedChoiceValues</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Destination_Account__c</field>
+            <value>
+                <elementReference>Destination_Account.selectedChoiceValues</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Disconnect_Case__c</field>
+            <value>
+                <elementReference>Disconnect_Case.selectedChoiceValues</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Media_Type__c</field>
+            <value>
+                <elementReference>Media_Type</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Origination_Account__c</field>
+            <value>
+                <elementReference>Origination_Account.selectedChoiceValues</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>XC_Disconnect_Date__c</field>
+            <value>
+                <elementReference>Disconnect_Date</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Xconnect_Status__c</field>
+            <value>
+                <elementReference>CC_Status</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Xconnect_date__c</field>
+            <value>
+                <elementReference>Connection_Date</elementReference>
+            </value>
+        </inputAssignments>
+        <object>DC_Cross_Connect__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
     <recordLookups>
         <name>Get_Building_Info</name>
         <label>Get Building Info</label>
@@ -157,6 +258,9 @@
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Create_Cross_Connect</targetReference>
+        </connector>
         <fields>
             <name>Port_Information_from_Service_Request</name>
             <fieldText>Port Information from Service Request</fieldText>
@@ -229,39 +333,14 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <name>Origination_Account_A</name>
-                    <extensionName>flowruntime:lookup</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Origination Account</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>fieldApiName</name>
-                        <value>
-                            <stringValue>Id</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Account</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>required</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>recordId</name>
-                        <value>
-                            <elementReference>Get_Service_Request_Info.DX_Account_Name_Order_Initiator__c</elementReference>
-                        </value>
-                    </inputParameters>
+                    <name>Origination_Account</name>
+                    <choiceReferences>OriginationAccountCS</choiceReferences>
+                    <defaultValue>
+                        <elementReference>Get_Service_Request_Info.DX_Account_Name_Order_Initiator__r.Id</elementReference>
+                    </defaultValue>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Origination Account</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -284,28 +363,12 @@
                 </fields>
                 <fields>
                     <name>Connection_Case</name>
-                    <extensionName>flowruntime:lookup</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Connection Case</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>fieldApiName</name>
-                        <value>
-                            <stringValue>Id</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Case</stringValue>
-                        </value>
-                    </inputParameters>
+                    <choiceReferences>ConnectionCaseCS</choiceReferences>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Connection Case</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
+                    <isRequired>false</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <inputParameters>
@@ -332,39 +395,11 @@
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
-                    <name>Destination_Account_A</name>
-                    <extensionName>flowruntime:lookup</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Destination Account</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>fieldApiName</name>
-                        <value>
-                            <stringValue>Id</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Case</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>required</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>recordId</name>
-                        <value>
-                            <elementReference>Get_Service_Request_Info.DX_Account_Name_ZLOA__c</elementReference>
-                        </value>
-                    </inputParameters>
+                    <name>Destination_Account</name>
+                    <choiceReferences>DestinationAccountCS</choiceReferences>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Destination Account</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -390,32 +425,16 @@
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>Disconnect_Case</name>
-                    <extensionName>flowruntime:lookup</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Disconnect Case</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>fieldApiName</name>
-                        <value>
-                            <stringValue>Id</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Case</stringValue>
-                        </value>
-                    </inputParameters>
+                    <choiceReferences>DisconnectCaseCS</choiceReferences>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Disconnect Case</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
+                    <isRequired>false</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <inputParameters>
@@ -440,6 +459,43 @@
         </connector>
     </start>
     <status>Active</status>
+    <subflows>
+        <name>Log_Error</name>
+        <label>Log Error</label>
+        <locationX>440</locationX>
+        <locationY>674</locationY>
+        <flowName>DX_Error_Log_Creation</flowName>
+        <inputAssignments>
+            <name>ErrorMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>FlowName</name>
+            <value>
+                <stringValue>DX Cross Connect Record Creation</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>MethodName</name>
+            <value>
+                <stringValue>Create Cross Connect</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>ObjectName</name>
+            <value>
+                <stringValue>DC_Cross_Connect</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>TypeOfOperation</name>
+            <value>
+                <stringValue>Create</stringValue>
+            </value>
+        </inputAssignments>
+    </subflows>
     <variables>
         <name>BuildingID</name>
         <dataType>String</dataType>
