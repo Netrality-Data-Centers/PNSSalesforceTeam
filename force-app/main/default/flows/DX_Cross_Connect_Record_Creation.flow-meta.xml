@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <apiVersion>62.0</apiVersion>
+    <decisions>
+        <name>Required_parameters_passed</name>
+        <label>Required parameters passed?</label>
+        <locationX>314</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>Required_Parameters</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Passed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ServiceRequestID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Service_Request_Info</targetReference>
+            </connector>
+            <label>Passed</label>
+        </rules>
+    </decisions>
     <dynamicChoiceSets>
         <name>BuildingCS</name>
         <dataType>String</dataType>
@@ -47,6 +72,13 @@
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
+        <name>DestinationPortCS</name>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <object>DC_Port__c</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
         <name>DisconnectCaseCS</name>
         <dataType>String</dataType>
         <displayField>CaseNumber</displayField>
@@ -85,6 +117,13 @@
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
+        <name>OriginPortCS</name>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <object>DC_Port__c</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
         <name>Status</name>
         <dataType>Picklist</dataType>
         <displayField xsi:nil="true"/>
@@ -117,8 +156,8 @@
     <recordCreates>
         <name>Create_Cross_Connect</name>
         <label>Create Cross Connect</label>
-        <locationX>176</locationX>
-        <locationY>566</locationY>
+        <locationX>50</locationX>
+        <locationY>674</locationY>
         <faultConnector>
             <targetReference>Log_Error</targetReference>
         </faultConnector>
@@ -147,6 +186,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Destination_Port__c</field>
+            <value>
+                <elementReference>Destination_Port.selectedChoiceValues</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Disconnect_Case__c</field>
             <value>
                 <elementReference>Disconnect_Case.selectedChoiceValues</elementReference>
@@ -162,6 +207,12 @@
             <field>Origination_Account__c</field>
             <value>
                 <elementReference>Origination_Account.selectedChoiceValues</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Origination_Port__c</field>
+            <value>
+                <elementReference>Origination_Port.selectedChoiceValues</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -188,8 +239,8 @@
     <recordLookups>
         <name>Get_Building_Info</name>
         <label>Get Building Info</label>
-        <locationX>176</locationX>
-        <locationY>350</locationY>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Cross_Connect_Record_Creation</targetReference>
@@ -211,8 +262,8 @@
     <recordLookups>
         <name>Get_Building_Name_Related_to_Service_Request_Site</name>
         <label>Get Building Name Related to Service Request Site</label>
-        <locationX>176</locationX>
-        <locationY>242</locationY>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Building_Info</targetReference>
@@ -232,8 +283,8 @@
     <recordLookups>
         <name>Get_Service_Request_Info</name>
         <label>Get Service Request Info</label>
-        <locationX>176</locationX>
-        <locationY>134</locationY>
+        <locationX>50</locationX>
+        <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Building_Name_Related_to_Service_Request_Site</targetReference>
@@ -253,8 +304,8 @@
     <screens>
         <name>Cross_Connect_Record_Creation</name>
         <label>Cross Connect Record Creation</label>
-        <locationX>176</locationX>
-        <locationY>458</locationY>
+        <locationX>50</locationX>
+        <locationY>566</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -262,62 +313,10 @@
             <targetReference>Create_Cross_Connect</targetReference>
         </connector>
         <fields>
-            <name>Port_Information_from_Service_Request</name>
-            <fieldText>Port Information from Service Request</fieldText>
+            <name>Cross_Connect_Record_Creation_Section1</name>
             <fieldType>RegionContainer</fieldType>
             <fields>
-                <name>Port_Information_from_Service_Request_Column1</name>
-                <fieldType>Region</fieldType>
-                <fields>
-                    <name>A_Order_Initiator_Ports</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>Get_Service_Request_Info.DX_Ports_Order_Initiator__c</elementReference>
-                    </defaultValue>
-                    <fieldText>A (Order Initiator) - Ports</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isDisabled>
-                        <booleanValue>true</booleanValue>
-                    </isDisabled>
-                    <isReadOnly>
-                        <booleanValue>true</booleanValue>
-                    </isReadOnly>
-                    <isRequired>false</isRequired>
-                </fields>
-                <fields>
-                    <name>Z_LOA_Info_Ports</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>Get_Service_Request_Info.DX_Ports_ZLOA__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Z (LOA Info) - Ports</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isDisabled>
-                        <booleanValue>true</booleanValue>
-                    </isDisabled>
-                    <isReadOnly>
-                        <booleanValue>true</booleanValue>
-                    </isReadOnly>
-                    <isRequired>false</isRequired>
-                </fields>
-                <inputParameters>
-                    <name>width</name>
-                    <value>
-                        <stringValue>12</stringValue>
-                    </value>
-                </inputParameters>
-                <isRequired>false</isRequired>
-            </fields>
-            <isRequired>false</isRequired>
-            <regionContainerType>SectionWithHeader</regionContainerType>
-        </fields>
-        <fields>
-            <name>Cross_Connect_Record_Creation_Section2</name>
-            <fieldType>RegionContainer</fieldType>
-            <fields>
-                <name>Cross_Connect_Record_Creation_Section2_Column1</name>
+                <name>Cross_Connect_Record_Creation_Section1_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Buiilding</name>
@@ -371,6 +370,16 @@
                     <isRequired>false</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
+                <fields>
+                    <name>Origination_Port</name>
+                    <choiceReferences>OriginPortCS</choiceReferences>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Origination Port</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -380,7 +389,7 @@
                 <isRequired>false</isRequired>
             </fields>
             <fields>
-                <name>Cross_Connect_Record_Creation_Section2_Column2</name>
+                <name>Cross_Connect_Record_Creation_Section1_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>CC_Status</name>
@@ -437,6 +446,16 @@
                     <isRequired>false</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
+                <fields>
+                    <name>Destination_Port</name>
+                    <choiceReferences>DestinationPortCS</choiceReferences>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Destination Port</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -448,22 +467,101 @@
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
         </fields>
+        <fields>
+            <name>Port_Information_from_Service_Request</name>
+            <fieldText>Port Information from Service Request</fieldText>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Port_Information_from_Service_Request_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>A_Order_Initiator_Ports</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_Service_Request_Info.DX_Ports_Order_Initiator__c</elementReference>
+                    </defaultValue>
+                    <fieldText>A (Order Initiator) - Ports</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
+                    <isRequired>false</isRequired>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Port_Information_from_Service_Request_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Z_LOA_Info_Ports</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_Service_Request_Info.DX_Ports_ZLOA__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Z (LOA Info) - Ports</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
+                    <isRequired>false</isRequired>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithHeader</regionContainerType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Required_Parameters</name>
+        <label>Required Parameters</label>
+        <locationX>578</locationX>
+        <locationY>242</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>RequiredParameters</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(234, 53, 53); background-color: rgb(255, 255, 255);&quot;&gt;To be able to execute this flow, you need to pass these parameters: ServiceRequestID&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>50</locationX>
+        <locationX>188</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Get_Service_Request_Info</targetReference>
+            <targetReference>Required_parameters_passed</targetReference>
         </connector>
     </start>
     <status>Active</status>
     <subflows>
         <name>Log_Error</name>
         <label>Log Error</label>
-        <locationX>440</locationX>
-        <locationY>674</locationY>
+        <locationX>314</locationX>
+        <locationY>782</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
