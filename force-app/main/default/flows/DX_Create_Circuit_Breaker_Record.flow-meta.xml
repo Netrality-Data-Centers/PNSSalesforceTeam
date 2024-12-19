@@ -261,14 +261,49 @@
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
-        <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Empty_Parameters</targetReference>
-        </connector>
         <fields>
-            <name>ErrorMesagge</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(234, 53, 53); font-size: 18px;&quot;&gt;To be able to execute this flow, you need to pass these parameters:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong style=&quot;color: rgb(234, 53, 53); font-size: 14px;&quot;&gt; BuildingID&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong style=&quot;color: rgb(234, 53, 53); font-size: 14px;&quot;&gt;AssetID&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
+            <name>Error_Empty_Parameters_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Error_Empty_Parameters_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>1</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Error_Empty_Parameters_Section1_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>ErrorMesagge</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 18px; color: rgb(180, 10, 10);&quot;&gt;To be able to execute this flow, you need to pass these parameters:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(180, 10, 10);&quot;&gt; BuildingID&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(180, 10, 10);&quot;&gt;AssetID&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>10</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Error_Empty_Parameters_Section1_Column3</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>1</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
