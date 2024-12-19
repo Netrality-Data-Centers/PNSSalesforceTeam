@@ -42,7 +42,7 @@
             <assignToReference>MRISuiteID</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Empty Value</stringValue>
+                <stringValue>Empty</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -320,7 +320,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
         <inputAssignments>
             <field>MRI_Suite_ID__c</field>
             <value>
-                <elementReference>Get_Cabinets_from_Asset.MRI_Suite_ID__c</elementReference>
+                <elementReference>MRISuiteID</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
