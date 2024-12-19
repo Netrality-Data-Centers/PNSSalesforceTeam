@@ -65,7 +65,7 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>DC_DC_Circuit__c.DC_Plant__c</relatedList>
+        <relatedList>DC_Circuit__c.DC_Plant__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
