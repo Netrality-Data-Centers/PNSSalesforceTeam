@@ -9,14 +9,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DX_PrimaryAccountContactHelper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>DX_RelatedAccountsContactHelper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>DX_viewClosedServiceRequest_ctr</apexClass>
         <enabled>true</enabled>
     </classAccesses>

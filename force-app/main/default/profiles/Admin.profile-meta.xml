@@ -6,6 +6,10 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>CaseRelatedAssetSelectionController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_BusinesHoursHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -35,14 +39,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_PanelSelectorRacks_ctr</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>DX_PrimaryAccountContactHelper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>DX_RelatedAccountsContactHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -270,6 +266,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.DOZISF__ZoomInfo_Last_Updated__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Date_of_First_Closed_Won_Opp__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2143,6 +2144,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Data_Hall__c.X2D_Drawing__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>DC_Fiber_Pair__c.Asset__c</field>
         <readable>true</readable>
@@ -2175,6 +2181,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DC_Floor__c.Floor_description__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Floor__c.X2D_Drawing__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
