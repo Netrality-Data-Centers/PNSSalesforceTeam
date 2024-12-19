@@ -24,7 +24,7 @@
         <locationY>1163</locationY>
         <assignmentItems>
             <assignToReference>SumOfConnectedPower</assignToReference>
-            <operator>Assign</operator>
+            <operator>Add</operator>
             <value>
                 <elementReference>Loop_to_calculate_sum_of_commited_power.Connected_Power__c</elementReference>
             </value>
