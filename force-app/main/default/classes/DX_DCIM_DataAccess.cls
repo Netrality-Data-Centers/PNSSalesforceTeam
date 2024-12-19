@@ -16,7 +16,7 @@ public with sharing class DX_DCIM_DataAccess {
         return [SELECT Id, Name FROM DC_Data_Hall__c where DC_Floor__r.Building__c=:aBuildingId WITH SECURITY_ENFORCED ORDER BY Name ASC];
     }
 
-    /**
+     /**
     * @name getPoeAllocationsByBuilding
     * @description This method retrieves Power of End (PoE) allocations by building.
     * @param aBuildingId: The Id of the building for which to retrieve PoE allocations.
@@ -87,7 +87,7 @@ public with sharing class DX_DCIM_DataAccess {
     * @return List<DC_Rack__c> 
     **/
     public static List<DC_Rack__c> getRacks(String meetMeRoomId) {
-        List<DC_Rack__c> lstRacks = [SELECT Id, Name FROM DC_Rack__c WHERE 	Meet_Me_Room__c = :meetMeRoomId WITH SECURITY_ENFORCED ORDER BY Name ASC];
+        List<DC_Rack__c> lstRacks = [SELECT Id, Name FROM DC_Rack__c WHERE  Meet_Me_Room__c = :meetMeRoomId WITH SECURITY_ENFORCED ORDER BY Name ASC];
         return lstRacks;
     }
 

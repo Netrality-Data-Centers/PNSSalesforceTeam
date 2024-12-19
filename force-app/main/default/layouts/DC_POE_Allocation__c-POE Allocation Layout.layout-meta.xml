@@ -14,10 +14,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Inside_Plant__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Floor__c</field>
             </layoutItems>
         </layoutColumns>
