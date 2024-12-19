@@ -4,8 +4,8 @@
     <assignments>
         <name>Add_Rack_Layout_To_List</name>
         <label>Add Rack Layout To List</label>
-        <locationX>270</locationX>
-        <locationY>1406</locationY>
+        <locationX>534</locationX>
+        <locationY>1514</locationY>
         <assignmentItems>
             <assignToReference>RacksToUpdate</assignToReference>
             <operator>Add</operator>
@@ -20,13 +20,13 @@
     <assignments>
         <name>MRI_Suite_ID_If_Not_Null</name>
         <label>MRI Suite ID If Not Null</label>
-        <locationX>314</locationX>
-        <locationY>890</locationY>
+        <locationX>578</locationX>
+        <locationY>998</locationY>
         <assignmentItems>
             <assignToReference>MRISuiteID</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Cabinets_from_Account.MRI_Suite_ID__c</elementReference>
+                <elementReference>Get_Cabinets_from_Asset.MRI_Suite_ID__c</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -36,13 +36,13 @@
     <assignments>
         <name>MRI_Suite_ID_If_Null</name>
         <label>MRI Suite ID If Null</label>
-        <locationX>50</locationX>
-        <locationY>890</locationY>
+        <locationX>314</locationX>
+        <locationY>998</locationY>
         <assignmentItems>
             <assignToReference>MRISuiteID</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>null</stringValue>
+                <stringValue>Empty</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -52,8 +52,8 @@
     <assignments>
         <name>Rack_Layout_Values_Assignment</name>
         <label>Rack Layout Values Assignment</label>
-        <locationX>270</locationX>
-        <locationY>1298</locationY>
+        <locationX>534</locationX>
+        <locationY>1406</locationY>
         <assignmentItems>
             <assignToReference>iRackLayout.Id</assignToReference>
             <operator>Assign</operator>
@@ -83,8 +83,8 @@
         <name>Filter_Occupied_Rack_Layouts</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
         <label>Filter Occupied Rack Layouts</label>
-        <locationX>776</locationX>
-        <locationY>458</locationY>
+        <locationX>1172</locationX>
+        <locationY>566</locationY>
         <assignNextValueToReference>currentItem_Collection_Filter_2</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>Get_Rack_Layout_Records</collectionReference>
@@ -104,8 +104,8 @@
         <name>Filter_Vacant_Rack_Layouts</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
         <label>Filter Vacant Rack Layouts</label>
-        <locationX>776</locationX>
-        <locationY>350</locationY>
+        <locationX>1172</locationX>
+        <locationY>458</locationY>
         <assignNextValueToReference>currentItem_Filter_Vacant_Rack_Layouts</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>Get_Rack_Layout_Records</collectionReference>
@@ -124,8 +124,8 @@
     <decisions>
         <name>All_Rack_Layouts_Vacant</name>
         <label>All Rack Layouts Vacant?</label>
-        <locationX>776</locationX>
-        <locationY>566</locationY>
+        <locationX>1172</locationX>
+        <locationY>674</locationY>
         <defaultConnector>
             <targetReference>Error_Screen</targetReference>
         </defaultConnector>
@@ -141,16 +141,69 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_Cabinets_from_Account</targetReference>
+                <targetReference>Get_Cabinets_from_Asset</targetReference>
             </connector>
             <label>All Vacant</label>
         </rules>
     </decisions>
     <decisions>
+        <name>Empty_Parameters</name>
+        <label>Empty Parameters?</label>
+        <locationX>611</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>Create_Panel_Record_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Empty</defaultConnectorLabel>
+        <rules>
+            <name>Empty</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>BuildingID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>AssetID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>AccountID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>HeightRU</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>StartingPositionRU</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Error_Screen_Empty_Parameters</targetReference>
+            </connector>
+            <label>Empty</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>MRI_Cabinet_Value_Null</name>
         <label>MRI Cabinet Value Null?</label>
-        <locationX>182</locationX>
-        <locationY>782</locationY>
+        <locationX>446</locationX>
+        <locationY>890</locationY>
         <defaultConnector>
             <targetReference>MRI_Suite_ID_If_Not_Null</targetReference>
         </defaultConnector>
@@ -159,7 +212,7 @@
             <name>Null</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_Cabinets_from_Account.MRI_Suite_ID__c</leftValueReference>
+                <leftValueReference>Get_Cabinets_from_Asset.MRI_Suite_ID__c</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -181,13 +234,13 @@
     <formulas>
         <name>NumberOfPortRecords_No</name>
         <dataType>Number</dataType>
-        <expression>{!Get_Panel_Record_Details.Total_Number_of_Ports__c} / 2</expression>
+        <expression>{!Get_Panel_Record_Details.Total_Number_of_Ports__c}</expression>
         <scale>0</scale>
     </formulas>
     <formulas>
         <name>NumberOfPorts_Yes</name>
         <dataType>Number</dataType>
-        <expression>({!Get_Panel_Record_Details.Number_of_Mods__c}*{!Get_Panel_Record_Details.Number_of_Ports_Tall_per_Mod__c}*{!Get_Panel_Record_Details.Number_of_Ports_Wide_per_Mod__c})/2</expression>
+        <expression>{!Get_Panel_Record_Details.Number_of_Ports_Tall_per_Mod__c}*{!Get_Panel_Record_Details.Number_of_Ports_Wide_per_Mod__c}</expression>
         <scale>0</scale>
     </formulas>
     <formulas>
@@ -205,8 +258,8 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
     <loops>
         <name>Assing_Values_to_Each_Rack_Layout_to_Update</name>
         <label>Assing Values to Each Rack Layout to Update</label>
-        <locationX>182</locationX>
-        <locationY>1190</locationY>
+        <locationX>446</locationX>
+        <locationY>1298</locationY>
         <collectionReference>Get_Rack_Layout_Records</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -238,8 +291,8 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
     <recordCreates>
         <name>Create_Panel_Record</name>
         <label>Create Panel Record</label>
-        <locationX>182</locationX>
-        <locationY>1082</locationY>
+        <locationX>446</locationX>
+        <locationY>1190</locationY>
         <connector>
             <targetReference>Assing_Values_to_Each_Rack_Layout_to_Update</targetReference>
         </connector>
@@ -267,7 +320,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
         <inputAssignments>
             <field>MRI_Suite_ID__c</field>
             <value>
-                <elementReference>Get_Cabinets_from_Account.MRI_Suite_ID__c</elementReference>
+                <elementReference>MRISuiteID</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -352,14 +405,17 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
-        <name>Get_Cabinets_from_Account</name>
-        <label>Get Cabinets from Account</label>
-        <locationX>182</locationX>
-        <locationY>674</locationY>
+        <name>Get_Cabinets_from_Asset</name>
+        <label>Get Cabinets from Asset</label>
+        <locationX>446</locationX>
+        <locationY>782</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>MRI_Cabinet_Value_Null</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Error_Log_Creation_Get_Cabinets_from_Asset</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Asset__c</field>
@@ -375,8 +431,8 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
     <recordLookups>
         <name>Get_Panel_Record_Details</name>
         <label>Get Panel Record Details</label>
-        <locationX>182</locationX>
-        <locationY>1706</locationY>
+        <locationX>446</locationX>
+        <locationY>1814</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Update_MRI_Suite_ID_Asset_Location_on_Asset</targetReference>
@@ -396,8 +452,8 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
     <recordLookups>
         <name>Get_Rack_Layout_Records</name>
         <label>Get Rack Layout Records</label>
-        <locationX>776</locationX>
-        <locationY>242</locationY>
+        <locationX>1172</locationX>
+        <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Filter_Vacant_Rack_Layouts</targetReference>
@@ -436,8 +492,8 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
     <recordUpdates>
         <name>Update_MRI_Suite_ID_Asset_Location_on_Asset</name>
         <label>Update MRI Suite ID &amp; Asset Location on Asset</label>
-        <locationX>182</locationX>
-        <locationY>1814</locationY>
+        <locationX>446</locationX>
+        <locationY>1922</locationY>
         <connector>
             <targetReference>DX_Create_Port_Records_from_Panel</targetReference>
         </connector>
@@ -475,8 +531,8 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
     <recordUpdates>
         <name>Update_Rack_Layouts</name>
         <label>Update Rack Layouts</label>
-        <locationX>182</locationX>
-        <locationY>1598</locationY>
+        <locationX>446</locationX>
+        <locationY>1706</locationY>
         <connector>
             <targetReference>Get_Panel_Record_Details</targetReference>
         </connector>
@@ -488,8 +544,8 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
     <screens>
         <name>Create_Panel_Record_Screen</name>
         <label>Create Panel Record Screen</label>
-        <locationX>776</locationX>
-        <locationY>134</locationY>
+        <locationX>1172</locationX>
+        <locationY>242</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -680,8 +736,8 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
     <screens>
         <name>Error_Screen</name>
         <label>Error Screen</label>
-        <locationX>1370</locationX>
-        <locationY>674</locationY>
+        <locationX>1898</locationX>
+        <locationY>782</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -746,19 +802,74 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
+    <screens>
+        <name>Error_Screen_Empty_Parameters</name>
+        <label>Error Screen - Empty Parameters</label>
+        <locationX>50</locationX>
+        <locationY>242</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Error_Screen_Empty_Parameters_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Error_Screen_Empty_Parameters_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>1</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Error_Screen_Empty_Parameters_Section1_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>ErrorMesagge_EmptyParameters</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(180, 10, 10); font-size: 18px;&quot;&gt;To be able to execute this flow, you need to pass these parameters:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong style=&quot;color: rgb(180, 10, 10); font-size: 14px;&quot;&gt;BuildingID&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong style=&quot;color: rgb(180, 10, 10); font-size: 14px;&quot;&gt;AssetID&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong style=&quot;color: rgb(180, 10, 10); font-size: 14px;&quot;&gt;AccountID&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong style=&quot;color: rgb(180, 10, 10); font-size: 14px;&quot;&gt;HeightRU&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong style=&quot;color: rgb(180, 10, 10); font-size: 14px;&quot;&gt;StartingPositionRU&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>10</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Error_Screen_Empty_Parameters_Section1_Column3</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>1</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
     <start>
-        <locationX>650</locationX>
+        <locationX>485</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Create_Panel_Record_Screen</targetReference>
+            <targetReference>Empty_Parameters</targetReference>
         </connector>
     </start>
     <status>Active</status>
     <subflows>
         <name>DX_Create_Port_Records_from_Panel</name>
         <label>DX Create Port Records from Panel</label>
-        <locationX>182</locationX>
-        <locationY>1922</locationY>
+        <locationX>446</locationX>
+        <locationY>2030</locationY>
         <flowName>DX_Create_Port_Records_from_Panel</flowName>
         <inputAssignments>
             <name>isModModel</name>
@@ -800,8 +911,8 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
     <subflows>
         <name>DX_Error_Log_Creation</name>
         <label>Error Log Creation - Get Racks</label>
-        <locationX>1634</locationX>
-        <locationY>350</locationY>
+        <locationX>2162</locationX>
+        <locationY>458</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -837,8 +948,8 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
     <subflows>
         <name>Error_Log_Creation_Create_Panel_Record</name>
         <label>Error Log Creation - Create Panel Record</label>
-        <locationX>1106</locationX>
-        <locationY>1190</locationY>
+        <locationX>1370</locationX>
+        <locationY>1298</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -872,10 +983,47 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
         </inputAssignments>
     </subflows>
     <subflows>
+        <name>Error_Log_Creation_Get_Cabinets_from_Asset</name>
+        <label>Error Log Creation - Get Cabinets from Asset</label>
+        <locationX>1634</locationX>
+        <locationY>890</locationY>
+        <flowName>DX_Error_Log_Creation</flowName>
+        <inputAssignments>
+            <name>ErrorMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>FlowName</name>
+            <value>
+                <stringValue>DX Panel Record Creation</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>MethodName</name>
+            <value>
+                <stringValue>Get Cabinets from Asset</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>ObjectName</name>
+            <value>
+                <stringValue>Cabinets</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>TypeOfOperation</name>
+            <value>
+                <stringValue>Get Records</stringValue>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
         <name>Error_Log_Creation_Update_Asset</name>
         <label>Error Log Creation - Update Asset</label>
-        <locationX>578</locationX>
-        <locationY>1922</locationY>
+        <locationX>842</locationX>
+        <locationY>2030</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -917,8 +1065,8 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
     <subflows>
         <name>Error_Log_Creation_Update_Rack_Layouts</name>
         <label>Error Log Creation - Update Rack Layouts</label>
-        <locationX>842</locationX>
-        <locationY>1706</locationY>
+        <locationX>1106</locationX>
+        <locationY>1814</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
