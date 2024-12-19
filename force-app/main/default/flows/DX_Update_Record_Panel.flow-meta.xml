@@ -88,7 +88,7 @@
             <assignToReference>StartNumberToDelete</assignToReference>
             <operator>Subtract</operator>
             <value>
-                <numberValue>1.0</numberValue>
+                <numberValue>2.0</numberValue>
             </value>
         </assignmentItems>
         <connector>
@@ -253,7 +253,7 @@
         </rules>
         <rules>
             <name>Is_Less</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>NumberOfPorts_No_After</leftValueReference>
                 <operator>LessThan</operator>
@@ -283,25 +283,25 @@
     <formulas>
         <name>NumberOfPorts_No_After</name>
         <dataType>Number</dataType>
-        <expression>{!$Record__Prior.Number_of_Ports_Tall__c}*{!$Record__Prior.Number_of_Ports_Wide__c}/2</expression>
+        <expression>{!$Record.Number_of_Ports_Tall__c}*{!$Record.Number_of_Ports_Wide__c}</expression>
         <scale>0</scale>
     </formulas>
     <formulas>
         <name>NumberOfPorts_No_Before</name>
         <dataType>Number</dataType>
-        <expression>{!$Record__Prior.Number_of_Ports_Tall__c}*{!$Record__Prior.Number_of_Ports_Tall__c}/2</expression>
+        <expression>{!$Record__Prior.Number_of_Ports_Tall__c}*{!$Record__Prior.Number_of_Ports_Wide__c}</expression>
         <scale>2</scale>
     </formulas>
     <formulas>
         <name>NumberOfPorts_Yes_After</name>
         <dataType>Number</dataType>
-        <expression>{!$Record.Number_of_Mods__c}*{!$Record.Number_of_Ports_Wide_per_Mod__c}*{!$Record.Number_of_Ports_Tall_per_Mod__c}/2</expression>
+        <expression>{!$Record.Number_of_Ports_Wide_per_Mod__c}*{!$Record.Number_of_Ports_Tall_per_Mod__c}</expression>
         <scale>0</scale>
     </formulas>
     <formulas>
         <name>NumberOfPorts_Yes_Before</name>
         <dataType>Number</dataType>
-        <expression>{!$Record__Prior.Number_of_Mods__c}*{!$Record__Prior.Number_of_Ports_Wide_per_Mod__c}*{!$Record__Prior.Number_of_Ports_Tall_per_Mod__c}/2</expression>
+        <expression>{!$Record__Prior.Number_of_Ports_Wide_per_Mod__c}*{!$Record__Prior.Number_of_Ports_Tall_per_Mod__c}</expression>
         <scale>0</scale>
     </formulas>
     <formulas>
