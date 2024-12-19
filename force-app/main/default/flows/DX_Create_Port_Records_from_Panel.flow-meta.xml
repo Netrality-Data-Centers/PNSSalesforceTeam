@@ -414,7 +414,7 @@
             <assignToReference>NumberOfPorts</assignToReference>
             <operator>Subtract</operator>
             <value>
-                <numberValue>1.0</numberValue>
+                <numberValue>2.0</numberValue>
             </value>
         </assignmentItems>
         <connector>
@@ -431,7 +431,7 @@
             <assignToReference>NumberOfPorts</assignToReference>
             <operator>Subtract</operator>
             <value>
-                <numberValue>1.0</numberValue>
+                <numberValue>2.0</numberValue>
             </value>
         </assignmentItems>
         <connector>
@@ -610,7 +610,7 @@
     <formulas>
         <name>PortShortName</name>
         <dataType>String</dataType>
-        <expression>TEXT({!NumberOfPorts} - 1) + &quot;/&quot; + TEXT({!NumberOfPorts})</expression>
+        <expression>TEXT({!NumberOfPorts} - 1)  + &quot;/&quot; + TEXT({!NumberOfPorts})</expression>
     </formulas>
     <interviewLabel>DX Create Port Records from Panel {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Create Port Records from Panel</label>
@@ -801,6 +801,9 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
     </variables>
     <variables>
         <name>PanelID</name>
@@ -808,5 +811,13 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>RightNumber</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
     </variables>
 </Flow>
