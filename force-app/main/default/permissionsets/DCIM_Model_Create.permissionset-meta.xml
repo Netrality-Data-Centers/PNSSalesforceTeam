@@ -772,11 +772,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>DC_POE_Allocation__c.Inside_Plant__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>DC_Panel__c.Account__c</field>
         <readable>true</readable>
