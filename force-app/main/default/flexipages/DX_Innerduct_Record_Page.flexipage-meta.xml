@@ -52,6 +52,26 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Asset__c</fieldItem>
+                <identifier>RecordAsset_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Status__c</fieldItem>
+                <identifier>RecordStatus_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.ID__c</fieldItem>
@@ -74,28 +94,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Asset__c</fieldItem>
-                <identifier>RecordAsset_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.Color__c</fieldItem>
                 <identifier>RecordColor_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Z_Side_Type__c</fieldItem>
-                <identifier>RecordZ_Side_Type_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-d9744bfe-2996-4177-89e9-3c69d997ba26</name>
@@ -106,50 +106,37 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.OwnerId</fieldItem>
-                <identifier>RecordOwnerIdField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Status__c</fieldItem>
-                <identifier>RecordStatus_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Inside_Plant__c</fieldItem>
-                <identifier>RecordInside_Plant_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Fiber_Count__c</fieldItem>
-                <identifier>RecordFiber_Count_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.A_Side_Data_Hall__c</fieldItem>
                 <identifier>RecordA_Side_Data_Hall_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Z_Side_Data_Hall__c</fieldItem>
+                <identifier>RecordZ_Side_Data_Hall_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Z_Side_Type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Datahall</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Z_Side_Type__c</fieldItem>
+                <identifier>RecordZ_Side_Type_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -175,15 +162,18 @@
                     <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Z_Side_Data_Hall__c</fieldItem>
-                <identifier>RecordZ_Side_Data_Hall_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Z_Side_Type__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Datahall</rightValue>
-                    </criteria>
-                </visibilityRule>
+                <fieldItem>Record.Inside_Plant__c</fieldItem>
+                <identifier>RecordInside_Plant_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Fiber_Count__c</fieldItem>
+                <identifier>RecordFiber_Count_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-07a364d2-b91c-435f-9e05-6fe0fa229197</name>
