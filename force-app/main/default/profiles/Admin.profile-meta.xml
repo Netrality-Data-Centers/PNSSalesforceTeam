@@ -6,6 +6,10 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>CaseRelatedAssetSelectionController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_BusinesHoursHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -22,7 +26,15 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DX_DCIM_ActionHelper_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_DCIM_DataAccess</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_DCIM_DataAccess_tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -30,7 +42,15 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DX_PanelSelectorCabinets_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_PanelSelectorFloorPOE_ctr</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_PanelSelectorFloorPOE_tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -38,11 +58,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DX_PrimaryAccountContactHelper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>DX_RelatedAccountsContactHelper</apexClass>
+        <apexClass>DX_PanelSelectorRacks_tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1938,19 +1954,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DC_Cabinet__c.Access_Code__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>DC_Cabinet__c.Account__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DC_Cabinet__c.Asset__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1965,7 +1981,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DC_Cabinet__c.Data_Hall__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1973,19 +1989,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DC_Cabinet__c.Redundancy_Factor__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>DC_Cabinet__c.Service_Order__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>DC_Cabinet__c.Square_Footage__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2143,6 +2159,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Data_Hall__c.X2D_Drawing__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>DC_Fiber_Pair__c.Asset__c</field>
         <readable>true</readable>
@@ -2175,6 +2196,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DC_Floor__c.Floor_description__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Floor__c.X2D_Drawing__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2270,17 +2296,17 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DC_Panel__c.Account__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DC_Panel__c.Asset__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DC_Panel__c.Connector_Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2310,17 +2336,17 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DC_Panel__c.Service_Order__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DC_Panel__c.Status__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>DC_Panel__c.Total_Number_of_Ports__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3010,6 +3036,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>DX_Site_Building_Relationship__mdt-DX Site Building Relationship Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Global-Global Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Innerduct__c-Innerduct Layout</layout>
