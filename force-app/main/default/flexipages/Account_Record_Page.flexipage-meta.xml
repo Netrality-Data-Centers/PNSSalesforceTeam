@@ -148,6 +148,12 @@
                 <identifier>RecordLegacy_Contegix_Customer_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Date_of_First_Closed_Won_Opp__c</fieldItem>
+                <identifier>RecordDate_of_First_Closed_Won_Opp__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-f7238a6b-e0d8-497f-9230-e3a9ed5a2006</name>
         <type>Facet</type>
     </flexiPageRegions>

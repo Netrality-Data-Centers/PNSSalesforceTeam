@@ -14,7 +14,7 @@
             <name>Passed</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>ServiceRequestID</leftValueReference>
+                <leftValueReference>recordId</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -294,7 +294,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>ServiceRequestID</elementReference>
+                <elementReference>recordId</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -602,7 +602,7 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
-        <name>ServiceRequestID</name>
+        <name>recordId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
