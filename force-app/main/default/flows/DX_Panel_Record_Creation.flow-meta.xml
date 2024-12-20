@@ -344,7 +344,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
         <inputAssignments>
             <field>Number_of_Mods__c</field>
             <value>
-                <elementReference>CreatedPanel.Number_of_Mods__c</elementReference>
+                <elementReference>Number_of_Mods</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -356,7 +356,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
         <inputAssignments>
             <field>Number_of_Ports_Tall_per_Mod__c</field>
             <value>
-                <elementReference>CreatedPanel.Number_of_Ports_Tall_per_Mod__c</elementReference>
+                <elementReference>Number_of_Ports_Tall_per_Mod</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -368,7 +368,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
         <inputAssignments>
             <field>Number_of_Ports_Wide_per_Mod__c</field>
             <value>
-                <elementReference>CreatedPanel.Number_of_Ports_Wide_per_Mod__c</elementReference>
+                <elementReference>Number_of_Ports_Wide_per_Mod</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -656,10 +656,13 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                 <name>Dimensions_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Number_of_Mods</name>
+                    <dataType>Number</dataType>
+                    <fieldText>Number of Mods</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>CreatedPanel.Number_of_Mods__c</objectFieldReference>
+                    <isRequired>true</isRequired>
+                    <scale>0</scale>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -672,10 +675,13 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Number_of_Ports_Tall_per_Mod</name>
+                    <dataType>Number</dataType>
+                    <fieldText>Number of Ports Tall - per Mod</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>CreatedPanel.Number_of_Ports_Tall_per_Mod__c</objectFieldReference>
+                    <isRequired>true</isRequired>
+                    <scale>0</scale>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
@@ -688,10 +694,13 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Number_of_Ports_Wide_per_Mod</name>
+                    <dataType>Number</dataType>
+                    <fieldText>Number of Ports Wide - per Mod</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>CreatedPanel.Number_of_Ports_Wide_per_Mod__c</objectFieldReference>
+                    <isRequired>true</isRequired>
+                    <scale>0</scale>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
