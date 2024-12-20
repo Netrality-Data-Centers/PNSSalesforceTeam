@@ -6,6 +6,10 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>CaseRelatedAssetSelectionController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_BusinesHoursHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -22,7 +26,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DX_DCIM_ActionHelper_tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_DCIM_DataAccess</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_DCIM_DataAccess_tst</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -30,7 +42,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DX_PanelSelectorCabinets_tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_PanelSelectorFloorPOE_ctr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_PanelSelectorFloorPOE_tst</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -38,11 +58,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DX_PrimaryAccountContactHelper</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>DX_RelatedAccountsContactHelper</apexClass>
+        <apexClass>DX_PanelSelectorRacks_tst</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -270,6 +286,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.DOZISF__ZoomInfo_Last_Updated__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Date_of_First_Closed_Won_Opp__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1919,6 +1940,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Contact.Source_URL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>DC_Asset_History__c.Asset_Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2144,6 +2170,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>DC_Data_Hall__c.X2D_Drawing__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>DC_Fiber_Pair__c.Asset__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2175,6 +2206,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DC_Floor__c.Floor_description__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Floor__c.X2D_Drawing__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2255,11 +2291,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DC_POE_Allocation__c.Floor__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DC_POE_Allocation__c.Inside_Plant__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2699,7 +2730,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Opportunity.Compelling_Event_Details__c</field>
+        <field>Lead.Source_URL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3020,6 +3051,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>DX_Site_Building_Relationship__mdt-DX Site Building Relationship Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Global-Global Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Innerduct__c-Innerduct Layout</layout>
