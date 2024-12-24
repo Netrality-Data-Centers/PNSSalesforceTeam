@@ -6,6 +6,7 @@
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
     <excludeButtons>Edit</excludeButtons>
+    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -296,39 +297,44 @@
             <sortOrder>6</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>NewTask</actionName>
+            <actionName>Case.New_Cross_Connect</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>7</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>SendEmail</actionName>
+            <actionName>NewTask</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>8</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>LogACall</actionName>
+            <actionName>SendEmail</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>9</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>NewEvent</actionName>
+            <actionName>LogACall</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>10</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
+            <actionName>NewEvent</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>11</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
             <actionName>Clone</actionName>
             <actionType>StandardButton</actionType>
-            <sortOrder>11</sortOrder>
+            <sortOrder>12</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
             <actionName>Case.Authorized_Users</actionName>
             <actionType>QuickAction</actionType>
-            <sortOrder>12</sortOrder>
+            <sortOrder>13</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
             <actionName>Case.Allocate_Assets</actionName>
             <actionType>QuickAction</actionType>
-            <sortOrder>13</sortOrder>
+            <sortOrder>14</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <quickActionList/>
