@@ -2,6 +2,38 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <apiVersion>62.0</apiVersion>
     <decisions>
+        <name>Building_Info_Found</name>
+        <label>Building Info Found?</label>
+        <locationX>314</locationX>
+        <locationY>566</locationY>
+        <defaultConnector>
+            <targetReference>Building_Info_Not_Found</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_BuildingInfoFound</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Building_Name_Related_to_Service_Request_Site</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>BuildingID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Cross_Connect_Record_Creation</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Required_parameters_passed</name>
         <label>Required parameters passed?</label>
         <locationX>314</locationX>
