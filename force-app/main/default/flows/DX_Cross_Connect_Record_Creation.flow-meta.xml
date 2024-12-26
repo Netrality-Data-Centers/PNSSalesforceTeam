@@ -12,7 +12,7 @@
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes_BuildingInfoFound</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>Get_Building_Name_Related_to_Service_Request_Site</leftValueReference>
                 <operator>IsNull</operator>
