@@ -164,20 +164,34 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Number_of_Ports_Wide__c</fieldItem>
                 <identifier>RecordNumber_of_Ports_Wide_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Mod_Model__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>No</rightValue>
+                    </criteria>
+                </visibilityRule>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Number_of_Ports_Tall__c</fieldItem>
                 <identifier>RecordNumber_of_Ports_Tall_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Mod_Model__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>No</rightValue>
+                    </criteria>
+                </visibilityRule>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
