@@ -5,7 +5,17 @@
     <formulas>
         <name>MRISuiteID</name>
         <dataType>String</dataType>
-        <expression>&quot;A&quot; + {!$Record.Data_Hall__r.DC_Floor__r.Building__r.Building_Address_No__c} + RIGHT({!$Record.Id}, 5)</expression>
+        <expression>&quot;A&quot; &amp;
+IF(
+LEN({!$Record.Data_Hall__r.DC_Floor__r.Building__r.Building_Address_No__c}) &gt; 4,
+LEFT({!$Record.Data_Hall__r.DC_Floor__r.Building__r.Building_Address_No__c}, 4),
+IF(
+LEN({!$Record.Data_Hall__r.DC_Floor__r.Building__r.Building_Address_No__c}) &lt; 4,
+LPAD({!$Record.Data_Hall__r.DC_Floor__r.Building__r.Building_Address_No__c}, 4, &quot;0&quot;),
+{!$Record.Data_Hall__r.DC_Floor__r.Building__r.Building_Address_No__c}
+)
+) &amp;
+RIGHT({!$Record.Id}, 5)</expression>
     </formulas>
     <interviewLabel>DX Create MRI ID - Roof Product {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Create MRI ID - Roof Product</label>
@@ -54,7 +64,7 @@
         <recordTriggerType>Create</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <name>Error_Log_Creation</name>
         <label>Error Log Creation</label>

@@ -2,9 +2,41 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <apiVersion>62.0</apiVersion>
     <decisions>
+        <name>Building_Info_Found</name>
+        <label>Building Info Found?</label>
+        <locationX>314</locationX>
+        <locationY>566</locationY>
+        <defaultConnector>
+            <targetReference>Building_Info_Not_Found</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_BuildingInfoFound</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Building_Name_Related_to_Service_Request_Site</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>BuildingID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Cross_Connect_Record_Creation</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Required_parameters_passed</name>
         <label>Required parameters passed?</label>
-        <locationX>314</locationX>
+        <locationX>578</locationX>
         <locationY>134</locationY>
         <defaultConnector>
             <targetReference>Required_Parameters</targetReference>
@@ -14,7 +46,7 @@
             <name>Passed</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>ServiceRequestID</leftValueReference>
+                <leftValueReference>recordId</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -157,7 +189,7 @@
         <name>Create_Cross_Connect</name>
         <label>Create Cross Connect</label>
         <locationX>50</locationX>
-        <locationY>674</locationY>
+        <locationY>782</locationY>
         <faultConnector>
             <targetReference>Log_Error</targetReference>
         </faultConnector>
@@ -239,11 +271,11 @@
     <recordLookups>
         <name>Get_Building_Info</name>
         <label>Get Building Info</label>
-        <locationX>50</locationX>
+        <locationX>314</locationX>
         <locationY>458</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Cross_Connect_Record_Creation</targetReference>
+            <targetReference>Building_Info_Found</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -262,7 +294,7 @@
     <recordLookups>
         <name>Get_Building_Name_Related_to_Service_Request_Site</name>
         <label>Get Building Name Related to Service Request Site</label>
-        <locationX>50</locationX>
+        <locationX>314</locationX>
         <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -283,7 +315,7 @@
     <recordLookups>
         <name>Get_Service_Request_Info</name>
         <label>Get Service Request Info</label>
-        <locationX>50</locationX>
+        <locationX>314</locationX>
         <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -294,7 +326,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>ServiceRequestID</elementReference>
+                <elementReference>recordId</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -302,10 +334,26 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <screens>
+        <name>Building_Info_Not_Found</name>
+        <label>Building Info Not Found</label>
+        <locationX>578</locationX>
+        <locationY>674</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>BuilldingInfoNotFound</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(234, 53, 53);&quot;&gt;Building Info was not found. Please verify that Service Request&apos;s Site has a valid value for an existing Building Name&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
         <name>Cross_Connect_Record_Creation</name>
         <label>Cross Connect Record Creation</label>
         <locationX>50</locationX>
-        <locationY>566</locationY>
+        <locationY>674</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -536,7 +584,7 @@
     <screens>
         <name>Required_Parameters</name>
         <label>Required Parameters</label>
-        <locationX>578</locationX>
+        <locationX>842</locationX>
         <locationY>242</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -550,7 +598,7 @@
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>188</locationX>
+        <locationX>452</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Required_parameters_passed</targetReference>
@@ -561,7 +609,7 @@
         <name>Log_Error</name>
         <label>Log Error</label>
         <locationX>314</locationX>
-        <locationY>782</locationY>
+        <locationY>890</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -602,7 +650,7 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
-        <name>ServiceRequestID</name>
+        <name>recordId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
