@@ -58,6 +58,14 @@
         <connector>
             <targetReference>Asset_fields_in_blank</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Asset__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
         <object>Innerduct__c</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
