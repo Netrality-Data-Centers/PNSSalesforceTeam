@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
+    <assignments>
+        <name>Assign_Item_to_Selected_Asset_Id</name>
+        <label>Assign Item to Selected Asset Id</label>
+        <locationX>138</locationX>
+        <locationY>782</locationY>
+        <assignmentItems>
+            <assignToReference>selectedAssetId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_over_the_collection_of_Assets_for_the_single_Asset.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_over_the_collection_of_Assets_for_the_single_Asset</targetReference>
+        </connector>
+    </assignments>
     <decisions>
-        <name>Check_if_this_is_a_single_Asset_Assignment_or_Multiple</name>
-        <label>Check if this is a single Asset Assignment, or Multiple</label>
+        <name>Check_how_many_assets_were_selected</name>
+        <label>Check how many assets were selected</label>
         <locationX>182</locationX>
         <locationY>566</locationY>
         <defaultConnector>
-            <targetReference>Multi_Asset_Assignment</targetReference>
+            <targetReference>Multi_Asset_Assignment_Screen</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>Multiple</defaultConnectorLabel>
+        <defaultConnectorLabel>Multiple Assets were Selected</defaultConnectorLabel>
         <rules>
-            <name>Single</name>
+            <name>Single_Asset_was_Selected</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>caseAssetSelection.numberOfSelectedAssets</leftValueReference>
@@ -21,9 +37,9 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Asset_Assignment_Flow</targetReference>
+                <targetReference>Loop_over_the_collection_of_Assets_for_the_single_Asset</targetReference>
             </connector>
-            <label>Single</label>
+            <label>Single Asset was Selected</label>
         </rules>
     </decisions>
     <dynamicChoiceSets>
@@ -64,6 +80,20 @@
     <environments>Default</environments>
     <interviewLabel>Allocate Assets from Case {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Allocate Assets from Case</label>
+    <loops>
+        <name>Loop_over_the_collection_of_Assets_for_the_single_Asset</name>
+        <label>Loop over the collection of Assets for the single Asset</label>
+        <locationX>50</locationX>
+        <locationY>674</locationY>
+        <collectionReference>caseAssetSelection.selectedAssets</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_Item_to_Selected_Asset_Id</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Asset_Assignment_Flow</targetReference>
+        </noMoreValuesConnector>
+    </loops>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -118,7 +148,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>recordId.DX_Related_Service_Order__c</elementReference>
+                <elementReference>recordId.DX_Service_Order__c</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -126,13 +156,18 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <screens>
-        <name>Multi_Asset_Assignment</name>
+        <name>Multi_Asset_Assignment_Screen</name>
         <label>Multi-Asset Assignment</label>
         <locationX>314</locationX>
         <locationY>674</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
+        <fields>
+            <name>debugText</name>
+            <fieldText>&lt;p&gt;Multi Asset Assignment&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
         <fields>
             <name>multiAssetAssignment</name>
             <extensionName>c:multiAssetAssignment</extensionName>
@@ -143,12 +178,30 @@
                     <elementReference>caseAssetSelection.selectedAssets</elementReference>
                 </value>
             </inputParameters>
+            <inputParameters>
+                <name>hallId</name>
+                <value>
+                    <elementReference>Building_Floor_and_DataHall_Selection.dataHallId</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>buildingId</name>
+                <value>
+                    <elementReference>Building_Floor_and_DataHall_Selection.buildingId</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>floorId</name>
+                <value>
+                    <elementReference>Building_Floor_and_DataHall_Selection.floorId</elementReference>
+                </value>
+            </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
         <showFooter>false</showFooter>
-        <showHeader>false</showHeader>
+        <showHeader>true</showHeader>
     </screens>
     <screens>
         <name>Select_Assets_to_Assign</name>
@@ -185,12 +238,12 @@
             <targetReference>Get_Service_Order_from_Case</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <name>Asset_Assignment_Flow</name>
         <label>Asset Assignment Flow</label>
         <locationX>50</locationX>
-        <locationY>674</locationY>
+        <locationY>974</locationY>
         <flowName>Asset_Assignment</flowName>
         <inputAssignments>
             <name>buildingId</name>
@@ -211,9 +264,9 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <name>selectedAssets</name>
+            <name>recordId</name>
             <value>
-                <elementReference>caseAssetSelection.selectedAssets</elementReference>
+                <elementReference>selectedAssetId</elementReference>
             </value>
         </inputAssignments>
     </subflows>
@@ -223,7 +276,7 @@
         <locationX>182</locationX>
         <locationY>458</locationY>
         <connector>
-            <targetReference>Check_if_this_is_a_single_Asset_Assignment_or_Multiple</targetReference>
+            <targetReference>Check_how_many_assets_were_selected</targetReference>
         </connector>
         <flowName>Building_Floor_and_DataHall_Selection</flowName>
         <inputAssignments>
@@ -242,6 +295,13 @@
         <isInput>true</isInput>
         <isOutput>false</isOutput>
         <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <name>selectedAssetId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <name>selectedServiceOrderLineItemIds</name>
