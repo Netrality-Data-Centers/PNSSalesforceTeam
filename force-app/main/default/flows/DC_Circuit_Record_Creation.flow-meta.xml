@@ -1,7 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
+    <assignments>
+        <name>Set_Fields_DC_Circuit</name>
+        <label>Set Fields DC Circuit</label>
+        <locationX>182</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>DC_Circuit_obj.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>NameCircuit</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Obj_Circuit</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>What_Associated_Space_Type_It_Is</name>
+        <label>What Associated Space Type It Is?</label>
+        <locationX>182</locationX>
+        <locationY>458</locationY>
+        <defaultConnector>
+            <targetReference>Get_Rack</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>It is Rack</defaultConnectorLabel>
+        <rules>
+            <name>Is_It_Cabinet</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>DC_Circuit_obj.Associated_Space_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cabinet</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Cabinet</targetReference>
+            </connector>
+            <label>Is It Cabinet?</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>Value_Related_MRI_Suite_ID</name>
+        <dataType>String</dataType>
+        <expression>IF(TEXT({!DC_Circuit_obj.Associated_Space_Type__c}) = &quot;Cabinet&quot;, {!Get_Cabinet.MRI_Suite_ID__c}, {!Get_Rack.MRI_Suite_ID__c})</expression>
+    </formulas>
     <interviewLabel>DC Circuit Record Creation {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DC Circuit Record Creation</label>
     <processMetadataValues>
@@ -26,10 +72,10 @@
     <recordCreates>
         <name>Create_Obj_Circuit</name>
         <label>Create Obj Circuit</label>
-        <locationX>176</locationX>
-        <locationY>242</locationY>
+        <locationX>182</locationX>
+        <locationY>350</locationY>
         <connector>
-            <targetReference>Update_Asset_Record</targetReference>
+            <targetReference>What_Associated_Space_Type_It_Is</targetReference>
         </connector>
         <faultConnector>
             <targetReference>Error_Log_Creation_Create_Circuit</targetReference>
@@ -96,11 +142,53 @@
         </inputAssignments>
         <object>DC_DC_Circuit__c</object>
     </recordCreates>
+    <recordLookups>
+        <name>Get_Cabinet</name>
+        <label>Get Cabinet</label>
+        <locationX>50</locationX>
+        <locationY>566</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Asset_Record</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>dx_PanelSelectorCabinets.cabinetId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>DC_Cabinet__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Rack</name>
+        <label>Get Rack</label>
+        <locationX>314</locationX>
+        <locationY>566</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Asset_Record</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>DC_Circuit_obj.Rack__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>DC_Rack__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>Update_Asset_Record</name>
         <label>Update Asset Record</label>
-        <locationX>176</locationX>
-        <locationY>350</locationY>
+        <locationX>182</locationX>
+        <locationY>758</locationY>
         <faultConnector>
             <targetReference>Error_Log_Creation_Update_Asset</targetReference>
         </faultConnector>
@@ -127,7 +215,7 @@
         <inputAssignments>
             <field>MRI_Suite_ID__c</field>
             <value>
-                <elementReference>DC_Circuit_obj.Related_MRI_Suite_ID__c</elementReference>
+                <elementReference>Value_Related_MRI_Suite_ID</elementReference>
             </value>
         </inputAssignments>
         <object>Asset</object>
@@ -135,13 +223,13 @@
     <screens>
         <name>DC_Circuit</name>
         <label>DC Circuit</label>
-        <locationX>176</locationX>
+        <locationX>182</locationX>
         <locationY>134</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Create_Obj_Circuit</targetReference>
+            <targetReference>Set_Fields_DC_Circuit</targetReference>
         </connector>
         <fields>
             <name>DC_Circuit_Section1</name>
@@ -150,10 +238,12 @@
                 <name>DC_Circuit_Section1_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>NameCircuit</name>
+                    <dataType>String</dataType>
+                    <fieldText>Name</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>DC_Circuit_obj.Name</objectFieldReference>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
@@ -201,6 +291,16 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <objectFieldReference>DC_Circuit_obj.Rack__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>DC_Circuit_obj.Associated_Space_Type__c</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Rack</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -237,7 +337,7 @@
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>50</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>DC_Circuit</targetReference>
@@ -247,8 +347,8 @@
     <subflows>
         <name>Error_Log_Creation_Create_Circuit</name>
         <label>Error Log Creation Create Circuit</label>
-        <locationX>704</locationX>
-        <locationY>350</locationY>
+        <locationX>842</locationX>
+        <locationY>458</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -290,8 +390,8 @@
     <subflows>
         <name>Error_Log_Creation_Update_Asset</name>
         <label>Error Log Creation Update Asset</label>
-        <locationX>440</locationX>
-        <locationY>458</locationY>
+        <locationX>578</locationX>
+        <locationY>866</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
