@@ -5,6 +5,11 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningService</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
     <classAccesses>
         <apexClass>CaseRelatedAssetSelectionController</apexClass>
         <enabled>false</enabled>
@@ -15,6 +20,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_BusinesHoursHelper_tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_ConnectPorts_ctr</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -51,6 +60,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_PanelSelectorFloorPOE_tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_PanelSelectorMeetMeRoomPanel_ctr</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -2220,6 +2233,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>DC_Homerun__c.Available_Fiber_Pairs__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>DC_Homerun__c.Connected_Service_Order__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2330,7 +2348,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>DC_Panel__c.Number_of_Ports_Tall__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DC_Panel__c.Number_of_Ports_Tall_per_Mod__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_Panel__c.Number_of_Ports_Wide__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2735,6 +2763,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>MRILedger__c.MRI_Transaction_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Lost_to_Competitor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Product2.DC_Allocation_Required__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3057,6 +3095,30 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Innerduct__c-Innerduct Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Expansion Opportunity Layout</layout>
+        <recordType>Opportunity.Expansion</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Expansion Opportunity Layout</layout>
+        <recordType>Opportunity.Minimum_Metered_Bookings</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Expansion Opportunity Layout</layout>
+        <recordType>Opportunity.Revenue_Share</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-New Logo Opportunity Layout</layout>
+        <recordType>Opportunity.New_Logo</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-New Market Opportunity Layout</layout>
+        <recordType>Opportunity.New_Market</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Renewal Opportunity Layout</layout>
+        <recordType>Opportunity.Renewal</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Product2-Product Layout</layout>
@@ -3585,6 +3647,46 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.X717_S_Wells</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.Churn</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.Expansion</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.Minimum_Metered_Bookings</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Opportunity.New_Logo</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.New_Market</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.Out_of_Market</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.Renewal</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.Revenue_Share</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
