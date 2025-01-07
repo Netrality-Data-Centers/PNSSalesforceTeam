@@ -1939,11 +1939,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.Source_URL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>DC_Asset_History__c.Asset_Type__c</field>
         <readable>false</readable>
@@ -2330,7 +2325,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>DC_Panel__c.Number_of_Ports_Tall__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DC_Panel__c.Number_of_Ports_Tall_per_Mod__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_Panel__c.Number_of_Ports_Wide__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2730,11 +2735,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead.Source_URL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Product2.DC_Allocation_Required__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3051,9 +3051,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>DX_Site_Building_Relationship__mdt-DX Site Building Relationship Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Global-Global Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Innerduct__c-Innerduct Layout</layout>
