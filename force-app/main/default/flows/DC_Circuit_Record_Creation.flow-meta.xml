@@ -1,6 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
+    <assignments>
+        <name>Set_Fields_DC_Circuit</name>
+        <label>Set Fields DC Circuit</label>
+        <locationX>446</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>DC_Circuit_obj.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>NameCircuit</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Obj_Circuit</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>What_Associated_Space_Type_Is</name>
+        <label>What Associated Space Type Is?</label>
+        <locationX>248</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <targetReference>Set_Fields_DC_Circuit</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Is It Cabinet?</defaultConnectorLabel>
+        <rules>
+            <name>Is_It_Rack</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>DC_Circuit_obj.Associated_Space_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rack</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Rack_Selected_Screen</targetReference>
+            </connector>
+            <label>Is It Rack?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>What_Associated_Space_Type_It_Is</name>
+        <label>What Associated Space Type It Is?</label>
+        <locationX>446</locationX>
+        <locationY>566</locationY>
+        <defaultConnector>
+            <targetReference>Get_Rack</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>It is Rack</defaultConnectorLabel>
+        <rules>
+            <name>Is_It_Cabinet</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>DC_Circuit_obj.Associated_Space_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cabinet</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Cabinet</targetReference>
+            </connector>
+            <label>Is It Cabinet?</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
     <interviewLabel>DC Circuit Record Creation {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DC Circuit Record Creation</label>
@@ -26,8 +92,8 @@
     <recordCreates>
         <name>Create_Obj_Circuit</name>
         <label>Create Obj Circuit</label>
-        <locationX>176</locationX>
-        <locationY>242</locationY>
+        <locationX>446</locationX>
+        <locationY>458</locationY>
         <connector>
             <targetReference>Update_Asset_Record</targetReference>
         </connector>
@@ -96,11 +162,53 @@
         </inputAssignments>
         <object>DC_DC_Circuit__c</object>
     </recordCreates>
+    <recordLookups>
+        <name>Get_Cabinet</name>
+        <label>Get Cabinet</label>
+        <locationX>314</locationX>
+        <locationY>674</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Asset_Record</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>dx_PanelSelectorCabinets.cabinetId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>DC_Cabinet__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Rack</name>
+        <label>Get Rack</label>
+        <locationX>578</locationX>
+        <locationY>674</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Asset_Record</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>DC_Circuit_obj.Rack__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>DC_Rack__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>Update_Asset_Record</name>
         <label>Update Asset Record</label>
-        <locationX>176</locationX>
-        <locationY>350</locationY>
+        <locationX>446</locationX>
+        <locationY>866</locationY>
         <faultConnector>
             <targetReference>Error_Log_Creation_Update_Asset</targetReference>
         </faultConnector>
@@ -135,13 +243,13 @@
     <screens>
         <name>DC_Circuit</name>
         <label>DC Circuit</label>
-        <locationX>176</locationX>
+        <locationX>248</locationX>
         <locationY>134</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Create_Obj_Circuit</targetReference>
+            <targetReference>What_Associated_Space_Type_Is</targetReference>
         </connector>
         <fields>
             <name>DC_Circuit_Section1</name>
@@ -236,8 +344,25 @@
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
-    <start>
+    <screens>
+        <name>Rack_Selected_Screen</name>
+        <label>Rack Selected</label>
         <locationX>50</locationX>
+        <locationY>350</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Message</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: rgba(9, 30, 66, 0.06); font-size: 14px; font-family: -apple-system, &amp;quot;system-ui&amp;quot;, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, &amp;quot;Fira Sans&amp;quot;, &amp;quot;Droid Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; color: rgb(23, 43, 77);&quot;&gt;Please contact your system admin to create a DC Circuit associated with Rack&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <nextOrFinishButtonLabel>Close</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>122</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>DC_Circuit</targetReference>
@@ -247,8 +372,8 @@
     <subflows>
         <name>Error_Log_Creation_Create_Circuit</name>
         <label>Error Log Creation Create Circuit</label>
-        <locationX>704</locationX>
-        <locationY>350</locationY>
+        <locationX>1106</locationX>
+        <locationY>566</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -290,8 +415,8 @@
     <subflows>
         <name>Error_Log_Creation_Update_Asset</name>
         <label>Error Log Creation Update Asset</label>
-        <locationX>440</locationX>
-        <locationY>458</locationY>
+        <locationX>842</locationX>
+        <locationY>974</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
