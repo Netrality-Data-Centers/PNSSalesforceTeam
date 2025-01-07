@@ -27,6 +27,13 @@
                 <stringValue>Cabinet</stringValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CircuitBreakerRecord.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Name</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Create_Circuit_Breaker_Record</targetReference>
         </connector>
@@ -187,10 +194,12 @@
                 <name>Create_Circuit_Breacker_Section1_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Name</name>
+                    <dataType>String</dataType>
+                    <fieldText>Name</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>CircuitBreakerRecord.Name</objectFieldReference>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>

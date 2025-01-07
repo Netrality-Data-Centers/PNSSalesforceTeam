@@ -62,9 +62,16 @@
         <name>BuildingCS</name>
         <dataType>String</dataType>
         <displayField>Name</displayField>
-        <filterLogic>and</filterLogic>
+        <filterLogic>or</filterLogic>
         <filters>
             <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Building_Name_Related_to_Service_Request_Site.Building__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Address__c</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>Get_Building_Name_Related_to_Service_Request_Site.Building__c</elementReference>
@@ -277,9 +284,16 @@
         <connector>
             <targetReference>Building_Info_Found</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
+        <filterLogic>or</filterLogic>
         <filters>
             <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Building_Name_Related_to_Service_Request_Site.Building__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Address__c</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>Get_Building_Name_Related_to_Service_Request_Site.Building__c</elementReference>
