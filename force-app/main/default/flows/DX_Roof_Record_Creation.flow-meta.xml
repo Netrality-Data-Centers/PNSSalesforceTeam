@@ -136,7 +136,7 @@
         <inputAssignments>
             <field>Name</field>
             <value>
-                <elementReference>RoofRecords.Name</elementReference>
+                <elementReference>Name</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -304,10 +304,12 @@
                 <name>Record_Creation_Section1_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
+                    <name>Name</name>
+                    <dataType>String</dataType>
+                    <fieldText>Name</fieldText>
+                    <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>RoofRecords.Name</objectFieldReference>
+                    <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
