@@ -21,7 +21,7 @@
         <name>Set_Innerduct_Fields</name>
         <label>Set Innerduct Fields</label>
         <locationX>176</locationX>
-        <locationY>974</locationY>
+        <locationY>1190</locationY>
         <assignmentItems>
             <assignToReference>ObjInnerduct.Related_MRI_Suite_ID__c</assignToReference>
             <operator>Assign</operator>
@@ -47,6 +47,14 @@
             <targetReference>Create_Innerduct</targetReference>
         </connector>
     </assignments>
+    <dynamicChoiceSets>
+        <name>ChoiceSet_Z_Side_POE_Allocation</name>
+        <collectionReference>Get_POE_Allocation</collectionReference>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <object>DC_POE_Allocation__c</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
     <dynamicChoiceSets>
         <name>ChoiceSetAsset</name>
         <dataType>String</dataType>
@@ -110,7 +118,7 @@
         <name>Create_Innerduct</name>
         <label>Create Innerduct</label>
         <locationX>176</locationX>
-        <locationY>1082</locationY>
+        <locationY>1298</locationY>
         <connector>
             <targetReference>Update_Asset</targetReference>
         </connector>
@@ -123,7 +131,7 @@
         <name>Get_Cabinet</name>
         <label>Get Cabinet</label>
         <locationX>176</locationX>
-        <locationY>866</locationY>
+        <locationY>1082</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_Innerduct_Fields</targetReference>
@@ -144,7 +152,7 @@
         <name>Get_Cages</name>
         <label>Get Cages</label>
         <locationX>176</locationX>
-        <locationY>758</locationY>
+        <locationY>974</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Cabinet</targetReference>
@@ -175,7 +183,7 @@
         <locationY>542</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Innerduct_Fields</targetReference>
+            <targetReference>Get_POE_Allocation</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -210,11 +218,32 @@
         <object>DC_Floor__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>Get_POE_Allocation</name>
+        <label>Get POE Allocation</label>
+        <locationX>176</locationX>
+        <locationY>758</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Innerduct_Fields</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Floor__c</field>
+            <operator>In</operator>
+            <value>
+                <elementReference>lstFloorsId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>DC_POE_Allocation__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>Update_Asset</name>
         <label>Update Asset</label>
         <locationX>176</locationX>
-        <locationY>1190</locationY>
+        <locationY>1406</locationY>
         <connector>
             <targetReference>Update_Inside_Plant</targetReference>
         </connector>
@@ -253,7 +282,7 @@
         <name>Update_Inside_Plant</name>
         <label>Update Inside Plant</label>
         <locationX>176</locationX>
-        <locationY>1298</locationY>
+        <locationY>1514</locationY>
         <faultConnector>
             <targetReference>DX_Error_Log_Creation_Flow_3</targetReference>
         </faultConnector>
@@ -277,7 +306,7 @@
         <name>Innerduct_Fields</name>
         <label>Innerduct Fields</label>
         <locationX>176</locationX>
-        <locationY>650</locationY>
+        <locationY>866</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -405,7 +434,7 @@
         <name>DX_Error_Log_Creation_Flow_3</name>
         <label>DX Error Log Creation Flow 3</label>
         <locationX>440</locationX>
-        <locationY>1406</locationY>
+        <locationY>1622</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -448,7 +477,7 @@
         <name>Error_Log_Create_Innerduct</name>
         <label>Error Log Create Innerduct</label>
         <locationX>968</locationX>
-        <locationY>1190</locationY>
+        <locationY>1406</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -491,7 +520,7 @@
         <name>Error_Log_Update_Asset</name>
         <label>Error Log Update Asset</label>
         <locationX>704</locationX>
-        <locationY>1298</locationY>
+        <locationY>1514</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
