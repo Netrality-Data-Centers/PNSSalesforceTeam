@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lost_to_Competitor__c</fullName>
+    <externalId>false</externalId>
+    <label>Lost to Competitor</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Aligned Data Centers</fullName>
+                <default>false</default>
+                <label>Aligned Data Centers</label>
+            </value>
+            <value>
+                <fullName>Centurylink</fullName>
+                <default>false</default>
+                <label>Centurylink</label>
+            </value>
+            <value>
+                <fullName>Cloud Provider (AWS, Azure, etc.)</fullName>
+                <default>false</default>
+                <label>Cloud Provider (AWS, Azure, etc.)</label>
+            </value>
+            <value>
+                <fullName>Cologix</fullName>
+                <default>false</default>
+                <label>Cologix</label>
+            </value>
+            <value>
+                <fullName>Colt</fullName>
+                <default>false</default>
+                <label>Colt</label>
+            </value>
+            <value>
+                <fullName>Compass Data Centers</fullName>
+                <default>false</default>
+                <label>Compass Data Centers</label>
+            </value>
+            <value>
+                <fullName>Coresite</fullName>
+                <default>false</default>
+                <label>Coresite</label>
+            </value>
+            <value>
+                <fullName>Cyrus One</fullName>
+                <default>false</default>
+                <label>Cyrus One</label>
+            </value>
+            <value>
+                <fullName>Cyxtera</fullName>
+                <default>false</default>
+                <label>Cyxtera</label>
+            </value>
+            <value>
+                <fullName>Databank</fullName>
+                <default>false</default>
+                <label>Databank</label>
+            </value>
+            <value>
+                <fullName>Data Foundry</fullName>
+                <default>false</default>
+                <label>Data Foundry</label>
+            </value>
+            <value>
+                <fullName>Digital Realty</fullName>
+                <default>false</default>
+                <label>Digital Realty</label>
+            </value>
+            <value>
+                <fullName>EdgeConnex</fullName>
+                <default>false</default>
+                <label>EdgeConnex</label>
+            </value>
+            <value>
+                <fullName>Element Critical</fullName>
+                <default>false</default>
+                <label>Element Critical</label>
+            </value>
+            <value>
+                <fullName>Equinix</fullName>
+                <default>false</default>
+                <label>Equinix</label>
+            </value>
+            <value>
+                <fullName>Evoque</fullName>
+                <default>false</default>
+                <label>Evoque</label>
+            </value>
+            <value>
+                <fullName>Flexential</fullName>
+                <default>false</default>
+                <label>Flexential</label>
+            </value>
+            <value>
+                <fullName>H5 Data Centers</fullName>
+                <default>false</default>
+                <label>H5 Data Centers</label>
+            </value>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>QTS</fullName>
+                <default>false</default>
+                <label>QTS</label>
+            </value>
+            <value>
+                <fullName>Sabey</fullName>
+                <default>false</default>
+                <label>Sabey</label>
+            </value>
+            <value>
+                <fullName>Skybox</fullName>
+                <default>false</default>
+                <label>Skybox</label>
+            </value>
+            <value>
+                <fullName>Stackinfra</fullName>
+                <default>false</default>
+                <label>Stackinfra</label>
+            </value>
+            <value>
+                <fullName>Stream Data Centers</fullName>
+                <default>false</default>
+                <label>Stream Data Centers</label>
+            </value>
+            <value>
+                <fullName>Switch</fullName>
+                <default>false</default>
+                <label>Switch</label>
+            </value>
+            <value>
+                <fullName>T5 Data Centers</fullName>
+                <default>false</default>
+                <label>T5 Data Centers</label>
+            </value>
+            <value>
+                <fullName>Tierpoint</fullName>
+                <default>false</default>
+                <label>Tierpoint</label>
+            </value>
+            <value>
+                <fullName>TRG</fullName>
+                <default>false</default>
+                <label>TRG</label>
+            </value>
+            <value>
+                <fullName>Zayo</fullName>
+                <default>false</default>
+                <label>Zayo</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
