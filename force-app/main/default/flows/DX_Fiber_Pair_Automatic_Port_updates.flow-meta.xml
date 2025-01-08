@@ -4,7 +4,7 @@
     <customErrors>
         <name>Error_Port_Cannot_be_Disconnected</name>
         <label>Error: Port Cannot be Disconnected</label>
-        <locationX>666</locationX>
+        <locationX>1106</locationX>
         <locationY>647</locationY>
         <customErrorMessages>
             <errorMessage>Fiber Pair cannot be disconnected from this Port because it has an Active Cross Connect.</errorMessage>
@@ -14,10 +14,10 @@
     <decisions>
         <name>Commited_Service_Order_is_empty</name>
         <label>Commited Service Order is empty?</label>
-        <locationX>336</locationX>
-        <locationY>755</locationY>
+        <locationX>644</locationX>
+        <locationY>647</locationY>
         <defaultConnector>
-            <targetReference>Get_Cross_Connect_Destination_Port_for_Fiber_Pair_Port</targetReference>
+            <targetReference>Update_Port_Status_to_Ready_for_Cross_Connect</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -39,10 +39,11 @@
     <decisions>
         <name>Connected_Service_Order_is_not_empty</name>
         <label>Connected Service Order is not empty?</label>
-        <locationX>182</locationX>
-        <locationY>863</locationY>
+        <locationX>446</locationX>
+        <locationY>755</locationY>
         <defaultConnector>
-            <targetReference>Get_Cross_Connect_Destination_Port_for_Fiber_Pair_Port</targetReference>
+            <isGoTo>true</isGoTo>
+            <targetReference>Update_Port_Status_to_Ready_for_Cross_Connect</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -62,34 +63,12 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Exist_Cross_Connect_DP_for_FiberPair_Port</name>
-        <label>Exist Cross Connect DP for FiberPair Port?</label>
-        <locationX>105</locationX>
-        <locationY>1439</locationY>
-        <defaultConnector>
-            <targetReference>Update_Port_Status_to_Ready_for_Cross_Connect2</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Yes_Exist_Cross_Connect_DP_for_FiberPair_Port</name>
-            <conditionLogic>or</conditionLogic>
-            <conditions>
-                <leftValueReference>Get_Cross_Connect_Origination_Port_for_Fiber_Pair_Port.Destination_Port__c</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <label>Yes</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Exist_Cross_Connect_OP_for_FiberPair_Port</name>
         <label>Exist Cross Connect OP for FiberPair Port?</label>
-        <locationX>105</locationX>
+        <locationX>347</locationX>
         <locationY>539</locationY>
         <defaultConnector>
-            <targetReference>Update_Port_Status_to_Ready_for_Cross_Connect</targetReference>
+            <targetReference>Commited_Service_Order_is_empty</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -103,7 +82,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_Cross_Connect_Destination_Port_for_Fiber_Pair_Port</targetReference>
+                <targetReference>Update_Port_Status_to_Active_Cross_Connect</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
@@ -111,7 +90,7 @@
     <decisions>
         <name>Exist_Cross_Connect_with_Status_Connected</name>
         <label>Exist Cross Connect with Status Connected?</label>
-        <locationX>798</locationX>
+        <locationX>1238</locationX>
         <locationY>539</locationY>
         <defaultConnector>
             <targetReference>Update_Port_status_to_No_Homerun</targetReference>
@@ -136,7 +115,7 @@
     <decisions>
         <name>Has_Port</name>
         <label>Has Port?</label>
-        <locationX>451</locationX>
+        <locationX>792</locationX>
         <locationY>323</locationY>
         <defaultConnector>
             <targetReference>Get_Cross_Connect_for_Port_with_Status_Connected</targetReference>
@@ -181,30 +160,9 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
-        <name>Get_Cross_Connect_Destination_Port_for_Fiber_Pair_Port</name>
-        <label>Get Cross Connect Destination Port for Fiber Pair Port</label>
-        <locationX>105</locationX>
-        <locationY>1331</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Exist_Cross_Connect_DP_for_FiberPair_Port</targetReference>
-        </connector>
-        <filterLogic>or</filterLogic>
-        <filters>
-            <field>Destination_Port__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.Port__c</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>DC_Cross_Connect__c</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
         <name>Get_Cross_Connect_for_Port_with_Status_Connected</name>
         <label>Get Cross Connect for Port with Status Connected</label>
-        <locationX>798</locationX>
+        <locationX>1238</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -239,13 +197,13 @@
     <recordLookups>
         <name>Get_Cross_Connect_Origination_Port_for_Fiber_Pair_Port</name>
         <label>Get Cross Connect Origination Port for Fiber Pair Port</label>
-        <locationX>105</locationX>
+        <locationX>347</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Exist_Cross_Connect_OP_for_FiberPair_Port</targetReference>
         </connector>
-        <filterLogic>or</filterLogic>
+        <filterLogic>(1 OR 2) AND 3</filterLogic>
         <filters>
             <field>Origination_Port__c</field>
             <operator>EqualTo</operator>
@@ -253,18 +211,50 @@
                 <elementReference>$Record.Port__c</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>Destination_Port__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Port__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Xconnect_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Connected</stringValue>
+            </value>
+        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>DC_Cross_Connect__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
+        <name>Update_Port_Status_to_Active_Cross_Connect</name>
+        <label>Update Port Status to Active Cross Connect</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Port__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Port_Status__c</field>
+            <value>
+                <stringValue>Active Cross Connect</stringValue>
+            </value>
+        </inputAssignments>
+        <object>DC_Port__c</object>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Port_Status_to_Installed_Homerun_not_Contracted</name>
         <label>Update Port Status to Installed Homerun not Contracted</label>
-        <locationX>50</locationX>
-        <locationY>971</locationY>
-        <connector>
-            <targetReference>Get_Cross_Connect_Destination_Port_for_Fiber_Pair_Port</targetReference>
-        </connector>
+        <locationX>314</locationX>
+        <locationY>863</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -284,7 +274,7 @@
     <recordUpdates>
         <name>Update_Port_status_to_No_Homerun</name>
         <label>Update Port status to No Homerun</label>
-        <locationX>930</locationX>
+        <locationX>1370</locationX>
         <locationY>647</locationY>
         <filterLogic>and</filterLogic>
         <filters>
@@ -305,32 +295,8 @@
     <recordUpdates>
         <name>Update_Port_Status_to_Ready_for_Cross_Connect</name>
         <label>Update Port Status to Ready for Cross Connect</label>
-        <locationX>336</locationX>
-        <locationY>647</locationY>
-        <connector>
-            <targetReference>Commited_Service_Order_is_empty</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.Port__c</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <field>Port_Status__c</field>
-            <value>
-                <stringValue>Ready for Cross Connect</stringValue>
-            </value>
-        </inputAssignments>
-        <object>DC_Port__c</object>
-    </recordUpdates>
-    <recordUpdates>
-        <name>Update_Port_Status_to_Ready_for_Cross_Connect2</name>
-        <label>Update Port Status to Ready for Cross Connect</label>
-        <locationX>237</locationX>
-        <locationY>1547</locationY>
+        <locationX>842</locationX>
+        <locationY>755</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -348,7 +314,7 @@
         <object>DC_Port__c</object>
     </recordUpdates>
     <start>
-        <locationX>325</locationX>
+        <locationX>666</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Has_Port</targetReference>
