@@ -350,7 +350,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
         <inputAssignments>
             <field>Number_of_Ports_Tall__c</field>
             <value>
-                <elementReference>CreatedPanel.Number_of_Ports_Tall__c</elementReference>
+                <elementReference>Number_of_Ports_Tall</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -362,7 +362,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
         <inputAssignments>
             <field>Number_of_Ports_Wide__c</field>
             <value>
-                <elementReference>CreatedPanel.Number_of_Ports_Wide__c</elementReference>
+                <elementReference>Number_of_Ports_Wide</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -630,19 +630,45 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                     <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>CreatedPanel.Number_of_Ports_Wide__c</objectFieldReference>
-                </fields>
-                <fields>
-                    <fieldType>ObjectProvided</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>CreatedPanel.Number_of_Ports_Tall__c</objectFieldReference>
-                </fields>
-                <fields>
-                    <fieldType>ObjectProvided</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
                     <objectFieldReference>CreatedPanel.Mod_Model__c</objectFieldReference>
+                </fields>
+                <fields>
+                    <name>Number_of_Ports_Wide</name>
+                    <dataType>Number</dataType>
+                    <fieldText>Number of Ports Wide</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <scale>0</scale>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>CreatedPanel.Mod_Model__c</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>No</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Number_of_Ports_Tall</name>
+                    <dataType>Number</dataType>
+                    <fieldText>Number of Ports Tall</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <scale>0</scale>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>CreatedPanel.Mod_Model__c</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>No</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <inputParameters>
                     <name>width</name>
