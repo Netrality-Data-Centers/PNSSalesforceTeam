@@ -411,6 +411,9 @@
                 <fields>
                     <name>Connection_Case</name>
                     <choiceReferences>ConnectionCaseCS</choiceReferences>
+                    <defaultValue>
+                        <elementReference>Get_Service_Request_Info.Id</elementReference>
+                    </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Connection Case</fieldText>
                     <fieldType>ComponentChoice</fieldType>
