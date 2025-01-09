@@ -82,6 +82,13 @@
             <label>Empty</label>
         </rules>
     </decisions>
+    <dynamicChoiceSets>
+        <name>AssetCS</name>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <object>Asset</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
     <environments>Default</environments>
     <interviewLabel>DX Panel Record Creation {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Roof Record Creation</label>
@@ -118,7 +125,7 @@
         <inputAssignments>
             <field>Asset__c</field>
             <value>
-                <elementReference>AssetID</elementReference>
+                <elementReference>Asset.selectedChoiceValues</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -284,7 +291,7 @@
         </fields>
         <fields>
             <name>DataHall_Error</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(238, 0, 0);&quot;&gt;To continue, please select a Data Hall&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(163, 0, 0);&quot;&gt;To continue, please select a Data Hall&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -328,6 +335,19 @@
             <fields>
                 <name>Record_Creation_Section1_Column2</name>
                 <fieldType>Region</fieldType>
+                <fields>
+                    <name>Asset</name>
+                    <choiceReferences>AssetCS</choiceReferences>
+                    <defaultValue>
+                        <elementReference>AssetID</elementReference>
+                    </defaultValue>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Asset</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
