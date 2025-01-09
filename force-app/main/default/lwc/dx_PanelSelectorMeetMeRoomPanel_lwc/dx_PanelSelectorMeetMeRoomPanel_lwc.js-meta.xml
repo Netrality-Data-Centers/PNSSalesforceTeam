@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightning__RecordAction</target>
+        <target>lightning__UrlAddressable</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="buildingID" type="String" label="buildingID" description="Building Id to search"/>
+            <property name="accountId" type="String" label="accountId" description="account Id to search"/>
+            <property name="meetMeRoomId" type="String" label="Meet Me Room Id" description="Meet Me Room Id" role="outputOnly"/>
+            <property name="panelId" type="String" label="Panel Id" description="Panel Id" role="outputOnly"/>
+            <property name="isThereAPanel" type="Boolean" label="isThereAPanel" description="isThereAPanel" role="outputOnly"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
