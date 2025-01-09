@@ -29,6 +29,7 @@ export default class CaseRelatedAssetSelectionForAssignment extends LightningEle
 
     async loadAssets() {
         try {
+            debugger;
             console.log('Loading assets for case:', this.caseId);
             const data = await getRelatedAssets({ caseId: this.caseId });
             console.log('Received data:', JSON.stringify(data));
@@ -58,7 +59,7 @@ export default class CaseRelatedAssetSelectionForAssignment extends LightningEle
     }
 
     get cardTitle() {
-        return `Related Assets to ${this.caseName || 'Case'}`;
+        return `Related Assets to ${this.caseName || 'Service Request'}`;
     }
 
     filterAssets() {
