@@ -13,12 +13,30 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Floor__c</field>
+                <behavior>Edit</behavior>
+                <field>Short_Name__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Tenant_Suite_Name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Tenant_Suite_Description__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Account__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Floor__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -31,28 +49,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Meter_ID__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>OwnerId</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Short_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Tenant_Suite_Description__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Account__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -86,13 +82,37 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Connected_Power__c</fields>
+        <fields>Committed_Power__c</fields>
+        <fields>Meter_ID__c</fields>
+        <fields>Power_Source__c</fields>
+        <fields>Power_Source_Main_Utility__c</fields>
+        <fields>Power_Source_PDU_RPP__c</fields>
+        <fields>Power_Source_Switchgear__c</fields>
+        <fields>Power_Source_UPS__c</fields>
+        <relatedList>DC_Tenant_Power__c.Tenant_Suite__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Type__c</fields>
+        <relatedList>DC_Inside_Plant__c.A_Side_Tenant_Suite__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Subdivision__c</fields>
+        <fields>Design_Capacity_kW__c</fields>
+        <fields>Max_Capacity_tons__c</fields>
+        <relatedList>DC_Tenant_Subdivision__c.Tenant_Suite__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hVC000001uU2s</masterLabel>
+        <masterLabel>00hVB0000033PK2</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

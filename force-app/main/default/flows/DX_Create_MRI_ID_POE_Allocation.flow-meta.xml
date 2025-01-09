@@ -5,7 +5,17 @@
     <formulas>
         <name>MRISuiteID</name>
         <dataType>String</dataType>
-        <expression>&quot;P&quot; + {!$Record.Floor__r.Building__r.Building_Address_No__c}+ RIGHT({!$Record.Id}, 5)</expression>
+        <expression>&quot;P&quot; &amp;
+IF(
+LEN({!$Record.Floor__r.Building__r.Building_Address_No__c}) &gt; 4,
+LEFT({!$Record.Floor__r.Building__r.Building_Address_No__c}, 4),
+IF(
+LEN({!$Record.Floor__r.Building__r.Building_Address_No__c}) &lt; 4,
+LPAD({!$Record.Floor__r.Building__r.Building_Address_No__c}, 4, &quot;0&quot;),
+{!$Record.Floor__r.Building__r.Building_Address_No__c}
+)
+) &amp;
+RIGHT({!$Record.Id}, 5)</expression>
     </formulas>
     <interviewLabel>DX Create MRI ID - POE Allocation {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Create MRI ID - POE Allocation</label>
