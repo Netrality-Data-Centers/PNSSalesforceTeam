@@ -173,14 +173,14 @@
             <field>Origination_Port__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>$Record.Port__c</elementReference>
+                <elementReference>$Record__Prior.Port__c</elementReference>
             </value>
         </filters>
         <filters>
             <field>Destination_Port__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>$Record.Port__c</elementReference>
+                <elementReference>$Record__Prior.Port__c</elementReference>
             </value>
         </filters>
         <filters>
