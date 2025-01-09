@@ -2,10 +2,26 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
     <assignments>
+        <name>Assign_Building_to_buildingId</name>
+        <label>Assign Building to buildingId</label>
+        <locationX>270</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>buildingId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>buildingLookup.selectedChoiceValues</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Select_the_Floor_from_Building</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Assign_Data_Hall_Id</name>
         <label>Assign Data Hall Id</label>
-        <locationX>176</locationX>
-        <locationY>650</locationY>
+        <locationX>50</locationX>
+        <locationY>866</locationY>
         <assignmentItems>
             <assignToReference>dataHallId</assignToReference>
             <operator>Assign</operator>
@@ -13,11 +29,44 @@
                 <elementReference>canvasDataHallSelection.selectedCanvasItem</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>floorId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Select_the_Floor_you_would_like_to_use</elementReference>
+            </value>
+        </assignmentItems>
     </assignments>
+    <decisions>
+        <name>Check_the_item_was_selected</name>
+        <label>Check the item was selected</label>
+        <locationX>182</locationX>
+        <locationY>758</locationY>
+        <defaultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Select_Data_Hall_from_Floor</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Item_was_Selected</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>canvasDataHallSelection.selectedCanvasItem</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Data_Hall_Id</targetReference>
+            </connector>
+            <label>Item was Selected</label>
+        </rules>
+    </decisions>
     <decisions>
         <name>Was_Building_Passed_In</name>
         <label>Was Building Passed In?</label>
-        <locationX>176</locationX>
+        <locationX>182</locationX>
         <locationY>134</locationY>
         <defaultConnector>
             <targetReference>Building_Selection</targetReference>
@@ -77,6 +126,7 @@
         <sortOrder>Asc</sortOrder>
         <valueField>Id</valueField>
     </dynamicChoiceSets>
+    <environments>Default</environments>
     <interviewLabel>Building Floor and DataHall Selection {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Building Floor and DataHall Selection</label>
     <processMetadataValues>
@@ -101,13 +151,13 @@
     <screens>
         <name>Building_Selection</name>
         <label>Building Selection</label>
-        <locationX>264</locationX>
+        <locationX>270</locationX>
         <locationY>242</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Select_the_Floor_from_Building</targetReference>
+            <targetReference>Assign_Building_to_buildingId</targetReference>
         </connector>
         <fields>
             <name>buildingLookup</name>
@@ -121,6 +171,7 @@
                     <stringValue>Select a Building</stringValue>
                 </value>
             </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
@@ -130,13 +181,13 @@
     <screens>
         <name>Select_Data_Hall_from_Floor</name>
         <label>Select Data Hall from Floor</label>
-        <locationX>176</locationX>
-        <locationY>542</locationY>
+        <locationX>182</locationX>
+        <locationY>650</locationY>
         <allowBack>true</allowBack>
-        <allowFinish>false</allowFinish>
+        <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Assign_Data_Hall_Id</targetReference>
+            <targetReference>Check_the_item_was_selected</targetReference>
         </connector>
         <fields>
             <name>canvasDataHallSelection</name>
@@ -145,7 +196,7 @@
             <inputParameters>
                 <name>recordId</name>
                 <value>
-                    <elementReference>floorId</elementReference>
+                    <elementReference>Select_the_Floor_you_would_like_to_use</elementReference>
                 </value>
             </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -158,8 +209,8 @@
     <screens>
         <name>Select_the_Floor_from_Building</name>
         <label>Select the Floor from Building</label>
-        <locationX>176</locationX>
-        <locationY>434</locationY>
+        <locationX>182</locationX>
+        <locationY>542</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -172,13 +223,14 @@
             <dataType>String</dataType>
             <fieldText>Select the Floor you would like to use</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>50</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Was_Building_Passed_In</targetReference>

@@ -4,7 +4,7 @@
     <assignments>
         <name>Assign_The_Data_Hall</name>
         <label>Assign The Data Hall</label>
-        <locationX>710</locationX>
+        <locationX>842</locationX>
         <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>dataHallId</assignToReference>
@@ -27,7 +27,7 @@
     <decisions>
         <name>Check_if_this_is_an_Asset_that_is_related_to_RenderDraw_workflow</name>
         <label>Check if this is an Asset that is related to RenderDraw workflow</label>
-        <locationX>842</locationX>
+        <locationX>974</locationX>
         <locationY>650</locationY>
         <defaultConnector>
             <targetReference>What_type_of_Standard_Asset_is_this</targetReference>
@@ -37,21 +37,21 @@
             <name>Is_a_RenderDraw_Asset</name>
             <conditionLogic>or</conditionLogic>
             <conditions>
-                <leftValueReference>Get_the_Asset_Details.Asset_Type__c</leftValueReference>
+                <leftValueReference>Get_the_Asset_Details.Type__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Cabinet</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Get_the_Asset_Details.Asset_Type__c</leftValueReference>
+                <leftValueReference>Get_the_Asset_Details.Type__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Cage</stringValue>
+                    <stringValue>Rack</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Get_the_Asset_Details.Asset_Type__c</leftValueReference>
+                <leftValueReference>Get_the_Asset_Details.Type__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Panel</stringValue>
@@ -66,7 +66,7 @@
     <decisions>
         <name>Was_Data_Hall_Passed</name>
         <label>Was Data Hall Passed</label>
-        <locationX>842</locationX>
+        <locationX>974</locationX>
         <locationY>242</locationY>
         <defaultConnector>
             <targetReference>Check_if_this_is_an_Asset_that_is_related_to_RenderDraw_workflow</targetReference>
@@ -94,14 +94,14 @@
         <locationX>314</locationX>
         <locationY>758</locationY>
         <defaultConnector>
-            <targetReference>RenderDraw_Asset_Selection</targetReference>
+            <targetReference>Cabinet_Assignment_Screen</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Cabinet</defaultConnectorLabel>
         <rules>
             <name>Cage</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_the_Asset_Details.Asset_Type__c</leftValueReference>
+                <leftValueReference>Get_the_Asset_Details.Type__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Cage</stringValue>
@@ -116,7 +116,7 @@
             <name>Panel</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_the_Asset_Details.Asset_Type__c</leftValueReference>
+                <leftValueReference>Get_the_Asset_Details.Type__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Panel</stringValue>
@@ -131,24 +131,24 @@
     <decisions>
         <name>What_type_of_Standard_Asset_is_this</name>
         <label>What type of Standard Asset is this?</label>
-        <locationX>1370</locationX>
+        <locationX>1634</locationX>
         <locationY>758</locationY>
         <defaultConnector>
-            <targetReference>Standard_Asset_Selection</targetReference>
+            <targetReference>DX_Inside_Plant_Asset_Record_Creation_Flow</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Inside Plants</defaultConnectorLabel>
         <rules>
             <name>POE_Allocation</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_the_Asset_Details.Asset_Type__c</leftValueReference>
+                <leftValueReference>Get_the_Asset_Details.Type__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>POE Allocation</stringValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Standard_Asset_Selection</targetReference>
+                <targetReference>DX_POE_Allocation_Record_Creation_Flow</targetReference>
             </connector>
             <label>POE Allocation</label>
         </rules>
@@ -163,7 +163,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Standard_Asset_Selection</targetReference>
+                <targetReference>DX_Roof_Record_Creation_Flow</targetReference>
             </connector>
             <label>Roof Products</label>
         </rules>
@@ -178,7 +178,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Standard_Asset_Selection</targetReference>
+                <targetReference>DX_Innerduct_Asset_Record_Creation_Flow</targetReference>
             </connector>
             <label>Innerduct</label>
         </rules>
@@ -193,7 +193,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Standard_Asset_Selection</targetReference>
+                <targetReference>DC_Circuit_Record_Creation_Flow</targetReference>
             </connector>
             <label>DC Circuit</label>
         </rules>
@@ -208,7 +208,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Standard_Asset_Selection</targetReference>
+                <targetReference>DX_Create_Circuit_Breaker_Record_Flow</targetReference>
             </connector>
             <label>Circuit Breaker</label>
         </rules>
@@ -222,9 +222,6 @@
                     <stringValue>Home Run</stringValue>
                 </rightValue>
             </conditions>
-            <connector>
-                <targetReference>Standard_Asset_Selection</targetReference>
-            </connector>
             <label>Home Run</label>
         </rules>
     </decisions>
@@ -254,7 +251,7 @@
     <recordLookups>
         <name>Get_the_Asset_Details</name>
         <label>Get the Asset Details</label>
-        <locationX>842</locationX>
+        <locationX>974</locationX>
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -273,28 +270,87 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <screens>
-        <name>Cage_Selection_for_Space</name>
-        <label>Cage Selection for Space</label>
-        <locationX>50</locationX>
-        <locationY>866</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
-    <screens>
-        <name>RenderDraw_Asset_Selection</name>
-        <label>RenderDraw Asset Selection</label>
+        <name>Cabinet_Assignment_Screen</name>
+        <label>Cabinet Assignment</label>
         <locationX>578</locationX>
         <locationY>866</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <fields>
-            <name>rdOutputTextDescription</name>
-            <fieldText>&lt;p&gt;RenderDraw Asset Component&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
+            <name>singleAssetAssignment_Cabinet</name>
+            <extensionName>c:singleAssetAssignmentRenderDraw</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>hallId</name>
+                <value>
+                    <elementReference>dataHallId</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>buildingId</name>
+                <value>
+                    <elementReference>buildingId</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>floorId</name>
+                <value>
+                    <elementReference>floorId</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>asset</name>
+                <value>
+                    <elementReference>Get_the_Asset_Details</elementReference>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Cage_Selection_for_Space</name>
+        <label>Cage Selection for Space</label>
+        <locationX>50</locationX>
+        <locationY>866</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>singleAssetAssignment_Cage</name>
+            <extensionName>c:singleAssetAssignmentRenderDraw</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>asset</name>
+                <value>
+                    <elementReference>Get_the_Asset_Details</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>hallId</name>
+                <value>
+                    <elementReference>dataHallId</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>buildingId</name>
+                <value>
+                    <elementReference>buildingId</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>floorId</name>
+                <value>
+                    <elementReference>floorId</elementReference>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -304,12 +360,24 @@
         <label>Request how many RUs</label>
         <locationX>314</locationX>
         <locationY>866</locationY>
-        <allowBack>true</allowBack>
+        <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
+        <allowPause>false</allowPause>
         <connector>
             <targetReference>Select_Meet_Me_Room</targetReference>
         </connector>
+        <fields>
+            <name>How_many_RUs</name>
+            <dataType>Number</dataType>
+            <defaultValue>
+                <numberValue>2.0</numberValue>
+            </defaultValue>
+            <fieldText>How many RUs</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <scale>0</scale>
+        </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
@@ -335,6 +403,38 @@
         <connector>
             <targetReference>Specify_Panel_Attribute</targetReference>
         </connector>
+        <fields>
+            <name>singleAssetAssignment_Rack</name>
+            <extensionName>c:singleAssetAssignmentRenderDraw</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>asset</name>
+                <value>
+                    <elementReference>Get_the_Asset_Details</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>hallId</name>
+                <value>
+                    <elementReference>dataHallId</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>buildingId</name>
+                <value>
+                    <elementReference>buildingId</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>floorId</name>
+                <value>
+                    <elementReference>floorId</elementReference>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
@@ -366,34 +466,18 @@
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
-    <screens>
-        <name>Standard_Asset_Selection</name>
-        <label>Standard Asset Selection</label>
-        <locationX>1370</locationX>
-        <locationY>950</locationY>
-        <allowBack>false</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
-        <fields>
-            <name>Copy_1_of_rdOutputTextDescription</name>
-            <fieldText>&lt;p&gt;Standard Asset Flow&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
     <start>
-        <locationX>716</locationX>
+        <locationX>848</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_the_Asset_Details</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <name>Building_floor_and_DataHall_Selection</name>
         <label>Building floor and DataHall Selection</label>
-        <locationX>710</locationX>
+        <locationX>842</locationX>
         <locationY>350</locationY>
         <connector>
             <targetReference>Assign_The_Data_Hall</targetReference>
@@ -406,6 +490,228 @@
             </value>
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>DC_Circuit_Record_Creation_Flow</name>
+        <label>DC Circuit Record Creation Flow</label>
+        <locationX>1634</locationX>
+        <locationY>866</locationY>
+        <flowName>DC_Circuit_Record_Creation</flowName>
+        <inputAssignments>
+            <name>Account_ID</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.Account.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Asset_ID</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Building_ID</name>
+            <value>
+                <elementReference>buildingId</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>DX_Create_Circuit_Breaker_Record_Flow</name>
+        <label>DX Create Circuit Breaker Record Flow</label>
+        <locationX>1898</locationX>
+        <locationY>866</locationY>
+        <flowName>DX_Create_Circuit_Breaker_Record</flowName>
+        <inputAssignments>
+            <name>AccountID</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.Account.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>AssetID</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>BuildingID</name>
+            <value>
+                <elementReference>buildingId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>CaseID</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.DX_Service_Request__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>DataHallID</name>
+            <value>
+                <elementReference>dataHallId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>FloorID</name>
+            <value>
+                <elementReference>floorId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>ServiceOrderID</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.Service_Order__c</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>DX_Innerduct_Asset_Record_Creation_Flow</name>
+        <label>DX Innerduct Asset Record Creation Flow</label>
+        <locationX>1370</locationX>
+        <locationY>866</locationY>
+        <flowName>DX_Innerduct_Asset_Record_Creation</flowName>
+        <inputAssignments>
+            <name>Asset_ID</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Building_ID</name>
+            <value>
+                <elementReference>buildingId</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>DX_Inside_Plant_Asset_Record_Creation_Flow</name>
+        <label>DX Inside Plant Asset Record Creation Flow</label>
+        <locationX>2426</locationX>
+        <locationY>866</locationY>
+        <flowName>DX_Inside_Plant_Asset_Record_Creation</flowName>
+        <inputAssignments>
+            <name>AccountID</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.Account.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>AssetID</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>BuildingID</name>
+            <value>
+                <elementReference>buildingId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>CaseID</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.DX_Service_Request__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>DataHallID</name>
+            <value>
+                <elementReference>dataHallId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>FloorID</name>
+            <value>
+                <elementReference>floorId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>ServiceOrderID</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.Service_Order__r.Service_Order_ID__c</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>DX_POE_Allocation_Record_Creation_Flow</name>
+        <label>DX POE Allocation Record Creation Flow</label>
+        <locationX>842</locationX>
+        <locationY>866</locationY>
+        <flowName>DX_POE_Allocation_Record_Creation</flowName>
+        <inputAssignments>
+            <name>AccountID</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.Account.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>AssetID</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>BuildingID</name>
+            <value>
+                <elementReference>buildingId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>FloorID</name>
+            <value>
+                <elementReference>floorId</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>DX_Roof_Record_Creation_Flow</name>
+        <label>DX Roof Record Creation Flow</label>
+        <locationX>1106</locationX>
+        <locationY>866</locationY>
+        <flowName>DX_Roof_Record_Creation</flowName>
+        <inputAssignments>
+            <name>AccountID</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.Account.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>AssetID</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>BuildingID</name>
+            <value>
+                <elementReference>buildingId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>CaseID</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.DX_Service_Request__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>DataHallID</name>
+            <value>
+                <elementReference>dataHallId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>FloorID</name>
+            <value>
+                <elementReference>floorId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>ServiceOrderID</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.Service_Order__c</elementReference>
+            </value>
+        </inputAssignments>
     </subflows>
     <variables>
         <name>buildingId</name>
