@@ -18,6 +18,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DX_ConnectPorts_ctr</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_DCIMChoiceResource</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -51,6 +55,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_PanelSelectorFloorPOE_tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_PanelSelectorMeetMeRoomPanel_ctr</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -2222,6 +2230,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Homerun__c.Available_Fiber_Pairs__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>DC_Homerun__c.Connected_Service_Order__c</field>
         <readable>true</readable>
@@ -2743,7 +2756,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>MRILedger__c.MRI_Source_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>MRILedger__c.MRI_Transaction_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Cabinet_Equivalent__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2843,30 +2866,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Agreement__c-Agreement Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Agreement__c-Leases and Amendments</layout>
-        <recordType>Agreement__c.Lease</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Agreement__c-MLSA</layout>
-        <recordType>Agreement__c.CSA</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Agreement__c-MLSA</layout>
-        <recordType>Agreement__c.MLSA</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Agreement__c-MLSA</layout>
-        <recordType>Agreement__c.MSA</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Agreement__c-UMLSA</layout>
-        <recordType>Agreement__c.Acquisition_Assignment</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Agreement__c-UMLSA</layout>
-        <recordType>Agreement__c.UMLSA</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Asset-Asset Layout</layout>
@@ -3096,30 +3095,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Innerduct__c-Innerduct Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-Expansion Opportunity Layout</layout>
-        <recordType>Opportunity.Expansion</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-Expansion Opportunity Layout</layout>
-        <recordType>Opportunity.Minimum_Metered_Bookings</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-Expansion Opportunity Layout</layout>
-        <recordType>Opportunity.Revenue_Share</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-New Logo Opportunity Layout</layout>
-        <recordType>Opportunity.New_Logo</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-New Market Opportunity Layout</layout>
-        <recordType>Opportunity.New_Market</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-Renewal Opportunity Layout</layout>
-        <recordType>Opportunity.Renewal</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Product2-Product Layout</layout>
@@ -3576,36 +3551,6 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Agreement__c.Acquisition_Assignment</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Agreement__c.CSA</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Agreement__c.Lease</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Agreement__c.MLSA</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Agreement__c.MSA</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Agreement__c.UMLSA</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
         <default>true</default>
         <recordType>Asset.Asset</recordType>
         <visible>true</visible>
@@ -3679,47 +3624,6 @@
         <default>false</default>
         <recordType>Case.X717_S_Wells</recordType>
         <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Opportunity.Churn</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Opportunity.Expansion</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Opportunity.Minimum_Metered_Bookings</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
-        <recordType>Opportunity.New_Logo</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Opportunity.New_Market</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Opportunity.Out_of_Market</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Opportunity.Renewal</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Opportunity.Revenue_Share</recordType>
-        <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
         <tab>DC_Asset_History__c</tab>
@@ -3917,6 +3821,14 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ApiEnabled</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ApprovalAdmin</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ApprovalDesigner</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -4236,6 +4148,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ManageContentTaxonomy</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ManageContentTypes</name>
     </userPermissions>
     <userPermissions>
@@ -4344,6 +4260,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ManagePersonalOrg</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ManagePreferenceCenter</name>
     </userPermissions>
     <userPermissions>
@@ -4437,6 +4357,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ModifyAllData</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ModifyAllPolicyCenterPolicies</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -4560,6 +4484,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>TerritoryOperations</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>TraceXdsQueries</name>
     </userPermissions>
     <userPermissions>
@@ -4596,6 +4524,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ViewAllPolicyCenterPolicies</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ViewAllProfiles</name>
     </userPermissions>
     <userPermissions>
@@ -4605,6 +4537,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewClientSecret</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewContentTaxonomy</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -4649,6 +4585,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewMyTeamsDashboards</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewPersonalOrg</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
