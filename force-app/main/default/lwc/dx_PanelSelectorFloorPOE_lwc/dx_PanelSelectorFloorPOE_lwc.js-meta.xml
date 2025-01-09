@@ -15,8 +15,8 @@
     <targetConfigs>
         <targetConfig targets="lightning__FlowScreen">
             <property name="buildingID" type="String" label="buildingID" description="Building ID to search"/>
-            <property name="floorId" type="String" label="rackId" description="Rack Id" role="outputOnly"/>
-            <property name="pOEId" type="String" label="pOEId" description="POE Id" role="outputOnly"/>
+            <property name="floorId" type="String" label="Floor Id" description="Floor Id" role="outputOnly"/>
+            <property name="pOEId" type="String" label="POE Id" description="POE Id" role="outputOnly"/>
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>
