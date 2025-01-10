@@ -5,7 +5,7 @@
         <name>Message_Assigment</name>
         <label>Message Assigment</label>
         <locationX>842</locationX>
-        <locationY>458</locationY>
+        <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>ShowDataHallMessage</assignToReference>
             <operator>Assign</operator>
@@ -22,7 +22,7 @@
         <name>Data_Hall_is_not_Blank</name>
         <label>Data Hall Is Not Blank?</label>
         <locationX>578</locationX>
-        <locationY>350</locationY>
+        <locationY>458</locationY>
         <defaultConnector>
             <targetReference>Message_Assigment</targetReference>
         </defaultConnector>
@@ -49,7 +49,7 @@
         <locationX>314</locationX>
         <locationY>134</locationY>
         <defaultConnector>
-            <targetReference>Record_Creation</targetReference>
+            <targetReference>Get_Asset_Records</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -83,7 +83,8 @@
         </rules>
     </decisions>
     <dynamicChoiceSets>
-        <name>AssetCS</name>
+        <name>AssetCollectionChoiceSet</name>
+        <collectionReference>Get_Asset_Records</collectionReference>
         <dataType>String</dataType>
         <displayField>Name</displayField>
         <object>Asset</object>
@@ -115,7 +116,7 @@
         <name>Create_Roof_Product_Record</name>
         <label>Create Roof Product Record</label>
         <locationX>314</locationX>
-        <locationY>458</locationY>
+        <locationY>566</locationY>
         <connector>
             <targetReference>Get_Roof_Product_Record</targetReference>
         </connector>
@@ -156,10 +157,23 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
+        <name>Get_Asset_Records</name>
+        <label>Get Asset Records</label>
+        <locationX>578</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Record_Creation</targetReference>
+        </connector>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Asset</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Roof_Product_Record</name>
         <label>Get Roof Product Record</label>
         <locationX>314</locationX>
-        <locationY>566</locationY>
+        <locationY>674</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Update_Asset_Records</targetReference>
@@ -180,7 +194,7 @@
         <name>Update_Asset_Records</name>
         <label>Update Asset Records</label>
         <locationX>314</locationX>
-        <locationY>674</locationY>
+        <locationY>782</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -268,7 +282,7 @@
         <name>Record_Creation</name>
         <label>Record Creation</label>
         <locationX>578</locationX>
-        <locationY>242</locationY>
+        <locationY>350</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -337,7 +351,7 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Asset</name>
-                    <choiceReferences>AssetCS</choiceReferences>
+                    <choiceReferences>AssetCollectionChoiceSet</choiceReferences>
                     <defaultValue>
                         <elementReference>AssetID</elementReference>
                     </defaultValue>
@@ -380,7 +394,7 @@
         <name>DX_Error_Log_Creation_Flow</name>
         <label>DX Error Log Creation Flow</label>
         <locationX>578</locationX>
-        <locationY>566</locationY>
+        <locationY>674</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
