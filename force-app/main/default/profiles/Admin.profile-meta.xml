@@ -4248,10 +4248,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ManagePersonalOrg</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>ManagePreferenceCenter</name>
     </userPermissions>
     <userPermissions>
