@@ -3824,14 +3824,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ApprovalAdmin</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ApprovalDesigner</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>ApproveContract</name>
     </userPermissions>
     <userPermissions>
