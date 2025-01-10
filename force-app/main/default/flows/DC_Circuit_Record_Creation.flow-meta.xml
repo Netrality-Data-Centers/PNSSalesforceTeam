@@ -4,8 +4,8 @@
     <assignments>
         <name>Cabinet_Validation_Assigment</name>
         <label>Cabinet Validation Assigment</label>
-        <locationX>902</locationX>
-        <locationY>458</locationY>
+        <locationX>1370</locationX>
+        <locationY>674</locationY>
         <assignmentItems>
             <assignToReference>ShowCabinetValidation</assignToReference>
             <operator>Assign</operator>
@@ -21,8 +21,8 @@
     <assignments>
         <name>Set_Fields_DC_Circuit</name>
         <label>Set Fields DC Circuit</label>
-        <locationX>110</locationX>
-        <locationY>458</locationY>
+        <locationX>578</locationX>
+        <locationY>674</locationY>
         <assignmentItems>
             <assignToReference>DC_Circuit_obj.Name</assignToReference>
             <operator>Assign</operator>
@@ -37,8 +37,8 @@
     <decisions>
         <name>Cabinet_is_Selected</name>
         <label>Cabinet is Selected?</label>
-        <locationX>506</locationX>
-        <locationY>350</locationY>
+        <locationX>974</locationX>
+        <locationY>566</locationY>
         <defaultConnector>
             <targetReference>Cabinet_Validation_Assigment</targetReference>
         </defaultConnector>
@@ -60,10 +60,49 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Empty_Paremeters</name>
+        <label>Empty Paremeters?</label>
+        <locationX>347</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>Get_Asset_Records</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Empty</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Account_ID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Asset_ID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Building_ID</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Error_Screen_Empty_Parameters</targetReference>
+            </connector>
+            <label>Empty</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>What_Associated_Space_Type_Is</name>
         <label>What Associated Space Type Is?</label>
-        <locationX>176</locationX>
-        <locationY>242</locationY>
+        <locationX>644</locationX>
+        <locationY>458</locationY>
         <defaultConnector>
             <targetReference>Cabinet_is_Selected</targetReference>
         </defaultConnector>
@@ -81,6 +120,14 @@
             <label>Is It Rack?</label>
         </rules>
     </decisions>
+    <dynamicChoiceSets>
+        <name>AssetCollectionChoiceSet</name>
+        <collectionReference>Get_Asset_Records</collectionReference>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <object>Asset</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
     <dynamicChoiceSets>
         <name>AssetCS</name>
         <dataType>String</dataType>
@@ -113,8 +160,8 @@
     <recordCreates>
         <name>Create_Obj_Circuit</name>
         <label>Create Obj Circuit</label>
-        <locationX>110</locationX>
-        <locationY>566</locationY>
+        <locationX>578</locationX>
+        <locationY>782</locationY>
         <connector>
             <targetReference>Get_Cabinet</targetReference>
         </connector>
@@ -184,10 +231,23 @@
         <object>DC_DC_Circuit__c</object>
     </recordCreates>
     <recordLookups>
+        <name>Get_Asset_Records</name>
+        <label>Get Asset Records</label>
+        <locationX>644</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>DC_Circuit</targetReference>
+        </connector>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Asset</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Cabinet</name>
         <label>Get Cabinet</label>
-        <locationX>110</locationX>
-        <locationY>674</locationY>
+        <locationX>578</locationX>
+        <locationY>890</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Update_Asset_Record</targetReference>
@@ -207,8 +267,8 @@
     <recordUpdates>
         <name>Update_Asset_Record</name>
         <label>Update Asset Record</label>
-        <locationX>110</locationX>
-        <locationY>782</locationY>
+        <locationX>578</locationX>
+        <locationY>998</locationY>
         <faultConnector>
             <targetReference>Error_Log_Creation_Update_Asset</targetReference>
         </faultConnector>
@@ -243,8 +303,8 @@
     <screens>
         <name>DC_Circuit</name>
         <label>DC Circuit</label>
-        <locationX>176</locationX>
-        <locationY>134</locationY>
+        <locationX>644</locationX>
+        <locationY>350</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -401,7 +461,7 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>Asset</name>
-                    <choiceReferences>AssetCS</choiceReferences>
+                    <choiceReferences>AssetCollectionChoiceSet</choiceReferences>
                     <defaultValue>
                         <elementReference>Asset_ID</elementReference>
                     </defaultValue>
@@ -455,19 +515,74 @@
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
-    <start>
+    <screens>
+        <name>Error_Screen_Empty_Parameters</name>
+        <label>Error Screen - Empty Parameters</label>
         <locationX>50</locationX>
+        <locationY>242</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Error_Screen_Empty_Parameters_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Error_Screen_Empty_Parameters_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>1</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Error_Screen_Empty_Parameters_Section1_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>ErrorMesagge</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(180, 10, 10); font-size: 18px;&quot;&gt;To be able to execute this flow, you need to pass these parameters:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong style=&quot;color: rgb(180, 10, 10); font-size: 14px;&quot;&gt; AccountID&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong style=&quot;color: rgb(180, 10, 10); font-size: 14px;&quot;&gt;BuildingID&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong style=&quot;color: rgb(180, 10, 10); font-size: 14px;&quot;&gt;AssetID&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>10</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Error_Screen_Empty_Parameters_Section1_Column3</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>1</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>221</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>DC_Circuit</targetReference>
+            <targetReference>Empty_Paremeters</targetReference>
         </connector>
     </start>
     <status>Active</status>
     <subflows>
         <name>Error_Log_Creation_Create_Circuit</name>
         <label>Error Log Creation Create Circuit</label>
-        <locationX>638</locationX>
-        <locationY>674</locationY>
+        <locationX>1106</locationX>
+        <locationY>890</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -509,8 +624,8 @@
     <subflows>
         <name>Error_Log_Creation_Update_Asset</name>
         <label>Error Log Creation Update Asset</label>
-        <locationX>374</locationX>
-        <locationY>890</locationY>
+        <locationX>842</locationX>
+        <locationY>1106</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
