@@ -5,7 +5,7 @@
         <name>Cabinet_Validation_Assigment</name>
         <label>Cabinet Validation Assigment</label>
         <locationX>1106</locationX>
-        <locationY>566</locationY>
+        <locationY>674</locationY>
         <assignmentItems>
             <assignToReference>ShowCabinetValidation</assignToReference>
             <operator>Assign</operator>
@@ -22,7 +22,7 @@
         <name>Circuit_Breaker_Record_Assignment</name>
         <label>Circuit Breaker Record Assignment</label>
         <locationX>314</locationX>
-        <locationY>566</locationY>
+        <locationY>674</locationY>
         <assignmentItems>
             <assignToReference>CircuitBreakerRecord.Asset__c</assignToReference>
             <operator>Assign</operator>
@@ -59,7 +59,7 @@
         <name>Associated_Space_Type</name>
         <label>Associated Space Type</label>
         <locationX>1040</locationX>
-        <locationY>350</locationY>
+        <locationY>458</locationY>
         <defaultConnectorLabel>Rack</defaultConnectorLabel>
         <rules>
             <name>Cabinet</name>
@@ -81,7 +81,7 @@
         <name>Cabinet_Selected</name>
         <label>Cabinet Selected?</label>
         <locationX>710</locationX>
-        <locationY>458</locationY>
+        <locationY>566</locationY>
         <defaultConnector>
             <targetReference>Cabinet_Validation_Assigment</targetReference>
         </defaultConnector>
@@ -108,7 +108,7 @@
         <locationX>545</locationX>
         <locationY>134</locationY>
         <defaultConnector>
-            <targetReference>Create_Circuit_Breacker</targetReference>
+            <targetReference>Get_Assets_Records</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -135,7 +135,8 @@
         </rules>
     </decisions>
     <dynamicChoiceSets>
-        <name>AssetCS</name>
+        <name>AssetCollectionChoiceSet</name>
+        <collectionReference>Get_Assets_Records</collectionReference>
         <dataType>String</dataType>
         <displayField>Name</displayField>
         <object>Asset</object>
@@ -167,7 +168,7 @@
         <name>Create_Circuit_Breaker_Record</name>
         <label>Create Circuit Breaker Record</label>
         <locationX>314</locationX>
-        <locationY>674</locationY>
+        <locationY>782</locationY>
         <connector>
             <targetReference>Get_Record_Created</targetReference>
         </connector>
@@ -177,10 +178,23 @@
         <inputReference>CircuitBreakerRecord</inputReference>
     </recordCreates>
     <recordLookups>
+        <name>Get_Assets_Records</name>
+        <label>Get Assets Records</label>
+        <locationX>1040</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Create_Circuit_Breacker</targetReference>
+        </connector>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Asset</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Record_Created</name>
         <label>Get Record Created</label>
         <locationX>314</locationX>
-        <locationY>782</locationY>
+        <locationY>890</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Update_Related_Asset</targetReference>
@@ -201,7 +215,7 @@
         <name>Update_Related_Asset</name>
         <label>Update Related Asset</label>
         <locationX>314</locationX>
-        <locationY>890</locationY>
+        <locationY>998</locationY>
         <faultConnector>
             <targetReference>Error_Log_Creation_Update_Related_Asset</targetReference>
         </faultConnector>
@@ -237,92 +251,13 @@
         <name>Create_Circuit_Breacker</name>
         <label>Create Circuit Breacker</label>
         <locationX>1040</locationX>
-        <locationY>242</locationY>
+        <locationY>350</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
             <targetReference>Associated_Space_Type</targetReference>
         </connector>
-        <fields>
-            <name>Create_Circuit_Breacker_Section1</name>
-            <fieldType>RegionContainer</fieldType>
-            <fields>
-                <name>Create_Circuit_Breacker_Section1_Column1</name>
-                <fieldType>Region</fieldType>
-                <fields>
-                    <fieldType>ObjectProvided</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>CircuitBreakerRecord.Associated_Space_Type__c</objectFieldReference>
-                </fields>
-                <fields>
-                    <name>RackErrorMsg</name>
-                    <fieldText>&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: ui-sans-serif, -apple-system, &amp;quot;system-ui&amp;quot;, &amp;quot;Segoe UI&amp;quot;, Ubuntu, system-ui, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; color: rgb(179, 0, 0);&quot;&gt;&lt;em&gt;Please contact your system admin to create a Circuit Breaker associated with Rack.﻿&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</fieldText>
-                    <fieldType>DisplayText</fieldType>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>CircuitBreakerRecord.Associated_Space_Type__c</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Rack</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <inputParameters>
-                    <name>width</name>
-                    <value>
-                        <stringValue>6</stringValue>
-                    </value>
-                </inputParameters>
-                <isRequired>false</isRequired>
-            </fields>
-            <fields>
-                <name>Create_Circuit_Breacker_Section1_Column2</name>
-                <fieldType>Region</fieldType>
-                <fields>
-                    <name>Asset</name>
-                    <choiceReferences>AssetCS</choiceReferences>
-                    <defaultValue>
-                        <elementReference>AssetID</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Asset</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
-                    <visibilityRule>
-                        <conditionLogic>or</conditionLogic>
-                        <conditions>
-                            <leftValueReference>CircuitBreakerRecord.Associated_Space_Type__c</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Cabinet</stringValue>
-                            </rightValue>
-                        </conditions>
-                        <conditions>
-                            <leftValueReference>CircuitBreakerRecord.Associated_Space_Type__c</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue></stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <inputParameters>
-                    <name>width</name>
-                    <value>
-                        <stringValue>6</stringValue>
-                    </value>
-                </inputParameters>
-                <isRequired>false</isRequired>
-            </fields>
-            <isRequired>false</isRequired>
-            <regionContainerType>SectionWithoutHeader</regionContainerType>
-        </fields>
         <fields>
             <name>dx_PanelSelectorCabinets_lwc</name>
             <extensionName>c:dx_PanelSelectorCabinets_lwc</extensionName>
@@ -363,6 +298,85 @@
             </visibilityRule>
         </fields>
         <fields>
+            <name>Create_Circuit_Breacker_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Create_Circuit_Breacker_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>CircuitBreakerRecord.Associated_Space_Type__c</objectFieldReference>
+                </fields>
+                <fields>
+                    <name>RackErrorMsg</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(179, 0, 0); font-family: ui-sans-serif, -apple-system, &amp;quot;system-ui&amp;quot;, &amp;quot;Segoe UI&amp;quot;, Ubuntu, system-ui, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);&quot;&gt;&lt;em&gt;Please contact your system admin to create a Circuit Breaker associated with Rack.&lt;span class=&quot;ql-cursor&quot;&gt;﻿&lt;/span&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>CircuitBreakerRecord.Associated_Space_Type__c</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Rack</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Create_Circuit_Breacker_Section1_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Asset</name>
+                    <choiceReferences>AssetCollectionChoiceSet</choiceReferences>
+                    <defaultValue>
+                        <elementReference>AssetID</elementReference>
+                    </defaultValue>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Asset</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <visibilityRule>
+                        <conditionLogic>or</conditionLogic>
+                        <conditions>
+                            <leftValueReference>CircuitBreakerRecord.Associated_Space_Type__c</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Cabinet</stringValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>CircuitBreakerRecord.Associated_Space_Type__c</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue></stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+        </fields>
+        <fields>
             <name>Create_Circuit_Breacker_Section2</name>
             <fieldType>RegionContainer</fieldType>
             <fields>
@@ -386,13 +400,13 @@
                     <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>CircuitBreakerRecord.Meter_ID__c</objectFieldReference>
+                    <objectFieldReference>CircuitBreakerRecord.Committed_Power__c</objectFieldReference>
                 </fields>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>CircuitBreakerRecord.Committed_Power__c</objectFieldReference>
+                    <objectFieldReference>CircuitBreakerRecord.Meter_ID__c</objectFieldReference>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -516,12 +530,12 @@
             <targetReference>Empty_Parameters</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <name>Error_Log_Creation_Create_Circuit_Breaker_Record</name>
         <label>Error Log Creation - Create Circuit Breaker Record</label>
         <locationX>842</locationX>
-        <locationY>782</locationY>
+        <locationY>890</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -558,7 +572,7 @@
         <name>Error_Log_Creation_Update_Related_Asset</name>
         <label>Error Log Creation - Update Related Asset</label>
         <locationX>578</locationX>
-        <locationY>998</locationY>
+        <locationY>1106</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
