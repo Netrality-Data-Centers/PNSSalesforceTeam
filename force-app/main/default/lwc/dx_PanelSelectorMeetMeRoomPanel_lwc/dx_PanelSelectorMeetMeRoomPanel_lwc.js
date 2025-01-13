@@ -41,18 +41,18 @@ export default class Dx_PanelSelectorMeetMeRoomPanel_lwc extends LightningElemen
                     if(data.length > cero){
                         result = JSON.parse(JSON.stringify(data));
                         this.optionsPanels = [...result];
-                        this.dispatchEvent(true);
+                        this.funtionIsThereAPanel(true);
                     }            
                     if(data.length === cero){
                         this.optionsPanels = [{ label: 'No data...', value: '' }];
-                        this.dispatchEvent(false);
+                        this.funtionIsThereAPanel(false);
                     }
                 }
             });
     }
 
-    dispatchEvent(isThereApanel) {
-        this.isThereAPanel = isThereApanel;
+    funtionIsThereAPanel(isThereAPanel) {
+        this.isThereAPanel = isThereAPanel;
         this.dispatchEvent(new FlowAttributeChangeEvent('isThereAPanel', this.isThereAPanel));
     }
 
