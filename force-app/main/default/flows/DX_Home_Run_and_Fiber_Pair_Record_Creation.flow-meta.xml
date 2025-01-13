@@ -31,6 +31,7 @@
         </inputParameters>
         <nameSegment>DX_DCIM_ActionHelper</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>62.0</apiVersion>
     <assignments>
@@ -1113,6 +1114,9 @@
                 <fields>
                     <name>Asset</name>
                     <choiceReferences>AssetCS</choiceReferences>
+                    <defaultValue>
+                        <elementReference>AssetId</elementReference>
+                    </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
                     <fieldText>Asset</fieldText>
                     <fieldType>ComponentChoice</fieldType>
@@ -1336,7 +1340,7 @@
             <targetReference>Get</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <name>Connect_Ports</name>
         <label>Connect Ports</label>

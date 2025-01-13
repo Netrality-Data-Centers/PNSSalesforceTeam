@@ -333,7 +333,7 @@
                 </fields>
                 <fields>
                     <name>RackErrorMsg</name>
-                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(179, 0, 0); font-family: ui-sans-serif, -apple-system, &amp;quot;system-ui&amp;quot;, &amp;quot;Segoe UI&amp;quot;, Ubuntu, system-ui, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);&quot;&gt;&lt;em&gt;Please contact your system admin to create a Circuit Breaker associated with Rack.﻿&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</fieldText>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgba(9, 30, 66, 0.06); font-size: 14px; font-family: -apple-system, &amp;quot;system-ui&amp;quot;, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, &amp;quot;Fira Sans&amp;quot;, &amp;quot;Droid Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; color: rgb(179, 0, 0);&quot;&gt;Please contact your system admin to create a DC Circuit associated with Rack&lt;/span&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: ui-sans-serif, -apple-system, &amp;quot;system-ui&amp;quot;, &amp;quot;Segoe UI&amp;quot;, Ubuntu, system-ui, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; color: rgb(179, 0, 0);&quot;&gt;&lt;em&gt;.﻿&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</fieldText>
                     <fieldType>DisplayText</fieldType>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
