@@ -222,6 +222,9 @@
                     <stringValue>Home Run</stringValue>
                 </rightValue>
             </conditions>
+            <connector>
+                <targetReference>DX_Home_Run_and_Fiber_Pair_Record_Creation_Flow_1</targetReference>
+            </connector>
             <label>Home Run</label>
         </rules>
     </decisions>
@@ -562,6 +565,43 @@
             <name>ServiceOrderID</name>
             <value>
                 <elementReference>Get_the_Asset_Details.Service_Order__c</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>DX_Home_Run_and_Fiber_Pair_Record_Creation_Flow_1</name>
+        <label>DX Home Run and Fiber Pair Record Creation Flow 1</label>
+        <locationX>2162</locationX>
+        <locationY>866</locationY>
+        <flowName>DX_Home_Run_and_Fiber_Pair_Record_Creation</flowName>
+        <inputAssignments>
+            <name>AccountId</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.AccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>AssetId</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>BuildingId</name>
+            <value>
+                <elementReference>buildingId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>ServiceOrderId</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.Service_Order__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>ServiceRequestId</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.DX_Service_Request__c</elementReference>
             </value>
         </inputAssignments>
     </subflows>
