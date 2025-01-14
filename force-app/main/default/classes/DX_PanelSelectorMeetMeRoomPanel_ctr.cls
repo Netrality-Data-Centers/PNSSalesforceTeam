@@ -2,7 +2,7 @@
  * @Description       : 
  * @Author            : cristianivan.ruiz@salesforce.com
  * @Code Coverage     : 
- * @last modified on  : 01-09-2025
+ * @last modified on  : 01-13-2025
  * @last modified by  : cristianivan.ruiz@salesforce.com
 **/
 public with sharing class DX_PanelSelectorMeetMeRoomPanel_ctr {
@@ -12,7 +12,7 @@ public with sharing class DX_PanelSelectorMeetMeRoomPanel_ctr {
         List<DC_Meet_Me_Room__c> lstMeetMeRooms = DX_DCIM_DataAccess.getMeetMeRoom(buildingId);
         if(!lstMeetMeRooms.isEmpty()){
             for(DC_Meet_Me_Room__c item : lstMeetMeRooms){
-                DX_DCIM_DataAccess.wrapperResult objwrapperResult = DX_DCIM_DataAccess.ObjWrapperResult(item.Id, item.Name);
+                DX_DCIM_DataAccess.wrapperResult objwrapperResult = DX_DCIM_DataAccess.objWrapperResult(item.Id, item.Name);
                 lstwrapperResult.add(objwrapperResult);
             }
         }
@@ -26,7 +26,7 @@ public with sharing class DX_PanelSelectorMeetMeRoomPanel_ctr {
         List<DC_Panel__c> lstPanels = DX_DCIM_DataAccess.getPanel(meetMeRoomId, accountId);
         if(!lstPanels.isEmpty()){
             for(DC_Panel__c item : lstPanels){
-                DX_DCIM_DataAccess.wrapperResult objwrapperResult = DX_DCIM_DataAccess.ObjWrapperResult(item.Id, item.Name);
+                DX_DCIM_DataAccess.wrapperResult objwrapperResult = DX_DCIM_DataAccess.objWrapperResult(item.Id, item.Name);
                 lstwrapperResult.add(objwrapperResult);
             }
         }
