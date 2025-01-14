@@ -2,7 +2,7 @@
  * @Description       : 
  * @Author            : cristianivan.ruiz@salesforce.com
  * @Code Coverage     : 
- * @last modified on  : 12-16-2024
+ * @last modified on  : 01-13-2025
  * @last modified by  : cristianivan.ruiz@salesforce.com
 **/
 public with sharing class DX_PanelSelectorFloorPOE_ctr {
@@ -13,7 +13,7 @@ public with sharing class DX_PanelSelectorFloorPOE_ctr {
         List<DC_Floor__c> lstFloors = DX_DCIM_DataAccess.getFloors(buildingId);
         if(!lstFloors.isEmpty()){
             for(DC_Floor__c item : lstFloors){
-                DX_DCIM_DataAccess.wrapperResult objwrapperResult = DX_DCIM_DataAccess.ObjWrapperResult(item.Id, item.Name);
+                DX_DCIM_DataAccess.wrapperResult objwrapperResult = DX_DCIM_DataAccess.objWrapperResult(item.Id, item.Name);
                 lstwrapperResult.add(objwrapperResult);
             }
         }
@@ -27,7 +27,7 @@ public with sharing class DX_PanelSelectorFloorPOE_ctr {
         List<DC_POE__c> lstPOES = DX_DCIM_DataAccess.getPOES(floorId);
         if(!lstPOES.isEmpty()){
             for(DC_POE__c item : lstPOES){
-                DX_DCIM_DataAccess.wrapperResult objwrapperResult = DX_DCIM_DataAccess.ObjWrapperResult(item.Id, item.Name);
+                DX_DCIM_DataAccess.wrapperResult objwrapperResult = DX_DCIM_DataAccess.objWrapperResult(item.Id, item.Name);
                 lstwrapperResult.add(objwrapperResult);
             }
         }
