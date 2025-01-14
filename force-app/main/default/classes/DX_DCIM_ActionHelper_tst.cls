@@ -21,18 +21,26 @@ public with sharing class DX_DCIM_ActionHelper_tst {
         PricebookEntry pricebookEntry = new PricebookEntry(Pricebook2Id = Test.getStandardPricebookId(), Product2Id = product.Id, UnitPrice = 100, IsActive = true);
         // Insert the PricebookEntry record
         insert pricebookEntry;
+        
+        // Create a new Pricebook2 record
+        Pricebook2 customPB = new Pricebook2(Name='Custom Pricebook', isActive=true);
+        insert customPB;
+        
+        // Create a price book entry with a custom price.
+        PricebookEntry customPrice = new PricebookEntry(Pricebook2Id = customPB.Id, Product2Id = product.Id, UnitPrice = 12000, IsActive = true);
+        insert customPrice;
 
         Opportunity Opportunity = new Opportunity(Name = 'Nombre de la oportunidad de prueba', StageName = 'Qualifying', CloseDate = Date.today().addDays(30), Amount = 10000, Probability = 50, LeadSource = 'Web', Type = 'New Logo', AccountId = Account.Id); 
         // Insert the Opportunity record
         insert Opportunity;
 
         // Create a new Order record
-        Quote Service_order = new Quote(Name = 'Test Order', Status = 'Draft', Pricebook2Id = Test.getStandardPricebookId(), OpportunityId = Opportunity.Id, Commencement_Date__c = Date.today(), Term__c = 'test');
+        Quote Service_order = new Quote(Name = 'Test Order', Status = 'Draft', Pricebook2Id = customPB.Id, OpportunityId = Opportunity.Id, Commencement_Date__c = Date.today(), Term__c = 'test');
         // Insert the Order record
         insert Service_order;
 
         // Create a new OrderItem record
-        QuoteLineItem ServiceOrderLineItem = new QuoteLineItem(QuoteId = Service_order.Id, PricebookEntryId = pricebookEntry.Id, Quantity = 1, UnitPrice = pricebookEntry.UnitPrice);
+        QuoteLineItem ServiceOrderLineItem = new QuoteLineItem(QuoteId = Service_order.Id, PricebookEntryId = customPrice.Id, Quantity = 1, UnitPrice = pricebookEntry.UnitPrice);
         // Insert the Service Order Line Item record
         insert ServiceOrderLineItem;
 
