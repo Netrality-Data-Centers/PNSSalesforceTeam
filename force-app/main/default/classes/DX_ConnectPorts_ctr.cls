@@ -2,7 +2,7 @@
  * @Description       : 
  * @Author            : cristianivan.ruiz@salesforce.com
  * @Code Coverage     : 
- * @last modified on  : 12-22-2024
+ * @last modified on  : 01-13-2025
  * @last modified by  : cristianivan.ruiz@salesforce.com
 **/
 public with sharing class DX_ConnectPorts_ctr {
@@ -13,7 +13,7 @@ public with sharing class DX_ConnectPorts_ctr {
         List<DC_Port__c> lstPorts = DX_DCIM_DataAccess.getPorts(panelId);
         if(!lstPorts.isEmpty()){
             for(DC_Port__c item : lstPorts){
-                DX_DCIM_DataAccess.wrapperResult objwrapperResult = DX_DCIM_DataAccess.ObjWrapperResult(item.Id, item.Name);
+                DX_DCIM_DataAccess.wrapperResult objwrapperResult = DX_DCIM_DataAccess.objWrapperResult(item.Id, item.Name);
                 lstwrapperResult.add(objwrapperResult);
             }
         }
