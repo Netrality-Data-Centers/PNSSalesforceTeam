@@ -26,6 +26,10 @@
                 <behavior>Required</behavior>
                 <field>Row_Number__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Rack_Row__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
