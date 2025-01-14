@@ -18,6 +18,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DX_ConnectPorts_ctr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_ConnectPorts_tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_DCIMChoiceResource</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -51,6 +59,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_PanelSelectorFloorPOE_tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_PanelSelectorMeetMeRoomPanel_ctr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_PanelSelectorMeetMeRoomPanel_tst</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -2068,6 +2084,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>DC_Circuit_Breaker__c.Asset__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DC_Circuit_Breaker__c.Cabinet__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2130,6 +2151,11 @@
         <editable>false</editable>
         <field>DC_Cross_Connect__c.Xconnect_Status__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_DC_Circuit__c.Asset__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2220,6 +2246,11 @@
         <editable>true</editable>
         <field>DC_Homerun__c.Asset__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Homerun__c.Available_Fiber_Pairs__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2394,6 +2425,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DC_Rack_Layout__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_Rack_Row__c.Row_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2742,8 +2778,18 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>MRILedger__c.MRI_Source_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>MRILedger__c.MRI_Transaction_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Cabinet_Equivalent__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3054,6 +3100,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>DC_Rack_Layout__c-Rack Layout Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>DC_Rack_Row__c-Rack Row Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>DC_Rack__c-Rack Layout</layout>
@@ -3407,6 +3456,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>DC_Rack_Layout__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>DC_Rack_Row__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3831,6 +3889,10 @@
     <tabVisibilities>
         <tab>DC_Rack_Layout__c</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>DC_Rack_Row__c</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>DC_Rack__c</tab>

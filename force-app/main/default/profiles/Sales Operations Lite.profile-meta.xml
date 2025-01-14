@@ -18,6 +18,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DX_ConnectPorts_ctr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_ConnectPorts_tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_DCIMChoiceResource</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -54,11 +62,27 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DX_PanelSelectorMeetMeRoomPanel_ctr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_PanelSelectorMeetMeRoomPanel_tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_PanelSelectorRacks_ctr</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_PanelSelectorRacks_tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_PrimaryAccountContactHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_RelatedAccountsContactHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1939,11 +1963,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.Source_URL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>DC_Asset_History__c.Asset_Type__c</field>
         <readable>false</readable>
@@ -2065,6 +2084,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>DC_Circuit_Breaker__c.Asset__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DC_Circuit_Breaker__c.Cabinet__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2127,6 +2151,11 @@
         <editable>false</editable>
         <field>DC_Cross_Connect__c.Xconnect_Status__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_DC_Circuit__c.Asset__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2217,6 +2246,11 @@
         <editable>true</editable>
         <field>DC_Homerun__c.Asset__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Homerun__c.Available_Fiber_Pairs__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2329,9 +2363,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Panel__c.Number_of_Ports_Tall__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>DC_Panel__c.Number_of_Ports_Tall_per_Mod__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Panel__c.Number_of_Ports_Wide__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2381,6 +2425,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DC_Rack_Layout__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_Rack_Row__c.Row_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2730,7 +2779,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead.Source_URL__c</field>
+        <field>MRILedger__c.MRI_Source_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>MRILedger__c.MRI_Transaction_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Cabinet_Equivalent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Lost_to_Competitor__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2825,6 +2889,30 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Agreement__c-Agreement Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Agreement__c-Leases and Amendments</layout>
+        <recordType>Agreement__c.Lease</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Agreement__c-MLSA</layout>
+        <recordType>Agreement__c.CSA</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Agreement__c-MLSA</layout>
+        <recordType>Agreement__c.MLSA</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Agreement__c-MLSA</layout>
+        <recordType>Agreement__c.MSA</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Agreement__c-UMLSA</layout>
+        <recordType>Agreement__c.Acquisition_Assignment</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Agreement__c-UMLSA</layout>
+        <recordType>Agreement__c.UMLSA</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Asset-Asset Layout</layout>
@@ -3014,6 +3102,9 @@
         <layout>DC_Rack_Layout__c-Rack Layout Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>DC_Rack_Row__c-Rack Row Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>DC_Rack__c-Rack Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -3053,10 +3144,31 @@
         <layout>DX_Site_Building_Relationship__mdt-DX Site Building Relationship Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Global-Global Layout</layout>
+        <layout>Innerduct__c-Innerduct Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Innerduct__c-Innerduct Layout</layout>
+        <layout>Opportunity-Expansion Opportunity Layout</layout>
+        <recordType>Opportunity.Expansion</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Expansion Opportunity Layout</layout>
+        <recordType>Opportunity.Minimum_Metered_Bookings</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Expansion Opportunity Layout</layout>
+        <recordType>Opportunity.Revenue_Share</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-New Logo Opportunity Layout</layout>
+        <recordType>Opportunity.New_Logo</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-New Market Opportunity Layout</layout>
+        <recordType>Opportunity.New_Market</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Renewal Opportunity Layout</layout>
+        <recordType>Opportunity.Renewal</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Product2-Product Layout</layout>
@@ -3352,6 +3464,15 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
+        <object>DC_Rack_Row__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
         <object>DC_Rack__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -3513,6 +3634,36 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Agreement__c.Acquisition_Assignment</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Agreement__c.CSA</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Agreement__c.Lease</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Agreement__c.MLSA</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Agreement__c.MSA</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Agreement__c.UMLSA</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>true</default>
         <recordType>Asset.Asset</recordType>
         <visible>true</visible>
@@ -3585,6 +3736,47 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.X717_S_Wells</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.Churn</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.Expansion</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.Minimum_Metered_Bookings</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>Opportunity.New_Logo</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.New_Market</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.Out_of_Market</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.Renewal</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.Revenue_Share</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
@@ -3698,6 +3890,10 @@
     <tabVisibilities>
         <tab>DC_Rack_Layout__c</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>DC_Rack_Row__c</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>DC_Rack__c</tab>
