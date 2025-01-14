@@ -114,6 +114,12 @@
                 <identifier>RecordRow_Number__cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Rack_Row__c</fieldItem>
+                <identifier>RecordRack_Row__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-54194d4b-a63a-458a-992d-92f010ba45d0</name>
         <type>Facet</type>
     </flexiPageRegions>
