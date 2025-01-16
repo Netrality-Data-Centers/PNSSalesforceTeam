@@ -951,7 +951,7 @@
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>FiberPairAssetId</elementReference>
+                <elementReference>AssetId</elementReference>
             </value>
         </filters>
         <inputAssignments>
