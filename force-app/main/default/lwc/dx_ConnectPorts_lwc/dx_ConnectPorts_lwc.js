@@ -29,12 +29,11 @@ export default class Dx_ConnectPorts_lwc extends LightningElement {
     }
 
     handleChangePort(event) {
-        const foundIndex=null, nameFiber='';
+        let foundIndex = null, nameFiber = '', tempList = '';
         this.valuePort = event.detail.value;
         nameFiber = event.target.name;
-
         foundIndex = this.lstFiberPair.findIndex(item => item.Name === nameFiber);
-        let tempList = JSON.parse(JSON.stringify(this.lstFiberPair));
+        tempList = JSON.parse(JSON.stringify(this.lstFiberPair));
         tempList[foundIndex].Port__c = this.valuePort;
         this.lstFiberPair = tempList; 
         this.dispatchEvent(new FlowAttributeChangeEvent('lstFiberPair', this.lstFiberPair));
