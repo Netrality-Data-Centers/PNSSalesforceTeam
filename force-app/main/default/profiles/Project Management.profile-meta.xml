@@ -3460,6 +3460,15 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
+        <object>DC_Rack_Row__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
         <object>DC_Rack__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -3834,7 +3843,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>DC_Rack_Row__c</tab>
-        <visibility>Hidden</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>DC_Rack__c</tab>
