@@ -5,7 +5,7 @@
         <name>Restar_Set_Values</name>
         <label>Restar Set Values</label>
         <locationX>176</locationX>
-        <locationY>458</locationY>
+        <locationY>350</locationY>
         <assignmentItems>
             <assignToReference>wasPortSelected</assignToReference>
             <operator>Assign</operator>
@@ -35,7 +35,7 @@
         <name>Set_Connect_Ports</name>
         <label>Set Connect Ports</label>
         <locationX>176</locationX>
-        <locationY>350</locationY>
+        <locationY>242</locationY>
         <assignmentItems>
             <assignToReference>FiberPairList</assignToReference>
             <operator>Assign</operator>
@@ -51,7 +51,7 @@
         <name>Set_PortId_to_List</name>
         <label>Set PortId to List</label>
         <locationX>792</locationX>
-        <locationY>782</locationY>
+        <locationY>674</locationY>
         <assignmentItems>
             <assignToReference>lstPortsSelected</assignToReference>
             <operator>Add</operator>
@@ -67,7 +67,7 @@
         <name>Set_Values_Empty</name>
         <label>Set Values Empty</label>
         <locationX>528</locationX>
-        <locationY>782</locationY>
+        <locationY>674</locationY>
         <assignmentItems>
             <assignToReference>WasPortEmpty</assignToReference>
             <operator>Assign</operator>
@@ -83,7 +83,7 @@
         <name>Set_Values_Selected</name>
         <label>Set Values Selected</label>
         <locationX>264</locationX>
-        <locationY>782</locationY>
+        <locationY>674</locationY>
         <assignmentItems>
             <assignToReference>wasPortSelected</assignToReference>
             <operator>Assign</operator>
@@ -99,7 +99,7 @@
         <name>Is_Port_Selected_Before</name>
         <label>Is Port Selected Before?</label>
         <locationX>528</locationX>
-        <locationY>674</locationY>
+        <locationY>566</locationY>
         <defaultConnector>
             <targetReference>Set_PortId_to_List</targetReference>
         </defaultConnector>
@@ -139,7 +139,7 @@
         <name>Validate_Ports</name>
         <label>Validate Ports</label>
         <locationX>176</locationX>
-        <locationY>1058</locationY>
+        <locationY>950</locationY>
         <defaultConnectorLabel>They Are Correct</defaultConnectorLabel>
         <rules>
             <name>It_Was_Repeated_OR_Empty_Port</name>
@@ -172,7 +172,7 @@
         <name>Loop_Fiber_Pairs</name>
         <label>Loop Fiber Pairs</label>
         <locationX>176</locationX>
-        <locationY>566</locationY>
+        <locationY>458</locationY>
         <collectionReference>FiberPairList</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -201,26 +201,11 @@
         </value>
     </processMetadataValues>
     <processType>Flow</processType>
-    <recordLookups>
-        <name>Get_Records_1</name>
-        <label>Get Records 1</label>
-        <locationX>176</locationX>
-        <locationY>134</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Connect_Ports</targetReference>
-        </connector>
-        <object>DC_Fiber_Pair__c</object>
-        <outputReference>FiberPairList</outputReference>
-        <queriedFields>Id</queriedFields>
-        <queriedFields>Name</queriedFields>
-        <queriedFields>Port__c</queriedFields>
-    </recordLookups>
     <screens>
         <name>Connect_Ports</name>
         <label>Connect Ports</label>
         <locationX>176</locationX>
-        <locationY>242</locationY>
+        <locationY>134</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -289,7 +274,7 @@
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Get_Records_1</targetReference>
+            <targetReference>Connect_Ports</targetReference>
         </connector>
     </start>
     <status>Active</status>
