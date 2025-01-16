@@ -3510,7 +3510,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>DC_Rack_Row__c</tab>
-        <visibility>DefaultOn</visibility>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>DC_Rack__c</tab>
