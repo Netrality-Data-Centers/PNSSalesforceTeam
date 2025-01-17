@@ -2,17 +2,21 @@
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>DX_KC_OPS_Queue_Case</fullName>
     <columns>CASES.CASE_NUMBER</columns>
-    <columns>NAME</columns>
-    <columns>CASES.SUBJECT</columns>
+    <columns>CASES.RECORDTYPE</columns>
+    <columns>CASES.TYPE</columns>
+    <columns>ACCOUNT.NAME</columns>
     <columns>CASES.STATUS</columns>
     <columns>CASES.PRIORITY</columns>
-    <columns>CASES.CREATED_DATE</columns>
-    <columns>CORE.USERS.ALIAS</columns>
     <filterScope>Everything</filterScope>
     <filters>
-        <field>DX_Location__c</field>
+        <field>CASES.RECORDTYPE</field>
         <operation>equals</operation>
-        <value>KC</value>
+        <value>Case.DX_Access_Request,Case.DX_Cross_Connect,Case.DX_Logistics,Case.DX_Remote_Hands_Support</value>
+    </filters>
+    <filters>
+        <field>DX_Site__c</field>
+        <operation>equals</operation>
+        <value>Kansas City,KS7801</value>
     </filters>
     <label>KC Ops Queue</label>
     <sharedTo>
