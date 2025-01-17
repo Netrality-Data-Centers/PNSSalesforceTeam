@@ -8,7 +8,7 @@
     <referenceTo>DC_PDU_RPP__c</referenceTo>
     <relationshipLabel>DC Plants</relationshipLabel>
     <relationshipName>DC_Plants</relationshipName>
-    <required>true</required>
+    <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>
