@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Courier --></label>
+    <name>DX_Courier__c</name>
+    <picklistValues>
+        <masterLabel>Amazon</masterLabel>
+        <translation><!-- Amazon --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>DHL</masterLabel>
+        <translation><!-- DHL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FedEx</masterLabel>
+        <translation><!-- FedEx --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>UPS</masterLabel>
+        <translation><!-- UPS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>USPS</masterLabel>
+        <translation><!-- USPS --></translation>
+    </picklistValues>
+</CustomFieldTranslation>
