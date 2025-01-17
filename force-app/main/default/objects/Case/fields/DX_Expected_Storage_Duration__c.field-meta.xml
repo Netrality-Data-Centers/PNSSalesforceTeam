@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_Expected_Storage_Duration__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Storage Fees may apply*</inlineHelpText>
+    <label>Expected Storage Duration</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Up to 1 week</fullName>
+                <default>false</default>
+                <label>Up to 1 week</label>
+            </value>
+            <value>
+                <fullName>Up to 1 month</fullName>
+                <default>false</default>
+                <label>Up to 1 month</label>
+            </value>
+            <value>
+                <fullName>Over 1 month</fullName>
+                <default>false</default>
+                <label>Over 1 month</label>
+            </value>
+            <value>
+                <fullName>No Storage: Shipment to be utilized on arrival</fullName>
+                <default>false</default>
+                <label>No Storage: Shipment to be utilized on arrival</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
