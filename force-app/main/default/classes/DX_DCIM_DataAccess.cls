@@ -123,6 +123,40 @@ public with sharing class DX_DCIM_DataAccess {
         List<DC_POE__c> lstCabinets = [SELECT Id, Name FROM DC_POE__c WHERE Floor__c = :floorId WITH SECURITY_ENFORCED ORDER BY Name ASC];
         return lstCabinets;
     }
+    
+    /**
+    * @description method to get Meet Me Rooms information by buildingId id
+    * @author cristianivan.ruiz@salesforce.com | 01-09-2025 
+    * @param buildingId 
+    * @return List<DC_Meet_Me_Room__c> 
+    **/
+    public static List<DC_Meet_Me_Room__c> getMeetMeRoom(String buildingId) {
+        List<DC_Meet_Me_Room__c> lstMeetMeRooms = [SELECT Id, Name FROM DC_Meet_Me_Room__c WHERE Data_Hall__r.DC_Floor__r.Building__c = :buildingId WITH SECURITY_ENFORCED ORDER BY Name ASC];
+        return lstMeetMeRooms;
+    }
+    
+    /**
+    * @description method to get Panels information by Meet Me Room id and Account Id
+    * @author cristianivan.ruiz@salesforce.com | 01-09-2025 
+    * @param meetMeRoomId 
+    * @param accountId 
+    * @return List<DC_Panel__c> 
+    **/
+    public static List<DC_Panel__c> getPanel(String meetMeRoomId, String accountId) {
+        List<DC_Panel__c> lstPanels = [SELECT Id, Name FROM DC_Panel__c WHERE Rack__r.Meet_Me_Room__c = :meetMeRoomId AND Asset__r.AccountId = :accountId WITH SECURITY_ENFORCED ORDER BY Name ASC];
+        return lstPanels;
+    }
+
+    /**
+    * @description method to get Ports information by Panel Id
+    * @author cristianivan.ruiz@salesforce.com | 01-09-2025 
+    * @param panelId 
+    * @return List<DC_Port__c> 
+    **/
+    public static List<DC_Port__c> getPorts(String panelId) {
+        List<DC_Port__c> lstPorts = [SELECT Id, Name FROM DC_Port__c WHERE Panel__c = :panelId WITH SECURITY_ENFORCED ORDER BY Name ASC];
+        return lstPorts;
+    }
 
     /**
     * @description method to get wrapper structure
@@ -131,7 +165,7 @@ public with sharing class DX_DCIM_DataAccess {
     * @param strName 
     * @return wrapperResult 
     **/
-    public static wrapperResult ObjWrapperResult(String strId, String strName) {
+    public static wrapperResult objWrapperResult(String strId, String strName) {
         wrapperResult objwrapperResult = new wrapperResult();
         objwrapperResult.value = strId;
         objwrapperResult.label = strName;
