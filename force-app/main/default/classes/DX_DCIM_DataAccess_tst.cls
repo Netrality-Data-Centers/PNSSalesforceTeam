@@ -2,7 +2,7 @@
  * @Description       : 
  * @Author            : cristianivan.ruiz@salesforce.com
  * @Code Coverage     : 
- * @last modified on  : 12-18-2024
+ * @last modified on  : 01-13-2025
  * @last modified by  : cristianivan.ruiz@salesforce.com
 **/
 @IsTest
@@ -22,18 +22,26 @@ public with sharing class DX_DCIM_DataAccess_tst {
         PricebookEntry pricebookEntry = new PricebookEntry(Pricebook2Id = Test.getStandardPricebookId(), Product2Id = product.Id, UnitPrice = 100, IsActive = true);
         // Insert the PricebookEntry record
         insert pricebookEntry;
+        
+        // Create a new Pricebook2 record
+        Pricebook2 customPB = new Pricebook2(Name='Custom Pricebook', isActive=true);
+        insert customPB;
+        
+        // Create a price book entry with a custom price.
+        PricebookEntry customPrice = new PricebookEntry(Pricebook2Id = customPB.Id, Product2Id = product.Id, UnitPrice = 12000, IsActive = true);
+        insert customPrice;
 
         Opportunity Opportunity = new Opportunity(Name = 'Nombre de la oportunidad de prueba', StageName = 'Qualifying', CloseDate = Date.today().addDays(30), Amount = 10000, Probability = 50, LeadSource = 'Web', Type = 'New Logo', AccountId = Account.Id); 
         // Insert the Opportunity record
         insert Opportunity;
 
         // Create a new Order record
-        Quote Service_order = new Quote(Name = 'Test Order', Status = 'Draft', Pricebook2Id = Test.getStandardPricebookId(), OpportunityId = Opportunity.Id, Commencement_Date__c = Date.today(), Term__c = 'test');
+        Quote Service_order = new Quote(Name = 'Test Order', Status = 'Draft', Pricebook2Id = customPB.Id, OpportunityId = Opportunity.Id, Commencement_Date__c = Date.today(), Term__c = 'test');
         // Insert the Order record
         insert Service_order;
 
         // Create a new OrderItem record
-        QuoteLineItem ServiceOrderLineItem = new QuoteLineItem(QuoteId = Service_order.Id, PricebookEntryId = pricebookEntry.Id, Quantity = 1, UnitPrice = pricebookEntry.UnitPrice);
+        QuoteLineItem ServiceOrderLineItem = new QuoteLineItem(QuoteId = Service_order.Id, PricebookEntryId = customPrice.Id, Quantity = 1, UnitPrice = pricebookEntry.UnitPrice);
         // Insert the Service Order Line Item record
         insert ServiceOrderLineItem;
 
@@ -79,6 +87,12 @@ public with sharing class DX_DCIM_DataAccess_tst {
         
         DC_Rack__c Rack = new DC_Rack__c(Name = 'Rack 1', Meet_Me_Room__c = MeetMeRoom.Id, MRI_Suite_ID__c = '435', Number_of_Rack_Units__c =2, Row_Number__c = 2, Short_Name__c = 'RK');
         insert Rack;
+        
+        DC_Panel__c Panel = new DC_Panel__c(Rack__c = Rack.Id, Mod_Model__c = 'Yes', Height_RU__c = 2, MRI_Suite_ID__c = '435', Short_Name__c = 'Pl', Starting_Position_RU__c = 1, Asset__c = asset.Id);
+		insert Panel;
+        
+        DC_Port__c Port = new DC_Port__c(Name = 'Port', Panel__c = Panel.Id, Short_Name__c = 'PT');
+		insert Port;
     }
     
     @IsTest
@@ -232,10 +246,61 @@ public with sharing class DX_DCIM_DataAccess_tst {
     @IsTest
     static void testObjWrapperResult() {
         Test.startTest();
-        DX_DCIM_DataAccess.wrapperResult results = DX_DCIM_DataAccess.ObjWrapperResult('test Id', 'Test Name');
+        DX_DCIM_DataAccess.wrapperResult results = DX_DCIM_DataAccess.objWrapperResult('test Id', 'Test Name');
         Test.stopTest();
         
         // Assert that the method returns the expected number of records (in this case, 1)
         System.assertNotEquals(null, results, 'Expected object wrapper record to be returned');
+    }
+    
+	@IsTest
+    static void testMeetMeRoom() {
+        // Query the test Building record created in the @testSetup method
+        Building__c building = [SELECT Id FROM Building__c LIMIT 1];
+        
+        DC_Meet_Me_Room__c MeetMeRoom = [SELECT Id FROM DC_Meet_Me_Room__c LIMIT 1];
+
+        // Call the method being tested with the ID of the Building record
+        Test.startTest();
+        List<DC_Meet_Me_Room__c> result = DX_DCIM_DataAccess.getMeetMeRoom(building.Id);
+        Test.stopTest();
+
+        // Assert that the method returns the expected MeetMeRoom record
+        System.assertEquals(1, result.size());
+        System.assertEquals(meetMeRoom.Id, result[0].Id);
+    }
+    
+    @IsTest
+    static void testPanel() {
+        Account account = [SELECT Id FROM Account LIMIT 1];
+        
+        DC_Meet_Me_Room__c MeetMeRoom = [SELECT Id FROM DC_Meet_Me_Room__c LIMIT 1];
+        
+		DC_Panel__c Panel = [SELECT Id FROM DC_Panel__c LIMIT 1];
+        
+        // Call the method being tested with the ID of the Account and Meet Me Room record
+        Test.startTest();
+        List<DC_Panel__c> result = DX_DCIM_DataAccess.getPanel(account.Id, MeetMeRoom.Id);
+        Test.stopTest();
+        
+        // Assert that the method returns the expected Panel record
+        System.assertEquals(1, result.size());
+        System.assertEquals(Panel.Id, result[0].Id);
+    }
+    
+    @IsTest
+    static void testPorts() {
+		DC_Panel__c Panel = [SELECT Id FROM DC_Panel__c LIMIT 1];
+        
+        DC_Port__c Port = [SELECT Id FROM DC_Port__c LIMIT 1];
+        
+        // Call the method being tested with the ID of the Account and Meet Me Room record
+        Test.startTest();
+        List<DC_Port__c> result = DX_DCIM_DataAccess.getPorts(Panel.Id);
+        Test.stopTest();
+        
+        // Assert that the method returns the expected Panel record
+        System.assertEquals(1, result.size());
+        System.assertEquals(Port.Id, result[0].Id);
     }
 }

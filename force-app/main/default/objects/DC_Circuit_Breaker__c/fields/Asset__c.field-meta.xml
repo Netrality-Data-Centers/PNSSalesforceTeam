@@ -8,7 +8,7 @@
     <referenceTo>Asset</referenceTo>
     <relationshipLabel>Circuit Breakers</relationshipLabel>
     <relationshipName>Circuit_Breakers</relationshipName>
-    <required>true</required>
+    <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>
