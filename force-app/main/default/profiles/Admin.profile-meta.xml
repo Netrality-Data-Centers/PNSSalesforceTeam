@@ -2564,12 +2564,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>DC_Tenant_Suite__c.Meter_ID__c</field>
+        <field>DC_Tenant_Suite__c.Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>DC_Tenant_Suite__c.Short_Name__c</field>
+        <field>DC_Tenant_Suite__c.Meter_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2578,9 +2578,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DC_Tenant_Suite__c.Tenant_Suite_Name__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3760,7 +3760,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Opportunity.New_Logo</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
