@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Disconnect Type --></label>
+    <name>DX_Disconnect_Type__c</name>
+    <picklistValues>
+        <masterLabel>Full Disconnect</masterLabel>
+        <translation><!-- Full Disconnect --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Partial Disconnect</masterLabel>
+        <translation><!-- Partial Disconnect --></translation>
+    </picklistValues>
+</CustomFieldTranslation>
