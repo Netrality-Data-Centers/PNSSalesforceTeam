@@ -3,7 +3,7 @@
     <actionCalls>
         <name>Get</name>
         <label>Get Cabinets by Building and Account</label>
-        <locationX>666</locationX>
+        <locationX>1029</locationX>
         <locationY>134</locationY>
         <actionName>DX_DCIM_ActionHelper</actionName>
         <actionType>apex</actionType>
@@ -38,7 +38,7 @@
         <name>Save_Port_Ids</name>
         <label>Save Port Ids</label>
         <locationX>138</locationX>
-        <locationY>2678</locationY>
+        <locationY>2786</locationY>
         <assignmentItems>
             <assignToReference>PortList</assignToReference>
             <operator>Add</operator>
@@ -54,7 +54,7 @@
         <name>Save_Port_Ids2</name>
         <label>Save Port Ids</label>
         <locationX>490</locationX>
-        <locationY>2678</locationY>
+        <locationY>2786</locationY>
         <assignmentItems>
             <assignToReference>PortList</assignToReference>
             <operator>Add</operator>
@@ -69,8 +69,8 @@
     <assignments>
         <name>Save_Port_Ids_Existing_Home_Run</name>
         <label>Save Port Ids Existing Home Run</label>
-        <locationX>1194</locationX>
-        <locationY>1946</locationY>
+        <locationX>1502</locationX>
+        <locationY>2162</locationY>
         <assignmentItems>
             <assignToReference>PortList</assignToReference>
             <operator>Add</operator>
@@ -85,7 +85,7 @@
     <assignments>
         <name>Set_AsseIdForNewHomeRun</name>
         <label>Set AsseIdForNewHomeRun</label>
-        <locationX>226</locationX>
+        <locationX>446</locationX>
         <locationY>782</locationY>
         <assignmentItems>
             <assignToReference>AssetIdForNewHomeRun</assignToReference>
@@ -101,8 +101,8 @@
     <assignments>
         <name>Set_Asset</name>
         <label>Set Asset</label>
-        <locationX>1194</locationX>
-        <locationY>890</locationY>
+        <locationX>1700</locationX>
+        <locationY>998</locationY>
         <assignmentItems>
             <assignToReference>lstAsset</assignToReference>
             <operator>Add</operator>
@@ -117,8 +117,8 @@
     <assignments>
         <name>Set_Counter</name>
         <label>Set Counter</label>
-        <locationX>1194</locationX>
-        <locationY>2054</locationY>
+        <locationX>1502</locationX>
+        <locationY>2270</locationY>
         <assignmentItems>
             <assignToReference>CounterFiberPair</assignToReference>
             <operator>Add</operator>
@@ -133,8 +133,8 @@
     <assignments>
         <name>Set_Fiber_Pair_Record</name>
         <label>Set Fiber Pair Record</label>
-        <locationX>1062</locationX>
-        <locationY>2270</locationY>
+        <locationX>1370</locationX>
+        <locationY>2486</locationY>
         <assignmentItems>
             <assignToReference>FiberPairRecord</assignToReference>
             <operator>Assign</operator>
@@ -150,7 +150,7 @@
         <name>Set_Missing_Fields</name>
         <label>Set Missing Fields</label>
         <locationX>490</locationX>
-        <locationY>2570</locationY>
+        <locationY>2678</locationY>
         <assignmentItems>
             <assignToReference>Fiber_Pairs_Loop.Asset__c</assignToReference>
             <operator>Assign</operator>
@@ -165,6 +165,17 @@
                 <elementReference>HomeRunId</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>FiberPairList</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>lstToCreateFiberPair</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Fiber_Pairs_Loop</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Save_Port_Ids2</targetReference>
         </connector>
@@ -172,8 +183,8 @@
     <assignments>
         <name>Set_Missing_Fields_Existing_Home_Run</name>
         <label>Set Missing Fields Existing Home Run</label>
-        <locationX>1194</locationX>
-        <locationY>1838</locationY>
+        <locationX>1502</locationX>
+        <locationY>2054</locationY>
         <assignmentItems>
             <assignToReference>Fiber_Pairs_Loop_Existing_Home_Run.Status__c</assignToReference>
             <operator>Assign</operator>
@@ -209,7 +220,7 @@
     <assignments>
         <name>Set_SelectedCabinetId</name>
         <label>Set SelectedCabinetId</label>
-        <locationX>666</locationX>
+        <locationX>1029</locationX>
         <locationY>350</locationY>
         <assignmentItems>
             <assignToReference>SelectedCabinetId</assignToReference>
@@ -225,7 +236,7 @@
     <assignments>
         <name>Set_Values_on_FiberPairAsset</name>
         <label>Set Values on FiberPairAsset</label>
-        <locationX>358</locationX>
+        <locationX>578</locationX>
         <locationY>1430</locationY>
         <assignmentItems>
             <assignToReference>FiberPairAsset.Name</assignToReference>
@@ -320,8 +331,8 @@
     <decisions>
         <name>Are_There_Home_Run_To_Be_Commited</name>
         <label>Are There Home Run To Be Commited?</label>
-        <locationX>1106</locationX>
-        <locationY>1190</locationY>
+        <locationX>1612</locationX>
+        <locationY>1298</locationY>
         <defaultConnector>
             <targetReference>No_Home_Run_Screen</targetReference>
         </defaultConnector>
@@ -345,7 +356,7 @@
     <decisions>
         <name>Exist_Fiber_Pair_Asset</name>
         <label>Exist Fiber Pair Asset</label>
-        <locationX>226</locationX>
+        <locationX>446</locationX>
         <locationY>1106</locationY>
         <defaultConnector>
             <targetReference>Get_Account_related_to_HomeRun_Asset</targetReference>
@@ -370,7 +381,7 @@
     <decisions>
         <name>Exist_Fiber_Pair_Asset2</name>
         <label>Exist Fiber Pair Asset?</label>
-        <locationX>226</locationX>
+        <locationX>446</locationX>
         <locationY>1730</locationY>
         <defaultConnector>
             <targetReference>Create_Home_Run</targetReference>
@@ -396,7 +407,7 @@
         <name>Exist_FiberPair_Asset</name>
         <label>Exist FiberPair Asset?</label>
         <locationX>226</locationX>
-        <locationY>2354</locationY>
+        <locationY>2462</locationY>
         <defaultConnector>
             <targetReference>Fiber_Pairs_Loop</targetReference>
         </defaultConnector>
@@ -420,8 +431,8 @@
     <decisions>
         <name>Is_The_Fierst_Record</name>
         <label>Is The Fierst Record</label>
-        <locationX>1194</locationX>
-        <locationY>2162</locationY>
+        <locationX>1502</locationX>
+        <locationY>2378</locationY>
         <defaultConnector>
             <targetReference>Fiber_Pairs_Loop_Existing_Home_Run</targetReference>
         </defaultConnector>
@@ -443,9 +454,53 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Is_There_a_Panel</name>
+        <label>Is There a Panel?</label>
+        <locationX>446</locationX>
+        <locationY>2246</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_There_is_a_Panel</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>dx_PanelSelectorMeetMeRoomPanel.isThereAPanel</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Connect_Ports</targetReference>
+            </connector>
+            <label>Yes, There is a Panel</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_There_a_Panel_Existing_Home_Run</name>
+        <label>Is There a Panel Existing Home Run?</label>
+        <locationX>1414</locationX>
+        <locationY>1730</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_There_is_a_Panel_Existing_Home_Run</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>dx_PanelSelectorMeetMeRoomPanel_Existing_Home_Run.isThereAPanel</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Connect_Ports_Existing_Home_Run</targetReference>
+            </connector>
+            <label>Yes, There is a Panel Existing Home Run</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Selected_New_or_Existing_Home_Run</name>
         <label>Selected New or Existing Home Run?</label>
-        <locationX>666</locationX>
+        <locationX>1029</locationX>
         <locationY>458</locationY>
         <defaultConnector>
             <targetReference>How_many_Fiber_Pairs_Screen</targetReference>
@@ -507,21 +562,21 @@
         <name>Fiber_Pairs_Loop</name>
         <label>Fiber Pairs Loop</label>
         <locationX>402</locationX>
-        <locationY>2462</locationY>
+        <locationY>2570</locationY>
         <collectionReference>FiberPairList</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
             <targetReference>Set_Missing_Fields</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
-            <targetReference>Update_Ports_Status_to_Ready_for_Cross_Connect</targetReference>
+            <targetReference>Create_Fiber_Pairs</targetReference>
         </noMoreValuesConnector>
     </loops>
     <loops>
         <name>Fiber_Pairs_Loop_Existing_Home_Run</name>
         <label>Fiber Pairs Loop Existing Home Run</label>
-        <locationX>974</locationX>
-        <locationY>1730</locationY>
+        <locationX>1282</locationX>
+        <locationY>1946</locationY>
         <collectionReference>FiberPairList</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -534,8 +589,8 @@
     <loops>
         <name>Loop_Asset</name>
         <label>Loop Asset</label>
-        <locationX>1106</locationX>
-        <locationY>782</locationY>
+        <locationX>1612</locationX>
+        <locationY>890</locationY>
         <collectionReference>Get_Asset</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -549,7 +604,7 @@
         <name>Loop_Existing_FiberPairs</name>
         <label>Loop Existing FiberPairs</label>
         <locationX>50</locationX>
-        <locationY>2570</locationY>
+        <locationY>2678</locationY>
         <collectionReference>FiberPairList</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -579,9 +634,19 @@
     </processMetadataValues>
     <processType>Flow</processType>
     <recordCreates>
+        <name>Create_Fiber_Pairs</name>
+        <label>Create Fiber Pairs</label>
+        <locationX>402</locationX>
+        <locationY>2978</locationY>
+        <connector>
+            <targetReference>Update_Ports_Status_to_Ready_for_Cross_Connect</targetReference>
+        </connector>
+        <inputReference>lstToCreateFiberPair</inputReference>
+    </recordCreates>
+    <recordCreates>
         <name>Create_FiberPair_Asset</name>
         <label>Create FiberPair Asset</label>
-        <locationX>314</locationX>
+        <locationX>534</locationX>
         <locationY>1946</locationY>
         <assignRecordIdToReference>FiberPairAssetId</assignRecordIdToReference>
         <connector>
@@ -652,7 +717,7 @@
     <recordCreates>
         <name>Create_Home_Run</name>
         <label>Create Home Run</label>
-        <locationX>314</locationX>
+        <locationX>534</locationX>
         <locationY>1838</locationY>
         <assignRecordIdToReference>HomeRunId</assignRecordIdToReference>
         <connector>
@@ -693,7 +758,7 @@
     <recordLookups>
         <name>Get_Account_related_to_HomeRun_Asset</name>
         <label>Get Account related to HomeRun Asset</label>
-        <locationX>358</locationX>
+        <locationX>578</locationX>
         <locationY>1214</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -715,8 +780,8 @@
     <recordLookups>
         <name>Get_Asset</name>
         <label>Get Asset</label>
-        <locationX>1106</locationX>
-        <locationY>674</locationY>
+        <locationX>1612</locationX>
+        <locationY>782</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Loop_Asset</targetReference>
@@ -730,10 +795,10 @@
             </value>
         </filters>
         <filters>
-            <field>Building__c</field>
+            <field>BuildingFomrula__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>BuildingId</elementReference>
+                <elementReference>Get_Building.Name</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
@@ -743,7 +808,7 @@
     <recordLookups>
         <name>Get_AssetInfo_from_passed_AssetId</name>
         <label>Get AssetInfo from passed AssetId</label>
-        <locationX>358</locationX>
+        <locationX>578</locationX>
         <locationY>1322</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -762,10 +827,31 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Get_Building</name>
+        <label>Get Building</label>
+        <locationX>1612</locationX>
+        <locationY>674</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Asset</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>BuildingId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Building__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Fiber_Pair</name>
         <label>Get Fiber Pair From Homerun ID</label>
-        <locationX>974</locationX>
-        <locationY>1406</locationY>
+        <locationX>1414</locationX>
+        <locationY>1514</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Select_Meet_Me_Room_and_Panel_Existing_Home_Run</targetReference>
@@ -796,7 +882,7 @@
     <recordLookups>
         <name>Get_Fiber_Pair_Asset</name>
         <label>Get Fiber Pair Asset</label>
-        <locationX>226</locationX>
+        <locationX>446</locationX>
         <locationY>998</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -831,7 +917,7 @@
     <recordLookups>
         <name>Get_Fiber_Pair_Records</name>
         <label>Get Fiber Pair Records</label>
-        <locationX>94</locationX>
+        <locationX>314</locationX>
         <locationY>1214</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -853,8 +939,8 @@
     <recordLookups>
         <name>Get_Home_Run</name>
         <label>Get Home Run</label>
-        <locationX>1106</locationX>
-        <locationY>1082</locationY>
+        <locationX>1612</locationX>
+        <locationY>1190</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Are_There_Home_Run_To_Be_Commited</targetReference>
@@ -881,7 +967,7 @@
     <recordLookups>
         <name>Get_Service_Order</name>
         <label>Get Service Order</label>
-        <locationX>226</locationX>
+        <locationX>446</locationX>
         <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -902,7 +988,7 @@
     <recordLookups>
         <name>Get_Service_Request</name>
         <label>Get Service Request</label>
-        <locationX>226</locationX>
+        <locationX>446</locationX>
         <locationY>890</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -924,7 +1010,7 @@
         <name>Update_Fiber_Pair_Asset</name>
         <label>Update Fiber Pair Asset</label>
         <locationX>226</locationX>
-        <locationY>3062</locationY>
+        <locationY>3278</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -944,8 +1030,8 @@
     <recordUpdates>
         <name>Update_Fiber_Pair_Asset_Existing_Home_Run</name>
         <label>Update Fiber Pair Asset Existing Home Run</label>
-        <locationX>974</locationX>
-        <locationY>2762</locationY>
+        <locationX>1282</locationX>
+        <locationY>2978</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -990,7 +1076,7 @@
         <name>Update_FiberPairs</name>
         <label>Update FiberPairs</label>
         <locationX>50</locationX>
-        <locationY>2462</locationY>
+        <locationY>2570</locationY>
         <connector>
             <targetReference>Loop_Existing_FiberPairs</targetReference>
         </connector>
@@ -999,8 +1085,8 @@
     <recordUpdates>
         <name>Update_Home_Run</name>
         <label>Update Home Run</label>
-        <locationX>974</locationX>
-        <locationY>2654</locationY>
+        <locationX>1282</locationX>
+        <locationY>2870</locationY>
         <connector>
             <targetReference>Update_Fiber_Pair_Asset_Existing_Home_Run</targetReference>
         </connector>
@@ -1024,7 +1110,7 @@
         <name>Update_Ports_Status_to_Ready_for_Cross_Connect</name>
         <label>Update Ports Status to Ready for Cross Connect</label>
         <locationX>226</locationX>
-        <locationY>2954</locationY>
+        <locationY>3170</locationY>
         <connector>
             <targetReference>Update_Fiber_Pair_Asset</targetReference>
         </connector>
@@ -1047,8 +1133,8 @@
     <recordUpdates>
         <name>Update_Ports_Status_to_Ready_for_Cross_Connect_Existing_Home_Run</name>
         <label>Update Ports Status to Ready for Cross Connect Existing Home Run</label>
-        <locationX>974</locationX>
-        <locationY>2546</locationY>
+        <locationX>1282</locationX>
+        <locationY>2762</locationY>
         <connector>
             <targetReference>Update_Home_Run</targetReference>
         </connector>
@@ -1071,8 +1157,8 @@
     <screens>
         <name>Existing_Home_Run</name>
         <label>Existing Home Run</label>
-        <locationX>974</locationX>
-        <locationY>1298</locationY>
+        <locationX>1414</locationX>
+        <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -1139,13 +1225,13 @@
     <screens>
         <name>How_many_Fiber_Pairs_Screen</name>
         <label>How many Fiber Pairs Screen</label>
-        <locationX>1106</locationX>
+        <locationX>1612</locationX>
         <locationY>566</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Get_Asset</targetReference>
+            <targetReference>Get_Building</targetReference>
         </connector>
         <fields>
             <name>how_many_Fiber_Pairs_need_to_be_committed</name>
@@ -1162,7 +1248,7 @@
     <screens>
         <name>New_Home_Run_Screen</name>
         <label>New Home Run</label>
-        <locationX>226</locationX>
+        <locationX>446</locationX>
         <locationY>674</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -1263,7 +1349,7 @@
     <screens>
         <name>New_or_Existing_Home_Run</name>
         <label>New or Existing Home Run</label>
-        <locationX>666</locationX>
+        <locationX>1029</locationX>
         <locationY>242</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -1302,8 +1388,8 @@
     <screens>
         <name>No_Home_Run_Screen</name>
         <label>No Home Run Screen</label>
-        <locationX>1238</locationX>
-        <locationY>1298</locationY>
+        <locationX>1810</locationX>
+        <locationY>1406</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -1318,13 +1404,13 @@
     <screens>
         <name>Select_Meet_Me_Room_and_Panel</name>
         <label>Select Meet Me Room and Panel</label>
-        <locationX>226</locationX>
+        <locationX>446</locationX>
         <locationY>2138</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Connect_Ports</targetReference>
+            <targetReference>Is_There_a_Panel</targetReference>
         </connector>
         <fields>
             <name>MeetMeRoomPanel_Text</name>
@@ -1352,8 +1438,8 @@
             <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
         <fields>
-            <name>EmptyPanels</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(234, 57, 57);&quot;&gt;This Account does not have any Panels in this Meet Me Room. Please check another Building and if the issue persists, go back to the Asset Allocation screen and Allocate a Panel for this Customer.&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <name>ThereIsNoPanelTextError</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(234, 57, 57);&quot;&gt;This Account does not have any Panels in this Meet Me Room. Please check another Building and if the issue persists, go back to the Asset Allocation screen and Allocate a Panel for this Customer. Click Next to cancel the flow.&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -1372,13 +1458,13 @@
     <screens>
         <name>Select_Meet_Me_Room_and_Panel_Existing_Home_Run</name>
         <label>Select Meet Me Room and Panel Existing Home Run</label>
-        <locationX>974</locationX>
-        <locationY>1514</locationY>
+        <locationX>1414</locationX>
+        <locationY>1622</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Connect_Ports_Existing_Home_Run</targetReference>
+            <targetReference>Is_There_a_Panel_Existing_Home_Run</targetReference>
         </connector>
         <fields>
             <name>Selecttext</name>
@@ -1407,7 +1493,7 @@
         </fields>
         <fields>
             <name>EmptyPanelsExistingHomeRun</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(234, 57, 57);&quot;&gt;This Account does not have any Panels in this Meet Me Room. Please check another Building and if the issue persists, go back to the Asset Allocation screen and Allocate a Panel for this Customer.&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(234, 57, 57);&quot;&gt;This Account does not have any Panels in this Meet Me Room. Please check another Building and if the issue persists, go back to the Asset Allocation screen and Allocate a Panel for this Customer. &lt;/strong&gt;&lt;strong style=&quot;color: rgb(234, 57, 57); background-color: rgb(255, 255, 255);&quot;&gt;Click Next to cancel the flow.&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -1424,7 +1510,7 @@
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>540</locationX>
+        <locationX>903</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get</targetReference>
@@ -1435,7 +1521,7 @@
         <name>Connect_Ports</name>
         <label>Connect Ports</label>
         <locationX>226</locationX>
-        <locationY>2246</locationY>
+        <locationY>2354</locationY>
         <connector>
             <targetReference>Exist_FiberPair_Asset</targetReference>
         </connector>
@@ -1460,8 +1546,8 @@
     <subflows>
         <name>Connect_Ports_Existing_Home_Run</name>
         <label>Connect Ports Existing Home Run</label>
-        <locationX>974</locationX>
-        <locationY>1622</locationY>
+        <locationX>1282</locationX>
+        <locationY>1838</locationY>
         <connector>
             <targetReference>Fiber_Pairs_Loop_Existing_Home_Run</targetReference>
         </connector>
@@ -1486,7 +1572,7 @@
     <subflows>
         <name>Create_Fiber_Pair_Records</name>
         <label>Create Fiber Pair Records</label>
-        <locationX>358</locationX>
+        <locationX>578</locationX>
         <locationY>1538</locationY>
         <connector>
             <targetReference>Exist_Fiber_Pair_Asset2</targetReference>
@@ -1640,6 +1726,14 @@
         <isCollection>true</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>lstToCreateFiberPair</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>DC_Fiber_Pair__c</objectType>
     </variables>
     <variables>
         <name>PortList</name>
