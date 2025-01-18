@@ -1,0 +1,111 @@
+{
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "2ac7f119-a566-464c-b797-3a8362d619f1",
+  "label" : "Escalation Contacts Houston",
+  "regions" : [ {
+    "id" : "4069b5fb-4c3c-4845-9803-dfecc8984435",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Houston_Campus.1}\" style=\"width: 158.188px; height: 149.984px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_11.1}\" style=\"width: 156.688px; height: 85.9844px;\"></p>\n<p><br></p>\n<p><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_21.1}\" style=\"width: 154.828px; height: 82.0312px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_3.1}\" style=\"width: 151.812px; height: 75.4531px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_41.1}\" style=\"width: 150.156px; height: 76.8438px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_5.1}\" style=\"width: 149.312px; height: 74.6562px;\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "4f877f10-398c-4848-abb2-16ffcf9d9c1a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "bc248644-d1ca-4215-9b0b-ebef6a94933c",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><br></p><p><span style=\"font-size: 18px;\">In the event of an emergency, contact the following Netrality personnel in this order of escalation.</span></p><p><br></p><p><span style=\"font-size: 18px;\">For all non-emergencies or other general requests for service, please navigate to the </span><a href=\"/s/new-service-request\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 18px;\"><strong>New Service Request</strong></a><span style=\"font-size: 18px;\"> option in our portal.</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "88c9b775-9e0c-44ca-9c5c-789045a7cfe0",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p><strong style=\"font-size: 26px; color: rgb(102, 163, 224);\">NOC</strong></p><p><strong style=\"font-size: 18px;\">(844) 662-1301</strong></p><p><span style=\"font-size: 18px;\">1301NOC@netrality.com</span>&nbsp;</p><p> </p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "545f6ec6-fa58-47a5-ae57-b9589fd2eceb",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p><strong style=\"color: rgb(102, 163, 224); font-size: 26px;\">LOBBY SECURITY</strong></p><p><span style=\"font-size: 18px;\">(713) 752-2912 1</span></p><p><span style=\"font-size: 18px;\">301Fanninsecurity@netrality.com</span></p><p> </p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "aea099ab-37f1-4f02-a5cb-8148600ae49f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p><strong style=\"font-size: 26px; color: rgb(102, 163, 224);\">OPERATIONS MANAGER</strong></p><p><strong style=\"font-size: 18px;\">ROBERT BRYANT</strong></p><p><span style=\"font-size: 18px;\">(713) 517-9383</span></p><p><span style=\"font-size: 18px;\">rbyrant@netrality.com</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "06880cfb-cc94-47a1-b0b4-6de3dac4bd51",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p><strong style=\"font-size: 26px; color: rgb(102, 163, 224);\">DIRECTOR OF OPERATIONS&nbsp;</strong></p><p><strong style=\"font-size: 18px;\">MIKE ALEXANDER</strong></p><p><span style=\"font-size: 18px;\">(713) 875-2765</span></p><p><span style=\"font-size: 18px;\">malexander@netrality.com</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "ca30cd6b-5f97-4e47-80ed-23f84bc65d16",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p><strong style=\"color: rgb(102, 163, 224); font-size: 26px;\">SALES</strong></p><p><strong style=\"font-size: 18px;\">DAN JESCHKE | SVP, SALES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ROB DELL'UNTO | VP, SALES</strong></p><p><strong style=\"font-size: 18px;\">(212) 317-1123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(917) 647-4928</strong></p><p><span style=\"font-size: 18px;\">djeschke@netrality.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rdellunto@netrality.com&nbsp;</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "b0078257-d4b8-447f-9098-36ea9bf61b3f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9317b3a9-0538-4b61-b78b-0854c2b5af2b",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "12ec6290-a89b-4d66-a433-69af7bcb9f64",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "id" : "9ca6a261-ecc5-4e82-9e7c-54cea9165661",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Escalation Contacts Houston"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "374eb60f-cff7-4cf0-aa68-1cfe1022b491",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "810ba0a5-3209-4a66-86ed-d6146c06c5f5",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "A4qo5TvsBitJkyO42gHKr3nn8OWan6",
+  "type" : "view",
+  "viewType" : "custom-escalation-contacts-houston"
+}

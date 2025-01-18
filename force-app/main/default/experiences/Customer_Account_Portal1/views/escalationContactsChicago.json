@@ -1,0 +1,75 @@
+{
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "dfd0d1a5-bbc5-45c4-a302-b0c77a9a5c1b",
+  "label" : "Escalation Contacts Chicago",
+  "regions" : [ {
+    "id" : "734ae3eb-5cb9-47af-a14a-b1320b5be3c3",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Chicago_Contacts.1}\" style=\"width: 211.641px; height: 146.461px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_11.1}\" style=\"width: 156.688px; height: 85.9844px;\"></p>\n<p><br></p>\n<p><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_21.1}\" style=\"width: 154.828px; height: 82.0312px;\"></p>\n<p><br></p>\n<p><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_3.1}\" style=\"width: 151.812px; height: 75.4531px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_41.1}\" style=\"width: 150.156px; height: 76.8438px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "cd48666e-49c6-40cd-9d02-730657fd7b37",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "09d65561-e885-414d-bff6-928a5782b656",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "d190dbc0-7ab9-48c2-bdad-c444800ca05c",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><br></p><p><span style=\"font-size: 18px;\">In the event of an emergency, contact the following Netrality personnel in this order of escalation.</span></p><p><br></p><p><span style=\"font-size: 18px;\">For all non-emergencies or other general requests for service, please navigate to the </span><a href=\"/s/new-service-request\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 18px; background-color: rgb(255, 255, 255);\"><strong>New Service Request</strong></a><strong style=\"font-size: 18px;\"> </strong><span style=\"font-size: 18px;\">option in our portal.</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "96811cca-82c2-44e8-97b8-7731309b74f1",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p><br></p><p><strong style=\"color: rgb(102, 163, 224); font-size: 26px;\">NOC</strong></p><p><strong style=\"font-size: 18px;\">(312) 818-1019</strong></p><p><span style=\"font-size: 18px;\">717NOC@netrality.com</span></p><p><br></p><p><strong style=\"color: rgb(102, 163, 224); font-size: 26px;\">OPERATIONS MANAGER</strong></p><p><strong style=\"font-size: 18px;\">CHRISTOPHER REDDY</strong></p><p><strong style=\"font-size: 18px;\">(314) 591-0857</strong></p><p><span style=\"font-size: 18px;\">creddy@netrality.com</span></p><p><br></p><p><strong style=\"color: rgb(102, 163, 224); font-size: 26px;\">CHIEF ENGINEER</strong></p><p><strong style=\"font-size: 18px;\">JOHN O'BRIEN</strong></p><p><strong style=\"font-size: 18px;\">(312) 466-9608</strong></p><p><span style=\"font-size: 18px;\">jobrien@netrality.com</span></p><p><br></p><p><strong style=\"color: rgb(102, 163, 224); font-size: 26px;\">SALES</strong></p><p><strong style=\"font-size: 18px;\">DAN JESCHKE | SVP, SALES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ROB DELL'UNTO | VP, SALES</strong></p><p><strong style=\"font-size: 18px;\">(212) 317-1123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(917) 647-4928</strong></p><p><span style=\"font-size: 18px;\">djeschke@netrality.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rdellunto@netrality.com&nbsp;</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "50d91b65-43fe-42c8-ae1f-80818e77cccb",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a1ce78ce-3b79-4879-8e98-b9ae62b12512",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "30f5fa65-174f-4103-9913-c2e0afac1e32",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Escalation Contacts Chicago"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "077e89ed-4f0d-4e5c-b015-9180f14a2a13",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f1bafc8a-47b7-45fe-bf6e-3c225dafc162",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "VZLaEhmTRAP2OTxjZVQ6GZJohxbTiA",
+  "type" : "view",
+  "viewType" : "custom-escalation-contacts-chicago"
+}

@@ -1,0 +1,75 @@
+{
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "b7f8cf01-531a-4678-a0d6-90117837ae08",
+  "label" : "Escalation Contact KC2 Nieman",
+  "regions" : [ {
+    "id" : "39c59206-a172-4335-ac0a-5c7a901a82cb",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.KC2_Nieman_Icon.1}\" style=\"width: 178.516px; height: 154.938px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_11.1}\" style=\"width: 156.688px; height: 85.9844px;\"></p>\n<p><br></p>\n<p><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_21.1}\" style=\"width: 154.828px; height: 82.0312px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_3.1}\" style=\"width: 151.812px; height: 75.4531px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_41.1}\" style=\"width: 150.156px; height: 76.8438px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_5.1}\" style=\"width: 149.312px; height: 74.6562px;\"></p>\n<p>&nbsp;</p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "6e01c976-e31f-4409-a666-dd366e6ac96b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "520a89e3-3d50-4cfc-8e6d-6f3db1e679e2",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><br></p><p><span style=\"font-size: 18px;\">In the event of an emergency, contact the following Netrality personnel in this order of escalation.</span></p><p><br></p><p><span style=\"font-size: 18px;\">For all non-emergencies or other general requests for service, please navigate to the </span><a href=\"/s/new-service-request\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 18px;\"><strong>New Service Request</strong></a><span style=\"font-size: 18px;\"> option in our portal.</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "cdef0512-a8cb-4e0f-8827-42d521aeddbe",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p><strong style=\"font-size: 26px; color: rgb(102, 163, 224);\"><s>﻿</s>NOC</strong></p><p><strong style=\"font-size: 18px;\">ACCESS CONTROL/SECURITY</strong></p><p><span style=\"font-size: 18px;\">(877)-662-1102 1102</span></p><p><span style=\"font-size: 18px;\">NOC@netrality.com</span></p><p><br></p><p><strong style=\"font-size: 26px; color: rgb(102, 163, 224);\">OPERATIONS MANAGER</strong></p><p><strong style=\"font-size: 18px;\">TONY CRISTEA</strong></p><p><span style=\"font-size: 18px;\">D: (816)-888-7891 | C: (816)-678-2122</span></p><p><span style=\"font-size: 18px;\">tcristea@netrality.com&nbsp;</span></p><p><br></p><p><strong style=\"font-size: 26px; color: rgb(102, 163, 224);\">SR. DIRECTOR OF OPERATIONS</strong></p><p><strong style=\"font-size: 18px;\">BRAD LONGFELLOW</strong></p><p><span style=\"font-size: 18px;\">D: (816)-326-2653 | C: (816)-590-9012</span></p><p><span style=\"font-size: 18px;\">blongfellow@netrality.com</span></p><p><br></p><p><strong style=\"color: rgb(102, 163, 224); font-size: 26px;\">CHIEF BUILDING ENGINEER</strong></p><p><strong style=\"font-size: 18px;\">CHRISTOPHER CARTER</strong></p><p><span style=\"font-size: 18px;\">D: (816)-888-7899 | C: (913)-333-1850</span></p><p><span style=\"font-size: 18px;\">ccarter@netrality.com</span></p><p><br></p><p><strong style=\"color: rgb(102, 163, 224); font-size: 26px;\">SALES</strong></p><p><strong style=\"font-size: 18px;\">DAN JESCHKE | SVP, SALES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ROB DELL'UNTO | VP, SALES</strong></p><p><span style=\"font-size: 18px;\">(212) 317-1123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(917) 647-4928</span></p><p><span style=\"font-size: 18px;\">djeschke@netrality.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rdellunto@netrality.com</span></p><p><br></p><p>&nbsp;</p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "e24df7da-32b1-481c-a944-d0e216a2b5a0",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0ed49db3-7984-47dd-a242-7590951aa336",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "b8293853-97aa-4f00-aac2-518261a51099",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "id" : "d3bbc4f0-4cf0-4879-b39b-4dac20f8995a",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Escalation Contact KC2 Nieman"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "4a6790a2-61b9-4c79-8d49-4cea97c11250",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "82b80727-5c19-4eb5-9b3b-52dfc8cec969",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "mrJPUl6NbEhuAeJelJgQOzoLhSNk6C",
+  "type" : "view",
+  "viewType" : "custom-escalation-contact-kc2-nieman"
+}

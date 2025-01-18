@@ -1,0 +1,24 @@
+<!--
+  @Description       : 
+  @Author            : cristianivan.ruiz@salesforce.com
+  @Code Coverage     : 
+  @last modified on  : 11-13-2024
+  @last modified by  : cristianivan.ruiz@salesforce.com
+-->
+<template>
+    <div style="height: 650px;">
+        <lightning-datatable
+                key-field="id"
+                data={dataInfo}
+                columns={columns}
+                hide-checkbox-column
+                onrowaction={handleRowAction}>
+        </lightning-datatable>
+        <template lwc:if={isEmpty}>
+            <div class="slds-align_absolute-center">No data to display</div>
+        </template>
+        <template lwc:if={error}>
+            <div class="slds-align_absolute-center">Error</div>
+        </template>
+    </div>
+</template>

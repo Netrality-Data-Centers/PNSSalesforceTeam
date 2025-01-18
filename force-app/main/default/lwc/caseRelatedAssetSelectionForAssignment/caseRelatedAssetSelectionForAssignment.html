@@ -1,0 +1,73 @@
+<template>
+    <div class="slds-p-around_x-small">
+        <lightning-card title={cardTitle}>
+            <div class="slds-p-around_x-small">
+                <template if:true={hasAssets}>
+                    <lightning-tabset>
+                        <lightning-tab label="Unlocated Assets">
+                            <div class="slds-p-around_x-small">
+                                <template if:true={unlocatedAssets.length}>
+                                    <lightning-datatable
+                                        key-field="Id"
+                                        data={unlocatedAssets}
+                                        columns={columns}
+                                        onrowselection={handleUnlocatedSelection}
+                                        show-row-number-column
+                                        column-widths-mode="fixed"
+                                        selection-mode="multi">
+                                    </lightning-datatable>
+                                </template>
+                                <template if:false={unlocatedAssets.length}>
+                                    <div class="slds-text-align_center slds-p-around_x-small">
+                                        No unlocated assets found
+                                    </div>
+                                </template>
+                            </div>
+                        </lightning-tab>
+                        <lightning-tab label="Located Assets">
+                            <div class="slds-p-around_x-small">
+                                <template if:true={locatedAssets.length}>
+                                    <lightning-datatable
+                                        key-field="Id"
+                                        data={locatedAssets}
+                                        columns={columns}
+                                        onrowselection={handleLocatedSelection}
+                                        show-row-number-column
+                                        column-widths-mode="fixed"
+                                        selection-mode="multi">
+                                    </lightning-datatable>
+                                </template>
+                                <template if:false={locatedAssets.length}>
+                                    <div class="slds-text-align_center slds-p-around_x-small">
+                                        No located assets found
+                                    </div>
+                                </template>
+                            </div>
+                        </lightning-tab>
+                    </lightning-tabset>
+                </template>
+
+                <template if:false={hasAssets}>
+                    <div class="slds-illustration slds-illustration_small">
+                        <div class="slds-text-align_center">
+                            <img src="/img/chatter/NoData.svg" alt="No Assets Found"/>
+                            <div class="slds-p-top_x-small">
+                                <h3 class="slds-text-heading_medium">No Assets Found</h3>
+                                <p class="slds-text-body_regular">This Case has no related Assets to display.</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <div slot="footer" class="slds-text-align_right slds-p-around_x-small">
+                <lightning-button 
+                    label="Next"
+                    variant="brand"
+                    disabled={isNextButtonDisabled}
+                    onclick={handleNext}>
+                </lightning-button>
+            </div>
+        </lightning-card>
+    </div>
+</template>

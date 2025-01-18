@@ -1,0 +1,75 @@
+{
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "380a0769-b91d-4b1b-ae8d-2c0139b79fee",
+  "label" : "Escalation Contacts Indy Telecom Campus",
+  "regions" : [ {
+    "id" : "07e3e7d3-cd52-4ad3-8714-fcbed9b7ad0c",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Indy_Telecom_Campus.1}\" style=\"width: 185.969px; height: 163.594px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_11.1}\" style=\"width: 156.688px; height: 85.9844px;\"></p>\n<p><br></p>\n<p><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_21.1}\" style=\"width: 154.828px; height: 82.0312px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_3.1}\" style=\"width: 151.812px; height: 75.4531px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_41.1}\" style=\"width: 150.156px; height: 76.8438px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p>&nbsp;</p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "e5c9df66-7d55-401a-8224-6b80d54afc82",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a83b2b17-6f06-4493-b96a-2eb15065606e",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><br></p><p><span style=\"font-size: 18px;\">In the event of an emergency, contact the following Netrality personnel in this order of escalation.</span></p><p><br></p><p><span style=\"font-size: 18px;\">For all non-emergencies or other general requests for service, please navigate to the </span><a href=\"/s/new-service-request\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 18px; background-color: rgb(255, 255, 255);\"><strong>New Service Request</strong></a><span style=\"font-size: 18px;\"> option in our portal.</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "b5c2e0ad-238d-4c5a-b9d6-2975416be2b6",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p><br></p><p><strong style=\"font-size: 26px; color: rgb(102, 163, 224);\">VP OF ENGINEERING</strong></p><p><strong style=\"font-size: 18px;\">TIM BIRKNER</strong></p><p><span style=\"font-size: 18px;\">(713) 980-6440</span></p><p><span style=\"font-size: 18px;\">tbirkner@netrality.com</span></p><p><br></p><p><strong style=\"color: rgb(102, 163, 224); font-size: 26px;\">VP OF OPERATIONS</strong></p><p><strong style=\"font-size: 18px;\">ROBERT WEATHERLY</strong></p><p><span style=\"font-size: 18px;\">(713) 980-6433</span></p><p><span style=\"font-size: 18px;\">rweatherly@netrality.com</span></p><p><br></p><p><strong style=\"color: rgb(102, 163, 224); font-size: 26px; background-color: rgb(255, 255, 255);\">PROPERTY MANAGER</strong></p><p><strong style=\"font-size: 18px;\">LAUREN JOSEFOWICZ</strong></p><p><span style=\"font-size: 18px;\">(312) 878-4626</span></p><p><span style=\"font-size: 18px;\">ljosefowicz@netrality.com</span></p><p><br></p><p><strong style=\"font-size: 26px; color: rgb(102, 163, 224);\">SALES LEADERSHIP</strong></p><p><strong style=\"font-size: 18px;\">DAN JESCHKE | SVP, SALES.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ROB DELL'UNTO | VP, SALES</strong></p><p><span style=\"font-size: 18px;\">(212) 317-1123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(917) 647-4928</span></p><p><span style=\"font-size: 18px;\">djeschke@netrality.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rdellunto@netrality.com</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "e6cf7760-0939-4e28-9137-2025291d1256",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "42af8d5b-b8b5-4e55-b0d3-bf39c7eb8f6e",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "55596f15-94e9-42f4-847e-af208ef86389",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "id" : "f61a4d70-c471-4424-9019-0a47cb863110",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Escalation Contacts Indy Telecom Campus"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "820057aa-ad39-4876-90c6-cf0c9bfbea1f",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "afad33c9-3c9d-4ba4-b4e9-9f4a8927d967",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "PmrJVooXEooC5hw44u52LDwYYIMJnw",
+  "type" : "view",
+  "viewType" : "custom-escalation-contacts-indy-telecom-campus"
+}

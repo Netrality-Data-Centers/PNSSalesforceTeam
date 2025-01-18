@@ -1,0 +1,48 @@
+{
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "2692a068-65f0-4f46-ba90-6ce98f1a5bf7",
+  "label" : "COI Documents",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><br></p><p><a href=\"https://netrality--qa.sandbox.my.salesforce.com/sfc/p/VB000002C18r/a/VB000000AFdh/5cXos5CBO7.tCFbOYxx0X4j.L.g57XHSeIn8KE5uyWM\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 28px;\"><strong>1102 Grand</strong></a></p><p><a href=\"https://netrality--qa.sandbox.my.salesforce.com/sfc/p/VB000002C18r/a/VB000000AFfJ/ftdpCvaO2p.qCl4.9a30iI6qqI2yRgiwpMEeXJOm9no\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 28px;\"><strong>1301 Fannin</strong></a></p><p><a href=\"https://netrality--qa.sandbox.my.salesforce.com/sfc/p/VB000002C18r/a/VB000000AFgv/QOtrmF2278ReTfWT6EHkNA0Tqm7HeZSXTgLagw1D.5o\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 28px;\"><strong>210 Tucker</strong></a></p><p><a href=\"https://netrality--qa.sandbox.my.salesforce.com/sfc/p/VB000002C18r/a/VB000000AFiX/eMtbq627NsIDeNsVd0hI6g7WFHLLIPLR9gBPXQKXKC4\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 28px;\"><strong>401 N Broad</strong></a></p><p><a href=\"https://netrality--qa.sandbox.my.salesforce.com/sfc/p/VB000002C18r/a/VB000000AFk9/gwRNr6ZMVJoWJoL2Mmm7KY9EAkMHs.CJ_mWmnFQUbZ0\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 28px;\"><strong>701 W Henry</strong></a></p><p><a href=\"https://netrality--qa.sandbox.my.salesforce.com/sfc/p/VB000002C18r/a/VB000000AFll/Km5J9BaLGfaF4Mda8LHnjv7boEqxm7rGcXcodzTxZqg\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 28px;\"><strong>717 S Wells</strong></a></p><p><a href=\"https://netrality--qa.sandbox.my.salesforce.com/sfc/p/VB000002C18r/a/VB000000AFnN/Nhp9ecXHVGSUN6fsGKSCEEYgqv0wse5ghJEEecf1Bqw\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 28px;\"><strong>733 W Henry</strong></a></p><p><a href=\"https://netrality--qa.sandbox.my.salesforce.com/sfc/p/VB000002C18r/a/VB000000AFoz/Bq2Jy6e_XxnzQNmsUg5Vu8JrkLO5z_5rKzam3vBXlBs\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 28px;\"><strong>7801 Nieman</strong></a></p><p><a href=\"https://netrality--qa.sandbox.my.salesforce.com/sfc/p/VB000002C18r/a/VB000000AFqb/FXQ65vPyMcRSSJeFCEOwxGCajxGit_Dby1d86EoSIG8\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 28px;\"><strong>900 Walnut</strong></a></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "fd822f69-1539-496b-a1d0-a2b176f6a331",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0a9c3fb2-e3d5-40d5-9ab9-795f1f39426f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "04c66a7b-9061-45b4-8788-aebf70339433",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "1a5a4872-a25c-429a-9822-9bda6a57cbad",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "COI Documents"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "2d048832-fb99-4a86-91bc-a56a07a81f2c",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2cc33ebc-3b53-4e2c-a5c2-ccbb61d76900",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "XE3mVZK01tk0aF5NQM0Lm4myu1dxpE",
+  "type" : "view",
+  "viewType" : "custom-coi-documents"
+}

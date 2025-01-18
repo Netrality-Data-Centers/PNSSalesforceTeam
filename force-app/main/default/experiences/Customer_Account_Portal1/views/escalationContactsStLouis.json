@@ -1,0 +1,75 @@
+{
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "11f0d22b-7ccf-4d17-9261-db7f0ed17566",
+  "label" : "Escalation Contacts St Louis",
+  "regions" : [ {
+    "id" : "baa651f7-3548-448a-a5c0-b0a9adf3715e",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.St_Louis_Icon.1}\" style=\"width: 180.219px; height: 152.188px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_11.1}\" style=\"width: 156.688px; height: 85.9844px;\"></p>\n<p><br></p>\n<p><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_21.1}\" style=\"width: 154.828px; height: 82.0312px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_3.1}\" style=\"width: 151.812px; height: 75.4531px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_41.1}\" style=\"width: 150.156px; height: 76.8438px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_5.1}\" style=\"width: 149.312px; height: 74.6562px;\"></p>\n<p>&nbsp;</p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "5cebb380-4538-4df5-a676-4a9ce3ffc5fb",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ff614061-a0a6-40ca-8fd7-d34b813cd6d5",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><br></p><p><span style=\"font-size: 18px;\">In the event of an emergency, contact the following Netrality personnel in this order of escalation.</span></p><p><br></p><p><span style=\"font-size: 18px;\">For all non-emergencies or other general requests for service, please navigate to the </span><a href=\"/s/new-service-request\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 18px; background-color: rgb(255, 255, 255);\"><strong>New Service Request</strong></a><strong style=\"font-size: 18px;\"> </strong><span style=\"font-size: 18px;\">option in our portal.</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "0a7808b0-158b-49d7-9c54-a43ed8204da5",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p><br></p><p><strong style=\"color: rgb(102, 163, 224); font-size: 26px;\">NOC</strong></p><p><span style=\"font-size: 18px;\">(314)-335-3800</span></p><p><span style=\"font-size: 18px;\">stlouisops@netrality.com</span></p><p><br></p><p><strong style=\"font-size: 26px; color: rgb(102, 163, 224);\">SECURITY</strong></p><p><span style=\"font-size: 18px;\">(314)-335-3805</span></p><p><span style=\"font-size: 18px;\">stlouissecurity@netrality.com</span></p><p><br></p><p><strong style=\"font-size: 26px; color: rgb(102, 163, 224);\">DIRECTOR OF OPERATIONS</strong></p><p><strong style=\"font-size: 18px;\">TIM THURMAN</strong></p><p><span style=\"font-size: 18px;\">(314)-610-8360</span></p><p><span style=\"font-size: 18px;\">tthurman@netrality.com</span></p><p><br></p><p><strong style=\"font-size: 26px; color: rgb(102, 163, 224);\">CHIEF ENGINEER</strong></p><p><strong style=\"font-size: 18px;\">JEFF KOBERMANN</strong></p><p><span style=\"font-size: 18px;\">(314)-713-2800</span></p><p><span style=\"font-size: 18px;\">jkobermann@netrality.com</span></p><p><span style=\"font-size: 18px;\">&nbsp;</span></p><p><strong style=\"font-size: 26px; color: rgb(102, 163, 224);\">SALES</strong></p><p><strong style=\"font-size: 18px;\">DAN JESCHKE | SVP, SALES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ROB DELL'UNTO | VP, SALES</strong></p><p><span style=\"font-size: 18px;\">(212) 317-1123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(917) 647-4928&nbsp;</span></p><p><span style=\"font-size: 18px;\">djeschke@netrality.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rdellunto@netrality.com</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "3d39a89c-7352-4af4-809b-b7e7c81930eb",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6beede2f-1c37-4c35-96c8-7d0783495d5b",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "c6dc1af8-6a86-4ef2-8fbe-c2b19a191096",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "id" : "e0585c8d-e709-4124-a27a-24631ca12a9f",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Escalation Contacts St Louis"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "858c19c5-85ba-406a-959b-95459ee11a30",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "bc899809-7399-4542-a18b-c8be0598c05d",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "ueWAEGT9F4dkOF46ir3bej0h7AZV0r",
+  "type" : "view",
+  "viewType" : "custom-escalation-contacts-st-louis"
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>RenderDraw Multi Asset Assignment</masterLabel>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="assets" type="@salesforce/schema/Asset[]" label="Assets"
+                description="List of Assets to assign" required="true" />
+            <property name="hallId" type="String" label="Data Hall Id"
+                description="Id of the Data Hall record" required="false" />
+            <property name="floorId" type="String" label="Floor Id"
+                description="Id of the Floor record" required="false" />
+            <property name="buildingId" type="String" label="Building Id"
+                description="Id of the Building record" required="false" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

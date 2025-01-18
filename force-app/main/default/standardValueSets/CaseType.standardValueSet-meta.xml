@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Remote Support</fullName>
+        <default>true</default>
+        <label>Remote Support</label>
+    </standardValue>
+    <standardValue>
+        <fullName>XConnect</fullName>
+        <default>false</default>
+        <label>XConnect</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Access Change</fullName>
+        <default>false</default>
+        <label>Access Change</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New Cross Connect</fullName>
+        <default>false</default>
+        <label>New Cross Connect</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Change Cross Connect</fullName>
+        <default>false</default>
+        <label>Change Cross Connect</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Disconnect Cross Connect</fullName>
+        <default>false</default>
+        <label>Disconnect Cross Connect</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Connectivity Troubleshooting</fullName>
+        <default>false</default>
+        <label>Connectivity Troubleshooting</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Documentation / Labelling/ Inventory</fullName>
+        <default>false</default>
+        <label>Documentation / Labelling/ Inventory</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Equipment Installation</fullName>
+        <default>false</default>
+        <label>Equipment Installation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Equipment Troubleshooting</fullName>
+        <default>false</default>
+        <label>Equipment Troubleshooting</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Power</fullName>
+        <default>false</default>
+        <label>Power</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Rack Space</fullName>
+        <default>false</default>
+        <label>Rack Space</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cage Space</fullName>
+        <default>false</default>
+        <label>Cage Space</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Fiber Home Run</fullName>
+        <default>false</default>
+        <label>Fiber Home Run</label>
+    </standardValue>
+    <standardValue>
+        <fullName>MMA Rack Space</fullName>
+        <default>false</default>
+        <label>MMA Rack Space</label>
+    </standardValue>
+    <standardValue>
+        <fullName>11th FL Expansion</fullName>
+        <default>false</default>
+        <label>11th FL Expansion</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Equipment Delivery/ Storage</fullName>
+        <default>false</default>
+        <label>Equipment Delivery/ Storage</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Equipment Staging</fullName>
+        <default>false</default>
+        <label>Equipment Staging</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Outbound Shipping</fullName>
+        <default>false</default>
+        <label>Outbound Shipping</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Add / Remove User</fullName>
+        <default>false</default>
+        <label>Add / Remove User</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Physical Site Access</fullName>
+        <default>false</default>
+        <label>Physical Site Access</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Billing Inquiry</fullName>
+        <default>false</default>
+        <label>Billing Inquiry</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Invoice Request</fullName>
+        <default>false</default>
+        <label>Invoice Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>W9 Request</fullName>
+        <default>false</default>
+        <label>W9 Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Billing History Request</fullName>
+        <default>false</default>
+        <label>Billing History Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Statement Request</fullName>
+        <default>false</default>
+        <label>Statement Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>NRC Detail Request</fullName>
+        <default>false</default>
+        <label>NRC Detail Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Update Customer Information</fullName>
+        <default>false</default>
+        <label>Update Customer Information</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Renewal Request</fullName>
+        <default>false</default>
+        <label>Renewal Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Assign &amp; Assumption or Name Change Request</fullName>
+        <default>false</default>
+        <label>Assign &amp; Assumption or Name Change Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Document Request</fullName>
+        <default>false</default>
+        <label>Document Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Training/Portal Help</fullName>
+        <default>false</default>
+        <label>Training/Portal Help</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Strategic Business Review Request</fullName>
+        <default>false</default>
+        <label>Strategic Business Review Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Inventory Related Questions</fullName>
+        <default>false</default>
+        <label>Inventory Related Questions</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Feedback</fullName>
+        <default>false</default>
+        <label>Feedback</label>
+    </standardValue>
+    <standardValue>
+        <fullName>General Questions</fullName>
+        <default>false</default>
+        <label>General Questions</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Disconnect Request</fullName>
+        <default>false</default>
+        <label>Disconnect Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Issuing CRN</fullName>
+        <default>false</default>
+        <label>Issuing CRN</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Internal CRN</fullName>
+        <default>false</default>
+        <label>Internal CRN</label>
+    </standardValue>
+</StandardValueSet>

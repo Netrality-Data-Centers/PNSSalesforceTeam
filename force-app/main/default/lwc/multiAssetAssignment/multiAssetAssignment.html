@@ -1,0 +1,76 @@
+<template>
+    <lightning-card icon-name="standard:asset_object">
+        <div slot="title" class="slds-grid slds-grid_align-spread">
+            <div>Map your Assets</div>
+            <div class="slds-grid slds-grid_align-end">
+                <div>{assignedCount}/{totalAssets} Assets</div>
+                <div class="slds-p-left_small">{progressPercentage}% Complete</div>
+                <div class="slds-progress-ring slds-progress-ring_large" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={progressPercentage}>
+
+                    <div class="slds-progress-ring__progress" style={progressStyle}>
+                        <svg viewBox="-1 -1 2 2">
+                            <path class="slds-progress-ring__path" d={progressPath}></path>
+                        </svg>
+                    </div>
+                    <div class="slds-progress-ring__content">{progressPercentage}%</div>
+                </div>
+            </div>
+        </div><p slot="subtitle">Select a spot on the Data Hall Map and then assign it to one of your selected Assets</p>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-3 slds-is-relative">
+                <div class="slds-scrollable_y" style="height: calc(80vh - 200px);">
+                    <template if:true={selectedAsset}>
+                        <div class="slds-box slds-m-around_medium">
+                            <div class="slds-text-heading_medium slds-p-bottom_medium">
+                                {selectedAsset.Name}
+                            </div>
+                            <lightning-record-form layout-type="Compact"
+                            record-id={selectedAsset.Id}
+                            object-api-name="Asset"
+                            mode="readonly">
+                        </lightning-record-form>
+                            
+                            <template if:true={selectedAsset.isAssigned}>
+                                <div class="slds-notify slds-notify_alert slds-theme_success" role="alert">
+                                    <span class="slds-assistive-text">success</span>
+                                    <h2>✓ Asset has been mapped</h2>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+                <div class="slds-p-around_medium slds-is-fixed" style="bottom: 0; background: white; width: calc(33.33% - 2rem); border-top: 1px solid #dddbda;">
+                    <lightning-button-group class="slds-align_absolute-center">
+                        <lightning-button 
+                            label="Previous"
+                            onclick={handlePreviousAsset}
+                            disabled={isFirstAsset}>
+                        </lightning-button>
+                        <lightning-button 
+                            variant="brand"
+                            label="Save"
+                            onclick={handleSave}
+                            disabled={isSaveDisabled}>
+                        </lightning-button>
+                        <lightning-button 
+                            label="Next"
+                            onclick={handleNextAsset}
+                            disabled={isLastAsset}>
+                        </lightning-button>
+                    </lightning-button-group>
+                </div>
+            </div>
+            <div class="slds-col slds-size_2-of-3">
+                <template if:true={hasLightningFlow}>
+                    <lightning-flow if:false={isBusy}
+                        flow-api-name={lightningFlow}
+                        flow-input-variables={flowInputVariables}>
+                    </lightning-flow>
+                </template>
+                <!-- <RDraw-canvas2-d
+                    record-id={dataHallId}>
+                </RDraw-canvas2-d> -->
+            </div>
+        </div>
+    </lightning-card>
+</template>

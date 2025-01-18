@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_PHL_OPS_Queue_Case</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>CASES.RECORDTYPE</columns>
+    <columns>CASES.TYPE</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>CASES.PRIORITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.DX_Access_Request,Case.DX_Cross_Connect,Case.DX_Logistics,Case.DX_Remote_Hands_Support</value>
+    </filters>
+    <filters>
+        <field>DX_Site__c</field>
+        <operation>equals</operation>
+        <value>Philadelphia</value>
+    </filters>
+    <label>PHL Ops Queue</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,75 @@
+{
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "969425c5-55fa-4131-9f68-0eea22f90369",
+  "label" : "Escalation Contacts Kansas City",
+  "regions" : [ {
+    "id" : "ac6c3850-8494-45dc-add7-65247c25ef64",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Kansas_City_Icon.1}\" style=\"width: 177.703px; height: 156.703px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_11.1}\" style=\"width: 156.688px; height: 85.9844px;\"></p>\n<p><br></p>\n<p><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_21.1}\" style=\"width: 154.828px; height: 82.0312px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_3.1}\" style=\"width: 151.812px; height: 75.4531px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_41.1}\" style=\"width: 150.156px; height: 76.8438px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_5.1}\" style=\"width: 149.312px; height: 74.6562px;\"></p>\n<p>&nbsp;</p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "414a61d5-277e-4fcc-b8a4-a2514ccc1329",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "434ca46e-89fd-48a9-bc8f-57a2abe1b664",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><span style=\"font-size: 18px;\">In the event of an emergency, contact the following Netrality personnel in this order of escalation.</span></p><p><br></p><p><span style=\"font-size: 18px;\">For all non-emergencies or other general requests for service, please navigate to the </span><a href=\"/s/new-service-request\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 18px; background-color: rgb(255, 255, 255);\"><strong>New Service Request</strong></a><span style=\"font-size: 18px;\"> option in our portal.</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "13e47b47-3f7c-4de3-9a32-443b75542437",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p><strong style=\"color: rgb(102, 163, 224); font-size: 26px;\">NOC</strong></p><p><strong style=\"font-size: 18px;\">ACCESS CONTROL/SECURITY</strong></p><p><span style=\"font-size: 18px;\">(877)-662-1102</span></p><p><span style=\"font-size: 18px;\">NOC1102@netrality.com</span></p><p><br></p><p><strong style=\"color: rgb(102, 163, 224); font-size: 26px;\">OPERATIONS SUPERVISOR</strong></p><p><strong style=\"font-size: 18px;\">SKIE PEARSON</strong></p><p><span style=\"font-size: 18px;\">D: (913)-603-2717</span></p><p><span style=\"font-size: 18px;\">staylor@netrality.com</span></p><p><br></p><p><strong style=\"color: rgb(102, 163, 224); font-size: 26px;\">SR. DIRECTOR OF OPERATIONS</strong></p><p><strong style=\"font-size: 18px;\">BRAD LONGFELLOW</strong></p><p><span style=\"font-size: 18px;\">D: (816)-326-2653 | C: (816)-590-9012</span></p><p><span style=\"font-size: 18px;\">blongfellow@netrality.com</span></p><p><br></p><p><strong style=\"color: rgb(102, 163, 224); font-size: 26px;\">CHIEF BUILDING ENGINEER</strong></p><p><strong style=\"font-size: 18px;\">CHRISTOPHER CARTER</strong></p><p><span style=\"font-size: 18px;\">D: (816)-888-7899 | C: (913)-333-1850</span></p><p><span style=\"font-size: 18px;\">ccarter@netrality.com</span></p><p><br></p><p><strong style=\"color: rgb(102, 163, 224); background-color: rgb(255, 255, 255); font-size: 26px;\">SALES</strong></p><p><strong style=\"font-size: 18px;\">DAN JESCHKE | SVP, SALES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ROB DELL'UNTO | VP, SALES</strong></p><p><span style=\"font-size: 18px;\">(212) 317-1123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(917) 647-4928</span></p><p><span style=\"font-size: 18px;\">djeschke@netrality.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rdellunto@netrality.com</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "01c385dc-295f-4d53-9586-5432233485bd",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a0cd3022-e2b7-48cc-b3cf-7c89141d2469",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "9928e35e-b26a-4ca8-9bb3-11a05db2287b",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "id" : "66e6034c-2734-4bd2-8f3f-119c1637994b",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Escalation Contacts Kansas City"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "653bfb0b-29a1-4438-81d2-af4496c2099f",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b5a585b9-160d-49f3-8382-f81721db9ad2",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "a7YAhnoJZpOfO6AScXI5Mg11C4Visq",
+  "type" : "view",
+  "viewType" : "custom-escalation-contacts-kansas-city"
+}
