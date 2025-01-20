@@ -165,6 +165,13 @@
                 <elementReference>HomeRunId</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>lstToCreateFiberPair</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Fiber_Pairs_Loop</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Save_Port_Ids2</targetReference>
         </connector>
@@ -730,8 +737,8 @@
             </value>
         </filters>
         <filters>
-            <field>Building__c</field>
-            <operator>EqualTo</operator>
+            <field>BuildingFomrula__c</field>
+            <operator>Contains</operator>
             <value>
                 <elementReference>BuildingId</elementReference>
             </value>
@@ -1511,9 +1518,9 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <name>ServiceOrderId</name>
+            <name>ServicerOrderRecord</name>
             <value>
-                <elementReference>ServiceOrderId</elementReference>
+                <elementReference>Get_Service_Order</elementReference>
             </value>
         </inputAssignments>
         <outputAssignments>

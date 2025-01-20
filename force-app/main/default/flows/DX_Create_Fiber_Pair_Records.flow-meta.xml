@@ -50,7 +50,7 @@
             <assignToReference>iFiberPairRecord.Committed_Service_Order__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>ServiceOrderId</elementReference>
+                <elementReference>ServicerOrderRecord.Service_Order_ID__c</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -153,7 +153,7 @@
     <formulas>
         <name>ValueFiberPairName</name>
         <dataType>String</dataType>
-        <expression>&apos;HomeRunName&apos; + &apos;.&apos; + &apos;1/&apos;+TEXT({!Counter})</expression>
+        <expression>&apos;HomeRunName&apos; + &apos;.&apos; + TEXT({!Counter}) +&apos;/&apos;+TEXT({!Counter})</expression>
     </formulas>
     <interviewLabel>DX Create Fiber Pair Records {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Create Fiber Pair Records</label>
@@ -235,10 +235,11 @@
         <objectType>DC_Fiber_Pair__c</objectType>
     </variables>
     <variables>
-        <name>ServiceOrderId</name>
-        <dataType>String</dataType>
+        <name>ServicerOrderRecord</name>
+        <dataType>SObject</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+        <objectType>Quote</objectType>
     </variables>
 </Flow>
