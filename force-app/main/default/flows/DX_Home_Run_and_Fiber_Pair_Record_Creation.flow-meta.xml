@@ -166,10 +166,6 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>FiberPairList</assignToReference>
-            <operator>Assign</operator>
-        </assignmentItems>
-        <assignmentItems>
             <assignToReference>lstToCreateFiberPair</assignToReference>
             <operator>Add</operator>
             <value>
@@ -796,7 +792,7 @@
         </filters>
         <filters>
             <field>BuildingFomrula__c</field>
-            <operator>EqualTo</operator>
+            <operator>Contains</operator>
             <value>
                 <elementReference>Get_Building.Name</elementReference>
             </value>
@@ -1597,9 +1593,9 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <name>ServiceOrderId</name>
+            <name>ServicerOrderRecord</name>
             <value>
-                <elementReference>ServiceOrderId</elementReference>
+                <elementReference>Get_Service_Order</elementReference>
             </value>
         </inputAssignments>
         <outputAssignments>
