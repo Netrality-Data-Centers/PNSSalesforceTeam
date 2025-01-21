@@ -74,8 +74,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Port_Pattern__c</fieldItem>
-                <identifier>RecordPort_Pattern__cField</identifier>
+                <fieldItem>Record.Connector_Type__c</fieldItem>
+                <identifier>RecordConnector_Type_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-83bd6397-5bd3-4b0d-83c1-c91818abfb2c</name>
@@ -112,16 +112,6 @@
                 <identifier>RecordStarting_Position_RU__cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Connector_Type__c</fieldItem>
-                <identifier>RecordConnector_Type_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
         <name>Facet-29e3db74-ea25-4e4a-8a35-29adfe840765</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -156,15 +146,15 @@
                     <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Height_RU__c</fieldItem>
-                <identifier>RecordHeight_RU_cField</identifier>
+                <fieldItem>Record.Mod_Model__c</fieldItem>
+                <identifier>RecordMod_Model_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Number_of_Ports_Wide__c</fieldItem>
                 <identifier>RecordNumber_of_Ports_Wide_cField</identifier>
@@ -173,81 +163,6 @@
                         <leftValue>{!Record.Mod_Model__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>No</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Number_of_Ports_Tall__c</fieldItem>
-                <identifier>RecordNumber_of_Ports_Tall_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Mod_Model__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>No</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>readonly</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Total_Number_of_Ports__c</fieldItem>
-                <identifier>RecordTotal_Number_of_Ports_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Mod_Model__c</fieldItem>
-                <identifier>RecordMod_Model_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <name>Facet-36be44f3-5a93-40b8-a4f6-65b6c4a6643c</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Number_of_Mods__c</fieldItem>
-                <identifier>RecordNumber_of_Mods__cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Mod_Model__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Yes</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Mod_Pattern__c</fieldItem>
-                <identifier>RecordMod_Pattern__cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Mod_Model__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Yes</rightValue>
                     </criteria>
                 </visibilityRule>
             </fieldInstance>
@@ -275,8 +190,93 @@
                     <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.Number_of_Mods__c</fieldItem>
+                <identifier>RecordNumber_of_Mods__cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Mod_Model__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Yes</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Height_RU__c</fieldItem>
+                <identifier>RecordHeight_RU_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-36be44f3-5a93-40b8-a4f6-65b6c4a6643c</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Port_Pattern__c</fieldItem>
+                <identifier>RecordPort_Pattern__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Number_of_Ports_Tall__c</fieldItem>
+                <identifier>RecordNumber_of_Ports_Tall_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Mod_Model__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>No</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Number_of_Ports_Tall_per_Mod__c</fieldItem>
                 <identifier>RecordNumber_of_Ports_Tall_per_Mod__cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Mod_Model__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Yes</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Total_Number_of_Ports__c</fieldItem>
+                <identifier>RecordTotal_Number_of_Ports_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Mod_Pattern__c</fieldItem>
+                <identifier>RecordMod_Pattern__cField</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Mod_Model__c}</leftValue>
