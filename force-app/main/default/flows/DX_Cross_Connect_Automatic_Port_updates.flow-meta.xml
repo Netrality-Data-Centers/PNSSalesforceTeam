@@ -2,10 +2,106 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
     <assignments>
+        <name>Num_of_Ports_to_be_updated_to_No_Homerun_origination</name>
+        <label>Num of Ports to be updated to No Homerun origination</label>
+        <locationX>2030</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>NumPortsFound</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Get_Ports_to_be_updated_to_No_Homerun_origination</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Ports_to_be_updated_to_No_Homerun_found</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Num_of_ports_to_Update_them_to_Active_Cross_Connect</name>
+        <label>Num of ports to Update them to Active Cross Connect</label>
+        <locationX>314</locationX>
+        <locationY>1595</locationY>
+        <assignmentItems>
+            <assignToReference>NumPortsFound</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Find_Destination_Ports_to_update_them_to_Active_Cross_Connect</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Found_Destination_Ports_to_be_Updated_to_Active_Cross_Connect</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Num_Ports_to_be_updated_to_nohomerun_dest</name>
+        <label>Num Ports to be updated to nohomerun dest</label>
+        <locationX>2074</locationX>
+        <locationY>2111</locationY>
+        <assignmentItems>
+            <assignToReference>NumPortsFound</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Get_Ports_to_be_updated_to_No_Homerun_destination</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Found_Ports_to_be_updated_to_No_Homerun_destination</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Num_Ports_to_be_updated_to_Ready_for_CC</name>
+        <label>Num Ports to be updated to Ready for CC</label>
+        <locationX>1238</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>NumPortsFound</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Get_Ports_to_be_updated_to_Ready_for_Cross_Connect_origination</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Ports_to_be_updated_to_Ready_for_Cross_connect_found_orgination</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Num_ports_to_be_updated_to_ready_for_CC_dest</name>
+        <label>Num ports to be updated to ready for CC dest</label>
+        <locationX>1194</locationX>
+        <locationY>2111</locationY>
+        <assignmentItems>
+            <assignToReference>NumPortsFound</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Get_Ports_to_be_updated_to_Ready_for_Cross_Connect_destination</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>found_ports_to_be_update_to_ready_for_cross_connect_destination</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Num_Ports_to_update_them_to_Active_Cross_Connect_found</name>
+        <label>Num Ports to update them to Active Cross Connect found</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <assignmentItems>
+            <assignToReference>NumPortsFound</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Find_Origination_Ports_to_update_them_to_Active_Cross_Connect</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Found_Origination_Ports_to_be_Updated_to_Active_Cross_Connect</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Update_Status</name>
         <label>Update Status</label>
         <locationX>138</locationX>
-        <locationY>755</locationY>
+        <locationY>863</locationY>
         <assignmentItems>
             <assignToReference>Update_port_status_to_Active_Cross_Connect.Port_Status__c</assignToReference>
             <operator>Assign</operator>
@@ -21,7 +117,7 @@
         <name>Update_Status_to_Active_Cross_Connect_destination</name>
         <label>Update Status to Active Cross Connect destination</label>
         <locationX>138</locationX>
-        <locationY>1703</locationY>
+        <locationY>1919</locationY>
         <assignmentItems>
             <assignToReference>Update_port_status_to_Active_Cross_connect_for_destination.Port_Status__c</assignToReference>
             <operator>Assign</operator>
@@ -36,8 +132,8 @@
     <assignments>
         <name>update_status_to_no_homerun</name>
         <label>update status to no homerun</label>
-        <locationX>1722</locationX>
-        <locationY>971</locationY>
+        <locationX>1854</locationX>
+        <locationY>1079</locationY>
         <assignmentItems>
             <assignToReference>Loop_to_update_status_to_No_Homerun.Port_Status__c</assignToReference>
             <operator>Assign</operator>
@@ -52,8 +148,8 @@
     <assignments>
         <name>Update_status_to_no_homerun_destination</name>
         <label>Update status to no homerun destination</label>
-        <locationX>1722</locationX>
-        <locationY>2219</locationY>
+        <locationX>1898</locationX>
+        <locationY>2435</locationY>
         <assignmentItems>
             <assignToReference>loop_to_update_status_to_no_homerun_destination.Port_Status__c</assignToReference>
             <operator>Assign</operator>
@@ -68,8 +164,8 @@
     <assignments>
         <name>update_status_to_ready_for_cross_connect_destination</name>
         <label>update status to ready for cross connect destination</label>
-        <locationX>930</locationX>
-        <locationY>2219</locationY>
+        <locationX>1018</locationX>
+        <locationY>2435</locationY>
         <assignmentItems>
             <assignToReference>loop_ports_to_update_status_to_ready_for_cross_connect_destination.Port_Status__c</assignToReference>
             <operator>Assign</operator>
@@ -84,8 +180,8 @@
     <assignments>
         <name>Update_status_to_ready_for_cross_connect_origination</name>
         <label>Update status to ready for cross connect origination</label>
-        <locationX>930</locationX>
-        <locationY>971</locationY>
+        <locationX>1062</locationX>
+        <locationY>1079</locationY>
         <assignmentItems>
             <assignToReference>Loop_to_Update_status_to_ready_for_cross_connect_origination.Port_Status__c</assignToReference>
             <operator>Assign</operator>
@@ -100,7 +196,7 @@
     <decisions>
         <name>Cross_Connect_Status</name>
         <label>Cross Connect Status?</label>
-        <locationX>1326</locationX>
+        <locationX>1458</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>Other</defaultConnectorLabel>
         <rules>
@@ -137,8 +233,8 @@
     <decisions>
         <name>Fiber_Pair_for_Destination_Port_Exist</name>
         <label>Fiber Pair for Destination Port Exist?</label>
-        <locationX>1502</locationX>
-        <locationY>1787</locationY>
+        <locationX>1634</locationX>
+        <locationY>1895</locationY>
         <defaultConnector>
             <targetReference>Get_Ports_to_be_updated_to_No_Homerun_destination</targetReference>
         </defaultConnector>
@@ -162,7 +258,7 @@
     <decisions>
         <name>Fiber_Pair_for_Origination_Port_Exist</name>
         <label>Fiber Pair for Origination Port Exist?</label>
-        <locationX>1502</locationX>
+        <locationX>1634</locationX>
         <locationY>539</locationY>
         <defaultConnector>
             <targetReference>Get_Ports_to_be_updated_to_No_Homerun_origination</targetReference>
@@ -188,16 +284,16 @@
         <name>Found_Destination_Ports_to_be_Updated_to_Active_Cross_Connect</name>
         <label>Found Destination Ports to be Updated to Active Cross Connect</label>
         <locationX>314</locationX>
-        <locationY>1487</locationY>
+        <locationY>1703</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Found_Found_Destination_Ports_to_be_Updated_to_Active_Cross_Connect</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Find_Destination_Ports_to_update_them_to_Active_Cross_Connect</leftValueReference>
-                <operator>IsNull</operator>
+                <leftValueReference>NumPortsFound</leftValueReference>
+                <operator>GreaterThan</operator>
                 <rightValue>
-                    <booleanValue>false</booleanValue>
+                    <numberValue>0.0</numberValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -210,7 +306,7 @@
         <name>Found_Origination_Ports_to_be_Updated_to_Active_Cross_Connect</name>
         <label>Found Origination Ports to be Updated to Active Cross Connect ?</label>
         <locationX>314</locationX>
-        <locationY>539</locationY>
+        <locationY>647</locationY>
         <defaultConnector>
             <targetReference>Find_Destination_Ports_to_update_them_to_Active_Cross_Connect</targetReference>
         </defaultConnector>
@@ -219,10 +315,10 @@
             <name>Found_Found_Origination_Ports_to_be_Updated_to_Active_Cross_Connect</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Find_Origination_Ports_to_update_them_to_Active_Cross_Connect</leftValueReference>
-                <operator>IsNull</operator>
+                <leftValueReference>NumPortsFound</leftValueReference>
+                <operator>GreaterThan</operator>
                 <rightValue>
-                    <booleanValue>false</booleanValue>
+                    <numberValue>0.0</numberValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -234,17 +330,17 @@
     <decisions>
         <name>found_ports_to_be_update_to_ready_for_cross_connect_destination</name>
         <label>found ports to be update to ready for cross connect destination?</label>
-        <locationX>1106</locationX>
-        <locationY>2003</locationY>
+        <locationX>1194</locationX>
+        <locationY>2219</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Found_found_ports_to_be_update_to_ready_for_cross_connect_destination</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_Ports_to_be_updated_to_Ready_for_Cross_Connect_destination</leftValueReference>
-                <operator>IsNull</operator>
+                <leftValueReference>NumPortsFound</leftValueReference>
+                <operator>GreaterThan</operator>
                 <rightValue>
-                    <booleanValue>false</booleanValue>
+                    <numberValue>0.0</numberValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -256,17 +352,17 @@
     <decisions>
         <name>Found_Ports_to_be_updated_to_No_Homerun_destination</name>
         <label>Found Ports to be updated to No Homerun destination?</label>
-        <locationX>1898</locationX>
-        <locationY>2003</locationY>
+        <locationX>2074</locationX>
+        <locationY>2219</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Found_Found_Ports_to_be_updated_to_No_Homerun_destination</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_Ports_to_be_updated_to_No_Homerun_destination</leftValueReference>
-                <operator>IsNull</operator>
+                <leftValueReference>NumPortsFound</leftValueReference>
+                <operator>GreaterThan</operator>
                 <rightValue>
-                    <booleanValue>false</booleanValue>
+                    <numberValue>0.0</numberValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -278,8 +374,8 @@
     <decisions>
         <name>Ports_to_be_updated_to_No_Homerun_found</name>
         <label>Ports to be updated to No Homerun found?</label>
-        <locationX>1898</locationX>
-        <locationY>755</locationY>
+        <locationX>2030</locationX>
+        <locationY>863</locationY>
         <defaultConnector>
             <targetReference>Get_Fiber_Pair_for_Destination_Port</targetReference>
         </defaultConnector>
@@ -288,10 +384,10 @@
             <name>Found_Ports_to_be_updated_to_No_Homerun_found</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_Ports_to_be_updated_to_No_Homerun_origination</leftValueReference>
-                <operator>IsNull</operator>
+                <leftValueReference>NumPortsFound</leftValueReference>
+                <operator>GreaterThan</operator>
                 <rightValue>
-                    <booleanValue>false</booleanValue>
+                    <numberValue>0.0</numberValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -303,8 +399,8 @@
     <decisions>
         <name>Ports_to_be_updated_to_Ready_for_Cross_connect_found_orgination</name>
         <label>Ports to be updated to Ready for Cross connect found orgination?</label>
-        <locationX>1106</locationX>
-        <locationY>755</locationY>
+        <locationX>1238</locationX>
+        <locationY>863</locationY>
         <defaultConnector>
             <targetReference>Get_Fiber_Pair_for_Destination_Port</targetReference>
         </defaultConnector>
@@ -313,10 +409,10 @@
             <name>Found_Ports_to_be_updated_to_Ready_for_Cross_connect_found_orgination</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_Ports_to_be_updated_to_Ready_for_Cross_Connect_origination</leftValueReference>
-                <operator>IsNull</operator>
+                <leftValueReference>NumPortsFound</leftValueReference>
+                <operator>GreaterThan</operator>
                 <rightValue>
-                    <booleanValue>false</booleanValue>
+                    <numberValue>0.0</numberValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -331,8 +427,8 @@
     <loops>
         <name>loop_ports_to_update_status_to_ready_for_cross_connect_destination</name>
         <label>loop ports to update status to ready for cross connect destination</label>
-        <locationX>842</locationX>
-        <locationY>2111</locationY>
+        <locationX>930</locationX>
+        <locationY>2327</locationY>
         <collectionReference>Get_Ports_to_be_updated_to_Ready_for_Cross_Connect_destination</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -345,8 +441,8 @@
     <loops>
         <name>Loop_to_update_status_to_No_Homerun</name>
         <label>Loop to update status to No Homerun</label>
-        <locationX>1634</locationX>
-        <locationY>863</locationY>
+        <locationX>1766</locationX>
+        <locationY>971</locationY>
         <collectionReference>Get_Ports_to_be_updated_to_No_Homerun_origination</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -359,8 +455,8 @@
     <loops>
         <name>loop_to_update_status_to_no_homerun_destination</name>
         <label>loop to update status to no homerun destination</label>
-        <locationX>1634</locationX>
-        <locationY>2111</locationY>
+        <locationX>1810</locationX>
+        <locationY>2327</locationY>
         <collectionReference>Get_Ports_to_be_updated_to_No_Homerun_destination</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -373,8 +469,8 @@
     <loops>
         <name>Loop_to_Update_status_to_ready_for_cross_connect_origination</name>
         <label>Loop to Update status to ready for cross connect origination</label>
-        <locationX>842</locationX>
-        <locationY>863</locationY>
+        <locationX>974</locationX>
+        <locationY>971</locationY>
         <collectionReference>Get_Ports_to_be_updated_to_Ready_for_Cross_Connect_origination</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -388,7 +484,7 @@
         <name>Update_port_status_to_Active_Cross_Connect</name>
         <label>Update port status to Active Cross Connect</label>
         <locationX>50</locationX>
-        <locationY>647</locationY>
+        <locationY>755</locationY>
         <collectionReference>Find_Origination_Ports_to_update_them_to_Active_Cross_Connect</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -402,7 +498,7 @@
         <name>Update_port_status_to_Active_Cross_connect_for_destination</name>
         <label>Update port status to Active Cross connect for destination</label>
         <locationX>50</locationX>
-        <locationY>1595</locationY>
+        <locationY>1811</locationY>
         <collectionReference>Find_Destination_Ports_to_update_them_to_Active_Cross_Connect</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -435,10 +531,10 @@
         <name>Find_Destination_Ports_to_update_them_to_Active_Cross_Connect</name>
         <label>Find Destination Ports to update them to Active Cross Connect</label>
         <locationX>314</locationX>
-        <locationY>1379</locationY>
+        <locationY>1487</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Found_Destination_Ports_to_be_Updated_to_Active_Cross_Connect</targetReference>
+            <targetReference>Num_of_ports_to_Update_them_to_Active_Cross_Connect</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -459,7 +555,7 @@
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Found_Origination_Ports_to_be_Updated_to_Active_Cross_Connect</targetReference>
+            <targetReference>Num_Ports_to_update_them_to_Active_Cross_Connect_found</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -476,8 +572,8 @@
     <recordLookups>
         <name>Get_Fiber_Pair_for_Destination_Port</name>
         <label>Get Fiber Pair for Destination Port</label>
-        <locationX>1502</locationX>
-        <locationY>1679</locationY>
+        <locationX>1634</locationX>
+        <locationY>1787</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Fiber_Pair_for_Destination_Port_Exist</targetReference>
@@ -497,7 +593,7 @@
     <recordLookups>
         <name>Get_Fiber_Pair_for_Origination_Port</name>
         <label>Get Fiber Pair for Origination Port</label>
-        <locationX>1502</locationX>
+        <locationX>1634</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -518,11 +614,11 @@
     <recordLookups>
         <name>Get_Ports_to_be_updated_to_No_Homerun_destination</name>
         <label>Get Ports to be updated to No Homerun destination</label>
-        <locationX>1898</locationX>
-        <locationY>1895</locationY>
+        <locationX>2074</locationX>
+        <locationY>2003</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Found_Ports_to_be_updated_to_No_Homerun_destination</targetReference>
+            <targetReference>Num_Ports_to_be_updated_to_nohomerun_dest</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -539,11 +635,11 @@
     <recordLookups>
         <name>Get_Ports_to_be_updated_to_No_Homerun_origination</name>
         <label>Get Ports to be updated to No Homerun origination</label>
-        <locationX>1898</locationX>
+        <locationX>2030</locationX>
         <locationY>647</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Ports_to_be_updated_to_No_Homerun_found</targetReference>
+            <targetReference>Num_of_Ports_to_be_updated_to_No_Homerun_origination</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -560,11 +656,11 @@
     <recordLookups>
         <name>Get_Ports_to_be_updated_to_Ready_for_Cross_Connect_destination</name>
         <label>Get Ports to be updated to Ready for Cross Connect destination</label>
-        <locationX>1106</locationX>
-        <locationY>1895</locationY>
+        <locationX>1194</locationX>
+        <locationY>2003</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>found_ports_to_be_update_to_ready_for_cross_connect_destination</targetReference>
+            <targetReference>Num_ports_to_be_updated_to_ready_for_CC_dest</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -581,11 +677,11 @@
     <recordLookups>
         <name>Get_Ports_to_be_updated_to_Ready_for_Cross_Connect_origination</name>
         <label>Get Ports to be updated to Ready for Cross Connect origination</label>
-        <locationX>1106</locationX>
+        <locationX>1238</locationX>
         <locationY>647</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Ports_to_be_updated_to_Ready_for_Cross_connect_found_orgination</targetReference>
+            <targetReference>Num_Ports_to_be_updated_to_Ready_for_CC</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -603,7 +699,7 @@
         <name>Update_Destination_Port_Status_to_Active_Cross_Connect</name>
         <label>Update Destination Port Status to Active Cross Connect</label>
         <locationX>50</locationX>
-        <locationY>1895</locationY>
+        <locationY>2111</locationY>
         <faultConnector>
             <targetReference>Log_Error_Update_Status_to_Active_Cross_Connect_destination</targetReference>
         </faultConnector>
@@ -612,8 +708,8 @@
     <recordUpdates>
         <name>Update_Destination_Port_Status_to_No_Homerun</name>
         <label>Update Destination Port Status to No Homerun</label>
-        <locationX>1634</locationX>
-        <locationY>2411</locationY>
+        <locationX>1810</locationX>
+        <locationY>2627</locationY>
         <faultConnector>
             <targetReference>Log_error_when_updating_destination_port_to_no_homerun</targetReference>
         </faultConnector>
@@ -622,8 +718,8 @@
     <recordUpdates>
         <name>Update_Destination_Port_Status_to_Ready_for_Cross_Connect</name>
         <label>Update Destination Port Status to Ready for Cross Connect</label>
-        <locationX>842</locationX>
-        <locationY>2411</locationY>
+        <locationX>930</locationX>
+        <locationY>2627</locationY>
         <faultConnector>
             <targetReference>Log_error_when_updating_port_status_to_ready_for_cross_connect_destination</targetReference>
         </faultConnector>
@@ -633,7 +729,7 @@
         <name>Update_Origination_Port_Status_to_Active_Cross_Connect</name>
         <label>Update Origination Port Status to Active Cross Connect</label>
         <locationX>50</locationX>
-        <locationY>947</locationY>
+        <locationY>1055</locationY>
         <connector>
             <targetReference>Find_Destination_Ports_to_update_them_to_Active_Cross_Connect</targetReference>
         </connector>
@@ -645,8 +741,8 @@
     <recordUpdates>
         <name>Update_Origination_Port_Status_to_No_Homerun</name>
         <label>Update Origination Port Status to No Homerun</label>
-        <locationX>1634</locationX>
-        <locationY>1163</locationY>
+        <locationX>1766</locationX>
+        <locationY>1271</locationY>
         <connector>
             <targetReference>Get_Fiber_Pair_for_Destination_Port</targetReference>
         </connector>
@@ -658,8 +754,8 @@
     <recordUpdates>
         <name>Update_Origination_Port_Status_to_Ready_for_Cross_Connect</name>
         <label>Update Origination Port Status to Ready for Cross Connect</label>
-        <locationX>842</locationX>
-        <locationY>1163</locationY>
+        <locationX>974</locationX>
+        <locationY>1271</locationY>
         <connector>
             <targetReference>Get_Fiber_Pair_for_Destination_Port</targetReference>
         </connector>
@@ -669,7 +765,7 @@
         <inputReference>Get_Ports_to_be_updated_to_Ready_for_Cross_Connect_origination</inputReference>
     </recordUpdates>
     <start>
-        <locationX>1200</locationX>
+        <locationX>1332</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Cross_Connect_Status</targetReference>
@@ -683,7 +779,7 @@
         <name>Log_Error_Update_Status_to_Active_Cross_Connect_destination</name>
         <label>Log Error Update Status to Active Cross Connect destination</label>
         <locationX>314</locationX>
-        <locationY>2003</locationY>
+        <locationY>2219</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -719,8 +815,8 @@
     <subflows>
         <name>Log_error_when_updating_destination_port_to_no_homerun</name>
         <label>Log error when updating destination port to no homerun</label>
-        <locationX>1898</locationX>
-        <locationY>2519</locationY>
+        <locationX>2074</locationX>
+        <locationY>2735</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -756,8 +852,8 @@
     <subflows>
         <name>Log_error_when_updating_origination_port_status_to_ready_for_cross_connect</name>
         <label>Log error when updating origination port status to ready for cross connect</label>
-        <locationX>1106</locationX>
-        <locationY>1271</locationY>
+        <locationX>1238</locationX>
+        <locationY>1379</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -794,7 +890,7 @@
         <name>Log_Error_when_updating_port_status_to_active_cross_connect</name>
         <label>Log Error when updating port status to active cross connect</label>
         <locationX>314</locationX>
-        <locationY>1055</locationY>
+        <locationY>1163</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -830,8 +926,8 @@
     <subflows>
         <name>Log_error_when_updating_port_status_to_ready_for_cross_connect_destination</name>
         <label>Log error when updating port status to ready for cross connect destination</label>
-        <locationX>1106</locationX>
-        <locationY>2519</locationY>
+        <locationX>1194</locationX>
+        <locationY>2735</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -867,8 +963,8 @@
     <subflows>
         <name>Log_error_when_updating_status_to_no_homerun</name>
         <label>Log error when updating status to no homerun</label>
-        <locationX>1898</locationX>
-        <locationY>1271</locationY>
+        <locationX>2030</locationX>
+        <locationY>1379</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -901,4 +997,12 @@
             </value>
         </inputAssignments>
     </subflows>
+    <variables>
+        <name>NumPortsFound</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
 </Flow>
