@@ -2449,6 +2449,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>DC_Rack__c.Committed_Power__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DC_Rack__c.Connected_Power__c</field>
         <readable>true</readable>
     </fieldPermissions>
