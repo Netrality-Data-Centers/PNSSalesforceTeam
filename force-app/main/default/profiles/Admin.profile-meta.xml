@@ -2194,6 +2194,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>DC_DC_Plant__c.PDU_RPP__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DC_Data_Hall__c.Cooling_Redundancy_Configuration__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2440,11 +2445,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DC_Rack__c.Asset__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DC_Rack__c.Committed_Power__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
