@@ -30,6 +30,10 @@
                 <behavior>Edit</behavior>
                 <field>Rack_Row__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Committed_Power__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
