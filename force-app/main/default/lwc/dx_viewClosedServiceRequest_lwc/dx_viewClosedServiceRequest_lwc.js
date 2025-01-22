@@ -2,6 +2,7 @@ import { LightningElement, api, wire } from 'lwc';
 import dxNamePageDetailsSRExperienceCloudLabel from '@salesforce/label/c.DX_NamePage_DetailsSR_Experience_Cloud';
 import dxURLExperienceCloudLabel from '@salesforce/label/c.DX_URL_Experience_Cloud'; 
 import getClosedServiceRequest from "@salesforce/apex/DX_viewClosedServiceRequest_ctr.getClosedServiceRequest";
+import { NavigationMixin } from 'lightning/navigation';
 
 const actions = [
     { label: 'View Details', name: 'show_details' }
@@ -19,7 +20,7 @@ columns = [
     { fieldName: 'ClosedDate', label: 'SR Closed Date'}
 ];
 
-export default class Dx_viewClosedServiceRequest_lwc extends LightningElement {
+export default class Dx_viewClosedServiceRequest_lwc extends NavigationMixin (LightningElement) {
     dataInfo = [];
     columns = columns;
     isEmpty = false;
@@ -47,16 +48,11 @@ export default class Dx_viewClosedServiceRequest_lwc extends LightningElement {
         const objEvent = event;
         switch (objEvent.detail.action.name) {
             case 'show_details':
-                this.showRowDetails(objEvent.detail.row);
+                this.handleNavigate(objEvent.detail.row);
                 break;
             default:
                 // Do nothing
         }
-    }
-
-    showRowDetails(row) {
-        const urlFormed = this.url + row.Id;
-        window.location.href = urlFormed;
     }
 
     funtionIteratorData(result){
@@ -88,5 +84,17 @@ export default class Dx_viewClosedServiceRequest_lwc extends LightningElement {
         formattedDate = `${year}-${month}-${day}`;
         result[item].ClosedDate = formattedDate;
         return result[item];
+    }
+
+    handleNavigate(row) {
+        // Using NavigationMixin to navigate to an Case record page
+        this[NavigationMixin.Navigate]({
+            type: 'standard__recordPage',
+            attributes: {
+                recordId: row.Id,
+                objectApiName: 'Case',
+                actionName: 'view'
+            }
+        });
     }
 }
