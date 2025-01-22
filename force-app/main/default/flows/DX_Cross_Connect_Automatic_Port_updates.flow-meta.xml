@@ -27,7 +27,7 @@
     <assignments>
         <name>Assign_Record_Ports_Disconnected</name>
         <label>Assign Record Ports Disconnected</label>
-        <locationX>1370</locationX>
+        <locationX>1502</locationX>
         <locationY>431</locationY>
         <assignmentItems>
             <assignToReference>OriginationPortId</assignToReference>
@@ -50,7 +50,7 @@
     <decisions>
         <name>Cross_Connect_Status</name>
         <label>Cross Connect Status?</label>
-        <locationX>1238</locationX>
+        <locationX>1370</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>Other</defaultConnectorLabel>
         <rules>
@@ -116,7 +116,7 @@
     <decisions>
         <name>Destination_port_has_value2</name>
         <label>Destination port has value?</label>
-        <locationX>1018</locationX>
+        <locationX>1106</locationX>
         <locationY>1595</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -145,7 +145,7 @@
     <decisions>
         <name>Destination_port_has_value3</name>
         <label>Destination port has value?</label>
-        <locationX>1722</locationX>
+        <locationX>1898</locationX>
         <locationY>1595</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -174,7 +174,7 @@
     <decisions>
         <name>Fiber_Pair_for_Destination_Port_Exist</name>
         <label>Fiber Pair for Destination Port Exist?</label>
-        <locationX>1370</locationX>
+        <locationX>1502</locationX>
         <locationY>1487</locationY>
         <defaultConnector>
             <targetReference>Destination_port_has_value3</targetReference>
@@ -199,7 +199,7 @@
     <decisions>
         <name>Fiber_Pair_for_Origination_Port_Exist</name>
         <label>Fiber Pair for Origination Port Exist?</label>
-        <locationX>1370</locationX>
+        <locationX>1502</locationX>
         <locationY>647</locationY>
         <defaultConnector>
             <targetReference>Origination_Port_has_value_when_fiber_pair_does_not_exist</targetReference>
@@ -256,7 +256,7 @@
     <decisions>
         <name>Origination_Port_has_value2</name>
         <label>Origination Port has value?</label>
-        <locationX>1018</locationX>
+        <locationX>1150</locationX>
         <locationY>755</locationY>
         <defaultConnector>
             <targetReference>Get_Fiber_Pair_for_Destination_Port</targetReference>
@@ -288,7 +288,7 @@
     <decisions>
         <name>Origination_Port_has_value_when_fiber_pair_does_not_exist</name>
         <label>Origination Port has value when fiber pair does not exist?</label>
-        <locationX>1722</locationX>
+        <locationX>1854</locationX>
         <locationY>755</locationY>
         <defaultConnector>
             <targetReference>Get_Fiber_Pair_for_Destination_Port</targetReference>
@@ -342,7 +342,7 @@
     <recordLookups>
         <name>Get_Fiber_Pair_for_Destination_Port</name>
         <label>Get Fiber Pair for Destination Port</label>
-        <locationX>1370</locationX>
+        <locationX>1502</locationX>
         <locationY>1379</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -363,7 +363,7 @@
     <recordLookups>
         <name>Get_Fiber_Pair_for_Origination_Port</name>
         <label>Get Fiber Pair for Origination Port</label>
-        <locationX>1370</locationX>
+        <locationX>1502</locationX>
         <locationY>539</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -389,69 +389,45 @@
         <faultConnector>
             <targetReference>Log_error_when_updating_destination_port_status_to_active_cross_connect</targetReference>
         </faultConnector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>DestinationPortId</elementReference>
-            </value>
-        </filters>
         <inputAssignments>
             <field>Port_Status__c</field>
             <value>
                 <stringValue>Active Cross Connect</stringValue>
             </value>
         </inputAssignments>
-        <object>DC_Port__c</object>
+        <inputReference>$Record.Destination_Port__r</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Update_Destination_Port_Status_to_No_Homerun</name>
         <label>Update Destination Port Status to No Homerun</label>
-        <locationX>1458</locationX>
+        <locationX>1634</locationX>
         <locationY>1703</locationY>
         <faultConnector>
             <targetReference>Log_error_when_updating_destination_port_status_to_no_homerun</targetReference>
         </faultConnector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>DestinationPortId</elementReference>
-            </value>
-        </filters>
         <inputAssignments>
             <field>Port_Status__c</field>
             <value>
                 <stringValue>No Homerun</stringValue>
             </value>
         </inputAssignments>
-        <object>DC_Port__c</object>
+        <inputReference>$Record.Destination_Port__r</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Update_Destination_Port_Status_to_Ready_for_Cross_Connect</name>
         <label>Update Destination Port Status to Ready for Cross Connect</label>
-        <locationX>754</locationX>
+        <locationX>842</locationX>
         <locationY>1703</locationY>
         <faultConnector>
             <targetReference>Update_Destination_Port_Status_to_Ready_for_Cross_Connect2</targetReference>
         </faultConnector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>DestinationPortId</elementReference>
-            </value>
-        </filters>
         <inputAssignments>
             <field>Port_Status__c</field>
             <value>
                 <stringValue>Ready for Cross Connect</stringValue>
             </value>
         </inputAssignments>
-        <object>DC_Port__c</object>
+        <inputReference>$Record.Destination_Port__r</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Update_Origination_Port_Status_to_Active_Cross_Connect</name>
@@ -464,26 +440,18 @@
         <faultConnector>
             <targetReference>Log_error_when_updating_originaton_port_status_to_active_cross_connect</targetReference>
         </faultConnector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>OriginationPortId</elementReference>
-            </value>
-        </filters>
         <inputAssignments>
             <field>Port_Status__c</field>
             <value>
                 <stringValue>Active Cross Connect</stringValue>
             </value>
         </inputAssignments>
-        <object>DC_Port__c</object>
+        <inputReference>$Record.Origination_Port__r</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Update_Origination_Port_Status_to_No_Homerun</name>
         <label>Update Origination Port Status to No Homerun</label>
-        <locationX>1458</locationX>
+        <locationX>1590</locationX>
         <locationY>863</locationY>
         <connector>
             <targetReference>Get_Fiber_Pair_for_Destination_Port</targetReference>
@@ -491,26 +459,18 @@
         <faultConnector>
             <targetReference>Log_error_when_updating_origination_port_status_to_no_homerun</targetReference>
         </faultConnector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>OriginationPortId</elementReference>
-            </value>
-        </filters>
         <inputAssignments>
             <field>Port_Status__c</field>
             <value>
                 <stringValue>No Homerun</stringValue>
             </value>
         </inputAssignments>
-        <object>DC_Port__c</object>
+        <inputReference>$Record.Origination_Port__r</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Update_Origination_Port_Status_to_Ready_for_Cross_Connect</name>
         <label>Update Origination Port Status to Ready for Cross Connect</label>
-        <locationX>754</locationX>
+        <locationX>886</locationX>
         <locationY>863</locationY>
         <connector>
             <targetReference>Get_Fiber_Pair_for_Destination_Port</targetReference>
@@ -518,24 +478,16 @@
         <faultConnector>
             <targetReference>Log_error_when_updating_origination_port_status_to_ready_for_cc</targetReference>
         </faultConnector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>OriginationPortId</elementReference>
-            </value>
-        </filters>
         <inputAssignments>
             <field>Port_Status__c</field>
             <value>
                 <stringValue>Ready for Cross Connect</stringValue>
             </value>
         </inputAssignments>
-        <object>DC_Port__c</object>
+        <inputReference>$Record.Origination_Port__r</inputReference>
     </recordUpdates>
     <start>
-        <locationX>1112</locationX>
+        <locationX>1244</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Cross_Connect_Status</targetReference>
@@ -585,7 +537,7 @@
     <subflows>
         <name>Log_error_when_updating_destination_port_status_to_no_homerun</name>
         <label>Log error when updating destination port status to no homerun</label>
-        <locationX>1722</locationX>
+        <locationX>1898</locationX>
         <locationY>1811</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
@@ -622,7 +574,7 @@
     <subflows>
         <name>Log_error_when_updating_origination_port_status_to_no_homerun</name>
         <label>Log error when updating origination port status to no homerun</label>
-        <locationX>1722</locationX>
+        <locationX>1854</locationX>
         <locationY>971</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
@@ -659,7 +611,7 @@
     <subflows>
         <name>Log_error_when_updating_origination_port_status_to_ready_for_cc</name>
         <label>Log error when updating origination port status to ready for cc</label>
-        <locationX>1018</locationX>
+        <locationX>1150</locationX>
         <locationY>971</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
@@ -714,7 +666,7 @@
         <inputAssignments>
             <name>MethodName</name>
             <value>
-                <stringValue>Update Origination Port Status to Active Cross Connect</stringValue>
+                <stringValue>Update Origination Port Status to Active CC</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -733,7 +685,7 @@
     <subflows>
         <name>Update_Destination_Port_Status_to_Ready_for_Cross_Connect2</name>
         <label>Update Destination Port Status to Ready for Cross Connect</label>
-        <locationX>1018</locationX>
+        <locationX>1106</locationX>
         <locationY>1811</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
