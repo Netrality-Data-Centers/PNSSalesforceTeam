@@ -209,6 +209,13 @@
                 <elementReference>What_Cabinet_are_you_connecting_this_Homerun_to.selectedChoiceValues</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>lstToUpdateFiberPairs</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Fiber_Pairs_Loop_Existing_Home_Run</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Save_Port_Ids_Existing_Home_Run</targetReference>
         </connector>
@@ -550,7 +557,12 @@
     <formulas>
         <name>ValueNameAsset</name>
         <dataType>String</dataType>
-        <expression>&apos;Fiber in Homerun from &apos;+{!Get_Service_Order.Service_Order_ID__c}</expression>
+        <expression>&apos;Fiber in Homerun from &apos;+{!Get_Service_Order.Name}</expression>
+    </formulas>
+    <formulas>
+        <name>ValueNameAssetExistingHomeRun</name>
+        <dataType>String</dataType>
+        <expression>&apos;Fiber in Homerun from &apos;+{!Get_Service_Order_Existing_Home_Run.Name}</expression>
     </formulas>
     <interviewLabel>DX Home Run and Fiber Pair Record Creation {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Home Run and Fiber Pair Record Creation</label>
@@ -579,7 +591,7 @@
             <targetReference>Set_Missing_Fields_Existing_Home_Run</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
-            <targetReference>Update_Ports_Status_to_Ready_for_Cross_Connect_Existing_Home_Run</targetReference>
+            <targetReference>Update_Fiber_Pairs</targetReference>
         </noMoreValuesConnector>
     </loops>
     <loops>
@@ -982,6 +994,27 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Get_Service_Order_Existing_Home_Run</name>
+        <label>Get Service Order Existing Home Run</label>
+        <locationX>1282</locationX>
+        <locationY>3086</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Fiber_Pair_Asset_Existing_Home_Run</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceOrderId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Quote</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Service_Request</name>
         <label>Get Service Request</label>
         <locationX>446</locationX>
@@ -1027,7 +1060,7 @@
         <name>Update_Fiber_Pair_Asset_Existing_Home_Run</name>
         <label>Update Fiber Pair Asset Existing Home Run</label>
         <locationX>1282</locationX>
-        <locationY>2978</locationY>
+        <locationY>3194</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -1057,7 +1090,7 @@
         <inputAssignments>
             <field>Name</field>
             <value>
-                <elementReference>ValueNameAsset</elementReference>
+                <elementReference>ValueNameAssetExistingHomeRun</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1067,6 +1100,16 @@
             </value>
         </inputAssignments>
         <object>Asset</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Fiber_Pairs</name>
+        <label>Update Fiber Pairs</label>
+        <locationX>1282</locationX>
+        <locationY>2762</locationY>
+        <connector>
+            <targetReference>Update_Ports_Status_to_Ready_for_Cross_Connect_Existing_Home_Run</targetReference>
+        </connector>
+        <inputReference>lstToUpdateFiberPairs</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Update_FiberPairs</name>
@@ -1082,9 +1125,9 @@
         <name>Update_Home_Run</name>
         <label>Update Home Run</label>
         <locationX>1282</locationX>
-        <locationY>2870</locationY>
+        <locationY>2978</locationY>
         <connector>
-            <targetReference>Update_Fiber_Pair_Asset_Existing_Home_Run</targetReference>
+            <targetReference>Get_Service_Order_Existing_Home_Run</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -1130,7 +1173,7 @@
         <name>Update_Ports_Status_to_Ready_for_Cross_Connect_Existing_Home_Run</name>
         <label>Update Ports Status to Ready for Cross Connect Existing Home Run</label>
         <locationX>1282</locationX>
-        <locationY>2762</locationY>
+        <locationY>2870</locationY>
         <connector>
             <targetReference>Update_Home_Run</targetReference>
         </connector>
@@ -1725,6 +1768,14 @@
     </variables>
     <variables>
         <name>lstToCreateFiberPair</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>DC_Fiber_Pair__c</objectType>
+    </variables>
+    <variables>
+        <name>lstToUpdateFiberPairs</name>
         <dataType>SObject</dataType>
         <isCollection>true</isCollection>
         <isInput>false</isInput>
