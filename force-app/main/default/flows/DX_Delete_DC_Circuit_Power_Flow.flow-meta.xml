@@ -42,7 +42,7 @@
             <assignToReference>DCCircuitsCount</assignToReference>
             <operator>AssignCount</operator>
             <value>
-                <elementReference>DCCircuitsForCabinetList</elementReference>
+                <elementReference>DCCircuitsList</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -69,7 +69,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Cabinet_Values</targetReference>
+            <targetReference>Cabinet_or_Rack</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -99,9 +99,34 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Cabinet_Values</targetReference>
+            <targetReference>Cabinet_or_Rack</targetReference>
         </connector>
     </assignments>
+    <decisions>
+        <name>Cabinet_or_Rack</name>
+        <label>Cabinet or Rack?</label>
+        <locationX>182</locationX>
+        <locationY>1595</locationY>
+        <defaultConnector>
+            <targetReference>Update_Rack_Values</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Rack</defaultConnectorLabel>
+        <rules>
+            <name>Cabinet</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Associated_Space_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cabinet</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Cabinet_Values</targetReference>
+            </connector>
+            <label>Cabinet</label>
+        </rules>
+    </decisions>
     <decisions>
         <name>commited_power_with_value</name>
         <label>commited power with value?</label>
@@ -197,7 +222,7 @@
         <label>Loop to calculate sum of commited power</label>
         <locationX>50</locationX>
         <locationY>611</locationY>
-        <collectionReference>DCCircuitsForCabinetList</collectionReference>
+        <collectionReference>DCCircuitsList</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
             <targetReference>commited_power_with_value</targetReference>
@@ -226,20 +251,41 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
-        <name>Get_DC_Circuits_for_Cabinet</name>
-        <label>Get DC Circuits for Cabinet</label>
+        <name>Get_DC_Circuits_List</name>
+        <label>Get DC Circuits List</label>
         <locationX>182</locationX>
         <locationY>287</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_DCCircuit_Count</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
+        <filterLogic>(1 AND 2 AND 5) OR (3 AND 4 AND 5)</filterLogic>
         <filters>
             <field>Cabinet__c</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>$Record.Cabinet__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Associated_Space_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Cabinet</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Rack__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Rack__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Associated_Space_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Rack</stringValue>
             </value>
         </filters>
         <filters>
@@ -250,7 +296,7 @@
             </value>
         </filters>
         <object>DC_DC_Circuit__c</object>
-        <outputReference>DCCircuitsForCabinetList</outputReference>
+        <outputReference>DCCircuitsList</outputReference>
         <queriedFields>Id</queriedFields>
         <queriedFields>Committed_Power__c</queriedFields>
         <queriedFields>Connected_Power__c</queriedFields>
@@ -258,8 +304,8 @@
     <recordUpdates>
         <name>Update_Cabinet_Values</name>
         <label>Update Cabinet Values</label>
-        <locationX>182</locationX>
-        <locationY>1595</locationY>
+        <locationX>50</locationX>
+        <locationY>1703</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -288,18 +334,72 @@
         </inputAssignments>
         <object>DC_Cabinet__c</object>
     </recordUpdates>
+    <recordUpdates>
+        <name>Update_Rack_Values</name>
+        <label>Update Rack Values</label>
+        <locationX>314</locationX>
+        <locationY>1703</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Rack__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Committed_Power__c</field>
+            <value>
+                <elementReference>CommitedPowerValue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Connected_Power__c</field>
+            <value>
+                <elementReference>ConnectedPowerValue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Redundancy_Factor__c</field>
+            <value>
+                <elementReference>DCCircuitsCount</elementReference>
+            </value>
+        </inputAssignments>
+        <object>DC_Rack__c</object>
+    </recordUpdates>
     <start>
         <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Get_DC_Circuits_for_Cabinet</targetReference>
+            <targetReference>Get_DC_Circuits_List</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
+        <filterLogic>(1 AND 2) OR (3 AND 4)</filterLogic>
         <filters>
             <field>Cabinet__c</field>
             <operator>IsNull</operator>
             <value>
                 <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Associated_Space_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Cabinet</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Rack__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Associated_Space_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Rack</stringValue>
             </value>
         </filters>
         <object>DC_DC_Circuit__c</object>
@@ -335,7 +435,7 @@
         </value>
     </variables>
     <variables>
-        <name>DCCircuitsForCabinetList</name>
+        <name>DCCircuitsList</name>
         <dataType>SObject</dataType>
         <isCollection>true</isCollection>
         <isInput>false</isInput>

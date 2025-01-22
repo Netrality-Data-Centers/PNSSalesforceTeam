@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <name>SumOfCommittedPowerOnCabinet</name>
-        <label>SumOfCommittedPowerOnCabinet</label>
+        <name>SumOfCommittedPower</name>
+        <label>SumOfCommittedPower</label>
         <locationX>50</locationX>
         <locationY>611</locationY>
         <actionName>CollectionCalculate</actionName>
         <actionType>apex</actionType>
         <connector>
-            <targetReference>SumOfConnectedPowerOnCabinet</targetReference>
+            <targetReference>SumOfConnectedPower1</targetReference>
         </connector>
         <dataTypeMappings>
             <typeName>T__inputCollection</typeName>
@@ -24,7 +24,7 @@
         <inputParameters>
             <name>inputCollection</name>
             <value>
-                <elementReference>CircuitBreakersForCabinetList</elementReference>
+                <elementReference>CircuitBreakersList</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -41,8 +41,8 @@
         <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
-        <name>SumOfConnectedPowerOnCabinet</name>
-        <label>SumOfConnectedPowerOnCabinet</label>
+        <name>SumOfConnectedPower1</name>
+        <label>SumOfConnectedPower</label>
         <locationX>50</locationX>
         <locationY>719</locationY>
         <actionName>CollectionCalculate</actionName>
@@ -64,7 +64,7 @@
         <inputParameters>
             <name>inputCollection</name>
             <value>
-                <elementReference>CircuitBreakersForCabinetList</elementReference>
+                <elementReference>CircuitBreakersList</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -87,10 +87,10 @@
         <locationX>182</locationX>
         <locationY>395</locationY>
         <assignmentItems>
-            <assignToReference>CircuitBreakerForCabinetCount</assignToReference>
+            <assignToReference>CircuitBreakersCount</assignToReference>
             <operator>AssignCount</operator>
             <value>
-                <elementReference>CircuitBreakersForCabinetList</elementReference>
+                <elementReference>CircuitBreakersList</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -117,7 +117,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Cabinet_Values</targetReference>
+            <targetReference>Cabinet_or_Rack</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -140,9 +140,34 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Cabinet_Values</targetReference>
+            <targetReference>Cabinet_or_Rack</targetReference>
         </connector>
     </assignments>
+    <decisions>
+        <name>Cabinet_or_Rack</name>
+        <label>Cabinet or Rack?</label>
+        <locationX>182</locationX>
+        <locationY>1019</locationY>
+        <defaultConnector>
+            <targetReference>Copy_1_of_Update_Cabinet_Values</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Rack</defaultConnectorLabel>
+        <rules>
+            <name>Cabinet</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Associated_Space_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cabinet</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Cabinet_Values</targetReference>
+            </connector>
+            <label>Cabinet</label>
+        </rules>
+    </decisions>
     <decisions>
         <name>DCCircuiBreakertCount_Greater_than_Zero</name>
         <label>CircuiBreakertCount Greater than Zero?</label>
@@ -156,14 +181,14 @@
             <name>Greater</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>CircuitBreakerForCabinetCount</leftValueReference>
+                <leftValueReference>CircuitBreakersCount</leftValueReference>
                 <operator>GreaterThan</operator>
                 <rightValue>
                     <numberValue>0.0</numberValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>SumOfCommittedPowerOnCabinet</targetReference>
+                <targetReference>SumOfCommittedPower</targetReference>
             </connector>
             <label>Greater</label>
         </rules>
@@ -172,13 +197,13 @@
     <formulas>
         <name>NewCommitedPowerValue</name>
         <dataType>Number</dataType>
-        <expression>{!SumOfCommitedPower}/{!CircuitBreakerForCabinetCount}</expression>
+        <expression>{!SumOfCommitedPower}/{!CircuitBreakersCount}</expression>
         <scale>2</scale>
     </formulas>
     <formulas>
         <name>NewConnectedPowerValue</name>
         <dataType>Number</dataType>
-        <expression>{!SumOfConnectedPower}/{!CircuitBreakerForCabinetCount}</expression>
+        <expression>{!SumOfConnectedPower}/{!CircuitBreakersCount}</expression>
         <scale>2</scale>
     </formulas>
     <interviewLabel>DX Delete Circuit Breakers Power Flow {!$Flow.CurrentDateTime}</interviewLabel>
@@ -203,20 +228,41 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
-        <name>Get_Circuit_Breakers_for_Cabinet</name>
-        <label>Get Circuit Breakers for Cabinet</label>
+        <name>Get_Circuit_Breakers_List</name>
+        <label>Get Circuit Breakers List</label>
         <locationX>182</locationX>
         <locationY>287</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_CircuitBreaker_Count</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
+        <filterLogic>(1 AND 2 AND 5) OR (3 AND 4 AND 5)</filterLogic>
         <filters>
             <field>Cabinet__c</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>$Record.Cabinet__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Associated_Space_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Cabinet</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Rack__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Rack__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Associated_Space_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Rack</stringValue>
             </value>
         </filters>
         <filters>
@@ -227,16 +273,49 @@
             </value>
         </filters>
         <object>DC_Circuit_Breaker__c</object>
-        <outputReference>CircuitBreakersForCabinetList</outputReference>
+        <outputReference>CircuitBreakersList</outputReference>
         <queriedFields>Id</queriedFields>
         <queriedFields>Committed_Power__c</queriedFields>
         <queriedFields>Connected_Power__c</queriedFields>
     </recordLookups>
     <recordUpdates>
+        <name>Copy_1_of_Update_Cabinet_Values</name>
+        <label>Update Rack Values</label>
+        <locationX>314</locationX>
+        <locationY>1127</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Rack__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Committed_Power__c</field>
+            <value>
+                <elementReference>CommitedPowerValue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Connected_Power__c</field>
+            <value>
+                <elementReference>ConnectedPowerValue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Redundancy_Factor__c</field>
+            <value>
+                <elementReference>CircuitBreakersCount</elementReference>
+            </value>
+        </inputAssignments>
+        <object>DC_Rack__c</object>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Cabinet_Values</name>
         <label>Update Cabinet Values</label>
-        <locationX>182</locationX>
-        <locationY>1019</locationY>
+        <locationX>50</locationX>
+        <locationY>1127</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -260,7 +339,7 @@
         <inputAssignments>
             <field>Redundancy_Factor__c</field>
             <value>
-                <elementReference>CircuitBreakerForCabinetCount</elementReference>
+                <elementReference>CircuitBreakersCount</elementReference>
             </value>
         </inputAssignments>
         <object>DC_Cabinet__c</object>
@@ -269,14 +348,35 @@
         <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Get_Circuit_Breakers_for_Cabinet</targetReference>
+            <targetReference>Get_Circuit_Breakers_List</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
+        <filterLogic>(1 AND 2) OR (3 AND 4)</filterLogic>
         <filters>
             <field>Cabinet__c</field>
             <operator>IsNull</operator>
             <value>
                 <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Associated_Space_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Cabinet</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Rack__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Associated_Space_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Rack</stringValue>
             </value>
         </filters>
         <object>DC_Circuit_Breaker__c</object>
@@ -285,7 +385,7 @@
     </start>
     <status>Active</status>
     <variables>
-        <name>CircuitBreakerForCabinetCount</name>
+        <name>CircuitBreakersCount</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
@@ -296,7 +396,7 @@
         </value>
     </variables>
     <variables>
-        <name>CircuitBreakersForCabinetList</name>
+        <name>CircuitBreakersList</name>
         <dataType>SObject</dataType>
         <isCollection>true</isCollection>
         <isInput>false</isInput>
