@@ -407,7 +407,7 @@
     }, {
       "components" : [ {
         "componentAttributes" : {
-          "bgImage" : "background: #FFFFFF url(/sfsites/c/file-asset/Homepage_Search_Bar_1440_x_300_1_1?v=1) top center /cover",
+          "bgImage" : "background: #FFFFFF url(/sfsites/c/file-asset/Homepage_Search_Bar_1440_x_300_1?v=1) top center /cover",
           "bgOverlayColor" : "rgba(255, 255, 255, 0.20)",
           "captionText" : "Netrality",
           "captionTextColor" : "rgba(0, 0, 0, 0)",
