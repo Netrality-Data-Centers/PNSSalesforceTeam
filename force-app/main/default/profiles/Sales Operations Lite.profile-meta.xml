@@ -2193,6 +2193,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_DC_Plant__c.PDU_RPP__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>DC_Data_Hall__c.Cooling_Redundancy_Configuration__c</field>
         <readable>false</readable>
@@ -2443,9 +2448,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DC_Rack__c.Committed_Power__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2563,13 +2568,13 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>DC_Tenant_Suite__c.Meter_ID__c</field>
-        <readable>false</readable>
+        <editable>true</editable>
+        <field>DC_Tenant_Suite__c.Account__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DC_Tenant_Suite__c.Short_Name__c</field>
+        <field>DC_Tenant_Suite__c.Meter_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3760,7 +3765,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Opportunity.New_Logo</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
