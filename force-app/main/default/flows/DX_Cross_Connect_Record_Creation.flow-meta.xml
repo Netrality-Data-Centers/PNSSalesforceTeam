@@ -595,6 +595,52 @@
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithHeader</regionContainerType>
         </fields>
+        <fields>
+            <name>Account_Information</name>
+            <fieldText>Account Information</fieldText>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Account_Information_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Destination_Account_Z_LOA_Info</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_Service_Request_Info.DX_Account_Name_ZLOA__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Destination Account - Z (LOA Info)</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
+                    <isRequired>false</isRequired>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Account_Information_Column2</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithHeader</regionContainerType>
+        </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
