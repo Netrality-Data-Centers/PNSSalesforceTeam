@@ -26,6 +26,21 @@
                 <default>false</default>
                 <label>Retail</label>
             </value>
+            <value>
+                <fullName>Infrastructure</fullName>
+                <default>false</default>
+                <label>Infrastructure</label>
+            </value>
+            <value>
+                <fullName>Storage</fullName>
+                <default>false</default>
+                <label>Storage</label>
+            </value>
+            <value>
+                <fullName>Unaccounted</fullName>
+                <default>false</default>
+                <label>Unaccounted</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

@@ -817,11 +817,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>DC_Rack__c.Committed_Power__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>DC_Rack__c.Connected_Power__c</field>
         <readable>true</readable>
@@ -909,11 +904,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DC_Tenant_Suite__c.Meter_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>DC_Tenant_Suite__c.Short_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
