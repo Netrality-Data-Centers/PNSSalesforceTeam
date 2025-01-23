@@ -164,11 +164,6 @@
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <fields>
-            <name>debugText</name>
-            <fieldText>&lt;p&gt;Multi Asset Assignment&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <fields>
             <name>multiAssetAssignment</name>
             <extensionName>c:multiAssetAssignment</extensionName>
             <fieldType>ComponentInstance</fieldType>
