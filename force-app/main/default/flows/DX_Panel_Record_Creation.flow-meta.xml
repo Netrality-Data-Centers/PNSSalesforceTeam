@@ -562,7 +562,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                     <elementReference>BuildingID</elementReference>
                 </value>
             </inputParameters>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
@@ -575,7 +575,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                 <fieldType>Region</fieldType>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    
                     <isRequired>false</isRequired>
                     <objectFieldReference>CreatedPanel.Short_Name__c</objectFieldReference>
                 </fields>
@@ -592,13 +592,13 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                 <fieldType>Region</fieldType>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    
                     <isRequired>false</isRequired>
                     <objectFieldReference>CreatedPanel.Connector_Type__c</objectFieldReference>
                 </fields>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    
                     <isRequired>false</isRequired>
                     <objectFieldReference>CreatedPanel.Status__c</objectFieldReference>
                 </fields>
@@ -622,7 +622,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                 <fieldType>Region</fieldType>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    
                     <isRequired>false</isRequired>
                     <objectFieldReference>CreatedPanel.Mod_Model__c</objectFieldReference>
                 </fields>
@@ -631,7 +631,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                     <dataType>Number</dataType>
                     <fieldText>Number of Ports Wide</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    
                     <isRequired>true</isRequired>
                     <scale>0</scale>
                     <visibilityRule>
@@ -650,7 +650,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                     <dataType>Number</dataType>
                     <fieldText>Number of Ports Tall</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    
                     <isRequired>true</isRequired>
                     <scale>0</scale>
                     <visibilityRule>
@@ -666,7 +666,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                 </fields>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    
                     <isRequired>false</isRequired>
                     <objectFieldReference>CreatedPanel.Port_Pattern__c</objectFieldReference>
                     <visibilityRule>
@@ -693,7 +693,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                 <fieldType>Region</fieldType>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    
                     <isRequired>false</isRequired>
                     <objectFieldReference>CreatedPanel.Mod_Pattern__c</objectFieldReference>
                 </fields>
@@ -702,7 +702,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                     <dataType>Number</dataType>
                     <fieldText>Number of Mods</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    
                     <isRequired>true</isRequired>
                     <scale>0</scale>
                     <visibilityRule>
@@ -721,7 +721,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                     <dataType>Number</dataType>
                     <fieldText>Number of Ports Tall - per Mod</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    
                     <isRequired>true</isRequired>
                     <scale>0</scale>
                     <visibilityRule>
@@ -740,7 +740,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                     <dataType>Number</dataType>
                     <fieldText>Number of Ports Wide - per Mod</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    
                     <isRequired>true</isRequired>
                     <scale>0</scale>
                     <visibilityRule>
@@ -825,7 +825,7 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                     <stringValue>[{&quot;apiName&quot;:&quot;Position__c&quot;,&quot;guid&quot;:&quot;column-a737&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:false,&quot;order&quot;:0,&quot;label&quot;:&quot;Position&quot;,&quot;type&quot;:&quot;number&quot;},{&quot;apiName&quot;:&quot;Status__c&quot;,&quot;guid&quot;:&quot;column-5502&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:false,&quot;order&quot;:1,&quot;label&quot;:&quot;Status&quot;,&quot;type&quot;:&quot;text&quot;}]</stringValue>
                 </value>
             </inputParameters>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
