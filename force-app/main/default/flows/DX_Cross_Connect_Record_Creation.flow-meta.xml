@@ -419,7 +419,6 @@
                     <dataType>Date</dataType>
                     <fieldText>Disconnect Date</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -442,7 +441,7 @@
                     <fieldText>Origination Port</fieldText>
                     <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <inputParameters>
@@ -465,7 +464,6 @@
                     </defaultValue>
                     <fieldText>Status</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -484,7 +482,6 @@
                     <dataType>String</dataType>
                     <fieldText>Media Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -495,7 +492,6 @@
                     </defaultValue>
                     <fieldText>Connection Date</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -518,7 +514,7 @@
                     <fieldText>Destination Port</fieldText>
                     <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <inputParameters>
@@ -547,7 +543,6 @@
                     </defaultValue>
                     <fieldText>A (Order Initiator) - Ports</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -575,7 +570,6 @@
                     </defaultValue>
                     <fieldText>Z (LOA Info) - Ports</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -610,7 +604,6 @@
                     </defaultValue>
                     <fieldText>Destination Account - Z (LOA Info)</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
