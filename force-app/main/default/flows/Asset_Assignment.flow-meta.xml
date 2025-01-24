@@ -2,10 +2,42 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
     <assignments>
+        <name>Assign_the_buildingId_from_the_Asset_Record</name>
+        <label>Assign the buildingId from the Asset Record</label>
+        <locationX>600</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>buildingId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_the_Asset_Details.Building__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Building_floor_and_DataHall_Selection</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_the_buildingId_from_the_Asset_s_Service_Order_s_Opportunity_Building</name>
+        <label>Assign the buildingId from the Asset&apos;s Service Order&apos;s Opportunity Building</label>
+        <locationX>864</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>buildingId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_the_Asset_Details.Service_Order__r.Opportunity.Building__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Building_floor_and_DataHall_Selection</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Assign_The_Data_Hall</name>
         <label>Assign The Data Hall</label>
-        <locationX>908</locationX>
-        <locationY>458</locationY>
+        <locationX>776</locationX>
+        <locationY>758</locationY>
         <assignmentItems>
             <assignToReference>dataHallId</assignToReference>
             <operator>Assign</operator>
@@ -35,7 +67,7 @@
         <name>Check_if_this_is_an_Asset_that_is_related_to_RenderDraw_workflow</name>
         <label>Check if this is an Asset that is related to RenderDraw workflow</label>
         <locationX>1040</locationX>
-        <locationY>650</locationY>
+        <locationY>950</locationY>
         <defaultConnector>
             <targetReference>What_type_of_Standard_Asset_is_this</targetReference>
         </defaultConnector>
@@ -71,6 +103,75 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Does_the_buildingId_exist</name>
+        <label>Does the buildingId exist?</label>
+        <locationX>776</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Building_floor_and_DataHall_Selection</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Building was Passed and the Asset Doesn&apos;t have a building</defaultConnectorLabel>
+        <rules>
+            <name>BuildingId_Exists_as_Global_Resource</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>buildingId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>buildingId</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Building_floor_and_DataHall_Selection</targetReference>
+            </connector>
+            <label>BuildingId Exists as Global Resource</label>
+        </rules>
+        <rules>
+            <name>Building_exists_on_the_Asset</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_the_Asset_Details.Building__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_the_Asset_Details.Building__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_the_buildingId_from_the_Asset_Record</targetReference>
+            </connector>
+            <label>Building exists on the Asset</label>
+        </rules>
+        <rules>
+            <name>The_Asset_s_Service_Order_s_Opportunity_has_a_building</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_the_Asset_Details.Service_Order__r.Opportunity.Building__r.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_the_buildingId_from_the_Asset_s_Service_Order_s_Opportunity_Building</targetReference>
+            </connector>
+            <label>The Asset&apos;s Service Order&apos;s Opportunity has a building</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Was_Data_Hall_Passed</name>
         <label>Was Data Hall Passed</label>
         <locationX>1040</locationX>
@@ -97,7 +198,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Building_floor_and_DataHall_Selection</targetReference>
+                <targetReference>Does_the_buildingId_exist</targetReference>
             </connector>
             <label>Data Hall was not passed in</label>
         </rules>
@@ -106,7 +207,7 @@
         <name>What_type_of_RenderDraw_Asset_is_this</name>
         <label>What type of RenderDraw Asset is this</label>
         <locationX>314</locationX>
-        <locationY>758</locationY>
+        <locationY>1058</locationY>
         <defaultConnector>
             <targetReference>Cabinet_Assignment_Screen</targetReference>
         </defaultConnector>
@@ -146,7 +247,7 @@
         <name>What_type_of_Standard_Asset_is_this</name>
         <label>What type of Standard Asset is this?</label>
         <locationX>1766</locationX>
-        <locationY>758</locationY>
+        <locationY>1058</locationY>
         <defaultConnectorLabel>No Matching Asset_Type</defaultConnectorLabel>
         <rules>
             <name>POE_Allocation</name>
@@ -227,7 +328,7 @@
             <name>Home_Run</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_the_Asset_Details.Type__c</leftValueReference>
+                <leftValueReference>Get_the_Asset_Details.Asset_Type__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Home Run</stringValue>
@@ -332,7 +433,7 @@
             <field>Rack_Row__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Select_a_Rack_Row</elementReference>
+                <elementReference>Select_a_Rack_Row_Picker</elementReference>
             </value>
         </filters>
         <object>DC_Rack__c</object>
@@ -387,7 +488,7 @@
         <name>Update_Asset_to_Allocated_Cabinet</name>
         <label>Update Asset to Allocated- Cabinet</label>
         <locationX>578</locationX>
-        <locationY>1082</locationY>
+        <locationY>1382</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -420,7 +521,7 @@
         <name>Update_Asset_to_Allocated_Cage</name>
         <label>Update Asset to Allocated- Cage</label>
         <locationX>50</locationX>
-        <locationY>1082</locationY>
+        <locationY>1382</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -453,7 +554,7 @@
         <name>Update_the_Cabinet_Record</name>
         <label>Update the Cabinet Record</label>
         <locationX>578</locationX>
-        <locationY>974</locationY>
+        <locationY>1274</locationY>
         <connector>
             <targetReference>Update_Asset_to_Allocated_Cabinet</targetReference>
         </connector>
@@ -483,7 +584,7 @@
         <name>Update_the_Cage</name>
         <label>Update the Cage</label>
         <locationX>50</locationX>
-        <locationY>974</locationY>
+        <locationY>1274</locationY>
         <connector>
             <targetReference>Update_Asset_to_Allocated_Cage</targetReference>
         </connector>
@@ -513,7 +614,7 @@
         <name>Cabinet_Assignment_Screen</name>
         <label>Cabinet Assignment</label>
         <locationX>578</locationX>
-        <locationY>866</locationY>
+        <locationY>1166</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -536,7 +637,7 @@
         <name>Cage_Selection_for_Space</name>
         <label>Cage Selection for Space</label>
         <locationX>50</locationX>
-        <locationY>866</locationY>
+        <locationY>1166</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -559,7 +660,7 @@
         <name>Request_how_many_RUs</name>
         <label>Request how many RUs</label>
         <locationX>314</locationX>
-        <locationY>866</locationY>
+        <locationY>1166</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -622,15 +723,61 @@
         <showHeader>true</showHeader>
     </screens>
     <screens>
-        <name>Select_Meet_Me_Room</name>
-        <label>Select Meet Me Room</label>
+        <name>Select_a_Rack_Row_Screen</name>
+        <label>Select a Rack Row</label>
         <locationX>314</locationX>
-        <locationY>974</locationY>
+        <locationY>1382</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
+            <targetReference>Select_a_Rack_Screen</targetReference>
+        </connector>
+        <fields>
+            <name>Select_a_Rack_Row_Picker</name>
+            <choiceReferences>rackRowsFromMeetMeRoom</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Select a Rack Row</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Select_a_Rack_Screen</name>
+        <label>Select a Rack</label>
+        <locationX>314</locationX>
+        <locationY>1490</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
             <targetReference>DX_Panel_Record_Creation_Flow_1</targetReference>
+        </connector>
+        <fields>
+            <name>Select_a_Rack_Picker</name>
+            <choiceReferences>racksFromRackRow</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Select a Rack</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Select_Meet_Me_Room</name>
+        <label>Select Meet Me Room</label>
+        <locationX>314</locationX>
+        <locationY>1274</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Select_a_Rack_Row_Screen</targetReference>
         </connector>
         <fields>
             <name>Select_a_Meet_me_Room_from_the_Datahall</name>
@@ -638,65 +785,8 @@
             <dataType>String</dataType>
             <fieldText>Select a Meet me Room from the Datahall</fieldText>
             <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
-        </fields>
-        <fields>
-            <name>Select_a_Rack_Row</name>
-            <choiceReferences>rackRowsFromMeetMeRoom</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Select a Rack Row</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
-            <visibilityRule>
-                <conditionLogic>1</conditionLogic>
-                <conditions>
-                    <leftValueReference>Select_a_Meet_me_Room_from_the_Datahall</leftValueReference>
-                    <operator>IsNull</operator>
-                    <rightValue>
-                        <booleanValue>false</booleanValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
-        </fields>
-        <fields>
-            <name>Select_a_Rack</name>
-            <choiceReferences>racksFromRackRow</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Select a Rack</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>Select_a_Rack_Row</leftValueReference>
-                    <operator>IsNull</operator>
-                    <rightValue>
-                        <booleanValue>false</booleanValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
-        </fields>
-        <fields>
-            <name>Starting_U_for_the_Panel</name>
-            <dataType>Number</dataType>
-            <fieldText>Starting U for the Panel</fieldText>
-            <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
-            <scale>0</scale>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>Select_a_Rack</leftValueReference>
-                    <operator>IsNull</operator>
-                    <rightValue>
-                        <booleanValue>false</booleanValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -708,12 +798,12 @@
             <targetReference>Get_the_Asset_Details</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <name>Building_floor_and_DataHall_Selection</name>
         <label>Building floor and DataHall Selection</label>
-        <locationX>908</locationX>
-        <locationY>350</locationY>
+        <locationX>776</locationX>
+        <locationY>650</locationY>
         <connector>
             <targetReference>Assign_The_Data_Hall</targetReference>
         </connector>
@@ -730,7 +820,7 @@
         <name>DC_Circuit_Record_Creation_Flow</name>
         <label>DC Circuit Record Creation Flow</label>
         <locationX>1634</locationX>
-        <locationY>866</locationY>
+        <locationY>1166</locationY>
         <flowName>DC_Circuit_Record_Creation</flowName>
         <inputAssignments>
             <name>Account_ID</name>
@@ -755,7 +845,7 @@
         <name>DX_Create_Circuit_Breaker_Record_Flow</name>
         <label>DX Create Circuit Breaker Record Flow</label>
         <locationX>1898</locationX>
-        <locationY>866</locationY>
+        <locationY>1166</locationY>
         <flowName>DX_Create_Circuit_Breaker_Record</flowName>
         <inputAssignments>
             <name>AccountID</name>
@@ -804,7 +894,7 @@
         <name>DX_Home_Run_and_Fiber_Pair_Record_Creation_Flow_1</name>
         <label>DX Home Run and Fiber Pair Record Creation Flow 1</label>
         <locationX>2162</locationX>
-        <locationY>866</locationY>
+        <locationY>1166</locationY>
         <flowName>DX_Home_Run_and_Fiber_Pair_Record_Creation</flowName>
         <inputAssignments>
             <name>AccountId</name>
@@ -841,7 +931,7 @@
         <name>DX_Innerduct_Asset_Record_Creation_Flow</name>
         <label>DX Innerduct Asset Record Creation Flow</label>
         <locationX>1370</locationX>
-        <locationY>866</locationY>
+        <locationY>1166</locationY>
         <flowName>DX_Innerduct_Asset_Record_Creation</flowName>
         <inputAssignments>
             <name>Asset_ID</name>
@@ -860,7 +950,7 @@
         <name>DX_Inside_Plant_Asset_Record_Creation_Flow</name>
         <label>DX Inside Plant Asset Record Creation Flow</label>
         <locationX>2426</locationX>
-        <locationY>866</locationY>
+        <locationY>1166</locationY>
         <flowName>DX_Inside_Plant_Asset_Record_Creation</flowName>
         <inputAssignments>
             <name>AccountID</name>
@@ -909,7 +999,7 @@
         <name>DX_Panel_Record_Creation_Flow_1</name>
         <label>DX Panel Record Creation Flow 1</label>
         <locationX>314</locationX>
-        <locationY>1082</locationY>
+        <locationY>1598</locationY>
         <flowName>DX_Panel_Record_Creation</flowName>
         <inputAssignments>
             <name>AccountID</name>
@@ -956,13 +1046,13 @@
         <inputAssignments>
             <name>RackID</name>
             <value>
-                <elementReference>Select_a_Rack</elementReference>
+                <elementReference>Select_a_Rack_Picker</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <name>StartingPositionRU</name>
             <value>
-                <elementReference>Starting_U_for_the_Panel</elementReference>
+                <elementReference>How_many_RUs</elementReference>
             </value>
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -971,7 +1061,7 @@
         <name>DX_POE_Allocation_Record_Creation_Flow</name>
         <label>DX POE Allocation Record Creation Flow</label>
         <locationX>842</locationX>
-        <locationY>866</locationY>
+        <locationY>1166</locationY>
         <flowName>DX_POE_Allocation_Record_Creation</flowName>
         <inputAssignments>
             <name>AccountID</name>
@@ -1002,7 +1092,7 @@
         <name>DX_Roof_Record_Creation_Flow</name>
         <label>DX Roof Record Creation Flow</label>
         <locationX>1106</locationX>
-        <locationY>866</locationY>
+        <locationY>1166</locationY>
         <flowName>DX_Roof_Record_Creation</flowName>
         <inputAssignments>
             <name>AccountID</name>
