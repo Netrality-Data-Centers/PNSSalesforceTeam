@@ -497,6 +497,12 @@
         <expression>&quot;SELECT Id, Name FROM DC_Meet_Me_Room__c WHERE Data_Hall__r.DC_Floor__r.Building__c = &quot; + &quot;&apos;&quot; +  {!BuildingId} + &quot;&apos;&quot;</expression>
     </formulas>
     <formulas>
+        <name>NewFiberPairCommitedValue</name>
+        <dataType>Number</dataType>
+        <expression>{!DatatableHomeRun.firstSelectedRow.Fiber_Pairs_Committed__c}+{!how_many_Fiber_Pairs_need_to_be_committed}</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
         <name>ValueNameAsset</name>
         <dataType>String</dataType>
         <expression>&apos;Fiber in Homerun from &apos;+{!Get_Service_Order.Service_Order_ID__c}</expression>
@@ -969,7 +975,7 @@
         <inputAssignments>
             <field>MRI_Suite_ID__c</field>
             <value>
-                <elementReference>FiberPairRecord.Related_MRI_Suite_ID__c</elementReference>
+                <elementReference>FiberPairRecord.Cabinet__r.MRI_Suite_ID__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1015,7 +1021,7 @@
         <inputAssignments>
             <field>Fiber_Pairs_Committed__c</field>
             <value>
-                <elementReference>how_many_Fiber_Pairs_need_to_be_committed</elementReference>
+                <elementReference>NewFiberPairCommitedValue</elementReference>
             </value>
         </inputAssignments>
         <object>DC_Homerun__c</object>
@@ -1152,7 +1158,6 @@
             <dataType>Number</dataType>
             <fieldText>how many Fiber Pairs need to be committed?</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <scale>0</scale>
         </fields>
@@ -1186,7 +1191,6 @@
                     <dataType>String</dataType>
                     <fieldText>Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -1194,7 +1198,6 @@
                     <dataType>Number</dataType>
                     <fieldText>Fiber Pairs Connected</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <scale>0</scale>
                 </fields>
@@ -1230,7 +1233,6 @@
                     </defaultValue>
                     <fieldText>Connected Service Order</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -1238,7 +1240,6 @@
                     <dataType>Number</dataType>
                     <fieldText>Fiber Pairs Committed</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <scale>0</scale>
                     <validationRule>
@@ -1293,7 +1294,6 @@
             <dataType>String</dataType>
             <fieldText>Are you installing a new Home Run or using an existing Homerun?</fieldText>
             <fieldType>RadioButtons</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
