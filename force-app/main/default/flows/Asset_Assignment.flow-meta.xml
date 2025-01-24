@@ -691,7 +691,6 @@
                     <fieldText>How many RUs</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Valid range of RUs is 1 to 16. Please re-enter your value&lt;/span&gt;&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <scale>0</scale>
                 </fields>
