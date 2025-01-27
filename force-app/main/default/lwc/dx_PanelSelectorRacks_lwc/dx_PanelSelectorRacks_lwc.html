@@ -11,14 +11,14 @@
     <div class="slds-grid slds-gutters">
       <div class="slds-col slds-size_1-of-2">
         <span>
-          <lightning-select name="Floors" label="Floor" value={valueFloor} options={optionsFloors}
+          <lightning-select data-name="Floors" name="Floors" label="Floor" value={floorID} options={optionsFloors}
           onchange={handleChangeFloors}>
           </lightning-select>
         </span>
       </div>
       <div class="slds-col slds-size_1-of-2">
         <span>
-          <lightning-select name="DataHalls" label="Data Hall" value={valueDataHall} options={optionsDataHalls}
+          <lightning-select data-name="DataHalls" name="DataHalls" label="Data Hall" value={datHallID} options={optionsDataHalls}
           onchange={handleChangeDataHalls}>
           </lightning-select>
         </span>
@@ -28,14 +28,14 @@
     <div class="slds-grid slds-gutters">
       <div class="slds-col slds-size_1-of-2">
         <span>
-          <lightning-select name="MeetMeRooms" label="Meet Me Room" value={valueMeetMeRoom} options={optionsMeetMeRooms}
+          <lightning-select data-name="MeetMeRooms" name="MeetMeRooms" label="Meet Me Room" value={meetMeRoomID} options={optionsMeetMeRooms}
           onchange={handleChangeMeetMeRooms}>
           </lightning-select>
         </span>
       </div>
       <div class="slds-col slds-size_1-of-2">
         <span>
-          <lightning-select name="Racks" label="Rack" value={valueRack} options={optionsRacks}
+          <lightning-select data-name="Racks" name="Racks" label="Rack" value={rackId} options={optionsRacks}
           onchange={handleChangeRacks}>
           </lightning-select>
         </span>

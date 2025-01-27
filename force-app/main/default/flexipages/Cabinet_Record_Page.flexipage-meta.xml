@@ -112,10 +112,10 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>readonly</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Account__c</fieldItem>
-                <identifier>RecordAccount_cField</identifier>
+                <fieldItem>Record.Account_Lookup__c</fieldItem>
+                <identifier>RecordAccount_Lookup_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -206,10 +206,10 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>readonly</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Data_Hall__c</fieldItem>
-                <identifier>RecordData_Hall_cField</identifier>
+                <fieldItem>Record.Data_Hall_Lookup__c</fieldItem>
+                <identifier>RecordData_Hall_Lookup_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
