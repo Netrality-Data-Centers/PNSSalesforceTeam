@@ -6,7 +6,8 @@ const COLUMNS = [
     { label: 'Asset Name', fieldName: 'Name' },
     { label: 'Serial Number', fieldName: 'SerialNumber' },
     { label: 'Status', fieldName: 'Status' },
-    { label: 'Product', fieldName: 'Product2Name' }
+    { label: 'Product', fieldName: 'Product2Name' },
+    { label: 'Asset Type', fieldName: 'Asset_Type__c' }
 ];
 
 export default class CaseRelatedAssetSelectionForAssignment extends LightningElement {
@@ -29,11 +30,9 @@ export default class CaseRelatedAssetSelectionForAssignment extends LightningEle
 
     async loadAssets() {
         try {
-            debugger;
             console.log('Loading assets for case:', this.caseId);
             const data = await getRelatedAssets({ caseId: this.caseId });
             console.log('Received data:', JSON.stringify(data));
-
             if (data) {
                 this.assets = data.assets.map(asset => ({
                     Id: asset.Id,
@@ -41,7 +40,8 @@ export default class CaseRelatedAssetSelectionForAssignment extends LightningEle
                     SerialNumber: asset.SerialNumber,
                     Status: asset.Status,
                     Product2Name: asset.Product2?.Name || '',
-                    Asset_Location__c: asset.Asset_Location__c
+                    Asset_Location__c: asset.Asset_Location__c,
+                    Asset_Type__c: asset.Asset_Type__c
                 }));
                 this.caseName = data.caseName;
                 this.filterAssets();
@@ -88,7 +88,12 @@ export default class CaseRelatedAssetSelectionForAssignment extends LightningEle
     handleNext() {
         this.validateSelection();
     }
-
+    get hasSelectedAssets() {
+        return this.numberOfSelectedAssets > 0;
+    }
+    get numberOfSelectedAssets() {
+        return [...this.selectedUnlocatedAssets, ...this.selectedLocatedAssets].length;
+    }
     validateSelection() {
         const selectedAssets = [...this.selectedUnlocatedAssets, ...this.selectedLocatedAssets];
         this.selectedAssets = selectedAssets;
