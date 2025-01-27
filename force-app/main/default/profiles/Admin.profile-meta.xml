@@ -10,6 +10,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CaseRelatedAssetSelectionControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_BusinesHoursHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1964,6 +1968,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Contact.Source_URL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DC_Asset_History__c.Asset_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2789,6 +2798,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead.Source_URL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>MRILedger__c.MRI_Source_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2862,6 +2876,26 @@
         <field>QuoteLineItem.DC_Number_of_Assets__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>RDraw__Interaction_Definition__c.RDraw__Associated_Object__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>RDraw__Interaction_Definition__c.RDraw__Associated_Record__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>RDraw__Interaction_Definition__c.RDraw__Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>RDraw__Interaction_Definition__c.RDraw__Settings__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Admin View</layout>
     </layoutAssignments>
@@ -2899,30 +2933,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Agreement__c-Agreement Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Agreement__c-Leases and Amendments</layout>
-        <recordType>Agreement__c.Lease</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Agreement__c-MLSA</layout>
-        <recordType>Agreement__c.CSA</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Agreement__c-MLSA</layout>
-        <recordType>Agreement__c.MLSA</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Agreement__c-MLSA</layout>
-        <recordType>Agreement__c.MSA</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Agreement__c-UMLSA</layout>
-        <recordType>Agreement__c.Acquisition_Assignment</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Agreement__c-UMLSA</layout>
-        <recordType>Agreement__c.UMLSA</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Asset-Asset Layout</layout>
@@ -3155,30 +3165,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Innerduct__c-Innerduct Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-Expansion Opportunity Layout</layout>
-        <recordType>Opportunity.Expansion</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-Expansion Opportunity Layout</layout>
-        <recordType>Opportunity.Minimum_Metered_Bookings</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-Expansion Opportunity Layout</layout>
-        <recordType>Opportunity.Revenue_Share</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-New Logo Opportunity Layout</layout>
-        <recordType>Opportunity.New_Logo</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-New Market Opportunity Layout</layout>
-        <recordType>Opportunity.New_Market</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-Renewal Opportunity Layout</layout>
-        <recordType>Opportunity.Renewal</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Product2-Product Layout</layout>
@@ -3603,6 +3589,15 @@
         <object>Innerduct__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>RDraw__Interaction_Definition__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Building_Customer</recordType>
@@ -3641,36 +3636,6 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Reseller</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Agreement__c.Acquisition_Assignment</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Agreement__c.CSA</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Agreement__c.Lease</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Agreement__c.MLSA</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Agreement__c.MSA</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Agreement__c.UMLSA</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -3747,46 +3712,6 @@
         <default>false</default>
         <recordType>Case.X717_S_Wells</recordType>
         <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Opportunity.Churn</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Opportunity.Expansion</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Opportunity.Minimum_Metered_Bookings</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Opportunity.New_Logo</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Opportunity.New_Market</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Opportunity.Out_of_Market</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Opportunity.Renewal</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Opportunity.Revenue_Share</recordType>
-        <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
         <tab>DC_Asset_History__c</tab>
@@ -3949,6 +3874,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>RDraw__Interaction_Definition__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Account</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -3988,6 +3917,14 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ApiEnabled</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ApprovalAdmin</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ApprovalDesigner</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -4307,6 +4244,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ManageContentTaxonomy</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ManageContentTypes</name>
     </userPermissions>
     <userPermissions>
@@ -4415,6 +4356,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ManagePersonalOrg</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ManagePreferenceCenter</name>
     </userPermissions>
     <userPermissions>
@@ -4508,6 +4453,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ModifyAllData</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ModifyAllPolicyCenterPolicies</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -4631,6 +4580,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>TerritoryOperations</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>TraceXdsQueries</name>
     </userPermissions>
     <userPermissions>
@@ -4667,6 +4620,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ViewAllPolicyCenterPolicies</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ViewAllProfiles</name>
     </userPermissions>
     <userPermissions>
@@ -4676,6 +4633,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewClientSecret</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewContentTaxonomy</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -4720,6 +4681,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewMyTeamsDashboards</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewPersonalOrg</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
