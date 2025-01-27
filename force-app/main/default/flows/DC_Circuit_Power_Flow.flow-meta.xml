@@ -156,7 +156,7 @@
     <formulas>
         <name>NewConnectedPowerValue</name>
         <dataType>Number</dataType>
-        <expression>ROUND({!SumOfConnectedPower}/{!DCCircuitsCount},2)</expression>
+        <expression>ROUND({!SumOfConnectedPower}/{!DCCircuitsCount}, 10)</expression>
         <scale>2</scale>
     </formulas>
     <interviewLabel>DC Circuit Power Flow {!$Flow.CurrentDateTime}</interviewLabel>
@@ -369,7 +369,7 @@
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
-        <scale>0</scale>
+        <scale>2</scale>
         <value>
             <numberValue>0.0</numberValue>
         </value>
