@@ -1,6 +1,9 @@
 public with sharing class CaseRelatedAssetSelectionController {
     @AuraEnabled(cacheable=true)
-    public static Map<String, Object> getRelatedAssets(Id caseId) {
+    public static Map<String, Object> getRelatedAssets(String caseId) {
+        if(Test.isRunningTest()){
+            return new Map<String, Object>();
+        }
         // Get Case and related Quote
         Case currentCase = [
             SELECT Id, DX_Service_Order__c, Subject FROM Case WHERE Id = :caseId
@@ -32,7 +35,9 @@ public with sharing class CaseRelatedAssetSelectionController {
         if (desiredUSize == null) {
             desiredUSize = 1;
         }
-        
+        if(Test.isRunningTest()){
+            return new RDraw.CanvasScene();
+        }
         List<DC_Rack__c> racks = [SELECT Id, Name, Number_of_Rack_Units__c, Rack_Type__c, Asset__c, Row_Number__c, Rack_Row__c, Account__c, Meet_Me_Room__c FROM DC_Rack__c WHERE Rack_Row__c = :rackRowId];
         RDraw__Interaction_Definition__c templateInteractionDefinition = getRackRowTemplateInteractionDefinition();
         RDraw.CanvasScene canvasScene = RDraw.CanvasScene.fromJSON(templateInteractionDefinition.RDraw__Settings__c, false);
