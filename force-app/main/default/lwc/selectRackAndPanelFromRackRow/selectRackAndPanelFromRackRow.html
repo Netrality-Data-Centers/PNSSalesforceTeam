@@ -1,0 +1,15 @@
+<template>
+    <template if:true={hasTemplateInteractionDefinition}>
+        <div class="container">
+            <RDraw-canvas2-d settingsmodel={templateInteractionDefinition} onelementclicked={handleElementClicked} onelementhovered={handleElementHovered} oncanvasloadedandenvironmentupdated={handleCanvasLoaded} class={canvasClass}></RDraw-canvas2-d>
+            <template if:true={hasSelection}>
+                <div class="sidebar">
+                    <!-- Sidebar content goes here -->
+                </div>
+            </template>
+        </div>
+    </template>
+    <template if:false={hasTemplateInteractionDefinition}>
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+    </template>
+</template>
