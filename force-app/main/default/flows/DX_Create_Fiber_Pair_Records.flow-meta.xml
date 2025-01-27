@@ -97,6 +97,14 @@
                 <elementReference>ValueFiberPairName</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>iFiberPairRecord.Committed_Service_Order__c</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>iFiberPairRecord.Asset__c</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
         <connector>
             <targetReference>Add_iFiberPair_to_List</targetReference>
         </connector>
