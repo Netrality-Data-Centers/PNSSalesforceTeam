@@ -563,7 +563,7 @@
             <label>Inside Plant</label>
         </rules>
     </decisions>
-    <description>Assigning an asset using either RenderDraw Visual Flow or the Standard Flow for non Cage, Cabinet or Panel Asset</description>
+    <description>PR1031160-860 Update on LWC Component in Panel , Dc Circuit &amp; Circuit Breaker subflows</description>
     <dynamicChoiceSets>
         <name>cabinetsFromDataHall</name>
         <dataType>String</dataType>
@@ -844,6 +844,12 @@
             </value>
         </filters>
         <inputAssignments>
+            <field>Account_Lookup__c</field>
+            <value>
+                <elementReference>Get_the_Asset_Details.AccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Asset__c</field>
             <value>
                 <elementReference>recordId</elementReference>
@@ -873,6 +879,12 @@
                 <elementReference>Select_the_Cage_from_a_given_Data_Hall.cage.Id</elementReference>
             </value>
         </filters>
+        <inputAssignments>
+            <field>Account_Lookup__c</field>
+            <value>
+                <elementReference>Get_the_Asset_Details.AccountId</elementReference>
+            </value>
+        </inputAssignments>
         <inputAssignments>
             <field>Asset__c</field>
             <value>
@@ -1148,6 +1160,18 @@
             <name>Building_ID</name>
             <value>
                 <elementReference>buildingId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>DataHall_ID</name>
+            <value>
+                <elementReference>dataHallId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Floor_ID</name>
+            <value>
+                <elementReference>floorId</elementReference>
             </value>
         </inputAssignments>
     </subflows>
