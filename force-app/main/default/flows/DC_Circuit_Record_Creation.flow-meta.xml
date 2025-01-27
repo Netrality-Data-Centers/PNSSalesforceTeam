@@ -120,6 +120,7 @@
             <label>Is It Rack?</label>
         </rules>
     </decisions>
+    <description>PR1031160-860 Update on LWC Component in Panel &amp; Dc Circuit subflows</description>
     <dynamicChoiceSets>
         <name>AssetCollectionChoiceSet</name>
         <collectionReference>Get_Asset_Records</collectionReference>
@@ -362,7 +363,6 @@
                     <dataType>String</dataType>
                     <fieldText>Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -401,6 +401,30 @@
                 <name>buildingID</name>
                 <value>
                     <elementReference>Building_ID</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>cabinetId</name>
+                <value>
+                    <elementReference>Cabinet_ID</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>cageID</name>
+                <value>
+                    <elementReference>Cage_ID</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>datHallID</name>
+                <value>
+                    <elementReference>DataHall_ID</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>floorID</name>
+                <value>
+                    <elementReference>Floor_ID</elementReference>
                 </value>
             </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -694,12 +718,40 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
+        <name>Cabinet_ID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Cage_ID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>DataHall_ID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <name>DC_Circuit_obj</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>DC_DC_Circuit__c</objectType>
+    </variables>
+    <variables>
+        <name>Floor_ID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <name>ShowCabinetValidation</name>
