@@ -1,6 +1,6 @@
 <template>
     <div class="slds-p-around_x-small">
-        <lightning-card title={cardTitle}>
+        <lightning-card icon-name="standard:asset_object" title={cardTitle}>
             <div class="slds-p-around_x-small">
                 <template if:true={hasAssets}>
                     <lightning-tabset>
@@ -61,6 +61,11 @@
             </div>
 
             <div slot="footer" class="slds-text-align_right slds-p-around_x-small">
+                <div class="slds-float_left">
+                    <template if:true={hasSelectedAssets}>
+                        <span>{numberOfSelectedAssets} Assets selected</span>
+                    </template>
+                </div>
                 <lightning-button 
                     label="Next"
                     variant="brand"
