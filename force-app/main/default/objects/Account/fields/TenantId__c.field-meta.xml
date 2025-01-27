@@ -3,7 +3,7 @@
     <fullName>TenantId__c</fullName>
     <caseSensitive>false</caseSensitive>
     <externalId>true</externalId>
-    <label>TenantId</label>
+    <label>MRI National Tenant ID</label>
     <length>5</length>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
