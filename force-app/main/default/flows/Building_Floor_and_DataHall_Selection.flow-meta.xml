@@ -14,14 +14,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Select_the_Floor_from_Building</targetReference>
+            <targetReference>Get_the_Building_Details</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Assign_Data_Hall_Id</name>
         <label>Assign Data Hall Id</label>
-        <locationX>50</locationX>
-        <locationY>866</locationY>
+        <locationX>314</locationX>
+        <locationY>1406</locationY>
         <assignmentItems>
             <assignToReference>dataHallId</assignToReference>
             <operator>Assign</operator>
@@ -36,12 +36,62 @@
                 <elementReference>Select_the_Floor_you_would_like_to_use</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>dataHallName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_the_DataHall.Name</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_the_Building_Id_and_Name</name>
+        <label>Assign the Building Id and Name</label>
+        <locationX>248</locationX>
+        <locationY>650</locationY>
+        <assignmentItems>
+            <assignToReference>buildingId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_the_Building_Details.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>buildingName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_the_Building_Details.Name</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Select_the_Floor_from_Building</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_the_DataHall_Manually</name>
+        <label>Assign the DataHall Manually</label>
+        <locationX>50</locationX>
+        <locationY>1190</locationY>
+        <assignmentItems>
+            <assignToReference>dataHallId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Select_Data_Hall</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>floorId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Select_the_Floor_you_would_like_to_use</elementReference>
+            </value>
+        </assignmentItems>
     </assignments>
     <decisions>
         <name>Check_the_item_was_selected</name>
         <label>Check the item was selected</label>
-        <locationX>182</locationX>
-        <locationY>758</locationY>
+        <locationX>446</locationX>
+        <locationY>1190</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
             <targetReference>Select_Data_Hall_from_Floor</targetReference>
@@ -58,9 +108,41 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Assign_Data_Hall_Id</targetReference>
+                <targetReference>Get_the_DataHall</targetReference>
             </connector>
             <label>Item was Selected</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Does_the_Floor_have_a_Floorplan</name>
+        <label>Does the Floor have a Floorplan?</label>
+        <locationX>248</locationX>
+        <locationY>974</locationY>
+        <defaultConnector>
+            <targetReference>Select_Data_Hall_from_Floor</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Does_not_have_a_floorplan</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_the_Floor.X2D_Drawing__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_the_Floor.X2D_Drawing__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Select_a_DataHall_Manually</targetReference>
+            </connector>
+            <label>Does not have a floorplan</label>
         </rules>
     </decisions>
     <decisions>
@@ -83,7 +165,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Select_the_Floor_from_Building</targetReference>
+                <targetReference>Get_the_Building_Details</targetReference>
             </connector>
             <label>Building Was Passed</label>
         </rules>
@@ -105,6 +187,31 @@
             <assignToReference>buildingId</assignToReference>
             <field>Id</field>
         </outputAssignments>
+        <outputAssignments>
+            <assignToReference>buildingName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
+        <sortField>Name</sortField>
+        <sortOrder>Asc</sortOrder>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>dataHallSelection</name>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DC_Floor__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_the_Floor.Id</elementReference>
+            </value>
+        </filters>
+        <object>DC_Data_Hall__c</object>
+        <outputAssignments>
+            <assignToReference>dataHallName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
         <sortField>Name</sortField>
         <sortOrder>Asc</sortOrder>
         <valueField>Id</valueField>
@@ -122,6 +229,10 @@
             </value>
         </filters>
         <object>DC_Floor__c</object>
+        <outputAssignments>
+            <assignToReference>floorName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
         <sortField>Name</sortField>
         <sortOrder>Asc</sortOrder>
         <valueField>Id</valueField>
@@ -148,6 +259,69 @@
         </value>
     </processMetadataValues>
     <processType>Flow</processType>
+    <recordLookups>
+        <name>Get_the_Building_Details</name>
+        <label>Get the Building Details</label>
+        <locationX>248</locationX>
+        <locationY>542</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_the_Building_Id_and_Name</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>buildingId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Building__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_the_DataHall</name>
+        <label>Get the DataHall</label>
+        <locationX>314</locationX>
+        <locationY>1298</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Data_Hall_Id</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>canvasDataHallSelection.selectedCanvasItem</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>DC_Data_Hall__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_the_Floor</name>
+        <label>Get the Floor</label>
+        <locationX>248</locationX>
+        <locationY>866</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Does_the_Floor_have_a_Floorplan</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Select_the_Floor_you_would_like_to_use</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>DC_Floor__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <screens>
         <name>Building_Selection</name>
         <label>Building Selection</label>
@@ -175,14 +349,37 @@
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
+        <helpText>&lt;p&gt;Select the building you&apos;d like to use for Asset Assignmn&lt;/p&gt;</helpText>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Select_a_DataHall_Manually</name>
+        <label>Select a DataHall Manually</label>
+        <locationX>50</locationX>
+        <locationY>1082</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Assign_the_DataHall_Manually</targetReference>
+        </connector>
+        <fields>
+            <name>Select_Data_Hall</name>
+            <choiceReferences>dataHallSelection</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Select Data Hall</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
     <screens>
         <name>Select_Data_Hall_from_Floor</name>
         <label>Select Data Hall from Floor</label>
-        <locationX>182</locationX>
-        <locationY>650</locationY>
+        <locationX>446</locationX>
+        <locationY>1082</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -190,16 +387,33 @@
             <targetReference>Check_the_item_was_selected</targetReference>
         </connector>
         <fields>
+            <name>selectADataHallText</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 16px;&quot;&gt;Select the Data Hall using the related Floorplan Map&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
             <name>canvasDataHallSelection</name>
             <extensionName>RDraw:canvas2D</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
                 <name>recordId</name>
                 <value>
-                    <elementReference>Select_the_Floor_you_would_like_to_use</elementReference>
+                    <elementReference>Get_the_Floor.Id</elementReference>
                 </value>
             </inputParameters>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <inputParameters>
+                <name>callFlowNextOnProceed</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>size</name>
+                <value>
+                    <stringValue>Medium</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
@@ -209,8 +423,8 @@
     <screens>
         <name>Select_the_Floor_from_Building</name>
         <label>Select the Floor from Building</label>
-        <locationX>182</locationX>
-        <locationY>542</locationY>
+        <locationX>248</locationX>
+        <locationY>758</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -245,6 +459,13 @@
         <isOutput>true</isOutput>
     </variables>
     <variables>
+        <name>buildingName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
         <name>dataHallId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
@@ -252,7 +473,21 @@
         <isOutput>true</isOutput>
     </variables>
     <variables>
+        <name>dataHallName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
         <name>floorId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>floorName</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
