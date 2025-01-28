@@ -114,8 +114,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Row_Number__c</fieldItem>
-                <identifier>RecordRow_Number__cField</identifier>
+                <fieldItem>Record.Rack_Row__c</fieldItem>
+                <identifier>RecordRack_Row__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -124,12 +124,6 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Rack_Row__c</fieldItem>
-                <identifier>RecordRack_Row__cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
                 <fieldItem>Record.Committed_Power__c</fieldItem>
                 <identifier>RecordCommitted_Power__cField</identifier>
             </fieldInstance>
