@@ -827,7 +827,7 @@
         <field>Agreement__c.Billing_City__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+     <fieldPermissions>
         <editable>true</editable>
         <field>Agreement__c.Billing_Contact__c</field>
         <readable>true</readable>
@@ -2635,6 +2635,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DC_Rack__c.Redundancy_Factor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_Rack__c.Row_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
