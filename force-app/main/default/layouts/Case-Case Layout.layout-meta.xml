@@ -386,11 +386,10 @@
     </relatedLists>
     <relatedLists>
         <fields>ASSET.NAME</fields>
-        <fields>ASSET.SERIAL_NUMBER</fields>
-        <fields>ASSET.INSTALL_DATE</fields>
-        <fields>ACCOUNT.NAME</fields>
-        <fields>CONTACT.NAME</fields>
-        <fields>PRODUCT2.NAME</fields>
+        <fields>Asset_Type__c</fields>
+        <fields>ASSET.STATUS</fields>
+        <fields>Asset_Location__c</fields>
+        <fields>DX_Allocated__c</fields>
         <relatedList>Asset.DX_Service_Request__c</relatedList>
     </relatedLists>
     <relatedLists>
