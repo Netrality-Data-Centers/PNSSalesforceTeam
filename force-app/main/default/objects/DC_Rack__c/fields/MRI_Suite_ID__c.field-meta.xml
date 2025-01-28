@@ -3,7 +3,7 @@
     <fullName>MRI_Suite_ID__c</fullName>
     <externalId>false</externalId>
     <label>MRI Suite ID</label>
-    <length>5</length>
+    <length>30</length>
     <required>true</required>
     <trackTrending>false</trackTrending>
     <type>Text</type>
