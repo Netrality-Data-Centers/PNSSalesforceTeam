@@ -5,7 +5,7 @@
         <name>Asset_was_Allocated</name>
         <label>Asset was Allocated</label>
         <locationX>1386</locationX>
-        <locationY>2474</locationY>
+        <locationY>2582</locationY>
         <assignmentItems>
             <assignToReference>assetWasAllocated</assignToReference>
             <operator>Assign</operator>
@@ -30,7 +30,7 @@
     <assignments>
         <name>Assign_the_buildingId_from_the_Asset_Record</name>
         <label>Assign the buildingId from the Asset Record</label>
-        <locationX>1210</locationX>
+        <locationX>1254</locationX>
         <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>buildingId</assignToReference>
@@ -46,7 +46,7 @@
     <assignments>
         <name>Assign_the_buildingId_from_the_Asset_s_Service_Order_s_Opportunity_Building</name>
         <label>Assign the buildingId from the Asset&apos;s Service Order&apos;s Opportunity Building</label>
-        <locationX>1474</locationX>
+        <locationX>1518</locationX>
         <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>buildingId</assignToReference>
@@ -62,7 +62,7 @@
     <assignments>
         <name>Assign_The_Data_Hall</name>
         <label>Assign The Data Hall</label>
-        <locationX>1386</locationX>
+        <locationX>1430</locationX>
         <locationY>758</locationY>
         <assignmentItems>
             <assignToReference>dataHallId</assignToReference>
@@ -93,12 +93,19 @@
         <name>Assign_the_Selected_Cabinet_Id</name>
         <label>Assign the Selected Cabinet Id</label>
         <locationX>578</locationX>
-        <locationY>1598</locationY>
+        <locationY>1706</locationY>
         <assignmentItems>
             <assignToReference>cabinetId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Visual_Cabinet_Selection.selectedCanvasItem</elementReference>
+                <elementReference>Get_Selected_Cabinet.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>cageId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Selected_Cabinet.Cage__c</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -148,7 +155,7 @@
         <name>Assignment_9</name>
         <label>Assignment 9</label>
         <locationX>908</locationX>
-        <locationY>2198</locationY>
+        <locationY>2306</locationY>
         <assignmentItems>
             <assignToReference>cabinetId</assignToReference>
             <operator>Assign</operator>
@@ -165,6 +172,22 @@
         </assignmentItems>
         <connector>
             <targetReference>Asset_was_Allocated</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_1_of_Assign_the_buildingId_from_the_Asset_s_Service_Order_s_Opportunity_Bui</name>
+        <label>Copy 1 of Assign the buildingId from the Asset&apos;s Service Order&apos;s Opportunity Building</label>
+        <locationX>814</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>buildingId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_the_Asset_Details.Service_Order__r.Opportunity.Building__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_the_DataHall_Details</targetReference>
         </connector>
     </assignments>
     <decisions>
@@ -209,7 +232,7 @@
     <decisions>
         <name>Does_the_buildingId_exist</name>
         <label>Does the buildingId exist?</label>
-        <locationX>1386</locationX>
+        <locationX>1430</locationX>
         <locationY>350</locationY>
         <defaultConnector>
             <targetReference>Building_floor_and_DataHall_Selection</targetReference>
@@ -335,7 +358,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Assign_the_Selected_Cabinet_Id</targetReference>
+                <targetReference>Get_Selected_Cabinet</targetReference>
             </connector>
             <label>A Cabinet Was Selected</label>
         </rules>
@@ -381,7 +404,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_the_DataHall_Details</targetReference>
+                <targetReference>Copy_1_of_Assign_the_buildingId_from_the_Asset_s_Service_Order_s_Opportunity_Bui</targetReference>
             </connector>
             <label>Data Hall was Not passed, and not needed (POE, Inside Plant, Innerduct or Roof Product)</label>
         </rules>
@@ -672,6 +695,27 @@
     </processMetadataValues>
     <processType>Flow</processType>
     <recordLookups>
+        <name>Get_Selected_Cabinet</name>
+        <label>Get Selected Cabinet</label>
+        <locationX>578</locationX>
+        <locationY>1598</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_the_Selected_Cabinet_Id</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Visual_Cabinet_Selection.selectedCanvasItem</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>DC_Cabinet__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_the_Asset_Details</name>
         <label>Get the Asset Details</label>
         <locationX>1386</locationX>
@@ -696,7 +740,7 @@
         <name>Get_the_Cabinet_Details</name>
         <label>Get the Cabinet Details</label>
         <locationX>908</locationX>
-        <locationY>1982</locationY>
+        <locationY>2090</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Update_Asset_to_Allocated_Cabinet</targetReference>
@@ -759,7 +803,7 @@
         <name>Update_Asset_to_Allocated_Cabinet</name>
         <label>Update Asset to Allocated- Cabinet</label>
         <locationX>908</locationX>
-        <locationY>2090</locationY>
+        <locationY>2198</locationY>
         <connector>
             <targetReference>Assignment_9</targetReference>
         </connector>
@@ -831,7 +875,7 @@
         <name>Update_the_Cabinet_Record</name>
         <label>Update the Cabinet Record</label>
         <locationX>908</locationX>
-        <locationY>1874</locationY>
+        <locationY>1982</locationY>
         <connector>
             <targetReference>Get_the_Cabinet_Details</targetReference>
         </connector>
@@ -957,10 +1001,19 @@
             <fields>
                 <name>Request_how_many_RUs_Section1_Column1</name>
                 <fieldType>Region</fieldType>
+                <fields>
+                    <name>Starting_Position_on_Rack</name>
+                    <dataType>Number</dataType>
+                    <fieldText>Starting Position on Rack</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <helpText>&lt;p&gt;&lt;span style=&quot;font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Starting Position of this Panel in the Rack. 1 is the bottom RU.&lt;/span&gt;&lt;/p&gt;</helpText>
+                    <isRequired>true</isRequired>
+                    <scale>0</scale>
+                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
-                        <stringValue>4</stringValue>
+                        <stringValue>6</stringValue>
                     </value>
                 </inputParameters>
                 <isRequired>false</isRequired>
@@ -971,9 +1024,6 @@
                 <fields>
                     <name>How_many_RUs</name>
                     <dataType>Number</dataType>
-                    <defaultValue>
-                        <numberValue>2.0</numberValue>
-                    </defaultValue>
                     <fieldText>How many RUs</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Valid range of RUs is 1 to 16. Please re-enter your value&lt;/span&gt;&lt;/p&gt;</helpText>
@@ -983,18 +1033,7 @@
                 <inputParameters>
                     <name>width</name>
                     <value>
-                        <stringValue>4</stringValue>
-                    </value>
-                </inputParameters>
-                <isRequired>false</isRequired>
-            </fields>
-            <fields>
-                <name>Request_how_many_RUs_Section1_Column3</name>
-                <fieldType>Region</fieldType>
-                <inputParameters>
-                    <name>width</name>
-                    <value>
-                        <stringValue>4</stringValue>
+                        <stringValue>6</stringValue>
                     </value>
                 </inputParameters>
                 <isRequired>false</isRequired>
@@ -1121,7 +1160,7 @@
     <subflows>
         <name>Building_floor_and_DataHall_Selection</name>
         <label>Building floor and DataHall Selection</label>
-        <locationX>1386</locationX>
+        <locationX>1430</locationX>
         <locationY>650</locationY>
         <connector>
             <targetReference>Assign_The_Data_Hall</targetReference>
@@ -1163,6 +1202,18 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <name>Cabinet_ID</name>
+            <value>
+                <elementReference>cabinetId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>Cage_ID</name>
+            <value>
+                <elementReference>cageId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <name>DataHall_ID</name>
             <value>
                 <elementReference>dataHallId</elementReference>
@@ -1200,6 +1251,18 @@
             <name>BuildingID</name>
             <value>
                 <elementReference>buildingId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>CabinetID</name>
+            <value>
+                <elementReference>cabinetId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>CageId</name>
+            <value>
+                <elementReference>cageId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1401,7 +1464,7 @@
         <inputAssignments>
             <name>StartingPositionRU</name>
             <value>
-                <elementReference>How_many_RUs</elementReference>
+                <elementReference>Starting_Position_on_Rack</elementReference>
             </value>
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>
