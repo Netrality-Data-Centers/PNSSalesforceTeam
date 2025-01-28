@@ -224,6 +224,7 @@
             <label>Null</label>
         </rules>
     </decisions>
+    <description>PR1031160-867 Panel Subflow Updates for Enhanced Data Flow and Field Adjustments</description>
     <environments>Default</environments>
     <formulas>
         <name>FinishPositionRU</name>
@@ -299,6 +300,12 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
         <faultConnector>
             <targetReference>Error_Log_Creation_Create_Panel_Record</targetReference>
         </faultConnector>
+        <inputAssignments>
+            <field>Account_Lookup__c</field>
+            <value>
+                <elementReference>AccountID</elementReference>
+            </value>
+        </inputAssignments>
         <inputAssignments>
             <field>Asset__c</field>
             <value>
@@ -562,6 +569,30 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                     <elementReference>BuildingID</elementReference>
                 </value>
             </inputParameters>
+            <inputParameters>
+                <name>datHallID</name>
+                <value>
+                    <elementReference>DataHallID</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>floorID</name>
+                <value>
+                    <elementReference>FloorID</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>meetMeRoomID</name>
+                <value>
+                    <elementReference>MeetMeRoomID</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>rackId</name>
+                <value>
+                    <elementReference>RackID</elementReference>
+                </value>
+            </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -578,12 +609,6 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <objectFieldReference>CreatedPanel.Short_Name__c</objectFieldReference>
-                </fields>
-                <fields>
-                    <fieldType>ObjectProvided</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>CreatedPanel.Mod_Pattern__c</objectFieldReference>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -637,7 +662,6 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                     <dataType>Number</dataType>
                     <fieldText>Number of Ports Wide</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <scale>0</scale>
                     <visibilityRule>
@@ -656,7 +680,6 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                     <dataType>Number</dataType>
                     <fieldText>Number of Ports Tall</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <scale>0</scale>
                     <visibilityRule>
@@ -670,6 +693,12 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                         </conditions>
                     </visibilityRule>
                 </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>CreatedPanel.Port_Pattern__c</objectFieldReference>
+                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -682,11 +711,26 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                 <name>Dimensions_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>CreatedPanel.Mod_Pattern__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>CreatedPanel.Mod_Model__c</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Yes</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
                     <name>Number_of_Mods</name>
                     <dataType>Number</dataType>
                     <fieldText>Number of Mods</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <scale>0</scale>
                     <visibilityRule>
@@ -705,7 +749,6 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                     <dataType>Number</dataType>
                     <fieldText>Number of Ports Tall - per Mod</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <scale>0</scale>
                     <visibilityRule>
@@ -724,25 +767,8 @@ TEXT({!CreatedPanel.Mod_Model__c}) = &quot;Yes&quot;,
                     <dataType>Number</dataType>
                     <fieldText>Number of Ports Wide - per Mod</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <scale>0</scale>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>CreatedPanel.Mod_Model__c</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <stringValue>Yes</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
-                    <fieldType>ObjectProvided</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>CreatedPanel.Port_Pattern__c</objectFieldReference>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
