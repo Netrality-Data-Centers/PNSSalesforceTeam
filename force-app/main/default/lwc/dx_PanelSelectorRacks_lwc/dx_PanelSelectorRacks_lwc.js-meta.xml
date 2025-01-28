@@ -15,7 +15,10 @@
     <targetConfigs>
         <targetConfig targets="lightning__FlowScreen">
             <property name="BuildingID" type="String" label="BuildingID" description="Building ID to search"/>
-            <property name="rackId" type="String" label="rackId" description="Rack Id" role="outputOnly"/>
+            <property name="rackId" type="String" label="rackId" description="Rack Id"/>
+            <property name="floorID" type="String" label="floorID" description="Floor ID to search/preselect"/>
+            <property name="datHallID" type="String" label="dataHallID" description="Data Hall ID to search/preselect"/>
+            <property name="meetMeRoomID" type="String" label="meetMeRoomID" description="Cage Id to search/preselect"/>
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>
