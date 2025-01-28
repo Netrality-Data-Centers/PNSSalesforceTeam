@@ -191,6 +191,30 @@
                     <elementReference>Building_Floor_and_DataHall_Selection.floorId</elementReference>
                 </value>
             </inputParameters>
+            <inputParameters>
+                <name>celebrateOnAllAssetsAssigned</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>hallName</name>
+                <value>
+                    <elementReference>Building_Floor_and_DataHall_Selection.dataHallName</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>buildingName</name>
+                <value>
+                    <elementReference>Building_Floor_and_DataHall_Selection.buildingName</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>floorName</name>
+                <value>
+                    <elementReference>Building_Floor_and_DataHall_Selection.floorName</elementReference>
+                </value>
+            </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
