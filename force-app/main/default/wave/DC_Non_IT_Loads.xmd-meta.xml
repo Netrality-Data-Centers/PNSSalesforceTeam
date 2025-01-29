@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataset>DC_Non_IT_Loads</dataset>
+    <dimensions>
+        <field>Name</field>
+        <isDerived>false</isDerived>
+        <label>Non-IT Load Name</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Switchgear.DC_Main_Utility.Name</field>
+        <isDerived>false</isDerived>
+        <label>Main Utility</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Switchgear.DC_Main_Utility.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Switchgear.Name</field>
+        <isDerived>false</isDerived>
+        <label>Switchgear</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Switchgear.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>2</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Data_Hall.DC_Floor.Id</field>
+        <isDerived>false</isDerived>
+        <label>Floor ID</label>
+        <sortIndex>3</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Data_Hall.Id</field>
+        <isDerived>false</isDerived>
+        <label>Data Hall ID</label>
+        <sortIndex>4</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Id</field>
+        <isDerived>false</isDerived>
+        <label>Non-IT Load ID</label>
+        <sortIndex>5</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Switchgear.DC_Main_Utility.Building.Id</field>
+        <isDerived>false</isDerived>
+        <label>Building ID</label>
+        <sortIndex>6</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Switchgear.DC_Main_Utility.Id</field>
+        <isDerived>false</isDerived>
+        <label>Main Utility ID</label>
+        <sortIndex>7</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Switchgear.Id</field>
+        <isDerived>false</isDerived>
+        <label>Switchgear ID</label>
+        <sortIndex>8</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Data_Hall.DC_Floor.Short_Name__c</field>
+        <isDerived>false</isDerived>
+        <label>Floor Short Name</label>
+        <sortIndex>9</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Data_Hall.Short_Name__c</field>
+        <isDerived>false</isDerived>
+        <label>Data Hall Short Name</label>
+        <sortIndex>10</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Switchgear.DC_Main_Utility.Building.Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Switchgear.DC_Main_Utility.Building.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>11</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Data_Hall.Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Data_Hall.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>12</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Data_Hall.DC_Floor.Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Data_Hall.DC_Floor.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>13</sortIndex>
+    </dimensions>
+    <measures>
+        <field>*</field>
+        <isDerived>true</isDerived>
+        <label>Non-IT Loads</label>
+        <showInExplorer>true</showInExplorer>
+        <sortIndex>0</sortIndex>
+    </measures>
+</WaveXmd>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataset>DC_Circuits</dataset>
+    <dimensions>
+        <field>DC_Plant.Name</field>
+        <isDerived>false</isDerived>
+        <label>DC Plant</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>DC_Plant.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Plant.PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Name</field>
+        <isDerived>false</isDerived>
+        <label>Main Utility</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>DC_Plant.PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Plant.PDU_RPP.DC_UPS.DC_Switchgear.Name</field>
+        <isDerived>false</isDerived>
+        <label>Switchgear</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>DC_Plant.PDU_RPP.DC_UPS.DC_Switchgear.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>2</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Plant.PDU_RPP.DC_UPS.Name</field>
+        <isDerived>false</isDerived>
+        <label>UPS</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>DC_Plant.PDU_RPP.DC_UPS.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>3</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Plant.PDU_RPP.Name</field>
+        <isDerived>false</isDerived>
+        <label>PDU RPP</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>DC_Plant.PDU_RPP.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>4</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Name</field>
+        <isDerived>false</isDerived>
+        <label>DC Circuit Name</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>5</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Plant.Id</field>
+        <isDerived>false</isDerived>
+        <label>DC Plant ID</label>
+        <sortIndex>6</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Plant.PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Id</field>
+        <isDerived>false</isDerived>
+        <label>Building ID</label>
+        <sortIndex>7</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Plant.PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Id</field>
+        <isDerived>false</isDerived>
+        <label>Main Utility ID</label>
+        <sortIndex>8</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Plant.PDU_RPP.DC_UPS.DC_Switchgear.Id</field>
+        <isDerived>false</isDerived>
+        <label>Switchgear ID</label>
+        <sortIndex>9</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Plant.PDU_RPP.DC_UPS.Id</field>
+        <isDerived>false</isDerived>
+        <label>UPS ID</label>
+        <sortIndex>10</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Plant.PDU_RPP.Id</field>
+        <isDerived>false</isDerived>
+        <label>PDU RPP ID</label>
+        <sortIndex>11</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Id</field>
+        <isDerived>false</isDerived>
+        <label>DC Circuit ID</label>
+        <sortIndex>12</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Plant.PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>DC_Plant.PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>13</sortIndex>
+    </dimensions>
+    <measures>
+        <field>DC_Plant.Max_Capacity_kw__c</field>
+        <isDerived>false</isDerived>
+        <label>DC Plant Max Capacity (kw)</label>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>*</field>
+        <isDerived>true</isDerived>
+        <label>DC Circuits</label>
+        <showInExplorer>true</showInExplorer>
+        <sortIndex>0</sortIndex>
+    </measures>
+</WaveXmd>
