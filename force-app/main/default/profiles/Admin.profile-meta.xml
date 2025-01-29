@@ -801,7 +801,7 @@
         <field>Account.leadfeederapp__WebVisitorsLink__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+     <fieldPermissions>
         <editable>true</editable>
         <field>Agreement__c.Agreement_Status__c</field>
         <readable>true</readable>
@@ -2518,6 +2518,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>DC_Panel__c.MRI_Suite_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DC_Panel__c.Mod_Pattern__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2920,6 +2925,16 @@
         <editable>false</editable>
         <field>DX_Settings_MRI_ID_Mail_Association__mdt.Subject__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Innerduct__c.A_Side_Data_Hall__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Innerduct__c.A_Side_POE_Allocation__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3342,7 +3357,7 @@
         <object>Account</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-     <objectPermissions>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
