@@ -64,12 +64,19 @@
                 <elementReference>Asset.selectedChoiceValues</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ObjInnerduct.A_Side_POE_Allocation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>A_Side_POE_Allocation.selectedChoiceValues</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Create_Innerduct</targetReference>
         </connector>
     </assignments>
     <dynamicChoiceSets>
-        <name>ChoiceSet_Z_Side_POE_Allocation</name>
+        <name>ChoiceSet_POE_Allocation</name>
         <collectionReference>Get_POE_Allocation</collectionReference>
         <dataType>String</dataType>
         <displayField>Name</displayField>
@@ -359,18 +366,7 @@
                     <dataType>String</dataType>
                     <fieldText>Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
-                </fields>
-                <fields>
-                    <name>A_Side_Data_Hall</name>
-                    <choiceReferences>ChoiceSetDataHall</choiceReferences>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>A-Side - Data Hall</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
@@ -382,13 +378,38 @@
                     <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>ObjInnerduct.Z_Side_Type__c</objectFieldReference>
+                    <objectFieldReference>ObjInnerduct.Fiber_Count__c</objectFieldReference>
                 </fields>
                 <fields>
-                    <name>Z_Side_Data_Hall_Require</name>
+                    <name>Asset</name>
+                    <choiceReferences>ChoiceSetAsset</choiceReferences>
+                    <defaultValue>
+                        <elementReference>Get_Asset_Record.Id</elementReference>
+                    </defaultValue>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Asset</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value>
+                            <elementReference>Get_Asset_Record.Name</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>ObjInnerduct.A_Side_Type__c</objectFieldReference>
+                </fields>
+                <fields>
+                    <name>A_Side_Data_Hall</name>
                     <choiceReferences>ChoiceSetDataHall</choiceReferences>
                     <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Z-Side - Data Hall</fieldText>
+                    <fieldText>A-Side - Data Hall</fieldText>
                     <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
@@ -396,19 +417,19 @@
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
-                            <leftValueReference>ObjInnerduct.Z_Side_Type__c</leftValueReference>
+                            <leftValueReference>ObjInnerduct.A_Side_Type__c</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Datahall</stringValue>
+                                <stringValue>Data Hall</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Z_Side_POE_Allocation_Require</name>
-                    <choiceReferences>ChoiceSet_Z_Side_POE_Allocation</choiceReferences>
+                    <name>A_Side_POE_Allocation</name>
+                    <choiceReferences>ChoiceSet_POE_Allocation</choiceReferences>
                     <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Z-Side - POE Allocation</fieldText>
+                    <fieldText>A-Side - POE Allocation</fieldText>
                     <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
@@ -416,7 +437,7 @@
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
-                            <leftValueReference>ObjInnerduct.Z_Side_Type__c</leftValueReference>
+                            <leftValueReference>ObjInnerduct.A_Side_Type__c</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <stringValue>POE Allocation</stringValue>
@@ -457,26 +478,47 @@
                     <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>ObjInnerduct.Fiber_Count__c</objectFieldReference>
+                    <objectFieldReference>ObjInnerduct.Z_Side_Type__c</objectFieldReference>
                 </fields>
                 <fields>
-                    <name>Asset</name>
-                    <choiceReferences>ChoiceSetAsset</choiceReferences>
-                    <defaultValue>
-                        <elementReference>Get_Asset_Record.Id</elementReference>
-                    </defaultValue>
+                    <name>Z_Side_Data_Hall_Require</name>
+                    <choiceReferences>ChoiceSetDataHall</choiceReferences>
                     <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Asset</fieldText>
+                    <fieldText>Z-Side - Data Hall</fieldText>
                     <fieldType>ComponentChoice</fieldType>
-                    <inputParameters>
-                        <name>placeholder</name>
-                        <value>
-                            <elementReference>Get_Asset_Record.Name</elementReference>
-                        </value>
-                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>ObjInnerduct.Z_Side_Type__c</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Datahall</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Z_Side_POE_Allocation_Require</name>
+                    <choiceReferences>ChoiceSet_POE_Allocation</choiceReferences>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Z-Side - POE Allocation</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>ObjInnerduct.Z_Side_Type__c</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>POE Allocation</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <inputParameters>
                     <name>width</name>
