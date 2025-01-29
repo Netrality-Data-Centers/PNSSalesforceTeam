@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Type__c</fullName>
-    <description>The type of product on the roof.</description>
+    <fullName>A_Side_Type__c</fullName>
     <externalId>false</externalId>
-    <label>Type</label>
+    <label>A-Side Type</label>
     <required>true</required>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
@@ -12,19 +11,14 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Antenna</fullName>
+                <fullName>Data Hall</fullName>
                 <default>false</default>
-                <label>Antenna</label>
+                <label>Data Hall</label>
             </value>
             <value>
-                <fullName>Antenna Mast</fullName>
+                <fullName>POE Allocation</fullName>
                 <default>false</default>
-                <label>Antenna Mast</label>
-            </value>
-            <value>
-                <fullName>Dish</fullName>
-                <default>false</default>
-                <label>Dish</label>
+                <label>POE Allocation</label>
             </value>
         </valueSetDefinition>
     </valueSet>
