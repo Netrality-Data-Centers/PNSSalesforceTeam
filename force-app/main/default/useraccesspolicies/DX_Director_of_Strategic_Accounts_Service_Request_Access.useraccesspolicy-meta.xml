@@ -5,7 +5,7 @@
     <status>Design</status>
     <userAccessPolicyActions>
         <action>Grant</action>
-        <target>DX_Manage_Service_Request_PS</target>
+        <target>DX_Service_Request_Access_To_Non_Operation_Profiles_PS</target>
         <type>PermissionSet</type>
     </userAccessPolicyActions>
     <userAccessPolicyFilters>
