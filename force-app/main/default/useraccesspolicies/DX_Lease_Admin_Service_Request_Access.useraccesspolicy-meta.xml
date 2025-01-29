@@ -5,13 +5,13 @@
     <status>Design</status>
     <userAccessPolicyActions>
         <action>Grant</action>
-        <target>DX_Manage_Service_Request_PS</target>
+        <target>DX_Service_Request_Access_To_Non_Operation_Profiles_PS</target>
         <type>PermissionSet</type>
     </userAccessPolicyActions>
     <userAccessPolicyFilters>
         <operation>equals</operation>
         <sortOrder>1</sortOrder>
-        <target>Lease Admin</target>
+        <target>lease admin</target>
         <type>Profile</type>
     </userAccessPolicyFilters>
     <userAccessPolicyFilters>
