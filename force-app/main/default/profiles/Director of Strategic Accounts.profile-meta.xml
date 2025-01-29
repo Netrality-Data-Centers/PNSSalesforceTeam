@@ -802,7 +802,7 @@
         <field>Account.leadfeederapp__WebVisitorsLink__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+     <fieldPermissions>
         <editable>true</editable>
         <field>Agreement__c.Agreement_Status__c</field>
         <readable>true</readable>
@@ -827,7 +827,7 @@
         <field>Agreement__c.Billing_City__c</field>
         <readable>true</readable>
     </fieldPermissions>
-     <fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Agreement__c.Billing_Contact__c</field>
         <readable>true</readable>
@@ -2519,6 +2519,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>DC_Panel__c.MRI_Suite_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DC_Panel__c.Mod_Pattern__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3422,7 +3427,7 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>DC_Cross_Connect__c</object>
-        <viewAllRecords>false</viewAllRecords>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
