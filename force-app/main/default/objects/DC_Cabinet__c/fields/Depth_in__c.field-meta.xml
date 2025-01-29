@@ -4,9 +4,9 @@
     <description>The depth of the cabinet in inches.</description>
     <externalId>false</externalId>
     <label>Depth (in)</label>
-    <precision>2</precision>
+    <precision>3</precision>
     <required>true</required>
-    <scale>0</scale>
+    <scale>1</scale>
     <trackTrending>false</trackTrending>
     <type>Number</type>
     <unique>false</unique>
