@@ -2783,6 +2783,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Innerduct__c.A_Side_Data_Hall__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Innerduct__c.A_Side_POE_Allocation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Innerduct__c.Asset__c</field>
         <readable>true</readable>
     </fieldPermissions>
