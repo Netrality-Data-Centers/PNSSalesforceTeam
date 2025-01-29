@@ -23,16 +23,6 @@
                 <identifier>force_highlightsPanel</identifier>
             </componentInstance>
         </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>hideHeader</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentName>force:relatedListQuickLinksContainer</componentName>
-                <identifier>force_relatedListQuickLinksContainer</identifier>
-            </componentInstance>
-        </itemInstances>
         <mode>Replace</mode>
         <name>header</name>
         <type>Region</type>
@@ -84,6 +74,74 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.A_Side_Type__c</fieldItem>
+                <identifier>RecordA_Side_Type__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.A_Side_Data_Hall__c</fieldItem>
+                <identifier>RecordA_Side_Data_Hall_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.A_Side_Type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Data Hall</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.A_Side_POE_Allocation__c</fieldItem>
+                <identifier>RecordA_Side_POE_Allocation__cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.A_Side_Type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>POE Allocation</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-d9744bfe-2996-4177-89e9-3c69d997ba26</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Inside_Plant__c</fieldItem>
+                <identifier>RecordInside_Plant_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Fiber_Count__c</fieldItem>
+                <identifier>RecordFiber_Count_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Related_MRI_Suite_ID__c</fieldItem>
                 <identifier>RecordRelated_MRI_Suite_ID_cField</identifier>
             </fieldInstance>
@@ -98,18 +156,14 @@
                 <identifier>RecordColor_cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-d9744bfe-2996-4177-89e9-3c69d997ba26</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.A_Side_Data_Hall__c</fieldItem>
-                <identifier>RecordA_Side_Data_Hall_cField</identifier>
+                <fieldItem>Record.Z_Side_Type__c</fieldItem>
+                <identifier>RecordZ_Side_Type_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -135,16 +189,6 @@
                     <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Z_Side_Type__c</fieldItem>
-                <identifier>RecordZ_Side_Type_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.POE_Allocation__c</fieldItem>
                 <identifier>RecordPOE_Allocation_cField</identifier>
                 <visibilityRule>
@@ -154,26 +198,6 @@
                         <rightValue>POE Allocation</rightValue>
                     </criteria>
                 </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Inside_Plant__c</fieldItem>
-                <identifier>RecordInside_Plant_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Fiber_Count__c</fieldItem>
-                <identifier>RecordFiber_Count_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-07a364d2-b91c-435f-9e05-6fe0fa229197</name>
