@@ -149,6 +149,9 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Position__c</fields>
+        <fields>Status__c</fields>
+        <fields>Rack__c</fields>
         <relatedList>DC_Rack_Layout__c.Panel__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
