@@ -14,7 +14,7 @@ public with sharing class DX_DCIM_DataAccess_tst {
         insert Account;
 
         // Create a new Product record
-        Product2 product = new Product2(Name = 'Test Product', ProductCode = 'TP01', Description = 'Test Product Description', IsActive = true, Product_Group__c = 'ExampleProductGroup', Product_Category__c = 'Power');
+        Product2 product = new Product2(Name = 'Test Product', ProductCode = 'TP01', Description = 'Test Product Description', IsActive = true, Product_Group__c = 'ExampleProductGroup', Product_Category__c = 'Power', DC_Allocation_Required__c = 'Yes', DC_Asset_Type__c = 'Fiber Pair', DC_Income_Category__c = 'test', DC_Number_of_Assets__c = '1');
         // Insert the Product record
         insert product;
 
@@ -79,7 +79,7 @@ public with sharing class DX_DCIM_DataAccess_tst {
         insert PoeAllocation;
         
         // Create a test Tenant Suite record associated with the test Building
-        DC_Tenant_Suite__c TenantSuite = new DC_Tenant_Suite__c(Name = 'Test Tenant Suite', Floor__c = Floor.Id, Status__c = 'Occupied', Suite_Use__c = 'Powered Shell', Account__c = Account.Id, Square_Footage__c = 2);
+        DC_Tenant_Suite__c TenantSuite = new DC_Tenant_Suite__c(Name = 'Test Tenant Suite', Floor__c = Floor.Id, Status__c = 'Occupied', Suite_Use__c = 'Powered Shell', Account__c = Account.Id, Square_Footage__c = 2, Short_Name__c = 'TT');
         insert TenantSuite;
 
         DC_Meet_Me_Room__c MeetMeRoom = new DC_Meet_Me_Room__c(Name = 'Room 101', Data_Hall__c = dataHall.Id, Short_Name__c = 'MMR');
@@ -91,7 +91,7 @@ public with sharing class DX_DCIM_DataAccess_tst {
         DC_Panel__c Panel = new DC_Panel__c(Rack__c = Rack.Id, Mod_Model__c = 'Yes', Height_RU__c = 2, MRI_Suite_ID__c = '435', Short_Name__c = 'Pl', Starting_Position_RU__c = 1, Asset__c = asset.Id);
 		insert Panel;
         
-        DC_Port__c Port = new DC_Port__c(Name = 'Port', Panel__c = Panel.Id, Short_Name__c = 'PT');
+        DC_Port__c Port = new DC_Port__c(Name = 'Port', Panel__c = Panel.Id, Short_Name__c = 'PT', Port_Status__c = 'No Homerun');
 		insert Port;
     }
     
@@ -280,7 +280,7 @@ public with sharing class DX_DCIM_DataAccess_tst {
         
         // Call the method being tested with the ID of the Account and Meet Me Room record
         Test.startTest();
-        List<DC_Panel__c> result = DX_DCIM_DataAccess.getPanel(account.Id, MeetMeRoom.Id);
+        List<DC_Panel__c> result = DX_DCIM_DataAccess.getPanel(MeetMeRoom.Id, account.Id);
         Test.stopTest();
         
         // Assert that the method returns the expected Panel record
