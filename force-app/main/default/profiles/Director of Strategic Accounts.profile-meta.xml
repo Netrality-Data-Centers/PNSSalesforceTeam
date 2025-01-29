@@ -802,7 +802,7 @@
         <field>Account.leadfeederapp__WebVisitorsLink__c</field>
         <readable>true</readable>
     </fieldPermissions>
-     <fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Agreement__c.Agreement_Status__c</field>
         <readable>true</readable>
@@ -4044,7 +4044,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>DC_Tenant_Suite__c</tab>
-        <visibility>Hidden</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>DC_UPS__c</tab>
