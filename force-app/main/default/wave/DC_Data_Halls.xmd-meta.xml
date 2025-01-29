@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataset>DC_Data_Halls</dataset>
+    <dimensions>
+        <field>DC_Floor.Building.City__c</field>
+        <isDerived>false</isDerived>
+        <label>Building City</label>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Name</field>
+        <isDerived>false</isDerived>
+        <label>Data Hall</label>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Floor.Name</field>
+        <isDerived>false</isDerived>
+        <label>Floor</label>
+        <sortIndex>2</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Floor.Building.Location__c</field>
+        <isDerived>false</isDerived>
+        <label>Building Location</label>
+        <sortIndex>3</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Floor.Building.Id</field>
+        <isDerived>false</isDerived>
+        <label>Building ID</label>
+        <sortIndex>4</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Floor.Id</field>
+        <isDerived>false</isDerived>
+        <label>Floor ID</label>
+        <sortIndex>5</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Id</field>
+        <isDerived>false</isDerived>
+        <label>Data Hall ID</label>
+        <sortIndex>6</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Floor.Short_Name__c</field>
+        <isDerived>false</isDerived>
+        <label>Floor Short Name</label>
+        <sortIndex>7</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Short_Name__c</field>
+        <isDerived>false</isDerived>
+        <label>Data Hall Short Name</label>
+        <sortIndex>8</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Floor.Building.State__c</field>
+        <isDerived>false</isDerived>
+        <label>Building State</label>
+        <sortIndex>9</sortIndex>
+    </dimensions>
+    <measures>
+        <field>IT_Cooling_CRAC.Design_Capacity_kW</field>
+        <isDerived>false</isDerived>
+        <label>CRAC Design Capacity (kW)</label>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>*</field>
+        <isDerived>true</isDerived>
+        <label>Data Halls</label>
+        <showInExplorer>true</showInExplorer>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>IT_Cooling_CRAH.Design_Capacity_kW</field>
+        <isDerived>false</isDerived>
+        <label>CRAH Design Capacity (kW)</label>
+        <sortIndex>1</sortIndex>
+    </measures>
+    <measures>
+        <field>IT_Cooling_CRAC.Design_Capacity_tons</field>
+        <isDerived>false</isDerived>
+        <label>CRAC Design Capacity (tons)</label>
+        <sortIndex>2</sortIndex>
+    </measures>
+    <measures>
+        <field>IT_Cooling_CRAH.Design_Capacity_tons</field>
+        <isDerived>false</isDerived>
+        <label>CRAH Design Capacity (tons)</label>
+        <sortIndex>3</sortIndex>
+    </measures>
+    <measures>
+        <field>DC_Floor.Floor_number__c</field>
+        <isDerived>false</isDerived>
+        <label>Floor Number</label>
+        <sortIndex>4</sortIndex>
+    </measures>
+    <measures>
+        <field>UPS.SUM_Max_Capacity_kw__c</field>
+        <isDerived>false</isDerived>
+        <label>UPS Max Capacity (kw)</label>
+        <sortIndex>5</sortIndex>
+    </measures>
+    <measures>
+        <field>DC_Floor.Total_Square_Feet__c</field>
+        <isDerived>false</isDerived>
+        <label>Floor Total Square Feet</label>
+        <sortIndex>6</sortIndex>
+    </measures>
+</WaveXmd>
