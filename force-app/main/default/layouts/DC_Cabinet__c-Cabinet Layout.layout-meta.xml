@@ -26,8 +26,8 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Data_Hall__c</field>
+                <behavior>Edit</behavior>
+                <field>Data_Hall_Lookup__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -108,8 +108,8 @@
                 <field>Asset__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Account__c</field>
+                <behavior>Edit</behavior>
+                <field>Account_Lookup__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -166,7 +166,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hVB000002zkUc</masterLabel>
+        <masterLabel>00hRK0000072yiQ</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

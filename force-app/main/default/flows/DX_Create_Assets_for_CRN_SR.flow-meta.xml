@@ -4,7 +4,7 @@
     <assignments>
         <name>Add_i_Asset_to_List</name>
         <label>Add i Asset to List</label>
-        <locationX>792</locationX>
+        <locationX>1056</locationX>
         <locationY>782</locationY>
         <assignmentItems>
             <assignToReference>AssetList</assignToReference>
@@ -20,7 +20,7 @@
     <assignments>
         <name>Add_Manual_Asset_to_List</name>
         <label>Add Manual Asset to List</label>
-        <locationX>1232</locationX>
+        <locationX>1496</locationX>
         <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>AssetList</assignToReference>
@@ -66,6 +66,36 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Add_X2_1Asset_Type_1I1P_to_List</name>
+        <label>Add X2_1Asset Type 1I1P to List</label>
+        <locationX>792</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>iAsset.Asset_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Innerduct</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>iAsset.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AssetNamefor1I1P_Innerduct</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>AssetList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>iAsset</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>X2_2_Asset_Type_1I1P</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Add_X2_2_Asset_to_List</name>
         <label>Add X2_2_Asset to List</label>
         <locationX>528</locationX>
@@ -82,9 +112,39 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Add_X2_2_Asset_Type_1I1P_to_List</name>
+        <label>Add X2_2_Asset Type 1I1P to List</label>
+        <locationX>792</locationX>
+        <locationY>782</locationY>
+        <assignmentItems>
+            <assignToReference>iAsset.Asset_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>POE Allocation</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>iAsset.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AssetNamefor1I1P_POEAllocation</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>AssetList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>iAsset</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Iterate_SO_Line_Items</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Increment_NumberOfIterations</name>
         <label>Increment NumberOfIterations</label>
-        <locationX>792</locationX>
+        <locationX>1056</locationX>
         <locationY>890</locationY>
         <assignmentItems>
             <assignToReference>NumberOfIterations</assignToReference>
@@ -101,7 +161,7 @@
     <assignments>
         <name>Reset_Number_Of_Iterations</name>
         <label>Reset Number Of Iterations</label>
-        <locationX>924</locationX>
+        <locationX>1188</locationX>
         <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>NumberOfIterations</assignToReference>
@@ -117,7 +177,7 @@
     <decisions>
         <name>Continue_or_Stop</name>
         <label>Continue or Stop?</label>
-        <locationX>924</locationX>
+        <locationX>1188</locationX>
         <locationY>566</locationY>
         <defaultConnector>
             <targetReference>Iterate_SO_Line_Items</targetReference>
@@ -142,7 +202,7 @@
     <decisions>
         <name>Number_of_Asset</name>
         <label>Number of Asset?</label>
-        <locationX>880</locationX>
+        <locationX>1012</locationX>
         <locationY>350</locationY>
         <defaultConnector>
             <targetReference>Iterate_SO_Line_Items</targetReference>
@@ -179,6 +239,21 @@
             <label>2</label>
         </rules>
         <rules>
+            <name>Asset_1I1P</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Iterate_SO_Line_Items.DC_Number_of_Assets__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>1I1P</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_2_1_Asset_Type_1I1P</targetReference>
+            </connector>
+            <label>1I1P</label>
+        </rules>
+        <rules>
             <name>Quantity_Asset</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
@@ -210,6 +285,16 @@
         </rules>
     </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>AssetNamefor1I1P_Innerduct</name>
+        <dataType>String</dataType>
+        <expression>{!Iterate_SO_Line_Items.Quote.Service_Order_ID__c} + &quot; &quot; + &quot;Innerduct&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>AssetNamefor1I1P_POEAllocation</name>
+        <dataType>String</dataType>
+        <expression>{!Iterate_SO_Line_Items.Quote.Service_Order_ID__c} + &quot; &quot; + &quot;POE Allocation&quot;</expression>
+    </formulas>
     <interviewLabel>DX Create Assets {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Create Assets for CRN SR</label>
     <loops>
@@ -285,9 +370,35 @@
     </start>
     <status>Active</status>
     <subflows>
+        <name>Assign_2_1_Asset_Type_1I1P</name>
+        <label>Assign 2_1_Asset Type 1I1P</label>
+        <locationX>792</locationX>
+        <locationY>458</locationY>
+        <connector>
+            <targetReference>Add_X2_1Asset_Type_1I1P_to_List</targetReference>
+        </connector>
+        <flowName>DX_Copy_Asset_Values_from_SOLineItem</flowName>
+        <inputAssignments>
+            <name>ServiceRequestID</name>
+            <value>
+                <elementReference>ServiceRequestID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>SOLineItem</name>
+            <value>
+                <elementReference>Iterate_SO_Line_Items</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>iAsset</assignToReference>
+            <name>iAsset</name>
+        </outputAssignments>
+    </subflows>
+    <subflows>
         <name>Assign_i_Asset</name>
         <label>Assign i Asset</label>
-        <locationX>792</locationX>
+        <locationX>1056</locationX>
         <locationY>674</locationY>
         <connector>
             <targetReference>Add_i_Asset_to_List</targetReference>
@@ -313,7 +424,7 @@
     <subflows>
         <name>Assign_Manual_Asset</name>
         <label>Assign Manual Asset</label>
-        <locationX>1232</locationX>
+        <locationX>1496</locationX>
         <locationY>458</locationY>
         <connector>
             <targetReference>Add_Manual_Asset_to_List</targetReference>
@@ -432,6 +543,32 @@
         <locationY>674</locationY>
         <connector>
             <targetReference>Add_X2_2_Asset_to_List</targetReference>
+        </connector>
+        <flowName>DX_Copy_Asset_Values_from_SOLineItem</flowName>
+        <inputAssignments>
+            <name>ServiceRequestID</name>
+            <value>
+                <elementReference>ServiceRequestID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>SOLineItem</name>
+            <value>
+                <elementReference>Iterate_SO_Line_Items</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>iAsset</assignToReference>
+            <name>iAsset</name>
+        </outputAssignments>
+    </subflows>
+    <subflows>
+        <name>X2_2_Asset_Type_1I1P</name>
+        <label>2_2_Asset Type 1I1P</label>
+        <locationX>792</locationX>
+        <locationY>674</locationY>
+        <connector>
+            <targetReference>Add_X2_2_Asset_Type_1I1P_to_List</targetReference>
         </connector>
         <flowName>DX_Copy_Asset_Values_from_SOLineItem</flowName>
         <inputAssignments>
