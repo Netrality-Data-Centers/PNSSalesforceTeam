@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
+    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <feedLayout>
         <autocollapsePublisher>true</autocollapsePublisher>
         <compactFeed>true</compactFeed>
@@ -473,7 +471,7 @@
         <fields>Xconnect_Status__c</fields>
         <fields>Xconnect_date__c</fields>
         <fields>XC_Disconnect_Date__c</fields>
-        <relatedList>Xconnects__c.Origination_Account__c</relatedList>
+        <relatedList>DC_Cross_Connect__c.Origination_Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -482,7 +480,7 @@
         <fields>Xconnect_Status__c</fields>
         <fields>Xconnect_date__c</fields>
         <fields>XC_Disconnect_Date__c</fields>
-        <relatedList>Xconnects__c.Destination_Account__c</relatedList>
+        <relatedList>DC_Cross_Connect__c.Destination_Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>ASSET.NAME</fields>

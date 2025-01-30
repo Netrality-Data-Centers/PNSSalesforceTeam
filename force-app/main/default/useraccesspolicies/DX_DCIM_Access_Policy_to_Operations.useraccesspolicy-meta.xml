@@ -2,21 +2,21 @@
 <UserAccessPolicy xmlns="http://soap.sforce.com/2006/04/metadata">
     <booleanFilter>1 AND 2</booleanFilter>
     <description>Grants access to Permission Set DCIM_Model to Operations users</description>
-    <masterLabel>DCIM Access Policy to Operations</masterLabel>
+    <masterLabel>DX_DCIM_Access_Policy_to_Operations (Deprecated)</masterLabel>
     <order>5</order>
     <status>Design</status>
     <userAccessPolicyActions>
-        <action>Grant</action>
+        <action>Revoke</action>
         <target>DCIM_Model_View</target>
         <type>PermissionSet</type>
     </userAccessPolicyActions>
     <userAccessPolicyActions>
-        <action>Grant</action>
+        <action>Revoke</action>
         <target>DCIM_Model_Create</target>
         <type>PermissionSet</type>
     </userAccessPolicyActions>
     <userAccessPolicyActions>
-        <action>Grant</action>
+        <action>Revoke</action>
         <target>DCIM_Model_Edit</target>
         <type>PermissionSet</type>
     </userAccessPolicyActions>
