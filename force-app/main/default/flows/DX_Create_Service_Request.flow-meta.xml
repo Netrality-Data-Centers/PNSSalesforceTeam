@@ -2718,7 +2718,6 @@
                     <dataType>String</dataType>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -2744,7 +2743,6 @@
                     <dataType>String</dataType>
                     <fieldText>Add/Remove</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2752,7 +2750,6 @@
                     <dataType>String</dataType>
                     <fieldText>Full Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -2820,7 +2817,6 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Accounting Contact</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2828,7 +2824,6 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Physical Access</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2836,7 +2831,6 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Order / Change / Cancel Cross Connects</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2844,7 +2838,6 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Operations Contact</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2852,7 +2845,6 @@
                     <dataType>Boolean</dataType>
                     <fieldText>View Invoices</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -2871,7 +2863,6 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Emergency Notifications</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2879,7 +2870,6 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Request Support (RH&apos;s)</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2887,7 +2877,6 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Authorize 3rd Party Access</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2895,7 +2884,6 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Permanent Access Badge</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2903,7 +2891,6 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Admin Level User</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -2939,14 +2926,12 @@
                     <dataType>String</dataType>
                     <fieldText>Access for?</fieldText>
                     <fieldType>MultiSelectPicklist</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>Assets</name>
                     <fieldText>Assets</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -2954,7 +2939,6 @@
                     <dataType>Date</dataType>
                     <fieldText>Arrival Date</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2974,7 +2958,6 @@
                     <fieldText>After Hours</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <helpText>&lt;p&gt;If Yes: Some sites may require scheduling for after hour access.&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2992,7 +2975,6 @@
                     <dataType>String</dataType>
                     <fieldText>Purpose of the Visit</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3010,7 +2992,6 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Additional Guests</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3028,7 +3009,6 @@
                     <dataType>String</dataType>
                     <fieldText>Guest Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3105,7 +3085,6 @@
                     <name>If_more_than_one_guests_add_there_information_here</name>
                     <fieldText>If more than one guests add there information here</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3135,7 +3114,6 @@
                     <dataType>String</dataType>
                     <fieldText>Who is the Access for?</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3163,7 +3141,6 @@
                     <dataType>String</dataType>
                     <fieldText>Third Party Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3229,7 +3206,6 @@
                     <dataType>String</dataType>
                     <fieldText>Third Party Company</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3247,7 +3223,6 @@
                     <dataType>Date</dataType>
                     <fieldText>Departure Date</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <validationRule>
                         <errorMessage>&lt;p&gt;Departure Date can&apos;t exceed 14 calendar Days from Arrival Date&lt;/p&gt;</errorMessage>
@@ -3259,7 +3234,6 @@
                     <dataType>Boolean</dataType>
                     <fieldText>I have read and agree to the facility rules and regulations as stated in the Netrality Customer Handbook</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <validationRule>
                         <errorMessage>&lt;p&gt;Please accept.&lt;/p&gt;</errorMessage>
@@ -3378,7 +3352,6 @@
                     <fieldText>Billing Account Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3387,7 +3360,6 @@
                     <dataType>String</dataType>
                     <fieldText>Request Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3405,7 +3377,6 @@
                     <dataType>String</dataType>
                     <fieldText>Other Request</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3430,7 +3401,6 @@
                     <dataType>String</dataType>
                     <fieldText>Case Number</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3448,7 +3418,6 @@
                     <dataType>String</dataType>
                     <fieldText>Invoice #</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -3473,7 +3442,6 @@
                     <dataType>String</dataType>
                     <fieldText>Invoice #</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3509,14 +3477,12 @@
                     <dataType>String</dataType>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>Tell_us_how_we_can_help_you_AccountingRequest</name>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3525,7 +3491,6 @@
                     <dataType>String</dataType>
                     <fieldText>NRC Billing for</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3543,7 +3508,6 @@
                     <dataType>String</dataType>
                     <fieldText>Other NRC Billing for</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3569,7 +3533,6 @@
                     <dataType>String</dataType>
                     <fieldText>Date Range</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -3684,7 +3647,6 @@
                     <dataType>String</dataType>
                     <fieldText>Request Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3702,7 +3664,6 @@
                     <dataType>String</dataType>
                     <fieldText>Service Order Number</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3721,7 +3682,6 @@
                     <dataType>String</dataType>
                     <fieldText>Term</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3740,7 +3700,6 @@
                     <fieldText>Document Name</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Document that you&apos;re looking for.&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3759,7 +3718,6 @@
                     <dataType>String</dataType>
                     <fieldText>Document Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3795,7 +3753,6 @@
                     <dataType>String</dataType>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3812,7 +3769,6 @@
                     <name>Tell_us_how_we_can_help_you_ContractsRequest</name>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -3820,7 +3776,6 @@
                     <dataType>String</dataType>
                     <fieldText>New Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3838,7 +3793,6 @@
                     <dataType>String</dataType>
                     <fieldText>Other Document Type</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3927,36 +3881,6 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <name>I_Accept_CrossConnectSR</name>
-                    <dataType>Boolean</dataType>
-                    <defaultValue>
-                        <booleanValue>false</booleanValue>
-                    </defaultValue>
-                    <fieldText>I Accept</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <validationRule>
-                        <errorMessage>&lt;p&gt;Please accept.&lt;/p&gt;</errorMessage>
-                        <formulaExpression>IF({!I_Accept_CrossConnectSR}=TRUE, TRUE, FALSE)</formulaExpression>
-                    </validationRule>
-                </fields>
-                <fields>
-                    <name>I_Accept_Note</name>
-                    <fieldText>&lt;p&gt;By clicking accept, Customer acknowledges that certain fees may apply, as prescribed in the Customer Handbook, and payment shall be made&lt;/p&gt;&lt;p&gt;in accordance with the terms of the Agreement with Licensor.&lt;/p&gt;</fieldText>
-                    <fieldType>DisplayText</fieldType>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>I_Accept_CrossConnectSR</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <booleanValue>true</booleanValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
                     <name>Default_Account_CrossConnectSR</name>
                     <choiceReferences>RelatedAccountsForContactChoiceSet</choiceReferences>
                     <extensionName>flowruntime:choiceLookup</extensionName>
@@ -3972,7 +3896,6 @@
                     <fieldText>Billing Account Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <inputParameters>
@@ -3998,7 +3921,6 @@
                     <dataType>String</dataType>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4010,14 +3932,12 @@
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <helpText>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;Urgent - Target Response to Ticket - 30 Minutes/ Technician to Begin work - 1 Hour&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;High - Target Response to Ticket - 1 Hour/ Technician to Begin work - 2 Hours&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;Normal - Target Response to Ticket - 2 Hours/ Technician to Begin work - 24 Hours&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>Tell_us_how_we_can_help_you_CrossConnect</name>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <inputParameters>
@@ -4082,7 +4002,6 @@
                     <dataType>Date</dataType>
                     <fieldText>Order Date</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4090,7 +4009,6 @@
                     <dataType>String</dataType>
                     <fieldText>Requested Due</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -4109,7 +4027,6 @@
                     <dataType>Number</dataType>
                     <fieldText>Contract Term</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <scale>0</scale>
                 </fields>
@@ -4145,7 +4062,6 @@
                     <name>Ports_OrderInitiator</name>
                     <fieldText>Ports</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -4153,7 +4069,6 @@
                     <dataType>String</dataType>
                     <fieldText>Tech Contact Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4161,7 +4076,6 @@
                     <dataType>String</dataType>
                     <fieldText>Cross Connect ID</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -4197,7 +4111,6 @@
                     <dataType>String</dataType>
                     <fieldText>Rack RU (MMR panel location)</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4206,7 +4119,6 @@
                     <dataType>String</dataType>
                     <fieldText>Connector Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4252,7 +4164,6 @@
                     <dataType>String</dataType>
                     <fieldText>Account Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -4260,7 +4171,6 @@
                     <dataType>String</dataType>
                     <fieldText>Rack RU (MMR panel location)</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4269,7 +4179,6 @@
                     <dataType>String</dataType>
                     <fieldText>Connector Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4309,7 +4218,6 @@
                     <dataType>String</dataType>
                     <fieldText>Site Location</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4317,7 +4225,6 @@
                     <dataType>String</dataType>
                     <fieldText>Ports</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -4325,7 +4232,6 @@
                     <dataType>String</dataType>
                     <fieldText>Tech Contact Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -4338,6 +4244,42 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithHeader</regionContainerType>
+        </fields>
+        <fields>
+            <name>Cross_Connect_Request_Info_Section6</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Cross_Connect_Request_Info_Section6_Column1</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+        </fields>
+        <fields>
+            <name>I_Accept_CrossConnectSR</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <booleanValue>false</booleanValue>
+            </defaultValue>
+            <fieldText>I Accept</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(211, 8, 8);&quot;&gt;To continue, please accept the conditions.&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>IF({!I_Accept_CrossConnectSR}=TRUE, TRUE, FALSE)</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>I_Accept_Note</name>
+            <fieldText>&lt;p&gt;By clicking accept, Customer acknowledges that certain fees may apply, as prescribed in the Customer Handbook, and payment shall be made in accordance with the terms of the Agreement with Licensor.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
@@ -4409,7 +4351,6 @@
                     <fieldText>Billing Account Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4460,7 +4401,6 @@
                     <dataType>String</dataType>
                     <fieldText>Service Order Number</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -4477,7 +4417,6 @@
                     <name>Services_to_Disconnect</name>
                     <fieldText>Services to Disconnect</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -4496,7 +4435,6 @@
                     <dataType>String</dataType>
                     <fieldText>Disconnect Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -4515,7 +4453,6 @@
                     <dataType>String</dataType>
                     <fieldText>Type of Inventory</fieldText>
                     <fieldType>MultiSelectPicklist</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4533,7 +4470,6 @@
                     <dataType>Date</dataType>
                     <fieldText>When would you like the meeting?</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4551,7 +4487,6 @@
                     <dataType>Date</dataType>
                     <fieldText>When would you like the meeting?</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4587,14 +4522,12 @@
                     <dataType>String</dataType>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>Tell_us_how_we_can_help_you_CX</name>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -4602,7 +4535,6 @@
                     <dataType>String</dataType>
                     <fieldText>Related Service Order</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4620,7 +4552,6 @@
                     <dataType>DateTime</dataType>
                     <fieldText>Time of Issue</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4639,7 +4570,6 @@
                     <dataType>String</dataType>
                     <fieldText>Time Period Covered</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4657,7 +4587,6 @@
                     <dataType>Date</dataType>
                     <fieldText>Date of Disconnect</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4705,7 +4634,6 @@
             <dataType>Boolean</dataType>
             <fieldText>LOA Attached</fieldText>
             <fieldType>InputField</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <validationRule>
                 <errorMessage>&lt;p&gt;Please accept.&lt;/p&gt;</errorMessage>
@@ -4785,7 +4713,6 @@
             <dataType>String</dataType>
             <fieldText>SR Service</fieldText>
             <fieldType>RadioButtons</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
@@ -4853,33 +4780,6 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <name>I_Accept_Logistics</name>
-                    <dataType>Boolean</dataType>
-                    <fieldText>I Accept</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <validationRule>
-                        <errorMessage>&lt;p&gt;Please accept.&lt;/p&gt;</errorMessage>
-                        <formulaExpression>IF({!I_Accept_Logistics}=TRUE, TRUE, FALSE)</formulaExpression>
-                    </validationRule>
-                </fields>
-                <fields>
-                    <name>accept_note_logistics</name>
-                    <fieldText>&lt;p&gt;By clicking accept, Customer acknowledges that certain fees may apply,&lt;/p&gt;&lt;p&gt;as prescribed in the Customer Handbook, and payment shall be made&lt;/p&gt;&lt;p&gt;in accordance with the terms of the Agreement with Licensor.&lt;/p&gt;</fieldText>
-                    <fieldType>DisplayText</fieldType>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>I_Accept_Logistics</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <booleanValue>true</booleanValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
                     <name>DefaultAccount_Logistics</name>
                     <choiceReferences>RelatedAccountsForContactChoiceSet</choiceReferences>
                     <extensionName>flowruntime:choiceLookup</extensionName>
@@ -4912,7 +4812,6 @@
                     <fieldText>Billing Account Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -4921,7 +4820,6 @@
                     <dataType>String</dataType>
                     <fieldText>Delivery Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4930,7 +4828,6 @@
                     <dataType>String</dataType>
                     <fieldText>Shipping Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4939,7 +4836,6 @@
                     <fieldText>Quantity</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Total number of packages included in shipment, if multiple.&lt;/span&gt;&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <scale>0</scale>
                 </fields>
@@ -4948,8 +4844,13 @@
                     <dataType>String</dataType>
                     <fieldText>Tracking Number</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Tell_us_how_we_can_help_you_Logistics</name>
+                    <fieldText>Tell us how we can help you</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
+                    <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -4974,7 +4875,6 @@
                     <dataType>String</dataType>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4986,14 +4886,6 @@
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <helpText>&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Urgent - Target Response to Ticket - 30 Minutes/ Technician to Begin work - 1 Hour&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;High - Target Response to Ticket - 1 Hour/ Technician to Begin work - 2 Hours&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Normal - Target Response to Ticket - 2 Hours/ Technician to Begin work - 24 Hours&lt;/span&gt;&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                </fields>
-                <fields>
-                    <name>Tell_us_how_we_can_help_you_Logistics</name>
-                    <fieldText>Tell us how we can help you</fieldText>
-                    <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -5001,7 +4893,6 @@
                     <dataType>Date</dataType>
                     <fieldText>Date</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -5021,7 +4912,6 @@
                     <fieldText>Customer to Provide Liftgate</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <helpText>&lt;p&gt;Certain sites have restrictions on Pallet/ Freight, Cabinet deliveries , please provide additional information&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -5047,7 +4937,6 @@
                     <dataType>String</dataType>
                     <fieldText>Courier</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -5055,7 +4944,6 @@
                     <dataType>String</dataType>
                     <fieldText>Other Courier</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -5073,7 +4961,6 @@
                     <dataType>String</dataType>
                     <fieldText>Amazon Code</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -5092,7 +4979,6 @@
                     <dataType>String</dataType>
                     <fieldText>Expected Storage Duration</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -5128,7 +5014,6 @@
                     <dataType>String</dataType>
                     <fieldText>Current Location Onsite</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -5137,7 +5022,6 @@
                     <dataType>String</dataType>
                     <fieldText>Duration of time in Storage</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -5155,7 +5039,6 @@
                     <fieldText>Packaging notes</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <helpText>&lt;p&gt;Additional fees may apply for packing materials.&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -5184,7 +5067,6 @@
                     <dataType>String</dataType>
                     <fieldText>Other Location</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -5203,7 +5085,6 @@
                     <dataType>String</dataType>
                     <fieldText>Does this shipment require packaging prior to pick-up?</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -5211,7 +5092,6 @@
                     <dataType>DateTime</dataType>
                     <fieldText>Pickup Time</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <inputParameters>
@@ -5234,6 +5114,39 @@
                     </rightValue>
                 </conditions>
             </visibilityRule>
+        </fields>
+        <fields>
+            <name>Logistics_Request_Info_Section3</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Logistics_Request_Info_Section3_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>I_Accept_Logistics</name>
+                    <dataType>Boolean</dataType>
+                    <fieldText>I Accept</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isRequired>true</isRequired>
+                    <validationRule>
+                        <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(211, 8, 8);&quot;&gt;To continue, please accept the conditions.&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                        <formulaExpression>IF({!I_Accept_Logistics}=TRUE, TRUE, FALSE)</formulaExpression>
+                    </validationRule>
+                </fields>
+                <fields>
+                    <name>accept_note_logistics</name>
+                    <fieldText>&lt;p&gt;By clicking accept, Customer acknowledges that certain fees may apply, as prescribed in the Customer Handbook, and payment shall be made in accordance with the terms of the Agreement with Licensor.&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
@@ -5300,33 +5213,6 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <name>I_Accept_RHS</name>
-                    <dataType>Boolean</dataType>
-                    <fieldText>I Accept</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <validationRule>
-                        <errorMessage>&lt;p&gt;Please accept.&lt;/p&gt;</errorMessage>
-                        <formulaExpression>IF({!I_Accept_RHS}=TRUE, TRUE, FALSE)</formulaExpression>
-                    </validationRule>
-                </fields>
-                <fields>
-                    <name>accept_note_RHS</name>
-                    <fieldText>&lt;p&gt;By clicking accept, Customer acknowledges that certain fees may apply,&lt;/p&gt;&lt;p&gt;as prescribed in the Customer Handbook, and payment shall be made&lt;/p&gt;&lt;p&gt;in accordance with the terms of the Agreement with Licensor.&lt;/p&gt;</fieldText>
-                    <fieldType>DisplayText</fieldType>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>I_Accept_RHS</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <booleanValue>true</booleanValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
                     <name>DefaultAccount_RHS</name>
                     <choiceReferences>RelatedAccountsForContactChoiceSet</choiceReferences>
                     <extensionName>flowruntime:choiceLookup</extensionName>
@@ -5342,21 +5228,18 @@
                     <fieldText>Billing Account Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
                     <name>Related_Assets_RHS</name>
                     <fieldText>Related Assets</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
                     <name>Requested_Actions_Required_RHS</name>
                     <fieldText>Requested Actions</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -5380,7 +5263,6 @@
                     <name>Requested_Actions_Not_Required</name>
                     <fieldText>Requested Actions</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -5398,7 +5280,6 @@
                     <dataType>String</dataType>
                     <fieldText>Equipment Installation ID</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -5441,7 +5322,6 @@
                     <dataType>String</dataType>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -5453,14 +5333,12 @@
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <helpText>&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Urgent - Target Response to Ticket - 30 Minutes/ Technician to Begin work - 1 Hour&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;High - Target Response to Ticket - 1 Hour/ Technician to Begin work - 2 Hours&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Normal - Target Response to Ticket - 2 Hours/ Technician to Begin work - 24 Hours&lt;/span&gt;&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>Tell_us_how_we_can_help_you_RHS</name>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -5468,7 +5346,6 @@
                     <dataType>String</dataType>
                     <fieldText>Rack/Cage Location</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -5493,7 +5370,6 @@
                     <dataType>String</dataType>
                     <fieldText>Equipment ID</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -5518,7 +5394,6 @@
                     <dataType>String</dataType>
                     <fieldText>Relevant Package SR Number</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -5548,6 +5423,39 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithHeader</regionContainerType>
+        </fields>
+        <fields>
+            <name>RHS_Request_Info_Section2</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>RHS_Request_Info_Section2_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>I_Accept_RHS</name>
+                    <dataType>Boolean</dataType>
+                    <fieldText>I Accept</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isRequired>true</isRequired>
+                    <validationRule>
+                        <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(211, 8, 8); background-color: rgb(255, 255, 255);&quot;&gt;To continue, please accept the conditions.&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                        <formulaExpression>IF({!I_Accept_RHS}=TRUE, TRUE, FALSE)</formulaExpression>
+                    </validationRule>
+                </fields>
+                <fields>
+                    <name>accept_note_RHS</name>
+                    <fieldText>&lt;p&gt;By clicking accept, Customer acknowledges that certain fees may apply, as prescribed in the Customer Handbook, and payment shall be made in accordance with the terms of the Agreement with Licensor.&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
