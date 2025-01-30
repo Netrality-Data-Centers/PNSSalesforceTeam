@@ -19,6 +19,10 @@
                 <behavior>Required</behavior>
                 <field>Service_Request_Number__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Asset__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

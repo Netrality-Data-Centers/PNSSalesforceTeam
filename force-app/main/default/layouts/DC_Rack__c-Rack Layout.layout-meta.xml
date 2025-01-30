@@ -23,12 +23,12 @@
                 <field>Legacy_Cabinet_Name__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Row_Number__c</field>
+                <behavior>Edit</behavior>
+                <field>Rack_Row__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Rack_Row__c</field>
+                <field>Committed_Power__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -67,10 +67,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Committed_Power__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Connected_Power__c</field>
@@ -127,6 +123,9 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Status__c</fields>
+        <fields>Panel__c</fields>
+        <fields>Account_Name__c</fields>
         <relatedList>DC_Rack_Layout__c.Rack__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
@@ -135,7 +134,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hVC000001s4EG</masterLabel>
+        <masterLabel>00hRK0000072yio</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
