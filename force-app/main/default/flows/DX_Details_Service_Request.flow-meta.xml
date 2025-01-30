@@ -1819,7 +1819,6 @@
                     </defaultValue>
                     <fieldText>Type</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -1837,7 +1836,6 @@
                     </defaultValue>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -1869,7 +1867,6 @@
                     </defaultValue>
                     <fieldText>Add/Remove</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -1883,7 +1880,6 @@
                     </defaultValue>
                     <fieldText>Full Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -1990,7 +1986,6 @@
                     </defaultValue>
                     <fieldText>Accounting Contact</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2004,7 +1999,6 @@
                     </defaultValue>
                     <fieldText>Physical Access</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2018,7 +2012,6 @@
                     </defaultValue>
                     <fieldText>Order / Change / Cancel Cross Connects</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2032,7 +2025,6 @@
                     </defaultValue>
                     <fieldText>Operations Contact</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2046,7 +2038,6 @@
                     </defaultValue>
                     <fieldText>View Invoices</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2071,7 +2062,6 @@
                     </defaultValue>
                     <fieldText>Emergency Notifications</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2085,7 +2075,6 @@
                     </defaultValue>
                     <fieldText>Request Support (RH&apos;s)</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2099,7 +2088,6 @@
                     </defaultValue>
                     <fieldText>Authorize 3rd Party Access</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2113,7 +2101,6 @@
                     </defaultValue>
                     <fieldText>Permanent Access Badge</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2127,7 +2114,6 @@
                     </defaultValue>
                     <fieldText>Admin Level User</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2169,7 +2155,6 @@
                     </defaultValue>
                     <fieldText>Access for?</fieldText>
                     <fieldType>MultiSelectPicklist</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2182,7 +2167,6 @@
                     </defaultValue>
                     <fieldText>Assets</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2228,7 +2212,6 @@
                     </defaultValue>
                     <fieldText>Arrival Date</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2256,7 +2239,6 @@
                     </defaultValue>
                     <fieldText>After Hours</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2280,7 +2262,6 @@
                     </defaultValue>
                     <fieldText>Purpose of the Visit</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2307,7 +2288,6 @@
                     </defaultValue>
                     <fieldText>Additional Guests</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2331,7 +2311,6 @@
                     </defaultValue>
                     <fieldText>Guest Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2453,7 +2432,6 @@
                     </defaultValue>
                     <fieldText>If more than one guests add there information here</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2492,7 +2470,6 @@
                     </defaultValue>
                     <fieldText>Who is the Access for?</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2506,7 +2483,6 @@
                     </defaultValue>
                     <fieldText>Third Party Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2623,7 +2599,6 @@
                     </defaultValue>
                     <fieldText>Third Party Company</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2650,7 +2625,6 @@
                     </defaultValue>
                     <fieldText>Departure Date</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2667,7 +2641,6 @@
                     </defaultValue>
                     <fieldText>I have read and agree to the facility rules and regulations as stated in the Netrality Customer Handbook</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2681,7 +2654,6 @@
                     </defaultValue>
                     <fieldText>Link to Netrality Customer Handbook</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2782,7 +2754,6 @@
                     <fieldText>Billing Account Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2799,7 +2770,6 @@
                     </defaultValue>
                     <fieldText>Other Request</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2834,7 +2804,6 @@
                     </defaultValue>
                     <fieldText>Request Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2858,7 +2827,6 @@
                     </defaultValue>
                     <fieldText>Case Number</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2885,7 +2853,6 @@
                     </defaultValue>
                     <fieldText>Invoice #</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2926,7 +2893,6 @@
                     </defaultValue>
                     <fieldText>Contact</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2954,7 +2920,6 @@
                     </defaultValue>
                     <fieldText>Type</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2972,7 +2937,6 @@
                     </defaultValue>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -2985,7 +2949,6 @@
                     </defaultValue>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3003,7 +2966,6 @@
                     </defaultValue>
                     <fieldText>NRC Billing for</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3027,7 +2989,6 @@
                     </defaultValue>
                     <fieldText>Other NRC Billing for</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3062,7 +3023,6 @@
                     </defaultValue>
                     <fieldText>Date Range</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3150,7 +3110,6 @@
                     </defaultValue>
                     <fieldText>Request Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3174,7 +3133,6 @@
                     </defaultValue>
                     <fieldText>Service Order Number</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3202,7 +3160,6 @@
                     </defaultValue>
                     <fieldText>Term</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3237,7 +3194,6 @@
                     </defaultValue>
                     <fieldText>Type</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3255,7 +3211,6 @@
                     </defaultValue>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3278,7 +3233,6 @@
                     </defaultValue>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3295,7 +3249,6 @@
                     </defaultValue>
                     <fieldText>New Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3323,7 +3276,6 @@
                     <fieldText>Document Name</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Document that you&apos;re looking for.&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3351,7 +3303,6 @@
                     </defaultValue>
                     <fieldText>Document Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3375,7 +3326,6 @@
                     </defaultValue>
                     <fieldText>Other Document Type</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3477,35 +3427,6 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <name>I_Accept_CrossConnectSR</name>
-                    <dataType>Boolean</dataType>
-                    <defaultValue>
-                        <elementReference>Get_Service_Request.DX_I_Accept__c</elementReference>
-                    </defaultValue>
-                    <fieldText>I Accept</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isDisabled>
-                        <booleanValue>true</booleanValue>
-                    </isDisabled>
-                    <isRequired>true</isRequired>
-                </fields>
-                <fields>
-                    <name>I_Accept_Note</name>
-                    <fieldText>&lt;p&gt;By clicking accept, Customer acknowledges that certain fees may apply, as prescribed in the Customer Handbook, and payment shall be made&lt;/p&gt;&lt;p&gt;in accordance with the terms of the Agreement with Licensor.&lt;/p&gt;</fieldText>
-                    <fieldType>DisplayText</fieldType>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>I_Accept_CrossConnectSR</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <booleanValue>true</booleanValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
                     <name>Default_Account_CrossConnectSR</name>
                     <extensionName>flowruntime:lookup</extensionName>
                     <fieldType>ComponentInstance</fieldType>
@@ -3558,7 +3479,6 @@
                     <fieldText>Billing Account Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3586,7 +3506,6 @@
                     </defaultValue>
                     <fieldText>Type</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3604,7 +3523,6 @@
                     </defaultValue>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3620,7 +3538,6 @@
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <helpText>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;Urgent - Target Response to Ticket - 30 Minutes/ Technician to Begin work - 1 Hour&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;High - Target Response to Ticket - 1 Hour/ Technician to Begin work - 2 Hours&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;Normal - Target Response to Ticket - 2 Hours/ Technician to Begin work - 24 Hours&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3633,7 +3550,6 @@
                     </defaultValue>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3712,7 +3628,6 @@
                     </defaultValue>
                     <fieldText>Title</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3740,7 +3655,6 @@
                     </defaultValue>
                     <fieldText>Order Initiator</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3813,7 +3727,6 @@
                     </defaultValue>
                     <fieldText>Order Date</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3830,7 +3743,6 @@
                     </defaultValue>
                     <fieldText>Requested Due</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3858,7 +3770,6 @@
                     </defaultValue>
                     <fieldText>Contract Term</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3876,7 +3787,6 @@
                     </defaultValue>
                     <fieldText>LOA Attached</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3945,7 +3855,6 @@
                     </defaultValue>
                     <fieldText>Ports</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3962,7 +3871,6 @@
                     </defaultValue>
                     <fieldText>Tech Contact Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -3979,7 +3887,6 @@
                     </defaultValue>
                     <fieldText>Cross Connect ID</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4024,7 +3931,6 @@
                     </defaultValue>
                     <fieldText>Rack RU (MMR panel location)</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4042,7 +3948,6 @@
                     </defaultValue>
                     <fieldText>Connector Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4112,7 +4017,6 @@
                     </defaultValue>
                     <fieldText>Account Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4129,7 +4033,6 @@
                     </defaultValue>
                     <fieldText>Rack RU (MMR panel location)</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4147,7 +4050,6 @@
                     </defaultValue>
                     <fieldText>Connector Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4161,7 +4063,6 @@
                     </defaultValue>
                     <fieldText>Tech Contact Tel#</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4190,7 +4091,6 @@
                     </defaultValue>
                     <fieldText>Site Location</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4204,7 +4104,6 @@
                     </defaultValue>
                     <fieldText>Ports</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4221,7 +4120,6 @@
                     </defaultValue>
                     <fieldText>Tech Contact Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4240,6 +4138,41 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithHeader</regionContainerType>
+        </fields>
+        <fields>
+            <name>Cross_Connect_Request_Info_Section6</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Cross_Connect_Request_Info_Section6_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>I_Accept_CrossConnectSR</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>Get_Service_Request.DX_I_Accept__c</elementReference>
+                    </defaultValue>
+                    <fieldText>I Accept</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>I_Accept_Note</name>
+                    <fieldText>&lt;p&gt;By clicking accept, Customer acknowledges that certain fees may apply, as prescribed in the Customer Handbook, and payment shall be made in accordance with the terms of the Agreement with Licensor.&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
         </fields>
         <nextOrFinishButtonLabel>Back</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
@@ -4302,7 +4235,6 @@
                     <fieldText>Billing Account Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4319,7 +4251,6 @@
                     </defaultValue>
                     <fieldText>Service Order Number</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4345,7 +4276,6 @@
                     </defaultValue>
                     <fieldText>Services to disconnect?</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4415,7 +4345,6 @@
                     </defaultValue>
                     <fieldText>Type of Inventory</fieldText>
                     <fieldType>MultiSelectPicklist</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4439,7 +4368,6 @@
                     </defaultValue>
                     <fieldText>When would you like the meeting?</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4466,7 +4394,6 @@
                     </defaultValue>
                     <fieldText>When would you like the meeting?</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4504,7 +4431,6 @@
                     </defaultValue>
                     <fieldText>Type</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4522,7 +4448,6 @@
                     </defaultValue>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4535,7 +4460,6 @@
                     </defaultValue>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4552,7 +4476,6 @@
                     </defaultValue>
                     <fieldText>Date of Disconnect</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4580,7 +4503,6 @@
                     </defaultValue>
                     <fieldText>Disconnect Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4604,7 +4526,6 @@
                     </defaultValue>
                     <fieldText>Related Service Order</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4631,7 +4552,6 @@
                     </defaultValue>
                     <fieldText>Time of Issue</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4659,7 +4579,6 @@
                     </defaultValue>
                     <fieldText>Time Period Covered</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4739,35 +4658,6 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <name>I_Accept_Logistics</name>
-                    <dataType>Boolean</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_I_Accept__c</elementReference>
-                    </defaultValue>
-                    <fieldText>I Accept</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isDisabled>
-                        <booleanValue>true</booleanValue>
-                    </isDisabled>
-                    <isRequired>true</isRequired>
-                </fields>
-                <fields>
-                    <name>accept_note_logistics</name>
-                    <fieldText>&lt;p&gt;By clicking accept, Customer acknowledges that certain fees may apply,&lt;/p&gt;&lt;p&gt;as prescribed in the Customer Handbook, and payment shall be made&lt;/p&gt;&lt;p&gt;in accordance with the terms of the Agreement with Licensor.&lt;/p&gt;</fieldText>
-                    <fieldType>DisplayText</fieldType>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>I_Accept_Logistics</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <booleanValue>true</booleanValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
                     <name>Default_Account</name>
                     <extensionName>flowruntime:lookup</extensionName>
                     <fieldType>ComponentInstance</fieldType>
@@ -4814,7 +4704,6 @@
                     <fieldText>Billing Account Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4832,7 +4721,6 @@
                     </defaultValue>
                     <fieldText>Delivery Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4847,29 +4735,10 @@
                     </defaultValue>
                     <fieldText>Shipping Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
                     <isRequired>true</isRequired>
-                </fields>
-                <fields>
-                    <name>Quantity</name>
-                    <dataType>Number</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_Quantity__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Quantity</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isDisabled>
-                        <booleanValue>true</booleanValue>
-                    </isDisabled>
-                    <isReadOnly>
-                        <booleanValue>true</booleanValue>
-                    </isReadOnly>
-                    <isRequired>true</isRequired>
-                    <scale>0</scale>
                 </fields>
                 <fields>
                     <name>Other_Courier</name>
@@ -4879,7 +4748,6 @@
                     </defaultValue>
                     <fieldText>Other Courier</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4899,6 +4767,23 @@
                     </visibilityRule>
                 </fields>
                 <fields>
+                    <name>Quantity</name>
+                    <dataType>Number</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_Quantity__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Quantity</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
+                    <isRequired>true</isRequired>
+                    <scale>0</scale>
+                </fields>
+                <fields>
                     <name>Tracking_Number</name>
                     <dataType>String</dataType>
                     <defaultValue>
@@ -4906,7 +4791,6 @@
                     </defaultValue>
                     <fieldText>Tracking Number</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4934,7 +4818,6 @@
                     </defaultValue>
                     <fieldText>Type</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4952,7 +4835,6 @@
                     </defaultValue>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4967,7 +4849,6 @@
                     </defaultValue>
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4980,7 +4861,6 @@
                     </defaultValue>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -4997,7 +4877,6 @@
                     </defaultValue>
                     <fieldText>Date</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5025,7 +4904,6 @@
                     </defaultValue>
                     <fieldText>Customer to Provide Liftgate</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5057,7 +4935,6 @@
                     </defaultValue>
                     <fieldText>Courier</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5071,7 +4948,6 @@
                     </defaultValue>
                     <fieldText>Amazon Code</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5099,7 +4975,6 @@
                     </defaultValue>
                     <fieldText>Expected Storage Duration</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5141,7 +5016,6 @@
                     </defaultValue>
                     <fieldText>Current Location Onsite</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5156,7 +5030,6 @@
                     </defaultValue>
                     <fieldText>Duration of time in Storage</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5179,7 +5052,6 @@
                     </defaultValue>
                     <fieldText>Packaging notes</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5217,7 +5089,6 @@
                     </defaultValue>
                     <fieldText>Other Location</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5245,7 +5116,6 @@
                     </defaultValue>
                     <fieldText>Does this shipment require packaging prior to pick-up?</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5259,7 +5129,6 @@
                     </defaultValue>
                     <fieldText>Pickup Time</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5288,6 +5157,41 @@
                     </rightValue>
                 </conditions>
             </visibilityRule>
+        </fields>
+        <fields>
+            <name>Logistics_Request_Info_Section3</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Logistics_Request_Info_Section3_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>I_Accept_Logistics</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_I_Accept__c</elementReference>
+                    </defaultValue>
+                    <fieldText>I Accept</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>accept_note_logistics</name>
+                    <fieldText>&lt;p&gt;By clicking accept, Customer acknowledges that certain fees may apply, as prescribed in the Customer Handbook, and payment shall be made in accordance with the terms of the Agreement with Licensor.&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
         </fields>
         <nextOrFinishButtonLabel>Back</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
@@ -5342,35 +5246,6 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <name>I_Accept_RHS</name>
-                    <dataType>Boolean</dataType>
-                    <defaultValue>
-                        <elementReference>TempCaseVar.DX_I_Accept__c</elementReference>
-                    </defaultValue>
-                    <fieldText>I Accept</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isDisabled>
-                        <booleanValue>true</booleanValue>
-                    </isDisabled>
-                    <isRequired>true</isRequired>
-                </fields>
-                <fields>
-                    <name>accept_note_RHS</name>
-                    <fieldText>&lt;p&gt;By clicking accept, Customer acknowledges that certain fees may apply,&lt;/p&gt;&lt;p&gt;as prescribed in the Customer Handbook, and payment shall be made&lt;/p&gt;&lt;p&gt;in accordance with the terms of the Agreement with Licensor.&lt;/p&gt;</fieldText>
-                    <fieldType>DisplayText</fieldType>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>I_Accept_Logistics</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <booleanValue>true</booleanValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
                     <name>Default_Account_RHS</name>
                     <extensionName>flowruntime:lookup</extensionName>
                     <fieldType>ComponentInstance</fieldType>
@@ -5415,15 +5290,12 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <name>Billing_Account_Number_RHS</name>
-                    <dataType>String</dataType>
+                    <name>Related_Assets_RHS</name>
                     <defaultValue>
-                        <elementReference>TempCaseVar.DX_Billing_Account_Number__c</elementReference>
+                        <stringValue>{!TempCaseVar.DX_Related_Assets__c}</stringValue>
                     </defaultValue>
-                    <fieldText>Billing Account Number</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <fieldText>Related Assets</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5433,13 +5305,14 @@
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
-                    <name>Related_Assets_RHS</name>
+                    <name>Billing_Account_Number_RHS</name>
+                    <dataType>String</dataType>
                     <defaultValue>
-                        <stringValue>{!TempCaseVar.DX_Related_Assets__c}</stringValue>
+                        <elementReference>TempCaseVar.DX_Billing_Account_Number__c</elementReference>
                     </defaultValue>
-                    <fieldText>Related Assets</fieldText>
-                    <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <fieldText>Billing Account Number</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5455,7 +5328,6 @@
                     </defaultValue>
                     <fieldText>Requested Actions</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5488,7 +5360,6 @@
                     </defaultValue>
                     <fieldText>Requested Actions</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5515,7 +5386,6 @@
                     </defaultValue>
                     <fieldText>Equipment Installation ID</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5560,7 +5430,6 @@
                     </defaultValue>
                     <fieldText>Type</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5578,7 +5447,6 @@
                     </defaultValue>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5593,7 +5461,6 @@
                     </defaultValue>
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5606,7 +5473,6 @@
                     </defaultValue>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5623,7 +5489,6 @@
                     </defaultValue>
                     <fieldText>Rack/Cage Location</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5657,7 +5522,6 @@
                     </defaultValue>
                     <fieldText>Equipment ID</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5691,7 +5555,6 @@
                     </defaultValue>
                     <fieldText>Relevant Package SR Number</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -5727,6 +5590,41 @@
             </fields>
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithHeader</regionContainerType>
+        </fields>
+        <fields>
+            <name>RHS_Request_Info_Section2</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>RHS_Request_Info_Section2_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>I_Accept_RHS</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <elementReference>TempCaseVar.DX_I_Accept__c</elementReference>
+                    </defaultValue>
+                    <fieldText>I Accept</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>accept_note_RHS</name>
+                    <fieldText>&lt;p&gt;By clicking accept, Customer acknowledges that certain fees may apply, as prescribed in the Customer Handbook, and payment shall be made in accordance with the terms of the Agreement with Licensor.&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
         </fields>
         <nextOrFinishButtonLabel>Back</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
