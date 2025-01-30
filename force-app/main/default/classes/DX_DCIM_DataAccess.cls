@@ -154,7 +154,7 @@ public with sharing class DX_DCIM_DataAccess {
     * @return List<DC_Port__c> 
     **/
     public static List<DC_Port__c> getPorts(String panelId) {
-        List<DC_Port__c> lstPorts = [SELECT Id, Name FROM DC_Port__c WHERE Panel__c = :panelId WITH SECURITY_ENFORCED ORDER BY Name ASC];
+        List<DC_Port__c> lstPorts = [SELECT Id, Name FROM DC_Port__c WHERE Panel__c = :panelId AND Port_Status__c =: 'No Homerun' WITH SECURITY_ENFORCED ORDER BY Name ASC];
         return lstPorts;
     }
 
