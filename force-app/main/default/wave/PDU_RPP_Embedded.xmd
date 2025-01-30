@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <dataset xsi:nil="true"/>
+    <measures>
+        <field>lens_2.Percent_of_Capacity_Connected</field>
+        <formatCustomFormat>[&quot;#,###.##%&quot;,100]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <label>Percent of Capacity Connected</label>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_2.Percent_of_Capacity_Committed</field>
+        <formatCustomFormat>[&quot;#,###.##%&quot;,100]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <label>Percent of Capacity Committed</label>
+        <sortIndex>1</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_2.Committed</field>
+        <isDerived>false</isDerived>
+        <label>Committed</label>
+        <sortIndex>2</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_2.Max</field>
+        <isDerived>false</isDerived>
+        <label>Max</label>
+        <sortIndex>3</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_2.CircuitBreaker_Committed</field>
+        <isDerived>false</isDerived>
+        <label>Circuit Breaker Committed</label>
+        <sortIndex>4</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_2.DC_Circuit_Committed</field>
+        <isDerived>false</isDerived>
+        <label>DC Circuit Committed</label>
+        <sortIndex>5</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_2.Tenant_Committed</field>
+        <isDerived>false</isDerived>
+        <label>Tenant Committed</label>
+        <sortIndex>6</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_2.CircuitBreaker_Connected</field>
+        <isDerived>false</isDerived>
+        <label>Circuit Breaker Connected</label>
+        <sortIndex>7</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_2.DC_Circuit_Connected</field>
+        <isDerived>false</isDerived>
+        <label>DC Circuit Connected</label>
+        <sortIndex>8</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_2.Tenant_Connected</field>
+        <isDerived>false</isDerived>
+        <label>Tenant Connected</label>
+        <sortIndex>9</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_2.Connected</field>
+        <isDerived>false</isDerived>
+        <label>Connected</label>
+        <sortIndex>10</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_2.Available_Capacity_over_Commited_Power</field>
+        <isDerived>false</isDerived>
+        <label>Available Capacity over Commited Power</label>
+        <sortIndex>11</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_2.Available_Capacity_over_Connected_Power</field>
+        <isDerived>false</isDerived>
+        <label>Available Capacity over Connected Power</label>
+        <sortIndex>12</sortIndex>
+    </measures>
+    <type>Asset</type>
+    <waveVisualization>PDU_RPP_Embedded</waveVisualization>
+</WaveXmd>
