@@ -2,9 +2,26 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
     <assignments>
+        <name>Message_Assigment</name>
+        <label>Message Assigment</label>
+        <locationX>1106</locationX>
+        <locationY>1190</locationY>
+        <assignmentItems>
+            <assignToReference>ShowMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Innerduct_Fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_Floor_Id</name>
         <label>Set Floor Id</label>
-        <locationX>264</locationX>
+        <locationX>666</locationX>
         <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>lstFloorsId</assignToReference>
@@ -20,8 +37,8 @@
     <assignments>
         <name>Set_Innerduct_Fields</name>
         <label>Set Innerduct Fields</label>
-        <locationX>176</locationX>
-        <locationY>1190</locationY>
+        <locationX>50</locationX>
+        <locationY>1406</locationY>
         <assignmentItems>
             <assignToReference>ObjInnerduct.Related_MRI_Suite_ID__c</assignToReference>
             <operator>Assign</operator>
@@ -64,12 +81,88 @@
                 <elementReference>Asset.selectedChoiceValues</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ObjInnerduct.A_Side_POE_Allocation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>A_Side_POE_Allocation.selectedChoiceValues</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Create_Innerduct</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Set_Innerduct_Values</name>
+        <label>Set Innerduct Values</label>
+        <locationX>578</locationX>
+        <locationY>974</locationY>
+        <assignmentItems>
+            <assignToReference>ObjInnerduct.A_Side_Data_Hall__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>A_Side_Data_Hall.selectedChoiceValues</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ObjInnerduct.A_Side_POE_Allocation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>A_Side_POE_Allocation.selectedChoiceValues</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ObjInnerduct.Z_Side_Data_Hall__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Z_Side_Data_Hall_Require.selectedChoiceValues</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ObjInnerduct.POE_Allocation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Z_Side_POE_Allocation_Require.selectedChoiceValues</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ObjInnerduct.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Name</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Decision_1</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Decision_1</name>
+        <label>ID Validation</label>
+        <locationX>578</locationX>
+        <locationY>1082</locationY>
+        <defaultConnector>
+            <targetReference>Message_Assigment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Invalid ID</defaultConnectorLabel>
+        <rules>
+            <name>Vaild_ID</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IsValidNumberFormat</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Cages</targetReference>
+            </connector>
+            <label>Vaild ID</label>
+        </rules>
+    </decisions>
     <dynamicChoiceSets>
-        <name>ChoiceSet_Z_Side_POE_Allocation</name>
+        <name>ChoiceSet_POE_Allocation</name>
         <collectionReference>Get_POE_Allocation</collectionReference>
         <dataType>String</dataType>
         <displayField>Name</displayField>
@@ -100,12 +193,17 @@
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <environments>Default</environments>
+    <formulas>
+        <name>IsValidNumberFormat</name>
+        <dataType>Boolean</dataType>
+        <expression>REGEX(TEXT({!ObjInnerduct.ID__c}), &quot;^[0-9]{1,3}$&quot;)</expression>
+    </formulas>
     <interviewLabel>DX Innerduct Asset Record Creation {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Innerduct Asset Record Creation</label>
     <loops>
         <name>Loop_floors</name>
         <label>Loop floors</label>
-        <locationX>176</locationX>
+        <locationX>578</locationX>
         <locationY>350</locationY>
         <collectionReference>Get_Floors</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -138,8 +236,8 @@
     <recordCreates>
         <name>Create_Innerduct</name>
         <label>Create Innerduct</label>
-        <locationX>176</locationX>
-        <locationY>1298</locationY>
+        <locationX>50</locationX>
+        <locationY>1514</locationY>
         <connector>
             <targetReference>Update_Asset</targetReference>
         </connector>
@@ -151,7 +249,7 @@
     <recordLookups>
         <name>Get_Asset_Record</name>
         <label>Get Asset Record</label>
-        <locationX>176</locationX>
+        <locationX>578</locationX>
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -172,8 +270,8 @@
     <recordLookups>
         <name>Get_Cabinet</name>
         <label>Get Cabinet</label>
-        <locationX>176</locationX>
-        <locationY>1082</locationY>
+        <locationX>50</locationX>
+        <locationY>1298</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_Innerduct_Fields</targetReference>
@@ -193,8 +291,8 @@
     <recordLookups>
         <name>Get_Cages</name>
         <label>Get Cages</label>
-        <locationX>176</locationX>
-        <locationY>974</locationY>
+        <locationX>50</locationX>
+        <locationY>1190</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Cabinet</targetReference>
@@ -214,7 +312,7 @@
     <recordLookups>
         <name>Get_Data_Hall</name>
         <label>Get Data Hall</label>
-        <locationX>176</locationX>
+        <locationX>578</locationX>
         <locationY>650</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -235,7 +333,7 @@
     <recordLookups>
         <name>Get_Floors</name>
         <label>Get Floors</label>
-        <locationX>176</locationX>
+        <locationX>578</locationX>
         <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -256,7 +354,7 @@
     <recordLookups>
         <name>Get_POE_Allocation</name>
         <label>Get POE Allocation</label>
-        <locationX>176</locationX>
+        <locationX>578</locationX>
         <locationY>758</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -277,8 +375,8 @@
     <recordUpdates>
         <name>Update_Asset</name>
         <label>Update Asset</label>
-        <locationX>176</locationX>
-        <locationY>1406</locationY>
+        <locationX>50</locationX>
+        <locationY>1622</locationY>
         <connector>
             <targetReference>Update_Inside_Plant</targetReference>
         </connector>
@@ -316,8 +414,8 @@
     <recordUpdates>
         <name>Update_Inside_Plant</name>
         <label>Update Inside Plant</label>
-        <locationX>176</locationX>
-        <locationY>1514</locationY>
+        <locationX>50</locationX>
+        <locationY>1730</locationY>
         <faultConnector>
             <targetReference>DX_Error_Log_Creation_Update_Inside_Plant</targetReference>
         </faultConnector>
@@ -340,13 +438,13 @@
     <screens>
         <name>Innerduct_Fields</name>
         <label>Innerduct Fields</label>
-        <locationX>176</locationX>
+        <locationX>578</locationX>
         <locationY>866</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Get_Cages</targetReference>
+            <targetReference>Set_Innerduct_Values</targetReference>
         </connector>
         <fields>
             <name>Innerduct_Fields_Section1</name>
@@ -357,20 +455,12 @@
                 <fields>
                     <name>Name</name>
                     <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>ObjInnerduct.Name</elementReference>
+                    </defaultValue>
                     <fieldText>Name</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
-                </fields>
-                <fields>
-                    <name>A_Side_Data_Hall</name>
-                    <choiceReferences>ChoiceSetDataHall</choiceReferences>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>A-Side - Data Hall</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
                     <fieldType>ObjectProvided</fieldType>
@@ -379,36 +469,59 @@
                     <objectFieldReference>ObjInnerduct.ID__c</objectFieldReference>
                 </fields>
                 <fields>
-                    <fieldType>ObjectProvided</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <objectFieldReference>ObjInnerduct.Z_Side_Type__c</objectFieldReference>
-                </fields>
-                <fields>
-                    <name>Z_Side_Data_Hall_Require</name>
-                    <choiceReferences>ChoiceSetDataHall</choiceReferences>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Z-Side - Data Hall</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <name>ErrorValidation</name>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(199, 4, 4);&quot;&gt;ID value outside of valid range: 0-999&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
-                            <leftValueReference>ObjInnerduct.Z_Side_Type__c</leftValueReference>
+                            <leftValueReference>ShowMessage</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
-                                <stringValue>Datahall</stringValue>
+                                <booleanValue>true</booleanValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>Z_Side_POE_Allocation_Require</name>
-                    <choiceReferences>ChoiceSet_Z_Side_POE_Allocation</choiceReferences>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>ObjInnerduct.Fiber_Count__c</objectFieldReference>
+                </fields>
+                <fields>
+                    <name>Asset</name>
+                    <choiceReferences>ChoiceSetAsset</choiceReferences>
+                    <defaultValue>
+                        <elementReference>Get_Asset_Record.Id</elementReference>
+                    </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Z-Side - POE Allocation</fieldText>
+                    <fieldText>Asset</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
+                    <inputParameters>
+                        <name>placeholder</name>
+                        <value>
+                            <elementReference>Get_Asset_Record.Name</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>ObjInnerduct.A_Side_Type__c</objectFieldReference>
+                </fields>
+                <fields>
+                    <name>A_Side_Data_Hall</name>
+                    <choiceReferences>ChoiceSetDataHall</choiceReferences>
+                    <defaultValue>
+                        <elementReference>ObjInnerduct.A_Side_Data_Hall__c</elementReference>
+                    </defaultValue>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>A-Side - Data Hall</fieldText>
                     <fieldType>ComponentChoice</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
@@ -416,7 +529,30 @@
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
-                            <leftValueReference>ObjInnerduct.Z_Side_Type__c</leftValueReference>
+                            <leftValueReference>ObjInnerduct.A_Side_Type__c</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Data Hall</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>A_Side_POE_Allocation</name>
+                    <choiceReferences>ChoiceSet_POE_Allocation</choiceReferences>
+                    <defaultValue>
+                        <elementReference>ObjInnerduct.A_Side_POE_Allocation__c</elementReference>
+                    </defaultValue>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>A-Side - POE Allocation</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>ObjInnerduct.A_Side_Type__c</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <stringValue>POE Allocation</stringValue>
@@ -457,26 +593,53 @@
                     <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>ObjInnerduct.Fiber_Count__c</objectFieldReference>
+                    <objectFieldReference>ObjInnerduct.Z_Side_Type__c</objectFieldReference>
                 </fields>
                 <fields>
-                    <name>Asset</name>
-                    <choiceReferences>ChoiceSetAsset</choiceReferences>
+                    <name>Z_Side_Data_Hall_Require</name>
+                    <choiceReferences>ChoiceSetDataHall</choiceReferences>
                     <defaultValue>
-                        <elementReference>Get_Asset_Record.Id</elementReference>
+                        <elementReference>ObjInnerduct.Z_Side_Data_Hall__c</elementReference>
                     </defaultValue>
                     <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Asset</fieldText>
+                    <fieldText>Z-Side - Data Hall</fieldText>
                     <fieldType>ComponentChoice</fieldType>
-                    <inputParameters>
-                        <name>placeholder</name>
-                        <value>
-                            <elementReference>Get_Asset_Record.Name</elementReference>
-                        </value>
-                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>ObjInnerduct.Z_Side_Type__c</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Datahall</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Z_Side_POE_Allocation_Require</name>
+                    <choiceReferences>ChoiceSet_POE_Allocation</choiceReferences>
+                    <defaultValue>
+                        <elementReference>ObjInnerduct.POE_Allocation__c</elementReference>
+                    </defaultValue>
+                    <extensionName>flowruntime:choiceLookup</extensionName>
+                    <fieldText>Z-Side - POE Allocation</fieldText>
+                    <fieldType>ComponentChoice</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>ObjInnerduct.Z_Side_Type__c</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>POE Allocation</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -493,7 +656,7 @@
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>50</locationX>
+        <locationX>452</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Asset_Record</targetReference>
@@ -503,8 +666,8 @@
     <subflows>
         <name>DX_Error_Log_Creation_Update_Inside_Plant</name>
         <label>DX Error Log Creation Update Inside Plant</label>
-        <locationX>440</locationX>
-        <locationY>1622</locationY>
+        <locationX>314</locationX>
+        <locationY>1838</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -546,8 +709,8 @@
     <subflows>
         <name>Error_Log_Create_Innerduct</name>
         <label>Error Log Create Innerduct</label>
-        <locationX>968</locationX>
-        <locationY>1406</locationY>
+        <locationX>842</locationX>
+        <locationY>1622</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -589,8 +752,8 @@
     <subflows>
         <name>Error_Log_Update_Asset</name>
         <label>Error Log Update Asset</label>
-        <locationX>704</locationX>
-        <locationY>1514</locationY>
+        <locationX>578</locationX>
+        <locationY>1730</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
@@ -657,5 +820,15 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Innerduct__c</objectType>
+    </variables>
+    <variables>
+        <name>ShowMessage</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
     </variables>
 </Flow>

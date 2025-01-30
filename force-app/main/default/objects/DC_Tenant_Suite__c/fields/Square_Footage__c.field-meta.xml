@@ -4,7 +4,7 @@
     <description>Square footage of the suite.</description>
     <externalId>false</externalId>
     <label>Square Footage</label>
-    <precision>6</precision>
+    <precision>11</precision>
     <required>true</required>
     <scale>1</scale>
     <trackTrending>false</trackTrending>
