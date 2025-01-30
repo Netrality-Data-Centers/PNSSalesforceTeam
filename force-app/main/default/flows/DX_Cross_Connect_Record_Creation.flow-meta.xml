@@ -5,7 +5,7 @@
         <name>Building_Info_Found</name>
         <label>Building Info Found?</label>
         <locationX>314</locationX>
-        <locationY>566</locationY>
+        <locationY>674</locationY>
         <defaultConnector>
             <targetReference>Building_Info_Not_Found</targetReference>
         </defaultConnector>
@@ -53,7 +53,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_Service_Request_Info</targetReference>
+                <targetReference>Get_Customer_Record_Type</targetReference>
             </connector>
             <label>Passed</label>
         </rules>
@@ -101,10 +101,10 @@
         <displayField>Name</displayField>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>Name</field>
+            <field>RecordTypeId</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_Service_Request_Info.DX_Account_Name_ZLOA__c</elementReference>
+                <elementReference>Get_Customer_Record_Type.Id</elementReference>
             </value>
         </filters>
         <object>Account</object>
@@ -196,7 +196,7 @@
         <name>Create_Cross_Connect</name>
         <label>Create Cross Connect</label>
         <locationX>50</locationX>
-        <locationY>782</locationY>
+        <locationY>890</locationY>
         <faultConnector>
             <targetReference>Log_Error</targetReference>
         </faultConnector>
@@ -279,7 +279,7 @@
         <name>Get_Building_Info</name>
         <label>Get Building Info</label>
         <locationX>314</locationX>
-        <locationY>458</locationY>
+        <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Building_Info_Found</targetReference>
@@ -309,7 +309,7 @@
         <name>Get_Building_Name_Related_to_Service_Request_Site</name>
         <label>Get Building Name Related to Service Request Site</label>
         <locationX>314</locationX>
-        <locationY>350</locationY>
+        <locationY>458</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Building_Info</targetReference>
@@ -327,10 +327,38 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Get_Customer_Record_Type</name>
+        <label>Get Customer Record Type</label>
+        <locationX>314</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Service_Request_Info</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Customer</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Account</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Service_Request_Info</name>
         <label>Get Service Request Info</label>
         <locationX>314</locationX>
-        <locationY>242</locationY>
+        <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Building_Name_Related_to_Service_Request_Site</targetReference>
@@ -351,7 +379,7 @@
         <name>Building_Info_Not_Found</name>
         <label>Building Info Not Found</label>
         <locationX>578</locationX>
-        <locationY>674</locationY>
+        <locationY>782</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -367,7 +395,7 @@
         <name>Cross_Connect_Record_Creation</name>
         <label>Cross Connect Record Creation</label>
         <locationX>50</locationX>
-        <locationY>674</locationY>
+        <locationY>782</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -665,7 +693,7 @@
         <name>Log_Error</name>
         <label>Log Error</label>
         <locationX>314</locationX>
-        <locationY>890</locationY>
+        <locationY>998</locationY>
         <flowName>DX_Error_Log_Creation</flowName>
         <inputAssignments>
             <name>ErrorMessage</name>
