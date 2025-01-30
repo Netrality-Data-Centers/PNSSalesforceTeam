@@ -439,7 +439,6 @@
                     <dataType>String</dataType>
                     <fieldText>Legacy Cherwell ID</fieldText>
                     <fieldType>InputField</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
