@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataset>Circuit_Breakers</dataset>
+    <dimensions>
+        <field>DC_PDU_Panel.DC_PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.City__c</field>
+        <isDerived>false</isDerived>
+        <label>Building City</label>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_PDU_Panel.DC_PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Location__c</field>
+        <isDerived>false</isDerived>
+        <label>Building Location</label>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_PDU_Panel.DC_PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Name</field>
+        <isDerived>false</isDerived>
+        <label>Main Utility</label>
+        <sortIndex>2</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_PDU_Panel.DC_PDU_RPP.DC_UPS.DC_Switchgear.Name</field>
+        <isDerived>false</isDerived>
+        <label>Switchgear</label>
+        <sortIndex>3</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_PDU_Panel.DC_PDU_RPP.DC_UPS.Name</field>
+        <isDerived>false</isDerived>
+        <label>UPS</label>
+        <sortIndex>4</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_PDU_Panel.DC_PDU_RPP.Name</field>
+        <isDerived>false</isDerived>
+        <label>PDU RPP</label>
+        <sortIndex>5</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_PDU_Panel.Name</field>
+        <isDerived>false</isDerived>
+        <label>Panel</label>
+        <sortIndex>6</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Name</field>
+        <isDerived>false</isDerived>
+        <label>Circuit Breaker Name</label>
+        <sortIndex>7</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_PDU_Panel.DC_PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Id</field>
+        <isDerived>false</isDerived>
+        <label>Building ID</label>
+        <sortIndex>8</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_PDU_Panel.DC_PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Id</field>
+        <isDerived>false</isDerived>
+        <label>Main Utility ID</label>
+        <sortIndex>9</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_PDU_Panel.DC_PDU_RPP.DC_UPS.DC_Switchgear.Id</field>
+        <isDerived>false</isDerived>
+        <label>Switchgear ID</label>
+        <sortIndex>10</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_PDU_Panel.DC_PDU_RPP.DC_UPS.Id</field>
+        <isDerived>false</isDerived>
+        <label>UPS ID</label>
+        <sortIndex>11</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_PDU_Panel.DC_PDU_RPP.Id</field>
+        <isDerived>false</isDerived>
+        <label>PDU RPP ID</label>
+        <sortIndex>12</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_PDU_Panel.Id</field>
+        <isDerived>false</isDerived>
+        <label>Panel ID</label>
+        <sortIndex>13</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Id</field>
+        <isDerived>false</isDerived>
+        <label>Circuit Breaker ID</label>
+        <sortIndex>14</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_PDU_Panel.DC_PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.State__c</field>
+        <isDerived>false</isDerived>
+        <label>Building State</label>
+        <sortIndex>15</sortIndex>
+    </dimensions>
+    <measures>
+        <field>DC_PDU_Panel.Max_Capacity_kw__c</field>
+        <isDerived>false</isDerived>
+        <label>Panel Max Capacity (kw)</label>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>*</field>
+        <isDerived>true</isDerived>
+        <label>Circuit Breakers</label>
+        <showInExplorer>true</showInExplorer>
+        <sortIndex>0</sortIndex>
+    </measures>
+</WaveXmd>
