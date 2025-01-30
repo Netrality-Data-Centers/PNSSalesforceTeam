@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <dataset xsi:nil="true"/>
+    <dimensions>
+        <field>lens_1.ALL</field>
+        <isDerived>false</isDerived>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <measures>
+        <field>lens_1.Percent_Capacity_Connected</field>
+        <formatCustomFormat>[&quot;#,###.##%&quot;,100]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <label>Percent of Capacity Connected</label>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_1.Percent_Capacity_Committed</field>
+        <formatCustomFormat>[&quot;#,###.##%&quot;,100]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <label>Percent of Capacity Committed</label>
+        <sortIndex>1</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_1.Available_Over_Connected</field>
+        <isDerived>false</isDerived>
+        <label>Available Capacity over Connected Power</label>
+        <sortIndex>2</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_1.Max</field>
+        <isDerived>false</isDerived>
+        <label>DC Plant Max Capacity (kw)</label>
+        <sortIndex>3</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_1.Connected</field>
+        <isDerived>false</isDerived>
+        <label>Connected</label>
+        <sortIndex>4</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_1.Count</field>
+        <isDerived>false</isDerived>
+        <label>Count</label>
+        <sortIndex>5</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_1.Committed</field>
+        <isDerived>false</isDerived>
+        <label>Committed</label>
+        <sortIndex>6</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_1.Available_Over_Committed</field>
+        <isDerived>false</isDerived>
+        <label>Available Capacity over Committed Power</label>
+        <sortIndex>7</sortIndex>
+    </measures>
+    <type>Asset</type>
+    <waveVisualization>DC_Plant_Embedded</waveVisualization>
+</WaveXmd>
