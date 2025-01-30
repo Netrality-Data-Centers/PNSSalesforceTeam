@@ -960,6 +960,7 @@
             <dataType>String</dataType>
             <fieldText>Select the Cabinet from the DataHall</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
@@ -1027,6 +1028,7 @@
                     <fieldText>How many RUs</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Valid range of RUs is 1 to 16. Please re-enter your value&lt;/span&gt;&lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <scale>0</scale>
                 </fields>
@@ -1061,6 +1063,7 @@
             <dataType>String</dataType>
             <fieldText>Select a Rack Row</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
@@ -1083,6 +1086,7 @@
             <dataType>String</dataType>
             <fieldText>Select a Rack</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
@@ -1105,6 +1109,7 @@
             <dataType>String</dataType>
             <fieldText>Select a Meet me Room from the Datahall</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
