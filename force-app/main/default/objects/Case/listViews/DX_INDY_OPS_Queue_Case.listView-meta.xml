@@ -21,7 +21,7 @@
     <filters>
         <field>CORE.USERS.ALIAS</field>
         <operation>notEqual</operation>
-        <value>KC After Hour Queue</value>
+        <value>PHL After Hours Queue</value>
     </filters>
     <label>INDY Ops Queue</label>
     <sharedTo>
