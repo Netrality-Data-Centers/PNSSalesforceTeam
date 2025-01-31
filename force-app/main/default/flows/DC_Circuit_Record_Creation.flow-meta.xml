@@ -4,8 +4,8 @@
     <assignments>
         <name>Cabinet_Validation_Assigment</name>
         <label>Cabinet Validation Assigment</label>
-        <locationX>1370</locationX>
-        <locationY>674</locationY>
+        <locationX>1106</locationX>
+        <locationY>782</locationY>
         <assignmentItems>
             <assignToReference>ShowCabinetValidation</assignToReference>
             <operator>Assign</operator>
@@ -21,8 +21,8 @@
     <assignments>
         <name>Set_Fields_DC_Circuit</name>
         <label>Set Fields DC Circuit</label>
-        <locationX>578</locationX>
-        <locationY>674</locationY>
+        <locationX>842</locationX>
+        <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>DC_Circuit_obj.Name</assignToReference>
             <operator>Assign</operator>
@@ -30,31 +30,45 @@
                 <elementReference>NameCircuit</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DC_Circuit_obj.Cabinet__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>dx_PanelSelectorCabinets.cabinetId</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
-            <targetReference>Create_Obj_Circuit</targetReference>
+            <targetReference>Cabinet_is_Selected</targetReference>
         </connector>
     </assignments>
     <decisions>
         <name>Cabinet_is_Selected</name>
         <label>Cabinet is Selected?</label>
-        <locationX>974</locationX>
-        <locationY>566</locationY>
+        <locationX>842</locationX>
+        <locationY>674</locationY>
         <defaultConnector>
             <targetReference>Cabinet_Validation_Assigment</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Not Selected</defaultConnectorLabel>
         <rules>
             <name>Is_Selected</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
-                <leftValueReference>dx_PanelSelectorCabinets.cabinetId</leftValueReference>
+                <leftValueReference>DC_Circuit_obj.Cabinet__r.Id</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>CabinetIsBlank</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
-                <targetReference>Set_Fields_DC_Circuit</targetReference>
+                <targetReference>Create_Obj_Circuit</targetReference>
             </connector>
             <label>Is Selected</label>
         </rules>
@@ -62,7 +76,7 @@
     <decisions>
         <name>Empty_Paremeters</name>
         <label>Empty Paremeters?</label>
-        <locationX>347</locationX>
+        <locationX>314</locationX>
         <locationY>134</locationY>
         <defaultConnector>
             <targetReference>Get_Asset_Records</targetReference>
@@ -101,10 +115,10 @@
     <decisions>
         <name>What_Associated_Space_Type_Is</name>
         <label>What Associated Space Type Is?</label>
-        <locationX>644</locationX>
+        <locationX>578</locationX>
         <locationY>458</locationY>
         <defaultConnector>
-            <targetReference>Cabinet_is_Selected</targetReference>
+            <targetReference>Set_Fields_DC_Circuit</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Is It Cabinet?</defaultConnectorLabel>
         <rules>
@@ -145,6 +159,11 @@
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <environments>Default</environments>
+    <formulas>
+        <name>CabinetIsBlank</name>
+        <dataType>Boolean</dataType>
+        <expression>   ISBLANK({!DC_Circuit_obj.Id})</expression>
+    </formulas>
     <interviewLabel>DC Circuit Record Creation {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DC Circuit Record Creation</label>
     <processMetadataValues>
@@ -174,9 +193,6 @@
         <connector>
             <targetReference>Get_Cabinet</targetReference>
         </connector>
-        <faultConnector>
-            <targetReference>Error_Log_Creation_Create_Circuit</targetReference>
-        </faultConnector>
         <inputAssignments>
             <field>Amperage__c</field>
             <value>
@@ -198,7 +214,7 @@
         <inputAssignments>
             <field>Cabinet__c</field>
             <value>
-                <elementReference>dx_PanelSelectorCabinets.cabinetId</elementReference>
+                <elementReference>DC_Circuit_obj.Cabinet__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -242,7 +258,7 @@
     <recordLookups>
         <name>Get_Asset_Records</name>
         <label>Get Asset Records</label>
-        <locationX>644</locationX>
+        <locationX>578</locationX>
         <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -312,7 +328,7 @@
     <screens>
         <name>DC_Circuit</name>
         <label>DC Circuit</label>
-        <locationX>644</locationX>
+        <locationX>578</locationX>
         <locationY>350</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -361,6 +377,9 @@
                 <fields>
                     <name>NameCircuit</name>
                     <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>DC_Circuit_obj.Name</elementReference>
+                    </defaultValue>
                     <fieldText>Name</fieldText>
                     <fieldType>InputField</fieldType>
                     <isRequired>true</isRequired>
@@ -603,56 +622,13 @@
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>221</locationX>
+        <locationX>188</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Empty_Paremeters</targetReference>
         </connector>
     </start>
     <status>Active</status>
-    <subflows>
-        <name>Error_Log_Creation_Create_Circuit</name>
-        <label>Error Log Creation Create Circuit</label>
-        <locationX>1106</locationX>
-        <locationY>890</locationY>
-        <flowName>DX_Error_Log_Creation</flowName>
-        <inputAssignments>
-            <name>ErrorMessage</name>
-            <value>
-                <elementReference>$Flow.FaultMessage</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>FlowName</name>
-            <value>
-                <stringValue>DC Circuit Record Creation</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>MethodName</name>
-            <value>
-                <stringValue>Create Obj Circuit</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>ObjectName</name>
-            <value>
-                <stringValue>DC DC Circuit</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>RecordId</name>
-            <value>
-                <elementReference>Building_ID</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>TypeOfOperation</name>
-            <value>
-                <stringValue>Create Records</stringValue>
-            </value>
-        </inputAssignments>
-    </subflows>
     <subflows>
         <name>Error_Log_Creation_Update_Asset</name>
         <label>Error Log Creation Update Asset</label>
