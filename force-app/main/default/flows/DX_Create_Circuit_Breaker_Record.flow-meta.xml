@@ -5,7 +5,7 @@
         <name>Cabinet_Validation_Assigment</name>
         <label>Cabinet Validation Assigment</label>
         <locationX>1106</locationX>
-        <locationY>674</locationY>
+        <locationY>782</locationY>
         <assignmentItems>
             <assignToReference>ShowCabinetValidation</assignToReference>
             <operator>Assign</operator>
@@ -21,8 +21,8 @@
     <assignments>
         <name>Circuit_Breaker_Record_Assignment</name>
         <label>Circuit Breaker Record Assignment</label>
-        <locationX>314</locationX>
-        <locationY>674</locationY>
+        <locationX>710</locationX>
+        <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>CircuitBreakerRecord.Asset__c</assignToReference>
             <operator>Assign</operator>
@@ -52,7 +52,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Create_Circuit_Breaker_Record</targetReference>
+            <targetReference>Cabinet_Selected</targetReference>
         </connector>
     </assignments>
     <decisions>
@@ -72,7 +72,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Cabinet_Selected</targetReference>
+                <targetReference>Circuit_Breaker_Record_Assignment</targetReference>
             </connector>
             <label>Cabinet</label>
         </rules>
@@ -81,23 +81,30 @@
         <name>Cabinet_Selected</name>
         <label>Cabinet Selected?</label>
         <locationX>710</locationX>
-        <locationY>566</locationY>
+        <locationY>674</locationY>
         <defaultConnector>
             <targetReference>Cabinet_Validation_Assigment</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
-                <leftValueReference>dx_PanelSelectorCabinets_lwc.cabinetId</leftValueReference>
+                <leftValueReference>CircuitBreakerRecord.Cabinet__r.Id</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>CabinetIsEmpty</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
-                <targetReference>Circuit_Breaker_Record_Assignment</targetReference>
+                <targetReference>Create_Circuit_Breaker_Record</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
@@ -144,6 +151,11 @@
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <environments>Default</environments>
+    <formulas>
+        <name>CabinetIsEmpty</name>
+        <dataType>Boolean</dataType>
+        <expression>  ISBLANK({!CircuitBreakerRecord.Cabinet__c})</expression>
+    </formulas>
     <interviewLabel>DX Create {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Create Circuit Breaker Record</label>
     <processMetadataValues>
@@ -410,6 +422,9 @@
                 <fields>
                     <name>Name</name>
                     <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>CircuitBreakerRecord.Name</elementReference>
+                    </defaultValue>
                     <fieldText>Name</fieldText>
                     <fieldType>InputField</fieldType>
                     <isRequired>true</isRequired>
