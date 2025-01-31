@@ -12,7 +12,7 @@
             <operation>equals</operation>
             <value>Ready for Cross Connect</value>
         </filterItems>
-        <isOptional>false</isOptional>
+        <isOptional>true</isOptional>
     </lookupFilter>
     <referenceTo>DC_Port__c</referenceTo>
     <relationshipLabel>Cross Connects</relationshipLabel>
