@@ -15,7 +15,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_BusinesHoursHelper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_BusinesHoursHelper_tst</apexClass>
@@ -23,7 +23,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_ConnectPorts_ctr</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_ConnectPorts_tst</apexClass>
@@ -31,11 +31,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_DCIMChoiceResource</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_DCIM_ActionHelper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_DCIM_ActionHelper_tst</apexClass>
@@ -43,7 +43,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_DCIM_DataAccess</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_DCIM_DataAccess_tst</apexClass>
@@ -51,7 +51,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_PanelSelectorCabinets_ctr</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_PanelSelectorCabinets_tst</apexClass>
@@ -59,7 +59,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_PanelSelectorFloorPOE_ctr</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_PanelSelectorFloorPOE_tst</apexClass>
@@ -67,7 +67,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_PanelSelectorMeetMeRoomPanel_ctr</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_PanelSelectorMeetMeRoomPanel_tst</apexClass>
@@ -75,7 +75,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_PanelSelectorRacks_ctr</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_PanelSelectorRacks_tst</apexClass>
@@ -83,15 +83,15 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_PrimaryAccountContactHelper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_RelatedAccountsContactHelper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_TenantIdHelper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_TenantIdHelperTest</apexClass>
@@ -99,7 +99,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_viewClosedServiceRequest_ctr</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_viewClosedServiceRequest_tst</apexClass>
@@ -107,7 +107,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_viewCrossConnectsInformation_ctr</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_viewCrossConnectsInformation_ctrTest</apexClass>
@@ -115,7 +115,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DX_viewOpenServiceRequest_ctr</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_viewOpenServiceRequest_tst</apexClass>
@@ -2264,7 +2264,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DC_Floor__c.X2D_Drawing__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
