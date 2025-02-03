@@ -2,16 +2,27 @@
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
     <isExposed>true</isExposed>
+    <masterLabel>Rack Row Visual Selection</masterLabel>
     <targets>
-        <target>lightning__UrlAddressable</target>
         <target>lightning__FlowScreen</target>
+        <target>lightning__RecordPage</target>
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__FlowScreen">
-            <property name="rackRowId" type="String" label="Rack Row ID" required="false" />
-            <property name="rackId" type="String" label="Rack ID" required="false" />
+            <property name="recordId" type="String" label="Rack Row ID" required="false" />
             <property name="isSelection" type="Boolean" label="Is Selection" required="false" />
-            <property name="desiredSelectionSize" type="Integer" label="Desired Selection Size" required="false" />
+            <property name="desiredSelectionSizes" type="Integer[]" label="Desired Selection Sizes"
+                required="false" />
+            <property name="selectedPanelAssignments" type="apex://PanelAssignment[]"
+                label="Selected Panel Assignments" role="outputOnly" required="false" />
+            <property name="sourceAsset" type="@salesforce/schema/Asset" label="Source Asset"
+                required="false"
+                role="inputOnly" />
+            <property name="allPanelsAssigned" type="Boolean" label="All Panels Assigned"
+                role="outputOnly" />
+        </targetConfig>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="isSelection" type="Boolean" label="Is Selection" required="false" />
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>
