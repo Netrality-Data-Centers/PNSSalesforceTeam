@@ -4,7 +4,8 @@
     <description>Apply Service Request Access to Customer Portal Manager Standard  Profile</description>
     <masterLabel>DX_Community_Users_Manager_Standard_Service_Request_Access</masterLabel>
     <order>9</order>
-    <status>Design</status>
+    <status>Active</status>
+    <triggerType>CreateAndUpdate</triggerType>
     <userAccessPolicyActions>
         <action>Grant</action>
         <target>DX_Manage_Service_Request_PS</target>
