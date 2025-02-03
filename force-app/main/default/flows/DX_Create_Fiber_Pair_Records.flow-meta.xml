@@ -160,12 +160,17 @@
             <label>No</label>
         </rules>
     </decisions>
-    <description>Automatic Creation of Fiber Pair Records</description>
+    <description>Automatic Creation of Fiber Pair Records + PR1031160-912 Leading Zeros Formula</description>
     <environments>Default</environments>
+    <formulas>
+        <name>AutoNumberLeadingZerosFx</name>
+        <dataType>String</dataType>
+        <expression>IF( AND({!Counter}&gt;=1,{!Counter}&lt;=9) , &quot;00&quot;, IF( AND({!Counter}&gt;=10,{!Counter}&lt;=99) , &quot;0&quot;, &quot;&quot;))</expression>
+    </formulas>
     <formulas>
         <name>ValueFiberPairName</name>
         <dataType>String</dataType>
-        <expression>&apos;HomeRunName&apos; + &apos;.&apos; + TEXT({!Counter}) +&apos;/&apos;+TEXT({!FiberPairsConnected})</expression>
+        <expression>&apos;HomeRunName&apos; + &apos;.&apos; + {!AutoNumberLeadingZerosFx} + TEXT({!Counter}) +&apos;/&apos; + {!AutoNumberLeadingZerosFx} +TEXT({!FiberPairsConnected})</expression>
     </formulas>
     <interviewLabel>DX Create Fiber Pair Records {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Create Fiber Pair Records</label>
