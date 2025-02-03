@@ -44,7 +44,7 @@ public with sharing class DX_DCIM_DataAccess {
     * @return List<DC_Cabinet__c>: A list of DC_Cabinet__c records associated with the specified building and account.
     */
     public List<DC_Cabinet__c> getCabinetsByBuildingAndAccount(Id aBuildingId, Id aAccountId) { // NOPMD
-        return [SELECT Id, Name FROM DC_Cabinet__c WHERE Cage__r.Data_Hall__r.DC_Floor__r.Building__c=:aBuildingId AND Asset__r.AccountId=:aAccountId WITH SECURITY_ENFORCED ORDER BY Name ASC];
+        return [SELECT Id, Name FROM DC_Cabinet__c WHERE Cage__r.Data_Hall__r.DC_Floor__r.Building__c=:aBuildingId AND Account_Lookup__c=:aAccountId WITH SECURITY_ENFORCED ORDER BY Name ASC];
     }
     
     /**
