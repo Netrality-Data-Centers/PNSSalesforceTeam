@@ -5,7 +5,7 @@
         <name>Add_iFiberPair_to_List</name>
         <label>Add iFiberPair to List</label>
         <locationX>182</locationX>
-        <locationY>542</locationY>
+        <locationY>650</locationY>
         <assignmentItems>
             <assignToReference>FiberPairList</assignToReference>
             <operator>Add</operator>
@@ -21,7 +21,7 @@
         <name>Increment_Counter</name>
         <label>Increment Counter</label>
         <locationX>182</locationX>
-        <locationY>650</locationY>
+        <locationY>758</locationY>
         <assignmentItems>
             <assignToReference>Counter</assignToReference>
             <operator>Add</operator>
@@ -38,7 +38,7 @@
         <name>Set_FiberPair_Commited</name>
         <label>Set FiberPair Commited</label>
         <locationX>50</locationX>
-        <locationY>350</locationY>
+        <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>iFiberPairRecord.Status__c</assignToReference>
             <operator>Assign</operator>
@@ -79,7 +79,7 @@
         <name>Set_FiberPair_NotCommited</name>
         <label>Set FiberPair NotCommited</label>
         <locationX>314</locationX>
-        <locationY>350</locationY>
+        <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>iFiberPairRecord.Status__c</assignToReference>
             <operator>Assign</operator>
@@ -117,7 +117,7 @@
         <name>Counter_is_Less_or_Equal_than_Fiber_Pairs_Commited</name>
         <label>Counter is Less or Equal than Fiber Pairs Commited?</label>
         <locationX>182</locationX>
-        <locationY>242</locationY>
+        <locationY>350</locationY>
         <defaultConnector>
             <targetReference>Set_FiberPair_NotCommited</targetReference>
         </defaultConnector>
@@ -142,7 +142,7 @@
         <name>Reached_Fiber_Pairs_Connected</name>
         <label>Reached Fiber Pairs Connected?</label>
         <locationX>380</locationX>
-        <locationY>134</locationY>
+        <locationY>242</locationY>
         <defaultConnectorLabel>Yes</defaultConnectorLabel>
         <rules>
             <name>No</name>
@@ -160,7 +160,7 @@
             <label>No</label>
         </rules>
     </decisions>
-    <description>Automatic Creation of Fiber Pair Records + PR1031160-912 Leading Zeros Formula</description>
+    <description>Automatic Creation of Fiber Pair Records + PR1031160-912 Leading Zeros Formula + Home Run Name</description>
     <environments>Default</environments>
     <formulas>
         <name>AutoNumberLeadingZerosFx</name>
@@ -170,7 +170,7 @@
     <formulas>
         <name>ValueFiberPairName</name>
         <dataType>String</dataType>
-        <expression>&apos;HomeRunName&apos; + &apos;.&apos; + {!AutoNumberLeadingZerosFx} + TEXT({!Counter}) +&apos;/&apos; + {!AutoNumberLeadingZerosFx} +TEXT({!FiberPairsConnected})</expression>
+        <expression>{!Get_Home_Run.Name} + &apos;.&apos; + {!AutoNumberLeadingZerosFx} + TEXT({!Counter}) +&apos;/&apos; + {!AutoNumberLeadingZerosFx} +TEXT({!FiberPairsConnected})</expression>
     </formulas>
     <interviewLabel>DX Create Fiber Pair Records {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Create Fiber Pair Records</label>
@@ -193,11 +193,32 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Home_Run</name>
+        <label>Get Home Run</label>
+        <locationX>380</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Reached_Fiber_Pairs_Connected</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>HomeRunId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>DC_Homerun__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <start>
         <locationX>254</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Reached_Fiber_Pairs_Connected</targetReference>
+            <targetReference>Get_Home_Run</targetReference>
         </connector>
     </start>
     <status>Active</status>
@@ -242,6 +263,13 @@
         <isInput>true</isInput>
         <isOutput>false</isOutput>
         <scale>0</scale>
+    </variables>
+    <variables>
+        <name>HomeRunId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <name>iFiberPairRecord</name>
