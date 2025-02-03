@@ -2,9 +2,9 @@
 <UserAccessPolicy xmlns="http://soap.sforce.com/2006/04/metadata">
     <booleanFilter>1 AND 2</booleanFilter>
     <description>Apply Service Request Access to Customer Community Login User Profile</description>
-    <masterLabel>Community Users Service Request Access</masterLabel>
+    <masterLabel>DX_Community_Users_Service_Request_Access</masterLabel>
     <order>8</order>
-    <status>Design</status>
+    <status>Active</status>
     <triggerType>CreateAndUpdate</triggerType>
     <userAccessPolicyActions>
         <action>Grant</action>
