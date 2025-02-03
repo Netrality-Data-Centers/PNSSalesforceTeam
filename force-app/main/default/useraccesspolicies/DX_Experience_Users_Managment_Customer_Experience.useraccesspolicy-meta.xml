@@ -3,7 +3,8 @@
     <booleanFilter>1 AND 2</booleanFilter>
     <masterLabel>DX Experience Users Managment - Customer Experience</masterLabel>
     <order>8</order>
-    <status>Design</status>
+    <status>Active</status>
+    <triggerType>CreateAndUpdate</triggerType>
     <userAccessPolicyActions>
         <action>Grant</action>
         <target>DX_Manage_Experience_Users</target>

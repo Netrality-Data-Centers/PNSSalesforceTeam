@@ -3,7 +3,7 @@
     <booleanFilter>1 AND 2</booleanFilter>
     <masterLabel>DX_Experience_Users_Managment</masterLabel>
     <order>7</order>
-    <status>Design</status>
+    <status>Active</status>
     <triggerType>CreateAndUpdate</triggerType>
     <userAccessPolicyActions>
         <action>Grant</action>

@@ -2,9 +2,10 @@
 <UserAccessPolicy xmlns="http://soap.sforce.com/2006/04/metadata">
     <booleanFilter>1 AND 2</booleanFilter>
     <description>Grants access to permission set DCIM_Model to System Admins</description>
-    <masterLabel>DCIM Access Policy to Sys Admins</masterLabel>
+    <masterLabel>DCIM_Access_Policy_to_Sys_Admins</masterLabel>
     <order>4</order>
-    <status>Design</status>
+    <status>Active</status>
+    <triggerType>CreateAndUpdate</triggerType>
     <userAccessPolicyActions>
         <action>Grant</action>
         <target>DCIM_Model_View</target>
