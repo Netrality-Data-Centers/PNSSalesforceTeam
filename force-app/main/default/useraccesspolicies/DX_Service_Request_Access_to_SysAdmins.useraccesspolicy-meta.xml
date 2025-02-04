@@ -3,7 +3,7 @@
     <booleanFilter>1 AND 2</booleanFilter>
     <masterLabel>DX_Service_Request_Access_to_SysAdmins</masterLabel>
     <order>6</order>
-    <status>Active</status>
+    <status>Design</status>
     <triggerType>CreateAndUpdate</triggerType>
     <userAccessPolicyActions>
         <action>Grant</action>

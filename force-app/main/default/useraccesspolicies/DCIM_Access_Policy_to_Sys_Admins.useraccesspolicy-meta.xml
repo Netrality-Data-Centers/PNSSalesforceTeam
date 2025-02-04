@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <UserAccessPolicy xmlns="http://soap.sforce.com/2006/04/metadata">
     <booleanFilter>1 AND 2</booleanFilter>
-    <description>Grants access to permission set DCIM_Model to System Admins</description>
-    <masterLabel>DCIM_Access_Policy_to_Sys_Admins</masterLabel>
+    <description>DCIM Access Experience Cloud access, Service Request Access</description>
+    <masterLabel>DC System Admin UAP</masterLabel>
     <order>4</order>
-    <status>Active</status>
+    <status>Design</status>
     <triggerType>CreateAndUpdate</triggerType>
     <userAccessPolicyActions>
         <action>Grant</action>
@@ -19,6 +19,16 @@
     <userAccessPolicyActions>
         <action>Grant</action>
         <target>DCIM_Model_Edit</target>
+        <type>PermissionSet</type>
+    </userAccessPolicyActions>
+    <userAccessPolicyActions>
+        <action>Grant</action>
+        <target>DX_Manage_Service_Request_PS</target>
+        <type>PermissionSet</type>
+    </userAccessPolicyActions>
+    <userAccessPolicyActions>
+        <action>Grant</action>
+        <target>DX_Manage_Experience_Users</target>
         <type>PermissionSet</type>
     </userAccessPolicyActions>
     <userAccessPolicyFilters>

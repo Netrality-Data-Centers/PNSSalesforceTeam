@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <UserAccessPolicy xmlns="http://soap.sforce.com/2006/04/metadata">
     <booleanFilter>1 AND 2</booleanFilter>
-    <masterLabel>DX Experience Users Managment - Customer Experience</masterLabel>
+    <description>Customer Experience Profile Access to Managed Experience User</description>
+    <masterLabel>DC Customer Experience UAP</masterLabel>
     <order>8</order>
-    <status>Active</status>
+    <status>Design</status>
     <triggerType>CreateAndUpdate</triggerType>
     <userAccessPolicyActions>
         <action>Grant</action>

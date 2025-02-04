@@ -11,7 +11,7 @@
     <userAccessPolicyFilters>
         <operation>equals</operation>
         <sortOrder>1</sortOrder>
-        <target>Solution Architect</target>
+        <target>solution architect</target>
         <type>Profile</type>
     </userAccessPolicyFilters>
     <userAccessPolicyFilters>
