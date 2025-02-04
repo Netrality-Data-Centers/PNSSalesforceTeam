@@ -102,6 +102,13 @@
                 <elementReference>AssetNameFormula</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>iAsset.Quantity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>SOLineItem.Quantity</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Allocated</targetReference>
         </connector>
