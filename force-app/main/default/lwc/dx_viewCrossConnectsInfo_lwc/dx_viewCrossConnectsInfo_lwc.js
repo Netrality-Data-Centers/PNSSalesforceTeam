@@ -23,12 +23,12 @@ export default class Dx_viewCrossConnectsInfo_lwc extends LightningElement {
                 let Origination_Account_Name;
                 let Building_Name;
                 for(let item in result){
-                    Destination_Account_Name = result[item].Destination_Account__r.Name;
-                    Origination_Account_Name = result[item].Origination_Account__r.Name;
+                    Destination_Account_Name = result[item].Destination_Account__r?.Name || '';
+                    Origination_Account_Name = result[item].Origination_Account__r?.Name || '';
                     result[item].Origination_Account_Name = Origination_Account_Name;
                     result[item].Destination_Account_Name = Destination_Account_Name;
 
-                    Building_Name = result[item].Building__r.Name;
+                    Building_Name = result[item].Building__r?.Name || '';
                     result[item].Building_Name = Building_Name;
                 }
                 this.dataInfo = [...result];
