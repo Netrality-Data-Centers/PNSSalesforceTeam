@@ -1,5 +1,24 @@
-@IsTest(SeeAllData = true)
+@IsTest
 public with sharing class LightningSelfRegisterControllerTest {
+    
+ @IsTest
+ static void setExperienceId() {
+  String strResult = LightningSelfRegisterController.setExperienceId('IdTest');
+  System.assertNotEquals(strResult, null);
+ }
+    
+    @IsTest
+ static void getFields() {
+  Schema.FieldSet fieldSet = Schema.SObjectType.User.fieldSets.getMap().get('PersonalInfo_EPIM');
+  List<Map<String,Object>> lstResult = LightningSelfRegisterController.getFields(fieldSet);
+  System.assertNotEquals(lstResult, null);
+ }
+    
+ @IsTest
+ static void setExperienceIdNull() {
+ String strResult = LightningSelfRegisterController.setExperienceId(null);
+ System.assertEquals(strResult, null);
+ }
 
  /* Verifies that IsValidPassword method with various password combinations. */
  @IsTest
