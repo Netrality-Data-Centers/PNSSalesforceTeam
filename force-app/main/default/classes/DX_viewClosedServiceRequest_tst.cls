@@ -15,7 +15,7 @@ public class DX_viewClosedServiceRequest_tst {
         
         // Create a test user
         User testUser = new User(
-            ProfileId = [SELECT Id FROM Profile WHERE Name = 'Customer Community Login User'].Id,
+            ProfileId = [SELECT Id FROM Profile WHERE Name = 'Customer Community Login User Custom'].Id,
             FirstName = 'Test',
             LastName = 'User',
             Email = 'testuser@example.com',
