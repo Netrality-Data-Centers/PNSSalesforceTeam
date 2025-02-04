@@ -15,7 +15,7 @@ public class DX_viewCrossConnectsInformation_ctrTest {
         
         // Create a test user
         User testUser = new User(
-            ProfileId = [SELECT Id FROM Profile WHERE Name = 'Customer Community Login User'].Id,
+            ProfileId = [SELECT Id FROM Profile WHERE Name = 'Customer Community Login User Custom'].Id,
             FirstName = 'Test',
             LastName = 'User',
             Email = 'testuser@example.com',
@@ -70,6 +70,7 @@ public class DX_viewCrossConnectsInformation_ctrTest {
 		objPanel.Number_of_Ports_Tall__c = 2;
 		objPanel.Number_of_Ports_Wide__c = 2;
         objPanel.Short_Name__c = 'Te';
+        objPanel.Starting_Position_RU__c=1;
         insert objPanel;
         
         DC_Port__c  objDCPort  = new DC_Port__c();

@@ -67,7 +67,7 @@ public with sharing class DX_DCIM_DataAccess_tst {
          insert cage;
          
          // Insert a test Cabinet
-         DC_Cabinet__c cabinet = new DC_Cabinet__c(Name = 'Test Cabinet', Cage__c =  cage.Id, Status__c = 'Occupied', Cabinet_Equivalent__c = 2, Depth_in__c = 2, Height_RU__c = 1, MRI_Suite_ID__c = '245', Short_Name__c = 'CT', Width_in__c = 3, Asset__c = asset.Id);
+         DC_Cabinet__c cabinet = new DC_Cabinet__c(Name = 'Test Cabinet', Cage__c =  cage.Id, Status__c = 'Occupied', Cabinet_Equivalent__c = 2, Depth_in__c = 2, Height_RU__c = 1, MRI_Suite_ID__c = '245', Short_Name__c = 'CT', Width_in__c = 3, Asset__c = asset.Id, Account_Lookup__c = Account.Id);
          insert cabinet;
 
         // Create a new DC_POE__c record
