@@ -8,7 +8,7 @@ public class DX_PanelSelectorMeetMeRoomPanel_tst {
         insert Account;
         
         // Create a new Product record
-        Product2 product = new Product2(Name = 'Test Product', ProductCode = 'TP01', Description = 'Test Product Description', IsActive = true, Product_Group__c = 'ExampleProductGroup', Product_Category__c = 'Power');
+        Product2 product = new Product2(Name = 'Test Product', ProductCode = 'TP01', Description = 'Test Product Description', IsActive = true, Product_Group__c = 'ExampleProductGroup', Product_Category__c = 'Power', DC_Allocation_Required__c = 'Yes', DC_Asset_Type__c = 'Fiber Pair', DC_Income_Category__c = 'test', DC_Number_of_Assets__c = '1');
         // Insert the Product record
         insert product;
 
@@ -61,7 +61,7 @@ public class DX_PanelSelectorMeetMeRoomPanel_tst {
         insert cage;
         
         // Create a test Tenant Suite record associated with the test Building
-        DC_Tenant_Suite__c TenantSuite = new DC_Tenant_Suite__c(Name = 'Test Tenant Suite', Floor__c = Floor.Id, Status__c = 'Occupied', Suite_Use__c = 'Powered Shell', Account__c = Account.Id, Square_Footage__c = 2);
+        DC_Tenant_Suite__c TenantSuite = new DC_Tenant_Suite__c(Name = 'Test Tenant Suite', Floor__c = Floor.Id, Status__c = 'Occupied', Suite_Use__c = 'Powered Shell', Account__c = Account.Id, Square_Footage__c = 2, Short_Name__c = 'TT');
         insert TenantSuite;
         
         DC_Meet_Me_Room__c MeetMeRoom = new DC_Meet_Me_Room__c(Name = 'Room 101', Data_Hall__c = dataHall.Id, Short_Name__c = 'MMR');
