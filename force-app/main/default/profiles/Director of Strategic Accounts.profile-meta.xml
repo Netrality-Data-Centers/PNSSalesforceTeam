@@ -145,6 +145,10 @@
         <apexClass>LightningSelfRegisterControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>PanelAssignment</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
     <description>Profile to be assigned to all Directors of Strategic Accounts.</description>
     <fieldPermissions>
@@ -2478,6 +2482,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Rack__c.Available_RU_Space__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>DC_Rack__c.Committed_Power__c</field>
         <readable>true</readable>
@@ -2490,6 +2499,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DC_Rack__c.Legacy_Cabinet_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Rack__c.Occupied_RU_Space__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
