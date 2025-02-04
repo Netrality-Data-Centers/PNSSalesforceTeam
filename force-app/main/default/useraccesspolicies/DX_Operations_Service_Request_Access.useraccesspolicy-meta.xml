@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <UserAccessPolicy xmlns="http://soap.sforce.com/2006/04/metadata">
     <booleanFilter>1 AND 2</booleanFilter>
-    <masterLabel>Operations Service Request Access</masterLabel>
+    <masterLabel>DX_Operations_Service_Request_Access</masterLabel>
     <order>3</order>
     <status>Design</status>
     <userAccessPolicyActions>
