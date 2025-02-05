@@ -620,6 +620,32 @@
                 <name>Port_Information_from_Service_Request_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
+                    <name>A_Order_Initiator_Account_Name</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_Service_Request_Info.DX_Account_Name_Order_Initiator__r.Name</elementReference>
+                    </defaultValue>
+                    <fieldText>A (Order Initiator) - Account Name</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>A_Order_Initiator_Rack_RU_MMR_Panel_Location</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_Service_Request_Info.DX_Rack_RU_Order_Initiator__c</elementReference>
+                    </defaultValue>
+                    <fieldText>A (Order Initiator) Rack RU (MMR Panel Location)</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
                     <name>A_Order_Initiator_Ports</name>
                     <dataType>String</dataType>
                     <defaultValue>
@@ -647,6 +673,35 @@
                 <name>Port_Information_from_Service_Request_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
+                    <name>Z_LOA_Info_Account_Name</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_Service_Request_Info.DX_Account_Name_ZLOA__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Z(LOA Info) - Account Name</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isReadOnly>
+                        <booleanValue>true</booleanValue>
+                    </isReadOnly>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
+                    <name>Z_LOA_Info_Rack_RU_MMR_Panel_Location</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_Service_Request_Info.DX_Rack_RU_ZLOA__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Z(LOA Info) Rack RU (MMR Panel Location)</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isDisabled>
+                        <booleanValue>true</booleanValue>
+                    </isDisabled>
+                    <isRequired>false</isRequired>
+                </fields>
+                <fields>
                     <name>Z_LOA_Info_Ports</name>
                     <dataType>String</dataType>
                     <defaultValue>
@@ -662,51 +717,6 @@
                     </isReadOnly>
                     <isRequired>false</isRequired>
                 </fields>
-                <inputParameters>
-                    <name>width</name>
-                    <value>
-                        <stringValue>6</stringValue>
-                    </value>
-                </inputParameters>
-                <isRequired>false</isRequired>
-            </fields>
-            <isRequired>false</isRequired>
-            <regionContainerType>SectionWithHeader</regionContainerType>
-        </fields>
-        <fields>
-            <name>Account_Information</name>
-            <fieldText>Account Information</fieldText>
-            <fieldType>RegionContainer</fieldType>
-            <fields>
-                <name>Account_Information_Column1</name>
-                <fieldType>Region</fieldType>
-                <fields>
-                    <name>Destination_Account_Z_LOA_Info</name>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>Get_Service_Request_Info.DX_Account_Name_ZLOA__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Destination Account - Z (LOA Info)</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <isDisabled>
-                        <booleanValue>true</booleanValue>
-                    </isDisabled>
-                    <isReadOnly>
-                        <booleanValue>true</booleanValue>
-                    </isReadOnly>
-                    <isRequired>false</isRequired>
-                </fields>
-                <inputParameters>
-                    <name>width</name>
-                    <value>
-                        <stringValue>6</stringValue>
-                    </value>
-                </inputParameters>
-                <isRequired>false</isRequired>
-            </fields>
-            <fields>
-                <name>Account_Information_Column2</name>
-                <fieldType>Region</fieldType>
                 <inputParameters>
                     <name>width</name>
                     <value>
