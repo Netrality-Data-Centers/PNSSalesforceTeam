@@ -1,5 +1,17 @@
-@IsTest(SeeAllData = true)
+@IsTest
 public with sharing class LightningForgotPasswordControllerTest {
+    
+ @IsTest
+ static void setExperienceId() {
+ String strResult = LightningForgotPasswordController.setExperienceId('IdTest');
+ System.assertNotEquals(strResult, null);
+ }
+ 
+ @IsTest
+ static void setExperienceIdNull() {
+ String strResult = LightningForgotPasswordController.setExperienceId(null);
+ System.assertEquals(strResult, null);
+ }
 
  /* Verifies that ForgotPasswordController handles invalid usernames appropriately */
  @IsTest
@@ -8,7 +20,7 @@ public with sharing class LightningForgotPasswordControllerTest {
   System.assertEquals(LightningForgotPasswordController.forgotPassword(null, 'http://a.com'), Label.Site.invalid_email);
   System.assertEquals(LightningForgotPasswordController.forgotPassword('a', '/home/home.jsp'), Label.Site.invalid_email);
  }
-
+    
  /* Verifies that null checkEmailRef url throws proper exception. */
  @IsTest
  static void testLightningForgotPasswordControllerWithNullCheckEmailRef() {

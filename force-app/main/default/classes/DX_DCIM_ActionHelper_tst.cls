@@ -13,7 +13,7 @@ public with sharing class DX_DCIM_ActionHelper_tst {
         insert Account;
 
         // Create a new Product record
-        Product2 product = new Product2(Name = 'Test Product', ProductCode = 'TP01', Description = 'Test Product Description', IsActive = true, Product_Group__c = 'ExampleProductGroup', Product_Category__c = 'Power');
+        Product2 product = new Product2(Name = 'Test Product', ProductCode = 'TP01', Description = 'Test Product Description', IsActive = true, Product_Group__c = 'ExampleProductGroup', Product_Category__c = 'Power', DC_Allocation_Required__c = 'Yes', DC_Asset_Type__c = 'Fiber Pair', DC_Income_Category__c = 'test', DC_Number_of_Assets__c = '1');
         // Insert the Product record
         insert product;
 
@@ -66,7 +66,7 @@ public with sharing class DX_DCIM_ActionHelper_tst {
         insert cage;
         
         // Insert a test Cabinet
-        DC_Cabinet__c cabinet = new DC_Cabinet__c(Name = 'Test Cabinet', Cage__c =  cage.Id, Status__c = 'Occupied', Cabinet_Equivalent__c = 2, Depth_in__c = 2, Height_RU__c = 1, MRI_Suite_ID__c = '245', Short_Name__c = 'CT', Width_in__c = 3, Asset__c = asset.Id);
+        DC_Cabinet__c cabinet = new DC_Cabinet__c(Name = 'Test Cabinet', Cage__c =  cage.Id, Status__c = 'Occupied', Cabinet_Equivalent__c = 2, Depth_in__c = 2, Height_RU__c = 1, MRI_Suite_ID__c = '245', Short_Name__c = 'CT', Width_in__c = 3, Asset__c = asset.Id, Account_Lookup__c =Account.Id);
         insert cabinet;
         
         DC_Meet_Me_Room__c MeetMeRoom = new DC_Meet_Me_Room__c(Name = 'Room 101', Data_Hall__c = DataHall.Id, Short_Name__c = 'MMR');
@@ -84,7 +84,7 @@ public with sharing class DX_DCIM_ActionHelper_tst {
         insert PoeAllocation;
 
         // Create a test Tenant Suite record associated with the test Building
-        DC_Tenant_Suite__c TenantSuite = new DC_Tenant_Suite__c(Name = 'Test Tenant Suite', Floor__c = Floor.Id, Status__c = 'Occupied', Suite_Use__c = 'Powered Shell', Account__c = Account.Id, Square_Footage__c = 2);
+        DC_Tenant_Suite__c TenantSuite = new DC_Tenant_Suite__c(Name = 'Test Tenant Suite', Floor__c = Floor.Id, Status__c = 'Occupied', Suite_Use__c = 'Powered Shell', Account__c = Account.Id, Square_Footage__c = 2, Short_Name__c = 'TT');
         insert TenantSuite;
 
     }
