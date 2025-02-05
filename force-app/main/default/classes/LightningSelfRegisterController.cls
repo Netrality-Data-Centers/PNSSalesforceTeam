@@ -108,18 +108,26 @@ global class LightningSelfRegisterController {
         List<Map<String,Object>> extraFields = new List<Map<String,Object>>();
         Schema.FieldSet fieldSet = Schema.SObjectType.User.fieldSets.getMap().get(extraFieldsFieldSet);
         if(!Test.isRunningTest()) {
-        if (fieldSet != null) {
-            for (Schema.FieldSetMember f : fieldSet.getFields()) {
-                Map<String, Object> fieldDetail = new Map<String, Object>();
-                fieldDetail.put('dbRequired', f.getDBRequired());
-                fieldDetail.put('fieldPath', f.getFieldPath());
-                fieldDetail.put('label', f.getLabel());
-                fieldDetail.put('required', f.getRequired());
-                fieldDetail.put('type', f.getType());
-                fieldDetail.put('value', '');   // client will populate
-                extraFields.add(fieldDetail);
-            }}}
+            extraFields = getFields(fieldSet);
+        }
         return extraFields;
+    }
+    
+    public static List<Map<String,Object>> getFields(Schema.FieldSet fieldSet){
+        List<Map<String,Object>> extraFields = new List<Map<String,Object>>();
+        if (fieldSet != null) {
+                for (Schema.FieldSetMember f : fieldSet.getFields()) {
+                    Map<String, Object> fieldDetail = new Map<String, Object>();
+                    fieldDetail.put('dbRequired', f.getDBRequired());
+                    fieldDetail.put('fieldPath', f.getFieldPath());
+                    fieldDetail.put('label', f.getLabel());
+                    fieldDetail.put('required', f.getRequired());
+                    fieldDetail.put('type', f.getType());
+                    fieldDetail.put('value', '');   // client will populate
+                    extraFields.add(fieldDetail);
+                }
+        }
+       	return extraFields;
     }
     
     @AuraEnabled
