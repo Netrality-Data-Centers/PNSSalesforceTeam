@@ -592,7 +592,7 @@
             <label>New Home Run</label>
         </rules>
     </decisions>
-    <description>PR1031160-912 Updated Requirement for - Subflow Home Run and Fiber Pair Creation + Home Run Name</description>
+    <description>PR1031160-912 Updated Requirement for - Subflow Home Run and Fiber Pair Creation + Home Run Name + Latest Bug Fix</description>
     <dynamicChoiceSets>
         <name>AssetCS</name>
         <dataType>String</dataType>
@@ -659,7 +659,7 @@
         <label>Fiber Pairs Loop Existing Home Run</label>
         <locationX>2602</locationX>
         <locationY>2054</locationY>
-        <collectionReference>FiberPairList</collectionReference>
+        <collectionReference>lstFiberPairToShowFromHomeRunId</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
             <targetReference>Set_Missing_Fields_Existing_Home_Run</targetReference>
