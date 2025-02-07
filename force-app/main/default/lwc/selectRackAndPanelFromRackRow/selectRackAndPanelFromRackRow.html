@@ -14,7 +14,10 @@
                             </lightning-layout-item>
                             <lightning-layout-item size="4">
                                 <div class="slds-var-m-horizontal-medium">
-                                    <lightning-progress-bar variant="circular" value={percentComplete} min="0" max="100"></lightning-progress-bar>
+                                    <lightning-progress-ring value={percentComplete} min="0" max="100">
+                                        <div class="slds-text-body_regular">{remainingPanelMessage}</div>
+                                    </lightning-progress-ring>
+                                    
                                 </div>
                             </lightning-layout-item>
                             <lightning-layout-item size="4"><lightning-button label="Save" disabled={allHaveSelected} onclick={handleSave}></lightning-button></lightning-layout-item>
@@ -45,7 +48,7 @@
                     <div if:false={hasSelection}>
                         <div if:false={isSelection}>
                             <lightning-card title="Panels in Rack Row">
-                                <div class="slds-p-around_medium">
+                                <div class="slds-p-around_medium tableWrapper">
                                     <table class="slds-table slds-table_cell-buffer slds-table_bordered">
                                         <thead>
                                             <tr class="slds-line-height_reset">
