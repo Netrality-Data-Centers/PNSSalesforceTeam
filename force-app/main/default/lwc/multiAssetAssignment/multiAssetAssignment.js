@@ -198,9 +198,13 @@ export default class MultiAssetAssignment extends LightningElement {
         this.dispatchEvent(navigateNextEvent);
     }
 
-
+    constructor() {
+        super();
+        debugger;
+    }
     // Initialize assets with assignment tracking
     connectedCallback() {
+        debugger;
         loadStyle(this, modaloverride).then(() => {
             if (this.assets) {
                 this.assets = this.assets
@@ -224,43 +228,38 @@ export default class MultiAssetAssignment extends LightningElement {
     }
     // Handle flow finish event
     handleFlowStatusChange(event) {
-        if (event.detail.status === 'FINISHED') {
+        if (event.detail.status !== 'STARTED' && event.detail.status !== 'ERROR' && event.detail.status !== 'PAUSED') {
+            debugger;
             this.isBusy = true;
-            let wasAssetAssigned = event.detail?.outputVariables?.find((elem) => { return elem.name == 'assetWasAllocated' })?.value
-
-            if (wasAssetAssigned) {
-                let cabinetId = event.detail?.outputVariables?.find((elem) => { return elem.name == 'cabinetId' })?.value
-                let cageId = event.detail?.outputVariables?.find((elem) => { return elem.name == 'cageId' })?.value;
-                let cabinetName = event.detail?.outputVariables?.find((elem) => { return elem.name == 'cabinetName' })?.value;
-                let cageName = event.detail?.outputVariables?.find((elem) => { return elem.name == 'cageName' })?.value;
-                if (cabinetId && cabinetName) {
-                    this.cabinetId = cabinetId;
-                    this.cabinetName = cabinetName;
-                    let flowInputVariables = [...this.flowInputVariables];
-                    let cabinetVariable = flowInputVariables.find(variable => variable.name === 'cabinetId');
-                    if (cabinetVariable) {
-                        cabinetVariable.isSelected = true;
-                    }
-                    this._flowInputVariables = flowInputVariables;
+            let cabinetId = event.detail?.outputVariables?.find((elem) => { return elem.name == 'cabinetId' })?.value
+            let cageId = event.detail?.outputVariables?.find((elem) => { return elem.name == 'cageId' })?.value;
+            let cabinetName = event.detail?.outputVariables?.find((elem) => { return elem.name == 'cabinetName' })?.value;
+            let cageName = event.detail?.outputVariables?.find((elem) => { return elem.name == 'cageName' })?.value;
+            if (cabinetId && cabinetName) {
+                this.cabinetId = cabinetId;
+                this.cabinetName = cabinetName;
+                let flowInputVariables = [...this.flowInputVariables];
+                let cabinetVariable = flowInputVariables.find(variable => variable.name === 'cabinetId');
+                if (cabinetVariable) {
+                    cabinetVariable.isSelected = true;
                 }
-                if (cageId && cageName) {
-                    this.cageId = cageId;
-                    this.cageName = cageName;
-                    let flowInputVariables = [...this.flowInputVariables];
-                    let cageVariable = flowInputVariables.find(variable => variable.name === 'cageId');
-                    if (cageVariable) {
-                        cageVariable.isSelected = true;
-                    }
-                    this._flowInputVariables = flowInputVariables;
-                }
-                this.publishMessageToUser('Asset was allocated successfully', 'success');
-                if (this.selectedAsset) {
-                    this.selectedAsset.isAssigned = true;
-                }
-
-            } else {
-                this.publishMessageToUser('Asset was not allocated successfully', 'error');
+                this._flowInputVariables = flowInputVariables;
             }
+            if (cageId && cageName) {
+                this.cageId = cageId;
+                this.cageName = cageName;
+                let flowInputVariables = [...this.flowInputVariables];
+                let cageVariable = flowInputVariables.find(variable => variable.name === 'cageId');
+                if (cageVariable) {
+                    cageVariable.isSelected = true;
+                }
+                this._flowInputVariables = flowInputVariables;
+            }
+            this.publishMessageToUser('Asset was allocated successfully', 'success');
+            if (this.selectedAsset) {
+                this.selectedAsset.isAssigned = true;
+            }
+
             // Move to next unassigned asset if available
             if (!this.isLastAsset) {
                 this.handleNextAsset();
@@ -281,6 +280,8 @@ export default class MultiAssetAssignment extends LightningElement {
                     }
                 }
             }
+        } else if (event.detail.status === 'ERROR') {
+            this.publishMessageToUser('Error allocating asset', 'error');
         }
     }
     publishMessageToUser(message, variant = "info") {
