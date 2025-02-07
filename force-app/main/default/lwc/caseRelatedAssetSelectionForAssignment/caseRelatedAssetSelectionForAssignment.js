@@ -4,9 +4,9 @@ import getRelatedAssets from '@salesforce/apex/CaseRelatedAssetSelectionControll
 
 const COLUMNS = [
     { label: 'Asset Name', fieldName: 'Name' },
-    { label: 'Serial Number', fieldName: 'SerialNumber' },
+    // { label: 'Serial Number', fieldName: 'SerialNumber' },
     { label: 'Status', fieldName: 'Status' },
-    { label: 'Product', fieldName: 'Product2Name' },
+    // { label: 'Product', fieldName: 'Product2Name' },
     { label: 'Asset Type', fieldName: 'Asset_Type__c' }
 ];
 
