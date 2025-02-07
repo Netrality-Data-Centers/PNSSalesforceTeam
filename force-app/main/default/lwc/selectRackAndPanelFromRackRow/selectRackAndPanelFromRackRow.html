@@ -14,10 +14,15 @@
                             </lightning-layout-item>
                             <lightning-layout-item size="4">
                                 <div class="slds-var-m-horizontal-medium">
-                                    <lightning-progress-ring value={percentComplete} min="0" max="100">
-                                        <div class="slds-text-body_regular">{remainingPanelMessage}</div>
-                                    </lightning-progress-ring>
-                                    
+                                    <lightning-layout>
+                                        <lightning-layout-item size="6">
+                                            <lightning-progress-ring value={percentComplete} min="0" max="100">
+                                            </lightning-progress-ring>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="6">
+                                            <div class="slds-text-body_regular">{remainingPanelMessage}</div>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
                                 </div>
                             </lightning-layout-item>
                             <lightning-layout-item size="4"><lightning-button label="Save" disabled={allHaveSelected} onclick={handleSave}></lightning-button></lightning-layout-item>
