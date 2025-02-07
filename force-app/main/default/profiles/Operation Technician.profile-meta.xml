@@ -7,7 +7,7 @@
     </applicationVisibilities>
     <classAccesses>
         <apexClass>CaseRelatedAssetSelectionController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CaseRelatedAssetSelectionControllerTest</apexClass>
@@ -86,8 +86,16 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DX_PrimaryAccountContactHelperTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_RelatedAccountsContactHelper</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_RelatedAccountsContactHelperTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DX_TenantIdHelper</apexClass>
@@ -147,6 +155,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>PanelAssignment</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PanelAssignmentTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
@@ -1971,6 +1983,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Source_URL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>DC_Asset_History__c.Asset_Type__c</field>
         <readable>false</readable>
@@ -2846,6 +2863,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead.Source_URL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>MRILedger__c.MRI_Source_Code__c</field>
         <readable>true</readable>
@@ -2899,6 +2921,26 @@
         <editable>false</editable>
         <field>QuoteLineItem.DC_Number_of_Assets__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>RDraw__Interaction_Definition__c.RDraw__Associated_Object__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>RDraw__Interaction_Definition__c.RDraw__Associated_Record__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>RDraw__Interaction_Definition__c.RDraw__Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>RDraw__Interaction_Definition__c.RDraw__Settings__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Admin View</layout>
@@ -3985,6 +4027,10 @@
     <tabVisibilities>
         <tab>Innerduct__c</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>RDraw__Interaction_Definition__c</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Account</tab>
