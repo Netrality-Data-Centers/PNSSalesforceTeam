@@ -29,3 +29,7 @@
     border-top: 1px solid #dddbda;
     background-color: #ffffff;
 }
+.tableWrapper{
+    max-height:60vh;
+    overflow-y: scroll;
+}

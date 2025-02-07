@@ -4,7 +4,7 @@
             <div class="slds-p-around_x-small">
                 <template if:true={hasAssets}>
                     <lightning-tabset>
-                        <lightning-tab label="Unlocated Assets">
+                        <lightning-tab label="Unallocated Assets">
                             <div class="slds-p-around_x-small">
                                 <template if:true={unlocatedAssets.length}>
                                     <lightning-datatable
@@ -24,7 +24,7 @@
                                 </template>
                             </div>
                         </lightning-tab>
-                        <lightning-tab label="Located Assets">
+                        <lightning-tab label="Allocate Assets">
                             <div class="slds-p-around_x-small">
                                 <template if:true={locatedAssets.length}>
                                     <lightning-datatable

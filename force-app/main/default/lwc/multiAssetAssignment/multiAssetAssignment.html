@@ -44,7 +44,7 @@
                 </lightning-layout-item>
                 <lightning-layout-item size="9">
                     <template if:true={hasLightningFlow}>
-                        <lightning-flow if:false={isBusy}
+                        <lightning-flow style="margin-top:2vh;" if:false={isBusy}
                             flow-api-name={lightningFlow}
                             flow-input-variables={selectedFormattedFlowInputVariables}
                             onstatuschange={handleFlowStatusChange}>
