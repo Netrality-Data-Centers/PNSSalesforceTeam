@@ -154,7 +154,7 @@ let getPanelSceneSettings = () => {
         "lastSaved": "2025-01-22T23:18:18.674Z",
         "placedSelectableShapes": []
     }
-    let panelSizes = [1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48];
+    let panelSizes = [1, 2, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48];
 
     let availabledraggableTemplates = panelSizes.map((itm) => {
         return generateDraggableItemTemplates(itm, true);
