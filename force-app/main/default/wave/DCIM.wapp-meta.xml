@@ -4,7 +4,7 @@
     <masterLabel>DCIM</masterLabel>
     <shares>
         <accessLevel>Manage</accessLevel>
-        <sharedTo>dave.rees@salesforce.com</sharedTo>
+        <sharedTo>dave.rees@salesforce.com.prod</sharedTo>
         <sharedToType>User</sharedToType>
     </shares>
 </WaveApplication>

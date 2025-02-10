@@ -24,8 +24,8 @@
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
     <serverIsDown>SNA_6IoQq_sf_default_cdn_Customer_Account_Portal1</serverIsDown>
-    <siteAdmin>ajuarez@salesforce.com.netrality</siteAdmin>
-    <siteGuestRecordDefaultOwner>ajuarez@salesforce.com.netrality</siteGuestRecordDefaultOwner>
+    <siteAdmin>mspissell@netrality.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>mspissell@netrality.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <urlPathPrefix>customeraccountportal</urlPathPrefix>
 </CustomSite>
