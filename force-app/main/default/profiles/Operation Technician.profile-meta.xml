@@ -3180,13 +3180,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Quote.Licensor__c</field>
-        <field>QuoteLineItem.DC_Allocation_Required__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Quote.MLSA_Legal_Approved__c</field>
-        <field>QuoteLineItem.DC_Asset_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3207,7 +3205,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Quote.NRC_Credit__c</field>
-        <field>QuoteLineItem.DC_Income_Category__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3228,7 +3225,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Quote.Operations_Approval_Status__c</field>
-        <field>QuoteLineItem.DC_Number_of_Assets__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
