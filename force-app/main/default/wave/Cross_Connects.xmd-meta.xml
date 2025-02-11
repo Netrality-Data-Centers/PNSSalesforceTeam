@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataset>Cross_Connects</dataset>
+    <dimensions>
+        <field>Destination_Account.Id</field>
+        <isDerived>false</isDerived>
+        <label>Destination Account ID</label>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Account.Id</field>
+        <isDerived>false</isDerived>
+        <label>Origination Account ID</label>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Account.Name</field>
+        <isDerived>false</isDerived>
+        <label>Destination Account</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Destination_Account.Id</recordIdField>
+        <salesforceActionsEnabled>true</salesforceActionsEnabled>
+        <sortIndex>2</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Account.Name</field>
+        <isDerived>false</isDerived>
+        <label>Origination Account</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Origination_Account.Id</recordIdField>
+        <salesforceActionsEnabled>true</salesforceActionsEnabled>
+        <sortIndex>3</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Account.Type</field>
+        <isDerived>false</isDerived>
+        <label>Destination Account Type</label>
+        <sortIndex>4</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Account.Type</field>
+        <isDerived>false</isDerived>
+        <label>Origination Account Type</label>
+        <sortIndex>5</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Account.BillingCity</field>
+        <isDerived>false</isDerived>
+        <label>Destination Account Billing City</label>
+        <sortIndex>6</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Account.BillingCity</field>
+        <isDerived>false</isDerived>
+        <label>Origination Account Billing City</label>
+        <sortIndex>7</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Account.BillingCountry</field>
+        <isDerived>false</isDerived>
+        <label>Destination Account Billing Country</label>
+        <sortIndex>8</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Account.BillingCountry</field>
+        <isDerived>false</isDerived>
+        <label>Origination Account Billing Country</label>
+        <sortIndex>9</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Account.BillingState</field>
+        <isDerived>false</isDerived>
+        <label>Destination Account Billing State/Province</label>
+        <sortIndex>10</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Account.BillingStreet</field>
+        <isDerived>false</isDerived>
+        <label>Destination Account Billing Street</label>
+        <sortIndex>11</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Account.BillingPostalCode</field>
+        <isDerived>false</isDerived>
+        <label>Destination Account Billing Zip/Postal Code</label>
+        <sortIndex>12</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Building.Name</field>
+        <isDerived>false</isDerived>
+        <label>Destination Port Building</label>
+        <sortIndex>13</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Building.City__c</field>
+        <isDerived>false</isDerived>
+        <label>Destination Port Building City</label>
+        <sortIndex>14</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.Name</field>
+        <isDerived>false</isDerived>
+        <label>Destination Port Data Hall</label>
+        <sortIndex>15</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Account.BillingState</field>
+        <isDerived>false</isDerived>
+        <label>Origination Account Billing State/Province</label>
+        <sortIndex>16</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Account.BillingStreet</field>
+        <isDerived>false</isDerived>
+        <label>Origination Account Billing Street</label>
+        <sortIndex>17</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Account.BillingPostalCode</field>
+        <isDerived>false</isDerived>
+        <label>Origination Account Billing Zip/Postal Code</label>
+        <sortIndex>18</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Building.Name</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port Building</label>
+        <sortIndex>19</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Building.City__c</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port Building City</label>
+        <sortIndex>20</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.Name</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port Data Hall</label>
+        <sortIndex>21</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Name</field>
+        <isDerived>false</isDerived>
+        <label>Destination Port Floor</label>
+        <sortIndex>22</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Name</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port Floor</label>
+        <sortIndex>23</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Building.Location__c</field>
+        <isDerived>false</isDerived>
+        <label>Destination Port Building Location</label>
+        <sortIndex>24</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Building.Location__c</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port Building Location</label>
+        <sortIndex>25</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.Name</field>
+        <isDerived>false</isDerived>
+        <label>Destination Port Meet Me Room</label>
+        <sortIndex>26</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.Name</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port Meet Me Room</label>
+        <sortIndex>27</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.Mod_Model__c</field>
+        <isDerived>false</isDerived>
+        <label>Destination Port Mod Model</label>
+        <sortIndex>28</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.Mod_Model__c</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port Mod Model</label>
+        <sortIndex>29</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.Name</field>
+        <isDerived>false</isDerived>
+        <label>Destination Port Panel</label>
+        <sortIndex>30</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.Name</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port Panel</label>
+        <sortIndex>31</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.Name</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Origination_Port.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>32</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.DC_Rack.Name</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port Rack</label>
+        <sortIndex>33</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.Name</field>
+        <isDerived>false</isDerived>
+        <label>Destination Port</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Destination_Port.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>34</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.DC_Rack.Name</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port Rack</label>
+        <sortIndex>35</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Building.State__c</field>
+        <isDerived>false</isDerived>
+        <label>Destination Port Building State</label>
+        <sortIndex>36</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Building.State__c</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port Building State</label>
+        <sortIndex>37</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.Port_Status__c</field>
+        <isDerived>false</isDerived>
+        <label>Destination Port Status</label>
+        <sortIndex>38</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.Port_Status__c</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port Status</label>
+        <sortIndex>39</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Xconnect_Status__c</field>
+        <isDerived>false</isDerived>
+        <label>Cross Connect Status</label>
+        <sortIndex>40</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.Id</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port ID</label>
+        <sortIndex>41</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.Id</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port Panel ID</label>
+        <sortIndex>42</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Id</field>
+        <isDerived>false</isDerived>
+        <label>Cross Connect ID</label>
+        <sortIndex>43</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.Id</field>
+        <isDerived>false</isDerived>
+        <label>Destination Port ID</label>
+        <sortIndex>44</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.Id</field>
+        <isDerived>false</isDerived>
+        <label>Destination Port Panel ID</label>
+        <sortIndex>45</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.DC_Rack.Id</field>
+        <isDerived>false</isDerived>
+        <label>Destination Port Panel Rack ID</label>
+        <sortIndex>46</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.DC_Rack.Id</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port Panel Rack ID</label>
+        <sortIndex>47</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.Short_Name__c</field>
+        <isDerived>false</isDerived>
+        <label>Destination Port Short Name</label>
+        <sortIndex>48</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.Short_Name__c</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port Short Name</label>
+        <sortIndex>49</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.Status__c</field>
+        <isDerived>false</isDerived>
+        <label>Destination Port Panel Status</label>
+        <sortIndex>50</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.Status__c</field>
+        <isDerived>false</isDerived>
+        <label>Origination Port Panel Status</label>
+        <sortIndex>51</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>52</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Building.Id</field>
+        <isDerived>false</isDerived>
+        <label>Destination Building ID</label>
+        <sortIndex>53</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Id</field>
+        <isDerived>false</isDerived>
+        <label>Destination Floor ID</label>
+        <sortIndex>54</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.Id</field>
+        <isDerived>false</isDerived>
+        <label>Destination Data Hall ID</label>
+        <sortIndex>55</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.Id</field>
+        <isDerived>false</isDerived>
+        <label>Destination Meet Me Room ID</label>
+        <sortIndex>56</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Building.Id</field>
+        <isDerived>false</isDerived>
+        <label>Origination Building ID</label>
+        <sortIndex>57</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Id</field>
+        <isDerived>false</isDerived>
+        <label>Origination Floor ID</label>
+        <sortIndex>58</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.Id</field>
+        <isDerived>false</isDerived>
+        <label>Origination Data Hall ID</label>
+        <sortIndex>59</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.Id</field>
+        <isDerived>false</isDerived>
+        <label>Origination Meet Me Room ID</label>
+        <sortIndex>60</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.Cooling_Redundancy_Configuration__c</field>
+        <isDerived>false</isDerived>
+        <label>Origination Cooling Redundancy Configuration</label>
+        <sortIndex>61</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Destination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.Cooling_Redundancy_Configuration__c</field>
+        <isDerived>false</isDerived>
+        <label>Destination Cooling Redundancy Configuration</label>
+        <sortIndex>62</sortIndex>
+    </dimensions>
+    <measures>
+        <field>Destination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Floor_number__c</field>
+        <isDerived>false</isDerived>
+        <label>Destination Floor_Number</label>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>*</field>
+        <isDerived>true</isDerived>
+        <label>Cross Connects</label>
+        <showInExplorer>true</showInExplorer>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>Destination_Port.DC_Panel.Height_RU__c</field>
+        <isDerived>false</isDerived>
+        <label>Destination Height (RU)</label>
+        <sortIndex>1</sortIndex>
+    </measures>
+    <measures>
+        <field>Destination_Port.DC_Panel.Number_of_Ports_Tall__c</field>
+        <isDerived>false</isDerived>
+        <label>Destination Number of Ports Tall</label>
+        <sortIndex>2</sortIndex>
+    </measures>
+    <measures>
+        <field>Destination_Port.DC_Panel.Number_of_Ports_Wide__c</field>
+        <isDerived>false</isDerived>
+        <label>Destination Number of Ports Wide</label>
+        <sortIndex>3</sortIndex>
+    </measures>
+    <measures>
+        <field>Origination_Port.DC_Panel.Number_of_Ports_Wide__c</field>
+        <isDerived>false</isDerived>
+        <label>Origination Number of Ports Wide</label>
+        <sortIndex>4</sortIndex>
+    </measures>
+    <measures>
+        <field>Destination_Port.DC_Panel.DC_Rack.Number_of_Rack_Units__c</field>
+        <isDerived>false</isDerived>
+        <label>Destination Number of Rack Units</label>
+        <sortIndex>5</sortIndex>
+    </measures>
+    <measures>
+        <field>Destination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Total_Square_Feet__c</field>
+        <isDerived>false</isDerived>
+        <label>Destination Total Square Feet</label>
+        <sortIndex>6</sortIndex>
+    </measures>
+    <measures>
+        <field>Origination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Floor_number__c</field>
+        <isDerived>false</isDerived>
+        <label>Origination Floor_Number</label>
+        <sortIndex>7</sortIndex>
+    </measures>
+    <measures>
+        <field>Origination_Port.DC_Panel.Height_RU__c</field>
+        <isDerived>false</isDerived>
+        <label>Origination Height (RU)</label>
+        <sortIndex>8</sortIndex>
+    </measures>
+    <measures>
+        <field>Origination_Port.DC_Panel.Number_of_Ports_Tall__c</field>
+        <isDerived>false</isDerived>
+        <label>Origination Number of Ports Tall</label>
+        <sortIndex>9</sortIndex>
+    </measures>
+    <measures>
+        <field>Origination_Port.DC_Panel.DC_Rack.Number_of_Rack_Units__c</field>
+        <isDerived>false</isDerived>
+        <label>Origination Number of Rack Units</label>
+        <sortIndex>10</sortIndex>
+    </measures>
+    <measures>
+        <field>Origination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Total_Square_Feet__c</field>
+        <isDerived>false</isDerived>
+        <label>Origination Total Square Feet</label>
+        <sortIndex>11</sortIndex>
+    </measures>
+</WaveXmd>
