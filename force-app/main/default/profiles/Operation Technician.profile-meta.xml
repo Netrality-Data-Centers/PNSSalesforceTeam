@@ -2188,6 +2188,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_Cross_Connect__c.Tie_Cable_Path__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>DC_Cross_Connect__c.XC_Disconnect_Date__c</field>
         <readable>false</readable>
