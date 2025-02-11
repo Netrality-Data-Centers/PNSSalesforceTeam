@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rack__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Rack this Rack Layout belongs to.</description>
+    <externalId>false</externalId>
+    <label>Rack</label>
+    <referenceTo>DC_Rack__c</referenceTo>
+    <relationshipLabel>Rack Layouts</relationshipLabel>
+    <relationshipName>Rack_Layouts</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

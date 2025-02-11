@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataset>Tenant_Power</dataset>
+    <dimensions>
+        <field>PDU_RPP.Name</field>
+        <isDerived>false</isDerived>
+        <label>PDU RPP</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>PDU_RPP.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Tenant_Suite.Name</field>
+        <isDerived>false</isDerived>
+        <label>Tenant Suite</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Tenant_Suite.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Name</field>
+        <isDerived>false</isDerived>
+        <label>Tenant Power Name</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>2</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Floor.Building.Id</field>
+        <isDerived>false</isDerived>
+        <label>Building ID</label>
+        <sortIndex>3</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Floor.Id</field>
+        <isDerived>false</isDerived>
+        <label>Floor ID</label>
+        <sortIndex>4</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>PDU_RPP.Id</field>
+        <isDerived>false</isDerived>
+        <label>PDU RPP ID</label>
+        <sortIndex>5</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Id</field>
+        <isDerived>false</isDerived>
+        <label>Tenant Power ID</label>
+        <sortIndex>6</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Tenant_Suite.Id</field>
+        <isDerived>false</isDerived>
+        <label>Tenant Suite ID</label>
+        <sortIndex>7</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Tenant_Suite.Account.Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Tenant_Suite.Account.Id</recordIdField>
+        <salesforceActionsEnabled>true</salesforceActionsEnabled>
+        <sortIndex>8</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Floor.Building.Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Floor.Building.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>9</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Floor.Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Floor.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>10</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Main_Utility_Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Main_Utility_ID</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>11</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Switchgear_Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Switchgear_ID</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>12</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>UPS_Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>UPS_ID</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>13</sortIndex>
+    </dimensions>
+    <measures>
+        <field>*</field>
+        <isDerived>true</isDerived>
+        <label>Tenant Power Records</label>
+        <showInExplorer>true</showInExplorer>
+        <sortIndex>0</sortIndex>
+    </measures>
+</WaveXmd>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <description>Saves Floor Name</description>
+    <environments>Default</environments>
+    <interviewLabel>DX Save Floor Name {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>DX Save Floor Name</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Floor_Name</name>
+        <label>Update Floor Name</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <faultConnector>
+            <targetReference>Create_Log_Error</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>{!$Record.Building__r.Building_Address_No__c}.{!$Record.Short_Name__c}</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Floor_Name</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Building__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>DC_Floor__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Create_Log_Error</name>
+        <label>Create Log Error</label>
+        <locationX>440</locationX>
+        <locationY>431</locationY>
+        <flowName>DX_Error_Log_Creation</flowName>
+        <inputAssignments>
+            <name>ErrorMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>FlowName</name>
+            <value>
+                <stringValue>DX Save Floor Name</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>MethodName</name>
+            <value>
+                <stringValue>Update Floor Name</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>ObjectName</name>
+            <value>
+                <stringValue>Floor</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>RecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>TypeOfOperation</name>
+            <value>
+                <stringValue>Update</stringValue>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>

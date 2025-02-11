@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Connector_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Connector Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>LC</fullName>
+                <default>false</default>
+                <label>LC</label>
+            </value>
+            <value>
+                <fullName>SC</fullName>
+                <default>false</default>
+                <label>SC</label>
+            </value>
+            <value>
+                <fullName>LC HD</fullName>
+                <default>false</default>
+                <label>LC HD</label>
+            </value>
+            <value>
+                <fullName>DS3</fullName>
+                <default>false</default>
+                <label>DS3</label>
+            </value>
+            <value>
+                <fullName>LC/SC</fullName>
+                <default>false</default>
+                <label>LC/SC</label>
+            </value>
+            <value>
+                <fullName>CAT6</fullName>
+                <default>false</default>
+                <label>CAT6</label>
+            </value>
+            <value>
+                <fullName>LCA</fullName>
+                <default>false</default>
+                <label>LCA</label>
+            </value>
+            <value>
+                <fullName>SCA</fullName>
+                <default>false</default>
+                <label>SCA</label>
+            </value>
+            <value>
+                <fullName>FCU</fullName>
+                <default>false</default>
+                <label>FCU</label>
+            </value>
+            <value>
+                <fullName>STU</fullName>
+                <default>false</default>
+                <label>STU</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

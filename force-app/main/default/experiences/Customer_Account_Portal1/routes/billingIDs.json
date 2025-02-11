@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "d9b161b8-c9cb-4e67-8405-b6ed0ad72b81",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "Billing_IDs__c",
+  "id" : "dc4b42c4-b51e-4961-b693-aaa4a6b29136",
+  "label" : "Billing IDs",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-billing-ids",
+  "type" : "route",
+  "urlPrefix" : "billing-ids"
+}

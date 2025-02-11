@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataset>DC_UPSs</dataset>
+    <dimensions>
+        <field>DC_Switchgear.DC_Main_Utility.Name</field>
+        <isDerived>false</isDerived>
+        <label>Main Utility</label>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Switchgear.Name</field>
+        <isDerived>false</isDerived>
+        <label>Switchgear</label>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Name</field>
+        <isDerived>false</isDerived>
+        <label>UPS Name</label>
+        <sortIndex>2</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Switchgear.DC_Main_Utility.Building.Id</field>
+        <isDerived>false</isDerived>
+        <label>Building ID</label>
+        <sortIndex>3</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Switchgear.DC_Main_Utility.Id</field>
+        <isDerived>false</isDerived>
+        <label>Main Utility ID</label>
+        <sortIndex>4</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Switchgear.Id</field>
+        <isDerived>false</isDerived>
+        <label>Switchgear ID</label>
+        <sortIndex>5</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Id</field>
+        <isDerived>false</isDerived>
+        <label>UPS ID</label>
+        <sortIndex>6</sortIndex>
+    </dimensions>
+    <measures>
+        <field>Tenant_Power.Committed_Power</field>
+        <isDerived>false</isDerived>
+        <label>Tenant Power Committed</label>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>*</field>
+        <isDerived>true</isDerived>
+        <label>UPSs</label>
+        <showInExplorer>true</showInExplorer>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>Tenant_Power.Connected_Power</field>
+        <isDerived>false</isDerived>
+        <label>Tenant Power Connected</label>
+        <sortIndex>1</sortIndex>
+    </measures>
+    <measures>
+        <field>Tenant_Power.Records</field>
+        <isDerived>false</isDerived>
+        <label>Tenant Power Records</label>
+        <sortIndex>2</sortIndex>
+    </measures>
+</WaveXmd>

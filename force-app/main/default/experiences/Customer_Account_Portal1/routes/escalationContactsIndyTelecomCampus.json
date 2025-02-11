@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "380a0769-b91d-4b1b-ae8d-2c0139b79fee",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "Escalation_Contacts_Indy_Telecom_Campus__c",
+  "id" : "6f0b1ba1-5a09-4c6f-81bb-4bb81be40532",
+  "label" : "Escalation Contacts Indy Telecom Campus",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-escalation-contacts-indy-telecom-campus",
+  "type" : "route",
+  "urlPrefix" : "escalation-contacts/escalation-contacts-indy-telecom-campus"
+}

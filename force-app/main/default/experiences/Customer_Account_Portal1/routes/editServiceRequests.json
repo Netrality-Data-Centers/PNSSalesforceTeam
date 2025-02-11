@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "db84e1c7-5987-4e89-9eb6-964e79f92556",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "Edit_Service_Requests__c",
+  "id" : "c4fda009-1749-4f36-9e9e-4773cd9b7e4d",
+  "label" : "Edit Service Requests",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-edit-service-requests",
+  "type" : "route",
+  "urlPrefix" : "edit-service-requests"
+}

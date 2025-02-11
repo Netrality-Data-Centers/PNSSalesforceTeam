@@ -1,0 +1,62 @@
+{
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "componentName" : "siteforce:sldsTwoCol48Layout",
+  "dataProviders" : [ ],
+  "id" : "4023ffb3-a5d8-475c-b88c-d1453cce3bdd",
+  "label" : "Home",
+  "regions" : [ {
+    "id" : "0b5d0bca-5346-4e61-ba98-dff9c53fb426",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" src=\"{!contentAsset.Banner_1_Welcome_Message_2.1}\" alt=\"\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "058df2ab-c8b9-42e8-9fc4-1f42b3196dc4",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "657de995-eb20-4804-8087-ccfdb0b3dcc2",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "9e5f3e8a-c5d5-4e4e-8de3-3ae62d9bad12",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "70a084d1-9a98-43f1-ace2-124ce3fbd6ad",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "af65ac95-2688-41d6-997e-e85fe4dc19c6",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div class=\"slds-grid slds-wrap\" style=\"margin-top:1px; text-align:center; padding-top:0px;\">\n    <span style=\"display: inline-block; width: 100%; max-width: 600px;\">\n        <a href=\"./new-service-request\">\n            <button class=\"slds-button slds-button_brand\" \n                style=\"font-family:Roboto, sans-serif; font-weight:bold; font-size:1.7rem; height:170px; border-radius:15px; width:100%;\">\n                Submit a Service Request\n            </button>\n        </a>\n    </span>\n    <span style=\"display: inline-block; width: 100%; max-width: 600px; margin-top: 20px;\">\n        <a href=\"\">\n            <button class=\"slds-button slds-button_brand\" \n                style=\"font-family:Roboto, sans-serif; font-weight:bold; font-size:1.7rem; height:170px; border-radius:15px; width:100%;\">\n                Facility Notifications      \n            </button>\n        </a>\n    </span>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "d09c1017-6133-4872-b7b1-4b094b273adb",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ece07103-9c4a-44c2-b049-c1bbffd85b42",
+    "regionName" : "sidebar",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Home",
+  "type" : "view",
+  "viewType" : "home"
+}

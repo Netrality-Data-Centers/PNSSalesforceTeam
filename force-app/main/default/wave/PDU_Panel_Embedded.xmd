@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <dataset xsi:nil="true"/>
+    <dimensions>
+        <field>lens_1.ALL</field>
+        <isDerived>false</isDerived>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <measures>
+        <field>lens_1.H</field>
+        <isDerived>false</isDerived>
+        <label>Available Capacity over Connected Power</label>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_1.G</field>
+        <isDerived>false</isDerived>
+        <label>Available Capacity over Commited Power</label>
+        <sortIndex>1</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_1.F</field>
+        <formatCustomFormat>[&quot;#,###.##%&quot;,100]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <label>Committed / Max %</label>
+        <sortIndex>2</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_1.D</field>
+        <formatCustomFormat>[&quot;#,###.##%&quot;,100]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <label>Connected / Max %</label>
+        <sortIndex>3</sortIndex>
+    </measures>
+    <type>Asset</type>
+    <waveVisualization>PDU_Panel_Embedded</waveVisualization>
+</WaveXmd>

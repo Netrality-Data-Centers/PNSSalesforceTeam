@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "62bc0c6f-07fc-49cc-83b0-b98d19094e22",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "Escalation_Contacts_Philadelphia__c",
+  "id" : "517f862a-b4c9-452b-b0fb-bd579551e7a1",
+  "label" : "Escalation Contacts Philadelphia",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-escalation-contacts-philadelphia",
+  "type" : "route",
+  "urlPrefix" : "escalation-contacts/escalation-contacts-philadelphia"
+}

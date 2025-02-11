@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataset>Service_Requests</dataset>
+    <dimensions>
+        <field>Account.Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Account.Id</recordIdField>
+        <salesforceActionsEnabled>true</salesforceActionsEnabled>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>CaseNumber</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Id</recordIdField>
+        <salesforceActionsEnabled>true</salesforceActionsEnabled>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Account.Owner.IsActive</field>
+        <isDerived>false</isDerived>
+        <label>Account Owner Is Active</label>
+        <sortIndex>2</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Account.Owner.Manager.IsActive</field>
+        <isDerived>false</isDerived>
+        <label>Account Owner Manager Is Active</label>
+        <sortIndex>3</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Owner.IsActive</field>
+        <isDerived>false</isDerived>
+        <label>Owner Is Active</label>
+        <sortIndex>4</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Owner.Manager.IsActive</field>
+        <isDerived>false</isDerived>
+        <label>Owner Manager Is Active</label>
+        <sortIndex>5</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Account.BillingCity</field>
+        <isDerived>false</isDerived>
+        <label>Account Billing City</label>
+        <sortIndex>6</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Account.BillingState</field>
+        <isDerived>false</isDerived>
+        <label>Account Billing State/Province</label>
+        <sortIndex>7</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>IsClosed</field>
+        <isDerived>false</isDerived>
+        <label>Is Closed</label>
+        <sortIndex>8</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>IsEscalated</field>
+        <isDerived>false</isDerived>
+        <label>Is Escalated</label>
+        <sortIndex>9</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>RecordType.Name</field>
+        <isDerived>false</isDerived>
+        <label>Record Type</label>
+        <sortIndex>10</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Account.Owner.Manager.Name</field>
+        <isDerived>false</isDerived>
+        <label>Account Owner Manager</label>
+        <sortIndex>11</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Account.Owner.Name</field>
+        <isDerived>false</isDerived>
+        <label>Account Owner</label>
+        <sortIndex>12</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Contact.Name</field>
+        <isDerived>false</isDerived>
+        <label>Contact</label>
+        <sortIndex>13</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Contact.Id</field>
+        <isDerived>false</isDerived>
+        <label>Contact ID</label>
+        <sortIndex>14</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Owner.Manager.Name</field>
+        <isDerived>false</isDerived>
+        <label>Owner Manager</label>
+        <sortIndex>15</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Owner.Name</field>
+        <isDerived>false</isDerived>
+        <label>Owner</label>
+        <sortIndex>16</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Priority</field>
+        <isDerived>false</isDerived>
+        <label>Priority</label>
+        <sortIndex>17</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DX_SLA_In_Violation__c</field>
+        <isDerived>false</isDerived>
+        <label>SLA In Violation</label>
+        <sortIndex>18</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Status</field>
+        <isDerived>false</isDerived>
+        <label>Status</label>
+        <sortIndex>19</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Subject</field>
+        <isDerived>false</isDerived>
+        <label>Subject</label>
+        <sortIndex>20</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Account.Owner.Id</field>
+        <isDerived>false</isDerived>
+        <label>Account Owner Id</label>
+        <sortIndex>21</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Account.Owner.Manager.Id</field>
+        <isDerived>false</isDerived>
+        <label>Account Owner Manager ID</label>
+        <sortIndex>22</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Owner.Id</field>
+        <isDerived>false</isDerived>
+        <label>Owner ID</label>
+        <sortIndex>23</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Owner.Manager.Id</field>
+        <isDerived>false</isDerived>
+        <label>Owner Manager ID</label>
+        <sortIndex>24</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Origin</field>
+        <isDerived>false</isDerived>
+        <label>Origin</label>
+        <sortIndex>25</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Reason</field>
+        <isDerived>false</isDerived>
+        <label>Reason</label>
+        <sortIndex>26</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Type</field>
+        <isDerived>false</isDerived>
+        <label>Type</label>
+        <sortIndex>27</sortIndex>
+    </dimensions>
+    <measures>
+        <field>*</field>
+        <isDerived>true</isDerived>
+        <label>Service Requests</label>
+        <showInExplorer>true</showInExplorer>
+        <sortIndex>0</sortIndex>
+    </measures>
+</WaveXmd>

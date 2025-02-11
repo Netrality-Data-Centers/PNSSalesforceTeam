@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataset>Service_Request_Tasks</dataset>
+    <dimensions>
+        <field>Case.Account.Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Case.Account.Id</recordIdField>
+        <salesforceActionsEnabled>true</salesforceActionsEnabled>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Case.CaseNumber</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Case.Id</recordIdField>
+        <salesforceActionsEnabled>true</salesforceActionsEnabled>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+</WaveXmd>

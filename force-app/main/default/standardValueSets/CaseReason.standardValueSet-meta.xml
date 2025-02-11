@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Duplicate case. Close case.</fullName>
+        <default>false</default>
+        <label>Duplicate case. Close case.</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer request for assistance</fullName>
+        <default>false</default>
+        <label>Customer request for assistance</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Troubleshooting</fullName>
+        <default>false</default>
+        <label>Troubleshooting</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Request for Cross Connection</fullName>
+        <default>false</default>
+        <label>Customer Request for Cross Connection</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer Request for Power</fullName>
+        <default>false</default>
+        <label>Customer Request for Power</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer request Disco</fullName>
+        <default>false</default>
+        <label>Customer request Disco</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer request restively of material</fullName>
+        <default>false</default>
+        <label>Customer request restively of material</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Package received</fullName>
+        <default>false</default>
+        <label>Package received</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+</StandardValueSet>

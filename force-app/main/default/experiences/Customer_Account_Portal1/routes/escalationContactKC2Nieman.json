@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "b7f8cf01-531a-4678-a0d6-90117837ae08",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "Escalation_Contact_KC2_Nieman__c",
+  "id" : "48a8eb80-9cf6-4f9a-a961-8f461fa8990c",
+  "label" : "Escalation Contact KC2 Nieman",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-escalation-contact-kc2-nieman",
+  "type" : "route",
+  "urlPrefix" : "escalation-contacts/escalation-contact-kc2-nieman"
+}

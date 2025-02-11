@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Number_of_Ports_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(Total_Number_of_Ports__c &gt; (Height_RU__c * 144), true, false)</errorConditionFormula>
+    <errorMessage>Warning: you cannot create more than 144 ports per RU in this panel. Please contact system admin if this was not done by mistake.</errorMessage>
+</ValidationRule>

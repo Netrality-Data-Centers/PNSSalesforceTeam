@@ -1,0 +1,34 @@
+<!--
+  @Description       : 
+  @Author            : cristianivan.ruiz@salesforce.com
+  @Code Coverage     : 
+  @last modified on  : 01-22-2025
+  @last modified by  : cristianivan.ruiz@salesforce.com
+-->
+<template>
+    <template if:true={hasFiberPair}>
+      <ul>
+        <template for:each={lstFiberPair} for:item="item">
+          <li key={item.Id}>
+            <div class="slds-grid slds-gutters slds-box">
+                <div class="slds-col slds-size_1-of-2">
+                  <span>
+                    <lightning-input type="text" label="Fiber Pair" value={item.Name} disabled></lightning-input>
+                  </span>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                  <span>
+                    <lightning-select name={item.Name} label="Port" value={item.Port__c} options={optionsPorts}
+                      onchange={handleChangePort}>
+                    </lightning-select>
+                  </span>
+              </div>
+            </div>
+          </li>
+        </template>
+      </ul>
+    </template>
+    <template if:false={hasFiberPair}>
+      <p>No data.</p>
+    </template>
+</template>

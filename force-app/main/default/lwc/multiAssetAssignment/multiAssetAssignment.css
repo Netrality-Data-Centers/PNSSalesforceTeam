@@ -1,0 +1,24 @@
+.footer-stepper {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    border-top: 1px solid #dddbda;
+    padding: 1rem;
+}
+.asset-details {
+    overflow-y: auto;
+    height: calc(80vh - 250px);
+}
+.title-progress {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2rem;
+} 
+.pillContainer{
+    position: absolute;
+    float: right;
+    right: 0px;
+    max-width: 50vw;
+}

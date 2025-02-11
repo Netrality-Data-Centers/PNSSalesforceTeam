@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PDU_RPP__c</fullName>
+    <description>The PDURPP connected to this PDU Panel.</description>
+    <externalId>false</externalId>
+    <label>PDU RPP</label>
+    <referenceTo>DC_PDU_RPP__c</referenceTo>
+    <relationshipLabel>PDU Panels</relationshipLabel>
+    <relationshipName>PDU_Panels</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

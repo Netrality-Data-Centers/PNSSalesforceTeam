@@ -1,0 +1,27 @@
+<!--
+  @Description       : 
+  @Author            : cristianivan.ruiz@salesforce.com
+  @Code Coverage     : 
+  @last modified on  : 01-06-2025
+  @last modified by  : cristianivan.ruiz@salesforce.com
+-->
+<template>
+    <div class="slds-box">
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+          <span>
+            <lightning-select name="Floors" label="Floor" value={valueFloor} options={optionsFloors}
+            onchange={handleChangeFloors}>
+            </lightning-select>
+          </span>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+          <span>
+            <lightning-select name="POES" label="POE" value={valuePOE} options={optionsPOES}
+            onchange={handleChangePOES} required="true">
+            </lightning-select>
+          </span>
+        </div>
+      </div>
+    </div>
+  </template>

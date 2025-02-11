@@ -1,0 +1,657 @@
+{
+  "version" : "63.0",
+  "nodes" : {
+    "LOAD_DATASET3" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "DC_Floor__c", "Short_Name__c", "Cooling_Redundancy_Configuration__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "DC_Data_Hall__c",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "DC_Data_Hall__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET6" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "Building__c", "Floor_number__c", "Short_Name__c", "Total_Square_Feet__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "DC_Floor__c",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "DC_Floor__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET8" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "City__c", "State__c", "Location__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "Building__c",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "Building__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN0" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET6", "LOAD_DATASET8" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Building__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Building__c" ],
+        "rightQualifier" : "Building",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN1" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET3", "JOIN0" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "DC_Floor__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "DC_Floor__c" ],
+        "rightQualifier" : "DC_Floor",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "LOAD_DATASET12" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "Panel__c", "Short_Name__c", "Port_Status__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "DC_Port__c",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "DC_Port__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET14" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "Rack__c", "Mod_Model__c", "Height_RU__c", "Number_of_Ports_Tall__c", "Number_of_Ports_Wide__c", "Short_Name__c", "Status__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "DC_Panel__c",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "DC_Panel__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET15" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "Media_Type__c", "Destination_Account__c", "Destination_Port__c", "Origination_Account__c", "Origination_Port__c", "Xconnect_date__c", "Xconnect_Status__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "DC_Cross_Connect__c",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "DC_Cross_Connect__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET16" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "Meet_Me_Room__c", "Number_of_Rack_Units__c", "Short_Name__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "DC_Rack__c",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "DC_Rack__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET17" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "Data_Hall__c", "Short_Name__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "DC_Meet_Me_Room__c",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "DC_Meet_Me_Room__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN15" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET17", "JOIN1" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Data_Hall__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Data_Hall__c" ],
+        "rightQualifier" : "DC_Data_Hall",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN16" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET16", "JOIN15" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Meet_Me_Room__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Meet_Me_Room__c" ],
+        "rightQualifier" : "DC_Meet_Me_Room",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN17" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET14", "JOIN16" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Rack__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Rack__c" ],
+        "rightQualifier" : "DC_Rack",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN18" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET12", "JOIN17" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Panel__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Panel__c" ],
+        "rightQualifier" : "DC_Panel",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN19" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET15", "JOIN18" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Destination_Port__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Destination_Port__c" ],
+        "rightQualifier" : "Destination_Port",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN20" : {
+      "action" : "join",
+      "sources" : [ "JOIN19", "JOIN18" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Origination_Port__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Origination_Port__c" ],
+        "rightQualifier" : "Origination_Port",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "LOAD_DATASET18" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "Type", "BillingStreet", "BillingCity", "BillingState", "BillingPostalCode", "BillingCountry" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "Account",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "Account"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN21" : {
+      "action" : "join",
+      "sources" : [ "JOIN20", "LOAD_DATASET18" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Destination_Account__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Destination_Account__c" ],
+        "rightQualifier" : "Destination_Account",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN22" : {
+      "action" : "join",
+      "sources" : [ "JOIN21", "LOAD_DATASET18" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Origination_Account__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Origination_Account__c" ],
+        "rightQualifier" : "Origination_Account",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "OUTPUT3" : {
+      "action" : "save",
+      "sources" : [ "FORMULA2" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "Cross Connects",
+          "name" : "Cross_Connects",
+          "folderName" : "DCIM"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "OUTPUT5" : {
+      "action" : "save",
+      "sources" : [ "JOIN18" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "Ports",
+          "name" : "Ports",
+          "folderName" : "DCIM"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "FORMULA1" : {
+      "action" : "formula",
+      "sources" : [ "JOIN22" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "MULTIVALUE",
+          "name" : "Meet_Me_Room_IDs_Multi",
+          "label" : "Meet Me Room IDs (Multi)",
+          "formulaExpression" : "array(coalesce(\"Destination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.Id\", 'N/A'), coalesce(\"Origination_Port.DC_Panel.DC_Rack.DC_Meet_Me_Room.Id\", 'N/A'))"
+        } ]
+      }
+    },
+    "FORMULA2" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA1" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "MULTIVALUE",
+          "name" : "Accounts_Multi",
+          "label" : "Accounts (Multi)",
+          "formulaExpression" : "array(coalesce(\"Destination_Account.Name\", 'N/A'), coalesce(\"Origination_Account.Name\", 'N/A'))"
+        } ]
+      }
+    }
+  },
+  "ui" : {
+    "nodes" : {
+      "LOAD_DATASET3" : {
+        "label" : "DC_Data_Hall__c",
+        "type" : "LOAD_DATASET",
+        "top" : 392.3,
+        "left" : 392.6,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET6" : {
+        "label" : "DC_Floor__c",
+        "type" : "LOAD_DATASET",
+        "top" : 252.3,
+        "left" : 252.60000000000002,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET8" : {
+        "label" : "Building__c",
+        "type" : "LOAD_DATASET",
+        "top" : 112,
+        "left" : 112.1,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN0" : {
+        "label" : "Join Floor to Building",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 252.3,
+        "left" : 392.6
+      },
+      "JOIN1" : {
+        "label" : "Join Data Hall to Floor",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 392.3,
+        "left" : 532.6
+      },
+      "LOAD_DATASET12" : {
+        "label" : "DC_Port__c",
+        "type" : "LOAD_DATASET",
+        "top" : 952.2,
+        "left" : 952.4,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET14" : {
+        "label" : "DC_Panel__c",
+        "type" : "LOAD_DATASET",
+        "top" : 812.2,
+        "left" : 812.4,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET15" : {
+        "label" : "DC_Cross_Connect__c",
+        "type" : "LOAD_DATASET",
+        "top" : 1092.3,
+        "left" : 1092.4,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET16" : {
+        "label" : "DC_Rack__c",
+        "type" : "LOAD_DATASET",
+        "top" : 672.2,
+        "left" : 672.3,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET17" : {
+        "label" : "DC_Meet_Me_Room__c",
+        "type" : "LOAD_DATASET",
+        "top" : 532.2,
+        "left" : 532.2,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN15" : {
+        "label" : "Join Meet Me Room to Data Hall",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 532.2,
+        "left" : 672.2
+      },
+      "JOIN16" : {
+        "label" : "Join Rack to Meet Me Room",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 672.2,
+        "left" : 812.3
+      },
+      "JOIN17" : {
+        "label" : "Join Panel to Rack",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 812.2,
+        "left" : 952.4
+      },
+      "JOIN18" : {
+        "label" : "Join Port to Panel",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 952.1,
+        "left" : 1231.9
+      },
+      "JOIN19" : {
+        "label" : "Join Cross Connect to Destination Port",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1092.3,
+        "left" : 1232.4
+      },
+      "JOIN20" : {
+        "label" : "Join Cross Connect to Origination Port",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1092.3,
+        "left" : 1372.4
+      },
+      "LOAD_DATASET18" : {
+        "label" : "Account",
+        "type" : "LOAD_DATASET",
+        "top" : 952.3,
+        "left" : 1512.4,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN21" : {
+        "label" : "Join Destination Account",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1092.1,
+        "left" : 1512
+      },
+      "JOIN22" : {
+        "label" : "Join Origination Account",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1092,
+        "left" : 1652
+      },
+      "OUTPUT3" : {
+        "label" : "Output Cross Connects",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 1092.4,
+        "left" : 1932
+      },
+      "OUTPUT5" : {
+        "label" : "Output Ports",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 952.1,
+        "left" : 1372
+      },
+      "TRANSFORM1" : {
+        "label" : "Transform 1",
+        "type" : "TRANSFORM",
+        "top" : 1092.3,
+        "left" : 1792,
+        "graph" : {
+          "FORMULA1" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Multi-value Meet Me Room IDs for embedded page filter"
+          },
+          "FORMULA2" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Multi-value field to select by destination and origination account in 1 filter"
+          }
+        },
+        "connectors" : [ {
+          "source" : "FORMULA1",
+          "target" : "FORMULA2"
+        } ]
+      }
+    },
+    "connectors" : [ {
+      "source" : "JOIN20",
+      "target" : "JOIN21"
+    }, {
+      "source" : "LOAD_DATASET6",
+      "target" : "JOIN0"
+    }, {
+      "source" : "LOAD_DATASET8",
+      "target" : "JOIN0"
+    }, {
+      "source" : "LOAD_DATASET3",
+      "target" : "JOIN1"
+    }, {
+      "source" : "JOIN0",
+      "target" : "JOIN1"
+    }, {
+      "source" : "LOAD_DATASET17",
+      "target" : "JOIN15"
+    }, {
+      "source" : "JOIN1",
+      "target" : "JOIN15"
+    }, {
+      "source" : "LOAD_DATASET16",
+      "target" : "JOIN16"
+    }, {
+      "source" : "JOIN15",
+      "target" : "JOIN16"
+    }, {
+      "source" : "LOAD_DATASET14",
+      "target" : "JOIN17"
+    }, {
+      "source" : "JOIN16",
+      "target" : "JOIN17"
+    }, {
+      "source" : "LOAD_DATASET12",
+      "target" : "JOIN18"
+    }, {
+      "source" : "JOIN17",
+      "target" : "JOIN18"
+    }, {
+      "source" : "LOAD_DATASET15",
+      "target" : "JOIN19"
+    }, {
+      "source" : "JOIN18",
+      "target" : "JOIN19"
+    }, {
+      "source" : "JOIN19",
+      "target" : "JOIN20"
+    }, {
+      "source" : "JOIN18",
+      "target" : "JOIN20"
+    }, {
+      "source" : "LOAD_DATASET18",
+      "target" : "JOIN21"
+    }, {
+      "source" : "JOIN21",
+      "target" : "JOIN22"
+    }, {
+      "source" : "LOAD_DATASET18",
+      "target" : "JOIN22"
+    }, {
+      "source" : "TRANSFORM1",
+      "target" : "OUTPUT3"
+    }, {
+      "source" : "JOIN18",
+      "target" : "OUTPUT5"
+    }, {
+      "source" : "JOIN22",
+      "target" : "TRANSFORM1"
+    } ],
+    "hiddenColumns" : [ ]
+  },
+  "runMode" : "full"
+}

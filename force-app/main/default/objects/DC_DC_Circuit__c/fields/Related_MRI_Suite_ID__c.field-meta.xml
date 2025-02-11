@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Related_MRI_Suite_ID__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(TEXT(Associated_Space_Type__c) = &quot;Cabinet&quot;,  Cabinet__r.MRI_Suite_ID__c,  Rack__r.MRI_Suite_ID__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Related MRI Suite ID</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

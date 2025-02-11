@@ -1,0 +1,27 @@
+<template>
+  <div class="slds-box">
+
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+          <lightning-select
+              name="Floors"
+              label="Floor"
+              value={valueFloor}
+              options={optionsFloors}
+              onchange={handleChangeFloors}>
+          </lightning-select>
+        </div>
+        <div class="slds-col">
+          <lightning-select
+          name="DataHalls"
+          label="Data Hall"
+          value={valueDataHall}
+          options={optionsDataHalls}
+          onchange={handleChangeDataHalls}
+          required>
+          </lightning-select>
+        </div>
+      </div>
+      
+    </div>
+</template>

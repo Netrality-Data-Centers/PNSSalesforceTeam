@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Connected_Service_Order__c</fullName>
+    <description>The Service Order that resulted in this Fiber Pair being installed. This is provided upon the initial record creation of all installed fibers in the Homerun. Hyperlink to related Service Order from the Asset record that caused this creation.</description>
+    <externalId>false</externalId>
+    <label>Connected Service Order</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

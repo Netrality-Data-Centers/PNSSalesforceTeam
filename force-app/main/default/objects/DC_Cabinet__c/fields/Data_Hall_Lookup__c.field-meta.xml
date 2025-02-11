@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Hall_Lookup__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>PR1031160-862 Updates to Panel, Cabinet &amp; cage fields to help work the subflows</description>
+    <externalId>false</externalId>
+    <label>Data Hall</label>
+    <referenceTo>DC_Data_Hall__c</referenceTo>
+    <relationshipLabel>Cabinets</relationshipLabel>
+    <relationshipName>Cabinets</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

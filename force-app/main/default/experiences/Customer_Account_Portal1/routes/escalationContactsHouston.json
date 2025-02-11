@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "2ac7f119-a566-464c-b797-3a8362d619f1",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "Escalation_Contacts_Houston__c",
+  "id" : "176daf79-2d14-436e-b59d-22624d917457",
+  "label" : "Escalation Contacts Houston",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-escalation-contacts-houston",
+  "type" : "route",
+  "urlPrefix" : "escalation-contacts/escalation-contacts-houston"
+}

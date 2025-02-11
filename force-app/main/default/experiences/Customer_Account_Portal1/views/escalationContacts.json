@@ -1,0 +1,62 @@
+{
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "c82a6ada-440e-4e6c-abc4-591e0aca9472",
+  "label" : "Escalation Contacts",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "bannerBackgroundColor" : "rgb(255, 255, 255)",
+        "bannerPosition" : "bottom",
+        "bannerSizePercent" : 25,
+        "borderRadius" : 10,
+        "boxShadow" : true,
+        "haveBanner" : false,
+        "iconBackgroundColor" : "rgb(255,255,255)",
+        "iconSize" : "small",
+        "noImageColor" : "rgb(116,116,116)",
+        "overlay" : "rgba(0,0,0,0.01)",
+        "templateType" : "icon",
+        "tileMenuEditor" : "Escalation_Contacts_Menu",
+        "titleColor" : "rgb(32, 23, 71)",
+        "titleFontSize" : "large",
+        "titleHorizontalAlign" : "center"
+      },
+      "componentName" : "community_navigation:tileMenu",
+      "id" : "8fac0009-056d-46c1-a449-ff146aed07d5",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "dc8c4185-a33e-480a-89fd-6610bbf388f3",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "ea3f27d4-3658-4fcd-a68c-4362e54e7f26",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "3cddc96d-9428-4d06-9d9b-0e7188ae05ef",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Escalation Contacts"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "7cc6d6f5-7347-4ebc-a6a7-1b5fd1a5d61b",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "dd394a35-28fa-4a86-a20d-d88ea1b541b3",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "AdQyUwn0JX5THtqG6xBLuGDspYSQq5",
+  "type" : "view",
+  "viewType" : "custom-escalation-contacts"
+}

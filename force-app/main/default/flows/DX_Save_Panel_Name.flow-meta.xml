@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <description>Saves Panel Name</description>
+    <environments>Default</environments>
+    <interviewLabel>DX Save Panel Name {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>DX Save Panel Name</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Panel_Name</name>
+        <label>Update Panel Name</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <faultConnector>
+            <targetReference>Create_Log_Error</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>{!$Record.Rack__r.Name}.{!$Record.Short_Name__c}</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Panel_Name</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Rack__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>DC_Panel__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Create_Log_Error</name>
+        <label>Create Log Error</label>
+        <locationX>440</locationX>
+        <locationY>431</locationY>
+        <flowName>DX_Error_Log_Creation</flowName>
+        <inputAssignments>
+            <name>ErrorMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>FlowName</name>
+            <value>
+                <stringValue>DX Save Panel Name</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>MethodName</name>
+            <value>
+                <stringValue>Update Panel Name</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>ObjectName</name>
+            <value>
+                <stringValue>Panel</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>RecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>TypeOfOperation</name>
+            <value>
+                <stringValue>Update</stringValue>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>

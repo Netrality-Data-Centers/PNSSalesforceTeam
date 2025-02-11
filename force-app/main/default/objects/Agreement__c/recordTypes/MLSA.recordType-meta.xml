@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MLSA</fullName>
+    <active>true</active>
+    <description>Master Agreement that only applies to a specific property.</description>
+    <label>MLSA</label>
+    <picklistValues>
+        <picklist>Agreement_Status__c</picklist>
+        <values>
+            <fullName>Active MTM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Active Term</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Foundation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Active Negotiations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Agreement_Type__c</picklist>
+        <values>
+            <fullName>Lease</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lease Amendment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MLSA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MSA</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Building__c</picklist>
+        <values>
+            <fullName>1102 Grand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1301 Fannin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>210 N Tucker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>401 N Broad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>717 S Wells</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7801 Neiman</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>900 Walnut</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indy Telcom</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Holdover__c</picklist>
+        <values>
+            <fullName>Last Billed Amount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Then-Current Rates</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Netrality_Entity__c</picklist>
+        <values>
+            <fullName>1301 Fannin Owner%2C LP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1301 Fannin Tenant%2C LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1301 Fannin Tenant%2C LLC %28as successor in interest to Internap Corporation%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1301 Fannin Tenant%2C LLC %28as successor in interest to Internap Network Services Corporation%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>210 N Tucker Owner LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>210 N Tucker Owner LLC %28as successor in interest to Digital 210 Tucker%2C LLC%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>210 N Tucker Tenant LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>210 N Tucker Tenant LLC %28as successor in interest to 365 Services LLC%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>401 North Broad Lessee%2C LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>401 North Broad Tenant%2C LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>717 South Wells Tenant%2C LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>900 Walnut Owner LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internap Corporation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internap Network Services Corporation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KC Telco%2C L%2EL%2EC%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Colo%2C LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Indy 600 Kentucky Lessee%2C LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Indy 700 W%2E Henry Owner%2C LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Indy 710 Kentucky Owner%2C LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Indy 720 Kentucky Owner%2C LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Indy 733 Tenant%2C LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Indy 740 W%2E Henry Owner%2C LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Indy 748 Kentucky Owner%2C LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Indy Henry Street Triangle Owner%2C LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Indy Multiparcel Owner%2C LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Indy Telco%2C LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Indy Tenant LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Indy Tenant LLC %28as successor in interest to 365 Data Centers Services%2C LLC%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Properties%2C LP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Properties%2C LP %28as successor in interest to Netrality Property Sub Trust%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Property Sub Trust</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Original_L__c</picklist>
+        <values>
+            <fullName>365 Data Centers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Digital Realty</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Equinix</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INAP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lifeline Data Centers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sungard</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Permitted_Disclosures__c</picklist>
+        <values>
+            <fullName>Full Disclosure Consent Granted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legal Review Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Marketing Consent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Written Consent Required</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Permitted_Logo_Usage__c</picklist>
+        <values>
+            <fullName>Full Logo Usage Granted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legal Review Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Logo Usage Consent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Written Consent Required for Usage</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

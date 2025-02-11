@@ -1,0 +1,84 @@
+<template>
+    <!-- Styles moved to multiAssetAssignment.css -->
+
+    <lightning-card icon-name="standard:asset_object">
+        <div slot="title" class="title-progress">
+            <div>Map your Assets</div>
+            <div class="slds-var-m-left_small">{assignedCount}/{totalAssets} Assets</div>
+            <div class="slds-var-m-left_small">{progressPercentage}% Complete</div>
+        </div>
+        <lightning-pill-container class="pillContainer" items={selectedFlowInputVariablesForPills} onpillremove={handlePillRemove}>
+        </lightning-pill-container>
+        <RDraw-local-notifications></RDraw-local-notifications>
+        <div>
+            <lightning-layout if:false={allAssetsAssigned} multiple-rows="true">
+                <lightning-layout-item size="3">
+                    <div style="max-height:60vh;overflow-y:auto;" >
+                        <template if:true={selectedAsset}>
+                            <div class="slds-box slds-m-around_medium">
+                                <RDraw-record-details selectedsobject="Asset" selected-record-id={selectedAsset.Id} show-header="true"
+                                header-text={selectedAsset.Name} selected-mode="readonly"
+                                header-icon="standard:asset_object"></RDraw-record-details>
+                                
+                                <template if:true={selectedAsset.isAssigned}>
+                                    <div class="slds-notify slds-notify_alert slds-theme_success" role="alert">
+                                        <span class="slds-assistive-text">success</span>
+                                        <h2>✓ Asset has been mapped</h2>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
+                    <lightning-button-group class="slds-align_absolute-center">
+                        <lightning-button 
+                            label="Previous Asset"
+                            onclick={handlePreviousAsset}
+                            disabled={isFirstAsset}>
+                        </lightning-button>
+                        <lightning-button 
+                            label="Next Asset"
+                            onclick={handleNextAsset}
+                            disabled={isLastAsset}>
+                        </lightning-button>
+                    </lightning-button-group>
+                </lightning-layout-item>
+                <lightning-layout-item size="9">
+                    <template if:true={hasLightningFlow}>
+                        <lightning-flow style="margin-top:2vh;" if:false={isBusy}
+                            flow-api-name={lightningFlow}
+                            flow-input-variables={selectedFormattedFlowInputVariables}
+                            onstatuschange={handleFlowStatusChange}>
+                        </lightning-flow>
+                    </template>
+                </lightning-layout-item>
+            </lightning-layout>
+        <template if:true={allAssetsAssigned}>
+            <lightning-layout>
+                <lightning-layout-item size="12">
+                    <div class="slds-align_absolute-center">
+                        <div class="slds-box slds-m-around_medium">
+                            <div class="slds-text-heading_medium slds-p-bottom_medium">
+                                All selected assets have been assigned for this Service Order.
+                            </div>
+                            <lightning-record-form layout-type="Compact"
+                                record-id={caseId}
+                                object-api-name="Case"
+                                mode="readonly">
+                            </lightning-record-form>
+                            <lightning-button class="slds-align_absolute-center"
+                                if:true={allAssetsAssigned}
+                                variant="brand"
+                                label="Finish"
+                                onclick={handleSave}
+                                disabled={isSaveDisabled}>
+                            </lightning-button>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+        </div>
+    </lightning-card>
+
+   
+</template>

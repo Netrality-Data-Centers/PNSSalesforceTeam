@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Media_Type__c</fullName>
+    <description>The physical medium of the cross connect.</description>
+    <externalId>false</externalId>
+    <label>Media Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Single-Mode Fiber</fullName>
+                <default>false</default>
+                <label>Single-Mode Fiber</label>
+            </value>
+            <value>
+                <fullName>Multi-Mode Fiber</fullName>
+                <default>false</default>
+                <label>Multi-Mode Fiber</label>
+            </value>
+            <value>
+                <fullName>CAT6</fullName>
+                <default>false</default>
+                <label>CAT6</label>
+            </value>
+            <value>
+                <fullName>DS3 Coax</fullName>
+                <default>false</default>
+                <label>DS3 Coax</label>
+            </value>
+            <value>
+                <fullName>50 Micron</fullName>
+                <default>false</default>
+                <label>50 Micron</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

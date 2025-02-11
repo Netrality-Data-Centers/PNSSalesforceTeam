@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Power_Source_PDU_RPP__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The power source of this Tenant Suite - at least one is required. No more than one allowed.</description>
+    <externalId>false</externalId>
+    <label>Power Source - PDU RPP</label>
+    <referenceTo>DC_PDU_RPP__c</referenceTo>
+    <relationshipLabel>Tenants Power</relationshipLabel>
+    <relationshipName>Tenants_Power</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

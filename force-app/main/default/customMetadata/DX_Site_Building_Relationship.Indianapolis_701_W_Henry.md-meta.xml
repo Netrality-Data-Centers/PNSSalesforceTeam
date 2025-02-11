@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Indianapolis-701 W Henry</label>
+    <protected>false</protected>
+    <values>
+        <field>Building__c</field>
+        <value xsi:type="xsd:string">701 W Henry</value>
+    </values>
+    <values>
+        <field>Site__c</field>
+        <value xsi:type="xsd:string">Indianapolis</value>
+    </values>
+</CustomMetadata>

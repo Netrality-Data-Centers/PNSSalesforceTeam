@@ -1,0 +1,75 @@
+{
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "componentName" : "siteforce:sldsThreeCol363Layout",
+  "dataProviders" : [ ],
+  "id" : "62bc0c6f-07fc-49cc-83b0-b98d19094e22",
+  "label" : "Escalation Contacts Philadelphia",
+  "regions" : [ {
+    "id" : "9f8330ce-cd6f-49f7-a874-2e058cded1ec",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Houston_Campus.1}\" style=\"width: 158.188px; height: 149.984px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_11.1}\" style=\"width: 156.688px; height: 85.9844px;\"></p>\n<p><br></p>\n<p><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_21.1}\" style=\"width: 154.828px; height: 82.0312px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_3.1}\" style=\"width: 151.812px; height: 75.4531px;\"></p>\n<p style=\"text-align: right;\"><br></p>\n<p style=\"text-align: right;\"><br></p>\n<p><br></p>\n<p style=\"text-align: right;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.Numero_41.1}\" style=\"width: 150.156px; height: 76.8438px;\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "f42f39ad-34ef-42db-a795-bad127bcde82",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6749de76-0e4b-4519-8a92-5b526357a0c0",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><br></p><p><span style=\"font-size: 18px;\">In the event of an emergency, contact the following Netrality personnel in this order of escalation.</span></p><p><br></p><p><span style=\"font-size: 18px;\">For all non-emergencies or other general requests for service, please navigate to the </span><a href=\"/s/new-service-request\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"font-size: 18px; background-color: rgb(255, 255, 255);\"><strong>New Service Request</strong></a><span style=\"font-size: 18px;\"> option in our portal.</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "4255769b-06b8-4690-8726-a51f96baaa2a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p><br></p><p><strong style=\"font-size: 26px; color: rgb(102, 163, 224);\">NOC</strong></p><p><span style=\"font-size: 18px;\">(267) 433-8060</span></p><p><span style=\"font-size: 18px;\">operations@netrality.com</span></p><p><br></p><p><strong style=\"font-size: 26px; color: rgb(102, 163, 224);\">LOBBY SECURITY</strong></p><p><span style=\"font-size: 18px;\">(267) 419-7220</span></p><p><span style=\"font-size: 18px;\">security@netrality.com</span></p><p><br></p><p><strong style=\"font-size: 26px; color: rgb(102, 163, 224);\">SR. OPERATIONS MANAGER</strong></p><p><strong style=\"font-size: 18px;\">DEVIN LASHBROOK</strong></p><p><span style=\"font-size: 18px;\">(267) 433-8077</span></p><p><span style=\"font-size: 18px;\">dlashbrook@netrality.com</span></p><p><br></p><p><strong style=\"font-size: 26px; color: rgb(102, 163, 224);\">SALES</strong></p><p><strong style=\"font-size: 18px;\">DAN JESCHKE | SVP, SALES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ROB DELL'UNTO | VP, SALES&nbsp;</strong></p><p><span style=\"font-size: 18px;\">(212) 317-1123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(917) 647-4928&nbsp;</span></p><p><span style=\"font-size: 18px;\">djeschke@netrality.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rdellunto@netrality.com</span></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "1c4e6926-f345-46f9-8cf0-8c37490ea002",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "fe9d0fd9-f182-4ccd-9257-76a23c64639c",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "79241abb-3026-4937-a5ce-10c118ce8258",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "id" : "b2c80216-e002-4072-92bb-a349e8182946",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Escalation Contacts Philadelphia"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "29141b2d-b1a8-44ef-b281-c0af58815084",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b8f3b1cd-b6fb-43bb-9d0e-37e480b6aea6",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "CMvLDe9ilI2Rb3znnEyPKhFGIw4qLS",
+  "type" : "view",
+  "viewType" : "custom-escalation-contacts-philadelphia"
+}

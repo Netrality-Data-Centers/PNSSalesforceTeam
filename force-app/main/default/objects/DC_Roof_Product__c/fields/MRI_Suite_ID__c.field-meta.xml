@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MRI_Suite_ID__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>The MRI Suite ID reserved for this Roof Product.</description>
+    <externalId>false</externalId>
+    <label>MRI Suite ID</label>
+    <length>10</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

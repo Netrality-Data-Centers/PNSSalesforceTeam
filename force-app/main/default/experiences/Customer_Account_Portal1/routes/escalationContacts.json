@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "c82a6ada-440e-4e6c-abc4-591e0aca9472",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "Escalation_Contacts__c",
+  "id" : "1d06e8d5-f239-42da-b12c-fc5a9ca84403",
+  "label" : "Escalation Contacts",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-escalation-contacts",
+  "type" : "route",
+  "urlPrefix" : "escalation-contacts"
+}

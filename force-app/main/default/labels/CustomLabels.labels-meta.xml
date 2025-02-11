@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>DX_NamePage_DetailsSR_Experience_Cloud</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Page Name of Details SR</shortDescription>
+        <value>/s/details-service-requests?</value>
+    </labels>
+    <labels>
+        <fullName>DX_NamePage_EditSR_Experience_Cloud</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NamePage DetailsSR Experience Cloud</shortDescription>
+        <value>/s/edit-service-requests?</value>
+    </labels>
+    <labels>
+        <fullName>DX_URL_Experience_Cloud</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>URL of Experience Cloud</shortDescription>
+        <value>https://netrality--dev04.sandbox.my.site.com/customeraccountportal</value>
+    </labels>
+</CustomLabels>

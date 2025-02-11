@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UserAccessPolicy xmlns="http://soap.sforce.com/2006/04/metadata">
+    <booleanFilter>1 AND 2</booleanFilter>
+    <description>DCIM Access Experience Cloud access, Service Request Access</description>
+    <masterLabel>DC System Admin UAP</masterLabel>
+    <order>4</order>
+    <status>Design</status>
+    <triggerType>CreateAndUpdate</triggerType>
+    <userAccessPolicyActions>
+        <action>Grant</action>
+        <target>DCIM_Model_View</target>
+        <type>PermissionSet</type>
+    </userAccessPolicyActions>
+    <userAccessPolicyActions>
+        <action>Grant</action>
+        <target>DCIM_Model_Create</target>
+        <type>PermissionSet</type>
+    </userAccessPolicyActions>
+    <userAccessPolicyActions>
+        <action>Grant</action>
+        <target>DCIM_Model_Edit</target>
+        <type>PermissionSet</type>
+    </userAccessPolicyActions>
+    <userAccessPolicyActions>
+        <action>Grant</action>
+        <target>DX_Manage_Service_Request_PS</target>
+        <type>PermissionSet</type>
+    </userAccessPolicyActions>
+    <userAccessPolicyActions>
+        <action>Grant</action>
+        <target>DX_Manage_Experience_Users</target>
+        <type>PermissionSet</type>
+    </userAccessPolicyActions>
+    <userAccessPolicyFilters>
+        <operation>equals</operation>
+        <sortOrder>1</sortOrder>
+        <target>admin</target>
+        <type>Profile</type>
+    </userAccessPolicyFilters>
+    <userAccessPolicyFilters>
+        <columnName>IsActive</columnName>
+        <operation>equals</operation>
+        <sortOrder>2</sortOrder>
+        <target>User</target>
+        <type>User</type>
+        <value>true</value>
+    </userAccessPolicyFilters>
+</UserAccessPolicy>
