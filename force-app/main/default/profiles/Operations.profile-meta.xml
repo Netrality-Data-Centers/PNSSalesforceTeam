@@ -86,15 +86,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DX_PrimaryAccountContactHelperTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>DX_RelatedAccountsContactHelper</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>DX_RelatedAccountsContactHelperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -151,14 +143,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LightningSelfRegisterControllerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>PanelAssignment</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>PanelAssignmentTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
@@ -2173,11 +2157,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>DC_Cross_Connect__c.Tie_Cable_Path__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>DC_Cross_Connect__c.XC_Disconnect_Date__c</field>
         <readable>false</readable>
@@ -2498,11 +2477,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>DC_Rack__c.Available_RU_Space__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>DC_Rack__c.Committed_Power__c</field>
         <readable>true</readable>
@@ -2515,11 +2489,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DC_Rack__c.Legacy_Cabinet_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DC_Rack__c.Occupied_RU_Space__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
