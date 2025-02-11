@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>A_Side_Data_Hall__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Reference to the space that the Inside Plant is originating from.</description>
+    <externalId>false</externalId>
+    <label>A-Side - Data Hall</label>
+    <referenceTo>DC_Data_Hall__c</referenceTo>
+    <relationshipLabel>Inside Plants</relationshipLabel>
+    <relationshipName>Inside_Plants</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

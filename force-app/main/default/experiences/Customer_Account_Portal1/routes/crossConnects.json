@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "0eae32ff-7396-4703-8dbf-b6cfada111da",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "Cross_Connects__c",
+  "id" : "0e79bea2-614d-4bc7-8a2b-da9781362a01",
+  "label" : "Cross Connects",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-cross-connects",
+  "type" : "route",
+  "urlPrefix" : "cross-connects"
+}

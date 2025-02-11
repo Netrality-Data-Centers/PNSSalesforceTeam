@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <description>Type of cage this is</description>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Customer Cage</fullName>
+                <default>false</default>
+                <label>Customer Cage</label>
+            </value>
+            <value>
+                <fullName>Virtual Cage</fullName>
+                <default>false</default>
+                <label>Virtual Cage</label>
+            </value>
+            <value>
+                <fullName>Pod</fullName>
+                <default>false</default>
+                <label>Pod</label>
+            </value>
+            <value>
+                <fullName>Private Suite</fullName>
+                <default>false</default>
+                <label>Private Suite</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

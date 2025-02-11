@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "6a5543e0-0d17-4350-a4e1-9780644fca20",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "Closed_Service_Requests__c",
+  "id" : "e3479228-de5c-4448-8d45-c7f5de3e8096",
+  "label" : "Closed Service Requests",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-closed-service-requests",
+  "type" : "route",
+  "urlPrefix" : "closed-service-requests"
+}

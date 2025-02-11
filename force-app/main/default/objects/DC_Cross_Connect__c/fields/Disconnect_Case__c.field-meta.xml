@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disconnect_Case__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This field will be used on exisiting Cross connect to either disconnect the connection or change the connection</description>
+    <externalId>false</externalId>
+    <label>Disconnect Case</label>
+    <referenceTo>Case</referenceTo>
+    <relationshipLabel>Cross Connects (Disconnect Case)</relationshipLabel>
+    <relationshipName>Cross_Connects1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

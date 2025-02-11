@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Floor</label>
+    <protected>false</protected>
+    <values>
+        <field>RDraw__Child_Node_Lookup_Field__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>RDraw__Child_Node_Related_Object__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>RDraw__Entity__c</field>
+        <value xsi:type="xsd:string">DC_Floor__c</value>
+    </values>
+    <values>
+        <field>RDraw__Parent_Relationship_Settings_Lookup__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>RDraw__Relative_Rendering_Path_Override__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>RDraw__Relative_Rendering_Path__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>RDraw__RenderDraw_Setting__c</field>
+        <value xsi:type="xsd:string">RDraw__Default_RenderDraw_Settings</value>
+    </values>
+    <values>
+        <field>RDraw__Rendering_File__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>RDraw__Resource_Path__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>RDraw__Resources__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>RDraw__X2DSceneSettings__c</field>
+        <value xsi:type="xsd:string">X2D_Drawing__c</value>
+    </values>
+    <values>
+        <field>RDraw__X3DSceneSettings__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

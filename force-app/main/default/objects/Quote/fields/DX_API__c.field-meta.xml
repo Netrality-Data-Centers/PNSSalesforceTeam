@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_API__c</fullName>
+    <defaultValue>0.05</defaultValue>
+    <description>Annual Percentage Increase of service order monthly recurring charges.</description>
+    <externalId>false</externalId>
+    <label>API</label>
+    <precision>2</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DC_Plant__c</fullName>
+    <description>The DC Plant this DC Circuit is connected to.</description>
+    <externalId>false</externalId>
+    <label>DC Plant</label>
+    <referenceTo>DC_DC_Plant__c</referenceTo>
+    <relationshipLabel>DC Circuits</relationshipLabel>
+    <relationshipName>DC_Circuits</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

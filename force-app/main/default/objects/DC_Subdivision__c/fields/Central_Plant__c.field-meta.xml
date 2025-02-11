@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Central_Plant__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>The Central Plant feeding this Subdivision.</description>
+    <externalId>false</externalId>
+    <label>Central Plant</label>
+    <referenceTo>DC_Central_Plant__c</referenceTo>
+    <relationshipLabel>Subdivisions</relationshipLabel>
+    <relationshipName>Subdivisions</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>
