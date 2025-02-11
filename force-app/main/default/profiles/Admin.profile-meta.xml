@@ -82,6 +82,22 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DX_PrimaryAccountContactHelper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_PrimaryAccountContactHelperTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_RelatedAccountsContactHelper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DX_RelatedAccountsContactHelperTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DX_TenantIdHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -139,6 +155,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>PanelAssignment</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PanelAssignmentTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <custom>false</custom>
@@ -2285,6 +2305,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DC_Cross_Connect__c.Media_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_Cross_Connect__c.Tie_Cable_Path__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
