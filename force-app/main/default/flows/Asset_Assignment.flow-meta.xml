@@ -2,10 +2,42 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
     <assignments>
+        <name>Add_Item_to_Assign</name>
+        <label>Add Item to Assign</label>
+        <locationX>1414</locationX>
+        <locationY>1706</locationY>
+        <assignmentItems>
+            <assignToReference>ruSizesToSelect</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Iterate_over_how_RU_items.ruItem</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Iterate_over_how_RU_items</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_to_RU_Sum</name>
+        <label>Add to RU Sum</label>
+        <locationX>1414</locationX>
+        <locationY>1598</locationY>
+        <assignmentItems>
+            <assignToReference>sumOfRUsadded</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Iterate_over_how_RU_items.ruItem</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_Item_to_Assign</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Asset_was_Allocated</name>
         <label>Asset was Allocated</label>
-        <locationX>1386</locationX>
-        <locationY>2582</locationY>
+        <locationX>2327</locationX>
+        <locationY>3506</locationY>
         <assignmentItems>
             <assignToReference>assetWasAllocated</assignToReference>
             <operator>Assign</operator>
@@ -17,7 +49,7 @@
     <assignments>
         <name>Assign_Asset_Was_Allocated_to_False</name>
         <label>Assign Asset Was Allocated to False</label>
-        <locationX>3218</locationX>
+        <locationX>4362</locationX>
         <locationY>1382</locationY>
         <assignmentItems>
             <assignToReference>assetWasAllocated</assignToReference>
@@ -28,9 +60,80 @@
         </assignmentItems>
     </assignments>
     <assignments>
+        <name>Assign_selected_Cage_to_global_variable</name>
+        <label>Assign selected Cage to global variable</label>
+        <locationX>50</locationX>
+        <locationY>1814</locationY>
+        <assignmentItems>
+            <assignToReference>selectedCageRecord</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Selected_Cage</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_All_Cabinets_for_a_Selected_Cage</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_specific_properties_From_selection</name>
+        <label>Assign specific properties From selection</label>
+        <locationX>1546</locationX>
+        <locationY>2654</locationY>
+        <assignmentItems>
+            <assignToReference>Copy_Asset_From_Original_Service_Order_Line_Item.iAsset.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Occupied</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Asset_Record</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_specific_values_to_the_original_Asset_from_Selection</name>
+        <label>Assign specific values to the original Asset from Selection</label>
+        <locationX>1282</locationX>
+        <locationY>2546</locationY>
+        <assignmentItems>
+            <assignToReference>Get_the_Asset_Details.Quantity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Iterate_over_assignments.Size</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_the_Asset_Details.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Occupied</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_the_original_Asset</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_the_Asset_to_the_Panel_Assets_to_process</name>
+        <label>Assign the Asset to the Panel Assets to process</label>
+        <locationX>1282</locationX>
+        <locationY>2762</locationY>
+        <assignmentItems>
+            <assignToReference>selectedPanelAsset</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_the_Asset_Details</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>DX_Panel_Record_Creation_Flow</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Assign_the_buildingId_from_the_Asset_Record</name>
         <label>Assign the buildingId from the Asset Record</label>
-        <locationX>1254</locationX>
+        <locationX>2195</locationX>
         <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>buildingId</assignToReference>
@@ -46,7 +149,7 @@
     <assignments>
         <name>Assign_the_buildingId_from_the_Asset_s_Service_Order_s_Opportunity_Building</name>
         <label>Assign the buildingId from the Asset&apos;s Service Order&apos;s Opportunity Building</label>
-        <locationX>1518</locationX>
+        <locationX>2459</locationX>
         <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>buildingId</assignToReference>
@@ -60,9 +163,45 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Assign_the_Cabinet_Name_and_CabinetId</name>
+        <label>Assign the Cabinet Name and CabinetId</label>
+        <locationX>2052</locationX>
+        <locationY>2306</locationY>
+        <assignmentItems>
+            <assignToReference>cabinetId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_the_Cabinet_Details.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>cabinetName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_the_Cabinet_Details.Name</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Asset_was_Allocated</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_the_Created_Asset_to_the_Panel_Assets_to_process</name>
+        <label>Assign the Created Asset to the Panel Assets to process</label>
+        <locationX>1546</locationX>
+        <locationY>2870</locationY>
+        <assignmentItems>
+            <assignToReference>selectedPanelAsset</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <connector>
+            <targetReference>DX_Panel_Record_Creation_Flow</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Assign_The_Data_Hall</name>
         <label>Assign The Data Hall</label>
-        <locationX>1430</locationX>
+        <locationX>2371</locationX>
         <locationY>758</locationY>
         <assignmentItems>
             <assignToReference>dataHallId</assignToReference>
@@ -90,9 +229,25 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Assign_the_Manual_Cage_to_the_global_variable</name>
+        <label>Assign the Manual Cage to the global variable</label>
+        <locationX>578</locationX>
+        <locationY>1706</locationY>
+        <assignmentItems>
+            <assignToReference>selectedCageRecord</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_the_Cage_Details_Manually</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_All_Cabinets_for_a_Selected_Cage</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Assign_the_Selected_Cabinet_Id</name>
         <label>Assign the Selected Cabinet Id</label>
-        <locationX>578</locationX>
+        <locationX>1722</locationX>
         <locationY>1706</locationY>
         <assignmentItems>
             <assignToReference>cabinetId</assignToReference>
@@ -115,7 +270,7 @@
     <assignments>
         <name>Assign_the_Selected_Cabinet_Id_from_the_picker</name>
         <label>Assign the Selected Cabinet Id from the picker</label>
-        <locationX>1106</locationX>
+        <locationX>2250</locationX>
         <locationY>1490</locationY>
         <assignmentItems>
             <assignToReference>cabinetId</assignToReference>
@@ -131,20 +286,20 @@
     <assignments>
         <name>Assign_the_Selected_Cage_Name_and_Id_to_the_Output_Variables</name>
         <label>Assign the Selected Cage Name and Id to the Output Variables</label>
-        <locationX>50</locationX>
-        <locationY>1706</locationY>
+        <locationX>380</locationX>
+        <locationY>2822</locationY>
         <assignmentItems>
             <assignToReference>cageId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_the_Cage_Details.Id</elementReference>
+                <elementReference>selectedCageRecord.Id</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>cageName</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_the_Cage_Details.Name</elementReference>
+                <elementReference>selectedCageRecord.Name</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -152,32 +307,39 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Assignment_9</name>
-        <label>Assignment 9</label>
-        <locationX>908</locationX>
+        <name>Assign_values_to_the_Iterated_Cabinet</name>
+        <label>Assign values to the Iterated Cabinet</label>
+        <locationX>468</locationX>
         <locationY>2306</locationY>
         <assignmentItems>
-            <assignToReference>cabinetId</assignToReference>
+            <assignToReference>Iterate_over_all_Cabinets_in_the_Cage.Account_Lookup__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_the_Cabinet_Details.Id</elementReference>
+                <elementReference>Get_the_Asset_Details.Account.Id</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>cabinetName</assignToReference>
+            <assignToReference>Iterate_over_all_Cabinets_in_the_Cage.Status__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_the_Cabinet_Details.Name</elementReference>
+                <stringValue>Occupied</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Iterate_over_all_Cabinets_in_the_Cage.Asset__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recordId</elementReference>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Asset_was_Allocated</targetReference>
+            <targetReference>Iterate_over_all_Cabinets_in_the_Cage</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Copy_1_of_Assign_the_buildingId_from_the_Asset_s_Service_Order_s_Opportunity_Bui</name>
         <label>Copy 1 of Assign the buildingId from the Asset&apos;s Service Order&apos;s Opportunity Building</label>
-        <locationX>814</locationX>
+        <locationX>1755</locationX>
         <locationY>350</locationY>
         <assignmentItems>
             <assignToReference>buildingId</assignToReference>
@@ -190,10 +352,30 @@
             <targetReference>Get_the_DataHall_Details</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Reset_RU_Sum</name>
+        <label>Reset RU Sum</label>
+        <locationX>1326</locationX>
+        <locationY>1382</locationY>
+        <assignmentItems>
+            <assignToReference>sumOfRUsadded</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ruSizesToSelect</assignToReference>
+            <operator>RemoveAll</operator>
+        </assignmentItems>
+        <connector>
+            <targetReference>Iterate_over_how_RU_items</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>Check_if_this_is_an_Asset_that_is_related_to_RenderDraw_workflow</name>
         <label>Check if this is an Asset that is related to RenderDraw workflow</label>
-        <locationX>1386</locationX>
+        <locationX>2327</locationX>
         <locationY>1058</locationY>
         <defaultConnector>
             <targetReference>What_type_of_Standard_Asset_is_this</targetReference>
@@ -232,7 +414,7 @@
     <decisions>
         <name>Does_the_buildingId_exist</name>
         <label>Does the buildingId exist?</label>
-        <locationX>1430</locationX>
+        <locationX>2371</locationX>
         <locationY>350</locationY>
         <defaultConnector>
             <targetReference>Building_floor_and_DataHall_Selection</targetReference>
@@ -301,7 +483,7 @@
     <decisions>
         <name>Does_the_DataHall_have_a_default_Drawing_for_Cabinets</name>
         <label>Does the DataHall have a default Drawing for Cabinets?</label>
-        <locationX>908</locationX>
+        <locationX>2052</locationX>
         <locationY>1274</locationY>
         <defaultConnector>
             <targetReference>Cabinet_Assignment_Screen</targetReference>
@@ -331,9 +513,92 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Does_the_DataHall_have_a_default_Drawing_for_Cabinets_Cage_Path</name>
+        <label>Does the DataHall have a default Drawing for Cabinets?</label>
+        <locationX>380</locationX>
+        <locationY>1274</locationY>
+        <defaultConnector>
+            <targetReference>Cage_Assignment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Datahall Does not have a Cabinet Drawing</defaultConnectorLabel>
+        <rules>
+            <name>Datahall_has_Cabinet_Drawing_Cage_Path</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_the_DataHall_Details.X2D_Drawing__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_the_DataHall_Details.X2D_Drawing__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Visual_Cabinet_Selection_From_DataHall_Cage_Path</targetReference>
+            </connector>
+            <label>Datahall has Cabinet Drawing</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Does_the_total_Number_of_Asset_Quantity_Match_the_reserved_RUs</name>
+        <label>Does the total Number of Asset Quantity Match the reserved RUs</label>
+        <locationX>1326</locationX>
+        <locationY>1898</locationY>
+        <defaultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Request_how_many_RUs</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Quantities do not Match</defaultConnectorLabel>
+        <rules>
+            <name>Quantities_Match</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sumOfRUsadded</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Get_the_Asset_Details.Quantity</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Select_Meet_Me_Room</targetReference>
+            </connector>
+            <label>Quantities Match</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_this_the_original_Asset</name>
+        <label>Is this the original Asset</label>
+        <locationX>1414</locationX>
+        <locationY>2438</locationY>
+        <defaultConnector>
+            <targetReference>Copy_Asset_From_Original_Service_Order_Line_Item</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>New Asset to Create</defaultConnectorLabel>
+        <rules>
+            <name>Original_Asset</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Iterate_over_assignments.Asset</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>recordId</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_specific_values_to_the_original_Asset_from_Selection</targetReference>
+            </connector>
+            <label>Original Asset</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Was_a_Cabinet_Selected</name>
         <label>Was a Cabinet Selected?</label>
-        <locationX>710</locationX>
+        <locationX>1854</locationX>
         <locationY>1490</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
@@ -364,9 +629,42 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Was_a_Cabinet_Selected_Cage_Flow_Cage_Path</name>
+        <label>Was a Cabinet Selected?</label>
+        <locationX>182</locationX>
+        <locationY>1490</locationY>
+        <defaultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Visual_Cabinet_Selection_From_DataHall_Cage_Path</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>A Cabinet was not Selected</defaultConnectorLabel>
+        <rules>
+            <name>A_Cabinet_Was_Selected_Cage_Flow</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Visual_Cabinet_Selection.selectedCanvasItem</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Visual_Cabinet_Selection.selectedCanvasItem</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Selected_Cabinet_Cage_Path</targetReference>
+            </connector>
+            <label>A Cabinet Was Selected</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Was_Data_Hall_Passed</name>
         <label>Was Data Hall Passed</label>
-        <locationX>1386</locationX>
+        <locationX>2327</locationX>
         <locationY>242</locationY>
         <defaultConnector>
             <targetReference>Get_the_DataHall_Details</targetReference>
@@ -434,7 +732,7 @@
     <decisions>
         <name>What_type_of_RenderDraw_Asset_is_this</name>
         <label>What type of RenderDraw Asset is this</label>
-        <locationX>479</locationX>
+        <locationX>1216</locationX>
         <locationY>1166</locationY>
         <defaultConnector>
             <targetReference>Does_the_DataHall_have_a_default_Drawing_for_Cabinets</targetReference>
@@ -451,7 +749,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Select_the_Cage_from_a_given_Data_Hall</targetReference>
+                <targetReference>Does_the_DataHall_have_a_default_Drawing_for_Cabinets_Cage_Path</targetReference>
             </connector>
             <label>Cage</label>
         </rules>
@@ -474,7 +772,7 @@
     <decisions>
         <name>What_type_of_Standard_Asset_is_this</name>
         <label>What type of Standard Asset is this?</label>
-        <locationX>2294</locationX>
+        <locationX>3438</locationX>
         <locationY>1166</locationY>
         <defaultConnector>
             <targetReference>Missing_Asset_Type_Page</targetReference>
@@ -586,7 +884,6 @@
             <label>Inside Plant</label>
         </rules>
     </decisions>
-    <description>PR1031160-860 Update on LWC Component in Panel , Dc Circuit &amp; Circuit Breaker subflows</description>
     <dynamicChoiceSets>
         <name>cabinetsFromDataHall</name>
         <dataType>String</dataType>
@@ -655,26 +952,52 @@
         <sortOrder>Asc</sortOrder>
         <valueField>Id</valueField>
     </dynamicChoiceSets>
-    <dynamicChoiceSets>
-        <name>racksFromRackRow</name>
-        <dataType>String</dataType>
-        <displayField>Name</displayField>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Rack_Row__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Select_a_Rack_Row_Picker</elementReference>
-            </value>
-        </filters>
-        <object>DC_Rack__c</object>
-        <sortField>Name</sortField>
-        <sortOrder>Asc</sortOrder>
-        <valueField>Id</valueField>
-    </dynamicChoiceSets>
     <environments>Default</environments>
     <interviewLabel>Asset Assignment {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Asset Assignment</label>
+    <loops>
+        <description>We have to assign all Cabinets in the cage to the given location</description>
+        <name>Iterate_over_all_Cabinets_in_the_Cage</name>
+        <label>Iterate over all Cabinets in the Cage</label>
+        <locationX>380</locationX>
+        <locationY>2198</locationY>
+        <collectionReference>Get_All_Cabinets_for_a_Selected_Cage</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_values_to_the_Iterated_Cabinet</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_the_Cabinets</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Iterate_over_assignments</name>
+        <label>Iterate over assignments</label>
+        <locationX>1194</locationX>
+        <locationY>2330</locationY>
+        <collectionReference>Select_a_Rack_Panel_and_Position.selectedPanelAssignments</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Is_this_the_original_Asset</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Asset_was_Allocated</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Iterate_over_how_RU_items</name>
+        <label>Iterate over how RU items</label>
+        <locationX>1326</locationX>
+        <locationY>1490</locationY>
+        <collectionReference>ruRollup.AllItems</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_to_RU_Sum</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Does_the_total_Number_of_Asset_Quantity_Match_the_reserved_RUs</targetReference>
+        </noMoreValuesConnector>
+    </loops>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -694,10 +1017,41 @@
         </value>
     </processMetadataValues>
     <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Asset_Record</name>
+        <label>Create Asset Record</label>
+        <locationX>1546</locationX>
+        <locationY>2762</locationY>
+        <connector>
+            <targetReference>Assign_the_Created_Asset_to_the_Panel_Assets_to_process</targetReference>
+        </connector>
+        <inputReference>Copy_Asset_From_Original_Service_Order_Line_Item.iAsset</inputReference>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_All_Cabinets_for_a_Selected_Cage</name>
+        <label>Get All Cabinets for a Selected Cage</label>
+        <locationX>380</locationX>
+        <locationY>2090</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Iterate_over_all_Cabinets_in_the_Cage</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Cage__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>selectedCageRecord.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>DC_Cabinet__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordLookups>
         <name>Get_Selected_Cabinet</name>
         <label>Get Selected Cabinet</label>
-        <locationX>578</locationX>
+        <locationX>1722</locationX>
         <locationY>1598</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -716,9 +1070,72 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Get_Selected_Cabinet_Cage_Path</name>
+        <label>Get Selected Cabinet</label>
+        <locationX>50</locationX>
+        <locationY>1598</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Selected_Cage</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Visual_Cabinet_Selection.selectedCanvasItem</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>DC_Cabinet__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Selected_Cage</name>
+        <label>Get Selected Cage</label>
+        <locationX>50</locationX>
+        <locationY>1706</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_selected_Cage_to_global_variable</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Selected_Cabinet_Cage_Path.Cage__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>DC_Cage__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Service_order_Line_Item_from_Original_Asset</name>
+        <label>Get Service order Line Item from Original Asset</label>
+        <locationX>1194</locationX>
+        <locationY>2222</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Iterate_over_assignments</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_the_Asset_Details.Service_Order_Line_Item__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>QuoteLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_the_Asset_Details</name>
         <label>Get the Asset Details</label>
-        <locationX>1386</locationX>
+        <locationX>2327</locationX>
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -739,7 +1156,7 @@
     <recordLookups>
         <name>Get_the_Cabinet_Details</name>
         <label>Get the Cabinet Details</label>
-        <locationX>908</locationX>
+        <locationX>2052</locationX>
         <locationY>2090</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -758,20 +1175,20 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>Get_the_Cage_Details</name>
-        <label>Get the Cage Details</label>
-        <locationX>50</locationX>
-        <locationY>1490</locationY>
+        <name>Get_the_Cage_Details_Manually</name>
+        <label>Get the Cage Details Manually</label>
+        <locationX>578</locationX>
+        <locationY>1598</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Update_Asset_to_Allocated_Cage</targetReference>
+            <targetReference>Assign_the_Manual_Cage_to_the_global_variable</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Select_the_Cage_from_a_given_Data_Hall.cage.Id</elementReference>
+                <elementReference>Select_the_Cage_from_the_DataHall</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -781,7 +1198,7 @@
     <recordLookups>
         <name>Get_the_DataHall_Details</name>
         <label>Get the DataHall Details</label>
-        <locationX>1386</locationX>
+        <locationX>2327</locationX>
         <locationY>950</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -802,10 +1219,10 @@
     <recordUpdates>
         <name>Update_Asset_to_Allocated_Cabinet</name>
         <label>Update Asset to Allocated- Cabinet</label>
-        <locationX>908</locationX>
+        <locationX>2052</locationX>
         <locationY>2198</locationY>
         <connector>
-            <targetReference>Assignment_9</targetReference>
+            <targetReference>Assign_the_Cabinet_Name_and_CabinetId</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -838,8 +1255,8 @@
     <recordUpdates>
         <name>Update_Asset_to_Allocated_Cage</name>
         <label>Update Asset to Allocated- Cage</label>
-        <locationX>50</locationX>
-        <locationY>1598</locationY>
+        <locationX>380</locationX>
+        <locationY>2714</locationY>
         <connector>
             <targetReference>Assign_the_Selected_Cage_Name_and_Id_to_the_Output_Variables</targetReference>
         </connector>
@@ -854,7 +1271,7 @@
         <inputAssignments>
             <field>Asset_Location__c</field>
             <value>
-                <elementReference>Get_the_Cage_Details.Name</elementReference>
+                <elementReference>selectedCageRecord.Name</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -866,7 +1283,7 @@
         <inputAssignments>
             <field>MRI_Suite_ID__c</field>
             <value>
-                <stringValue>MRI_SuiteFROMCAGE</stringValue>
+                <elementReference>selectedCageRecord.MRI_Suite_ID__c</elementReference>
             </value>
         </inputAssignments>
         <object>Asset</object>
@@ -874,7 +1291,7 @@
     <recordUpdates>
         <name>Update_the_Cabinet_Record</name>
         <label>Update the Cabinet Record</label>
-        <locationX>908</locationX>
+        <locationX>2052</locationX>
         <locationY>1982</locationY>
         <connector>
             <targetReference>Get_the_Cabinet_Details</targetReference>
@@ -908,19 +1325,75 @@
         <object>DC_Cabinet__c</object>
     </recordUpdates>
     <recordUpdates>
+        <name>Update_the_Cabinets</name>
+        <label>Update the Cabinets</label>
+        <locationX>380</locationX>
+        <locationY>2498</locationY>
+        <connector>
+            <targetReference>Update_the_Cage</targetReference>
+        </connector>
+        <inputReference>Get_All_Cabinets_for_a_Selected_Cage</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_the_Cage</name>
         <label>Update the Cage</label>
-        <locationX>50</locationX>
-        <locationY>1382</locationY>
+        <locationX>380</locationX>
+        <locationY>2606</locationY>
         <connector>
-            <targetReference>Get_the_Cage_Details</targetReference>
+            <targetReference>Update_Asset_to_Allocated_Cage</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Select_the_Cage_from_a_given_Data_Hall.cage.Id</elementReference>
+                <elementReference>selectedCageRecord.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Account_Lookup__c</field>
+            <value>
+                <elementReference>Get_the_Asset_Details.AccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Asset__c</field>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Occupied</stringValue>
+            </value>
+        </inputAssignments>
+        <object>DC_Cage__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_the_original_Asset</name>
+        <label>Update the original Asset</label>
+        <locationX>1282</locationX>
+        <locationY>2654</locationY>
+        <connector>
+            <targetReference>Assign_the_Asset_to_the_Panel_Assets_to_process</targetReference>
+        </connector>
+        <inputReference>Get_the_Asset_Details</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdatetheCageManually</name>
+        <label>Update the Cage Manually</label>
+        <locationX>578</locationX>
+        <locationY>1490</locationY>
+        <connector>
+            <targetReference>Get_the_Cage_Details_Manually</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Select_the_Cage_from_the_DataHall</elementReference>
             </value>
         </filters>
         <inputAssignments>
@@ -946,7 +1419,7 @@
     <screens>
         <name>Cabinet_Assignment_Screen</name>
         <label>Cabinet Assignment</label>
-        <locationX>1106</locationX>
+        <locationX>2250</locationX>
         <locationY>1382</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -967,9 +1440,31 @@
         <showHeader>true</showHeader>
     </screens>
     <screens>
+        <name>Cage_Assignment</name>
+        <label>Cage Assignment</label>
+        <locationX>578</locationX>
+        <locationY>1382</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>UpdatetheCageManually</targetReference>
+        </connector>
+        <fields>
+            <name>Select_the_Cage_from_the_DataHall</name>
+            <choiceReferences>cagesFromDataHall</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Select the Cage from the DataHall</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
         <name>Missing_Asset_Type_Page</name>
         <label>Missing Asset Type</label>
-        <locationX>3218</locationX>
+        <locationX>4362</locationX>
         <locationY>1274</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -988,106 +1483,49 @@
     <screens>
         <name>Request_how_many_RUs</name>
         <label>Request how many RUs</label>
-        <locationX>314</locationX>
+        <locationX>1326</locationX>
         <locationY>1274</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Select_Meet_Me_Room</targetReference>
+            <targetReference>Reset_RU_Sum</targetReference>
         </connector>
         <fields>
-            <name>Request_how_many_RUs_Section1</name>
-            <fieldType>RegionContainer</fieldType>
+            <name>panelRUGuidance</name>
+            <fieldText>&lt;p&gt;There are {!Get_the_Asset_Details.Quantity} RUs total, Would you like to split these up?&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>RUErrorMessage</name>
+            <fieldText>&lt;p&gt;The total amount of RUs you selected has to equal {!Get_the_Asset_Details.Quantity}, your total was {!sumOfRUsadded}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>sumOfRUsadded</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <numberValue>0.0</numberValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>ruRollup</name>
+            <fieldType>Repeater</fieldType>
             <fields>
-                <name>Request_how_many_RUs_Section1_Column1</name>
-                <fieldType>Region</fieldType>
-                <fields>
-                    <name>Starting_Position_on_Rack</name>
-                    <dataType>Number</dataType>
-                    <fieldText>Starting Position on Rack</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <helpText>&lt;p&gt;&lt;span style=&quot;font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Starting Position of this Panel in the Rack. 1 is the bottom RU.&lt;/span&gt;&lt;/p&gt;</helpText>
-                    <isRequired>true</isRequired>
-                    <scale>0</scale>
-                </fields>
-                <inputParameters>
-                    <name>width</name>
-                    <value>
-                        <stringValue>6</stringValue>
-                    </value>
-                </inputParameters>
-                <isRequired>false</isRequired>
-            </fields>
-            <fields>
-                <name>Request_how_many_RUs_Section1_Column2</name>
-                <fieldType>Region</fieldType>
-                <fields>
-                    <name>How_many_RUs</name>
-                    <dataType>Number</dataType>
-                    <fieldText>How many RUs</fieldText>
-                    <fieldType>InputField</fieldType>
-                    <helpText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Valid range of RUs is 1 to 16. Please re-enter your value&lt;/span&gt;&lt;/p&gt;</helpText>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <scale>0</scale>
-                </fields>
-                <inputParameters>
-                    <name>width</name>
-                    <value>
-                        <stringValue>6</stringValue>
-                    </value>
-                </inputParameters>
-                <isRequired>false</isRequired>
+                <name>ruItem</name>
+                <dataType>Number</dataType>
+                <defaultValue>
+                    <elementReference>Get_the_Asset_Details.Quantity</elementReference>
+                </defaultValue>
+                <fieldText>RU Size  to Reserve</fieldText>
+                <fieldType>InputField</fieldType>
+                <isRequired>true</isRequired>
+                <scale>0</scale>
             </fields>
             <isRequired>false</isRequired>
-            <regionContainerType>SectionWithoutHeader</regionContainerType>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
-    <screens>
-        <name>Select_a_Rack_Row_Screen</name>
-        <label>Select a Rack Row</label>
-        <locationX>314</locationX>
-        <locationY>1490</locationY>
-        <allowBack>false</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
-        <connector>
-            <targetReference>Select_a_Rack_Screen</targetReference>
-        </connector>
-        <fields>
-            <name>Select_a_Rack_Row_Picker</name>
-            <choiceReferences>rackRowsFromMeetMeRoom</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Select a Rack Row</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
-    <screens>
-        <name>Select_a_Rack_Screen</name>
-        <label>Select a Rack</label>
-        <locationX>314</locationX>
-        <locationY>1598</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
-        <connector>
-            <targetReference>DX_Panel_Record_Creation_Flow_1</targetReference>
-        </connector>
-        <fields>
-            <name>Select_a_Rack_Picker</name>
-            <choiceReferences>racksFromRackRow</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Select a Rack</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -1095,13 +1533,13 @@
     <screens>
         <name>Select_Meet_Me_Room</name>
         <label>Select Meet Me Room</label>
-        <locationX>314</locationX>
-        <locationY>1382</locationY>
+        <locationX>1194</locationX>
+        <locationY>2006</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Select_a_Rack_Row_Screen</targetReference>
+            <targetReference>Select_a_Rack_Panel_and_Position</targetReference>
         </connector>
         <fields>
             <name>Select_a_Meet_me_Room_from_the_Datahall</name>
@@ -1118,7 +1556,7 @@
     <screens>
         <name>Visual_Cabinet_Selection_From_DataHall</name>
         <label>Visual Cabinet Selection From DataHall</label>
-        <locationX>710</locationX>
+        <locationX>1854</locationX>
         <locationY>1382</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -1128,7 +1566,7 @@
         </connector>
         <fields>
             <name>selectCabinetFromDataHallOutput</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Select a Cage from the DataHall&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255); font-size: 14px;&quot;&gt;Select a Cabinet from the DataHall&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
@@ -1154,8 +1592,47 @@
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
+    <screens>
+        <name>Visual_Cabinet_Selection_From_DataHall_Cage_Path</name>
+        <label>Visual Cabinet Selection From DataHall</label>
+        <locationX>182</locationX>
+        <locationY>1382</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Was_a_Cabinet_Selected_Cage_Flow_Cage_Path</targetReference>
+        </connector>
+        <fields>
+            <name>selectCabinetFromDataHallOutput_CageFlow</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255); font-size: 14px;&quot;&gt;Select a Cabinet/Cage from the DataHall&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Visual_Cabinet_Selection_Cage_Path</name>
+            <extensionName>RDraw:canvas2D</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>recordId</name>
+                <value>
+                    <elementReference>dataHallId</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>callFlowNextOnProceed</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
     <start>
-        <locationX>1260</locationX>
+        <locationX>2201</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_the_Asset_Details</targetReference>
@@ -1165,7 +1642,7 @@
     <subflows>
         <name>Building_floor_and_DataHall_Selection</name>
         <label>Building floor and DataHall Selection</label>
-        <locationX>1430</locationX>
+        <locationX>2371</locationX>
         <locationY>650</locationY>
         <connector>
             <targetReference>Assign_The_Data_Hall</targetReference>
@@ -1180,9 +1657,32 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </subflows>
     <subflows>
+        <name>Copy_Asset_From_Original_Service_Order_Line_Item</name>
+        <label>Copy Asset From Original Service Order Line Item</label>
+        <locationX>1546</locationX>
+        <locationY>2546</locationY>
+        <connector>
+            <targetReference>Assign_specific_properties_From_selection</targetReference>
+        </connector>
+        <flowName>DX_Copy_Asset_Values_from_SOLineItem</flowName>
+        <inputAssignments>
+            <name>ServiceRequestID</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.DX_Service_Request__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>SOLineItem</name>
+            <value>
+                <elementReference>Get_Service_order_Line_Item_from_Original_Asset</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
         <name>DC_Circuit_Record_Creation_Flow</name>
         <label>DC Circuit Record Creation Flow</label>
-        <locationX>2162</locationX>
+        <locationX>3306</locationX>
         <locationY>1274</locationY>
         <connector>
             <targetReference>Asset_was_Allocated</targetReference>
@@ -1234,7 +1734,7 @@
     <subflows>
         <name>DX_Create_Circuit_Breaker_Record_Flow</name>
         <label>DX Create Circuit Breaker Record Flow</label>
-        <locationX>2426</locationX>
+        <locationX>3570</locationX>
         <locationY>1274</locationY>
         <connector>
             <targetReference>Asset_was_Allocated</targetReference>
@@ -1298,7 +1798,7 @@
     <subflows>
         <name>DX_Home_Run_and_Fiber_Pair_Record_Creation_Flow_1</name>
         <label>DX Home Run and Fiber Pair Record Creation Flow 1</label>
-        <locationX>2690</locationX>
+        <locationX>3834</locationX>
         <locationY>1274</locationY>
         <connector>
             <targetReference>Asset_was_Allocated</targetReference>
@@ -1338,7 +1838,7 @@
     <subflows>
         <name>DX_Innerduct_Asset_Record_Creation_Flow</name>
         <label>DX Innerduct Asset Record Creation Flow</label>
-        <locationX>1898</locationX>
+        <locationX>3042</locationX>
         <locationY>1274</locationY>
         <connector>
             <targetReference>Asset_was_Allocated</targetReference>
@@ -1360,7 +1860,7 @@
     <subflows>
         <name>DX_Inside_Plant_Asset_Record_Creation_Flow</name>
         <label>DX Inside Plant Asset Record Creation Flow</label>
-        <locationX>2954</locationX>
+        <locationX>4098</locationX>
         <locationY>1274</locationY>
         <connector>
             <targetReference>Asset_was_Allocated</targetReference>
@@ -1410,12 +1910,12 @@
         </inputAssignments>
     </subflows>
     <subflows>
-        <name>DX_Panel_Record_Creation_Flow_1</name>
-        <label>DX Panel Record Creation Flow 1</label>
-        <locationX>314</locationX>
-        <locationY>1706</locationY>
+        <name>DX_Panel_Record_Creation_Flow</name>
+        <label>DX Panel Record Creation Flow</label>
+        <locationX>1414</locationX>
+        <locationY>3062</locationY>
         <connector>
-            <targetReference>Asset_was_Allocated</targetReference>
+            <targetReference>Iterate_over_assignments</targetReference>
         </connector>
         <flowName>DX_Panel_Record_Creation</flowName>
         <inputAssignments>
@@ -1427,7 +1927,7 @@
         <inputAssignments>
             <name>AssetID</name>
             <value>
-                <elementReference>recordId</elementReference>
+                <elementReference>selectedPanelAsset.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1451,7 +1951,7 @@
         <inputAssignments>
             <name>HeightRU</name>
             <value>
-                <elementReference>How_many_RUs</elementReference>
+                <elementReference>Iterate_over_assignments.Size</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1463,13 +1963,13 @@
         <inputAssignments>
             <name>RackID</name>
             <value>
-                <elementReference>Select_a_Rack_Picker</elementReference>
+                <elementReference>Iterate_over_assignments.RackId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <name>StartingPositionRU</name>
             <value>
-                <elementReference>Starting_Position_on_Rack</elementReference>
+                <elementReference>Iterate_over_assignments.StartingPosition</elementReference>
             </value>
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -1477,7 +1977,7 @@
     <subflows>
         <name>DX_POE_Allocation_Record_Creation_Flow</name>
         <label>DX POE Allocation Record Creation Flow</label>
-        <locationX>1370</locationX>
+        <locationX>2514</locationX>
         <locationY>1274</locationY>
         <connector>
             <targetReference>Asset_was_Allocated</targetReference>
@@ -1517,7 +2017,7 @@
     <subflows>
         <name>DX_Roof_Record_Creation_Flow</name>
         <label>DX Roof Record Creation Flow</label>
-        <locationX>1634</locationX>
+        <locationX>2778</locationX>
         <locationY>1274</locationY>
         <connector>
             <targetReference>Asset_was_Allocated</targetReference>
@@ -1567,18 +2067,30 @@
         </inputAssignments>
     </subflows>
     <subflows>
-        <name>Select_the_Cage_from_a_given_Data_Hall</name>
-        <label>Select the Cage from a given Data Hall</label>
-        <locationX>50</locationX>
-        <locationY>1274</locationY>
+        <name>Select_a_Rack_Panel_and_Position</name>
+        <label>Select a Rack Panel and Position</label>
+        <locationX>1194</locationX>
+        <locationY>2114</locationY>
         <connector>
-            <targetReference>Update_the_Cage</targetReference>
+            <targetReference>Get_Service_order_Line_Item_from_Original_Asset</targetReference>
         </connector>
-        <flowName>Cage_Selection_from_DataHall</flowName>
+        <flowName>Select_Rack_Row_Rack_and_Panel_Selection</flowName>
         <inputAssignments>
-            <name>dataHallId</name>
+            <name>assetToAssignOrSplit</name>
             <value>
-                <elementReference>dataHallId</elementReference>
+                <elementReference>Get_the_Asset_Details</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>meetmeRoomId</name>
+            <value>
+                <elementReference>Select_a_Meet_me_Room_from_the_Datahall</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>sizesToAllocate</name>
+            <value>
+                <elementReference>ruSizesToSelect</elementReference>
             </value>
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -1640,11 +2152,51 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
+        <name>panelAssetsToProcess</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Asset</objectType>
+    </variables>
+    <variables>
         <description>The Selected Asset Id, if using a singular Asset.</description>
         <name>recordId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ruSizesToSelect</name>
+        <dataType>Number</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
+        <name>selectedCageRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>DC_Cage__c</objectType>
+    </variables>
+    <variables>
+        <name>selectedPanelAsset</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Asset</objectType>
+    </variables>
+    <variables>
+        <name>sumOfRUsadded</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
     </variables>
 </Flow>
