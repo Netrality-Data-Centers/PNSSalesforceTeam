@@ -34,6 +34,10 @@
                 <behavior>Edit</behavior>
                 <field>Connection_Case__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Tie_Cable_Path__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

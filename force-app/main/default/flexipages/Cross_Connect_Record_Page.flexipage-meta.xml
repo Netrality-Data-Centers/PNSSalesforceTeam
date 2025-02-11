@@ -98,6 +98,12 @@
                 <identifier>RecordBuilding_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Tie_Cable_Path__c</fieldItem>
+                <identifier>RecordTie_Cable_Path__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-7e343767-756b-493f-96e4-d09df1de7c34</name>
         <type>Facet</type>
     </flexiPageRegions>
