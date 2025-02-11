@@ -1,0 +1,99 @@
+<template>
+    <template if:true={hasTemplateInteractionDefinition}>
+        <lightning-card title="Rack Row Details" icon-name="custom:custom63">
+            <lightning-layout multiple-rows="true">
+                <lightning-layout-item size={canvasSize}>
+                    <template if:true={isSelection}>
+                        <lightning-layout>
+                            <lightning-layout-item size="4"> 
+                                <template if:true={hasselectedPanelAssignmentItem}>
+                                    <div style="margin-left: 5vw;" class="slds-text-heading_medium">
+                                        Pick as position for this {selectedPanelAssignmentItem.Size} RU Panel:
+                                    </div>
+                                </template>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="4">
+                                <div class="slds-var-m-horizontal-medium">
+                                    <lightning-layout>
+                                        <lightning-layout-item size="6">
+                                            <lightning-progress-ring value={percentComplete} min="0" max="100">
+                                            </lightning-progress-ring>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="6">
+                                            <div class="slds-text-body_regular">{remainingPanelMessage}</div>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="4"><lightning-button label="Save" disabled={allHaveSelected} onclick={handleSave}></lightning-button></lightning-layout-item>
+                        </lightning-layout>
+                    </template>
+                    
+                    <RDraw-local-notifications></RDraw-local-notifications>
+                     <RDraw-canvas2-d settingsmodel={templateInteractionDefinition} ondraggableitemclicked={handleElementClicked} onelementhovered={handleElementHovered} oncanvasloadedandenvironmentupdated={handleCanvasLoaded} class={canvasClass}></RDraw-canvas2-d>
+
+                </lightning-layout-item>
+                <lightning-layout-item size={sidebarSize}>
+                    <template if:true={hasSelection}>
+                        <div >
+                            <lightning-card title="Panel Assignment">
+                                <div class="slds-p-around_medium">
+                                    <template if:true={selectedPanelAssignments}>
+                                        <p><strong>Panel Name:</strong> {selectedPanelAssignments.panelName}</p>
+                                        <p><strong>Panel Type:</strong> {selectedPanelAssignments.panelType}</p>
+                                        <p><strong>Panel Status:</strong> {selectedPanelAssignments.panelStatus}</p>
+                                    </template>
+                                    <template if:false={selectedPanelAssignments}>
+                                        <p><strong>Not Assigned</strong></p>
+                                    </template>
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </template>
+                    <div if:false={hasSelection}>
+                        <div if:false={isSelection}>
+                            <lightning-card title="Panels in Rack Row">
+                                <div class="slds-p-around_medium tableWrapper">
+                                    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                                        <thead>
+                                            <tr class="slds-line-height_reset">
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="Name">Name</div>
+                                                </th>
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="Type">Starting Position</div>
+                                                </th>
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="Status">RU Height</div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <template for:each={panels} for:item="panel">
+                                                <tr data-panel={panel.Id} key={panel.Id} class="slds-hint-parent" onmouseover={handlePanelHover}>
+                                                    <td>
+                                                        <div class="slds-truncate" title={panel.Name}>{panel.Name}</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="slds-truncate" title={panel.Starting_Position_RU__c}>{panel.Starting_Position_RU__c}</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="slds-truncate" title={panel.Height_RU__c}>{panel.Height_RU__c}</div>
+                                                    </td>
+                                                </tr>
+                                            </template>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <div class="footer">
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-card>        
+    </template>
+</template>

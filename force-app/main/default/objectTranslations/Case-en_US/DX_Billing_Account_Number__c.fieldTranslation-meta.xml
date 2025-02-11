@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;) --></help>
+    <label><!-- Billing Account Number --></label>
+    <name>DX_Billing_Account_Number__c</name>
+</CustomFieldTranslation>

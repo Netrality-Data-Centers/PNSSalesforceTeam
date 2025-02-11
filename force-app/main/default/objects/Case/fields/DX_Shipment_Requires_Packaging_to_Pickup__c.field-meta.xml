@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_Shipment_Requires_Packaging_to_Pickup__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Does this shipment require packaging prior to pick-up?</inlineHelpText>
+    <label>Shipment requires packaging to pick-up?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes, additional packaging is requested</fullName>
+                <default>false</default>
+                <label>Yes, additional packaging is requested</label>
+            </value>
+            <value>
+                <fullName>No, ready for pickup</fullName>
+                <default>false</default>
+                <label>No, ready for pickup</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Service Request</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Service Requests</value>
+    </caseValues>
+    <layouts>
+        <layout>Case Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Authorized Users --></label>
+        <name>Authorized_Users</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewChildCase --></label>
+        <name>NewChildCase</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Access Request --></label>
+        <name>DX_Access_Request</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Accounting Request --></label>
+        <name>DX_Accounting_Request</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Contracts Request --></label>
+        <name>DX_Contracts_Request</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Cross Connect --></label>
+        <name>DX_Cross_Connect</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Customer Experience Request --></label>
+        <name>DX_Customer_Experience_Request</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Expansion of Services --></label>
+        <name>DX_Expansion_of_Services</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Logistics --></label>
+        <name>DX_Logistics</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Remote Hands Support --></label>
+        <name>DX_Remote_Hands_Support</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- STL --></label>
+        <name>STL</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- 1102 Grand --></label>
+        <name>X1102_Grand</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- 1301 Fannin --></label>
+        <name>X1301_Fannin</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- 401 N Broad --></label>
+        <name>X401_N_Broad</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- 717 S Wells --></label>
+        <name>X717_S_Wells</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Departure Date can&apos;t exceed 14 calendar Days from Arrival Date --></errorMessage>
+        <name>DX_Departure_Date</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Authorized_Users --></label>
+        <name>Authorized_Users</name>
+    </webLinks>
+</CustomObjectTranslation>

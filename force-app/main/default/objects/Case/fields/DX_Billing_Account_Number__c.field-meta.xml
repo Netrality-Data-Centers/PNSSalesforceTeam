@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_Billing_Account_Number__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)</inlineHelpText>
+    <label>Billing Account Number</label>
+    <length>100</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

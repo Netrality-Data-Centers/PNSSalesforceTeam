@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataset>DC_Main_Utilities</dataset>
+    <dimensions>
+        <field>Building.Id</field>
+        <isDerived>false</isDerived>
+        <label>Building ID</label>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <measures>
+        <field>Tenant_Power.Committed_Power</field>
+        <isDerived>false</isDerived>
+        <label>Tenant Power Committed</label>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>*</field>
+        <isDerived>true</isDerived>
+        <label>Main Utilities</label>
+        <showInExplorer>true</showInExplorer>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>Tenant_Power.Connected_Power</field>
+        <isDerived>false</isDerived>
+        <label>Tenant Power Connected</label>
+        <sortIndex>1</sortIndex>
+    </measures>
+    <measures>
+        <field>Tenant_Power.Records</field>
+        <isDerived>false</isDerived>
+        <label>Tenant Power  Records</label>
+        <sortIndex>2</sortIndex>
+    </measures>
+</WaveXmd>

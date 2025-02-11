@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- NRC Billing for --></label>
+    <name>DX_NRC_Billing_for__c</name>
+    <picklistValues>
+        <masterLabel>Cross Connect</masterLabel>
+        <translation><!-- Cross Connect --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Remote Hands Support</masterLabel>
+        <translation><!-- Remote Hands Support --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Utility Billing</masterLabel>
+        <translation><!-- Utility Billing --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

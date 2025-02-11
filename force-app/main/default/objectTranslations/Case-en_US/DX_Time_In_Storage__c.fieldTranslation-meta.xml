@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Duration of Time in Storage --></label>
+    <name>DX_Time_In_Storage__c</name>
+    <picklistValues>
+        <masterLabel>Less than a month</masterLabel>
+        <translation><!-- Less than a month --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Less than a week</masterLabel>
+        <translation><!-- Less than a week --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>More than a month</masterLabel>
+        <translation><!-- More than a month --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

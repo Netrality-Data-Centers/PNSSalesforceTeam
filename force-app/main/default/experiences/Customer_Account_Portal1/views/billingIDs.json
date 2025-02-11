@@ -1,0 +1,61 @@
+{
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "d9b161b8-c9cb-4e67-8405-b6ed0ad72b81",
+  "label" : "Billing IDs",
+  "regions" : [ {
+    "id" : "62ae03f3-c586-49df-903f-60c931f700c4",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "enableInlineEdit" : false,
+        "filterName" : "All",
+        "layout" : "STANDARD",
+        "pageSize" : 25,
+        "scope" : "MRI_ID__c",
+        "showActionBar" : false,
+        "showChartsPanel" : false,
+        "showDisplay" : "grid",
+        "showFilterPanel" : false,
+        "showImageIcon" : true,
+        "showManualRefreshButton" : true,
+        "showObjectName" : false,
+        "showPinnedList" : false,
+        "showSearchBar" : true
+      },
+      "componentName" : "forceCommunity:objectHome",
+      "id" : "f20bd491-a49f-4cbf-a555-b7ab149b6b2b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "62c449e1-efd3-4001-a945-968a695dd65f",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "9ecd8909-5cfc-4aa2-957b-201d07a8fb5b",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Billing IDs"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "71c3c832-5fdd-43d5-839b-d0477d004c82",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2976a8f8-2237-4da9-9008-9c1492c6d18b",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "iIBOUkngH0Q7aoT5dMmRbr5AAT4egV",
+  "type" : "view",
+  "viewType" : "custom-billing-ids"
+}

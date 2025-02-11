@@ -1,0 +1,1048 @@
+{
+  "version" : "62.0",
+  "nodes" : {
+    "LOAD_DATASET0" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "Amperage__c", "Associated_Space_Type__c", "Phase__c", "Voltage__c", "Asset__c", "Cabinet__c", "Committed_Power__c", "Connected_Power__c", "PDU_Panel__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "DC_Circuit_Breaker__c",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "DC_Circuit_Breaker__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET1" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Type__c", "Data_Hall__c", "Design_Capacity_tons__c", "Design_Capacity_kW__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "DC_IT_Cooling__c",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "DC_IT_Cooling__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET2" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "Type__c", "Data_Hall__c", "Short_Name__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "DC_Cage__c",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "DC_Cage__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET3" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "DC_Floor__c", "Short_Name__c", "Cooling_Redundancy_Configuration__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "DC_Data_Hall__c",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "DC_Data_Hall__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET4" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "Status__c", "Cabinet_Equivalent__c", "Cage__c", "Depth_in__c", "Height_RU__c", "Legacy_Cabinet_Name__c", "Short_Name__c", "Width_in__c", "Asset__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "DC_Cabinet__c",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "DC_Cabinet__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET5" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "Max_Capacity_kw__c", "Switchgear__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "DC_UPS__c",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "DC_UPS__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET6" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "Building__c", "Floor_number__c", "Short_Name__c", "Total_Square_Feet__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "DC_Floor__c",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "DC_Floor__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET7" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "Data_Hall__c", "UPS__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "DC_Datahall_UPS__c",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "DC_Datahall_UPS__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET8" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name", "City__c", "State__c", "Location__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "Building__c",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "Building__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN0" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET6", "LOAD_DATASET8" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Building__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Building__c" ],
+        "rightQualifier" : "Building",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN1" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET3", "JOIN0" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "DC_Floor__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "DC_Floor__c" ],
+        "rightQualifier" : "DC_Floor",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN2" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET2", "JOIN1" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Data_Hall__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Data_Hall__c" ],
+        "rightQualifier" : "DC_Data_Hall",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN3" : {
+      "action" : "join",
+      "sources" : [ "JOIN4", "JOIN2" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Cage__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Cage__c" ],
+        "rightQualifier" : "DC_Cage",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "EXTRACT0" : {
+      "action" : "extractGrains",
+      "sources" : [ "LOAD_DATASET0" ],
+      "parameters" : {
+        "grainExtractions" : [ ]
+      }
+    },
+    "AGGREGATE1" : {
+      "action" : "aggregate",
+      "sources" : [ "EXTRACT0" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "Committed_Power",
+          "newProperties" : {
+            "typeProperties" : {
+              "type" : "NUMBER",
+              "scale" : 2,
+              "precision" : 16
+            }
+          }
+        }, {
+          "name" : "Connected_Power",
+          "newProperties" : {
+            "typeProperties" : {
+              "type" : "NUMBER",
+              "scale" : 2,
+              "precision" : 16
+            }
+          }
+        } ]
+      },
+      "parameters" : {
+        "aggregations" : [ {
+          "action" : "UNIQUE",
+          "source" : "Id",
+          "name" : "Redundancy_Factor",
+          "label" : "Redundancy Factor"
+        }, {
+          "action" : "SUM",
+          "source" : "Committed_Power__c",
+          "name" : "Committed_Power",
+          "label" : "Committed Power"
+        }, {
+          "action" : "SUM",
+          "source" : "Connected_Power__c",
+          "name" : "Connected_Power",
+          "label" : "Connected Power"
+        } ],
+        "groupings" : [ "Cabinet__c" ],
+        "pivots" : [ ],
+        "nodeType" : "STANDARD"
+      }
+    },
+    "JOIN4" : {
+      "action" : "join",
+      "sources" : [ "FORMULA2", "AGGREGATE1" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Circuit_Breakers.Cabinet__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "Circuit_Breakers",
+        "rightKeys" : [ "Cabinet__c" ]
+      }
+    },
+    "JOIN5" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET5", "LOAD_DATASET7" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "DC_Datahall_UPS.UPS__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "DC_Datahall_UPS",
+        "rightKeys" : [ "UPS__c" ]
+      }
+    },
+    "EXTRACT1" : {
+      "action" : "extractGrains",
+      "sources" : [ "JOIN5" ],
+      "parameters" : {
+        "grainExtractions" : [ ]
+      }
+    },
+    "AGGREGATE3" : {
+      "action" : "aggregate",
+      "sources" : [ "EXTRACT1" ],
+      "parameters" : {
+        "aggregations" : [ {
+          "action" : "SUM",
+          "source" : "Max_Capacity_kw__c",
+          "name" : "SUM_Max_Capacity_kw__c",
+          "label" : "Sum of Max Capacity (kw)"
+        } ],
+        "groupings" : [ "DC_Datahall_UPS.Data_Hall__c" ],
+        "pivots" : [ ],
+        "nodeType" : "STANDARD"
+      }
+    },
+    "EXTRACT2" : {
+      "action" : "extractGrains",
+      "sources" : [ "LOAD_DATASET1" ],
+      "parameters" : {
+        "grainExtractions" : [ ]
+      }
+    },
+    "AGGREGATE5" : {
+      "action" : "aggregate",
+      "sources" : [ "EXTRACT2" ],
+      "schema" : {
+        "fields" : [ {
+          "name" : "Design_Capacity_kW",
+          "newProperties" : {
+            "typeProperties" : {
+              "type" : "NUMBER",
+              "scale" : 2,
+              "precision" : 16
+            }
+          }
+        } ]
+      },
+      "parameters" : {
+        "aggregations" : [ {
+          "action" : "SUM",
+          "source" : "Design_Capacity_tons__c",
+          "name" : "Design_Capacity_tons",
+          "label" : "Design Capacity (tons)"
+        }, {
+          "action" : "SUM",
+          "source" : "Design_Capacity_kW__c",
+          "name" : "Design_Capacity_kW",
+          "label" : "Design Capacity (kW)"
+        }, {
+          "action" : "UNIQUE",
+          "source" : "Id",
+          "name" : "Count_IT_Cooling",
+          "label" : "Count IT Cooling"
+        } ],
+        "groupings" : [ "Data_Hall__c", "Type__c" ],
+        "pivots" : [ ],
+        "nodeType" : "STANDARD"
+      }
+    },
+    "FILTER0" : {
+      "action" : "filter",
+      "sources" : [ "AGGREGATE5" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "Type__c",
+          "operator" : "EQUAL",
+          "operands" : [ "CRAC" ]
+        } ]
+      }
+    },
+    "FILTER1" : {
+      "action" : "filter",
+      "sources" : [ "AGGREGATE5" ],
+      "parameters" : {
+        "filterExpressions" : [ {
+          "type" : "TEXT",
+          "field" : "Type__c",
+          "operator" : "EQUAL",
+          "operands" : [ "CRAH" ]
+        } ]
+      }
+    },
+    "OUTPUT0" : {
+      "action" : "save",
+      "sources" : [ "FORMULA4" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "Data Halls",
+          "name" : "DC_Data_Halls",
+          "folderName" : "DCIM"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "JOIN6" : {
+      "action" : "join",
+      "sources" : [ "JOIN1", "AGGREGATE3" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "UPS.DC_Datahall_UPS.Data_Hall__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "UPS",
+        "rightKeys" : [ "DC_Datahall_UPS.Data_Hall__c" ]
+      }
+    },
+    "JOIN7" : {
+      "action" : "join",
+      "sources" : [ "JOIN6", "FILTER1" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "IT_Cooling_CRAH.Data_Hall__c", "IT_Cooling_CRAH.Type__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "IT_Cooling_CRAH",
+        "rightKeys" : [ "Data_Hall__c" ]
+      }
+    },
+    "JOIN8" : {
+      "action" : "join",
+      "sources" : [ "JOIN7", "FILTER0" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "IT_Cooling_CRAC.Data_Hall__c", "IT_Cooling_CRAC.Type__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "IT_Cooling_CRAC",
+        "rightKeys" : [ "Data_Hall__c" ]
+      }
+    },
+    "FORMULA0" : {
+      "action" : "formula",
+      "sources" : [ "JOIN8" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "IT_Cooling.Total_Capacity_tons",
+          "label" : "IT Cooling Total Capacity (tons)",
+          "formulaExpression" : "COALESCE(\"IT_Cooling_CRAH.Design_Capacity_tons\", 0) + COALESCE(\"IT_Cooling_CRAC.Design_Capacity_tons\", 0)",
+          "precision" : 18,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA1" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA0" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "IT_Cooling_Total_Capacity_kW",
+          "label" : "IT Cooling Total Capacity (kW)",
+          "formulaExpression" : "COALESCE(\"IT_Cooling_CRAH.Design_Capacity_kW\", 0) + COALESCE(\"IT_Cooling_CRAC.Design_Capacity_kW\", 0)",
+          "precision" : 16,
+          "scale" : 2,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA3" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA1" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "Count_IT_Cooling",
+          "label" : "Count IT Cooling",
+          "formulaExpression" : "\"IT_Cooling_CRAH.Count_IT_Cooling\" + \"IT_Cooling_CRAC.Count_IT_Cooling\"",
+          "precision" : 18,
+          "scale" : 0,
+          "defaultValue" : "0"
+        } ]
+      }
+    },
+    "FORMULA4" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA3" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "Cooling_Capacity_Net_of_Redundancy",
+          "label" : "Cooling Capacity (Net of Redundancy)",
+          "formulaExpression" : "case when Cooling_Redundancy_Configuration__c = '2N' then IT_Cooling_Total_Capacity_kW / 2\r\nwhen Cooling_Redundancy_Configuration__c = 'N+1' then (IT_Cooling_Total_Capacity_kW /Count_IT_Cooling)*(Count_IT_Cooling-1)\r\nwhen Cooling_Redundancy_Configuration__c = 'N+2' then (IT_Cooling_Total_Capacity_kW /Count_IT_Cooling)*(Count_IT_Cooling-2)\r\nelse 0 end",
+          "precision" : 16,
+          "scale" : 2,
+          "defaultValue" : "0"
+        } ]
+      }
+    },
+    "OUTPUT1" : {
+      "action" : "save",
+      "sources" : [ "JOIN25" ],
+      "parameters" : {
+        "fields" : [ ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "Cabinets",
+          "name" : "DC_Cabinets",
+          "folderName" : "DCIM"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "FORMULA2" : {
+      "action" : "formula",
+      "sources" : [ "LOAD_DATASET4" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "Square_Footage",
+          "label" : "Square Footage",
+          "formulaExpression" : "2 * Cabinet_Equivalent__c * ((Depth_in__c * Width_in__c) / 144)",
+          "precision" : 16,
+          "scale" : 2,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "LOAD_DATASET20" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "AccountId" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "Asset",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "Asset"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "LOAD_DATASET21" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Name" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "Account",
+          "connectionName" : "SFDC_LOCAL",
+          "sourceObjectName" : "Account"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN24" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET20", "LOAD_DATASET21" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "AccountId" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "AccountId" ],
+        "rightQualifier" : "Account",
+        "rightKeys" : [ "Id" ]
+      }
+    },
+    "JOIN25" : {
+      "action" : "join",
+      "sources" : [ "JOIN3", "JOIN24" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Asset__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Asset__c" ],
+        "rightQualifier" : "Asset",
+        "rightKeys" : [ "Id" ]
+      }
+    }
+  },
+  "ui" : {
+    "nodes" : {
+      "LOAD_DATASET0" : {
+        "label" : "DC_Circuit_Breaker__c",
+        "type" : "LOAD_DATASET",
+        "top" : 812.4,
+        "left" : 811.9,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET1" : {
+        "label" : "DC_IT_Cooling__c",
+        "type" : "LOAD_DATASET",
+        "top" : 112.1,
+        "left" : 1092,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET2" : {
+        "label" : "DC_Cage__c",
+        "type" : "LOAD_DATASET",
+        "top" : 532.3,
+        "left" : 532.6,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET3" : {
+        "label" : "DC_Data_Hall__c",
+        "type" : "LOAD_DATASET",
+        "top" : 392.3,
+        "left" : 392.6,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET4" : {
+        "label" : "DC_Cabinet__c",
+        "type" : "LOAD_DATASET",
+        "top" : 672.3,
+        "left" : 671.9,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET5" : {
+        "label" : "DC_UPS__c",
+        "type" : "LOAD_DATASET",
+        "top" : 112.1,
+        "left" : 812,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET6" : {
+        "label" : "DC_Floor__c",
+        "type" : "LOAD_DATASET",
+        "top" : 252.3,
+        "left" : 252.60000000000002,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET7" : {
+        "label" : "DC_Datahall_UPS__c",
+        "type" : "LOAD_DATASET",
+        "top" : 252.10000000000002,
+        "left" : 672,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET8" : {
+        "label" : "Building__c",
+        "type" : "LOAD_DATASET",
+        "top" : 112.1,
+        "left" : 112.1,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN0" : {
+        "label" : "Join Floor to Building",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 252.3,
+        "left" : 392.6
+      },
+      "JOIN1" : {
+        "label" : "Join Data Hall to Floor",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 392.3,
+        "left" : 532.6
+      },
+      "JOIN2" : {
+        "label" : "Join Cage to Data Hall",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 532.3,
+        "left" : 672.6
+      },
+      "JOIN3" : {
+        "label" : "Join Cabinet to Cage",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 672.6,
+        "left" : 1091.9
+      },
+      "AGGREGATE0" : {
+        "label" : "Aggregate Circuit Breakers",
+        "description" : "",
+        "type" : "AGGREGATE",
+        "top" : 812,
+        "left" : 952,
+        "graph" : {
+          "EXTRACT0" : null,
+          "AGGREGATE1" : null
+        },
+        "connectors" : [ {
+          "source" : "EXTRACT0",
+          "target" : "AGGREGATE1"
+        } ]
+      },
+      "JOIN4" : {
+        "label" : "Join Circuit Breakers to Cabinet (Aggr)",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 672.6,
+        "left" : 951.9
+      },
+      "JOIN5" : {
+        "label" : "Join UPS to Data Hall UPS (Junction)",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 252.10000000000002,
+        "left" : 812
+      },
+      "AGGREGATE2" : {
+        "label" : "Aggregate UPS",
+        "description" : "",
+        "type" : "AGGREGATE",
+        "top" : 252.10000000000002,
+        "left" : 952,
+        "graph" : {
+          "EXTRACT1" : null,
+          "AGGREGATE3" : null
+        },
+        "connectors" : [ {
+          "source" : "EXTRACT1",
+          "target" : "AGGREGATE3"
+        } ]
+      },
+      "AGGREGATE4" : {
+        "label" : "Aggregate 4",
+        "type" : "AGGREGATE",
+        "top" : 112.1,
+        "left" : 1232,
+        "graph" : {
+          "EXTRACT2" : null,
+          "AGGREGATE5" : null
+        },
+        "connectors" : [ {
+          "source" : "EXTRACT2",
+          "target" : "AGGREGATE5"
+        } ]
+      },
+      "FILTER0" : {
+        "label" : "Filter CRAC",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 252.10000000000002,
+        "left" : 1372
+      },
+      "FILTER1" : {
+        "label" : "Filter CRAH",
+        "description" : "",
+        "type" : "FILTER",
+        "top" : 252.10000000000002,
+        "left" : 1232
+      },
+      "OUTPUT0" : {
+        "label" : "Output Data Halls",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 392.1,
+        "left" : 1652
+      },
+      "JOIN6" : {
+        "label" : "Join Data Hall to UPS (Aggr)",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 392.1,
+        "left" : 952
+      },
+      "JOIN7" : {
+        "label" : "Join Data Hall to IT Cooling (CRAH)",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 392.1,
+        "left" : 1232
+      },
+      "JOIN8" : {
+        "label" : "Join Data Hall to IT Cooling (CRAC)",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 392.1,
+        "left" : 1372
+      },
+      "TRANSFORM0" : {
+        "label" : "Transform Data Hall Calculations",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 392.1,
+        "left" : 1512,
+        "graph" : {
+          "FORMULA0" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Total Capacity Tons"
+          },
+          "FORMULA1" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Total Capacity kW"
+          },
+          "FORMULA3" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Count IT Cooling"
+          },
+          "FORMULA4" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Cooling Capacity (Net of Redundancy)"
+          }
+        },
+        "connectors" : [ {
+          "source" : "FORMULA0",
+          "target" : "FORMULA1"
+        }, {
+          "source" : "FORMULA1",
+          "target" : "FORMULA3"
+        }, {
+          "source" : "FORMULA3",
+          "target" : "FORMULA4"
+        } ]
+      },
+      "OUTPUT1" : {
+        "label" : "Output Cabinets",
+        "description" : "",
+        "type" : "OUTPUT",
+        "top" : 672.4,
+        "left" : 1652
+      },
+      "TRANSFORM1" : {
+        "label" : "Transform Cabinets",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 672.4,
+        "left" : 811.9,
+        "graph" : {
+          "FORMULA2" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Square Footage"
+          }
+        },
+        "connectors" : [ ]
+      },
+      "LOAD_DATASET20" : {
+        "label" : "Asset",
+        "type" : "LOAD_DATASET",
+        "top" : 532,
+        "left" : 1512,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "LOAD_DATASET21" : {
+        "label" : "Account",
+        "type" : "LOAD_DATASET",
+        "top" : 532,
+        "left" : 1232,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN24" : {
+        "label" : "Join Asset to Account",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 532,
+        "left" : 1372
+      },
+      "JOIN25" : {
+        "label" : "Join Cabinet to Asset",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 672,
+        "left" : 1512
+      }
+    },
+    "connectors" : [ {
+      "source" : "LOAD_DATASET6",
+      "target" : "JOIN0"
+    }, {
+      "source" : "LOAD_DATASET8",
+      "target" : "JOIN0"
+    }, {
+      "source" : "LOAD_DATASET3",
+      "target" : "JOIN1"
+    }, {
+      "source" : "JOIN0",
+      "target" : "JOIN1"
+    }, {
+      "source" : "LOAD_DATASET2",
+      "target" : "JOIN2"
+    }, {
+      "source" : "JOIN4",
+      "target" : "JOIN3"
+    }, {
+      "source" : "JOIN2",
+      "target" : "JOIN3"
+    }, {
+      "source" : "LOAD_DATASET0",
+      "target" : "AGGREGATE0"
+    }, {
+      "source" : "TRANSFORM1",
+      "target" : "JOIN4"
+    }, {
+      "source" : "AGGREGATE0",
+      "target" : "JOIN4"
+    }, {
+      "source" : "LOAD_DATASET5",
+      "target" : "JOIN5"
+    }, {
+      "source" : "LOAD_DATASET7",
+      "target" : "JOIN5"
+    }, {
+      "source" : "JOIN5",
+      "target" : "AGGREGATE2"
+    }, {
+      "source" : "LOAD_DATASET1",
+      "target" : "AGGREGATE4"
+    }, {
+      "source" : "AGGREGATE4",
+      "target" : "FILTER0"
+    }, {
+      "source" : "AGGREGATE4",
+      "target" : "FILTER1"
+    }, {
+      "source" : "TRANSFORM0",
+      "target" : "OUTPUT0"
+    }, {
+      "source" : "JOIN1",
+      "target" : "JOIN6"
+    }, {
+      "source" : "AGGREGATE2",
+      "target" : "JOIN6"
+    }, {
+      "source" : "JOIN1",
+      "target" : "JOIN2"
+    }, {
+      "source" : "JOIN6",
+      "target" : "JOIN7"
+    }, {
+      "source" : "FILTER1",
+      "target" : "JOIN7"
+    }, {
+      "source" : "JOIN7",
+      "target" : "JOIN8"
+    }, {
+      "source" : "FILTER0",
+      "target" : "JOIN8"
+    }, {
+      "source" : "JOIN8",
+      "target" : "TRANSFORM0"
+    }, {
+      "source" : "JOIN25",
+      "target" : "OUTPUT1"
+    }, {
+      "source" : "LOAD_DATASET4",
+      "target" : "TRANSFORM1"
+    }, {
+      "source" : "LOAD_DATASET20",
+      "target" : "JOIN24"
+    }, {
+      "source" : "LOAD_DATASET21",
+      "target" : "JOIN24"
+    }, {
+      "source" : "JOIN3",
+      "target" : "JOIN25"
+    }, {
+      "source" : "JOIN24",
+      "target" : "JOIN25"
+    } ],
+    "hiddenColumns" : [ ]
+  },
+  "runMode" : "full"
+}

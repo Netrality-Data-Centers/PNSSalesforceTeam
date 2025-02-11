@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Storage Fees may apply* --></help>
+    <label><!-- Expected Storage Duration --></label>
+    <name>DX_Expected_Storage_Duration__c</name>
+    <picklistValues>
+        <masterLabel>No Storage: Shipment to be utilized on arrival</masterLabel>
+        <translation><!-- No Storage: Shipment to be utilized on arrival --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Over 1 month</masterLabel>
+        <translation><!-- Over 1 month --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Up to 1 month</masterLabel>
+        <translation><!-- Up to 1 month --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Up to 1 week</masterLabel>
+        <translation><!-- Up to 1 week --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mod_Model_Dimensions_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISPICKVAL( Mod_Model__c, &quot;No&quot;),
+    OR(ISBLANK(Number_of_Ports_Tall__c), ISBLANK(Number_of_Ports_Wide__c))
+)</errorConditionFormula>
+    <errorMessage>When &quot;Mod Model&quot; is set to &quot;No,&quot; you must enter &quot;Number of Ports Tall&quot; and &quot;Number of Ports Wide.&quot;</errorMessage>
+</ValidationRule>

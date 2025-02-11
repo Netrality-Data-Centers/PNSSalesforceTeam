@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Request Type --></label>
+    <name>DX_Acconting_Request_Type__c</name>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Update Address</masterLabel>
+        <translation><!-- Update Address --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Update Billing Email</masterLabel>
+        <translation><!-- Update Billing Email --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Update Contact Info</masterLabel>
+        <translation><!-- Update Contact Info --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Update PO #</masterLabel>
+        <translation><!-- Update PO # --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

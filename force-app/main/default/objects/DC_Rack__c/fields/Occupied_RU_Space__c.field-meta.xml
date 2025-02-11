@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Occupied_RU_Space__c</fullName>
+    <externalId>false</externalId>
+    <label>Occupied RU Space</label>
+    <summarizedField>DC_Panel__c.Height_RU__c</summarizedField>
+    <summaryForeignKey>DC_Panel__c.Rack__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

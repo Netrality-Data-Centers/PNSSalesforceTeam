@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Z_Side_Tenant_Suite__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Reference to the space that the Inside Plant is trying to get to.</description>
+    <externalId>false</externalId>
+    <label>Z-Side - Tenant Suite</label>
+    <referenceTo>DC_Tenant_Suite__c</referenceTo>
+    <relationshipLabel>Inside Plants (Z-Side - Tenant Suite)</relationshipLabel>
+    <relationshipName>Inside_Plants1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

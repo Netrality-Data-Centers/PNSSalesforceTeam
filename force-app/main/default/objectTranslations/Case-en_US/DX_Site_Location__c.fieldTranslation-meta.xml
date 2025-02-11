@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Site Location --></label>
+    <name>DX_Site_Location__c</name>
+    <picklistValues>
+        <masterLabel>401 N Broad Street</masterLabel>
+        <translation><!-- 401 N Broad Street --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Chicago, IL 60482</masterLabel>
+        <translation><!-- Chicago, IL 60482 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Houston, Texas 77002</masterLabel>
+        <translation><!-- Houston, Texas 77002 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Indianapolis, IN 46225</masterLabel>
+        <translation><!-- Indianapolis, IN 46225 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kansas City, MO 64106</masterLabel>
+        <translation><!-- Kansas City, MO 64106 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Philadelphia PA 19107</masterLabel>
+        <translation><!-- Philadelphia PA 19107 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Philadelphia, PA 19108</masterLabel>
+        <translation><!-- Philadelphia, PA 19108 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Shawnee, KS 66214</masterLabel>
+        <translation><!-- Shawnee, KS 66214 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>St. Louis, MO 63101</masterLabel>
+        <translation><!-- St. Louis, MO 63101 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>St. Louis, MO 63102</masterLabel>
+        <translation><!-- St. Louis, MO 63102 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>
