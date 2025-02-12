@@ -58,6 +58,7 @@
             <label>Passed</label>
         </rules>
     </decisions>
+    <description>Changing Dropdowns to lookups</description>
     <dynamicChoiceSets>
         <name>BuildingCS</name>
         <dataType>String</dataType>
@@ -215,13 +216,13 @@
         <inputAssignments>
             <field>Connection_Case__c</field>
             <value>
-                <elementReference>Connection_Case.selectedChoiceValues</elementReference>
+                <elementReference>Connection_Case_lookup.recordId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Destination_Account__c</field>
             <value>
-                <elementReference>Destination_Account.selectedChoiceValues</elementReference>
+                <elementReference>Destination_Account_Lookup.recordId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -233,7 +234,7 @@
         <inputAssignments>
             <field>Disconnect_Case__c</field>
             <value>
-                <elementReference>Disconnect_Case.selectedChoiceValues</elementReference>
+                <elementReference>Disconnect_Case_lookup.recordId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -245,7 +246,7 @@
         <inputAssignments>
             <field>Origination_Account__c</field>
             <value>
-                <elementReference>Origination_Account.selectedChoiceValues</elementReference>
+                <elementReference>Origination_Account_lookup.recordId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -422,14 +423,39 @@
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
-                    <name>Origination_Account</name>
-                    <choiceReferences>OriginationAccountCS</choiceReferences>
-                    <defaultValue>
-                        <elementReference>Get_Service_Request_Info.DX_Account_Name_Order_Initiator__r.Id</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Origination Account</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <name>Origination_Account_lookup</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>Origination_Account__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Origination Account</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>DC_Cross_Connect__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>Get_Service_Request_Info.DX_Account_Name_Order_Initiator__r.Id</elementReference>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -439,6 +465,7 @@
                     <dataType>String</dataType>
                     <fieldText>Legacy Cherwell ID</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -446,19 +473,39 @@
                     <dataType>Date</dataType>
                     <fieldText>Disconnect Date</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
-                    <name>Connection_Case</name>
-                    <choiceReferences>ConnectionCaseCS</choiceReferences>
-                    <defaultValue>
-                        <elementReference>Get_Service_Request_Info.Id</elementReference>
-                    </defaultValue>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Connection Case</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <name>Connection_Case_lookup</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>Connection_Case__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Connection Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>DC_Cross_Connect__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>Get_Service_Request_Info.Id</elementReference>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
@@ -519,14 +566,37 @@
                     </defaultValue>
                     <fieldText>Status</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
-                    <name>Destination_Account</name>
-                    <choiceReferences>DestinationAccountCS</choiceReferences>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Destination Account</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <name>Destination_Account_Lookup</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>Destination_Account__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Destination Account</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>DC_Cross_Connect__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -537,6 +607,7 @@
                     <dataType>String</dataType>
                     <fieldText>Media Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -547,19 +618,36 @@
                     </defaultValue>
                     <fieldText>Connection Date</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
-                    <name>Disconnect_Case</name>
-                    <choiceReferences>DisconnectCaseCS</choiceReferences>
-                    <extensionName>flowruntime:choiceLookup</extensionName>
-                    <fieldText>Disconnect Case</fieldText>
-                    <fieldType>ComponentChoice</fieldType>
+                    <name>Disconnect_Case_lookup</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>Disconnect_Case__c</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Disconnect Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>DC_Cross_Connect__c</stringValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
@@ -626,6 +714,7 @@
                     </defaultValue>
                     <fieldText>A (Order Initiator) - Account Name</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -639,6 +728,7 @@
                     </defaultValue>
                     <fieldText>A (Order Initiator) Rack RU (MMR Panel Location)</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -652,6 +742,7 @@
                     </defaultValue>
                     <fieldText>A (Order Initiator) - Ports</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -679,6 +770,7 @@
                     </defaultValue>
                     <fieldText>Z(LOA Info) - Account Name</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -695,6 +787,7 @@
                     </defaultValue>
                     <fieldText>Z(LOA Info) Rack RU (MMR Panel Location)</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
@@ -708,6 +801,7 @@
                     </defaultValue>
                     <fieldText>Z (LOA Info) - Ports</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isDisabled>
                         <booleanValue>true</booleanValue>
                     </isDisabled>
