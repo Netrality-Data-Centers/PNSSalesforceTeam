@@ -106,6 +106,12 @@
         <salesforceActionsEnabled>false</salesforceActionsEnabled>
         <sortIndex>13</sortIndex>
     </dimensions>
+    <dimensions>
+        <field>PDU_RPP.Classification</field>
+        <isDerived>false</isDerived>
+        <label>PDU RPP Classification</label>
+        <sortIndex>14</sortIndex>
+    </dimensions>
     <measures>
         <field>*</field>
         <isDerived>true</isDerived>
