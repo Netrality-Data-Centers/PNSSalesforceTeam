@@ -5,18 +5,27 @@
         <field>DC_Switchgear.DC_Main_Utility.Name</field>
         <isDerived>false</isDerived>
         <label>Main Utility</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>DC_Switchgear.DC_Main_Utility.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
         <sortIndex>0</sortIndex>
     </dimensions>
     <dimensions>
         <field>DC_Switchgear.Name</field>
         <isDerived>false</isDerived>
         <label>Switchgear</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>DC_Switchgear.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
         <sortIndex>1</sortIndex>
     </dimensions>
     <dimensions>
         <field>Name</field>
         <isDerived>false</isDerived>
         <label>UPS Name</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
         <sortIndex>2</sortIndex>
     </dimensions>
     <dimensions>
@@ -43,6 +52,62 @@
         <label>UPS ID</label>
         <sortIndex>6</sortIndex>
     </dimensions>
+    <dimensions>
+        <field>Classification</field>
+        <isDerived>false</isDerived>
+        <label>UPS Classification</label>
+        <sortIndex>7</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Switchgear.Classification</field>
+        <isDerived>false</isDerived>
+        <label>Switchgear Classification</label>
+        <sortIndex>8</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Switchgear.DC_Main_Utility.Classification</field>
+        <isDerived>false</isDerived>
+        <label>Main Utility Classification</label>
+        <sortIndex>9</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Datahall_UPS.DC_Data_Hall.Name</field>
+        <isDerived>false</isDerived>
+        <label>Data Hall</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Datahall_UPS.DC_Data_Hall.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>10</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Datahall_UPS.DC_Data_Hall.DC_Floor.Name</field>
+        <isDerived>false</isDerived>
+        <label>Floor</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Datahall_UPS.DC_Data_Hall.DC_Floor.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>11</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Datahall_UPS.DC_Data_Hall.Id</field>
+        <isDerived>false</isDerived>
+        <label>Data Hall ID</label>
+        <sortIndex>12</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Datahall_UPS.DC_Data_Hall.DC_Floor.Id</field>
+        <isDerived>false</isDerived>
+        <label>Floor ID</label>
+        <sortIndex>13</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Switchgear.DC_Main_Utility.Building.Name</field>
+        <isDerived>false</isDerived>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>DC_Switchgear.DC_Main_Utility.Building.Id</recordIdField>
+        <salesforceActionsEnabled>false</salesforceActionsEnabled>
+        <sortIndex>14</sortIndex>
+    </dimensions>
     <measures>
         <field>Tenant_Power.Committed_Power</field>
         <isDerived>false</isDerived>
@@ -67,5 +132,11 @@
         <isDerived>false</isDerived>
         <label>Tenant Power Records</label>
         <sortIndex>2</sortIndex>
+    </measures>
+    <measures>
+        <field>DC_Switchgear.Max_Capacity_kw__c</field>
+        <isDerived>false</isDerived>
+        <showInExplorer>false</showInExplorer>
+        <sortIndex>3</sortIndex>
     </measures>
 </WaveXmd>
