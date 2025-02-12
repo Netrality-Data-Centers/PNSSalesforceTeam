@@ -3,8 +3,16 @@
     <fullName>Origination_Account__c</fullName>
     <deleteConstraint>Restrict</deleteConstraint>
     <description>The Account that is requesting this Cross Connect.</description>
-    <externalId>false</externalId>
     <label>Origination Account</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Customer</value>
+        </filterItems>
+        <isOptional>true</isOptional>
+    </lookupFilter>
     <referenceTo>Account</referenceTo>
     <relationshipLabel>Cross Connects</relationshipLabel>
     <relationshipName>Cross_Connects</relationshipName>
