@@ -139,24 +139,6 @@
         "rightKeys" : [ "Id" ]
       }
     },
-    "JOIN5" : {
-      "action" : "join",
-      "sources" : [ "LOAD_DATASET5", "LOAD_DATASET7" ],
-      "schema" : {
-        "fields" : [ ],
-        "slice" : {
-          "mode" : "DROP",
-          "ignoreMissingFields" : true,
-          "fields" : [ "DC_Datahall_UPS.UPS__c" ]
-        }
-      },
-      "parameters" : {
-        "joinType" : "LOOKUP",
-        "leftKeys" : [ "Id" ],
-        "rightQualifier" : "DC_Datahall_UPS",
-        "rightKeys" : [ "UPS__c" ]
-      }
-    },
     "LOAD_DATASET9" : {
       "action" : "load",
       "sources" : [ ],
@@ -227,13 +209,13 @@
     },
     "JOIN9" : {
       "action" : "join",
-      "sources" : [ "LOAD_DATASET10", "JOIN11" ],
+      "sources" : [ "BUCKET2", "JOIN11" ],
       "schema" : {
         "fields" : [ ],
         "slice" : {
           "mode" : "DROP",
           "ignoreMissingFields" : true,
-          "fields" : [ "Main_Utility__c" ]
+          "fields" : [ "Main_Utility__c", "DC_Main_Utility.Max_Capacity_kw__c", "DC_Main_Utility.Tenant_Power.Records", "DC_Main_Utility.Tenant_Power.Committed_Power", "DC_Main_Utility.Tenant_Power.Connected_Power" ]
         }
       },
       "parameters" : {
@@ -245,13 +227,13 @@
     },
     "JOIN10" : {
       "action" : "join",
-      "sources" : [ "LOAD_DATASET5", "JOIN9" ],
+      "sources" : [ "BUCKET1", "JOIN9" ],
       "schema" : {
         "fields" : [ ],
         "slice" : {
           "mode" : "DROP",
           "ignoreMissingFields" : true,
-          "fields" : [ "Switchgear__c" ]
+          "fields" : [ "Switchgear__c", "DC_Switchgear.Tenant_Power.Records", "DC_Switchgear.Tenant_Power.Committed_Power", "DC_Switchgear.Tenant_Power.Connected_Power", "DC_Switchgear.GeneratorSwitchgear.Generator_Max_Capacity_kw__c", "DC_Switchgear.GeneratorSwitchgear.Generator_Count" ]
         }
       },
       "parameters" : {
@@ -263,7 +245,7 @@
     },
     "JOIN11" : {
       "action" : "join",
-      "sources" : [ "LOAD_DATASET11", "LOAD_DATASET8" ],
+      "sources" : [ "BUCKET3", "LOAD_DATASET8" ],
       "schema" : {
         "fields" : [ ],
         "slice" : {
@@ -281,13 +263,13 @@
     },
     "JOIN12" : {
       "action" : "join",
-      "sources" : [ "LOAD_DATASET9", "JOIN10" ],
+      "sources" : [ "BUCKET0", "JOIN10" ],
       "schema" : {
         "fields" : [ ],
         "slice" : {
           "mode" : "DROP",
           "ignoreMissingFields" : true,
-          "fields" : [ "UPS__c" ]
+          "fields" : [ "UPS__c", "DC_UPS.Max_Capacity_kw__c", "DC_UPS.Tenant_Power.Records", "DC_UPS.Tenant_Power.Committed_Power", "DC_UPS.Tenant_Power.Connected_Power", "DC_UPS.DC_Switchgear.Max_Capacity_kw__c" ]
         }
       },
       "parameters" : {
@@ -335,7 +317,7 @@
     },
     "OUTPUT2" : {
       "action" : "save",
-      "sources" : [ "JOIN14" ],
+      "sources" : [ "JOIN49" ],
       "parameters" : {
         "fields" : [ ],
         "dataset" : {
@@ -372,7 +354,7 @@
         "slice" : {
           "mode" : "DROP",
           "ignoreMissingFields" : true,
-          "fields" : [ ]
+          "fields" : [ "PDU_RPP.Max_Capacity_kw__c", "PDU_RPP.Tenant_Power.Records", "PDU_RPP.Tenant_Power.Committed_Power", "PDU_RPP.Tenant_Power.Connected_Power", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Utility_Provider__c", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.City__c", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.State__c", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Location__c" ]
         }
       },
       "parameters" : {
@@ -384,7 +366,7 @@
     },
     "OUTPUT4" : {
       "action" : "save",
-      "sources" : [ "JOIN27" ],
+      "sources" : [ "DROP_FIELDS1" ],
       "parameters" : {
         "fields" : [ ],
         "dataset" : {
@@ -398,37 +380,19 @@
     },
     "JOIN26" : {
       "action" : "join",
-      "sources" : [ "JOIN5", "JOIN1" ],
+      "sources" : [ "LOAD_DATASET7", "JOIN1" ],
       "schema" : {
         "fields" : [ ],
         "slice" : {
           "mode" : "DROP",
           "ignoreMissingFields" : true,
-          "fields" : [ "DC_Datahall_UPS.Data_Hall__c" ]
+          "fields" : [ "Data_Hall__c", "DC_Data_Hall.Short_Name__c", "DC_Data_Hall.DC_Floor.Short_Name__c", "DC_Data_Hall.DC_Floor.Total_Square_Feet__c", "DC_Data_Hall.DC_Floor.Building.Id", "DC_Data_Hall.DC_Floor.Building.Name", "DC_Data_Hall.DC_Floor.Building.City__c", "DC_Data_Hall.DC_Floor.Building.State__c", "DC_Data_Hall.DC_Floor.Building.Location__c" ]
         }
       },
       "parameters" : {
         "joinType" : "LOOKUP",
-        "leftKeys" : [ "DC_Datahall_UPS.Data_Hall__c" ],
+        "leftKeys" : [ "Data_Hall__c" ],
         "rightQualifier" : "DC_Data_Hall",
-        "rightKeys" : [ "Id" ]
-      }
-    },
-    "JOIN27" : {
-      "action" : "join",
-      "sources" : [ "JOIN23", "JOIN26" ],
-      "schema" : {
-        "fields" : [ ],
-        "slice" : {
-          "mode" : "DROP",
-          "ignoreMissingFields" : true,
-          "fields" : [ "PDU_RPP.Max_Capacity_kw__c", "PDU_RPP.DC_UPS.Max_Capacity_kw__c", "PDU_RPP.DC_UPS.DC_Switchgear.Max_Capacity_kw__c", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Max_Capacity_kw__c", "UPS.Max_Capacity_kw__c", "UPS.DC_Data_Hall.DC_Floor.Total_Square_Feet__c" ]
-        }
-      },
-      "parameters" : {
-        "joinType" : "LOOKUP",
-        "leftKeys" : [ "PDU_RPP.DC_UPS.Id" ],
-        "rightQualifier" : "UPS",
         "rightKeys" : [ "Id" ]
       }
     },
@@ -524,7 +488,7 @@
         "slice" : {
           "mode" : "DROP",
           "ignoreMissingFields" : true,
-          "fields" : [ "Power_Source_PDU_RPP__c", "Floor.Short_Name__c", "Floor.Building.City__c", "Floor.Building.State__c", "Floor.Building.Location__c", "PDU_RPP.Max_Capacity_kw__c", "PDU_RPP.DC_UPS.Max_Capacity_kw__c", "PDU_RPP.DC_UPS.DC_Switchgear.Max_Capacity_kw__c", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Max_Capacity_kw__c", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Utility_Provider__c", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.City__c", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.State__c", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Location__c" ]
+          "fields" : [ "Power_Source_PDU_RPP__c", "Floor.Short_Name__c", "Floor.Building.City__c", "Floor.Building.State__c", "Floor.Building.Location__c", "PDU_RPP.Max_Capacity_kw__c", "PDU_RPP.Tenant_Power.Records", "PDU_RPP.Tenant_Power.Committed_Power", "PDU_RPP.Tenant_Power.Connected_Power", "PDU_RPP.DC_UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Id", "PDU_RPP.DC_UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Name", "PDU_RPP.DC_UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Floor_number__c", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Utility_Provider__c", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Id", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Name", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.City__c", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.State__c", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Location__c" ]
         }
       },
       "parameters" : {
@@ -542,7 +506,7 @@
         "slice" : {
           "mode" : "DROP",
           "ignoreMissingFields" : true,
-          "fields" : [ "Power_Source_UPS__c", "UPS.Max_Capacity_kw__c", "UPS.DC_Switchgear.Max_Capacity_kw__c", "UPS.DC_Switchgear.DC_Main_Utility.Max_Capacity_kw__c", "UPS.DC_Switchgear.DC_Main_Utility.Utility_Provider__c", "UPS.DC_Switchgear.DC_Main_Utility.Building.City__c", "UPS.DC_Switchgear.DC_Main_Utility.Building.State__c", "UPS.DC_Switchgear.DC_Main_Utility.Building.Location__c" ]
+          "fields" : [ "Power_Source_UPS__c", "UPS.Max_Capacity_kw__c", "UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Id", "UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Name", "UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Floor_number__c", "UPS.Tenant_Power.Records", "UPS.Tenant_Power.Committed_Power", "UPS.Tenant_Power.Connected_Power", "UPS.DC_Switchgear.Max_Capacity_kw__c", "UPS.DC_Switchgear.DC_Main_Utility.Utility_Provider__c", "UPS.DC_Switchgear.DC_Main_Utility.Building.Id", "UPS.DC_Switchgear.DC_Main_Utility.Building.Name", "UPS.DC_Switchgear.DC_Main_Utility.Building.City__c", "UPS.DC_Switchgear.DC_Main_Utility.Building.State__c", "UPS.DC_Switchgear.DC_Main_Utility.Building.Location__c" ]
         }
       },
       "parameters" : {
@@ -560,7 +524,7 @@
         "slice" : {
           "mode" : "DROP",
           "ignoreMissingFields" : true,
-          "fields" : [ "Power_Source_Switchgear__c", "Switchgear.Max_Capacity_kw__c", "Switchgear.DC_Main_Utility.Max_Capacity_kw__c", "Switchgear.DC_Main_Utility.Utility_Provider__c", "Switchgear.DC_Main_Utility.Building.City__c", "Switchgear.DC_Main_Utility.Building.State__c", "Switchgear.DC_Main_Utility.Building.Location__c" ]
+          "fields" : [ "Power_Source_Switchgear__c", "Switchgear.Max_Capacity_kw__c", "Switchgear.Tenant_Power.Records", "Switchgear.Tenant_Power.Committed_Power", "Switchgear.Tenant_Power.Connected_Power", "Switchgear.GeneratorSwitchgear.Generator_Max_Capacity_kw__c", "Switchgear.GeneratorSwitchgear.Generator_Count", "Switchgear.DC_Main_Utility.Utility_Provider__c", "Switchgear.DC_Main_Utility.Building.Id", "Switchgear.DC_Main_Utility.Building.Name", "Switchgear.DC_Main_Utility.Building.City__c", "Switchgear.DC_Main_Utility.Building.State__c", "Switchgear.DC_Main_Utility.Building.Location__c" ]
         }
       },
       "parameters" : {
@@ -578,7 +542,7 @@
         "slice" : {
           "mode" : "DROP",
           "ignoreMissingFields" : true,
-          "fields" : [ "Power_Source_Main_Utility__c", "Main_Utility.Max_Capacity_kw__c", "Main_Utility.Utility_Provider__c", "Main_Utility.Building.City__c", "Main_Utility.Building.State__c", "Main_Utility.Building.Location__c" ]
+          "fields" : [ "Power_Source_Main_Utility__c", "Main_Utility.Max_Capacity_kw__c", "Main_Utility.Utility_Provider__c", "Main_Utility.Tenant_Power.Records", "Main_Utility.Tenant_Power.Committed_Power", "Main_Utility.Tenant_Power.Connected_Power", "Main_Utility.Building.Id", "Main_Utility.Building.Name", "Main_Utility.Building.City__c", "Main_Utility.Building.State__c", "Main_Utility.Building.Location__c" ]
         }
       },
       "parameters" : {
@@ -680,7 +644,7 @@
     },
     "DROP_FIELDS0" : {
       "action" : "schema",
-      "sources" : [ "FORMULA5" ],
+      "sources" : [ "FORMULA23" ],
       "parameters" : {
         "fields" : [ ],
         "slice" : {
@@ -688,6 +652,36 @@
           "ignoreMissingFields" : true,
           "fields" : [ "PDU_RPP.DC_UPS.Id", "PDU_RPP.DC_UPS.Name", "PDU_RPP.DC_UPS.DC_Switchgear.Id", "PDU_RPP.DC_UPS.DC_Switchgear.Name", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Id", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Name", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Id", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Name", "UPS.Id", "UPS.Name", "UPS.DC_Switchgear.Id", "UPS.DC_Switchgear.Name", "UPS.DC_Switchgear.DC_Main_Utility.Id", "UPS.DC_Switchgear.DC_Main_Utility.Name", "UPS.DC_Switchgear.DC_Main_Utility.Building.Id", "UPS.DC_Switchgear.DC_Main_Utility.Building.Name", "Switchgear.Id", "Switchgear.Name", "Switchgear.DC_Main_Utility.Id", "Switchgear.DC_Main_Utility.Name", "Switchgear.DC_Main_Utility.Building.Id", "Switchgear.DC_Main_Utility.Building.Name", "Main_Utility.Id", "Main_Utility.Name", "Main_Utility.Building.Id", "Main_Utility.Building.Name" ]
         }
+      }
+    },
+    "FORMULA22" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA5" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Data_Hall",
+          "label" : "Data Hall",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.Datahall_UPS.DC_Data_Hall.Name\", \"UPS.Datahall_UPS.DC_Data_Hall.Name\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA23" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA22" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Data_Hall_ID",
+          "label" : "Data Hall ID",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.Datahall_UPS.DC_Data_Hall.Id\", \"UPS.Datahall_UPS.DC_Data_Hall.Id\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
       }
     },
     "LOAD_DATASET22" : {
@@ -947,27 +941,9 @@
         "nodeType" : "STANDARD"
       }
     },
-    "JOIN35" : {
-      "action" : "join",
-      "sources" : [ "JOIN12", "AGGREGATE1" ],
-      "schema" : {
-        "fields" : [ ],
-        "slice" : {
-          "mode" : "DROP",
-          "ignoreMissingFields" : true,
-          "fields" : [ "DC_UPS.Max_Capacity_kw__c", "DC_UPS.DC_Switchgear.Max_Capacity_kw__c", "DC_UPS.DC_Switchgear.DC_Main_Utility.Max_Capacity_kw__c", "Tenant_Power.Power_Source_PDU_RPP__c" ]
-        }
-      },
-      "parameters" : {
-        "joinType" : "LOOKUP",
-        "leftKeys" : [ "Id" ],
-        "rightQualifier" : "Tenant_Power",
-        "rightKeys" : [ "Power_Source_PDU_RPP__c" ]
-      }
-    },
     "OUTPUT7" : {
       "action" : "save",
-      "sources" : [ "JOIN35" ],
+      "sources" : [ "JOIN12" ],
       "parameters" : {
         "fields" : [ ],
         "dataset" : {
@@ -981,7 +957,7 @@
     },
     "JOIN36" : {
       "action" : "join",
-      "sources" : [ "JOIN10", "AGGREGATE3" ],
+      "sources" : [ "JOIN48", "AGGREGATE3" ],
       "schema" : {
         "fields" : [ ],
         "slice" : {
@@ -999,7 +975,7 @@
     },
     "OUTPUT8" : {
       "action" : "save",
-      "sources" : [ "JOIN36" ],
+      "sources" : [ "JOIN10" ],
       "parameters" : {
         "fields" : [ ],
         "dataset" : {
@@ -1013,7 +989,7 @@
     },
     "JOIN37" : {
       "action" : "join",
-      "sources" : [ "JOIN9", "AGGREGATE5" ],
+      "sources" : [ "LOAD_DATASET10", "AGGREGATE5" ],
       "schema" : {
         "fields" : [ ],
         "slice" : {
@@ -1031,7 +1007,7 @@
     },
     "OUTPUT9" : {
       "action" : "save",
-      "sources" : [ "JOIN37" ],
+      "sources" : [ "JOIN9" ],
       "parameters" : {
         "fields" : [ ],
         "dataset" : {
@@ -1045,7 +1021,7 @@
     },
     "JOIN38" : {
       "action" : "join",
-      "sources" : [ "JOIN11", "AGGREGATE7" ],
+      "sources" : [ "LOAD_DATASET11", "AGGREGATE7" ],
       "schema" : {
         "fields" : [ ],
         "slice" : {
@@ -1063,7 +1039,7 @@
     },
     "OUTPUT10" : {
       "action" : "save",
-      "sources" : [ "JOIN38" ],
+      "sources" : [ "JOIN11" ],
       "parameters" : {
         "fields" : [ ],
         "dataset" : {
@@ -1171,7 +1147,8 @@
           "sourceObjectName" : "DC_Non_IT_Load__c"
         },
         "sampleDetails" : {
-          "type" : "TopN"
+          "type" : "TopN",
+          "sortBy" : [ ]
         }
       }
     },
@@ -1179,6 +1156,7 @@
       "action" : "join",
       "sources" : [ "LOAD_DATASET25", "JOIN9" ],
       "schema" : {
+        "fields" : [ ],
         "slice" : {
           "mode" : "DROP",
           "ignoreMissingFields" : true,
@@ -1196,6 +1174,7 @@
       "action" : "join",
       "sources" : [ "JOIN41", "JOIN1" ],
       "schema" : {
+        "fields" : [ ],
         "slice" : {
           "mode" : "DROP",
           "ignoreMissingFields" : true,
@@ -1219,7 +1198,551 @@
           "label" : "Non-IT Loads",
           "name" : "DC_Non_IT_Loads",
           "folderName" : "DCIM"
+        },
+        "measuresToCurrencies" : [ ]
+      }
+    },
+    "LOAD_DATASET26" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Id", "Max_Capacity_kw__c", "Switchgear__c" ],
+        "dataset" : {
+          "type" : "connectedDataset",
+          "label" : "DC_Generator_Switchgear__c",
+          "connectionName" : "DCIM",
+          "sourceObjectName" : "DC_Generator_Switchgear__c"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
         }
+      }
+    },
+    "EXTRACT4" : {
+      "action" : "extractGrains",
+      "sources" : [ "LOAD_DATASET26" ],
+      "parameters" : {
+        "grainExtractions" : [ ]
+      }
+    },
+    "AGGREGATE9" : {
+      "action" : "aggregate",
+      "sources" : [ "EXTRACT4" ],
+      "parameters" : {
+        "aggregations" : [ {
+          "action" : "SUM",
+          "source" : "Max_Capacity_kw__c",
+          "name" : "Generator_Max_Capacity_kw__c",
+          "label" : "Generator Max Capacity (kw)"
+        }, {
+          "action" : "UNIQUE",
+          "source" : "Id",
+          "name" : "Generator_Count",
+          "label" : "Generator Count"
+        } ],
+        "groupings" : [ "Switchgear__c" ],
+        "pivots" : [ ],
+        "nodeType" : "STANDARD"
+      }
+    },
+    "JOIN43" : {
+      "action" : "join",
+      "sources" : [ "JOIN37", "AGGREGATE9" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "GeneratorSwitchgear.Switchgear__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "GeneratorSwitchgear",
+        "rightKeys" : [ "Switchgear__c" ]
+      }
+    },
+    "JOIN44" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET9", "AGGREGATE1" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Tenant_Power.Power_Source_PDU_RPP__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "Tenant_Power",
+        "rightKeys" : [ "Power_Source_PDU_RPP__c" ]
+      }
+    },
+    "BUCKET0" : {
+      "action" : "bucket",
+      "sources" : [ "JOIN44" ],
+      "parameters" : {
+        "fields" : [ {
+          "name" : "Classification",
+          "label" : "Classification",
+          "type" : "TEXT",
+          "bucketsSetup" : {
+            "nullBucketValue" : "Colo Load",
+            "isPassthroughEnabled" : false,
+            "sourceField" : {
+              "name" : "Tenant_Power.Records",
+              "type" : "NUMBER"
+            },
+            "buckets" : [ {
+              "value" : "Colo Load",
+              "rangeEnd" : 1.0
+            }, {
+              "value" : "Tenant Load",
+              "rangeStart" : 1.0
+            } ]
+          }
+        } ]
+      }
+    },
+    "BUCKET1" : {
+      "action" : "bucket",
+      "sources" : [ "JOIN36" ],
+      "parameters" : {
+        "fields" : [ {
+          "name" : "Classification",
+          "label" : "Classification",
+          "type" : "TEXT",
+          "bucketsSetup" : {
+            "nullBucketValue" : "Colo Load",
+            "isPassthroughEnabled" : false,
+            "sourceField" : {
+              "name" : "Tenant_Power.Records",
+              "type" : "NUMBER"
+            },
+            "buckets" : [ {
+              "value" : "Colo Load",
+              "rangeEnd" : 1.0
+            }, {
+              "value" : "Tenant Load",
+              "rangeStart" : 1.0
+            } ]
+          }
+        } ]
+      }
+    },
+    "BUCKET2" : {
+      "action" : "bucket",
+      "sources" : [ "JOIN43" ],
+      "parameters" : {
+        "fields" : [ {
+          "name" : "Classification",
+          "label" : "Classification",
+          "type" : "TEXT",
+          "bucketsSetup" : {
+            "nullBucketValue" : "Colo Load",
+            "isPassthroughEnabled" : false,
+            "sourceField" : {
+              "name" : "Tenant_Power.Records",
+              "type" : "NUMBER"
+            },
+            "buckets" : [ {
+              "value" : "Colo Load",
+              "rangeEnd" : 1.0
+            }, {
+              "value" : "Tenant Load",
+              "rangeStart" : 1.0
+            } ]
+          }
+        } ]
+      }
+    },
+    "BUCKET3" : {
+      "action" : "bucket",
+      "sources" : [ "JOIN38" ],
+      "parameters" : {
+        "fields" : [ {
+          "name" : "Classification",
+          "label" : "Classification",
+          "type" : "TEXT",
+          "bucketsSetup" : {
+            "nullBucketValue" : "Colo Load",
+            "isPassthroughEnabled" : false,
+            "sourceField" : {
+              "name" : "Tenant_Power.Records",
+              "type" : "NUMBER"
+            },
+            "buckets" : [ {
+              "value" : "Colo Load",
+              "rangeEnd" : 1.0
+            }, {
+              "value" : "Tenant Load",
+              "rangeStart" : 1.0
+            } ]
+          }
+        } ]
+      }
+    },
+    "FORMULA6" : {
+      "action" : "formula",
+      "sources" : [ "JOIN47" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Building",
+          "label" : "Building",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Name\", \"UPS.DC_Switchgear.DC_Main_Utility.Building.Name\", \"Switchgear.DC_Main_Utility.Building.Name\", \"MainUtility.Building.Name\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA7" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA9" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Building_ID",
+          "label" : "Building ID",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Id\", \"UPS.DC_Switchgear.DC_Main_Utility.Building.Id\", \"Switchgear.DC_Main_Utility.Building.Id\", \"MainUtility.Building.Id\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA8" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA7" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Main_Utility",
+          "label" : "Main Utility",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Name\", \"UPS.DC_Switchgear.DC_Main_Utility.Name\", \"Switchgear.DC_Main_Utility.Name\", \"MainUtility.Name\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA9" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA6" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Main_Utility_ID",
+          "label" : "Main Utility ID",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Id\", \"UPS.DC_Switchgear.DC_Main_Utility.Id\", \"Switchgear.DC_Main_Utility.Id\", \"MainUtility.Id\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA10" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA14" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Switchgear",
+          "label" : "Switchgear",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.DC_Switchgear.Name\", \"UPS.DC_Switchgear.Name\", \"Switchgear.Name\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA11" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA10" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Switchgear_ID",
+          "label" : "Switchgear ID",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.DC_Switchgear.Id\", \"UPS.DC_Switchgear.Id\", \"Switchgear.Id\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA12" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA15" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "UPS",
+          "label" : "UPS",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.Name\", \"UPS.Name\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA13" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA12" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "UPS_ID",
+          "label" : "UPS ID",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.Id\", \"UPS.Id\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "DROP_FIELDS1" : {
+      "action" : "schema",
+      "sources" : [ "FORMULA21" ],
+      "parameters" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Name", "UPS.DC_Switchgear.DC_Main_Utility.Building.Name", "Switchgear.DC_Main_Utility.Building.Name", "MainUtility.Building.Name", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Id", "UPS.DC_Switchgear.DC_Main_Utility.Building.Id", "Switchgear.DC_Main_Utility.Building.Id", "MainUtility.Building.Id", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Name", "UPS.DC_Switchgear.DC_Main_Utility.Name", "Switchgear.DC_Main_Utility.Name", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Id", "UPS.DC_Switchgear.DC_Main_Utility.Id", "Switchgear.DC_Main_Utility.Id", "PDU_RPP.DC_UPS.DC_Switchgear.Name", "UPS.DC_Switchgear.Name", "Switchgear.Name", "PDU_RPP.DC_UPS.DC_Switchgear.Id", "UPS.DC_Switchgear.Id", "Switchgear.Id", "PDU_RPP.DC_UPS.Name", "UPS.Name", "PDU_RPP.DC_UPS.Id", "UPS.Id", "PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Classification", "UPS.DC_Switchgear.DC_Main_Utility.Classification", "Switchgear.DC_Main_Utility.Classification", "PDU_RPP.DC_UPS.DC_Switchgear.Classification", "UPS.DC_Switchgear.Classification", "Switchgear.Classification", "PDU_RPP.DC_UPS.Classification", "UPS.Classification", "MainUtility.Id", "MainUtility.Name", "MainUtility.Classification", "PDU_RPP.DC_UPS.Datahall_UPS.Id", "UPS.Datahall_UPS.Id", "PDU_RPP.DC_UPS.Datahall_UPS.Name", "UPS.Datahall_UPS.Name", "PDU_RPP.DC_UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Id", "UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Id", "PDU_RPP.DC_UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Name", "UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Name", "PDU_RPP.DC_UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Floor_number__c", "UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Floor_number__c", "PDU_RPP.DC_UPS.Datahall_UPS.DC_Data_Hall.Name", "PDU_RPP.DC_UPS.Datahall_UPS.DC_Data_Hall.Id", "UPS.Datahall_UPS.DC_Data_Hall.Name", "UPS.Datahall_UPS.DC_Data_Hall.Id" ]
+        }
+      }
+    },
+    "FORMULA14" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA8" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Main_Utility_Classification",
+          "label" : "Main Utility Classification",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Classification\", \"UPS.DC_Switchgear.DC_Main_Utility.Classification\", \"Switchgear.DC_Main_Utility.Classification\", \"MainUtility.Classification\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA15" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA11" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Switchgear_Classification",
+          "label" : "Switchgear Classification",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.DC_Switchgear.Classification\", \"UPS.DC_Switchgear.Classification\", \"Switchgear.Classification\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA16" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA13" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "UPS_Classification",
+          "label" : "UPS Classification",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.Classification\", \"UPS.Classification\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA17" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA16" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Data_Hall",
+          "label" : "Data Hall",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.Datahall_UPS.DC_Data_Hall.Name\", \"UPS.Datahall_UPS.DC_Data_Hall.Name\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA18" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA17" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Data_Hall_ID",
+          "label" : "Data Hall ID",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.Datahall_UPS.DC_Data_Hall.Id\", \"UPS.Datahall_UPS.DC_Data_Hall.Id\")",
+          "precision" : 18,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA19" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA18" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Floor",
+          "label" : "Floor",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Name\", \"UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Name\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA20" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA19" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "TEXT",
+          "name" : "Floor_ID",
+          "label" : "Floor ID",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Id\", \"UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Id\")",
+          "precision" : 255,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "FORMULA21" : {
+      "action" : "formula",
+      "sources" : [ "FORMULA20" ],
+      "parameters" : {
+        "expressionType" : "SQL",
+        "fields" : [ {
+          "type" : "NUMBER",
+          "name" : "Floor_Number",
+          "label" : "Floor Number",
+          "formulaExpression" : "coalesce(\"PDU_RPP.DC_UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Floor_number__c\", \"UPS.Datahall_UPS.DC_Data_Hall.DC_Floor.Floor_number__c\")",
+          "precision" : 10,
+          "scale" : 0,
+          "defaultValue" : ""
+        } ]
+      }
+    },
+    "JOIN45" : {
+      "action" : "join",
+      "sources" : [ "JOIN23", "JOIN10" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "UPS.Max_Capacity_kw__c", "UPS.Tenant_Power.Records", "UPS.Tenant_Power.Committed_Power", "UPS.Tenant_Power.Connected_Power", "UPS.DC_Switchgear.Max_Capacity_kw__c", "UPS.DC_Switchgear.DC_Main_Utility.Utility_Provider__c", "UPS.DC_Switchgear.DC_Main_Utility.Building.City__c", "UPS.DC_Switchgear.DC_Main_Utility.Building.State__c", "UPS.DC_Switchgear.DC_Main_Utility.Building.Location__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Device_Name__c" ],
+        "rightQualifier" : "UPS",
+        "rightKeys" : [ "Name" ]
+      }
+    },
+    "JOIN46" : {
+      "action" : "join",
+      "sources" : [ "JOIN45", "JOIN9" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Switchgear.Max_Capacity_kw__c", "Switchgear.Tenant_Power.Records", "Switchgear.Tenant_Power.Committed_Power", "Switchgear.Tenant_Power.Connected_Power", "Switchgear.GeneratorSwitchgear.Generator_Max_Capacity_kw__c", "Switchgear.GeneratorSwitchgear.Generator_Count", "Switchgear.DC_Main_Utility.Utility_Provider__c", "Switchgear.DC_Main_Utility.Building.City__c", "Switchgear.DC_Main_Utility.Building.State__c", "Switchgear.DC_Main_Utility.Building.Location__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Device_Name__c" ],
+        "rightQualifier" : "Switchgear",
+        "rightKeys" : [ "Name" ]
+      }
+    },
+    "JOIN47" : {
+      "action" : "join",
+      "sources" : [ "JOIN46", "JOIN11" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "MainUtility.Max_Capacity_kw__c", "MainUtility.Utility_Provider__c", "MainUtility.Tenant_Power.Records", "MainUtility.Tenant_Power.Committed_Power", "MainUtility.Tenant_Power.Connected_Power", "MainUtility.Building.City__c", "MainUtility.Building.State__c", "MainUtility.Building.Location__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Device_Name__c" ],
+        "rightQualifier" : "MainUtility",
+        "rightKeys" : [ "Name" ]
+      }
+    },
+    "JOIN48" : {
+      "action" : "join",
+      "sources" : [ "LOAD_DATASET5", "JOIN26" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Datahall_UPS.Id", "Datahall_UPS.Name", "Datahall_UPS.UPS__c", "Datahall_UPS.DC_Data_Hall.Cooling_Redundancy_Configuration__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Id" ],
+        "rightQualifier" : "Datahall_UPS",
+        "rightKeys" : [ "UPS__c" ]
+      }
+    },
+    "LOAD_DATASET27" : {
+      "action" : "load",
+      "sources" : [ ],
+      "parameters" : {
+        "fields" : [ "Asset.Account.Id", "Asset.Account.Name", "Asset.Id", "DC_Cage.DC_Data_Hall.Cooling_Redundancy_Configuration__c", "DC_Cage.DC_Data_Hall.DC_Floor.Id", "DC_Cage.DC_Data_Hall.DC_Floor.Name", "DC_Cage.DC_Data_Hall.DC_Floor.Short_Name__c", "DC_Cage.DC_Data_Hall.Id", "DC_Cage.DC_Data_Hall.Name", "DC_Cage.DC_Data_Hall.Short_Name__c", "DC_Cage.Id", "DC_Cage.Name", "DC_Cage.Short_Name__c", "DC_Cage.Type__c", "Id", "Legacy_Cabinet_Name__c", "Name", "Short_Name__c", "Status__c" ],
+        "dataset" : {
+          "type" : "analyticsDataset",
+          "label" : "Cabinets",
+          "name" : "DC_Cabinets"
+        },
+        "sampleDetails" : {
+          "type" : "TopN",
+          "sortBy" : [ ]
+        }
+      }
+    },
+    "JOIN49" : {
+      "action" : "join",
+      "sources" : [ "JOIN14", "LOAD_DATASET27" ],
+      "schema" : {
+        "fields" : [ ],
+        "slice" : {
+          "mode" : "DROP",
+          "ignoreMissingFields" : true,
+          "fields" : [ "Cabinet__c" ]
+        }
+      },
+      "parameters" : {
+        "joinType" : "LOOKUP",
+        "leftKeys" : [ "Cabinet__c" ],
+        "rightQualifier" : "Cabinet",
+        "rightKeys" : [ "Id" ]
       }
     }
   },
@@ -1228,8 +1751,8 @@
       "LOAD_DATASET0" : {
         "label" : "DC_Circuit_Breaker__c",
         "type" : "LOAD_DATASET",
-        "top" : 1233.3,
-        "left" : 1092.1,
+        "top" : 1370.2,
+        "left" : 1372,
         "parameters" : {
           "sampleSize" : 2000
         }
@@ -1237,8 +1760,8 @@
       "LOAD_DATASET3" : {
         "label" : "DC_Data_Hall__c",
         "type" : "LOAD_DATASET",
-        "top" : 392.5,
-        "left" : 1372.2,
+        "top" : 113.19999999999999,
+        "left" : 1512.3,
         "parameters" : {
           "sampleSize" : 2000
         }
@@ -1246,8 +1769,8 @@
       "LOAD_DATASET5" : {
         "label" : "DC_UPS__c",
         "type" : "LOAD_DATASET",
-        "top" : 672.2,
-        "left" : 112.1,
+        "top" : 810.2,
+        "left" : 112,
         "parameters" : {
           "sampleSize" : 2000
         }
@@ -1255,8 +1778,8 @@
       "LOAD_DATASET6" : {
         "label" : "DC_Floor__c",
         "type" : "LOAD_DATASET",
-        "top" : 252.10000000000002,
-        "left" : 112.9,
+        "top" : 252.89999999999998,
+        "left" : 952,
         "parameters" : {
           "sampleSize" : 2000
         }
@@ -1264,8 +1787,8 @@
       "LOAD_DATASET7" : {
         "label" : "DC_Datahall_UPS__c",
         "type" : "LOAD_DATASET",
-        "top" : 532.5,
-        "left" : 1232.2,
+        "top" : 393,
+        "left" : 1372,
         "parameters" : {
           "sampleSize" : 2000
         }
@@ -1274,7 +1797,7 @@
         "label" : "Building__c",
         "type" : "LOAD_DATASET",
         "top" : 112.1,
-        "left" : 112.1,
+        "left" : 672.1,
         "parameters" : {
           "sampleSize" : 2000
         }
@@ -1283,28 +1806,21 @@
         "label" : "Join Floor to Building",
         "description" : "",
         "type" : "JOIN",
-        "top" : 252.10000000000002,
-        "left" : 252.89999999999998
+        "top" : 252.5,
+        "left" : 1092
       },
       "JOIN1" : {
         "label" : "Join Data Hall to Floor",
         "description" : "",
         "type" : "JOIN",
-        "top" : 392,
-        "left" : 1511.9
-      },
-      "JOIN5" : {
-        "label" : "Join UPS to Data Hall UPS (Junction)",
-        "description" : "",
-        "type" : "JOIN",
-        "top" : 532.5,
-        "left" : 1372.2
+        "top" : 253.2,
+        "left" : 1512.3
       },
       "LOAD_DATASET9" : {
         "label" : "DC_PDU_RPP__c",
         "type" : "LOAD_DATASET",
-        "top" : 812.3,
-        "left" : 112.4,
+        "top" : 1090.2,
+        "left" : 112,
         "parameters" : {
           "sampleSize" : 2000
         }
@@ -1312,8 +1828,8 @@
       "LOAD_DATASET10" : {
         "label" : "DC_Switchgear_Object__c",
         "type" : "LOAD_DATASET",
-        "top" : 532.2,
-        "left" : 112.1,
+        "top" : 530.2,
+        "left" : 112,
         "parameters" : {
           "sampleSize" : 2000
         }
@@ -1321,8 +1837,8 @@
       "LOAD_DATASET11" : {
         "label" : "DC_Main_Utility__c",
         "type" : "LOAD_DATASET",
-        "top" : 392.1,
-        "left" : 112.4,
+        "top" : 250.2,
+        "left" : 112,
         "parameters" : {
           "sampleSize" : 2000
         }
@@ -1330,8 +1846,8 @@
       "LOAD_DATASET13" : {
         "label" : "DC_PDU_Panel__c",
         "type" : "LOAD_DATASET",
-        "top" : 1093.3,
-        "left" : 1092.1,
+        "top" : 1230.2,
+        "left" : 1372,
         "parameters" : {
           "sampleSize" : 2000
         }
@@ -1340,56 +1856,56 @@
         "label" : "Join Switchgear to Main Utility",
         "description" : "",
         "type" : "JOIN",
-        "top" : 532.2,
-        "left" : 252.10000000000002
+        "top" : 532,
+        "left" : 672
       },
       "JOIN10" : {
         "label" : "Join UPS to Switchgear",
         "description" : "",
         "type" : "JOIN",
-        "top" : 672.5,
-        "left" : 252.10000000000002
+        "top" : 810.2,
+        "left" : 672
       },
       "JOIN11" : {
         "label" : "Join Main Utility to Building",
         "description" : "",
         "type" : "JOIN",
-        "top" : 392.1,
-        "left" : 252.39999999999998
+        "top" : 252,
+        "left" : 671.7
       },
       "JOIN12" : {
         "label" : "Join PDU_RPP to UPS",
         "description" : "",
         "type" : "JOIN",
-        "top" : 812.3,
-        "left" : 252.39999999999998
+        "top" : 1090.3,
+        "left" : 672
       },
       "JOIN13" : {
         "label" : "Join PDU Panel to PDU_RPP",
         "description" : "",
         "type" : "JOIN",
-        "top" : 1092.9,
-        "left" : 1232.1
+        "top" : 1232.1,
+        "left" : 1512
       },
       "JOIN14" : {
         "label" : "Join Circuit Breaker to PDU Panel",
         "description" : "",
         "type" : "JOIN",
-        "top" : 1232.9,
-        "left" : 1232.1
+        "top" : 1370.2,
+        "left" : 1512
       },
       "OUTPUT2" : {
         "label" : "Output Circuit Breakers",
         "description" : "",
         "type" : "OUTPUT",
-        "top" : 1232.5,
-        "left" : 1372.1
+        "top" : 1372.1,
+        "left" : 1932.4
       },
       "LOAD_DATASET19" : {
         "label" : "DC_Power_Consumption__c",
         "type" : "LOAD_DATASET",
-        "top" : 952.2,
-        "left" : 1232.2,
+        "top" : 1090.2,
+        "left" : 1372,
         "parameters" : {
           "sampleSize" : 2000
         }
@@ -1398,42 +1914,35 @@
         "label" : "Join Power Consumption to PDU RPP",
         "description" : "",
         "type" : "JOIN",
-        "top" : 952.2,
-        "left" : 1372.2
+        "top" : 1092.1,
+        "left" : 1512
       },
       "OUTPUT4" : {
         "label" : "Output Power Consumption",
         "description" : "",
         "type" : "OUTPUT",
-        "top" : 952.5,
-        "left" : 1652.2
+        "top" : 1092,
+        "left" : 2211.9
       },
       "JOIN26" : {
         "label" : "Join UPS to Data Hall 2",
         "description" : "",
         "type" : "JOIN",
-        "top" : 531.9,
-        "left" : 1512
-      },
-      "JOIN27" : {
-        "label" : "Join Power Consumption UPS to Data Hall",
-        "description" : "",
-        "type" : "JOIN",
-        "top" : 952.2,
+        "top" : 392.3,
         "left" : 1512.2
       },
       "OUTPUT5" : {
         "label" : "Output PDU Panels",
         "description" : "",
         "type" : "OUTPUT",
-        "top" : 1092.5,
-        "left" : 1372.1
+        "top" : 1230.2,
+        "left" : 1652
       },
       "LOAD_DATASET20" : {
         "label" : "DC_Tenant_Power__c",
         "type" : "LOAD_DATASET",
-        "top" : 1372,
-        "left" : 252,
+        "top" : 1512.1,
+        "left" : 112.4,
         "parameters" : {
           "sampleSize" : 2000
         }
@@ -1441,7 +1950,7 @@
       "LOAD_DATASET21" : {
         "label" : "DC_Tenant_Suite__c",
         "type" : "LOAD_DATASET",
-        "top" : 1232.7,
+        "top" : 1372,
         "left" : 252.2,
         "parameters" : {
           "sampleSize" : 2000
@@ -1451,50 +1960,50 @@
         "label" : "Join Power to Suite",
         "description" : "",
         "type" : "JOIN",
-        "top" : 1372.7,
-        "left" : 392.1
+        "top" : 1512,
+        "left" : 392.2
       },
       "JOIN29" : {
         "label" : "Join Tenant Power to Floor",
         "description" : "",
         "type" : "JOIN",
-        "top" : 1372.7,
-        "left" : 532.1
+        "top" : 1512,
+        "left" : 532.2
       },
       "JOIN30" : {
         "label" : "Join Tenant Power to PDU RPP",
         "description" : "",
         "type" : "JOIN",
-        "top" : 1372.7,
-        "left" : 672.1
+        "top" : 1512,
+        "left" : 672.2
       },
       "JOIN31" : {
         "label" : "Join Tenant Power to UPS",
         "description" : "",
         "type" : "JOIN",
-        "top" : 1372.7,
-        "left" : 812.1
+        "top" : 1512.2,
+        "left" : 812.2
       },
       "JOIN32" : {
         "label" : "Join Tenant Power to Switchgear",
         "description" : "",
         "type" : "JOIN",
-        "top" : 1372.3,
-        "left" : 952.1
+        "top" : 1512.2,
+        "left" : 952.2
       },
       "JOIN33" : {
         "label" : "Join Tenant Power to Main Utility",
         "description" : "",
         "type" : "JOIN",
-        "top" : 1372.3,
-        "left" : 1092.1
+        "top" : 1512.2,
+        "left" : 1092.2
       },
       "TRANSFORM0" : {
         "label" : "Transform Cleanup Fields",
         "description" : "",
         "type" : "TRANSFORM",
-        "top" : 1512.7,
-        "left" : 1232,
+        "top" : 1512.2,
+        "left" : 1232.2,
         "graph" : {
           "FORMULA0" : {
             "parameters" : {
@@ -1534,6 +2043,18 @@
           },
           "DROP_FIELDS0" : {
             "label" : "Drop Columns"
+          },
+          "FORMULA22" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Data Hall Name"
+          },
+          "FORMULA23" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Data Hall ID"
           }
         },
         "connectors" : [ {
@@ -1553,13 +2074,19 @@
           "target" : "FORMULA5"
         }, {
           "source" : "FORMULA5",
+          "target" : "FORMULA22"
+        }, {
+          "source" : "FORMULA23",
           "target" : "DROP_FIELDS0"
+        }, {
+          "source" : "FORMULA22",
+          "target" : "FORMULA23"
         } ]
       },
       "LOAD_DATASET22" : {
         "label" : "Account",
         "type" : "LOAD_DATASET",
-        "top" : 1092.7,
+        "top" : 1232,
         "left" : 392.2,
         "parameters" : {
           "sampleSize" : 2000
@@ -1569,22 +2096,22 @@
         "label" : "Join Tenant Suite to Account",
         "description" : "",
         "type" : "JOIN",
-        "top" : 1232.7,
+        "top" : 1372,
         "left" : 392.2
       },
       "OUTPUT6" : {
         "label" : "Output Tenant Power",
         "description" : "",
         "type" : "OUTPUT",
-        "top" : 1372,
-        "left" : 1372
+        "top" : 1512,
+        "left" : 1372.2
       },
       "AGGREGATE0" : {
         "label" : "Aggregate PDU RPP",
         "description" : "",
         "type" : "AGGREGATE",
-        "top" : 1512.7,
-        "left" : 392.1,
+        "top" : 1230.2,
+        "left" : 252,
         "graph" : {
           "EXTRACT0" : null,
           "AGGREGATE1" : null
@@ -1598,8 +2125,8 @@
         "label" : "Aggregate UPS",
         "description" : "",
         "type" : "AGGREGATE",
-        "top" : 1652.7,
-        "left" : 392.1,
+        "top" : 950.2,
+        "left" : 252,
         "graph" : {
           "EXTRACT1" : null,
           "AGGREGATE3" : null
@@ -1613,8 +2140,8 @@
         "label" : "Aggregate Switchgear",
         "description" : "",
         "type" : "AGGREGATE",
-        "top" : 1792.7,
-        "left" : 392.2,
+        "top" : 672,
+        "left" : 252,
         "graph" : {
           "EXTRACT2" : null,
           "AGGREGATE5" : null
@@ -1628,8 +2155,8 @@
         "label" : "Aggregate Main Utility",
         "description" : "",
         "type" : "AGGREGATE",
-        "top" : 1932.7,
-        "left" : 392.2,
+        "top" : 390.2,
+        "left" : 252,
         "graph" : {
           "EXTRACT3" : null,
           "AGGREGATE7" : null
@@ -1639,67 +2166,60 @@
           "target" : "AGGREGATE7"
         } ]
       },
-      "JOIN35" : {
-        "label" : "Join PDU RPP to Tenant Power",
-        "description" : "",
-        "type" : "JOIN",
-        "top" : 1512.7,
-        "left" : 532.1
-      },
       "OUTPUT7" : {
         "label" : "Output PDU RPPs",
         "description" : "",
         "type" : "OUTPUT",
-        "top" : 1512.7,
-        "left" : 672.1
+        "top" : 1092.1,
+        "left" : 812.1
       },
       "JOIN36" : {
         "label" : "Join UPS to Tenant Power",
         "description" : "",
         "type" : "JOIN",
-        "top" : 1652.7,
-        "left" : 532.1
+        "top" : 812,
+        "left" : 392
       },
       "OUTPUT8" : {
         "label" : "Output UPSs",
         "description" : "",
         "type" : "OUTPUT",
-        "top" : 1652.7,
-        "left" : 672.2
+        "top" : 812.2,
+        "left" : 812
       },
       "JOIN37" : {
         "label" : "Join Switchgear to Tenant Power",
         "description" : "",
         "type" : "JOIN",
-        "top" : 1792.7,
-        "left" : 532.2
+        "top" : 530.2,
+        "left" : 252
       },
       "OUTPUT9" : {
         "label" : "Output Switchgears",
         "description" : "",
         "type" : "OUTPUT",
-        "top" : 1792.7,
-        "left" : 672.2
+        "top" : 532.1,
+        "left" : 812
       },
       "JOIN38" : {
         "label" : "Join Main Utility to Tenant Power",
         "description" : "",
         "type" : "JOIN",
-        "top" : 1932.7,
-        "left" : 532.2
+        "top" : 250.2,
+        "left" : 252
       },
       "OUTPUT10" : {
         "label" : "Output Main Utilities",
         "description" : "",
         "type" : "OUTPUT",
-        "top" : 1932.7,
-        "left" : 672.2
+        "top" : 252.10000000000002,
+        "left" : 812
       },
       "LOAD_DATASET23" : {
         "label" : "DC_DC_Circuit__c",
         "type" : "LOAD_DATASET",
-        "top" : 1091.9,
-        "left" : 1932.4,
+        "top" : 1372.2,
+        "left" : 2211.6,
         "parameters" : {
           "sampleSize" : 2000
         }
@@ -1707,8 +2227,8 @@
       "LOAD_DATASET24" : {
         "label" : "DC_DC_Plant__c",
         "type" : "LOAD_DATASET",
-        "top" : 952.1,
-        "left" : 1931.4,
+        "top" : 1232.2,
+        "left" : 2211.6,
         "parameters" : {
           "sampleSize" : 2000
         }
@@ -1717,28 +2237,28 @@
         "label" : "Join DC Plant to PDU RPP",
         "description" : "",
         "type" : "JOIN",
-        "top" : 952,
-        "left" : 2071.8
+        "top" : 1232.3,
+        "left" : 2351.6
       },
       "JOIN40" : {
         "label" : "Join DC Circuit to DC Plant",
         "description" : "",
         "type" : "JOIN",
-        "top" : 1091.9,
-        "left" : 2072.1
+        "top" : 1372.3,
+        "left" : 2351.6
       },
       "OUTPUT11" : {
         "label" : "Output DC Circuits",
         "description" : "",
         "type" : "OUTPUT",
-        "top" : 1092,
-        "left" : 2212
+        "top" : 1372.3,
+        "left" : 2491.6
       },
       "LOAD_DATASET25" : {
         "label" : "DC_Non_IT_Load__c",
         "type" : "LOAD_DATASET",
-        "top" : 672.1,
-        "left" : 1652,
+        "top" : 672.2,
+        "left" : 1931.5,
         "parameters" : {
           "sampleSize" : 2000
         }
@@ -1747,36 +2267,336 @@
         "label" : "Join Non-IT Load to Switchgear",
         "description" : "",
         "type" : "JOIN",
-        "top" : 672.1,
-        "left" : 1792.1
+        "top" : 673,
+        "left" : 2072.1
       },
       "JOIN42" : {
         "label" : "Join Non-IT Load to Data Hall",
         "description" : "",
         "type" : "JOIN",
-        "top" : 672,
-        "left" : 1932
+        "top" : 673,
+        "left" : 2212.1
       },
       "OUTPUT12" : {
         "label" : "Output Non-IT Loads",
         "description" : "",
         "type" : "OUTPUT",
-        "top" : 672,
-        "left" : 2072
+        "top" : 673,
+        "left" : 2352.1
+      },
+      "LOAD_DATASET26" : {
+        "label" : "DC_Generator_Switchgear__c",
+        "type" : "LOAD_DATASET",
+        "top" : 671.9,
+        "left" : 532,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "AGGREGATE8" : {
+        "label" : "Aggregate Switchgear Generators",
+        "description" : "",
+        "type" : "AGGREGATE",
+        "top" : 670.2,
+        "left" : 392,
+        "graph" : {
+          "EXTRACT4" : null,
+          "AGGREGATE9" : null
+        },
+        "connectors" : [ {
+          "source" : "EXTRACT4",
+          "target" : "AGGREGATE9"
+        } ]
+      },
+      "JOIN43" : {
+        "label" : "Join Switchgear to Generator Switchgears",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 530.2,
+        "left" : 392
+      },
+      "JOIN44" : {
+        "label" : "Join PDU RPP to Tenant Power",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1090.2,
+        "left" : 252
+      },
+      "TRANSFORM1" : {
+        "label" : "Classify PDU RPP (IT & Non-IT Load)",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 1090.2,
+        "left" : 532,
+        "graph" : {
+          "BUCKET0" : {
+            "label" : "Bucket"
+          }
+        },
+        "connectors" : [ ]
+      },
+      "TRANSFORM2" : {
+        "label" : "Classify UPS (IT & Non-IT Load)",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 810.2,
+        "left" : 532,
+        "graph" : {
+          "BUCKET1" : {
+            "label" : "Bucket"
+          }
+        },
+        "connectors" : [ ]
+      },
+      "TRANSFORM3" : {
+        "label" : "Classify Switchgear (IT & Non-IT Load)",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 532,
+        "left" : 532.1,
+        "graph" : {
+          "BUCKET2" : {
+            "label" : "Bucket"
+          }
+        },
+        "connectors" : [ ]
+      },
+      "TRANSFORM4" : {
+        "label" : "Classify Main Utility (IT & Non-IT Load)",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 252.39999999999998,
+        "left" : 392.1,
+        "graph" : {
+          "BUCKET3" : {
+            "label" : "Bucket"
+          }
+        },
+        "connectors" : [ ]
+      },
+      "TRANSFORM5" : {
+        "label" : "Transform Clean-up Fields",
+        "description" : "",
+        "type" : "TRANSFORM",
+        "top" : 1090.2,
+        "left" : 2072,
+        "graph" : {
+          "FORMULA6" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Building Name"
+          },
+          "FORMULA7" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Building ID"
+          },
+          "FORMULA8" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Main Utility Name"
+          },
+          "FORMULA9" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Main Utility ID"
+          },
+          "FORMULA10" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Switchgear Name"
+          },
+          "FORMULA11" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Switchgear ID"
+          },
+          "FORMULA12" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "UPS Name"
+          },
+          "FORMULA13" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "UPS ID"
+          },
+          "DROP_FIELDS1" : {
+            "label" : "Drop Columns"
+          },
+          "FORMULA14" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Main Utility Classification"
+          },
+          "FORMULA15" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Switchgear Classification"
+          },
+          "FORMULA16" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "UPS Classification"
+          },
+          "FORMULA17" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Data Hall Name"
+          },
+          "FORMULA18" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Data Hall ID"
+          },
+          "FORMULA19" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Floor Name"
+          },
+          "FORMULA20" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Floor ID"
+          },
+          "FORMULA21" : {
+            "parameters" : {
+              "type" : "BASE_FORMULA_UI"
+            },
+            "label" : "Floor Number"
+          }
+        },
+        "connectors" : [ {
+          "source" : "FORMULA7",
+          "target" : "FORMULA8"
+        }, {
+          "source" : "FORMULA9",
+          "target" : "FORMULA7"
+        }, {
+          "source" : "FORMULA6",
+          "target" : "FORMULA9"
+        }, {
+          "source" : "FORMULA10",
+          "target" : "FORMULA11"
+        }, {
+          "source" : "FORMULA12",
+          "target" : "FORMULA13"
+        }, {
+          "source" : "FORMULA14",
+          "target" : "FORMULA10"
+        }, {
+          "source" : "FORMULA8",
+          "target" : "FORMULA14"
+        }, {
+          "source" : "FORMULA15",
+          "target" : "FORMULA12"
+        }, {
+          "source" : "FORMULA11",
+          "target" : "FORMULA15"
+        }, {
+          "source" : "FORMULA13",
+          "target" : "FORMULA16"
+        }, {
+          "source" : "FORMULA16",
+          "target" : "FORMULA17"
+        }, {
+          "source" : "FORMULA17",
+          "target" : "FORMULA18"
+        }, {
+          "source" : "FORMULA18",
+          "target" : "FORMULA19"
+        }, {
+          "source" : "FORMULA19",
+          "target" : "FORMULA20"
+        }, {
+          "source" : "FORMULA21",
+          "target" : "DROP_FIELDS1"
+        }, {
+          "source" : "FORMULA20",
+          "target" : "FORMULA21"
+        } ]
+      },
+      "JOIN45" : {
+        "label" : "Join Power Consumption to UPS",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1090.2,
+        "left" : 1652
+      },
+      "JOIN46" : {
+        "label" : "Join Power Consumption to Switchgear",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1090.2,
+        "left" : 1792
+      },
+      "JOIN47" : {
+        "label" : "Join Power Consumption to Main Utility",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1090.2,
+        "left" : 1932
+      },
+      "JOIN48" : {
+        "label" : "Join UPS to Data Hall UPS",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 812,
+        "left" : 252
+      },
+      "LOAD_DATASET27" : {
+        "label" : "Cabinets",
+        "type" : "LOAD_DATASET",
+        "top" : 1232,
+        "left" : 1792,
+        "parameters" : {
+          "sampleSize" : 2000
+        }
+      },
+      "JOIN49" : {
+        "label" : "Join Circuit Breaker to Cabinet",
+        "description" : "",
+        "type" : "JOIN",
+        "top" : 1372,
+        "left" : 1792.1
       }
     },
     "connectors" : [ {
-      "source" : "JOIN11",
+      "source" : "LOAD_DATASET7",
+      "target" : "JOIN26"
+    }, {
+      "source" : "TRANSFORM4",
+      "target" : "JOIN11"
+    }, {
+      "source" : "LOAD_DATASET11",
       "target" : "JOIN38"
     }, {
-      "source" : "JOIN9",
+      "source" : "TRANSFORM3",
+      "target" : "JOIN9"
+    }, {
+      "source" : "LOAD_DATASET10",
       "target" : "JOIN37"
     }, {
-      "source" : "JOIN10",
-      "target" : "JOIN36"
+      "source" : "TRANSFORM2",
+      "target" : "JOIN10"
     }, {
-      "source" : "JOIN12",
-      "target" : "JOIN35"
+      "source" : "JOIN48",
+      "target" : "JOIN36"
     }, {
       "source" : "LOAD_DATASET0",
       "target" : "JOIN14"
@@ -1793,23 +2613,8 @@
       "source" : "JOIN0",
       "target" : "JOIN1"
     }, {
-      "source" : "LOAD_DATASET5",
-      "target" : "JOIN5"
-    }, {
-      "source" : "LOAD_DATASET7",
-      "target" : "JOIN5"
-    }, {
-      "source" : "LOAD_DATASET10",
-      "target" : "JOIN9"
-    }, {
-      "source" : "LOAD_DATASET5",
-      "target" : "JOIN10"
-    }, {
       "source" : "JOIN9",
       "target" : "JOIN10"
-    }, {
-      "source" : "LOAD_DATASET11",
-      "target" : "JOIN11"
     }, {
       "source" : "LOAD_DATASET8",
       "target" : "JOIN11"
@@ -1817,7 +2622,7 @@
       "source" : "JOIN11",
       "target" : "JOIN9"
     }, {
-      "source" : "LOAD_DATASET9",
+      "source" : "TRANSFORM1",
       "target" : "JOIN12"
     }, {
       "source" : "JOIN10",
@@ -1832,7 +2637,7 @@
       "source" : "JOIN13",
       "target" : "JOIN14"
     }, {
-      "source" : "JOIN14",
+      "source" : "JOIN49",
       "target" : "OUTPUT2"
     }, {
       "source" : "LOAD_DATASET19",
@@ -1841,20 +2646,8 @@
       "source" : "JOIN12",
       "target" : "JOIN23"
     }, {
-      "source" : "JOIN27",
-      "target" : "OUTPUT4"
-    }, {
-      "source" : "JOIN5",
-      "target" : "JOIN26"
-    }, {
       "source" : "JOIN1",
       "target" : "JOIN26"
-    }, {
-      "source" : "JOIN23",
-      "target" : "JOIN27"
-    }, {
-      "source" : "JOIN26",
-      "target" : "JOIN27"
     }, {
       "source" : "JOIN13",
       "target" : "OUTPUT5"
@@ -1919,29 +2712,14 @@
       "source" : "LOAD_DATASET20",
       "target" : "AGGREGATE6"
     }, {
-      "source" : "AGGREGATE0",
-      "target" : "JOIN35"
-    }, {
-      "source" : "JOIN35",
-      "target" : "OUTPUT7"
-    }, {
       "source" : "AGGREGATE2",
       "target" : "JOIN36"
-    }, {
-      "source" : "JOIN36",
-      "target" : "OUTPUT8"
     }, {
       "source" : "AGGREGATE4",
       "target" : "JOIN37"
     }, {
-      "source" : "JOIN37",
-      "target" : "OUTPUT9"
-    }, {
       "source" : "AGGREGATE6",
       "target" : "JOIN38"
-    }, {
-      "source" : "JOIN38",
-      "target" : "OUTPUT10"
     }, {
       "source" : "LOAD_DATASET24",
       "target" : "JOIN39"
@@ -1972,6 +2750,81 @@
     }, {
       "source" : "JOIN42",
       "target" : "OUTPUT12"
+    }, {
+      "source" : "LOAD_DATASET26",
+      "target" : "AGGREGATE8"
+    }, {
+      "source" : "JOIN37",
+      "target" : "JOIN43"
+    }, {
+      "source" : "AGGREGATE8",
+      "target" : "JOIN43"
+    }, {
+      "source" : "LOAD_DATASET9",
+      "target" : "JOIN44"
+    }, {
+      "source" : "AGGREGATE0",
+      "target" : "JOIN44"
+    }, {
+      "source" : "JOIN44",
+      "target" : "TRANSFORM1"
+    }, {
+      "source" : "JOIN12",
+      "target" : "OUTPUT7"
+    }, {
+      "source" : "JOIN10",
+      "target" : "OUTPUT8"
+    }, {
+      "source" : "JOIN36",
+      "target" : "TRANSFORM2"
+    }, {
+      "source" : "JOIN43",
+      "target" : "TRANSFORM3"
+    }, {
+      "source" : "JOIN9",
+      "target" : "OUTPUT9"
+    }, {
+      "source" : "JOIN38",
+      "target" : "TRANSFORM4"
+    }, {
+      "source" : "JOIN11",
+      "target" : "OUTPUT10"
+    }, {
+      "source" : "JOIN23",
+      "target" : "JOIN45"
+    }, {
+      "source" : "JOIN10",
+      "target" : "JOIN45"
+    }, {
+      "source" : "JOIN45",
+      "target" : "JOIN46"
+    }, {
+      "source" : "JOIN9",
+      "target" : "JOIN46"
+    }, {
+      "source" : "JOIN46",
+      "target" : "JOIN47"
+    }, {
+      "source" : "JOIN11",
+      "target" : "JOIN47"
+    }, {
+      "source" : "JOIN47",
+      "target" : "TRANSFORM5"
+    }, {
+      "source" : "TRANSFORM5",
+      "target" : "OUTPUT4"
+    }, {
+      "source" : "LOAD_DATASET5",
+      "target" : "JOIN48"
+    }, {
+      "source" : "JOIN26",
+      "target" : "JOIN48"
+    }, {
+      "source" : "JOIN14",
+      "target" : "JOIN49"
+    }, {
+      "source" : "LOAD_DATASET27",
+      "target" : "JOIN49"
     } ],
     "hiddenColumns" : [ ]
   },
