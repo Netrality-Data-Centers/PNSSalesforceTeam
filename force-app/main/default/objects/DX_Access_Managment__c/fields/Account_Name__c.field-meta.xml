@@ -2,8 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Account_Name__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
-    <externalId>false</externalId>
-    <label>Account Name</label>
+    <label>Account Name 1</label>
     <referenceTo>Account</referenceTo>
     <relationshipLabel>Access Managment</relationshipLabel>
     <relationshipName>Access_Managment</relationshipName>
