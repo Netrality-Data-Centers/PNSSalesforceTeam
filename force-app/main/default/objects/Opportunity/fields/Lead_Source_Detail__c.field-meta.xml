@@ -73,6 +73,11 @@
                 <label>Leadfeeder Email</label>
             </value>
             <value>
+                <fullName>Membership Associations</fullName>
+                <default>false</default>
+                <label>Membership Associations</label>
+            </value>
+            <value>
                 <fullName>Netrality Event</fullName>
                 <default>false</default>
                 <label>Netrality Event</label>
@@ -131,11 +136,6 @@
                 <fullName>ZoomInfo</fullName>
                 <default>false</default>
                 <label>ZoomInfo</label>
-            </value>
-            <value>
-                <fullName>Membership Associations</fullName>
-                <default>false</default>
-                <label>Membership Associations</label>
             </value>
             <value>
                 <fullName>Channel Registration Form</fullName>
@@ -280,6 +280,10 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>Membership Associations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Inbound</controllingFieldValue>
             <valueName>Phone Call to Dedicated Sales Line</valueName>
         </valueSettings>
         <valueSettings>
@@ -297,10 +301,6 @@
         <valueSettings>
             <controllingFieldValue>Inbound</controllingFieldValue>
             <valueName>ZoomInfo</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Inbound</controllingFieldValue>
-            <valueName>Membership Associations</valueName>
         </valueSettings>
     </valueSet>
 </CustomField>
