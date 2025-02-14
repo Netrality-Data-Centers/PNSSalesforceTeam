@@ -1,0 +1,953 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Out_of_Market</fullName>
+    <active>true</active>
+    <businessProcess>Out of Market Sales Process</businessProcess>
+    <description>To track deployments in markets outside of the current Netrality portfolio. We cannot execute this sale because we do not have a data center in this market..</description>
+    <label>Out of Market</label>
+    <picklistValues>
+        <picklist>Business_Function__c</picklist>
+        <values>
+            <fullName>Business Continuity%2FDisaster Recovery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Network Optimization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Production Environment</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Channel_Selling_Motion__c</picklist>
+        <values>
+            <fullName>Broker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Channel Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>One-Time Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reseller</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Churn_Avoided_Reason__c</picklist>
+        <values>
+            <fullName>Auto Renewal Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resolved Issue</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Churn_Confirmed_Reason__c</picklist>
+        <values>
+            <fullName>Bankruptcy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consolidation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Loss of Business or End User</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Market Not Available</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Moving Colo to On-Prem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Peering%2FPartner not Available</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pricing%2FIncluded Offerings</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Churn_Type__c</picklist>
+        <values>
+            <fullName>Full Disconnect</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partial Disconnect</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price Write Down</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Churn__c</picklist>
+        <values>
+            <fullName>Nonpreventable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Preventable</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Compelling_Event__c</picklist>
+        <values>
+            <fullName>Additional capacity needed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Compliance requirements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cost Savings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>End customer demand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Issues with current Data center operator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Merger and acquisition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New market roll out</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New product roll out</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Office relocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tech Refresh</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Deployment_Type__c</picklist>
+        <values>
+            <fullName>New Network Node</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Primary Data Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Secondary%2FDR Data Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Relocation of Primary Data Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Relocation of Secondary%2FDR Data Center</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Fiber_Count__c</picklist>
+        <values>
+            <fullName>12</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>144</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>216</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>24</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>288</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>432</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>48</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>72</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>96</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ForecastCategoryName</picklist>
+        <values>
+            <fullName>Best Case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Geographic_Constraints__c</picklist>
+        <values>
+            <fullName>Can deploy anywhere in the country</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Needs to be in this specific market</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>This market fits within a broader regional area this deployment can land in</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Home_Run_Mode__c</picklist>
+        <values>
+            <fullName>Cat6</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DS3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Multi-Mode</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Single Mode</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ImpartnerPRM__PartnerOpportunityAcceptance__c</picklist>
+        <values>
+            <fullName>Accepted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Incumbent__c</picklist>
+        <values>
+            <fullName>Aligned Data Centers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Centurylink</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cologix</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Colt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Compass Data Centers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Coresite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cyrus One</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cyxtera</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Foundry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Databank</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Digital Realty</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EdgeConnex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Equinix</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Evoque</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flexential</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H5 Data Centers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New deployment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On-premise solution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>QTS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sabey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stackinfra</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stream Data Centers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Switch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T5 Data Centers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tierpoint</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zayo</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>Inbound</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outbound</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Lead_Source_Detail__c</picklist>
+        <values>
+            <fullName>Channel Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Datacenters%2Ecom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing Customer Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Industry Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Membership Associations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone call to General Sales Number</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospecting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal Engagement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Revenue Recovery Audit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social Network</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZoomInfo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>sales%40netrality%2Ecom</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Location__c</picklist>
+        <values>
+            <fullName>CHI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HOU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IND</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PHI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>STL</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Lost_Opportunity_Reason__c</picklist>
+        <values>
+            <fullName>Autorenewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deal Dependency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicate Opportunity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Everything Network</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Interconnection Space</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legal Issues</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Location</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Network Interconnection</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Response</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Project Shelved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stayed On Premise instead of moving</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stayed with Current Provider instead of moving</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Lost_to_Competitor__c</picklist>
+        <values>
+            <fullName>Aligned Data Centers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Centurylink</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cologix</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Colt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Compass Data Centers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Coresite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cyrus One</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cyxtera</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Foundry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Databank</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Digital Realty</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EdgeConnex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Element Critical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Equinix</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Evoque</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flexential</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H5 Data Centers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>QTS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sabey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Skybox</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stackinfra</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stream Data Centers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Switch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T5 Data Centers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tierpoint</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zayo</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Orig_Renew__c</picklist>
+        <values>
+            <fullName>Original</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Panels__c</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>10</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>11</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>9</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Power__c</picklist>
+        <values>
+            <fullName>20A %2F 120V</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>20A %2F 208V</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30A %2F 120V</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30A %2F 208V</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KW Pricing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Prospecting_Detail__c</picklist>
+        <values>
+            <fullName>EBC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Event %28lunch%2Fdinner%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gift</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Strategic Business Review %28SBR%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Registration_Owner__c</picklist>
+        <values>
+            <fullName>Jordan Olivero</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wayne Coleman</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reluctance_to_use_standard_MLSA__c</picklist>
+        <values>
+            <fullName>Company does not accept the terms of the standard MLSA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Company does not allow for click-through terms and conditions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Company must have legal review all documents</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Renewal_Type__c</picklist>
+        <values>
+            <fullName>Auto Renewal Adjustment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Auto Renewal Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>End of Term</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Holdover</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Term Customer Requested Negotiation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Month to Month</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Standard_Auto_Renew__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Standard_Terms_at_Issue__c</picklist>
+        <values>
+            <fullName>Default Terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Holdover Terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Limitation of Liability%2FImdemnification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal Terms</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Churn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing Customer %E2%80%93 New Market</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing Customer %E2%80%93 Same Market</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Logo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>VP_Forecast__c</picklist>
+        <values>
+            <fullName>Best Case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Won_Reason__c</picklist>
+        <values>
+            <fullName>Access to network ecosystem for connectivity to specific providers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Access to network ecosystem for optionality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Capacity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commercial flexibility and%2For terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Desire to partner with owner%2Foperator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing contract vehicle in place</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lab Space%2FOffice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Location</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Roof rights</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>
