@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Grants visibility for processes specific to someone fielding inbound phone calls.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Inbound Phone Call Handler</label>
+    <license>Salesforce</license>
+    <recordTypeVisibilities>
+        <recordType>Lead.Phone_Call</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+</PermissionSet>
