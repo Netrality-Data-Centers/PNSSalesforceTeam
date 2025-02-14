@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Source_Detail__c</fullName>
+    <description>Further details regarding the lead source. Dependent on selection of Inbound or Outbound in Lead Source.</description>
+    <label>Lead Source Detail</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>LeadSource</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Broker</fullName>
+                <default>false</default>
+                <label>Broker</label>
+            </value>
+            <value>
+                <fullName>Channel Partner</fullName>
+                <default>false</default>
+                <label>Channel Partner</label>
+            </value>
+            <value>
+                <fullName>Customer Email or Phone Call</fullName>
+                <default>false</default>
+                <label>Customer Email or Phone Call</label>
+            </value>
+            <value>
+                <fullName>Customer Experience Team</fullName>
+                <default>false</default>
+                <label>Customer Experience Team</label>
+            </value>
+            <value>
+                <fullName>Customer Referral</fullName>
+                <default>false</default>
+                <label>Customer Referral</label>
+            </value>
+            <value>
+                <fullName>Datacenters.com</fullName>
+                <default>false</default>
+                <label>Datacenters.com</label>
+            </value>
+            <value>
+                <fullName>DSA Scheduled Meeting</fullName>
+                <default>false</default>
+                <label>DSA Scheduled Meeting</label>
+            </value>
+            <value>
+                <fullName>Existing Customer Request</fullName>
+                <default>false</default>
+                <label>Existing Customer Request</label>
+            </value>
+            <value>
+                <fullName>Existing Deal Engagement</fullName>
+                <default>false</default>
+                <label>Existing Deal Engagement</label>
+            </value>
+            <value>
+                <fullName>Industry Event</fullName>
+                <default>false</default>
+                <label>Industry Event</label>
+            </value>
+            <value>
+                <fullName>Internal Referral</fullName>
+                <default>false</default>
+                <label>Internal Referral</label>
+            </value>
+            <value>
+                <fullName>Leadfeeder Email</fullName>
+                <default>false</default>
+                <label>Leadfeeder Email</label>
+            </value>
+            <value>
+                <fullName>Netrality Event</fullName>
+                <default>false</default>
+                <label>Netrality Event</label>
+            </value>
+            <value>
+                <fullName>Operations/Customer Portal</fullName>
+                <default>false</default>
+                <label>Operations/Customer Portal</label>
+            </value>
+            <value>
+                <fullName>Phone Call to Dedicated Sales Line</fullName>
+                <default>false</default>
+                <label>Phone Call to Dedicated Sales Line</label>
+            </value>
+            <value>
+                <fullName>Phone call to General Sales Number</fullName>
+                <default>false</default>
+                <label>Phone call to General Sales Number</label>
+            </value>
+            <value>
+                <fullName>Prospecting</fullName>
+                <default>false</default>
+                <label>Prospecting</label>
+            </value>
+            <value>
+                <fullName>QBR/SBR</fullName>
+                <default>false</default>
+                <label>QBR/SBR</label>
+            </value>
+            <value>
+                <fullName>Renewal Engagement</fullName>
+                <default>false</default>
+                <label>Renewal Engagement</label>
+            </value>
+            <value>
+                <fullName>Revenue Recovery Audit</fullName>
+                <default>false</default>
+                <label>Revenue Recovery Audit</label>
+            </value>
+            <value>
+                <fullName>sales@netrality.com</fullName>
+                <default>false</default>
+                <label>sales@netrality.com</label>
+            </value>
+            <value>
+                <fullName>Social Network</fullName>
+                <default>false</default>
+                <label>Social Network</label>
+            </value>
+            <value>
+                <fullName>Website</fullName>
+                <default>false</default>
+                <label>Website</label>
+            </value>
+            <value>
+                <fullName>ZoomInfo</fullName>
+                <default>false</default>
+                <label>ZoomInfo</label>
+            </value>
+            <value>
+                <fullName>Membership Associations</fullName>
+                <default>false</default>
+                <label>Membership Associations</label>
+            </value>
+            <value>
+                <fullName>Channel Registration Form</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Channel Registration Form</label>
+            </value>
+            <value>
+                <fullName>Existing Customer Strategic Business Review</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Existing Customer Strategic Business Review</label>
+            </value>
+            <value>
+                <fullName>Existing Customer Upsell</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Existing Customer Upsell</label>
+            </value>
+            <value>
+                <fullName>Impartner Deal Registration</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Impartner Deal Registration</label>
+            </value>
+            <value>
+                <fullName>LifeLine 733 W Henry Migration</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>LifeLine 733 W Henry Migration</label>
+            </value>
+            <value>
+                <fullName>LinkedIn Sales Navigator Prospecting</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>LinkedIn Sales Navigator Prospecting</label>
+            </value>
+            <value>
+                <fullName>Outreach Prospecting</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Outreach Prospecting</label>
+            </value>
+            <value>
+                <fullName>Project Nieman Target</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Project Nieman Target</label>
+            </value>
+            <value>
+                <fullName>Tech Target Priority Engine</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tech Target Priority Engine</label>
+            </value>
+            <value>
+                <fullName>TechTarget Priority Engine</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>TechTarget Priority Engine</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Outbound</controllingFieldValue>
+            <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>Channel Partner</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outbound</controllingFieldValue>
+            <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>Customer Email or Phone Call</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outbound</controllingFieldValue>
+            <valueName>DSA Scheduled Meeting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outbound</controllingFieldValue>
+            <valueName>Existing Deal Engagement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outbound</controllingFieldValue>
+            <valueName>Industry Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outbound</controllingFieldValue>
+            <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>Leadfeeder Email</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outbound</controllingFieldValue>
+            <valueName>Netrality Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outbound</controllingFieldValue>
+            <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>Operations/Customer Portal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outbound</controllingFieldValue>
+            <valueName>Prospecting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outbound</controllingFieldValue>
+            <valueName>QBR/SBR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outbound</controllingFieldValue>
+            <valueName>Renewal Engagement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outbound</controllingFieldValue>
+            <valueName>Revenue Recovery Audit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outbound</controllingFieldValue>
+            <valueName>Social Network</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>Broker</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>Customer Experience Team</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>Customer Referral</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>Datacenters.com</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>Existing Customer Request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>Internal Referral</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>Phone Call to Dedicated Sales Line</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>Phone call to General Sales Number</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>sales@netrality.com</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>Website</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>ZoomInfo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Inbound</controllingFieldValue>
+            <valueName>Membership Associations</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>
