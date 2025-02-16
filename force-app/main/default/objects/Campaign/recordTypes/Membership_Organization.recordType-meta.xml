@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Membership_Organization</fullName>
+    <active>true</active>
+    <description>Organizations paid annually for access to networks and resources for business development.</description>
+    <label>Membership Organization</label>
+    <picklistValues>
+        <picklist>Campaign_Source__c</picklist>
+        <values>
+            <fullName>Display ads - Adroll</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email Signature</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media Placements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nurture Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paid Search - Adwords</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Market__c</picklist>
+        <values>
+            <fullName>CHI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HOU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IND</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PHI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>STL</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status</picklist>
+        <values>
+            <fullName>Aborted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Planned</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Advertisement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Banner Ads</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Channel Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Industry Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Netrality Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newsletter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Partners</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Promotion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public Relations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referral Program</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tech Stack</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Virtual Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website form</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>White Paper</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>
