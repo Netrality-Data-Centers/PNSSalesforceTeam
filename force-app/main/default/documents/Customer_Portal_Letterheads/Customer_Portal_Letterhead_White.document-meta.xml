@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>White version of Customer Portal Letterhead</description>
+    <internalUseOnly>false</internalUseOnly>
+    <keywords>Customer Portal Letterhead</keywords>
+    <name>Customer Portal Letterhead (White)</name>
+    <public>true</public>
+</Document>
