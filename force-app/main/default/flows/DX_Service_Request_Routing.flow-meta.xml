@@ -2,7 +2,7 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
         <name>Call_Bussines_Hours_Helper</name>
-        <label>Call Bussines Hours Helper</label>
+        <label>Call Business Hours Helper</label>
         <locationX>1238</locationX>
         <locationY>1637</locationY>
         <actionName>DX_BusinesHoursHelper</actionName>
@@ -18,8 +18,8 @@
             </value>
         </inputParameters>
         <nameSegment>DX_BusinesHoursHelper</nameSegment>
+        <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>62.0</apiVersion>
     <assignments>
@@ -123,7 +123,7 @@
     <assignments>
         <name>Set_Record_Type</name>
         <label>Set Record Type</label>
-        <locationX>1551</locationX>
+        <locationX>1617</locationX>
         <locationY>323</locationY>
         <assignmentItems>
             <assignToReference>CurrentRecordType</assignToReference>
@@ -139,7 +139,7 @@
     <assignments>
         <name>Set_Site</name>
         <label>Set Site</label>
-        <locationX>2921</locationX>
+        <locationX>3053</locationX>
         <locationY>539</locationY>
         <assignmentItems>
             <assignToReference>Site</assignToReference>
@@ -520,6 +520,13 @@
         </value>
     </constants>
     <constants>
+        <name>SR_TYPE_EXPANSION_OF_SERVICES</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Expansion of Services</stringValue>
+        </value>
+    </constants>
+    <constants>
         <name>SR_TYPE_LOGISTICS</name>
         <dataType>String</dataType>
         <value>
@@ -632,7 +639,7 @@
     <decisions>
         <name>Is_CRN_Record_Type</name>
         <label>Is CRN Record Type?</label>
-        <locationX>1551</locationX>
+        <locationX>1617</locationX>
         <locationY>431</locationY>
         <defaultConnector>
             <targetReference>Set_Site</targetReference>
@@ -763,7 +770,7 @@
     <decisions>
         <name>SR_Type</name>
         <label>SR Type?</label>
-        <locationX>2921</locationX>
+        <locationX>3053</locationX>
         <locationY>647</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
@@ -850,6 +857,21 @@
                 <targetReference>Set_CX_Queue</targetReference>
             </connector>
             <label>Customer Experience</label>
+        </rules>
+        <rules>
+            <name>Expansion_of_Services</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>CurrentRecordType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>SR_TYPE_EXPANSION_OF_SERVICES</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Case_Owner_to_Account_Owner</targetReference>
+            </connector>
+            <label>Expansion of Services</label>
         </rules>
     </decisions>
     <decisions>
@@ -957,7 +979,7 @@
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
         <name>Get_Bussines_Hours</name>
-        <label>Get Bussines Hours</label>
+        <label>Get Business Hours</label>
         <locationX>1238</locationX>
         <locationY>1421</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
@@ -1016,8 +1038,21 @@
         </inputAssignments>
         <inputReference>$Record</inputReference>
     </recordUpdates>
+    <recordUpdates>
+        <name>Update_Case_Owner_to_Account_Owner</name>
+        <label>Update Case Owner to Account Owner</label>
+        <locationX>4010</locationX>
+        <locationY>755</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.Account.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
     <start>
-        <locationX>1425</locationX>
+        <locationX>1491</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Set_Record_Type</targetReference>
