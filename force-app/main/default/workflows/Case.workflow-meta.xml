@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Case_has_Billable_Time_Notification</fullName>
+        <ccEmails>accounting@1102grand.com</ccEmails>
+        <description>Case has Billable Time Notification</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>Operations/Case_has_Billable_Time</template>
+    </alerts>
+    <alerts>
+        <fullName>Experience_Cloud_Status_Update</fullName>
+        <description>Experience Cloud: Status Update</description>
+        <protected>false</protected>
+        <recipients>
+            <field>DX_Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Experience_Cloud_Emails/N1_Experience_Cloud_SR_Status_Change</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>NotifyPartnerUncheck</fullName>
+        <field>ImpartnerPRM__NotifyPartner__c</field>
+        <literalValue>0</literalValue>
+        <name>Notify Partner Uncheck</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <outboundMessages>
+        <fullName>NotifyPartnerOutbound</fullName>
+        <apiVersion>42.0</apiVersion>
+        <endpointUrl>https://partners.partnerco.com/services/sfdc/CaseNotifyPartner.ashx</endpointUrl>
+        <fields>Id</fields>
+        <includeSessionId>false</includeSessionId>
+        <integrationUser>mspissell@netrality.com</integrationUser>
+        <name>Notify Partner Outbound</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+    <rules>
+        <fullName>Case has chargeable time</fullName>
+        <actions>
+            <name>Case_has_Billable_Time_Notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Billable_Time__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </criteriaItems>
+        <description>This rule send notification if a case is closed and has chargeable time</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>
