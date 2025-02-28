@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <decisions>
+        <name>Service_Request_Record_Type</name>
+        <label>Service Request Record Type?</label>
+        <locationX>1106</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Cross_Connect</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DX_Cross_Connect</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Records_XC</targetReference>
+            </connector>
+            <label>Cross Connect</label>
+        </rules>
+        <rules>
+            <name>Remote_Hands</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DX_Remote_Hands_Support</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Records_RH</targetReference>
+            </connector>
+            <label>Remote Hands Support</label>
+        </rules>
+        <rules>
+            <name>Access_Request</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DX_Access_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Records_AX</targetReference>
+            </connector>
+            <label>Access Request</label>
+        </rules>
+        <rules>
+            <name>Logistics_Requests</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DX_Logistics</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Records_LX</targetReference>
+            </connector>
+            <label>Logistics</label>
+        </rules>
+        <rules>
+            <name>Expansion_of_Services</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DX_Expansion_of_Services</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Records_EX</targetReference>
+            </connector>
+            <label>Expansion of Services</label>
+        </rules>
+        <rules>
+            <name>Accounting_Request</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DX_Accounting_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Records_AR</targetReference>
+            </connector>
+            <label>Accounting Request</label>
+        </rules>
+        <rules>
+            <name>Contracts_Request</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DX_Contracts_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Records_CR</targetReference>
+            </connector>
+            <label>Contracts Request</label>
+        </rules>
+        <rules>
+            <name>Customer_Experience</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DX_Customer_Experience_Request</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Records_CX</targetReference>
+            </connector>
+            <label>Customer Experience Request</label>
+        </rules>
+    </decisions>
+    <description>Names service requests based on the following convention: &quot;XX - {SR Number}&quot; where &quot;XX&quot; identifies the SR record type.</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>AR - Accounting Request</description>
+        <name>ARAccountingRequest</name>
+        <dataType>String</dataType>
+        <expression>&quot;AR-&quot; &amp; $Record.CaseNumber</expression>
+    </formulas>
+    <formulas>
+        <description>AX - Access Request</description>
+        <name>AXAccessRequest</name>
+        <dataType>String</dataType>
+        <expression>&quot;AX-&quot; &amp; $Record.CaseNumber</expression>
+    </formulas>
+    <formulas>
+        <description>CR - Contracts Request</description>
+        <name>CRContractsRequest</name>
+        <dataType>String</dataType>
+        <expression>&quot;CR-&quot; &amp; $Record.CaseNumber</expression>
+    </formulas>
+    <formulas>
+        <description>CX - Customer Experience</description>
+        <name>CXCustomerExperience</name>
+        <dataType>String</dataType>
+        <expression>&quot;CX-&quot; &amp; $Record.CaseNumber</expression>
+    </formulas>
+    <formulas>
+        <description>EX - Expansion of Services</description>
+        <name>EXExpansionofServices</name>
+        <dataType>String</dataType>
+        <expression>&quot;EX-&quot; &amp; $Record.CaseNumber</expression>
+    </formulas>
+    <formulas>
+        <description>LX - Logistics Requests</description>
+        <name>LXLogisticsRequests</name>
+        <dataType>String</dataType>
+        <expression>&quot;LX-&quot; &amp; $Record.CaseNumber</expression>
+    </formulas>
+    <formulas>
+        <description>RH - Remote Hands</description>
+        <name>RHRemoteHands</name>
+        <dataType>String</dataType>
+        <expression>&quot;RH-&quot; &amp; $Record.CaseNumber</expression>
+    </formulas>
+    <formulas>
+        <description>XC - Cross Connect</description>
+        <name>XCCrossConnect</name>
+        <dataType>String</dataType>
+        <expression>&quot;XC-&quot; &amp; $Record.CaseNumber</expression>
+    </formulas>
+    <interviewLabel>N1_Name Service Request {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>N1_Name Service Request</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Records_AR</name>
+        <label>Update Records - AR</label>
+        <locationX>1370</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>ARAccountingRequest</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Records_AX</name>
+        <label>Update Records - AX</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>AXAccessRequest</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Records_CR</name>
+        <label>Update Records - CR</label>
+        <locationX>1634</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>CRContractsRequest</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Records_CX</name>
+        <label>Update Records - CX</label>
+        <locationX>1898</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>CXCustomerExperience</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Records_EX</name>
+        <label>Update Records - EX</label>
+        <locationX>1106</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>EXExpansionofServices</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Records_LX</name>
+        <label>Update Records - LX</label>
+        <locationX>842</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>LXLogisticsRequests</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Records_RH</name>
+        <label>Update Records - RH</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>RHRemoteHands</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Records_XC</name>
+        <label>Update Records - XC</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>XCCrossConnect</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>980</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Service_Request_Record_Type</targetReference>
+        </connector>
+        <object>Case</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>
