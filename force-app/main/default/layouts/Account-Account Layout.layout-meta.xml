@@ -420,6 +420,14 @@
         <relatedList>Agreement__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>ASSET.NAME</fields>
+        <fields>Building__c</fields>
+        <fields>Suite__c</fields>
+        <fields>ASSET.RECORDTYPE</fields>
+        <fields>ASSET.STATUS</fields>
+        <relatedList>RelatedAssetList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>Building__c</fields>
         <fields>Status__c</fields>
@@ -435,24 +443,6 @@
         <relatedList>CSCircuit__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
-        <fields>Building__c</fields>
-        <fields>Destination_Account__c</fields>
-        <fields>Xconnect_Status__c</fields>
-        <fields>Xconnect_date__c</fields>
-        <fields>XC_Disconnect_Date__c</fields>
-        <relatedList>Xconnects__c.Origination_Account__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Building__c</fields>
-        <fields>Origination_Account__c</fields>
-        <fields>Xconnect_Status__c</fields>
-        <fields>Xconnect_date__c</fields>
-        <fields>XC_Disconnect_Date__c</fields>
-        <relatedList>Xconnects__c.Destination_Account__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>NAME</fields>
         <fields>CASES.SUBJECT</fields>
@@ -464,6 +454,14 @@
         <fields>Technician__c</fields>
         <fields>Request_Remote_Support__c</fields>
         <relatedList>RelatedCaseList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>DC_Cross_Connect__c.Origination_Account__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>DC_Cross_Connect__c.Destination_Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
