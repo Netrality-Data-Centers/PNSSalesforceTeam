@@ -19,6 +19,42 @@
         <senderType>CurrentUser</senderType>
         <template>Experience_Cloud_Emails/N1_Experience_Cloud_SR_Status_Change</template>
     </alerts>
+    <alerts>
+        <fullName>N1_Disco_XC_Email_Alert</fullName>
+        <description>Disconnect XC Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>DX_Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>DX_Order_Initiator__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Experience_Cloud_Emails/N1_Disco_XC_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>N1_New_XC_Email_Alert</fullName>
+        <description>New XC Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>DX_Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>DX_Order_Initiator__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Experience_Cloud_Emails/N1_New_XC_Notification</template>
+    </alerts>
     <fieldUpdates>
         <fullName>NotifyPartnerUncheck</fullName>
         <field>ImpartnerPRM__NotifyPartner__c</field>

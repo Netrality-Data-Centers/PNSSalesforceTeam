@@ -3,6 +3,6 @@
     <active>true</active>
     <entityName>Case</entityName>
     <fieldName>Status</fieldName>
-    <masterLabel>Service Request Status</masterLabel>
-    <recordTypeName>__MASTER__</recordTypeName>
+    <masterLabel>Service Request - Contracts Request</masterLabel>
+    <recordTypeName>DX_Contracts_Request</recordTypeName>
 </PathAssistant>
