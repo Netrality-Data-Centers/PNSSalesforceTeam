@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>
+        <application>DCIM</application>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningService</application>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <description>Base-level access required for ALL Ops users.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Operations Starter Pack</label>
+    <license>Salesforce</license>
+</PermissionSet>
