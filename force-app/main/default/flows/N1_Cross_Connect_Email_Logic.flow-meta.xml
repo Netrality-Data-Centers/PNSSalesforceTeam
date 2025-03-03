@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Diconnect_XC_Email_Template</name>
+        <label>Send Diconnect XC Email Template</label>
+        <locationX>578</locationX>
+        <locationY>458</locationY>
+        <actionName>Case.N1_Disco_XC_Email_Alert</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Copy_2_of_Populate_Email_Content_Field</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>ServiceRequest.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.N1_Disco_XC_Email_Alert</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_New_XC_Email_Template</name>
+        <label>Send New XC Email Template</label>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
+        <actionName>Case.N1_New_XC_Email_Alert</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Copy_2_of_Populate_Email_Content_Field</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>ServiceRequest.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.N1_New_XC_Email_Alert</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <decisions>
+        <name>Decision_1</name>
+        <label>Cross Connect Request Type</label>
+        <locationX>446</locationX>
+        <locationY>134</locationY>
+        <defaultConnectorLabel>Error</defaultConnectorLabel>
+        <rules>
+            <name>New</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ServiceRequest.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Cross Connect</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Records_1</targetReference>
+            </connector>
+            <label>New</label>
+        </rules>
+        <rules>
+            <name>Change</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ServiceRequest.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Change Cross Connect</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Change</label>
+        </rules>
+        <rules>
+            <name>Disconnect</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ServiceRequest.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Disconnect Cross Connect</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_2_of_Get_XC</targetReference>
+            </connector>
+            <label>Disconnect</label>
+        </rules>
+    </decisions>
+    <description>Specific email alert logic for Cross Connect Service Requests.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>DisconnectCrossConnectDetails</name>
+        <dataType>String</dataType>
+        <expression>&quot;Cross Connect Location: &quot; &amp; {!Copy_2_of_Get_XC.Building__r.Name} &amp; BR() &amp;
+&quot;Cross Connect ID: &quot; &amp; {!Copy_2_of_Get_XC.Name}&amp; BR() &amp;
+&quot;Origination Account: &quot; &amp; {!Copy_2_of_Get_XC.Origination_Account__r.Name} &amp; BR() &amp;
+&quot;Destination Account: &quot; &amp; {!Copy_2_of_Get_XC.Destination_Account__r.Name} &amp; BR() &amp;
+&quot;Media Type: &quot; &amp; TEXT({!Copy_2_of_Get_XC.Media_Type__c})  &amp; BR() &amp;
+&quot;Disconnect Date: &quot; &amp; TEXT({!Copy_2_of_Get_XC.XC_Disconnect_Date__c})</expression>
+    </formulas>
+    <formulas>
+        <name>NewCrossConnectDetails</name>
+        <dataType>String</dataType>
+        <expression>&quot;Cross Connect Location: &quot; &amp; {!Get_Records_1.Building__r.Name} &amp; BR() &amp;
+&quot;Cross Connect ID: &quot; &amp; {!Get_Records_1.Name}&amp; BR() &amp;
+&quot;Origination Account: &quot; &amp; {!Get_Records_1.Origination_Account__r.Name} &amp; BR() &amp;
+&quot;Destination Account: &quot; &amp; {!Get_Records_1.Destination_Account__r.Name} &amp; BR() &amp;
+&quot;Media Type: &quot; &amp; TEXT({!Get_Records_1.Media_Type__c})  &amp; BR() &amp;
+&quot;Connection Date: &quot; &amp; TEXT({!Get_Records_1.Xconnect_date__c})</expression>
+    </formulas>
+    <interviewLabel>N1_Cross Connect Email Logic {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>N1_Cross Connect Email Logic</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Copy_2_of_Get_XC</name>
+        <label>Get Disconnected XC</label>
+        <locationX>578</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Copy_1_of_Populate_Email_Content_Field</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Disconnect_Case__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceRequest.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>DC_Cross_Connect__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Records_1</name>
+        <label>Get Connected XC</label>
+        <locationX>50</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Records_1</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Connection_Case__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceRequest.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>DC_Cross_Connect__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Copy_1_of_Populate_Email_Content_Field</name>
+        <label>Populate Email Content Field</label>
+        <locationX>578</locationX>
+        <locationY>350</locationY>
+        <connector>
+            <targetReference>Send_Diconnect_XC_Email_Template</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceRequest.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Cross_Connect_Email_Content__c</field>
+            <value>
+                <elementReference>DisconnectCrossConnectDetails</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Copy_2_of_Populate_Email_Content_Field</name>
+        <label>Clear Email Content Field</label>
+        <locationX>446</locationX>
+        <locationY>650</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceRequest.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Cross_Connect_Email_Content__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Records_1</name>
+        <label>Populate Email Content Field</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <connector>
+            <targetReference>Send_New_XC_Email_Template</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ServiceRequest.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Cross_Connect_Email_Content__c</field>
+            <value>
+                <elementReference>NewCrossConnectDetails</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <start>
+        <locationX>320</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Decision_1</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>ServiceRequest</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+</Flow>

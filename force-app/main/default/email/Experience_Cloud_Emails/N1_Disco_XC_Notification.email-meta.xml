@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Disconnect Cross Connect Closed/Resolved notification</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>CP_Header_Blue</letterhead>
+    <name>Experience Cloud: XC (Disconnect)</name>
+    <style>freeForm</style>
+    <subject>Cross Connect Disconnection Completion Notification</subject>
+    <textOnly>The Disconnect Cross Connect ordered through the Netrality Customer Portal has been completed per the request you submitted.
+
+Cross Connect Circuit Reference Information:
+{!Case.Cross_Connect_Email_Content__c}
+
+If you have any questions please reply to this service request within the portal.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
