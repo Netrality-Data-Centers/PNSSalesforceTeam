@@ -71,6 +71,20 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
+                    <name>hideUpdateButton</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>variant</name>
+                    <value>linear</value>
+                </componentInstanceProperties>
+                <componentName>runtime_sales_pathassistant:pathAssistant</componentName>
+                <identifier>runtime_sales_pathassistant_pathAssistant</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
                     <name>hideHeader</name>
                     <value>true</value>
                 </componentInstanceProperties>
@@ -83,20 +97,6 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>context</name>
-                    <value>RECORD</value>
-                </componentInstanceProperties>
-                <componentName>forceChatter:exposedFeed</componentName>
-                <identifier>forceChatter_exposedFeed</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-d5b75963-c16c-4b0d-b37e-452509835a2c</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
@@ -104,6 +104,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.CaseNumber</fieldItem>
                 <identifier>RecordCaseNumberField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.OwnerId</fieldItem>
+                <identifier>RecordOwnerIdField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -130,40 +140,20 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.AccountId</fieldItem>
-                <identifier>RecordAccountIdField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_Opportunity__c</fieldItem>
-                <identifier>RecordDX_Opportunity_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_Location__c</fieldItem>
-                <identifier>RecordDX_Location_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.DX_Opportunity_closed_Date__c</fieldItem>
                 <identifier>RecordDX_Opportunity_closed_Date_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DX_CRN_Date__c</fieldItem>
+                <identifier>RecordDX_CRN_Date_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -203,6 +193,36 @@
                     <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.AccountId</fieldItem>
+                <identifier>RecordAccountIdField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DX_Location__c</fieldItem>
+                <identifier>RecordDX_Location_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DX_Opportunity__c</fieldItem>
+                <identifier>RecordDX_Opportunity_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.DX_Service_Order__c</fieldItem>
                 <identifier>RecordDX_Service_Order_cField</identifier>
             </fieldInstance>
@@ -215,46 +235,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.DX_Governing_Agreement__c</fieldItem>
                 <identifier>RecordDX_Governing_Agreement_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_MRIID__c</fieldItem>
-                <identifier>RecordDX_MRIID_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_MRI_Occupant_Name__c</fieldItem>
-                <identifier>RecordDX_MRI_Occupant_Name_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_Licensor__c</fieldItem>
-                <identifier>RecordDX_Licensor_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_CRN_Date__c</fieldItem>
-                <identifier>RecordDX_CRN_Date_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -302,6 +282,68 @@
             </componentInstance>
         </itemInstances>
         <name>Facet-fe6751ca-8f95-42b4-a667-7e0a422c81be</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DX_MRI_Occupant_Name__c</fieldItem>
+                <identifier>RecordDX_MRI_Occupant_Name_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DX_Licensor__c</fieldItem>
+                <identifier>RecordDX_Licensor_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-d90f1d89-28b0-4700-afa9-b346a4e24343</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DX_MRIID__c</fieldItem>
+                <identifier>RecordDX_MRIID_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-f7266691-2abf-4fd4-b6d0-a5b3b241ae9b</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-d90f1d89-28b0-4700-afa9-b346a4e24343</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column6</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-f7266691-2abf-4fd4-b6d0-a5b3b241ae9b</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column7</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-727a32c7-2a07-42c4-9c7a-46a450cf1b0e</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -417,6 +459,24 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>columns</name>
+                    <value>Facet-727a32c7-2a07-42c4-9c7a-46a450cf1b0e</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>MRI Information</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <identifier>flexipage_fieldSection4</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>columns</name>
                     <value>Facet-ae7021f4-c453-488a-babc-34ad10f0d980</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
@@ -487,31 +547,17 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>showLegacyActivityComposer</name>
-                    <value>false</value>
+                    <name>context</name>
+                    <value>RECORD</value>
                 </componentInstanceProperties>
-                <componentName>runtime_sales_activities:activityPanel</componentName>
-                <identifier>runtime_sales_activities_activityPanel</identifier>
+                <componentName>forceChatter:exposedFeed</componentName>
+                <identifier>forceChatter_exposedFeed</identifier>
             </componentInstance>
         </itemInstances>
-        <name>Facet-beb38003-1791-4adb-809c-f998150a4007</name>
+        <name>Facet-d5b75963-c16c-4b0d-b37e-452509835a2c</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-d5b75963-c16c-4b0d-b37e-452509835a2c</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Feed</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-                <identifier>flexipage_tab3</identifier>
-            </componentInstance>
-        </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
@@ -533,19 +579,15 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>active</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-beb38003-1791-4adb-809c-f998150a4007</value>
+                    <value>Facet-d5b75963-c16c-4b0d-b37e-452509835a2c</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
-                    <value>Standard.Tab.activity</value>
+                    <value>Feed</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
-                <identifier>flexipage_tab</identifier>
+                <identifier>flexipage_tab3</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-b1100ee0-04e6-419d-9b27-1eed7d6f2a8c</name>
