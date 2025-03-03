@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>You were added to the opportunity team!</description>
+    <description>Triggers a flow that adds the running user to the opportunity team of the opportunity they are viewing.</description>
     <flowDefinition>N1_Join_Opportunity_Team</flowDefinition>
     <label>Join Opportunity Team</label>
     <optionsCreateFeedItem>false</optionsCreateFeedItem>
