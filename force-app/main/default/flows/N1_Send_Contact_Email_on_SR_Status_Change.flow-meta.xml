@@ -3,8 +3,8 @@
     <actionCalls>
         <name>Send_Email_Alert</name>
         <label>Send Email Alert</label>
-        <locationX>176</locationX>
-        <locationY>323</locationY>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
         <actionName>Case.Experience_Cloud_Status_Update</actionName>
         <actionType>emailAlert</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -18,6 +18,45 @@
         <offset>0</offset>
     </actionCalls>
     <apiVersion>63.0</apiVersion>
+    <decisions>
+        <name>Decision_1</name>
+        <label>Cross Connect Finalized Email?</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Send_Email_Alert</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standard Notification</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_1_of_Decision_1</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cross Connect</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Resolved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Cross_Connect_Email_Logic</targetReference>
+            </connector>
+            <label>Cross Connect Notification</label>
+        </rules>
+    </decisions>
     <description>Sends the Contact on the SR a notification regarding the status change.</description>
     <environments>Default</environments>
     <interviewLabel>Send Contact Email on SR Status Change {!$Flow.CurrentDateTime}</interviewLabel>
@@ -42,10 +81,10 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <start>
-        <locationX>50</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Send_Email_Alert</targetReference>
+            <targetReference>Decision_1</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -59,5 +98,18 @@
         <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
+    <subflows>
+        <name>Cross_Connect_Email_Logic</name>
+        <label>Cross Connect Email Logic</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <flowName>N1_Cross_Connect_Email_Logic</flowName>
+        <inputAssignments>
+            <name>ServiceRequest</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
 </Flow>
