@@ -4,7 +4,7 @@
     <assignments>
         <name>Add_i_Asset_to_List</name>
         <label>Add i Asset to List</label>
-        <locationX>1056</locationX>
+        <locationX>1320</locationX>
         <locationY>782</locationY>
         <assignmentItems>
             <assignToReference>AssetList</assignToReference>
@@ -20,7 +20,7 @@
     <assignments>
         <name>Add_Manual_Asset_to_List</name>
         <label>Add Manual Asset to List</label>
-        <locationX>1496</locationX>
+        <locationX>1760</locationX>
         <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>AssetList</assignToReference>
@@ -144,7 +144,7 @@
     <assignments>
         <name>Increment_NumberOfIterations</name>
         <label>Increment NumberOfIterations</label>
-        <locationX>1056</locationX>
+        <locationX>1320</locationX>
         <locationY>890</locationY>
         <assignmentItems>
             <assignToReference>NumberOfIterations</assignToReference>
@@ -159,9 +159,99 @@
         </connector>
     </assignments>
     <assignments>
+        <name>N1_Add_X3_1Asset_Type_1C2CB_to_List</name>
+        <label>Add X3_1Asset Type 1C2CB to List</label>
+        <locationX>1056</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>iAsset.Asset_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Cabinet</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>iAsset.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AssetNamefor1C2CB_Cabinet</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>AssetList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>iAsset</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>N1_3_2_Asset_Type_1C2CB</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>N1_Add_X3_2Asset_Type_1C2CB_to_List</name>
+        <label>Add X3_2Asset Type 1C2CB to List</label>
+        <locationX>1056</locationX>
+        <locationY>782</locationY>
+        <assignmentItems>
+            <assignToReference>iAsset.Asset_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Circuit Breaker</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>iAsset.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AssetNamefor1C2CB_CircuitBreaker</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>AssetList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>iAsset</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>N1_3_3_Asset_Type_1C2CB</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>N1_Add_X3_3Asset_Type_1C2CB_to_List</name>
+        <label>Add X3_3Asset Type 1C2CB to List</label>
+        <locationX>1056</locationX>
+        <locationY>998</locationY>
+        <assignmentItems>
+            <assignToReference>iAsset.Asset_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Circuit Breaker</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>iAsset.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AssetNamefor1C2CB_CircuitBreaker</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>AssetList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>iAsset</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Iterate_SO_Line_Items</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Reset_Number_Of_Iterations</name>
         <label>Reset Number Of Iterations</label>
-        <locationX>1188</locationX>
+        <locationX>1452</locationX>
         <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>NumberOfIterations</assignToReference>
@@ -177,7 +267,7 @@
     <decisions>
         <name>Continue_or_Stop</name>
         <label>Continue or Stop?</label>
-        <locationX>1188</locationX>
+        <locationX>1452</locationX>
         <locationY>566</locationY>
         <defaultConnector>
             <targetReference>Iterate_SO_Line_Items</targetReference>
@@ -202,7 +292,7 @@
     <decisions>
         <name>Number_of_Asset</name>
         <label>Number of Asset?</label>
-        <locationX>1012</locationX>
+        <locationX>1144</locationX>
         <locationY>350</locationY>
         <defaultConnector>
             <targetReference>Iterate_SO_Line_Items</targetReference>
@@ -254,6 +344,21 @@
             <label>1I1P</label>
         </rules>
         <rules>
+            <name>X1C2CB</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Iterate_SO_Line_Items.DC_Number_of_Assets__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>1C2CB</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>N1_Assign_3_1_Asset_Type_1I1P</targetReference>
+            </connector>
+            <label>1C2CB</label>
+        </rules>
+        <rules>
             <name>Quantity_Asset</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
@@ -285,6 +390,16 @@
         </rules>
     </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>AssetNamefor1C2CB_Cabinet</name>
+        <dataType>String</dataType>
+        <expression>{!Iterate_SO_Line_Items.Quote.Service_Order_ID__c} + &quot; &quot; + &quot;Cabinet&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>AssetNamefor1C2CB_CircuitBreaker</name>
+        <dataType>String</dataType>
+        <expression>{!Iterate_SO_Line_Items.Quote.Service_Order_ID__c} + &quot; &quot; + &quot;Circuit Breaker&quot;</expression>
+    </formulas>
     <formulas>
         <name>AssetNamefor1I1P_Innerduct</name>
         <dataType>String</dataType>
@@ -398,7 +513,7 @@
     <subflows>
         <name>Assign_i_Asset</name>
         <label>Assign i Asset</label>
-        <locationX>1056</locationX>
+        <locationX>1320</locationX>
         <locationY>674</locationY>
         <connector>
             <targetReference>Add_i_Asset_to_List</targetReference>
@@ -424,7 +539,7 @@
     <subflows>
         <name>Assign_Manual_Asset</name>
         <label>Assign Manual Asset</label>
-        <locationX>1496</locationX>
+        <locationX>1760</locationX>
         <locationY>458</locationY>
         <connector>
             <targetReference>Add_Manual_Asset_to_List</targetReference>
@@ -483,6 +598,84 @@
                 <stringValue>Create</stringValue>
             </value>
         </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>N1_3_2_Asset_Type_1C2CB</name>
+        <label>3_2_Asset Type 1C2CB</label>
+        <locationX>1056</locationX>
+        <locationY>674</locationY>
+        <connector>
+            <targetReference>N1_Add_X3_2Asset_Type_1C2CB_to_List</targetReference>
+        </connector>
+        <flowName>DX_Copy_Asset_Values_from_SOLineItem</flowName>
+        <inputAssignments>
+            <name>ServiceRequestID</name>
+            <value>
+                <elementReference>ServiceRequestID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>SOLineItem</name>
+            <value>
+                <elementReference>Iterate_SO_Line_Items</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>iAsset</assignToReference>
+            <name>iAsset</name>
+        </outputAssignments>
+    </subflows>
+    <subflows>
+        <name>N1_3_3_Asset_Type_1C2CB</name>
+        <label>3_3_Asset Type 1C2CB</label>
+        <locationX>1056</locationX>
+        <locationY>890</locationY>
+        <connector>
+            <targetReference>N1_Add_X3_3Asset_Type_1C2CB_to_List</targetReference>
+        </connector>
+        <flowName>DX_Copy_Asset_Values_from_SOLineItem</flowName>
+        <inputAssignments>
+            <name>ServiceRequestID</name>
+            <value>
+                <elementReference>ServiceRequestID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>SOLineItem</name>
+            <value>
+                <elementReference>Iterate_SO_Line_Items</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>iAsset</assignToReference>
+            <name>iAsset</name>
+        </outputAssignments>
+    </subflows>
+    <subflows>
+        <name>N1_Assign_3_1_Asset_Type_1I1P</name>
+        <label>Assign 3_1_Asset Type 1C2CB</label>
+        <locationX>1056</locationX>
+        <locationY>458</locationY>
+        <connector>
+            <targetReference>N1_Add_X3_1Asset_Type_1C2CB_to_List</targetReference>
+        </connector>
+        <flowName>DX_Copy_Asset_Values_from_SOLineItem</flowName>
+        <inputAssignments>
+            <name>ServiceRequestID</name>
+            <value>
+                <elementReference>ServiceRequestID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>SOLineItem</name>
+            <value>
+                <elementReference>Iterate_SO_Line_Items</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>iAsset</assignToReference>
+            <name>iAsset</name>
+        </outputAssignments>
     </subflows>
     <subflows>
         <name>X1_Asset</name>
