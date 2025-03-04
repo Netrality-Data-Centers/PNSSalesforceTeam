@@ -36,7 +36,7 @@
     <assignments>
         <name>Asset_was_Allocated</name>
         <label>Asset was Allocated</label>
-        <locationX>2327</locationX>
+        <locationX>2635</locationX>
         <locationY>3506</locationY>
         <assignmentItems>
             <assignToReference>assetWasAllocated</assignToReference>
@@ -49,7 +49,7 @@
     <assignments>
         <name>Assign_Asset_Was_Allocated_to_False</name>
         <label>Assign Asset Was Allocated to False</label>
-        <locationX>4362</locationX>
+        <locationX>5594</locationX>
         <locationY>1382</locationY>
         <assignmentItems>
             <assignToReference>assetWasAllocated</assignToReference>
@@ -133,7 +133,7 @@
     <assignments>
         <name>Assign_the_buildingId_from_the_Asset_Record</name>
         <label>Assign the buildingId from the Asset Record</label>
-        <locationX>2195</locationX>
+        <locationX>2503</locationX>
         <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>buildingId</assignToReference>
@@ -149,7 +149,7 @@
     <assignments>
         <name>Assign_the_buildingId_from_the_Asset_s_Service_Order_s_Opportunity_Building</name>
         <label>Assign the buildingId from the Asset&apos;s Service Order&apos;s Opportunity Building</label>
-        <locationX>2459</locationX>
+        <locationX>2767</locationX>
         <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>buildingId</assignToReference>
@@ -182,6 +182,7 @@
             </value>
         </assignmentItems>
         <connector>
+            <isGoTo>true</isGoTo>
             <targetReference>Asset_was_Allocated</targetReference>
         </connector>
     </assignments>
@@ -201,7 +202,7 @@
     <assignments>
         <name>Assign_The_Data_Hall</name>
         <label>Assign The Data Hall</label>
-        <locationX>2371</locationX>
+        <locationX>2679</locationX>
         <locationY>758</locationY>
         <assignmentItems>
             <assignToReference>dataHallId</assignToReference>
@@ -303,13 +304,30 @@
             </value>
         </assignmentItems>
         <connector>
+            <isGoTo>true</isGoTo>
             <targetReference>Asset_was_Allocated</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_1_of_Add_Asset_to_List</name>
+        <label>Add Asset to List</label>
+        <locationX>4186</locationX>
+        <locationY>2030</locationY>
+        <assignmentItems>
+            <assignToReference>AssetList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>iAsset</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_1_of_Reduce_Count_by_1</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Copy_1_of_Assign_the_buildingId_from_the_Asset_s_Service_Order_s_Opportunity_Bui</name>
         <label>Copy 1 of Assign the buildingId from the Asset&apos;s Service Order&apos;s Opportunity Building</label>
-        <locationX>1755</locationX>
+        <locationX>2063</locationX>
         <locationY>350</locationY>
         <assignmentItems>
             <assignToReference>buildingId</assignToReference>
@@ -320,6 +338,102 @@
         </assignmentItems>
         <connector>
             <targetReference>Get_the_DataHall_Details</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_1_of_Reduce_Count_by_1</name>
+        <label>Reduce Count by 1</label>
+        <locationX>4186</locationX>
+        <locationY>2138</locationY>
+        <assignmentItems>
+            <assignToReference>NumberofCircuits</assignToReference>
+            <operator>Subtract</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Copy_2_of_Need_to_Repeat</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_2_of_Reduce_Count_by_1</name>
+        <label>Reduce Count by 1</label>
+        <locationX>4318</locationX>
+        <locationY>1598</locationY>
+        <assignmentItems>
+            <assignToReference>NumberofCircuits</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>N1_Number_of_Circuit_Breakers</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NumberofCircuits</assignToReference>
+            <operator>Subtract</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_2_of_Get_Service_order_Line_Item_from_Asset</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>N1_Add_Asset_to_List</name>
+        <label>Add Asset to List</label>
+        <locationX>3306</locationX>
+        <locationY>2030</locationY>
+        <assignmentItems>
+            <assignToReference>AssetList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>iAsset</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>N1_Reduce_Count_by_1</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>N1_DC_Circuit_Reduce_1</name>
+        <label>Reduce Count by 1</label>
+        <locationX>3438</locationX>
+        <locationY>1598</locationY>
+        <assignmentItems>
+            <assignToReference>NumberofCircuits</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Number_of_DC_Circuits</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NumberofCircuits</assignToReference>
+            <operator>Subtract</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_1_of_Get_Service_order_Line_Item_from_Original_Asset</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>N1_Reduce_Count_by_1</name>
+        <label>Reduce Count by 1</label>
+        <locationX>3306</locationX>
+        <locationY>2138</locationY>
+        <assignmentItems>
+            <assignToReference>NumberofCircuits</assignToReference>
+            <operator>Subtract</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>N1_Need_to_Repeat</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -345,7 +459,7 @@
     <decisions>
         <name>Check_if_this_is_an_Asset_that_is_related_to_RenderDraw_workflow</name>
         <label>Check if this is an Asset that is related to RenderDraw workflow</label>
-        <locationX>2327</locationX>
+        <locationX>2635</locationX>
         <locationY>1058</locationY>
         <defaultConnector>
             <targetReference>What_type_of_Standard_Asset_is_this</targetReference>
@@ -382,9 +496,34 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Copy_2_of_Need_to_Repeat</name>
+        <label>Need to Repeat?</label>
+        <locationX>4318</locationX>
+        <locationY>1814</locationY>
+        <defaultConnector>
+            <targetReference>Copy_1_of_Create_Assets</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Finished</defaultConnectorLabel>
+        <rules>
+            <name>Copy_2_of_Another_One</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>NumberofCircuits</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_DX_Copy_Asset_Values_from_SOLineItem_Flow_2</targetReference>
+            </connector>
+            <label>Another One</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Does_the_buildingId_exist</name>
         <label>Does the buildingId exist?</label>
-        <locationX>2371</locationX>
+        <locationX>2679</locationX>
         <locationY>350</locationY>
         <defaultConnector>
             <targetReference>Building_floor_and_DataHall_Selection</targetReference>
@@ -520,6 +659,7 @@
         <locationX>1326</locationX>
         <locationY>1898</locationY>
         <defaultConnector>
+            <isGoTo>true</isGoTo>
             <targetReference>Request_how_many_RUs</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Quantities do not Match</defaultConnectorLabel>
@@ -565,11 +705,137 @@
         </rules>
     </decisions>
     <decisions>
+        <name>N1_AC_Power_Validation_Needed</name>
+        <label>AC Power Validation Needed?</label>
+        <locationX>4703</locationX>
+        <locationY>1274</locationY>
+        <defaultConnector>
+            <targetReference>DX_Create_Circuit_Breaker_Record_Flow</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>N1_AC_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_the_Asset_Details.Power_Model_Validation__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>N1_Circuit_Breaker_Screen</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>N1_Circuit_Breaker_Number</name>
+        <label>Circuit Breaker Number</label>
+        <locationX>4516</locationX>
+        <locationY>1490</locationY>
+        <defaultConnector>
+            <targetReference>DX_Create_Circuit_Breaker_Record_Flow</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>1</defaultConnectorLabel>
+        <rules>
+            <name>Copy_1_of_More_than_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>N1_Number_of_Circuit_Breakers</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_2_of_Reduce_Count_by_1</targetReference>
+            </connector>
+            <label>More than 1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>N1_DC_Circuit_Number</name>
+        <label>DC Circuit Number</label>
+        <locationX>3636</locationX>
+        <locationY>1490</locationY>
+        <defaultConnector>
+            <targetReference>DC_Circuit_Record_Creation_Flow</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>1</defaultConnectorLabel>
+        <rules>
+            <name>More_than_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Number_of_DC_Circuits</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>N1_DC_Circuit_Reduce_1</targetReference>
+            </connector>
+            <label>More than 1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>N1_Need_to_Repeat</name>
+        <label>Need to Repeat?</label>
+        <locationX>3438</locationX>
+        <locationY>1814</locationY>
+        <defaultConnector>
+            <targetReference>N1_Create_Assets</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Finished</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_1_of_Decision_15</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>NumberofCircuits</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>DX_Copy_Asset_Values_from_SOLineItem_Flow_2</targetReference>
+            </connector>
+            <label>Another One</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>N1_Power_Validation_Needed</name>
+        <label>DC Power Validation Needed?</label>
+        <locationX>3823</locationX>
+        <locationY>1274</locationY>
+        <defaultConnector>
+            <targetReference>DC_Circuit_Record_Creation_Flow</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_1_of_Decision_12</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_the_Asset_Details.Power_Model_Validation__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>DC_Circuit_Screen</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Was_a_Cabinet_Selected</name>
         <label>Was a Cabinet Selected?</label>
         <locationX>1854</locationX>
         <locationY>1490</locationY>
         <defaultConnector>
+            <isGoTo>true</isGoTo>
             <targetReference>Visual_Cabinet_Selection_From_DataHall</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>A Cabinet was not Selected</defaultConnectorLabel>
@@ -602,6 +868,7 @@
         <locationX>182</locationX>
         <locationY>1490</locationY>
         <defaultConnector>
+            <isGoTo>true</isGoTo>
             <targetReference>Visual_Cabinet_Selection_From_DataHall_Cage_Path</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>A Cabinet was not Selected</defaultConnectorLabel>
@@ -631,7 +898,7 @@
     <decisions>
         <name>Was_Data_Hall_Passed</name>
         <label>Was Data Hall Passed</label>
-        <locationX>2327</locationX>
+        <locationX>2635</locationX>
         <locationY>242</locationY>
         <defaultConnector>
             <targetReference>Get_the_DataHall_Details</targetReference>
@@ -739,7 +1006,7 @@
     <decisions>
         <name>What_type_of_Standard_Asset_is_this</name>
         <label>What type of Standard Asset is this?</label>
-        <locationX>3438</locationX>
+        <locationX>4054</locationX>
         <locationY>1166</locationY>
         <defaultConnector>
             <targetReference>Missing_Asset_Type_Page</targetReference>
@@ -801,7 +1068,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>DC_Circuit_Record_Creation_Flow</targetReference>
+                <targetReference>N1_Power_Validation_Needed</targetReference>
             </connector>
             <label>DC Circuit</label>
         </rules>
@@ -816,7 +1083,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>DX_Create_Circuit_Breaker_Record_Flow</targetReference>
+                <targetReference>N1_AC_Power_Validation_Needed</targetReference>
             </connector>
             <label>Circuit Breaker</label>
         </rules>
@@ -919,6 +1186,7 @@
         <sortOrder>Asc</sortOrder>
         <valueField>Id</valueField>
     </dynamicChoiceSets>
+    <environments>Default</environments>
     <interviewLabel>Asset Assignment {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Asset Assignment</label>
     <loops>
@@ -969,6 +1237,16 @@
     </processMetadataValues>
     <processType>Flow</processType>
     <recordCreates>
+        <name>Copy_1_of_Create_Assets</name>
+        <label>Create Assets</label>
+        <locationX>4450</locationX>
+        <locationY>1922</locationY>
+        <connector>
+            <targetReference>Copy_1_of_Update_Initial_Asset_to_Power_Validation_True</targetReference>
+        </connector>
+        <inputReference>AssetList</inputReference>
+    </recordCreates>
+    <recordCreates>
         <name>Create_Asset_Record</name>
         <label>Create Asset Record</label>
         <locationX>1546</locationX>
@@ -978,6 +1256,58 @@
         </connector>
         <inputReference>Copy_Asset_From_Original_Service_Order_Line_Item.iAsset</inputReference>
     </recordCreates>
+    <recordCreates>
+        <name>N1_Create_Assets</name>
+        <label>Create Assets</label>
+        <locationX>3570</locationX>
+        <locationY>1922</locationY>
+        <connector>
+            <targetReference>Update_Initial_Asset_to_Power</targetReference>
+        </connector>
+        <inputReference>AssetList</inputReference>
+    </recordCreates>
+    <recordLookups>
+        <name>Copy_1_of_Get_Service_order_Line_Item_from_Original_Asset</name>
+        <label>Get Service order Line Item from Asset</label>
+        <locationX>3438</locationX>
+        <locationY>1706</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>N1_Need_to_Repeat</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_the_Asset_Details.Service_Order_Line_Item__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>QuoteLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Copy_2_of_Get_Service_order_Line_Item_from_Asset</name>
+        <label>Get Service order Line Item from Asset</label>
+        <locationX>4318</locationX>
+        <locationY>1706</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Copy_2_of_Need_to_Repeat</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_the_Asset_Details.Service_Order_Line_Item__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>QuoteLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordLookups>
         <name>Get_Selected_Cabinet</name>
         <label>Get Selected Cabinet</label>
@@ -1065,7 +1395,7 @@
     <recordLookups>
         <name>Get_the_Asset_Details</name>
         <label>Get the Asset Details</label>
-        <locationX>2327</locationX>
+        <locationX>2635</locationX>
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1128,7 +1458,7 @@
     <recordLookups>
         <name>Get_the_DataHall_Details</name>
         <label>Get the DataHall Details</label>
-        <locationX>2327</locationX>
+        <locationX>2635</locationX>
         <locationY>950</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1146,6 +1476,30 @@
         <object>DC_Data_Hall__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordUpdates>
+        <name>Copy_1_of_Update_Initial_Asset_to_Power_Validation_True</name>
+        <label>Update Initial Asset to Power Validation = True</label>
+        <locationX>4450</locationX>
+        <locationY>2030</locationY>
+        <connector>
+            <targetReference>Copy_1_of_Finish_Message</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_the_Asset_Details.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Power_Model_Validation__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Asset</object>
+    </recordUpdates>
     <recordUpdates>
         <name>Update_Asset_to_Allocated_Cabinet</name>
         <label>Update Asset to Allocated- Cabinet</label>
@@ -1214,6 +1568,30 @@
             <field>MRI_Suite_ID__c</field>
             <value>
                 <elementReference>selectedCageRecord.MRI_Suite_ID__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Asset</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Initial_Asset_to_Power</name>
+        <label>Update Initial Asset to Power Validation = True</label>
+        <locationX>3570</locationX>
+        <locationY>2030</locationY>
+        <connector>
+            <targetReference>Finish_Message</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_the_Asset_Details.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Power_Model_Validation__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
             </value>
         </inputAssignments>
         <object>Asset</object>
@@ -1389,6 +1767,7 @@
             <dataType>String</dataType>
             <fieldText>Select the Cabinet from the DataHall</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
@@ -1411,15 +1790,90 @@
             <dataType>String</dataType>
             <fieldText>Select the Cage from the DataHall</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
     <screens>
+        <name>Copy_1_of_Finish_Message</name>
+        <label>Finish Message</label>
+        <locationX>4450</locationX>
+        <locationY>2138</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Copy_1_of_FinishedMessage</name>
+            <fieldText>&lt;p&gt;You successfully have created {!N1_Number_of_Circuit_Breakers} Assets to account for the number of Circuits that we will install for this customer.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please go back to the CRN to verify this and go through the standard asset assignment process.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>DC_Circuit_Screen</name>
+        <label>DC Circuit Screen</label>
+        <locationX>3636</locationX>
+        <locationY>1382</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>N1_DC_Circuit_Number</targetReference>
+        </connector>
+        <fields>
+            <name>Message</name>
+            <fieldText>&lt;p&gt;The DC Circuit contracted under this Service Order was sold under the  {!Get_the_Asset_Details.Service_Order_Line_Item__r.Product2.Power_Model__c} model.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;As such, we need further input to determine how many DC Circuit Breakers to create to accommodate this Service.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>SODetails</name>
+            <fieldText>&lt;p&gt;Given the information from the Service Order (shown below), please indicate how many Circuit Breakers are going to be needed to accomodate this request:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Service:&lt;/strong&gt; {!Get_Service_order_Line_Item_from_Original_Asset.Description}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Quantity:&lt;/strong&gt; {!Get_Service_order_Line_Item_from_Original_Asset.Quantity}&lt;/li&gt;&lt;/ul&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Number_of_DC_Circuits</name>
+            <dataType>Number</dataType>
+            <fieldText>Number of Circuit Breakers</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <scale>0</scale>
+            <validationRule>
+                <errorMessage>&lt;p&gt;Value must be greater than 0.&lt;/p&gt;</errorMessage>
+                <formulaExpression>{!Number_of_DC_Circuits} &gt; 0</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Warning</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 11px;&quot;&gt;&lt;em&gt;* Note: If there service above is &quot; A + B Feeds&quot;, please input the TOTAL number of circuits you will need to provide both feeds. (Ex: If you need 10 Circuits per feed, put 20).&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Finish_Message</name>
+        <label>Finish Message</label>
+        <locationX>3570</locationX>
+        <locationY>2138</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>FinishedMessage</name>
+            <fieldText>&lt;p&gt;You successfully have created {!Number_of_DC_Circuits} Assets to account for the number of Circuits that we will install for this customer.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please go back to the CRN to verify this and go through the standard asset assignment process.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
         <name>Missing_Asset_Type_Page</name>
         <label>Missing Asset Type</label>
-        <locationX>4362</locationX>
+        <locationX>5594</locationX>
         <locationY>1274</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -1434,6 +1888,48 @@
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>N1_Circuit_Breaker_Screen</name>
+        <label>Circuit Breaker Screen</label>
+        <locationX>4516</locationX>
+        <locationY>1382</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>N1_Circuit_Breaker_Number</targetReference>
+        </connector>
+        <fields>
+            <name>Copy_1_of_Message</name>
+            <fieldText>&lt;p&gt;The Circuit Breakers contracted under this Service Order was sold under the  {!Get_the_Asset_Details.Service_Order_Line_Item__r.Product2.Power_Model__c} model.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;As such, we need further input to determine how many Circuit Breakers to create to accommodate this Service.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Copy_1_of_SODetails</name>
+            <fieldText>&lt;p&gt;Given the information from the Service Order (shown below), please indicate how many Circuit Breakers are going to be needed to accomodate this request:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Service:&lt;/strong&gt; {!Get_Service_order_Line_Item_from_Original_Asset.Description}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Quantity:&lt;/strong&gt; {!Get_Service_order_Line_Item_from_Original_Asset.Quantity}&lt;/li&gt;&lt;/ul&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>N1_Number_of_Circuit_Breakers</name>
+            <dataType>Number</dataType>
+            <fieldText>Number of Circuit Breakers</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <scale>0</scale>
+            <validationRule>
+                <errorMessage>&lt;p&gt;Value must be greater than 0.&lt;/p&gt;</errorMessage>
+                <formulaExpression>{!Number_of_DC_Circuits} &gt; 0</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Copy_1_of_Warning</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 11px;&quot;&gt;&lt;em&gt;* Note: If there service above is &quot; A + B Feeds&quot;, please input the TOTAL number of circuits you will need to provide both feeds. (Ex: If you need 10 Circuits per feed, put 20).&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>Request_how_many_RUs</name>
@@ -1477,6 +1973,7 @@
                 </defaultValue>
                 <fieldText>RU Size  to Reserve</fieldText>
                 <fieldType>InputField</fieldType>
+                <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                 <isRequired>true</isRequired>
                 <scale>0</scale>
             </fields>
@@ -1502,6 +1999,7 @@
             <dataType>String</dataType>
             <fieldText>Select a Meet me Room from the Datahall</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
@@ -1586,7 +2084,7 @@
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>2201</locationX>
+        <locationX>2509</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_the_Asset_Details</targetReference>
@@ -1596,7 +2094,7 @@
     <subflows>
         <name>Building_floor_and_DataHall_Selection</name>
         <label>Building floor and DataHall Selection</label>
-        <locationX>2371</locationX>
+        <locationX>2679</locationX>
         <locationY>650</locationY>
         <connector>
             <targetReference>Assign_The_Data_Hall</targetReference>
@@ -1606,6 +2104,29 @@
             <name>buildingId</name>
             <value>
                 <elementReference>buildingId</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>Copy_1_of_DX_Copy_Asset_Values_from_SOLineItem_Flow_2</name>
+        <label>DX Copy Asset Values from SOLineItem Flow 2</label>
+        <locationX>4186</locationX>
+        <locationY>1922</locationY>
+        <connector>
+            <targetReference>Copy_1_of_Add_Asset_to_List</targetReference>
+        </connector>
+        <flowName>DX_Copy_Asset_Values_from_SOLineItem</flowName>
+        <inputAssignments>
+            <name>ServiceRequestID</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.DX_Service_Request__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>SOLineItem</name>
+            <value>
+                <elementReference>Copy_1_of_Get_Service_order_Line_Item_from_Original_Asset</elementReference>
             </value>
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -1636,8 +2157,8 @@
     <subflows>
         <name>DC_Circuit_Record_Creation_Flow</name>
         <label>DC Circuit Record Creation Flow</label>
-        <locationX>3306</locationX>
-        <locationY>1274</locationY>
+        <locationX>3823</locationX>
+        <locationY>2606</locationY>
         <connector>
             <targetReference>Asset_was_Allocated</targetReference>
         </connector>
@@ -1686,10 +2207,33 @@
         </inputAssignments>
     </subflows>
     <subflows>
+        <name>DX_Copy_Asset_Values_from_SOLineItem_Flow_2</name>
+        <label>DX Copy Asset Values from SOLineItem Flow 2</label>
+        <locationX>3306</locationX>
+        <locationY>1922</locationY>
+        <connector>
+            <targetReference>N1_Add_Asset_to_List</targetReference>
+        </connector>
+        <flowName>DX_Copy_Asset_Values_from_SOLineItem</flowName>
+        <inputAssignments>
+            <name>ServiceRequestID</name>
+            <value>
+                <elementReference>Get_the_Asset_Details.DX_Service_Request__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>SOLineItem</name>
+            <value>
+                <elementReference>Copy_1_of_Get_Service_order_Line_Item_from_Original_Asset</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
         <name>DX_Create_Circuit_Breaker_Record_Flow</name>
         <label>DX Create Circuit Breaker Record Flow</label>
-        <locationX>3570</locationX>
-        <locationY>1274</locationY>
+        <locationX>4703</locationX>
+        <locationY>2606</locationY>
         <connector>
             <targetReference>Asset_was_Allocated</targetReference>
         </connector>
@@ -1752,7 +2296,7 @@
     <subflows>
         <name>DX_Home_Run_and_Fiber_Pair_Record_Creation_Flow_1</name>
         <label>DX Home Run and Fiber Pair Record Creation Flow 1</label>
-        <locationX>3834</locationX>
+        <locationX>5066</locationX>
         <locationY>1274</locationY>
         <connector>
             <targetReference>Asset_was_Allocated</targetReference>
@@ -1814,7 +2358,7 @@
     <subflows>
         <name>DX_Inside_Plant_Asset_Record_Creation_Flow</name>
         <label>DX Inside Plant Asset Record Creation Flow</label>
-        <locationX>4098</locationX>
+        <locationX>5330</locationX>
         <locationY>1274</locationY>
         <connector>
             <targetReference>Asset_was_Allocated</targetReference>
@@ -2050,6 +2594,14 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </subflows>
     <variables>
+        <name>AssetList</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Asset</objectType>
+    </variables>
+    <variables>
         <name>assetWasAllocated</name>
         <dataType>Boolean</dataType>
         <isCollection>false</isCollection>
@@ -2104,6 +2656,22 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>iAsset</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Asset</objectType>
+    </variables>
+    <variables>
+        <name>NumberofCircuits</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
     </variables>
     <variables>
         <name>panelAssetsToProcess</name>

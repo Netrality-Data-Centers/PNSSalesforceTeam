@@ -13,6 +13,9 @@
                 <booleanValue>false</booleanValue>
             </value>
         </assignmentItems>
+        <connector>
+            <targetReference>N1_Decision_2</targetReference>
+        </connector>
     </assignments>
     <assignments>
         <name>Allocated_True</name>
@@ -26,6 +29,9 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
+        <connector>
+            <targetReference>N1_Decision_2</targetReference>
+        </connector>
     </assignments>
     <assignments>
         <name>Assign_Asset_Values</name>
@@ -113,6 +119,32 @@
             <targetReference>Allocated</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>N1_of_Allocated_True</name>
+        <label>Power Validation = False</label>
+        <locationX>50</locationX>
+        <locationY>650</locationY>
+        <assignmentItems>
+            <assignToReference>iAsset.Power_Model_Validation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>N1_Power_Validation_False</name>
+        <label>Power Validation = True</label>
+        <locationX>314</locationX>
+        <locationY>650</locationY>
+        <assignmentItems>
+            <assignToReference>iAsset.Power_Model_Validation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+    </assignments>
     <decisions>
         <name>Allocated</name>
         <label>Allocated?</label>
@@ -134,6 +166,38 @@
             </conditions>
             <connector>
                 <targetReference>Allocated_True</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>N1_Decision_2</name>
+        <label>Power Validation Required?</label>
+        <locationX>182</locationX>
+        <locationY>542</locationY>
+        <defaultConnector>
+            <targetReference>N1_Power_Validation_False</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_1_of_Decision_2</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>SOLineItem.Product2.Power_Model__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Amp</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SOLineItem.Product2.Power_Model__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>kW</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>N1_of_Allocated_True</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
