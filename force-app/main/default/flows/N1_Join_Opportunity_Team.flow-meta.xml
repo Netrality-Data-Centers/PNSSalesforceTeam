@@ -99,6 +99,7 @@
         <object>Opportunity</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <runInMode>SystemModeWithoutSharing</runInMode>
     <screens>
         <name>SuccessMessage</name>
         <label>SuccessMessage</label>
