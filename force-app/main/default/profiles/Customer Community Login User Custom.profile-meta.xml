@@ -2,7 +2,17 @@
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <custom>true</custom>
     <description>Used for Apex Unit testing</description>
-   
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DC_Cross_Connect__c.Cross_Connect_Auto_Gen_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <layoutAssignments>
+        <layout>Account-Account Layout - Portal</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>DC_Cross_Connect__c-Cross Connect Layout</layout>
+    </layoutAssignments>
     <userLicense>Customer Community Login</userLicense>
     <userPermissions>
         <enabled>true</enabled>

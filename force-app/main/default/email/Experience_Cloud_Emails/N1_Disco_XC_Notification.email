@@ -1,0 +1,8 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<p style="color: rgb(0, 0, 0);"><span style="font-family: Arial, &quot;sans-serif&quot;; font-size: 13.3333px;">The Disconnect Cross Connect ordered through the Netrality Customer Portal has been completed</span><span style="font-family: Arial, &quot;sans-serif&quot;; font-size: 13.3333px;">&nbsp;</span><span style="font-family: Arial, sans-serif; font-size: 10pt;">per the request you submitted.&nbsp;&nbsp;</span></p>
+<p style="font-family: arial; font-size: 12pt; margin: 0in 0in 0pt;" class="MsoNormal"><br></p>
+<p><font size="2"><b>Cross Connect Circuit Reference Information:</b></font></p><p><font size="2">&nbsp;{!Case.Cross_Connect_Email_Content__c}</font></p><p><font size="2"><br></font></p><p class="MsoNormal" style="margin: 0in 0in 0pt; font-size: 12pt;"><span style="font-family: Arial, &quot;sans-serif&quot;; font-size: 13.3333px;">If you have any questions please reply to this service request within the portal.</span></p><div><span style="font-family: Arial, &quot;sans-serif&quot;; font-size: 13.3333px;"><br></span></div>]]></td>
+</tr>
+</table>

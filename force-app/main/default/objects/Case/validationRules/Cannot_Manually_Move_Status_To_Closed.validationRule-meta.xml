@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Manually_Move_Status_To_Closed</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL(Status , &quot;Closed&quot;), $User.LastName  &lt;&gt; &quot;Spissell&quot; )</errorConditionFormula>
+    <errorMessage>Cannot set status directly to &quot;Closed.&quot; Please set to &quot;Resolved.&quot; If the case remains unedited for 14 days, it will be automatically set to &quot;Closed.&quot;</errorMessage>
+</ValidationRule>

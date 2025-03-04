@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>New Cross Connect Closed/Resolved notification</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>CP_Header_Blue</letterhead>
+    <name>Experience Cloud: XC (New)</name>
+    <style>freeForm</style>
+    <subject>New Cross Connect Completion Notification</subject>
+    <textOnly>The cross connect ordered has been completed per the Letter of Authorization you submitted. Please test your circuit to verify proper operation.
+
+
+Please reference the Cross Connect ID below when corresponding or referring to this circuit.
+
+Cross Connect Circuit Reference Information:
+
+{!Case.Cross_Connect_Email_Content__c}
+
+
+If you are having trouble with your fiber circuit please try the following:
+1) Swap fiber connectors to change the transmit and receive signals
+2) Make sure the circuit is active by calling your provider
+
+
+If you are having trouble with your copper Ethernet circuit please try the following:
+1) Use a cross over patch cable as opposed to a straight through patch cable
+2) Make sure the circuit is active by calling your provider
+
+
+If you are still having problems please replay to this request within the portal.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

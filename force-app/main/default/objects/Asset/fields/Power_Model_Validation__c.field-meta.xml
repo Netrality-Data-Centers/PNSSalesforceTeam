@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Power_Model_Validation__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Determines whether the first step of the allocation process was taken for Power Assets or if it was not needed. Some Power Models require an additional manual input during this process, and this determines if that manual step was already taken or not.</description>
+    <label>Power Model Validation</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>
