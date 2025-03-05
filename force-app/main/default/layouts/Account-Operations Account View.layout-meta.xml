@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <feedLayout>
         <autocollapsePublisher>true</autocollapsePublisher>
         <compactFeed>true</compactFeed>
@@ -425,15 +427,10 @@
     </relatedLists>
     <relatedLists>
         <fields>ASSET.NAME</fields>
-        <fields>PRODUCT2.CUSTOMER_PRODUCT_ID</fields>
-        <fields>type_count__c</fields>
-        <fields>Location_A__c</fields>
-        <fields>Location_Z__c</fields>
-        <fields>ASSET.QUANTITY</fields>
-        <fields>ASSET.PRICE</fields>
-        <fields>ASSET.PURCHASE_DATE</fields>
-        <fields>ASSET.USAGE_END_DATE</fields>
-        <fields>CREATEDBY_USER.ALIAS</fields>
+        <fields>Building__c</fields>
+        <fields>Suite__c</fields>
+        <fields>ASSET.RECORDTYPE</fields>
+        <fields>ASSET.STATUS</fields>
         <relatedList>RelatedAssetList</relatedList>
     </relatedLists>
     <relatedLists>
