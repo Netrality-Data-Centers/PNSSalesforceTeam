@@ -1920,7 +1920,7 @@
             <scale>0</scale>
             <validationRule>
                 <errorMessage>&lt;p&gt;Value must be greater than 0.&lt;/p&gt;</errorMessage>
-                <formulaExpression>{!Number_of_DC_Circuits} &gt; 0</formulaExpression>
+                <formulaExpression>{!N1_Number_of_Circuit_Breakers} &gt; 0</formulaExpression>
             </validationRule>
         </fields>
         <fields>
