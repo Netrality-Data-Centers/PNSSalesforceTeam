@@ -361,7 +361,7 @@
         <name>Copy_2_of_Reduce_Count_by_1</name>
         <label>Reduce Count by 1</label>
         <locationX>4318</locationX>
-        <locationY>1598</locationY>
+        <locationY>1706</locationY>
         <assignmentItems>
             <assignToReference>NumberofCircuits</assignToReference>
             <operator>Assign</operator>
@@ -377,7 +377,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Copy_2_of_Get_Service_order_Line_Item_from_Asset</targetReference>
+            <targetReference>Copy_2_of_Need_to_Repeat</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -400,7 +400,7 @@
         <name>N1_DC_Circuit_Reduce_1</name>
         <label>Reduce Count by 1</label>
         <locationX>3438</locationX>
-        <locationY>1598</locationY>
+        <locationY>1706</locationY>
         <assignmentItems>
             <assignToReference>NumberofCircuits</assignToReference>
             <operator>Assign</operator>
@@ -416,7 +416,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Copy_1_of_Get_Service_order_Line_Item_from_Original_Asset</targetReference>
+            <targetReference>N1_Need_to_Repeat</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -708,7 +708,7 @@
         <name>N1_AC_Power_Validation_Needed</name>
         <label>AC Power Validation Needed?</label>
         <locationX>4703</locationX>
-        <locationY>1274</locationY>
+        <locationY>1382</locationY>
         <defaultConnector>
             <targetReference>DX_Create_Circuit_Breaker_Record_Flow</targetReference>
         </defaultConnector>
@@ -733,7 +733,7 @@
         <name>N1_Circuit_Breaker_Number</name>
         <label>Circuit Breaker Number</label>
         <locationX>4516</locationX>
-        <locationY>1490</locationY>
+        <locationY>1598</locationY>
         <defaultConnector>
             <targetReference>DX_Create_Circuit_Breaker_Record_Flow</targetReference>
         </defaultConnector>
@@ -758,7 +758,7 @@
         <name>N1_DC_Circuit_Number</name>
         <label>DC Circuit Number</label>
         <locationX>3636</locationX>
-        <locationY>1490</locationY>
+        <locationY>1598</locationY>
         <defaultConnector>
             <targetReference>DC_Circuit_Record_Creation_Flow</targetReference>
         </defaultConnector>
@@ -808,7 +808,7 @@
         <name>N1_Power_Validation_Needed</name>
         <label>DC Power Validation Needed?</label>
         <locationX>3823</locationX>
-        <locationY>1274</locationY>
+        <locationY>1382</locationY>
         <defaultConnector>
             <targetReference>DC_Circuit_Record_Creation_Flow</targetReference>
         </defaultConnector>
@@ -1068,7 +1068,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>N1_Power_Validation_Needed</targetReference>
+                <targetReference>N1_Get_SO_Line_Item_DC</targetReference>
             </connector>
             <label>DC Circuit</label>
         </rules>
@@ -1083,7 +1083,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>N1_AC_Power_Validation_Needed</targetReference>
+                <targetReference>N1_AC_SO_Line_Item</targetReference>
             </connector>
             <label>Circuit Breaker</label>
         </rules>
@@ -1267,48 +1267,6 @@
         <inputReference>AssetList</inputReference>
     </recordCreates>
     <recordLookups>
-        <name>Copy_1_of_Get_Service_order_Line_Item_from_Original_Asset</name>
-        <label>Get Service order Line Item from Asset</label>
-        <locationX>3438</locationX>
-        <locationY>1706</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>N1_Need_to_Repeat</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Get_the_Asset_Details.Service_Order_Line_Item__c</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>QuoteLineItem</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
-        <name>Copy_2_of_Get_Service_order_Line_Item_from_Asset</name>
-        <label>Get Service order Line Item from Asset</label>
-        <locationX>4318</locationX>
-        <locationY>1706</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Copy_2_of_Need_to_Repeat</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Get_the_Asset_Details.Service_Order_Line_Item__c</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>QuoteLineItem</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
         <name>Get_Selected_Cabinet</name>
         <label>Get Selected Cabinet</label>
         <locationX>1722</locationX>
@@ -1474,6 +1432,48 @@
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>DC_Data_Hall__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>N1_AC_SO_Line_Item</name>
+        <label>AC SO Line Item</label>
+        <locationX>4703</locationX>
+        <locationY>1274</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>N1_AC_Power_Validation_Needed</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_the_Asset_Details.Service_Order_Line_Item__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>QuoteLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>N1_Get_SO_Line_Item_DC</name>
+        <label>DC SO Line Item</label>
+        <locationX>3823</locationX>
+        <locationY>1274</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>N1_Power_Validation_Needed</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_the_Asset_Details.Service_Order_Line_Item__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>QuoteLineItem</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
@@ -1816,7 +1816,7 @@
         <name>DC_Circuit_Screen</name>
         <label>DC Circuit Screen</label>
         <locationX>3636</locationX>
-        <locationY>1382</locationY>
+        <locationY>1490</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -1830,7 +1830,7 @@
         </fields>
         <fields>
             <name>SODetails</name>
-            <fieldText>&lt;p&gt;Given the information from the Service Order (shown below), please indicate how many Circuit Breakers are going to be needed to accomodate this request:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Service:&lt;/strong&gt; {!Get_Service_order_Line_Item_from_Original_Asset.Description}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Quantity:&lt;/strong&gt; {!Get_Service_order_Line_Item_from_Original_Asset.Quantity}&lt;/li&gt;&lt;/ul&gt;</fieldText>
+            <fieldText>&lt;p&gt;{!N1_Get_SO_Line_Item_DC}Given the information from the Service Order (shown below), please indicate how many Circuit Breakers are going to be needed to accomodate this request:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Service:&lt;/strong&gt; &lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;{!N1_Get_SO_Line_Item_DC.Description}&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Quantity:&lt;/strong&gt; {{!N1_Get_SO_Line_Item_DC.Quantity}&lt;/li&gt;&lt;/ul&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
@@ -1893,7 +1893,7 @@
         <name>N1_Circuit_Breaker_Screen</name>
         <label>Circuit Breaker Screen</label>
         <locationX>4516</locationX>
-        <locationY>1382</locationY>
+        <locationY>1490</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -1907,7 +1907,7 @@
         </fields>
         <fields>
             <name>Copy_1_of_SODetails</name>
-            <fieldText>&lt;p&gt;Given the information from the Service Order (shown below), please indicate how many Circuit Breakers are going to be needed to accomodate this request:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Service:&lt;/strong&gt; {!Get_Service_order_Line_Item_from_Original_Asset.Description}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Quantity:&lt;/strong&gt; {!Get_Service_order_Line_Item_from_Original_Asset.Quantity}&lt;/li&gt;&lt;/ul&gt;</fieldText>
+            <fieldText>&lt;p&gt;Given the information from the Service Order (shown below), please indicate how many Circuit Breakers are going to be needed to accomodate this request:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Service:&lt;/strong&gt; {!N1_AC_SO_Line_Item.Description}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Quantity:&lt;/strong&gt; {!N1_AC_SO_Line_Item.Quantity}&lt;/li&gt;&lt;/ul&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
@@ -2126,7 +2126,7 @@
         <inputAssignments>
             <name>SOLineItem</name>
             <value>
-                <elementReference>Copy_1_of_Get_Service_order_Line_Item_from_Original_Asset</elementReference>
+                <elementReference>N1_AC_SO_Line_Item</elementReference>
             </value>
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -2224,7 +2224,7 @@
         <inputAssignments>
             <name>SOLineItem</name>
             <value>
-                <elementReference>Copy_1_of_Get_Service_order_Line_Item_from_Original_Asset</elementReference>
+                <elementReference>N1_Get_SO_Line_Item_DC</elementReference>
             </value>
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>
