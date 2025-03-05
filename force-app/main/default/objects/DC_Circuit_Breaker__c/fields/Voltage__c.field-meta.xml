@@ -2,7 +2,6 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Voltage__c</fullName>
     <description>Voltage rating of this circuit</description>
-    <externalId>false</externalId>
     <label>Voltage</label>
     <required>true</required>
     <trackTrending>false</trackTrending>
@@ -20,6 +19,11 @@
                 <fullName>208</fullName>
                 <default>false</default>
                 <label>208</label>
+            </value>
+            <value>
+                <fullName>340</fullName>
+                <default>false</default>
+                <label>340</label>
             </value>
         </valueSetDefinition>
     </valueSet>
