@@ -40,7 +40,7 @@
         <inputAssignments>
             <field>Name</field>
             <value>
-                <stringValue>{!$Record.Origination_Port__r.Name}.{!CONNECTION_DATE}</stringValue>
+                <elementReference>$Record.Cross_Connect_Auto_Gen_ID__c</elementReference>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>

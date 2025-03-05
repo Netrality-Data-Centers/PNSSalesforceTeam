@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X717_S_Wells</fullName>
+    <active>true</active>
+    <businessProcess>717 S Wells</businessProcess>
+    <label>717 S Wells</label>
+    <picklistValues>
+        <picklist>DX_Access_For__c</picklist>
+        <values>
+            <fullName>Data Center Access%28both badge and non-badge holders%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Loading Dock%2F Freight Access</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MMR Access %28non-badge only%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>POE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Parking Garage %28badge holders only%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Primary Building Access %28non-badge holder only%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Roof</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shaft</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Acconting_Request_Type__c</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Address</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Billing Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update Contact Info</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update PO %23</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Add_Remove__c</picklist>
+        <values>
+            <fullName>Add</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remove</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_After_Hours__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Connector_Type_Order_Initiator__c</picklist>
+        <values>
+            <fullName>LC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Connector_Type_ZLOA__c</picklist>
+        <values>
+            <fullName>LC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Connector_Type__c</picklist>
+        <values>
+            <fullName>LC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Courier__c</picklist>
+        <values>
+            <fullName>Amazon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DHL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FedEx</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UPS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>USPS</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Current_Location_Onsite__c</picklist>
+        <values>
+            <fullName>Being held in Secured Storage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Within my Cabinet%2FCage%2FSuite</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Customer_Provide_Liftgate__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Date_Range__c</picklist>
+        <values>
+            <fullName>Last 1 Year</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Last 3 months</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Last 6 months</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Delivery_Site__c</picklist>
+        <values>
+            <fullName>Chicago</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Houston</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indianapolis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indy 733</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KC%281102 Grand%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KS7801</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Philadelphia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>STL210</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>STL900</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Disconnect_Type__c</picklist>
+        <values>
+            <fullName>Full Disconnect</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partial Disconnect</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Document_Type__c</picklist>
+        <values>
+            <fullName>Customer Ready Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Master Agreement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Order</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Expected_Storage_Duration__c</picklist>
+        <values>
+            <fullName>No Storage%3A Shipment to be utilized on arrival</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Over 1 month</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Up to 1 month</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Up to 1 week</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_NRC_Billing_for__c</picklist>
+        <values>
+            <fullName>Cross Connect</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remote Hands Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Utility Billing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Request_Type_Contracts__c</picklist>
+        <values>
+            <fullName>Assign %26 Assumption</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Name Change</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Shipment_Requires_Packaging_to_Pickup__c</picklist>
+        <values>
+            <fullName>No%2C ready for pickup</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes%2C additional packaging is requested</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Shipping_Type__c</picklist>
+        <values>
+            <fullName>Cabinet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Courier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Envelope</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Large Package %28Over 20lbs%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pallet%2FFreight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Small Package %28Under 20lbs%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Site_Location__c</picklist>
+        <values>
+            <fullName>401 N Broad Street</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chicago%2C IL 60482</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Houston%2C Texas 77002</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indianapolis%2C IN 46225</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kansas City%2C MO 64106</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Philadelphia PA 19107</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Philadelphia%2C PA 19108</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shawnee%2C KS 66214</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>St%2E Louis%2C MO 63101</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>St%2E Louis%2C MO 63102</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Site__c</picklist>
+        <values>
+            <fullName>Chicago</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Houston</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indianapolis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indy 733</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KS7801</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kansas City</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Philadelphia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>STL210</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>STL900</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Term__c</picklist>
+        <values>
+            <fullName>36 months</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60 months</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Time_In_Storage__c</picklist>
+        <values>
+            <fullName>Less than a month</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Less than a week</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>More than a month</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Time_Period_Covered__c</picklist>
+        <values>
+            <fullName>6 months</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quarterly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Year to Date</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Type_of_Inventory__c</picklist>
+        <values>
+            <fullName>Cross Connect</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Power</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Space</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DX_Who_is_the_Access_for__c</picklist>
+        <values>
+            <fullName>Requestor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Third- Party</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Origin</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lead</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason</picklist>
+        <values>
+            <fullName>Customer Request for Cross Connection</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Request for Power</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer request Disco</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer request for assistance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer request restively of material</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicate case%2E Close case%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Troubleshooting</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>TECH__c</picklist>
+        <values>
+            <fullName>CS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NR</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Access Change</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remote Support</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>XConnect</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>
