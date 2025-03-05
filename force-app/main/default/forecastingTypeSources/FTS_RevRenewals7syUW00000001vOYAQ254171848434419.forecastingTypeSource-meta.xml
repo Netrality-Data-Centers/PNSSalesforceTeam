@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ForecastingTypeSource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <forecastingSourceDefinition>FSD_Opportunity774629878600156</forecastingSourceDefinition>
+    <forecastingType>RevRenewals</forecastingType>
+    <isProtected>false</isProtected>
+    <masterLabel>FTS_RevRenewals7syUW00000001vOYAQ254171848434419</masterLabel>
+    <parentSourceDefinition>FSD_OpportunitySplit796969145711596</parentSourceDefinition>
+    <relationField>OpportunitySplit.OpportunityId</relationField>
+    <sourceGroup>1</sourceGroup>
+</ForecastingTypeSource>
