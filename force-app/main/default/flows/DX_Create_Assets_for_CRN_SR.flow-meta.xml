@@ -451,22 +451,22 @@
     <formulas>
         <name>AssetNamefor1C2CB_Cabinet</name>
         <dataType>String</dataType>
-        <expression>{!Iterate_SO_Line_Items.Quote.Service_Order_ID__c} + &quot; &quot; + &quot;Cabinet&quot;</expression>
+        <expression>{!Iterate_SO_Line_Items.Quote.Name} + &quot; &quot; + &quot;Cabinet&quot;</expression>
     </formulas>
     <formulas>
         <name>AssetNamefor1C2CB_CircuitBreaker</name>
         <dataType>String</dataType>
-        <expression>{!Iterate_SO_Line_Items.Quote.Service_Order_ID__c} + &quot; &quot; + &quot;Circuit Breaker&quot;</expression>
+        <expression>{!Iterate_SO_Line_Items.Quote.Name} + &quot; &quot; + &quot;Circuit Breaker&quot;</expression>
     </formulas>
     <formulas>
         <name>AssetNamefor1I1P_Innerduct</name>
         <dataType>String</dataType>
-        <expression>{!Iterate_SO_Line_Items.Quote.Service_Order_ID__c} + &quot; &quot; + &quot;Innerduct&quot;</expression>
+        <expression>{!Iterate_SO_Line_Items.Quote.Name} + &quot; &quot; + &quot;Innerduct&quot;</expression>
     </formulas>
     <formulas>
         <name>AssetNamefor1I1P_POEAllocation</name>
         <dataType>String</dataType>
-        <expression>{!Iterate_SO_Line_Items.Quote.Service_Order_ID__c} + &quot; &quot; + &quot;POE Allocation&quot;</expression>
+        <expression>{!Iterate_SO_Line_Items.Quote.Name} + &quot; &quot; + &quot;POE Allocation&quot;</expression>
     </formulas>
     <interviewLabel>DX Create Assets {!$Flow.CurrentDateTime}</interviewLabel>
     <label>DX Create Assets for CRN SR</label>
