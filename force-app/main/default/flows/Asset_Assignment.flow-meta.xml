@@ -309,10 +309,26 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Assignment_26</name>
+        <label>Set New Asset Power Model Validation</label>
+        <locationX>4186</locationX>
+        <locationY>2030</locationY>
+        <assignmentItems>
+            <assignToReference>iAsset.Power_Model_Validation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_1_of_Add_Asset_to_List</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Copy_1_of_Add_Asset_to_List</name>
         <label>Add Asset to List</label>
         <locationX>4186</locationX>
-        <locationY>2030</locationY>
+        <locationY>2138</locationY>
         <assignmentItems>
             <assignToReference>AssetList</assignToReference>
             <operator>Add</operator>
@@ -344,7 +360,7 @@
         <name>Copy_1_of_Reduce_Count_by_1</name>
         <label>Reduce Count by 1</label>
         <locationX>4186</locationX>
-        <locationY>2138</locationY>
+        <locationY>2246</locationY>
         <assignmentItems>
             <assignToReference>NumberofCircuits</assignToReference>
             <operator>Subtract</operator>
@@ -355,6 +371,22 @@
         <connector>
             <isGoTo>true</isGoTo>
             <targetReference>Copy_2_of_Need_to_Repeat</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_1_of_Set_New_Asset_Power_Model_Validation</name>
+        <label>Set New Asset Power Model Validation</label>
+        <locationX>3306</locationX>
+        <locationY>2030</locationY>
+        <assignmentItems>
+            <assignToReference>iAsset.Power_Model_Validation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>N1_Add_Asset_to_List</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -384,7 +416,7 @@
         <name>N1_Add_Asset_to_List</name>
         <label>Add Asset to List</label>
         <locationX>3306</locationX>
-        <locationY>2030</locationY>
+        <locationY>2138</locationY>
         <assignmentItems>
             <assignToReference>AssetList</assignToReference>
             <operator>Add</operator>
@@ -423,7 +455,7 @@
         <name>N1_Reduce_Count_by_1</name>
         <label>Reduce Count by 1</label>
         <locationX>3306</locationX>
-        <locationY>2138</locationY>
+        <locationY>2246</locationY>
         <assignmentItems>
             <assignToReference>NumberofCircuits</assignToReference>
             <operator>Subtract</operator>
@@ -2114,7 +2146,7 @@
         <locationX>4186</locationX>
         <locationY>1922</locationY>
         <connector>
-            <targetReference>Copy_1_of_Add_Asset_to_List</targetReference>
+            <targetReference>Assignment_26</targetReference>
         </connector>
         <flowName>DX_Copy_Asset_Values_from_SOLineItem</flowName>
         <inputAssignments>
@@ -2158,7 +2190,7 @@
         <name>DC_Circuit_Record_Creation_Flow</name>
         <label>DC Circuit Record Creation Flow</label>
         <locationX>3823</locationX>
-        <locationY>2606</locationY>
+        <locationY>2672</locationY>
         <connector>
             <targetReference>Asset_was_Allocated</targetReference>
         </connector>
@@ -2212,7 +2244,7 @@
         <locationX>3306</locationX>
         <locationY>1922</locationY>
         <connector>
-            <targetReference>N1_Add_Asset_to_List</targetReference>
+            <targetReference>Copy_1_of_Set_New_Asset_Power_Model_Validation</targetReference>
         </connector>
         <flowName>DX_Copy_Asset_Values_from_SOLineItem</flowName>
         <inputAssignments>
@@ -2233,7 +2265,7 @@
         <name>DX_Create_Circuit_Breaker_Record_Flow</name>
         <label>DX Create Circuit Breaker Record Flow</label>
         <locationX>4703</locationX>
-        <locationY>2606</locationY>
+        <locationY>2672</locationY>
         <connector>
             <targetReference>Asset_was_Allocated</targetReference>
         </connector>
