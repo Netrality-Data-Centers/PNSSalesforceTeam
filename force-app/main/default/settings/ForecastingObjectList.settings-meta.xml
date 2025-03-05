@@ -20651,6 +20651,6 @@
             <field>OPPORTUNITY.LAST_STAGE_CHANGE</field>
             <field>OPPORTUNITY.PUSH_COUNT</field>
         </forecastingObjectListUnselectedSettings>
-        <forecastingTypeDeveloperName>N1_Revenue</forecastingTypeDeveloperName>
+        <forecastingTypeDeveloperName>RevRenewals</forecastingTypeDeveloperName>
     </forecastingTypeObjectListSettings>
 </ForecastingObjectListSettings>
