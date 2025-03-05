@@ -2129,7 +2129,10 @@
                 <elementReference>Copy_1_of_Get_Service_order_Line_Item_from_Original_Asset</elementReference>
             </value>
         </inputAssignments>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <outputAssignments>
+            <assignToReference>iAsset</assignToReference>
+            <name>iAsset</name>
+        </outputAssignments>
     </subflows>
     <subflows>
         <name>Copy_Asset_From_Original_Service_Order_Line_Item</name>
@@ -2227,7 +2230,10 @@
                 <elementReference>Copy_1_of_Get_Service_order_Line_Item_from_Original_Asset</elementReference>
             </value>
         </inputAssignments>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <outputAssignments>
+            <assignToReference>iAsset</assignToReference>
+            <name>iAsset</name>
+        </outputAssignments>
     </subflows>
     <subflows>
         <name>DX_Create_Circuit_Breaker_Record_Flow</name>
