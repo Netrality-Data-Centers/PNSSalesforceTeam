@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ForecastingFilterCondition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <colName>00N3t00000EWgVI</colName>
+    <fieldName>Churn_Type__c</fieldName>
+    <forecastingFilter>FF_RevRenewals0hlVB00000005HSYAY101955243602244</forecastingFilter>
+    <forecastingSourceDefinition>7syUW00000001vO</forecastingSourceDefinition>
+    <isProtected>false</isProtected>
+    <masterLabel>FFC_RevRenewals0r0VB00000001P7YAI897057648726700</masterLabel>
+    <operation>notEqual</operation>
+    <sortOrder>2</sortOrder>
+    <value>LifeLine - Known Pre-Acquisition,LifeLine - TBD,Partial Disconnect,SunGard Customer Bucket 1,SunGard Customer Bucket 2,Full Disconnect,SunGard Customer Bucket 3,SunGard Customer Bucket 4,Price Write Down</value>
+</ForecastingFilterCondition>
