@@ -68,7 +68,7 @@
     <sendWelcomeEmail>true</sendWelcomeEmail>
     <site>Customer_Account_Portal</site>
     <siteArchiveStatus>NotArchived</siteArchiveStatus>
-    <status>DownForMaintenance</status>
+    <status>Live</status>
     <tabs>
         <defaultTab>home</defaultTab>
         <standardTab>Chatter</standardTab>
