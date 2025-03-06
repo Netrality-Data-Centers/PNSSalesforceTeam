@@ -18,25 +18,6 @@
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
-    }, {
-      "componentAttributes" : {
-        "autoPlay" : true,
-        "autoPlayInterval" : 2000,
-        "controlsAlignment" : "center",
-        "controlsPosition" : "bottom",
-        "datasource" : "json",
-        "datasourceInput" : "",
-        "showControls" : true,
-        "slidesPerPage" : 3,
-        "title" : "",
-        "titleAlign" : "left",
-        "titleSize" : "large"
-      },
-      "componentName" : "lightngcarousel:SS_cmsCarousel",
-      "id" : "6e430019-dc20-47b7-a3ff-4347c5cd326a",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
     } ],
     "id" : "657de995-eb20-4804-8087-ccfdb0b3dcc2",
     "regionName" : "content",
