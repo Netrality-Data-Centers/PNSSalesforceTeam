@@ -270,7 +270,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>Operations Starter Pack</label>
+    <label>Starter Pack: Operations</label>
     <license>Salesforce</license>
     <objectPermissions>
         <allowCreate>false</allowCreate>
