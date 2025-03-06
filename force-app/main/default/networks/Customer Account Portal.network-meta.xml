@@ -34,6 +34,23 @@
     <gatherCustomerSentimentData>false</gatherCustomerSentimentData>
     <headlessForgotPasswordTemplate>Experience_Cloud_Emails/CommunityHeadlessForgotPasswordTemplate</headlessForgotPasswordTemplate>
     <headlessRegistrationTemplate>Experience_Cloud_Emails/CommunityHeadlessRegistrationTemplate</headlessRegistrationTemplate>
+    <networkAuthApiSettings>
+        <doesForgotPasswordRequireAuth>false</doesForgotPasswordRequireAuth>
+        <doesPasswordLoginRequireAuth>true</doesPasswordLoginRequireAuth>
+        <doesPwdlessLoginRequireAuth>false</doesPwdlessLoginRequireAuth>
+        <doesRegistrationRequireAuth>false</doesRegistrationRequireAuth>
+        <isFirstPartyAppsAllowed>false</isFirstPartyAppsAllowed>
+        <isForgotPwdAllowed>false</isForgotPwdAllowed>
+        <isForgotPwdEmailTemplateAllowlistingEnabled>false</isForgotPwdEmailTemplateAllowlistingEnabled>
+        <isHeadlessUserRegistrationAllowed>false</isHeadlessUserRegistrationAllowed>
+        <isPwdlessLoginAllowed>false</isPwdlessLoginAllowed>
+        <isRecaptchaRequiredForgotPwd>false</isRecaptchaRequiredForgotPwd>
+        <isRecaptchaRequiredPwdlessLogin>false</isRecaptchaRequiredPwdlessLogin>
+        <isRecaptchaRequiredRgstr>false</isRecaptchaRequiredRgstr>
+        <isUniversalClientRgstrAllowed>false</isUniversalClientRgstrAllowed>
+        <maxPasswordResetAttempts>5</maxPasswordResetAttempts>
+        <recaptchaScoreThreshold>0.0</recaptchaScoreThreshold>
+    </networkAuthApiSettings>
     <networkMemberGroups>
         <profile>admin</profile>
         <profile>customer portal manager standard</profile>
@@ -41,9 +58,9 @@
     </networkMemberGroups>
     <networkPageOverrides>
         <changePasswordPageOverrideSetting>Standard</changePasswordPageOverrideSetting>
-        <forgotPasswordPageOverrideSetting>Designer</forgotPasswordPageOverrideSetting>
+        <forgotPasswordPageOverrideSetting>Standard</forgotPasswordPageOverrideSetting>
         <homePageOverrideSetting>Designer</homePageOverrideSetting>
-        <loginPageOverrideSetting>Designer</loginPageOverrideSetting>
+        <loginPageOverrideSetting>Standard</loginPageOverrideSetting>
         <selfRegProfilePageOverrideSetting>Designer</selfRegProfilePageOverrideSetting>
     </networkPageOverrides>
     <picassoSite>Customer_Account_Portal1</picassoSite>
@@ -51,7 +68,7 @@
     <sendWelcomeEmail>true</sendWelcomeEmail>
     <site>Customer_Account_Portal</site>
     <siteArchiveStatus>NotArchived</siteArchiveStatus>
-    <status>DownForMaintenance</status>
+    <status>Live</status>
     <tabs>
         <defaultTab>home</defaultTab>
         <standardTab>Chatter</standardTab>
