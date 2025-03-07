@@ -3,6 +3,7 @@
     <fullName>DX_Access_Request</fullName>
     <active>true</active>
     <businessProcess>PNS Service Request</businessProcess>
+    <description>Schedule Physical Access to the Data Center or review Portal access.</description>
     <label>Access Request</label>
     <picklistValues>
         <picklist>DX_Access_For__c</picklist>

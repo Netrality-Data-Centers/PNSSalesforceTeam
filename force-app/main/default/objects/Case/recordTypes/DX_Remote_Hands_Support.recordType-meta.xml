@@ -3,6 +3,7 @@
     <fullName>DX_Remote_Hands_Support</fullName>
     <active>true</active>
     <businessProcess>PNS Service Request</businessProcess>
+    <description>On-site troubleshooting and installation by Netrality technicians.</description>
     <label>Remote Hands Support</label>
     <picklistValues>
         <picklist>DX_Access_For__c</picklist>

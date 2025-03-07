@@ -3,6 +3,7 @@
     <fullName>DX_Cross_Connect</fullName>
     <active>true</active>
     <businessProcess>PNS Service Request</businessProcess>
+    <description>Add, Disconnect, or Change Cross Connects.</description>
     <label>Cross Connect</label>
     <picklistValues>
         <picklist>DX_Access_For__c</picklist>
