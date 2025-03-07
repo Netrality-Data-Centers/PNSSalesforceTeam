@@ -3,6 +3,7 @@
     <fullName>DX_Contracts_Request</fullName>
     <active>true</active>
     <businessProcess>PNS Service Request</businessProcess>
+    <description>Document, Renewals, Assignment or Name Change requests.</description>
     <label>Contracts Request</label>
     <picklistValues>
         <picklist>DX_Access_For__c</picklist>
