@@ -3,6 +3,7 @@
     <fullName>DX_Customer_Experience_Request</fullName>
     <active>true</active>
     <businessProcess>PNS Service Request</businessProcess>
+    <description>Business &amp; Inventory Reviews, Training requests and General Feedback.</description>
     <label>Customer Experience Request</label>
     <picklistValues>
         <picklist>DX_Access_For__c</picklist>

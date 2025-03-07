@@ -3,8 +3,8 @@
     <actionCalls>
         <name>redirect_to_view_SR_Details</name>
         <label>redirect to view SR Details</label>
-        <locationX>2690</locationX>
-        <locationY>2894</locationY>
+        <locationX>2822</locationX>
+        <locationY>3002</locationY>
         <actionName>c:fsc_openUrl</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -21,15 +21,15 @@
             </value>
         </inputParameters>
         <nameSegment>c:fsc_openUrl</nameSegment>
+        <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>62.0</apiVersion>
     <assignments>
         <name>Assign_File_Count</name>
         <label>Assign File Count</label>
         <locationX>2294</locationX>
-        <locationY>2138</locationY>
+        <locationY>2246</locationY>
         <assignmentItems>
             <assignToReference>FileCount</assignToReference>
             <operator>AssignCount</operator>
@@ -44,7 +44,7 @@
     <assignments>
         <name>Assign_Stage_1</name>
         <label>Assign Stage 1</label>
-        <locationX>2690</locationX>
+        <locationX>2822</locationX>
         <locationY>134</locationY>
         <assignmentItems>
             <assignToReference>$Flow.CurrentStage</assignToReference>
@@ -54,14 +54,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>GetRecordType</targetReference>
+            <targetReference>N1_GetCaseRecordTypes</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Assign_Stage_2</name>
         <label>Assign Stage 2</label>
-        <locationX>2690</locationX>
-        <locationY>1598</locationY>
+        <locationX>2822</locationX>
+        <locationY>1706</locationY>
         <assignmentItems>
             <assignToReference>$Flow.CurrentStage</assignToReference>
             <operator>Assign</operator>
@@ -76,8 +76,8 @@
     <assignments>
         <name>Set_Account_Id</name>
         <label>Set Account Id</label>
-        <locationX>2778</locationX>
-        <locationY>998</locationY>
+        <locationX>2910</locationX>
+        <locationY>1106</locationY>
         <assignmentItems>
             <assignToReference>AccountIdList</assignToReference>
             <operator>Add</operator>
@@ -92,8 +92,8 @@
     <assignments>
         <name>Set_Contact_on_SR</name>
         <label>Set Contact on SR</label>
-        <locationX>2690</locationX>
-        <locationY>1706</locationY>
+        <locationX>2822</locationX>
+        <locationY>1814</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.ContactId</assignToReference>
             <operator>Assign</operator>
@@ -109,7 +109,7 @@
         <name>Set_LOA_Attached_Value</name>
         <label>Set LOA Attached Value</label>
         <locationX>2426</locationX>
-        <locationY>2354</locationY>
+        <locationY>2462</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_LOA_Attached__c</assignToReference>
             <operator>Assign</operator>
@@ -124,8 +124,8 @@
     <assignments>
         <name>Set_RA_Not_Required</name>
         <label>Set RA Not Required</label>
-        <locationX>4802</locationX>
-        <locationY>2030</locationY>
+        <locationX>5066</locationX>
+        <locationY>2138</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_Requested_Actions__c</assignToReference>
             <operator>Assign</operator>
@@ -140,8 +140,8 @@
     <assignments>
         <name>Set_RA_Required</name>
         <label>Set RA Required</label>
-        <locationX>4538</locationX>
-        <locationY>2030</locationY>
+        <locationX>4802</locationX>
+        <locationY>2138</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_Requested_Actions__c</assignToReference>
             <operator>Assign</operator>
@@ -156,8 +156,8 @@
     <assignments>
         <name>Set_RecordType_on_TempCase</name>
         <label>Set RecordType on TempCase</label>
-        <locationX>2690</locationX>
-        <locationY>458</locationY>
+        <locationX>2822</locationX>
+        <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.RecordTypeId</assignToReference>
             <operator>Assign</operator>
@@ -173,7 +173,7 @@
         <name>Set_WhenWouldNotRequired</name>
         <label>Set WhenWouldNotRequired</label>
         <locationX>3482</locationX>
-        <locationY>2030</locationY>
+        <locationY>2138</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_When_would_you_like_the_meeting__c</assignToReference>
             <operator>Assign</operator>
@@ -189,7 +189,7 @@
         <name>Set_WhenWouldRequired</name>
         <label>Set WhenWouldRequired</label>
         <locationX>3218</locationX>
-        <locationY>2030</locationY>
+        <locationY>2138</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_When_would_you_like_the_meeting__c</assignToReference>
             <operator>Assign</operator>
@@ -291,8 +291,8 @@
     <decisions>
         <name>Case_Type</name>
         <label>Case Type?</label>
-        <locationX>2690</locationX>
-        <locationY>1814</locationY>
+        <locationX>2822</locationX>
+        <locationY>1922</locationY>
         <defaultConnector>
             <targetReference>Unsupported_SRType_Error</targetReference>
         </defaultConnector>
@@ -493,6 +493,56 @@
             <label>Types for Customer Experience</label>
         </rules>
         <rules>
+            <name>N1_Type_for_Expansion_of_Services</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>TempCaseVar.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Power</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>TempCaseVar.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rack Space</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>TempCaseVar.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Cage Space</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>TempCaseVar.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Fiber Home Run</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>TempCaseVar.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>MMA Rack Space</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>TempCaseVar.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>11th FL Expansion</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>N1_of_Create_EX_SR</targetReference>
+            </connector>
+            <label>Type for Expansion of Services</label>
+        </rules>
+        <rules>
             <name>Types_of_Logistics</name>
             <conditionLogic>or</conditionLogic>
             <conditions>
@@ -561,12 +611,8 @@
     <decisions>
         <name>Record_Type</name>
         <label>Record Type?</label>
-        <locationX>2690</locationX>
-        <locationY>1298</locationY>
-        <defaultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Unsupported_SR_Error</targetReference>
-        </defaultConnector>
+        <locationX>2822</locationX>
+        <locationY>1406</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Access_Request</name>
@@ -654,7 +700,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Unsupported_SR_Error</targetReference>
+                <targetReference>N1_Expansion_Request_Info</targetReference>
             </connector>
             <label>Expansion of Services</label>
         </rules>
@@ -698,18 +744,14 @@
                     <stringValue>STL</stringValue>
                 </rightValue>
             </conditions>
-            <connector>
-                <isGoTo>true</isGoTo>
-                <targetReference>Unsupported_SR_Error</targetReference>
-            </connector>
             <label>STL</label>
         </rules>
     </decisions>
     <decisions>
         <name>Requested_Actions_Required</name>
         <label>Requested Actions Required?</label>
-        <locationX>4670</locationX>
-        <locationY>1922</locationY>
+        <locationX>4934</locationX>
+        <locationY>2030</locationY>
         <defaultConnector>
             <targetReference>Set_RA_Not_Required</targetReference>
         </defaultConnector>
@@ -734,7 +776,7 @@
         <name>When_Would_you_like_meeting_Required</name>
         <label>When Would you like meeting Required?</label>
         <locationX>3350</locationX>
-        <locationY>1922</locationY>
+        <locationY>2030</locationY>
         <defaultConnector>
             <targetReference>Set_WhenWouldNotRequired</targetReference>
         </defaultConnector>
@@ -759,7 +801,7 @@
         <name>Where_Files_Uploaded</name>
         <label>Where Files Uploaded?</label>
         <locationX>2294</locationX>
-        <locationY>2246</locationY>
+        <locationY>2354</locationY>
         <defaultConnector>
             <targetReference>Set_LOA_Attached_Value</targetReference>
         </defaultConnector>
@@ -1322,8 +1364,8 @@
     <loops>
         <name>Save_AccountIds</name>
         <label>Save AccountIds</label>
-        <locationX>2690</locationX>
-        <locationY>890</locationY>
+        <locationX>2822</locationX>
+        <locationY>998</locationY>
         <collectionReference>Get_AccountContactRelationships</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -1350,7 +1392,7 @@
         <name>Create_AR_ServiceRequest</name>
         <label>Create AR ServiceRequest</label>
         <locationX>1106</locationX>
-        <locationY>1922</locationY>
+        <locationY>2030</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -1461,7 +1503,7 @@
         <name>Create_ARU</name>
         <label>Create ARU</label>
         <locationX>578</locationX>
-        <locationY>1922</locationY>
+        <locationY>2030</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -1596,7 +1638,7 @@
         <name>Create_CR_Service_Request</name>
         <label>Create CR Service Request</label>
         <locationX>1634</locationX>
-        <locationY>1922</locationY>
+        <locationY>2030</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -1695,7 +1737,7 @@
         <name>Create_Cross_Connect</name>
         <label>Create Cross Connect</label>
         <locationX>2294</locationX>
-        <locationY>1922</locationY>
+        <locationY>2030</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Get_LOA_File</targetReference>
@@ -1890,7 +1932,7 @@
         <name>Create_CX_SR</name>
         <label>Create CX SR</label>
         <locationX>3350</locationX>
-        <locationY>2222</locationY>
+        <locationY>2330</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -2012,8 +2054,8 @@
     <recordCreates>
         <name>Create_Logistics</name>
         <label>Create Logistics</label>
-        <locationX>4010</locationX>
-        <locationY>1922</locationY>
+        <locationX>4274</locationX>
+        <locationY>2030</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -2184,7 +2226,7 @@
         <name>Create_PSA</name>
         <label>Create PSA</label>
         <locationX>50</locationX>
-        <locationY>1922</locationY>
+        <locationY>2030</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -2341,8 +2383,8 @@
     <recordCreates>
         <name>Create_RHS</name>
         <label>Create RHS</label>
-        <locationX>4670</locationX>
-        <locationY>2222</locationY>
+        <locationX>4934</locationX>
+        <locationY>2330</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -2455,11 +2497,64 @@
         </inputAssignments>
         <object>Case</object>
     </recordCreates>
+    <recordCreates>
+        <name>N1_of_Create_EX_SR</name>
+        <label>Create EX SR</label>
+        <locationX>4010</locationX>
+        <locationY>2030</locationY>
+        <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
+        <connector>
+            <targetReference>Case_Lookup</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>N1_Account_EX.recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ContactId</field>
+            <value>
+                <elementReference>curContact.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DX_How_Help_You__c</field>
+            <value>
+                <elementReference>Tell_us_how_we_can_help_you_CX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DX_Site__c</field>
+            <value>
+                <elementReference>N1_Site_EX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>TempCaseVar.RecordTypeId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type</field>
+            <value>
+                <elementReference>TempCaseVar.Type</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordCreates>
     <recordLookups>
         <name>Case_Lookup</name>
         <label>Case Lookup</label>
-        <locationX>2690</locationX>
-        <locationY>2786</locationY>
+        <locationX>2822</locationX>
+        <locationY>2894</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>redirect_to_view_SR_Details</targetReference>
@@ -2485,8 +2580,8 @@
     <recordLookups>
         <name>Contact_Lookup</name>
         <label>Contact Lookup</label>
-        <locationX>2690</locationX>
-        <locationY>566</locationY>
+        <locationX>2822</locationX>
+        <locationY>674</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Primary_Account_for_Contact</targetReference>
@@ -2512,8 +2607,8 @@
     <recordLookups>
         <name>Get_AccountContactRelationships</name>
         <label>Get AccountContactRelationships</label>
-        <locationX>2690</locationX>
-        <locationY>782</locationY>
+        <locationX>2822</locationX>
+        <locationY>890</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Save_AccountIds</targetReference>
@@ -2533,8 +2628,8 @@
     <recordLookups>
         <name>Get_Primary_Account_for_Contact</name>
         <label>Get Primary Account for Contact</label>
-        <locationX>2690</locationX>
-        <locationY>674</locationY>
+        <locationX>2822</locationX>
+        <locationY>782</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_AccountContactRelationships</targetReference>
@@ -2563,22 +2658,18 @@
     <recordLookups>
         <name>Get_Record_Type_Info</name>
         <label>Get Record Type Info</label>
-        <locationX>2690</locationX>
-        <locationY>350</locationY>
+        <locationX>2822</locationX>
+        <locationY>458</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_RecordType_on_TempCase</targetReference>
         </connector>
-        <faultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Contact_Error_Screen</targetReference>
-        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>SelectedRecordTypeId</elementReference>
+                <elementReference>N1_Case_Record_Types.firstSelectedRow.Id</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -2588,8 +2679,8 @@
     <recordLookups>
         <name>Get_Related_Accounts_for_Contact</name>
         <label>Get Related Accounts for Contact</label>
-        <locationX>2690</locationX>
-        <locationY>1190</locationY>
+        <locationX>2822</locationX>
+        <locationY>1298</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Record_Type</targetReference>
@@ -2606,11 +2697,46 @@
         <object>Account</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>N1_GetCaseRecordTypes</name>
+        <label>GetCaseRecordTypes</label>
+        <locationX>2822</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>GetRecordType</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Case</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>StartsWith</operator>
+            <value>
+                <stringValue>DX</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>DX_CRN</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>Update_LOA_Attached_Field</name>
         <label>Update LOA Attached Field</label>
         <locationX>2426</locationX>
-        <locationY>2462</locationY>
+        <locationY>2570</locationY>
         <connector>
             <targetReference>Case_Lookup</targetReference>
         </connector>
@@ -2637,8 +2763,8 @@
     <screens>
         <name>Access_Request_Info</name>
         <label>Access Request Info</label>
-        <locationX>1502</locationX>
-        <locationY>1406</locationY>
+        <locationX>1634</locationX>
+        <locationY>1514</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2718,6 +2844,7 @@
                     <dataType>String</dataType>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -2743,6 +2870,7 @@
                     <dataType>String</dataType>
                     <fieldText>Add/Remove</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2750,6 +2878,7 @@
                     <dataType>String</dataType>
                     <fieldText>Full Name</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -2817,6 +2946,7 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Accounting Contact</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2824,6 +2954,7 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Physical Access</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2831,6 +2962,7 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Order / Change / Cancel Cross Connects</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2838,6 +2970,7 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Operations Contact</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2845,6 +2978,7 @@
                     <dataType>Boolean</dataType>
                     <fieldText>View Invoices</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -2863,6 +2997,7 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Emergency Notifications</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2870,6 +3005,7 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Request Support (RH&apos;s)</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2877,6 +3013,7 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Authorize 3rd Party Access</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2884,6 +3021,7 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Permanent Access Badge</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -2891,6 +3029,7 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Admin Level User</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -2926,12 +3065,14 @@
                     <dataType>String</dataType>
                     <fieldText>Access for?</fieldText>
                     <fieldType>MultiSelectPicklist</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>Assets</name>
                     <fieldText>Assets</fieldText>
                     <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -2939,6 +3080,7 @@
                     <dataType>Date</dataType>
                     <fieldText>Arrival Date</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2958,6 +3100,7 @@
                     <fieldText>After Hours</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <helpText>&lt;p&gt;If Yes: Some sites may require scheduling for after hour access.&lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2975,6 +3118,7 @@
                     <dataType>String</dataType>
                     <fieldText>Purpose of the Visit</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -2992,6 +3136,7 @@
                     <dataType>Boolean</dataType>
                     <fieldText>Additional Guests</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3009,6 +3154,7 @@
                     <dataType>String</dataType>
                     <fieldText>Guest Name</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3085,6 +3231,7 @@
                     <name>If_more_than_one_guests_add_there_information_here</name>
                     <fieldText>If more than one guests add there information here</fieldText>
                     <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3114,6 +3261,7 @@
                     <dataType>String</dataType>
                     <fieldText>Who is the Access for?</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3141,6 +3289,7 @@
                     <dataType>String</dataType>
                     <fieldText>Third Party Name</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3206,6 +3355,7 @@
                     <dataType>String</dataType>
                     <fieldText>Third Party Company</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3223,6 +3373,7 @@
                     <dataType>Date</dataType>
                     <fieldText>Departure Date</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <validationRule>
                         <errorMessage>&lt;p&gt;Departure Date can&apos;t exceed 14 calendar Days from Arrival Date&lt;/p&gt;</errorMessage>
@@ -3234,6 +3385,7 @@
                     <dataType>Boolean</dataType>
                     <fieldText>I have read and agree to the facility rules and regulations as stated in the Netrality Customer Handbook</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <validationRule>
                         <errorMessage>&lt;p&gt;Please accept.&lt;/p&gt;</errorMessage>
@@ -3282,8 +3434,8 @@
     <screens>
         <name>Accounting_Request_Info</name>
         <label>Accounting Request Info</label>
-        <locationX>1766</locationX>
-        <locationY>1406</locationY>
+        <locationX>1898</locationX>
+        <locationY>1514</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -3352,6 +3504,7 @@
                     <fieldText>Billing Account Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3360,6 +3513,7 @@
                     <dataType>String</dataType>
                     <fieldText>Request Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3377,6 +3531,7 @@
                     <dataType>String</dataType>
                     <fieldText>Other Request</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3401,6 +3556,7 @@
                     <dataType>String</dataType>
                     <fieldText>Case Number</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3418,6 +3574,7 @@
                     <dataType>String</dataType>
                     <fieldText>Invoice #</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -3442,6 +3599,7 @@
                     <dataType>String</dataType>
                     <fieldText>Invoice #</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3477,12 +3635,14 @@
                     <dataType>String</dataType>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>Tell_us_how_we_can_help_you_AccountingRequest</name>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3491,6 +3651,7 @@
                     <dataType>String</dataType>
                     <fieldText>NRC Billing for</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3508,6 +3669,7 @@
                     <dataType>String</dataType>
                     <fieldText>Other NRC Billing for</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3533,6 +3695,7 @@
                     <dataType>String</dataType>
                     <fieldText>Date Range</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -3563,7 +3726,7 @@
         <name>Contact_Error_Screen</name>
         <label>Create SR Error</label>
         <locationX>314</locationX>
-        <locationY>2030</locationY>
+        <locationY>2138</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -3583,8 +3746,8 @@
     <screens>
         <name>Contracts_Request_Info</name>
         <label>Contracts Request Info</label>
-        <locationX>2030</locationX>
-        <locationY>1406</locationY>
+        <locationX>2162</locationX>
+        <locationY>1514</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -3647,6 +3810,7 @@
                     <dataType>String</dataType>
                     <fieldText>Request Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3664,6 +3828,7 @@
                     <dataType>String</dataType>
                     <fieldText>Service Order Number</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3682,6 +3847,7 @@
                     <dataType>String</dataType>
                     <fieldText>Term</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3700,6 +3866,7 @@
                     <fieldText>Document Name</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Document that you&apos;re looking for.&lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3718,6 +3885,7 @@
                     <dataType>String</dataType>
                     <fieldText>Document Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3753,6 +3921,7 @@
                     <dataType>String</dataType>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3769,6 +3938,7 @@
                     <name>Tell_us_how_we_can_help_you_ContractsRequest</name>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -3776,6 +3946,7 @@
                     <dataType>String</dataType>
                     <fieldText>New Name</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3793,6 +3964,7 @@
                     <dataType>String</dataType>
                     <fieldText>Other Document Type</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -3822,8 +3994,8 @@
     <screens>
         <name>Cross_Connect_Request_Info</name>
         <label>Cross Connect Request Info</label>
-        <locationX>2294</locationX>
-        <locationY>1406</locationY>
+        <locationX>2426</locationX>
+        <locationY>1514</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -3896,6 +4068,7 @@
                     <fieldText>Billing Account Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <inputParameters>
@@ -3921,6 +4094,7 @@
                     <dataType>String</dataType>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -3932,12 +4106,14 @@
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <helpText>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;Urgent - Target Response to Ticket - 30 Minutes/ Technician to Begin work - 1 Hour&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;High - Target Response to Ticket - 1 Hour/ Technician to Begin work - 2 Hours&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 9px;&quot;&gt;Normal - Target Response to Ticket - 2 Hours/ Technician to Begin work - 24 Hours&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>Tell_us_how_we_can_help_you_CrossConnect</name>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <inputParameters>
@@ -4002,6 +4178,7 @@
                     <dataType>Date</dataType>
                     <fieldText>Order Date</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4009,6 +4186,7 @@
                     <dataType>String</dataType>
                     <fieldText>Requested Due</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -4027,6 +4205,7 @@
                     <dataType>Number</dataType>
                     <fieldText>Contract Term</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <scale>0</scale>
                 </fields>
@@ -4062,6 +4241,7 @@
                     <name>Ports_OrderInitiator</name>
                     <fieldText>Ports</fieldText>
                     <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -4069,6 +4249,7 @@
                     <dataType>String</dataType>
                     <fieldText>Tech Contact Name</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4076,6 +4257,7 @@
                     <dataType>String</dataType>
                     <fieldText>Cross Connect ID</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -4111,6 +4293,7 @@
                     <dataType>String</dataType>
                     <fieldText>Rack RU (MMR panel location)</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4119,6 +4302,7 @@
                     <dataType>String</dataType>
                     <fieldText>Connector Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4164,6 +4348,7 @@
                     <dataType>String</dataType>
                     <fieldText>Account Name</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -4171,6 +4356,7 @@
                     <dataType>String</dataType>
                     <fieldText>Rack RU (MMR panel location)</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4179,6 +4365,7 @@
                     <dataType>String</dataType>
                     <fieldText>Connector Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4218,6 +4405,7 @@
                     <dataType>String</dataType>
                     <fieldText>Site Location</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4225,6 +4413,7 @@
                     <dataType>String</dataType>
                     <fieldText>Ports</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -4232,6 +4421,7 @@
                     <dataType>String</dataType>
                     <fieldText>Tech Contact Name</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -4270,6 +4460,7 @@
             </defaultValue>
             <fieldText>I Accept</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <validationRule>
                 <errorMessage>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(211, 8, 8);&quot;&gt;To continue, please accept the conditions.&lt;/span&gt;&lt;/p&gt;</errorMessage>
@@ -4287,8 +4478,8 @@
     <screens>
         <name>Customer_Experience_Request_Info</name>
         <label>Customer Experience Request Info</label>
-        <locationX>2558</locationX>
-        <locationY>1406</locationY>
+        <locationX>2690</locationX>
+        <locationY>1514</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -4351,6 +4542,7 @@
                     <fieldText>Billing Account Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4401,6 +4593,7 @@
                     <dataType>String</dataType>
                     <fieldText>Service Order Number</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -4417,6 +4610,7 @@
                     <name>Services_to_Disconnect</name>
                     <fieldText>Services to Disconnect</fieldText>
                     <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -4435,6 +4629,7 @@
                     <dataType>String</dataType>
                     <fieldText>Disconnect Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -4453,6 +4648,7 @@
                     <dataType>String</dataType>
                     <fieldText>Type of Inventory</fieldText>
                     <fieldType>MultiSelectPicklist</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4470,6 +4666,7 @@
                     <dataType>Date</dataType>
                     <fieldText>When would you like the meeting?</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4487,6 +4684,7 @@
                     <dataType>Date</dataType>
                     <fieldText>When would you like the meeting?</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4522,12 +4720,14 @@
                     <dataType>String</dataType>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>Tell_us_how_we_can_help_you_CX</name>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -4535,6 +4735,7 @@
                     <dataType>String</dataType>
                     <fieldText>Related Service Order</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4552,6 +4753,7 @@
                     <dataType>DateTime</dataType>
                     <fieldText>Time of Issue</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4570,6 +4772,7 @@
                     <dataType>String</dataType>
                     <fieldText>Time Period Covered</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4587,6 +4790,7 @@
                     <dataType>Date</dataType>
                     <fieldText>Date of Disconnect</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4617,7 +4821,7 @@
         <name>Get_LOA_File</name>
         <label>Get LOA File</label>
         <locationX>2294</locationX>
-        <locationY>2030</locationY>
+        <locationY>2138</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -4634,6 +4838,7 @@
             <dataType>Boolean</dataType>
             <fieldText>LOA Attached</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <validationRule>
                 <errorMessage>&lt;p&gt;Please accept.&lt;/p&gt;</errorMessage>
@@ -4694,8 +4899,8 @@
     <screens>
         <name>GetRecordType</name>
         <label>Record Type</label>
-        <locationX>2690</locationX>
-        <locationY>242</locationY>
+        <locationX>2822</locationX>
+        <locationY>350</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -4708,12 +4913,58 @@
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
-            <name>ServiceRequestType</name>
-            <choiceReferences>ServiceRequestRecordTypes</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>SR Service</fieldText>
-            <fieldType>RadioButtons</fieldType>
+            <name>N1_Case_Record_Types</name>
+            <dataTypeMappings>
+                <typeName>T</typeName>
+                <typeValue>RecordType</typeValue>
+            </dataTypeMappings>
+            <extensionName>flowruntime:datatable</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Case Type Selection</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>selectionMode</name>
+                <value>
+                    <stringValue>SINGLE_SELECT</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>minRowSelection</name>
+                <value>
+                    <numberValue>1.0</numberValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>tableData</name>
+                <value>
+                    <elementReference>N1_GetCaseRecordTypes</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>columns</name>
+                <value>
+                    <stringValue>[{&quot;apiName&quot;:&quot;Name&quot;,&quot;guid&quot;:&quot;column-c518&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:true,&quot;customHeaderLabel&quot;:&quot;Case Type&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:0,&quot;label&quot;:&quot;Name&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;Description&quot;,&quot;guid&quot;:&quot;column-43c1&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:true,&quot;customHeaderLabel&quot;:&quot;Case Description&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:1,&quot;label&quot;:&quot;Description&quot;,&quot;type&quot;:&quot;text&quot;}]</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>maxRowSelection</name>
+                <value>
+                    <numberValue>1.0</numberValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>shouldDisplayLabel</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
@@ -4721,8 +4972,8 @@
     <screens>
         <name>Logistics_Request_Info</name>
         <label>Logistics Request Info</label>
-        <locationX>3086</locationX>
-        <locationY>1406</locationY>
+        <locationX>3218</locationX>
+        <locationY>1514</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -4812,6 +5063,7 @@
                     <fieldText>Billing Account Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
@@ -4820,6 +5072,7 @@
                     <dataType>String</dataType>
                     <fieldText>Delivery Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4828,6 +5081,7 @@
                     <dataType>String</dataType>
                     <fieldText>Shipping Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4836,6 +5090,7 @@
                     <fieldText>Quantity</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Total number of packages included in shipment, if multiple.&lt;/span&gt;&lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <scale>0</scale>
                 </fields>
@@ -4844,12 +5099,14 @@
                     <dataType>String</dataType>
                     <fieldText>Tracking Number</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
                     <name>Tell_us_how_we_can_help_you_Logistics</name>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <inputParameters>
@@ -4875,6 +5132,7 @@
                     <dataType>String</dataType>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4886,6 +5144,7 @@
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <helpText>&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Urgent - Target Response to Ticket - 30 Minutes/ Technician to Begin work - 1 Hour&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;High - Target Response to Ticket - 1 Hour/ Technician to Begin work - 2 Hours&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Normal - Target Response to Ticket - 2 Hours/ Technician to Begin work - 24 Hours&lt;/span&gt;&lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4893,6 +5152,7 @@
                     <dataType>Date</dataType>
                     <fieldText>Date</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4912,6 +5172,7 @@
                     <fieldText>Customer to Provide Liftgate</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <helpText>&lt;p&gt;Certain sites have restrictions on Pallet/ Freight, Cabinet deliveries , please provide additional information&lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -4937,6 +5198,7 @@
                     <dataType>String</dataType>
                     <fieldText>Courier</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -4944,6 +5206,7 @@
                     <dataType>String</dataType>
                     <fieldText>Other Courier</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4961,6 +5224,7 @@
                     <dataType>String</dataType>
                     <fieldText>Amazon Code</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -4979,6 +5243,7 @@
                     <dataType>String</dataType>
                     <fieldText>Expected Storage Duration</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -5014,6 +5279,7 @@
                     <dataType>String</dataType>
                     <fieldText>Current Location Onsite</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -5022,6 +5288,7 @@
                     <dataType>String</dataType>
                     <fieldText>Duration of time in Storage</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -5039,6 +5306,7 @@
                     <fieldText>Packaging notes</fieldText>
                     <fieldType>LargeTextArea</fieldType>
                     <helpText>&lt;p&gt;Additional fees may apply for packing materials.&lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -5067,6 +5335,7 @@
                     <dataType>String</dataType>
                     <fieldText>Other Location</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -5085,6 +5354,7 @@
                     <dataType>String</dataType>
                     <fieldText>Does this shipment require packaging prior to pick-up?</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -5092,6 +5362,7 @@
                     <dataType>DateTime</dataType>
                     <fieldText>Pickup Time</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <inputParameters>
@@ -5126,6 +5397,7 @@
                     <dataType>Boolean</dataType>
                     <fieldText>I Accept</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <validationRule>
                         <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(211, 8, 8);&quot;&gt;To continue, please accept the conditions.&lt;/span&gt;&lt;/p&gt;</errorMessage>
@@ -5152,10 +5424,107 @@
         <showHeader>false</showHeader>
     </screens>
     <screens>
+        <name>N1_Expansion_Request_Info</name>
+        <label>Expansion of Services Request Info</label>
+        <locationX>2954</locationX>
+        <locationY>1514</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Assign_Stage_2</targetReference>
+        </connector>
+        <fields>
+            <name>N1_ExpansionRequestTitle</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60); font-size: 20px;&quot;&gt;Service Request Information: Expansion of Services Request&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>N1_Service_Request_Information_EX</name>
+            <fieldText>Service Request Information</fieldText>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>N1_Service_Request_Information_EX_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>N1_Account_EX</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>primaryAccountForContact</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <fields>
+                    <name>N1_Site_EX</name>
+                    <choiceReferences>SiteChoiceSet</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Site</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.Type</objectFieldReference>
+                </fields>
+                <fields>
+                    <name>N1_Tell_us_how_we_can_help_you_EX</name>
+                    <fieldText>Tell us how we can help you</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithHeader</regionContainerType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
         <name>RHS_Request_Info</name>
         <label>RHS Request Info</label>
-        <locationX>3350</locationX>
-        <locationY>1406</locationY>
+        <locationX>3482</locationX>
+        <locationY>1514</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -5228,18 +5597,21 @@
                     <fieldText>Billing Account Number</fieldText>
                     <fieldType>InputField</fieldType>
                     <helpText>&lt;p&gt;Your billing Account number is located at top right of your invoice (which starts with &quot;M&quot;)&lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
                     <name>Related_Assets_RHS</name>
                     <fieldText>Related Assets</fieldText>
                     <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
                     <name>Requested_Actions_Required_RHS</name>
                     <fieldText>Requested Actions</fieldText>
                     <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -5263,6 +5635,7 @@
                     <name>Requested_Actions_Not_Required</name>
                     <fieldText>Requested Actions</fieldText>
                     <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -5280,6 +5653,7 @@
                     <dataType>String</dataType>
                     <fieldText>Equipment Installation ID</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -5322,6 +5696,7 @@
                     <dataType>String</dataType>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -5333,12 +5708,14 @@
                     <fieldText>Priority</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <helpText>&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Urgent - Target Response to Ticket - 30 Minutes/ Technician to Begin work - 1 Hour&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;High - Target Response to Ticket - 1 Hour/ Technician to Begin work - 2 Hours&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Normal - Target Response to Ticket - 2 Hours/ Technician to Begin work - 24 Hours&lt;/span&gt;&lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
                     <name>Tell_us_how_we_can_help_you_RHS</name>
                     <fieldText>Tell us how we can help you</fieldText>
                     <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                 </fields>
                 <fields>
@@ -5346,6 +5723,7 @@
                     <dataType>String</dataType>
                     <fieldText>Rack/Cage Location</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -5370,6 +5748,7 @@
                     <dataType>String</dataType>
                     <fieldText>Equipment ID</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -5394,6 +5773,7 @@
                     <dataType>String</dataType>
                     <fieldText>Relevant Package SR Number</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <visibilityRule>
                         <conditionLogic>or</conditionLogic>
@@ -5435,6 +5815,7 @@
                     <dataType>Boolean</dataType>
                     <fieldText>I Accept</fieldText>
                     <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <validationRule>
                         <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(211, 8, 8); background-color: rgb(255, 255, 255);&quot;&gt;To continue, please accept the conditions.&lt;/span&gt;&lt;/p&gt;</errorMessage>
@@ -5461,34 +5842,10 @@
         <showHeader>false</showHeader>
     </screens>
     <screens>
-        <name>Unsupported_SR_Error</name>
-        <label>Unsupported SR Error</label>
-        <locationX>2822</locationX>
-        <locationY>1406</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
-        <connector>
-            <targetReference>Assign_Stage_2</targetReference>
-        </connector>
-        <fields>
-            <name>Error_Unsupported_SR_Title</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;color: rgb(194, 57, 52); font-size: 20px;&quot;&gt;Unsupported Service Request&lt;/span&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <fields>
-            <name>Unsupported_Error_Desc</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;Please contact your Administrator for more information.&lt;/span&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
-    <screens>
         <name>Unsupported_SRType_Error</name>
         <label>Unsupported SR Error</label>
-        <locationX>5330</locationX>
-        <locationY>1922</locationY>
+        <locationX>5594</locationX>
+        <locationY>2030</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -5519,7 +5876,7 @@
         <stageOrder>10</stageOrder>
     </stages>
     <start>
-        <locationX>2564</locationX>
+        <locationX>2696</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Assign_Stage_1</targetReference>
@@ -5590,6 +5947,14 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <name>CaseRecordTypes</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>RecordType</objectType>
     </variables>
     <variables>
         <name>contact</name>
