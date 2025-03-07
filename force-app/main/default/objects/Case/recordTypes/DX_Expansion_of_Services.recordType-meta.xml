@@ -3,6 +3,7 @@
     <fullName>DX_Expansion_of_Services</fullName>
     <active>true</active>
     <businessProcess>PNS Service Request</businessProcess>
+    <description>Request additional Space, Power or Connectivity services.</description>
     <label>Expansion of Services</label>
     <picklistValues>
         <picklist>DX_Access_For__c</picklist>
