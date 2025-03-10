@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Equipment_Weight__c</fullName>
+    <description>Combined weight, in pounds, of all of the Equipment within this cabinet.</description>
+    <label>Equipment Weight (lbs)</label>
+    <summarizedField>Cabinet_Equipment__c.Weight_lbs__c</summarizedField>
+    <summaryForeignKey>Cabinet_Equipment__c.Cabinet__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>
