@@ -77,6 +77,11 @@
         <visible>true</visible>
     </applicationVisibilities>
     <description>Base-level access required for ALL Sales users.</description>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Building__c.Operations_Director__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Starter Pack: Sales</label>
     <license>Salesforce</license>

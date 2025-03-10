@@ -447,6 +447,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Building__c.Operations_Director__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Building__c.Payment_Instructions_ACH_Wire_Transfer__c</field>
         <readable>true</readable>
@@ -1454,11 +1459,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DC_Circuit_Breaker__c.Related_MRI_Suite_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>DC_Cross_Connect__c.Building__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

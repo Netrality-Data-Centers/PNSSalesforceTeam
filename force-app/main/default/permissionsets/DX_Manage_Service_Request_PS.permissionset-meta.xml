@@ -2155,11 +2155,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>DC_Cross_Connect__c.Building__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>DC_Cross_Connect__c.Circuit_Ref__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2176,6 +2171,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DC_Cross_Connect__c.Media_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DC_Cross_Connect__c.Tie_Cable_Path__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
