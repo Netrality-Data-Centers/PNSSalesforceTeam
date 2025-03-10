@@ -76,7 +76,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Update_Case_Owner_CHI</targetReference>
+                <targetReference>GetCHIBuildingRecord</targetReference>
             </connector>
             <label>CHI</label>
         </rules>
@@ -91,7 +91,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Update_Case_Owner_HOU</targetReference>
+                <targetReference>GetHOUBuildingRecord</targetReference>
             </connector>
             <label>HOU</label>
         </rules>
@@ -106,7 +106,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Update_Case_Owner_KC</targetReference>
+                <targetReference>GetKCBuildingRecord</targetReference>
             </connector>
             <label>KC</label>
         </rules>
@@ -121,7 +121,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Update_Case_Owner_PHI</targetReference>
+                <targetReference>GetPHIBuildingRecord</targetReference>
             </connector>
             <label>PHI</label>
         </rules>
@@ -136,7 +136,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Update_Case_Owner_STL</targetReference>
+                <targetReference>GetSTLBuildingRecord</targetReference>
             </connector>
             <label>STL</label>
         </rules>
@@ -151,7 +151,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Update_Case_Owner_IND</targetReference>
+                <targetReference>GetINDBuildingRecord</targetReference>
             </connector>
             <label>IND</label>
         </rules>
@@ -200,11 +200,137 @@
         <object>Case</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>GetCHIBuildingRecord</name>
+        <label>Get CHI Building Record</label>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Case_Owner_CHI</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Location__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>CHI</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Building__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>GetHOUBuildingRecord</name>
+        <label>Get HOU Building Record</label>
+        <locationX>314</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Case_Owner_HOU</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Location__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>HOU</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Building__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>GetINDBuildingRecord</name>
+        <label>Get IND Building Record</label>
+        <locationX>1370</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Case_Owner_IND</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Location__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>IND</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Building__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>GetKCBuildingRecord</name>
+        <label>Get KC Building Record</label>
+        <locationX>578</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Case_Owner_KC</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Location__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>KC</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Building__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>GetPHIBuildingRecord</name>
+        <label>Get PHI Building Record</label>
+        <locationX>842</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Case_Owner_PHI</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Location__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>PHI</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Building__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>GetSTLBuildingRecord</name>
+        <label>Get STL Building Record</label>
+        <locationX>1106</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Case_Owner_STL</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Location__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>STL</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Building__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>Update_Case_Owner_CHI</name>
         <label>Update Case Owner - CHI</label>
         <locationX>50</locationX>
-        <locationY>458</locationY>
+        <locationY>566</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -216,7 +342,7 @@
         <inputAssignments>
             <field>OwnerId</field>
             <value>
-                <stringValue>0053t00000AHZn8AAH</stringValue>
+                <elementReference>GetCHIBuildingRecord.Operations_Director__r.Id</elementReference>
             </value>
         </inputAssignments>
         <object>Case</object>
@@ -225,7 +351,7 @@
         <name>Update_Case_Owner_HOU</name>
         <label>Update Case Owner - HOU</label>
         <locationX>314</locationX>
-        <locationY>458</locationY>
+        <locationY>566</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -237,7 +363,7 @@
         <inputAssignments>
             <field>OwnerId</field>
             <value>
-                <stringValue>0053t000008GBwhAAG</stringValue>
+                <elementReference>GetHOUBuildingRecord.Operations_Director__r.Id</elementReference>
             </value>
         </inputAssignments>
         <object>Case</object>
@@ -246,7 +372,7 @@
         <name>Update_Case_Owner_IND</name>
         <label>Update Case Owner - IND</label>
         <locationX>1370</locationX>
-        <locationY>458</locationY>
+        <locationY>566</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -258,7 +384,7 @@
         <inputAssignments>
             <field>OwnerId</field>
             <value>
-                <stringValue>0053t000009DL9vAAG</stringValue>
+                <elementReference>GetINDBuildingRecord.Operations_Director__r.Id</elementReference>
             </value>
         </inputAssignments>
         <object>Case</object>
@@ -267,7 +393,7 @@
         <name>Update_Case_Owner_KC</name>
         <label>Update Case Owner - KC</label>
         <locationX>578</locationX>
-        <locationY>458</locationY>
+        <locationY>566</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -279,7 +405,7 @@
         <inputAssignments>
             <field>OwnerId</field>
             <value>
-                <stringValue>00538000005JAMyAAO</stringValue>
+                <elementReference>GetKCBuildingRecord.Operations_Director__r.Id</elementReference>
             </value>
         </inputAssignments>
         <object>Case</object>
@@ -288,7 +414,7 @@
         <name>Update_Case_Owner_PHI</name>
         <label>Update Case Owner - PHI</label>
         <locationX>842</locationX>
-        <locationY>458</locationY>
+        <locationY>566</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -300,7 +426,7 @@
         <inputAssignments>
             <field>OwnerId</field>
             <value>
-                <stringValue>0053t000008Dgd1AAC</stringValue>
+                <elementReference>GetPHIBuildingRecord.Operations_Director__r.Id</elementReference>
             </value>
         </inputAssignments>
         <object>Case</object>
@@ -309,7 +435,7 @@
         <name>Update_Case_Owner_STL</name>
         <label>Update Case Owner - STL</label>
         <locationX>1106</locationX>
-        <locationY>458</locationY>
+        <locationY>566</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -321,7 +447,7 @@
         <inputAssignments>
             <field>OwnerId</field>
             <value>
-                <stringValue>00538000005J00JAAS</stringValue>
+                <elementReference>GetSTLBuildingRecord.Operations_Director__r.Id</elementReference>
             </value>
         </inputAssignments>
         <object>Case</object>

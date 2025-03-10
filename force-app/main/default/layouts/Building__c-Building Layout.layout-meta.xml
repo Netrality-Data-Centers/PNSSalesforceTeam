@@ -27,6 +27,10 @@
                 <behavior>Readonly</behavior>
                 <field>Building_Address_No__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Operations_Director__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
