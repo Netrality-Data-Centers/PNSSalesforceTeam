@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>N1_Indy_Telcom__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates that this user can make service requests and see information related to their account at Indy Telcom Center.</description>
+    <inlineHelpText>Indicates that this user can make service requests and see information related to their account at Indy Telcom Center.</inlineHelpText>
+    <label>Indy Telcom Center</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>
