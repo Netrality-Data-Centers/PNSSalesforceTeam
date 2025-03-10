@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>N1_7801_Nieman_Road__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates that this user can make service requests and see information related to their account at 7801 Nieman Road.</description>
+    <inlineHelpText>Indicates that this user can make service requests and see information related to their account at 7801 Nieman Road.</inlineHelpText>
+    <label>7801 Nieman Road</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>
