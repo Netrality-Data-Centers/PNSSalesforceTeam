@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Provided_Cabinet__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checked indicates that customer provided this Cabinet chassis.</description>
+    <inlineHelpText>Checked indicates that customer provided this Cabinet chassis.</inlineHelpText>
+    <label>Customer Provided Cabinet</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>
