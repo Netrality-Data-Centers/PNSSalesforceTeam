@@ -3,6 +3,7 @@
     <fullName>DX_Logistics</fullName>
     <active>true</active>
     <businessProcess>PNS Service Request</businessProcess>
+    <description>Schedule inbound or outbound logistic requests to the Data Center.</description>
     <label>Logistics</label>
     <picklistValues>
         <picklist>DX_Access_For__c</picklist>

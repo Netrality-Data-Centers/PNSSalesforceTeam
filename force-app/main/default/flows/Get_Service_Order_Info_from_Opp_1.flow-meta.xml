@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <description>Creating without cloning sets some variable information on the service order when created.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>formula_ContractManager</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS({!$Record.Opportunity.Owner:User.Profile.Name }, &quot;Contract&quot;),{!$Record.Opportunity.OwnerId },{!$Record.Opportunity.Owner:User.Contract_Manager__c })</expression>
+    </formulas>
+    <formulas>
+        <name>formula_OpsApprover</name>
+        <dataType>String</dataType>
+        <expression>If(ISPICKVAL({!$Record.Opportunity.Location__c}, &quot;IND&quot;),
+                   CASE({!$Record.Opportunity.Building__c}, 
+                                    &quot;a003t000017YMyUAAW&quot;, &quot;0053t000009DL9vAAG&quot;, 
+                                    &quot;a003t00000zFj8eAAC&quot;, &quot;0053t000009DL9vAAG&quot;,
+                                    &quot;0053t000008zd4gAAA&quot;),
+                   CASE({!$Record.Opportunity.Location__c}, 
+                         &quot;CHI&quot;, &quot;0053t00000AHZn8AAH&quot;, 
+                         &quot;HOU&quot;, &quot;0053t000008GBwhAAG&quot;,
+                         &quot;KC&quot;, &quot;00538000005JAMyAAO&quot;, 
+                         &quot;PHI&quot;, &quot;0053t000008Dgd1AAC&quot;,
+                         &quot;STL&quot;, &quot;00538000005J00JAAS&quot;, 
+                         &quot;0053t000006rM9bAAE&quot;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_Term</name>
+        <dataType>String</dataType>
+        <expression>TEXT({!$Record.Opportunity.Term_months__c}) + &quot; months&quot;</expression>
+    </formulas>
+    <formulas>
+        <description>If member of the contracts team, it&apos;s Jeff, if not its the watermark approver field.</description>
+        <name>formula_WatermarkApprover</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Opportunity.Owner.Watermark_Approver__c}</expression>
+    </formulas>
+    <interviewLabel>Get Service Order Info from Opp {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Get Service Order Info from Opp</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>myRule_1_A1</name>
+        <label>Get Service Order Info from Opp</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <inputAssignments>
+            <field>Contract_Manager__c</field>
+            <value>
+                <elementReference>formula_ContractManager</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Customer_Entity_Name__c</field>
+            <value>
+                <elementReference>$Record.Account_Name__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>MLSA_Link__c</field>
+            <value>
+                <elementReference>$Record.Opportunity.MLSA_Link__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Notes__c</field>
+            <value>
+                <elementReference>$Record.Opportunity.Additional_Terms__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Operations_Approver__c</field>
+            <value>
+                <elementReference>$Record.Opportunity.Building__r.Operations_Director__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Pricing_Approver__c</field>
+            <value>
+                <elementReference>$Record.Owner:User.Pricing_Approver__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Watermark_Approver__c</field>
+            <value>
+                <elementReference>formula_WatermarkApprover</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>myRule_1_A1</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Cloned_from_Quote_Id__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Quote</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <triggerOrder>200</triggerOrder>
+</Flow>
