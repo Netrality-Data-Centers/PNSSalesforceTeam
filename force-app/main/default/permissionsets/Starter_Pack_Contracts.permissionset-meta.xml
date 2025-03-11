@@ -127,6 +127,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>Starter Pack: Contracts</label>
+    <label>Starter Pack: Contracts (Old)</label>
     <license>Salesforce</license>
 </PermissionSet>
