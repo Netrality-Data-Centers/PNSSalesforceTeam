@@ -75,6 +75,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>Starter Pack: Project Management</label>
+    <label>Starter Pack: Project Management (old)</label>
     <license>Salesforce</license>
 </PermissionSet>
