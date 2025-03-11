@@ -45,15 +45,7 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__AdvancedTherapyManagement</application>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__AllTabSet</application>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__AnypointPlatform</application>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -66,14 +58,6 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__Chatter</application>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Commerce</application>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__DataAssessment</application>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -94,10 +78,6 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__Insights</application>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningInstrumentation</application>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -125,23 +105,11 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__PublicSectorInspectionManagement</application>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__Sales</application>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__SalesCloudMobile</application>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__Service</application>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__TrustCard</application>
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
