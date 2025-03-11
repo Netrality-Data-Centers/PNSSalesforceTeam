@@ -83,6 +83,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>Starter Pack: Sales</label>
+    <label>Starter Pack: Sales (Old)</label>
     <license>Salesforce</license>
 </PermissionSet>
