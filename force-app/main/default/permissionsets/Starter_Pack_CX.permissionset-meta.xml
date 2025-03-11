@@ -67,6 +67,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>Starter Pack: CX</label>
+    <label>Starter Pack: CX (Old)</label>
     <license>Salesforce</license>
 </PermissionSet>
