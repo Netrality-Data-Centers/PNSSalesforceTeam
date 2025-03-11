@@ -111,6 +111,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>Starter Pack: Accounting</label>
+    <label>Starter Pack: Accounting (Old)</label>
     <license>Salesforce</license>
 </PermissionSet>
