@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cabinet_Type__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <inlineHelpText>Select the cabinet type from available list to populate dimensions for this Cabinet.</inlineHelpText>
+    <label>Cabinet Type</label>
+    <referenceTo>Cabinet_Type__c</referenceTo>
+    <relationshipLabel>Cabinets</relationshipLabel>
+    <relationshipName>Cabinets</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>
