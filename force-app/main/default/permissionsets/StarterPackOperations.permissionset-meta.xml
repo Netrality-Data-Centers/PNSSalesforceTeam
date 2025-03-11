@@ -33,23 +33,7 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__AnypointPlatform</application>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__Approvals</application>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Commerce</application>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__ContactCenter</application>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__CrisisCenter</application>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -78,18 +62,6 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__Optimizer</application>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__PublicSectorInspectionManagement</application>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__SalesCloudMobile</application>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__TrustCard</application>
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
