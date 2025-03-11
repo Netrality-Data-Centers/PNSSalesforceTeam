@@ -33,10 +33,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__ContactCenter</application>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__DataGovernanceConsole</application>
         <visible>true</visible>
     </applicationVisibilities>
