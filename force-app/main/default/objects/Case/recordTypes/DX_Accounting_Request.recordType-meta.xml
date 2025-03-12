@@ -3,6 +3,7 @@
     <fullName>DX_Accounting_Request</fullName>
     <active>true</active>
     <businessProcess>PNS Service Request</businessProcess>
+    <description>Billing, Invoice, W9 and other Accounting requests.</description>
     <label>Accounting Request</label>
     <picklistValues>
         <picklist>DX_Access_For__c</picklist>
