@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Provides user the ability to make requests for 210 N Tucker.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Site Access: 210 N Tucker</label>
+    <license>Customer Community Login</license>
+</PermissionSet>
