@@ -286,8 +286,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.N1_1301_Fannin__c</fieldItem>
-                <identifier>RecordN1_1301_Fannin_cField</identifier>
+                <fieldItem>Record.N1_7801_Nieman_Road__c</fieldItem>
+                <identifier>RecordN1_7801_Nieman_Road_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -306,14 +306,34 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.N1_401_N_Broad__c</fieldItem>
-                <identifier>RecordN1_401_N_Broad_cField</identifier>
+                <fieldItem>Record.N1_900_Walnut__c</fieldItem>
+                <identifier>RecordN1_900_Walnut_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.N1_1301_Fannin__c</fieldItem>
+                <identifier>RecordN1_1301_Fannin_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-9286ca17-98d9-4897-8a60-fad4f3dc33f1</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.N1_401_N_Broad__c</fieldItem>
+                <identifier>RecordN1_401_N_Broad_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
@@ -330,28 +350,18 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.N1_7801_Nieman_Road__c</fieldItem>
-                <identifier>RecordN1_7801_Nieman_Road_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.N1_900_Walnut__c</fieldItem>
-                <identifier>RecordN1_900_Walnut_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.N1_Indy_Telcom__c</fieldItem>
+                <fieldItem>Record.N1_701_W_Henry__c</fieldItem>
                 <identifier>RecordN1_Indy_Telcom_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.X733_W_Henry__c</fieldItem>
+                <identifier>RecordX733_W_Henry_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-8f2b1945-55f5-4054-a4d4-7603008fbe6f</name>
