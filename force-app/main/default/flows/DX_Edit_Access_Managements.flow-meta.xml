@@ -311,7 +311,7 @@
                     <fieldType>ObjectProvided</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
-                    <objectFieldReference>Get_Access_Records.N1_Indy_Telcom__c</objectFieldReference>
+                    <objectFieldReference>Get_Access_Records.N1_701_W_Henry__c</objectFieldReference>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -397,7 +397,7 @@
             <targetReference>Get_Access_Records</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>recordIdToFlow</name>
         <dataType>String</dataType>
