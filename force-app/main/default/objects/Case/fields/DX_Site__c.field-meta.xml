@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>DX_Site__c</fullName>
-    <externalId>false</externalId>
     <label>Site</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
@@ -13,49 +12,49 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Chicago</fullName>
+                <fullName>1102 Grand</fullName>
                 <default>false</default>
-                <label>Chicago</label>
+                <label>1102 Grand</label>
             </value>
             <value>
-                <fullName>Houston</fullName>
+                <fullName>7801 Nieman Road</fullName>
                 <default>false</default>
-                <label>Houston</label>
+                <label>7801 Nieman Road</label>
             </value>
             <value>
-                <fullName>Indianapolis</fullName>
+                <fullName>210 N Tucker</fullName>
                 <default>false</default>
-                <label>Indianapolis</label>
+                <label>210 N Tucker</label>
             </value>
             <value>
-                <fullName>Indy 733</fullName>
+                <fullName>900 Walnut</fullName>
                 <default>false</default>
-                <label>Indy 733</label>
+                <label>900 Walnut</label>
             </value>
             <value>
-                <fullName>Kansas City</fullName>
+                <fullName>1301 Fannin</fullName>
                 <default>false</default>
-                <label>Kansas City</label>
+                <label>1301 Fannin</label>
             </value>
             <value>
-                <fullName>KS7801</fullName>
+                <fullName>401 N Broad</fullName>
                 <default>false</default>
-                <label>KS7801</label>
+                <label>401 N Broad</label>
             </value>
             <value>
-                <fullName>Philadelphia</fullName>
+                <fullName>717 S Wells</fullName>
                 <default>false</default>
-                <label>Philadelphia</label>
+                <label>717 S Wells</label>
             </value>
             <value>
-                <fullName>STL210</fullName>
+                <fullName>701 W Henry</fullName>
                 <default>false</default>
-                <label>STL210</label>
+                <label>701 W Henry</label>
             </value>
             <value>
-                <fullName>STL900</fullName>
+                <fullName>733 W Henry</fullName>
                 <default>false</default>
-                <label>STL900</label>
+                <label>733 W Henry</label>
             </value>
         </valueSetDefinition>
     </valueSet>

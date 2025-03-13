@@ -8,6 +8,6 @@
     </values>
     <values>
         <field>Site__c</field>
-        <value xsi:type="xsd:string">Kansas City</value>
+        <value xsi:type="xsd:string">1102 Grand</value>
     </values>
 </CustomMetadata>
