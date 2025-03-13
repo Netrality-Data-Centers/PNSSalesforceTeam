@@ -3,8 +3,8 @@
     <actionCalls>
         <name>redirect_to_view_SR_Details</name>
         <label>redirect to view SR Details</label>
-        <locationX>2690</locationX>
-        <locationY>2894</locationY>
+        <locationX>2822</locationX>
+        <locationY>3218</locationY>
         <actionName>c:fsc_openUrl</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -29,7 +29,7 @@
         <name>Assign_File_Count</name>
         <label>Assign File Count</label>
         <locationX>2294</locationX>
-        <locationY>2138</locationY>
+        <locationY>2462</locationY>
         <assignmentItems>
             <assignToReference>FileCount</assignToReference>
             <operator>AssignCount</operator>
@@ -60,8 +60,8 @@
     <assignments>
         <name>Assign_Stage_2</name>
         <label>Assign Stage 2</label>
-        <locationX>2690</locationX>
-        <locationY>1598</locationY>
+        <locationX>2822</locationX>
+        <locationY>1922</locationY>
         <assignmentItems>
             <assignToReference>$Flow.CurrentStage</assignToReference>
             <operator>Assign</operator>
@@ -76,8 +76,8 @@
     <assignments>
         <name>Set_Account_Id</name>
         <label>Set Account Id</label>
-        <locationX>2778</locationX>
-        <locationY>998</locationY>
+        <locationX>2910</locationX>
+        <locationY>1322</locationY>
         <assignmentItems>
             <assignToReference>AccountIdList</assignToReference>
             <operator>Add</operator>
@@ -92,8 +92,8 @@
     <assignments>
         <name>Set_Contact_on_SR</name>
         <label>Set Contact on SR</label>
-        <locationX>2690</locationX>
-        <locationY>1706</locationY>
+        <locationX>2822</locationX>
+        <locationY>2030</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.ContactId</assignToReference>
             <operator>Assign</operator>
@@ -109,7 +109,7 @@
         <name>Set_LOA_Attached_Value</name>
         <label>Set LOA Attached Value</label>
         <locationX>2426</locationX>
-        <locationY>2354</locationY>
+        <locationY>2678</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_LOA_Attached__c</assignToReference>
             <operator>Assign</operator>
@@ -124,8 +124,8 @@
     <assignments>
         <name>Set_RA_Not_Required</name>
         <label>Set RA Not Required</label>
-        <locationX>4802</locationX>
-        <locationY>2030</locationY>
+        <locationX>5066</locationX>
+        <locationY>2354</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_Requested_Actions__c</assignToReference>
             <operator>Assign</operator>
@@ -140,8 +140,8 @@
     <assignments>
         <name>Set_RA_Required</name>
         <label>Set RA Required</label>
-        <locationX>4538</locationX>
-        <locationY>2030</locationY>
+        <locationX>4802</locationX>
+        <locationY>2354</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_Requested_Actions__c</assignToReference>
             <operator>Assign</operator>
@@ -173,7 +173,7 @@
         <name>Set_WhenWouldNotRequired</name>
         <label>Set WhenWouldNotRequired</label>
         <locationX>3482</locationX>
-        <locationY>2030</locationY>
+        <locationY>2354</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_When_would_you_like_the_meeting__c</assignToReference>
             <operator>Assign</operator>
@@ -189,7 +189,7 @@
         <name>Set_WhenWouldRequired</name>
         <label>Set WhenWouldRequired</label>
         <locationX>3218</locationX>
-        <locationY>2030</locationY>
+        <locationY>2354</locationY>
         <assignmentItems>
             <assignToReference>TempCaseVar.DX_When_would_you_like_the_meeting__c</assignToReference>
             <operator>Assign</operator>
@@ -199,6 +199,22 @@
         </assignmentItems>
         <connector>
             <targetReference>Create_CX_SR</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Site_Access_Assignment</name>
+        <label>Site Access Assignment</label>
+        <locationX>2822</locationX>
+        <locationY>890</locationY>
+        <assignmentItems>
+            <assignToReference>SiteAccessCollection</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>GetSiteAccess.AvailableSites</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Primary_Account_for_Contact</targetReference>
         </connector>
     </assignments>
     <choices>
@@ -218,19 +234,16 @@
         </value>
     </choices>
     <choices>
+        <name>AvailableSitesChoice</name>
+        <choiceText>{!GetSiteAccess.AvailableSites}</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
         <name>Expected_Storage_Duration</name>
         <choiceText>Expected Storage Duration</choiceText>
         <dataType>String</dataType>
         <value>
             <stringValue>Expected Storage Duration</stringValue>
-        </value>
-    </choices>
-    <choices>
-        <name>PhysicalSiteAccess</name>
-        <choiceText>{!SRSUBTYPE_PHYSICALSITEACCESS}</choiceText>
-        <dataType>String</dataType>
-        <value>
-            <elementReference>SelectedSRSubtype</elementReference>
         </value>
     </choices>
     <choices>
@@ -291,8 +304,8 @@
     <decisions>
         <name>Case_Type</name>
         <label>Case Type?</label>
-        <locationX>2690</locationX>
-        <locationY>1814</locationY>
+        <locationX>2822</locationX>
+        <locationY>2138</locationY>
         <defaultConnector>
             <targetReference>Unsupported_SRType_Error</targetReference>
         </defaultConnector>
@@ -561,12 +574,8 @@
     <decisions>
         <name>Record_Type</name>
         <label>Record Type?</label>
-        <locationX>2690</locationX>
-        <locationY>1298</locationY>
-        <defaultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Unsupported_SR_Error</targetReference>
-        </defaultConnector>
+        <locationX>2822</locationX>
+        <locationY>1622</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Access_Request</name>
@@ -708,8 +717,8 @@
     <decisions>
         <name>Requested_Actions_Required</name>
         <label>Requested Actions Required?</label>
-        <locationX>4670</locationX>
-        <locationY>1922</locationY>
+        <locationX>4934</locationX>
+        <locationY>2246</locationY>
         <defaultConnector>
             <targetReference>Set_RA_Not_Required</targetReference>
         </defaultConnector>
@@ -734,7 +743,7 @@
         <name>When_Would_you_like_meeting_Required</name>
         <label>When Would you like meeting Required?</label>
         <locationX>3350</locationX>
-        <locationY>1922</locationY>
+        <locationY>2246</locationY>
         <defaultConnector>
             <targetReference>Set_WhenWouldNotRequired</targetReference>
         </defaultConnector>
@@ -759,7 +768,7 @@
         <name>Where_Files_Uploaded</name>
         <label>Where Files Uploaded?</label>
         <locationX>2294</locationX>
-        <locationY>2246</locationY>
+        <locationY>2570</locationY>
         <defaultConnector>
             <targetReference>Set_LOA_Attached_Value</targetReference>
         </defaultConnector>
@@ -1322,8 +1331,8 @@
     <loops>
         <name>Save_AccountIds</name>
         <label>Save AccountIds</label>
-        <locationX>2690</locationX>
-        <locationY>890</locationY>
+        <locationX>2822</locationX>
+        <locationY>1214</locationY>
         <collectionReference>Get_AccountContactRelationships</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -1350,7 +1359,7 @@
         <name>Create_AR_ServiceRequest</name>
         <label>Create AR ServiceRequest</label>
         <locationX>1106</locationX>
-        <locationY>1922</locationY>
+        <locationY>2246</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -1461,7 +1470,7 @@
         <name>Create_ARU</name>
         <label>Create ARU</label>
         <locationX>578</locationX>
-        <locationY>1922</locationY>
+        <locationY>2246</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -1563,7 +1572,7 @@
         <inputAssignments>
             <field>DX_Site__c</field>
             <value>
-                <elementReference>Site_AccessRequest</elementReference>
+                <elementReference>SiteQuickChoiceAccess.selectedLabel</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1596,7 +1605,7 @@
         <name>Create_CR_Service_Request</name>
         <label>Create CR Service Request</label>
         <locationX>1634</locationX>
-        <locationY>1922</locationY>
+        <locationY>2246</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -1695,7 +1704,7 @@
         <name>Create_Cross_Connect</name>
         <label>Create Cross Connect</label>
         <locationX>2294</locationX>
-        <locationY>1922</locationY>
+        <locationY>2246</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Get_LOA_File</targetReference>
@@ -1833,7 +1842,7 @@
         <inputAssignments>
             <field>DX_Site__c</field>
             <value>
-                <elementReference>Site_CrossConnectSR</elementReference>
+                <elementReference>SiteQuickChoiceXC.selectedLabel</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1890,7 +1899,7 @@
         <name>Create_CX_SR</name>
         <label>Create CX SR</label>
         <locationX>3350</locationX>
-        <locationY>2222</locationY>
+        <locationY>2546</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -2012,8 +2021,8 @@
     <recordCreates>
         <name>Create_Logistics</name>
         <label>Create Logistics</label>
-        <locationX>4010</locationX>
-        <locationY>1922</locationY>
+        <locationX>4274</locationX>
+        <locationY>2246</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -2145,7 +2154,7 @@
         <inputAssignments>
             <field>DX_Site__c</field>
             <value>
-                <elementReference>Site_Logistics</elementReference>
+                <elementReference>SiteQuickChoiceLog.selectedLabel</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2184,7 +2193,7 @@
         <name>Create_PSA</name>
         <label>Create PSA</label>
         <locationX>50</locationX>
-        <locationY>1922</locationY>
+        <locationY>2246</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -2200,9 +2209,6 @@
         </inputAssignments>
         <inputAssignments>
             <field>ContactId</field>
-            <value>
-                <elementReference>curContact.Id</elementReference>
-            </value>
         </inputAssignments>
         <inputAssignments>
             <field>DX_Access_For__c</field>
@@ -2285,7 +2291,7 @@
         <inputAssignments>
             <field>DX_Site__c</field>
             <value>
-                <elementReference>Site_AccessRequest</elementReference>
+                <elementReference>SiteQuickChoiceAccess.selectedLabel</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2341,8 +2347,8 @@
     <recordCreates>
         <name>Create_RHS</name>
         <label>Create RHS</label>
-        <locationX>4670</locationX>
-        <locationY>2222</locationY>
+        <locationX>4934</locationX>
+        <locationY>2546</locationY>
         <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
         <connector>
             <targetReference>Case_Lookup</targetReference>
@@ -2426,7 +2432,7 @@
         <inputAssignments>
             <field>DX_Site__c</field>
             <value>
-                <elementReference>Site_RHS</elementReference>
+                <elementReference>SiteQuickChoiceRH.selectedLabel</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2455,11 +2461,64 @@
         </inputAssignments>
         <object>Case</object>
     </recordCreates>
+    <recordCreates>
+        <name>N1_of_Create_EX_SR</name>
+        <label>Create EX SR</label>
+        <locationX>4010</locationX>
+        <locationY>2246</locationY>
+        <assignRecordIdToReference>CreatedCaseId</assignRecordIdToReference>
+        <connector>
+            <targetReference>Case_Lookup</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>N1_Account_EX.recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ContactId</field>
+            <value>
+                <elementReference>curContact.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DX_How_Help_You__c</field>
+            <value>
+                <elementReference>Tell_us_how_we_can_help_you_CX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DX_Site__c</field>
+            <value>
+                <elementReference>N1_Site_EX</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>TempCaseVar.RecordTypeId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type</field>
+            <value>
+                <elementReference>TempCaseVar.Type</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordCreates>
     <recordLookups>
         <name>Case_Lookup</name>
         <label>Case Lookup</label>
-        <locationX>2690</locationX>
-        <locationY>2786</locationY>
+        <locationX>2822</locationX>
+        <locationY>3110</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>redirect_to_view_SR_Details</targetReference>
@@ -2489,7 +2548,7 @@
         <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Get_Primary_Account_for_Contact</targetReference>
+            <targetReference>GetSiteAccess</targetReference>
         </connector>
         <faultConnector>
             <isGoTo>true</isGoTo>
@@ -2512,8 +2571,8 @@
     <recordLookups>
         <name>Get_AccountContactRelationships</name>
         <label>Get AccountContactRelationships</label>
-        <locationX>2690</locationX>
-        <locationY>782</locationY>
+        <locationX>2822</locationX>
+        <locationY>1106</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Save_AccountIds</targetReference>
@@ -2533,8 +2592,8 @@
     <recordLookups>
         <name>Get_Primary_Account_for_Contact</name>
         <label>Get Primary Account for Contact</label>
-        <locationX>2690</locationX>
-        <locationY>674</locationY>
+        <locationX>2822</locationX>
+        <locationY>998</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_AccountContactRelationships</targetReference>
@@ -2588,8 +2647,8 @@
     <recordLookups>
         <name>Get_Related_Accounts_for_Contact</name>
         <label>Get Related Accounts for Contact</label>
-        <locationX>2690</locationX>
-        <locationY>1190</locationY>
+        <locationX>2822</locationX>
+        <locationY>1514</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Record_Type</targetReference>
@@ -2610,7 +2669,7 @@
         <name>Update_LOA_Attached_Field</name>
         <label>Update LOA Attached Field</label>
         <locationX>2426</locationX>
-        <locationY>2462</locationY>
+        <locationY>2786</locationY>
         <connector>
             <targetReference>Case_Lookup</targetReference>
         </connector>
@@ -2637,8 +2696,8 @@
     <screens>
         <name>Access_Request_Info</name>
         <label>Access Request Info</label>
-        <locationX>1502</locationX>
-        <locationY>1406</locationY>
+        <locationX>1634</locationX>
+        <locationY>1730</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2714,11 +2773,55 @@
                 </fields>
                 <fields>
                     <name>Site_AccessRequest</name>
-                    <choiceReferences>SiteChoiceSet</choiceReferences>
+                    <choiceReferences>AvailableSitesChoice</choiceReferences>
                     <dataType>String</dataType>
                     <fieldText>Site</fieldText>
                     <fieldType>DropdownBox</fieldType>
                     <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>SiteQuickChoiceAccess</name>
+                    <extensionName>c:fsc_quickChoiceFSC</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>displayMode</name>
+                        <value>
+                            <stringValue>Picklist</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>inputMode</name>
+                        <value>
+                            <stringValue>Dual String Collections</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>choiceValues</name>
+                        <value>
+                            <elementReference>SiteAccessCollection</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>masterLabel</name>
+                        <value>
+                            <stringValue>Site</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>choiceLabels</name>
+                        <value>
+                            <elementReference>SiteAccessCollection</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -3282,8 +3385,8 @@
     <screens>
         <name>Accounting_Request_Info</name>
         <label>Accounting Request Info</label>
-        <locationX>1766</locationX>
-        <locationY>1406</locationY>
+        <locationX>1898</locationX>
+        <locationY>1730</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -3563,7 +3666,7 @@
         <name>Contact_Error_Screen</name>
         <label>Create SR Error</label>
         <locationX>314</locationX>
-        <locationY>2030</locationY>
+        <locationY>2354</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -3583,8 +3686,8 @@
     <screens>
         <name>Contracts_Request_Info</name>
         <label>Contracts Request Info</label>
-        <locationX>2030</locationX>
-        <locationY>1406</locationY>
+        <locationX>2162</locationX>
+        <locationY>1730</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -3822,8 +3925,8 @@
     <screens>
         <name>Cross_Connect_Request_Info</name>
         <label>Cross Connect Request Info</label>
-        <locationX>2294</locationX>
-        <locationY>1406</locationY>
+        <locationX>2426</locationX>
+        <locationY>1730</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -3916,12 +4019,48 @@
                     <objectFieldReference>TempCaseVar.Type</objectFieldReference>
                 </fields>
                 <fields>
-                    <name>Site_CrossConnectSR</name>
-                    <choiceReferences>SiteChoiceSet</choiceReferences>
-                    <dataType>String</dataType>
-                    <fieldText>Site</fieldText>
-                    <fieldType>DropdownBox</fieldType>
+                    <name>SiteQuickChoiceXC</name>
+                    <extensionName>c:fsc_quickChoiceFSC</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>displayMode</name>
+                        <value>
+                            <stringValue>Picklist</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>inputMode</name>
+                        <value>
+                            <stringValue>Dual String Collections</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>choiceLabels</name>
+                        <value>
+                            <elementReference>SiteAccessCollection</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>choiceValues</name>
+                        <value>
+                            <elementReference>SiteAccessCollection</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>masterLabel</name>
+                        <value>
+                            <stringValue>Site</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
                     <name>Priority_CrossConnectSR</name>
@@ -4287,8 +4426,8 @@
     <screens>
         <name>Customer_Experience_Request_Info</name>
         <label>Customer Experience Request Info</label>
-        <locationX>2558</locationX>
-        <locationY>1406</locationY>
+        <locationX>2690</locationX>
+        <locationY>1730</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -4617,7 +4756,7 @@
         <name>Get_LOA_File</name>
         <label>Get LOA File</label>
         <locationX>2294</locationX>
-        <locationY>2030</locationY>
+        <locationY>2354</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -4721,8 +4860,8 @@
     <screens>
         <name>Logistics_Request_Info</name>
         <label>Logistics Request Info</label>
-        <locationX>3086</locationX>
-        <locationY>1406</locationY>
+        <locationX>3218</locationX>
+        <locationY>1730</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -4870,12 +5009,48 @@
                     <objectFieldReference>TempCaseVar.Type</objectFieldReference>
                 </fields>
                 <fields>
-                    <name>Site_Logistics</name>
-                    <choiceReferences>SiteChoiceSet</choiceReferences>
-                    <dataType>String</dataType>
-                    <fieldText>Site</fieldText>
-                    <fieldType>DropdownBox</fieldType>
+                    <name>SiteQuickChoiceLog</name>
+                    <extensionName>c:fsc_quickChoiceFSC</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>displayMode</name>
+                        <value>
+                            <stringValue>Picklist</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>inputMode</name>
+                        <value>
+                            <stringValue>Dual String Collections</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>choiceLabels</name>
+                        <value>
+                            <elementReference>SiteAccessCollection</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>choiceValues</name>
+                        <value>
+                            <elementReference>SiteAccessCollection</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>masterLabel</name>
+                        <value>
+                            <stringValue>Site</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
                     <name>Priority_Logistics</name>
@@ -5152,10 +5327,107 @@
         <showHeader>false</showHeader>
     </screens>
     <screens>
+        <name>N1_Expansion_Request_Info</name>
+        <label>Expansion of Services Request Info</label>
+        <locationX>2954</locationX>
+        <locationY>1730</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Assign_Stage_2</targetReference>
+        </connector>
+        <fields>
+            <name>N1_ExpansionRequestTitle</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60); font-size: 20px;&quot;&gt;Service Request Information: Expansion of Services Request&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>N1_Service_Request_Information_EX</name>
+            <fieldText>Service Request Information</fieldText>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>N1_Service_Request_Information_EX_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>N1_Account_EX</name>
+                    <extensionName>flowruntime:lookup</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldApiName</name>
+                        <value>
+                            <stringValue>AccountId</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Account Name</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>objectApiName</name>
+                        <value>
+                            <stringValue>Case</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>primaryAccountForContact</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                </fields>
+                <fields>
+                    <name>N1_Site_EX</name>
+                    <choiceReferences>SiteChoiceSet</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Site</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <fieldType>ObjectProvided</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <objectFieldReference>TempCaseVar.Type</objectFieldReference>
+                </fields>
+                <fields>
+                    <name>N1_Tell_us_how_we_can_help_you_EX</name>
+                    <fieldText>Tell us how we can help you</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithHeader</regionContainerType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
         <name>RHS_Request_Info</name>
         <label>RHS Request Info</label>
-        <locationX>3350</locationX>
-        <locationY>1406</locationY>
+        <locationX>3482</locationX>
+        <locationY>1730</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -5317,12 +5589,48 @@
                     <objectFieldReference>TempCaseVar.Type</objectFieldReference>
                 </fields>
                 <fields>
-                    <name>Site_RHS</name>
-                    <choiceReferences>SiteChoiceSet</choiceReferences>
-                    <dataType>String</dataType>
-                    <fieldText>Site</fieldText>
-                    <fieldType>DropdownBox</fieldType>
+                    <name>SiteQuickChoiceRH</name>
+                    <extensionName>c:fsc_quickChoiceFSC</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>required</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>inputMode</name>
+                        <value>
+                            <stringValue>Dual String Collections</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>displayMode</name>
+                        <value>
+                            <stringValue>Picklist</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>choiceLabels</name>
+                        <value>
+                            <elementReference>SiteAccessCollection</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>choiceValues</name>
+                        <value>
+                            <elementReference>SiteAccessCollection</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>masterLabel</name>
+                        <value>
+                            <stringValue>Site</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <fields>
                     <name>Priority_RHS</name>
@@ -5487,8 +5795,8 @@
     <screens>
         <name>Unsupported_SRType_Error</name>
         <label>Unsupported SR Error</label>
-        <locationX>5330</locationX>
-        <locationY>1922</locationY>
+        <locationX>5594</locationX>
+        <locationY>2246</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -5526,6 +5834,23 @@
         </connector>
     </start>
     <status>Active</status>
+    <subflows>
+        <name>GetSiteAccess</name>
+        <label>GetSiteAccess</label>
+        <locationX>2822</locationX>
+        <locationY>782</locationY>
+        <connector>
+            <targetReference>Site_Access_Assignment</targetReference>
+        </connector>
+        <flowName>N1_Get_Site_Access_Permissions</flowName>
+        <inputAssignments>
+            <name>UserText</name>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
     <textTemplates>
         <name>Case_Created_Script_Template</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
@@ -5630,6 +5955,22 @@
         <objectType>Contact</objectType>
     </variables>
     <variables>
+        <name>currentItem_Collection_Filter_1</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>PermissionSetAssignment</objectType>
+    </variables>
+    <variables>
+        <name>currentItem_Collection_Filter_1_0</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>PermissionSetAssignment</objectType>
+    </variables>
+    <variables>
         <name>FileCount</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
@@ -5667,6 +6008,20 @@
     </variables>
     <variables>
         <name>SelectedSRSubtype</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>SiteAccessCollection</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>SiteChoiceString</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>

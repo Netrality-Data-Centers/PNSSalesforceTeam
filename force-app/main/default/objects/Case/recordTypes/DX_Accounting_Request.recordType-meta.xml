@@ -3,6 +3,8 @@
     <fullName>DX_Accounting_Request</fullName>
     <active>true</active>
     <businessProcess>PNS Service Request</businessProcess>
+    <compactLayoutAssignment>Case_Compact_Layout</compactLayoutAssignment>
+    <description>Billing, Invoice, W9 and other Accounting requests.</description>
     <label>Accounting Request</label>
     <picklistValues>
         <picklist>DX_Access_For__c</picklist>
@@ -399,39 +401,35 @@
     <picklistValues>
         <picklist>DX_Site__c</picklist>
         <values>
-            <fullName>Chicago</fullName>
+            <fullName>1102 Grand</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Houston</fullName>
+            <fullName>1301 Fannin</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Indianapolis</fullName>
+            <fullName>210 N Tucker</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Indy 733</fullName>
+            <fullName>401 N Broad</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>KS7801</fullName>
+            <fullName>701 W Henry</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Kansas City</fullName>
+            <fullName>717 S Wells</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Philadelphia</fullName>
+            <fullName>7801 Nieman Road</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>STL210</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>STL900</fullName>
+            <fullName>900 Walnut</fullName>
             <default>false</default>
         </values>
     </picklistValues>
