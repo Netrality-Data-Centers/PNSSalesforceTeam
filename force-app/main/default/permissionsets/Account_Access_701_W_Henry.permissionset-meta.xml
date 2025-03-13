@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Allows the admin of the account to give users rights at Indy Telcom.</description>
+    <description>Allows the admin of the account to give users rights at 701 W Henry.</description>
     <fieldPermissions>
         <editable>true</editable>
-        <field>DX_Access_Managment__c.N1_Indy_Telcom__c</field>
+        <field>DX_Access_Managment__c.N1_701_W_Henry__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>Account Access: Indy Telcom</label>
+    <label>Account Access: 701 W Henry</label>
     <license>Customer Community Login</license>
     <objectPermissions>
         <allowCreate>false</allowCreate>
