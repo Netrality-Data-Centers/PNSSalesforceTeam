@@ -13,7 +13,7 @@
         <description>Experience Cloud: Status Update</description>
         <protected>false</protected>
         <recipients>
-            <field>DX_Contact__c</field>
+            <field>ContactId</field>
             <type>contactLookup</type>
         </recipients>
         <senderType>CurrentUser</senderType>
