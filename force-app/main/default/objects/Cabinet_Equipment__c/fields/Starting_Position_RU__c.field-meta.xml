@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Starting_Position_RU__c</fullName>
+    <description>Starting Position of this Panel in the Rack. 1 is the bottom RU.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Starting Position of this Panel in the Rack. RU1 is the bottom RU. A Starting Position (RU) value of 1 and a Height (RU) value of 3 would mean this Equipment occupies RU1, RU2 and RU3.</inlineHelpText>
+    <label>Starting Position (RU)</label>
+    <precision>2</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

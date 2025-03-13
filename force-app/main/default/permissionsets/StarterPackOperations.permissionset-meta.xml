@@ -53,6 +53,10 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>standard__LightningService</application>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__MSJApp</application>
         <visible>true</visible>
     </applicationVisibilities>
@@ -62,6 +66,10 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__Optimizer</application>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__Service</application>
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
