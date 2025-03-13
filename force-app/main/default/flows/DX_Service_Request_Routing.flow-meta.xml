@@ -397,21 +397,21 @@
         <name>SITE_CHICAGO</name>
         <dataType>String</dataType>
         <value>
-            <stringValue>Chicago</stringValue>
+            <stringValue>717 S Wells</stringValue>
         </value>
     </constants>
     <constants>
         <name>SITE_HOUSTON</name>
         <dataType>String</dataType>
         <value>
-            <stringValue>Houston</stringValue>
+            <stringValue>1301 Fannin</stringValue>
         </value>
     </constants>
     <constants>
         <name>SITE_INDI</name>
         <dataType>String</dataType>
         <value>
-            <stringValue>Indianapolis</stringValue>
+            <stringValue>Indy Telcom</stringValue>
         </value>
     </constants>
     <constants>
@@ -425,35 +425,35 @@
         <name>SITE_KC</name>
         <dataType>String</dataType>
         <value>
-            <stringValue>Kansas City</stringValue>
+            <stringValue>1102 Grand</stringValue>
         </value>
     </constants>
     <constants>
         <name>SITE_KC_2</name>
         <dataType>String</dataType>
         <value>
-            <stringValue>KS7801</stringValue>
+            <stringValue>7801 Nieman Road</stringValue>
         </value>
     </constants>
     <constants>
         <name>SITE_PHILADELPHIA</name>
         <dataType>String</dataType>
         <value>
-            <stringValue>Philadelphia</stringValue>
+            <stringValue>401 N Broad</stringValue>
         </value>
     </constants>
     <constants>
         <name>SITE_STL</name>
         <dataType>String</dataType>
         <value>
-            <stringValue>STL210</stringValue>
+            <stringValue>210 N Tucker</stringValue>
         </value>
     </constants>
     <constants>
         <name>SITE_STL_900</name>
         <dataType>String</dataType>
         <value>
-            <stringValue>STL900</stringValue>
+            <stringValue>900 Walnut</stringValue>
         </value>
     </constants>
     <constants>
