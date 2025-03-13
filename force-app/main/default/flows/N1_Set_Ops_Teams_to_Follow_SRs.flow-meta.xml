@@ -97,6 +97,45 @@
             <targetReference>Loop_Through_SR_Locations_Ops_Team</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Get_Records_to_Create</name>
+        <label>Get Records to Create</label>
+        <locationX>930</locationX>
+        <locationY>1163</locationY>
+        <assignmentItems>
+            <assignToReference>SubscribersToCreate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CreateOneSubscriber</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_SR_Locations_Ops_Team</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Subscriber</name>
+        <label>Set Subscriber</label>
+        <locationX>930</locationX>
+        <locationY>1055</locationY>
+        <assignmentItems>
+            <assignToReference>CreateOneSubscriber.ParentId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CreateOneSubscriber.SubscriberId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Through_SR_Locations_Ops_Team.UserOrGroupId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Records_to_Create</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>Is_There_A_Dupe</name>
         <label>Is There A Dupe?</label>
@@ -117,7 +156,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Follow_The_SR</targetReference>
+                <targetReference>Set_Subscriber</targetReference>
             </connector>
             <label>No Dupes</label>
         </rules>
@@ -250,6 +289,9 @@
         <nextValueConnector>
             <targetReference>Check_for_Follow_Dupes</targetReference>
         </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Follow_The_SR</targetReference>
+        </noMoreValuesConnector>
     </loops>
     <processMetadataValues>
         <name>BuilderType</name>
@@ -274,25 +316,9 @@
         <description>Updates each user to &quot;follow&quot; the SR.</description>
         <name>Follow_The_SR</name>
         <label>&quot;Follow&quot; The SR</label>
-        <locationX>930</locationX>
-        <locationY>1055</locationY>
-        <connector>
-            <targetReference>Loop_Through_SR_Locations_Ops_Team</targetReference>
-        </connector>
-        <inputAssignments>
-            <field>ParentId</field>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>SubscriberId</field>
-            <value>
-                <elementReference>Loop_Through_SR_Locations_Ops_Team.UserOrGroupId</elementReference>
-            </value>
-        </inputAssignments>
-        <object>EntitySubscription</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <locationX>842</locationX>
+        <locationY>1439</locationY>
+        <inputReference>SubscribersToCreate</inputReference>
     </recordCreates>
     <recordLookups>
         <description>Checks to see if the user is already following the SR.</description>
@@ -456,10 +482,18 @@
             <targetReference>What_is_the_SR_s_market</targetReference>
         </connector>
         <object>Case</object>
-        <recordTriggerType>Create</recordTriggerType>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>
+    <variables>
+        <name>CreateOneSubscriber</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>EntitySubscription</objectType>
+    </variables>
     <variables>
         <name>SelectedGroupMembers</name>
         <dataType>SObject</dataType>
@@ -467,5 +501,21 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>GroupMember</objectType>
+    </variables>
+    <variables>
+        <name>SubscribersToCreate</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>EntitySubscription</objectType>
+    </variables>
+    <variables>
+        <name>UserRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>User</objectType>
     </variables>
 </Flow>

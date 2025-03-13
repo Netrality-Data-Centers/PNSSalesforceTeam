@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Customer_Portal_Accounting_Contact</name>
+    </customPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Agreement__c.Agreement_Status__c</field>
@@ -384,4 +388,8 @@
         <tab>standard-Quote</tab>
         <visibility>Available</visibility>
     </tabSettings>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ApiEnabled</name>
+    </userPermissions>
 </PermissionSet>
