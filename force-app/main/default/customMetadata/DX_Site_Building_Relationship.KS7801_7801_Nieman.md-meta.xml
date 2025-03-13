@@ -8,6 +8,6 @@
     </values>
     <values>
         <field>Site__c</field>
-        <value xsi:type="xsd:string">KS7801</value>
+        <value xsi:type="xsd:string">7801 Nieman</value>
     </values>
 </CustomMetadata>

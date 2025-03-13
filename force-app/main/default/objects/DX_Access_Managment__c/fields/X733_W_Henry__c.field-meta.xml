@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X733_W_Henry__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates that this user can make service requests and see information related to their account at 733 W Henry.</description>
+    <inlineHelpText>Indicates that this user can make service requests and see information related to their account at 733 W Henry.</inlineHelpText>
+    <label>733 W Henry</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>
