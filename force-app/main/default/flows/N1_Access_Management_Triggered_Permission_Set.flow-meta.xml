@@ -2,8 +2,8 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>63.0</apiVersion>
     <assignments>
-        <name>Added</name>
-        <label>Added</label>
+        <name>Assign_Accounting_Added</name>
+        <label>Assign Accounting Added</label>
         <locationX>50</locationX>
         <locationY>539</locationY>
         <assignmentItems>
@@ -14,61 +14,12 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Get_Accounting_Permission_Id</targetReference>
+            <targetReference>Decision_9</targetReference>
         </connector>
     </assignments>
     <assignments>
-        <name>Assign_Contracts</name>
-        <label>Add Contracts</label>
-        <locationX>50</locationX>
-        <locationY>1055</locationY>
-        <assignmentItems>
-            <assignToReference>AddedRemovedContracts</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>Added</stringValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Get_Contracts_Permission_Id</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Assignment_5</name>
-        <label>Added Inventory</label>
-        <locationX>50</locationX>
-        <locationY>1571</locationY>
-        <assignmentItems>
-            <assignToReference>AddedRemovedInventory</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>Added</stringValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Get_Inventory_Permission_Id</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Assignment_6</name>
-        <label>Removed Inventory</label>
-        <locationX>314</locationX>
-        <locationY>1571</locationY>
-        <assignmentItems>
-            <assignToReference>AddedRemovedInventory</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>Removed</stringValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Get_Inventory_Permission_Id</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Remove</name>
-        <label>Remove</label>
+        <name>Assign_Accounting_Removed</name>
+        <label>Assign Accounting Removed</label>
         <locationX>314</locationX>
         <locationY>539</locationY>
         <assignmentItems>
@@ -79,257 +30,375 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Get_Accounting_Permission_Id</targetReference>
+            <targetReference>Decision_9</targetReference>
         </connector>
     </assignments>
     <assignments>
-        <name>Remove_Contracts</name>
-        <label>Remove Contracts</label>
-        <locationX>314</locationX>
-        <locationY>1055</locationY>
+        <name>Assign_Contracts_Added</name>
+        <label>Assign Contracts Added</label>
+        <locationX>50</locationX>
+        <locationY>1247</locationY>
         <assignmentItems>
             <assignToReference>AddedRemovedContracts</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Remove</stringValue>
+                <stringValue>Added</stringValue>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Get_Contracts_Permission_Id</targetReference>
+            <targetReference>Contracts_Needed</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Assign_Contracts_Removed</name>
+        <label>Assign Contracts Removed</label>
+        <locationX>314</locationX>
+        <locationY>1247</locationY>
+        <assignmentItems>
+            <assignToReference>AddedRemovedContracts</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Removed</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Contracts_Needed</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Inventory_Added</name>
+        <label>Assign Inventory Added</label>
+        <locationX>50</locationX>
+        <locationY>1955</locationY>
+        <assignmentItems>
+            <assignToReference>AddedRemovedInventory</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Added</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Inventory_Need</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Inventory_Removed</name>
+        <label>Assign Inventory Removed</label>
+        <locationX>314</locationX>
+        <locationY>1955</locationY>
+        <assignmentItems>
+            <assignToReference>AddedRemovedInventory</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Removed</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Inventory_Need</targetReference>
+        </connector>
+    </assignments>
+    <customErrors>
+        <name>Not_a_User</name>
+        <label>Not a User</label>
+        <locationX>754</locationX>
+        <locationY>431</locationY>
+        <customErrorMessages>
+            <errorMessage>This Contact is not User in the Customer Portal.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
     <decisions>
-        <name>Added_or_Removed</name>
-        <label>Accounting Contact</label>
-        <locationX>182</locationX>
+        <name>Accounting_Permission</name>
+        <label>Accounting Permission</label>
+        <locationX>314</locationX>
         <locationY>431</locationY>
         <defaultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Contracts_Contact</targetReference>
+            <targetReference>Decision_9</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>Unchanged</defaultConnectorLabel>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Is_New</name>
+            <name>Add_Permission</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.CreatedDate</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Accounting_Contact__c</leftValueReference>
+                <leftValueReference>AddAccountingPermission</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
-            <connector>
-                <isGoTo>true</isGoTo>
-                <targetReference>Added</targetReference>
-            </connector>
-            <label>Is New</label>
-        </rules>
-        <rules>
-            <name>AddedDecision</name>
-            <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.Accounting_Contact__c</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Accounting_Contact__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Added</targetReference>
-            </connector>
-            <label>Added</label>
-        </rules>
-        <rules>
-            <name>Removed</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Accounting_Contact__c</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Accounting_Contact__c</leftValueReference>
+                <leftValueReference>RemoveAccountingPermission</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Remove</targetReference>
+                <targetReference>Assign_Accounting_Added</targetReference>
             </connector>
-            <label>Removed</label>
+            <label>Add</label>
+        </rules>
+        <rules>
+            <name>Remove_Accounting</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>RemoveAccountingPermission</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>AddAccountingPermission</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Accounting_Removed</targetReference>
+            </connector>
+            <label>Remove</label>
         </rules>
     </decisions>
     <decisions>
-        <name>Contracts_Contact</name>
-        <label>Contracts Contact</label>
-        <locationX>182</locationX>
-        <locationY>947</locationY>
+        <name>Contracts_Needed</name>
+        <label>Contracts Needed?</label>
+        <locationX>314</locationX>
+        <locationY>1439</locationY>
         <defaultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Decision_3</targetReference>
+            <targetReference>Inventory_Permission</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>Unchanged</defaultConnectorLabel>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Copy_1_of_Is_New</name>
+            <name>Copy_1_of_Update_Required</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.CreatedDate</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Contracts_Contact__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <isGoTo>true</isGoTo>
-                <targetReference>Assign_Contracts</targetReference>
-            </connector>
-            <label>Is New</label>
-        </rules>
-        <rules>
-            <name>Copy_1_of_Added</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Contracts_Contact__c</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Contracts_Contact__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Assign_Contracts</targetReference>
-            </connector>
-            <label>Added</label>
-        </rules>
-        <rules>
-            <name>Copy_1_of_Removed</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Contracts_Contact__c</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Contracts_Contact__c</leftValueReference>
-                <operator>EqualTo</operator>
+                <leftValueReference>AddedRemovedContracts</leftValueReference>
+                <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Remove_Contracts</targetReference>
+                <targetReference>Get_Contracts_Permission_Id</targetReference>
             </connector>
-            <label>Removed</label>
+            <label>Update Required</label>
         </rules>
     </decisions>
     <decisions>
-        <name>Decision_3</name>
-        <label>Inventory Contact</label>
-        <locationX>182</locationX>
-        <locationY>1463</locationY>
-        <defaultConnectorLabel>Unchanged</defaultConnectorLabel>
+        <name>Contracts_Permission</name>
+        <label>Contracts Permission</label>
+        <locationX>314</locationX>
+        <locationY>1139</locationY>
+        <defaultConnector>
+            <targetReference>Contracts_Needed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Outcome_1_of_Decision_3</name>
+            <name>Copy_1_of_Add</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.CreatedDate</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.N1_Inventory_Contact__c</leftValueReference>
+                <leftValueReference>AddContractPermission</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
-            <connector>
-                <isGoTo>true</isGoTo>
-                <targetReference>Assignment_5</targetReference>
-            </connector>
-            <label>IsNew</label>
-        </rules>
-        <rules>
-            <name>AddedInventory</name>
-            <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.N1_Inventory_Contact__c</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.N1_Inventory_Contact__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Assignment_5</targetReference>
-            </connector>
-            <label>Added</label>
-        </rules>
-        <rules>
-            <name>RemovedInventory</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.N1_Inventory_Contact__c</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.N1_Inventory_Contact__c</leftValueReference>
+                <leftValueReference>RemoveContractPermission</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Assignment_6</targetReference>
+                <targetReference>Assign_Contracts_Added</targetReference>
             </connector>
-            <label>Removed</label>
+            <label>Add Contracts</label>
+        </rules>
+        <rules>
+            <name>Copy_1_of_Remove</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>RemoveContractPermission</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>AddContractPermission</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Contracts_Removed</targetReference>
+            </connector>
+            <label>Remove Contracts</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Decision_9</name>
+        <label>Accounting Needed?</label>
+        <locationX>314</locationX>
+        <locationY>731</locationY>
+        <defaultConnector>
+            <targetReference>Contracts_Permission</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_1_of_Decision_9</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>AddedRemovedAccounting</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Accounting_Permission_Id</targetReference>
+            </connector>
+            <label>Update Required</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Inventory_Need</name>
+        <label>Inventory Need?</label>
+        <locationX>314</locationX>
+        <locationY>2147</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_Required</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>AddedRemovedInventory</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Inventory_Permission_Id</targetReference>
+            </connector>
+            <label>Update Required</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Inventory_Permission</name>
+        <label>Inventory Permission</label>
+        <locationX>314</locationX>
+        <locationY>1847</locationY>
+        <defaultConnector>
+            <targetReference>Inventory_Need</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Add_Inventory</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>AddInventoryPermission</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>RemoveInventoryPermission</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Inventory_Added</targetReference>
+            </connector>
+            <label>Add Inventory</label>
+        </rules>
+        <rules>
+            <name>Remove_Inventory</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>RemoveInventoryPermission</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>AddInventoryPermission</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Inventory_Removed</targetReference>
+            </connector>
+            <label>Remove Inventory</label>
         </rules>
     </decisions>
     <description>Looks for changes on Access Management Object and assigns or removes permission sets based on changes.</description>
     <environments>Default</environments>
+    <formulas>
+        <name>AddAccountingPermission</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+AND ( ISNEW(), {!$Record.Accounting_Contact__c} ) ,
+AND(NOT(ISNEW()), ISCHANGED({!$Record.Accounting_Contact__c}),{!$Record.Accounting_Contact__c})
+)</expression>
+    </formulas>
+    <formulas>
+        <name>AddContractPermission</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+AND ( ISNEW(), {!$Record.Contracts_Contact__c} ) ,
+AND(NOT(ISNEW()), ISCHANGED({!$Record.Contracts_Contact__c}),{!$Record.Contracts_Contact__c})
+)</expression>
+    </formulas>
+    <formulas>
+        <name>AddInventoryPermission</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+AND ( ISNEW(), {!$Record.N1_Inventory_Contact__c}) ,
+AND(NOT(ISNEW()), ISCHANGED({!$Record.N1_Inventory_Contact__c}),{!$Record.N1_Inventory_Contact__c})
+)</expression>
+    </formulas>
+    <formulas>
+        <name>IsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>RemoveAccountingPermission</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+NOT(ISNEW()),
+ISCHANGED({!$Record.Accounting_Contact__c}),
+NOT({!$Record.Accounting_Contact__c})
+)</expression>
+    </formulas>
+    <formulas>
+        <name>RemoveContractPermission</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+NOT(ISNEW()),
+ISCHANGED({!$Record.Contracts_Contact__c}),
+NOT({!$Record.Contracts_Contact__c})
+)</expression>
+    </formulas>
+    <formulas>
+        <name>RemoveInventoryPermission</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+NOT(ISNEW()),
+ISCHANGED({!$Record.N1_Inventory_Contact__c}),
+NOT({!$Record.N1_Inventory_Contact__c})
+)</expression>
+    </formulas>
     <interviewLabel>N1_Access Management Triggered Permission Set {!$Flow.CurrentDateTime}</interviewLabel>
     <label>N1_Access Management Triggered Permission Set</label>
     <processMetadataValues>
@@ -351,14 +420,98 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Permission_Set_Assignment_Platform_Event_Accounting</name>
+        <label>Permission Set Assignment Platform Event: Accounting</label>
+        <locationX>182</locationX>
+        <locationY>947</locationY>
+        <connector>
+            <targetReference>Contracts_Permission</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Action__c</field>
+            <value>
+                <elementReference>AddedRemovedAccounting</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Permission_Set_Id__c</field>
+            <value>
+                <elementReference>Get_Accounting_Permission_Id.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>User_Id__c</field>
+            <value>
+                <elementReference>Get_User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Permission_Set_Assignment__e</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Permission_Set_Assignment_Platform_Event_Contracts</name>
+        <label>Permission Set Assignment Platform Event: Contracts</label>
+        <locationX>182</locationX>
+        <locationY>1655</locationY>
+        <connector>
+            <targetReference>Inventory_Permission</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Action__c</field>
+            <value>
+                <elementReference>AddedRemovedContracts</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Permission_Set_Id__c</field>
+            <value>
+                <elementReference>Get_Contracts_Permission_Id.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>User_Id__c</field>
+            <value>
+                <elementReference>Get_User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Permission_Set_Assignment__e</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Permission_Set_Assignment_Platform_Event_Inventory</name>
+        <label>Permission Set Assignment Platform Event: Inventory</label>
+        <locationX>182</locationX>
+        <locationY>2363</locationY>
+        <inputAssignments>
+            <field>Action__c</field>
+            <value>
+                <elementReference>AddedRemovedInventory</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Permission_Set_Id__c</field>
+            <value>
+                <elementReference>Get_Inventory_Permission_Id.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>User_Id__c</field>
+            <value>
+                <elementReference>Get_User.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Permission_Set_Assignment__e</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
     <recordLookups>
         <name>Get_Accounting_Permission_Id</name>
         <label>Get Accounting Permission Id</label>
         <locationX>182</locationX>
-        <locationY>731</locationY>
+        <locationY>839</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>N1_Dynamic_Permission_Set_Change_Flow_1</targetReference>
+            <targetReference>Permission_Set_Assignment_Platform_Event_Accounting</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -376,10 +529,10 @@
         <name>Get_Contracts_Permission_Id</name>
         <label>Get Contracts Permission Id</label>
         <locationX>182</locationX>
-        <locationY>1247</locationY>
+        <locationY>1547</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Updating_Contracts_Permissions</targetReference>
+            <targetReference>Permission_Set_Assignment_Platform_Event_Contracts</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -396,11 +549,11 @@
     <recordLookups>
         <name>Get_Inventory_Permission_Id</name>
         <label>Get Inventory Permission Id</label>
-        <locationX>314</locationX>
-        <locationY>1679</locationY>
+        <locationX>182</locationX>
+        <locationY>2255</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Updating_Inventory_Permissions</targetReference>
+            <targetReference>Permission_Set_Assignment_Platform_Event_Inventory</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -417,12 +570,15 @@
     <recordLookups>
         <name>Get_User</name>
         <label>Get User</label>
-        <locationX>182</locationX>
+        <locationX>314</locationX>
         <locationY>323</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Added_or_Removed</targetReference>
+            <targetReference>Accounting_Permission</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Not_a_User</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>ContactId</field>
@@ -433,10 +589,11 @@
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>User</object>
+        <queriedFields>Id</queriedFields>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
-        <locationX>56</locationX>
+        <locationX>188</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_User</targetReference>
@@ -446,87 +603,6 @@
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>
-    <subflows>
-        <name>N1_Dynamic_Permission_Set_Change_Flow_1</name>
-        <label>Updating Accounting Permissions</label>
-        <locationX>182</locationX>
-        <locationY>839</locationY>
-        <connector>
-            <targetReference>Contracts_Contact</targetReference>
-        </connector>
-        <flowName>N1_Dynamic_Permission_Set_Change</flowName>
-        <inputAssignments>
-            <name>AddedRemoved</name>
-            <value>
-                <elementReference>AddedRemovedAccounting</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>PermissionSet</name>
-            <value>
-                <elementReference>Get_Accounting_Permission_Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>User</name>
-            <value>
-                <elementReference>Get_User</elementReference>
-            </value>
-        </inputAssignments>
-    </subflows>
-    <subflows>
-        <name>Updating_Contracts_Permissions</name>
-        <label>Updating Contracts Permissions</label>
-        <locationX>182</locationX>
-        <locationY>1355</locationY>
-        <connector>
-            <targetReference>Decision_3</targetReference>
-        </connector>
-        <flowName>N1_Dynamic_Permission_Set_Change</flowName>
-        <inputAssignments>
-            <name>AddedRemoved</name>
-            <value>
-                <elementReference>AddedRemovedContracts</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>PermissionSet</name>
-            <value>
-                <elementReference>Get_Contracts_Permission_Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>User</name>
-            <value>
-                <elementReference>Get_User</elementReference>
-            </value>
-        </inputAssignments>
-    </subflows>
-    <subflows>
-        <name>Updating_Inventory_Permissions</name>
-        <label>Updating Inventory Permissions</label>
-        <locationX>314</locationX>
-        <locationY>1787</locationY>
-        <flowName>N1_Dynamic_Permission_Set_Change</flowName>
-        <inputAssignments>
-            <name>AddedRemoved</name>
-            <value>
-                <elementReference>AddedRemovedInventory</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>PermissionSet</name>
-            <value>
-                <elementReference>Get_Inventory_Permission_Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>User</name>
-            <value>
-                <elementReference>Get_User</elementReference>
-            </value>
-        </inputAssignments>
-    </subflows>
     <variables>
         <name>AddedRemovedAccounting</name>
         <dataType>String</dataType>
