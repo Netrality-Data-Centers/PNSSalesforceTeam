@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notify customer about new SR comment.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>CP_Header_Blue</letterhead>
+    <name>Experience Cloud: New SR Comment</name>
+    <style>freeForm</style>
+    <subject>Service Request Update: {!Case.Subject}</subject>
+    <textOnly>{!Receiving_User.Username},
+
+There is a new comment on your case.
+
+Case ID: {!Case.Subject}
+Case Type: {!Case.Type}
+Site: {!Case.DX_Site__c}
+
+Newest Comment:
+
+{!Case.Latest_Case_Comment__c}
+
+
+Please navigate to this link for further detail or to leave a case comment.
+
+{!Case.Link}
+
+
+Thank you!</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
