@@ -25022,18 +25022,6 @@
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>Profile2PermSet__Converter</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>Profile2PermSet__Manage</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>Profile2PermSet__Permissions_Analyzer</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
         <tab>Profile2PermSet__Report</tab>
         <visibility>Visible</visibility>
     </tabSettings>
