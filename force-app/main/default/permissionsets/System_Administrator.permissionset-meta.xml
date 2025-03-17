@@ -5080,9 +5080,6 @@
         <apexClass>sf_devops__BranchValidatorFTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>sf_devops__BranchWorkerRegistry</apexClass>
-        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>sf_devops__BranchWorkerTester</apexClass>
