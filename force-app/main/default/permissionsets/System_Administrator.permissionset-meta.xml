@@ -25022,10 +25022,6 @@
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>Profile2PermSet__Report</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
         <tab>RDraw__CAD_Conversion__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
