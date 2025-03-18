@@ -9,12 +9,12 @@
         <filterItems>
             <field>Account.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Customer</value>
+            <value>Customer, Intercompany</value>
         </filterItems>
         <isOptional>true</isOptional>
     </lookupFilter>
     <referenceTo>Account</referenceTo>
-    <relationshipLabel>Cross Connects</relationshipLabel>
+    <relationshipLabel>Cross Connects (Origination Account)</relationshipLabel>
     <relationshipName>Cross_Connects</relationshipName>
     <required>true</required>
     <trackTrending>false</trackTrending>
