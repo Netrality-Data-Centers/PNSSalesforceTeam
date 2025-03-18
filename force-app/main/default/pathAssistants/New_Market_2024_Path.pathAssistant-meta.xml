@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>New Market 2024 Path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Use_Case__c</fieldNames>
+        <fieldNames>Signature_Process__c</fieldNames>
+        <fieldNames>Board_Approval_Granted__c</fieldNames>
+        <fieldNames>End_User_Secured__c</fieldNames>
+        <fieldNames>Equipment_Procured__c</fieldNames>
+        <info>&lt;p&gt;The &lt;strong style=&quot;font-size: 13px;&quot;&gt;Best Case&lt;/strong&gt; stage is where we seek a verbal agreements from the account that they have selected us and wish to move forward with our solution. We are looking to understand their use case, signature process and confirm approval on the solution form their accounts highest level of authority. Additionally, if this deal is dependent on an end user or the account procuring certain equipment, that those barriers have been addressed.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Requirement to move forward&lt;/u&gt;:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Define the Customer&amp;#39;s Use Case for this deployment.&lt;/li&gt;&lt;li&gt;Confirm that we understand the signature process for this account.&lt;/li&gt;&lt;li&gt;Confirm that the board, or highest level of authority for this account, has granted approval for this solution.&lt;/li&gt;&lt;li&gt;If this deal is dependent on an end user, they have been secured by the account.&lt;/li&gt;&lt;li&gt;If this deal is dependent on procuring equipment, it has been secured.&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Best Case</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <picklistValueName>Closed Lost</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;https://netrality--devnetral.sandbox.file.force.com/servlet/rtaImage?eid=1CF3t0000005Z1q&amp;amp;feoid=Info&amp;amp;refid=0EM3t00000FNrTq&quot;&gt;&lt;/img&gt;&lt;/p&gt;</info>
+        <picklistValueName>Closed Won</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>MLSA_Link__c</fieldNames>
+        <fieldNames>Authorized_Signer__c</fieldNames>
+        <fieldNames>Watermarked_Service_Order__c</fieldNames>
+        <info>&lt;p&gt;The &lt;strong style=&quot;font-size: 13px;&quot;&gt;Commit&lt;/strong&gt; stage indicates that this deal will be closing within the close date provided on this opportunity.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Requirement to move forward&lt;/u&gt;:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Master Agreement Identified&lt;/li&gt;&lt;li&gt;Signer Identified&lt;/li&gt;&lt;li&gt;Watermarked Service Order Syncing to Opportunity&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>Commit</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Budget_Secured__c</fieldNames>
+        <fieldNames>Finalized_Comercial_Agreement__c</fieldNames>
+        <fieldNames>Technical_Decision_Maker__c</fieldNames>
+        <fieldNames>Financial_Decision_Maker__c</fieldNames>
+        <fieldNames>Legal_Decision_Maker__c</fieldNames>
+        <info>&lt;p&gt;The &lt;strong style=&quot;font-size: 13px;&quot;&gt;Negotiating&lt;/strong&gt; stage is where we are confirming customer/prospect has budget secured for this project, &lt;span style=&quot;font-size: 13px;&quot;&gt;seeking to reach a commercial agreement between parties, and verifying all of the relevant decision makers that we will require their approval for signature&lt;/span&gt;.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Requirement to move forward&lt;/u&gt;:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Confirm budget has been secured.&lt;/li&gt;&lt;li&gt;Finalize the commercial agreement.&lt;/li&gt;&lt;li&gt;Identify the Technical decision maker.&lt;/li&gt;&lt;li&gt;Identify the Financial decision maker.&lt;/li&gt;&lt;li&gt;Identify the Legal decision maker.&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>Negotiating</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Location__c</fieldNames>
+        <fieldNames>Building__c</fieldNames>
+        <fieldNames>Pricebook2Id</fieldNames>
+        <fieldNames>Geographic_Constraints__c</fieldNames>
+        <fieldNames>Qualification_Approval__c</fieldNames>
+        <info>&lt;p&gt;The &lt;strong style=&quot;font-size: 13px;&quot;&gt;Qualifying&lt;/strong&gt; stage is where we begin tracking the opportunity and developing a basic understanding of the project.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Requirement to move forward&lt;/u&gt;:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Confirm Geographic Requirements&lt;/li&gt;&lt;li&gt;Receive Qualification approval from your Sales manager.&lt;/li&gt;&lt;li&gt;Confirm direct engagement by identifying one or more contacts, their role on the opportunity, and adding them to the opportunity in the Contact Roles section.&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 13px;&quot;&gt;Opportunities in Qualifying will not count towards funnel adds, close rates, MBOs or other KPIs.&lt;/strong&gt;&lt;/p&gt;</info>
+        <picklistValueName>Qualifying</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Space_Type__c</fieldNames>
+        <fieldNames>Cabinet_Equivalent__c</fieldNames>
+        <fieldNames>Total_kW__c</fieldNames>
+        <fieldNames>Cross_Connects__c</fieldNames>
+        <fieldNames>Connectivity_Requirements__c</fieldNames>
+        <info>&lt;p&gt;The &lt;strong style=&quot;font-size: 13px;&quot;&gt;Quoting&lt;/strong&gt; stage is where we define the technical requirements set forth by the customer/prospect. The goal of this stage is to reach a technical agreement on the design and deployment.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;Requirement to move forward&lt;/u&gt;:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Confirm Product Type: Does customer/prospect want a Suite, a Cage or a Cabinet?&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Estimated Cabinet needs&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Estimated &lt;/span&gt;kW needs&lt;/li&gt;&lt;li&gt;Connectivity needs&lt;ol&gt;&lt;li&gt;Estimated Cross Connect needs (count)&lt;/li&gt;&lt;li&gt;Connectivity details&lt;/li&gt;&lt;/ol&gt;&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>Quoting</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Deployment_Type__c</fieldNames>
+        <fieldNames>Incumbent__c</fieldNames>
+        <fieldNames>Compelling_Event__c</fieldNames>
+        <fieldNames>Preferred_Signature_Date__c</fieldNames>
+        <fieldNames>Preferred_Deployment_Date__c</fieldNames>
+        <info>&lt;p&gt;The &lt;strong style=&quot;font-size: 13px;&quot;&gt;Working&lt;/strong&gt; stage is reserved for getting answers to questions that will help us shape this deal to the customer/prospects requirements.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 13px;&quot;&gt;&lt;u&gt;Requirement to move forward&lt;/u&gt;:&lt;/strong&gt;&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Identify Deployment Type&lt;/li&gt;&lt;li&gt;Identify Incumbent&lt;/li&gt;&lt;li&gt;Identify Compelling Event&lt;/li&gt;&lt;li&gt;Identify Preferred Signature Date&lt;/li&gt;&lt;li&gt;Identify Preferred Deployment Date&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 13px;&quot;&gt;Opportunities in Working begin to count towards funnel adds, close rates, MBOs and other KPIs.&lt;/strong&gt;&lt;/p&gt;</info>
+        <picklistValueName>Working</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>New_Market</recordTypeName>
+</PathAssistant>
