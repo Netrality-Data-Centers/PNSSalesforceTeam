@@ -138,6 +138,11 @@
                 <label>ZoomInfo</label>
             </value>
             <value>
+                <fullName>Impartner Deal Registration</fullName>
+                <default>false</default>
+                <label>Impartner Deal Registration</label>
+            </value>
+            <value>
                 <fullName>Channel Registration Form</fullName>
                 <default>false</default>
                 <isActive>false</isActive>
@@ -154,12 +159,6 @@
                 <default>false</default>
                 <isActive>false</isActive>
                 <label>Existing Customer Upsell</label>
-            </value>
-            <value>
-                <fullName>Impartner Deal Registration</fullName>
-                <default>false</default>
-                <isActive>false</isActive>
-                <label>Impartner Deal Registration</label>
             </value>
             <value>
                 <fullName>LifeLine 733 W Henry Migration</fullName>
