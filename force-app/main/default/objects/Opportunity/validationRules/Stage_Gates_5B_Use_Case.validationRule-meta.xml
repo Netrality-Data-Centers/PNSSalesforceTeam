@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage_Gates_5B_Use_Case</fullName>
+    <active>true</active>
+    <description>Requirements to move past Negotiating:
+Use Case</description>
+    <errorConditionFormula>AND(
+
+AND(
+NOT(ISPICKVAL(StageName, &quot;Qualifying&quot;)),
+NOT(ISPICKVAL(StageName, &quot;Working&quot;)),
+NOT(ISPICKVAL(StageName, &quot;Quoting&quot;)),
+NOT(ISPICKVAL(StageName, &quot;Negotiating&quot;)),
+NOT(ISPICKVAL(StageName, &quot;Best Case&quot;)),
+NOT(ISPICKVAL(StageName, &quot;Closed Lost&quot;))
+),
+
+
+ ISNULL( Use_Case__c ),
+
+DATEVALUE(CreatedDate) &gt;  DATE(2024,02,12),
+NOT( Validation_Omission__c )
+
+)</errorConditionFormula>
+    <errorDisplayField>Use_Case__c</errorDisplayField>
+    <errorMessage>Cannot progress opportunity without detailing the Customer&apos;s use case for this deployment.</errorMessage>
+</ValidationRule>
