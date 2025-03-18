@@ -9,6 +9,17 @@
         <template>Operations/Case_has_Billable_Time</template>
     </alerts>
     <alerts>
+        <fullName>Experience_Cloud_New_SR_Comment</fullName>
+        <description>Experience Cloud: New SR Comment</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Experience_Cloud_Emails/Experience_Cloud_New_SR_Comment</template>
+    </alerts>
+    <alerts>
         <fullName>Experience_Cloud_Status_Update</fullName>
         <description>Experience Cloud: Status Update</description>
         <protected>false</protected>
