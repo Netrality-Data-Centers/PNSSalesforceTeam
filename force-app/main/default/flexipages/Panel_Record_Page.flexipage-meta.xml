@@ -86,16 +86,6 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.MRI_Suite_ID__c</fieldItem>
-                <identifier>RecordMRI_Suite_ID_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Status__c</fieldItem>
@@ -110,6 +100,72 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Starting_Position_RU__c</fieldItem>
                 <identifier>RecordStarting_Position_RU__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Height_RU__c</fieldItem>
+                <identifier>RecordHeight_RU_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.MRI_Suite_ID__c</fieldItem>
+                <identifier>RecordMRI_Suite_ID_cField</identifier>
+                <visibilityRule>
+                    <booleanFilter>1 AND 2 AND 3</booleanFilter>
+                    <criteria>
+                        <leftValue>{!$User.Profile.Name}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>System Administrator</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!$User.Profile.Name}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Contract Manager</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!$User.Profile.Name}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Customer Experience</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.MRI_Suite_ID__c</fieldItem>
+                <identifier>RecordMRI_Suite_ID_cField2</identifier>
+                <visibilityRule>
+                    <booleanFilter>1 AND 2 AND 3</booleanFilter>
+                    <criteria>
+                        <leftValue>{!$User.Profile.Name}</leftValue>
+                        <operator>NE</operator>
+                        <rightValue>System Administrator</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!$User.Profile.Name}</leftValue>
+                        <operator>NE</operator>
+                        <rightValue>Contract Manager</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!$User.Profile.Name}</leftValue>
+                        <operator>NE</operator>
+                        <rightValue>Customer Experience</rightValue>
+                    </criteria>
+                </visibilityRule>
             </fieldInstance>
         </itemInstances>
         <name>Facet-29e3db74-ea25-4e4a-8a35-29adfe840765</name>
@@ -205,10 +261,10 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>readonly</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Height_RU__c</fieldItem>
-                <identifier>RecordHeight_RU_cField</identifier>
+                <fieldItem>Record.Total_Number_of_Ports__c</fieldItem>
+                <identifier>RecordTotal_Number_of_Ports_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-36be44f3-5a93-40b8-a4f6-65b6c4a6643c</name>
@@ -223,6 +279,23 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Port_Pattern__c</fieldItem>
                 <identifier>RecordPort_Pattern__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Mod_Pattern__c</fieldItem>
+                <identifier>RecordMod_Pattern__cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Mod_Model__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Yes</rightValue>
+                    </criteria>
+                </visibilityRule>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -250,33 +323,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Number_of_Ports_Tall_per_Mod__c</fieldItem>
                 <identifier>RecordNumber_of_Ports_Tall_per_Mod__cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Mod_Model__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Yes</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>readonly</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Total_Number_of_Ports__c</fieldItem>
-                <identifier>RecordTotal_Number_of_Ports_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Mod_Pattern__c</fieldItem>
-                <identifier>RecordMod_Pattern__cField</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Mod_Model__c}</leftValue>
@@ -332,12 +378,54 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Asset__c</fieldItem>
                 <identifier>RecordAsset_cField</identifier>
+                <visibilityRule>
+                    <booleanFilter>1 AND 2 AND 3</booleanFilter>
+                    <criteria>
+                        <leftValue>{!$User.Profile.Name}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>System Administrator</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!$User.Profile.Name}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Contract Manager</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!$User.Profile.Name}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Customer Experience</rightValue>
+                    </criteria>
+                </visibilityRule>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-efdb6b24-9845-478b-84dc-e0d82ff59b5d</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Asset__c</fieldItem>
+                <identifier>RecordAsset_cField2</identifier>
+                <visibilityRule>
+                    <booleanFilter>1 AND 2 AND 3</booleanFilter>
+                    <criteria>
+                        <leftValue>{!$User.Profile.Name}</leftValue>
+                        <operator>NE</operator>
+                        <rightValue>System Administrator</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!$User.Profile.Name}</leftValue>
+                        <operator>NE</operator>
+                        <rightValue>Contract Manager</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!$User.Profile.Name}</leftValue>
+                        <operator>NE</operator>
+                        <rightValue>Customer Experience</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
@@ -348,7 +436,7 @@
                 <identifier>RecordService_Order_cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <name>Facet-6adf411b-661e-4b00-9aec-ff12cc27a4fd</name>
+        <name>Facet-efdb6b24-9845-478b-84dc-e0d82ff59b5d</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -360,16 +448,6 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:column</componentName>
                 <identifier>flexipage_column7</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-6adf411b-661e-4b00-9aec-ff12cc27a4fd</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:column</componentName>
-                <identifier>flexipage_column8</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-e0c257d0-6f3f-47ea-b51d-03f2581e5f47</name>
@@ -472,11 +550,11 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>horizontalAlignment</name>
-                    <value>false</value>
+                    <value>true</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
-                    <value>Occupation</value>
+                    <value>Customer Information</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
                 <identifier>flexipage_fieldSection4</identifier>
