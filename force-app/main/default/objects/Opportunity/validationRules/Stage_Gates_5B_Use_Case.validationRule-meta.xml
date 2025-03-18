@@ -17,6 +17,11 @@ NOT(ISPICKVAL(StageName, &quot;Closed Lost&quot;))
 
 
  ISNULL( Use_Case__c ),
+OR(
+RecordType.Name = &quot;New Logo&quot;,
+RecordType.Name = &quot;New Market&quot;
+),
+
 
 DATEVALUE(CreatedDate) &gt;  DATE(2024,02,12),
 NOT( Validation_Omission__c )
