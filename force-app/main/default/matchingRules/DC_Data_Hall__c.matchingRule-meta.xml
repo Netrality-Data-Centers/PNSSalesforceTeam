@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MatchingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <matchingRules>
+        <fullName>Data_Hall_Matching_Rules</fullName>
+        <label>Data Hall Matching Rules</label>
+        <matchingRuleItems>
+            <blankValueBehavior>NullNotAllowed</blankValueBehavior>
+            <fieldName>Short_Name__c</fieldName>
+            <matchingMethod>Exact</matchingMethod>
+        </matchingRuleItems>
+        <matchingRuleItems>
+            <blankValueBehavior>NullNotAllowed</blankValueBehavior>
+            <fieldName>DC_Floor__c</fieldName>
+            <matchingMethod>Exact</matchingMethod>
+        </matchingRuleItems>
+        <ruleStatus>Active</ruleStatus>
+    </matchingRules>
+</MatchingRules>
