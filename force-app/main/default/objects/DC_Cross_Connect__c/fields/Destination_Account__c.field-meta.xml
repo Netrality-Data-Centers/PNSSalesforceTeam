@@ -9,7 +9,7 @@
         <filterItems>
             <field>Account.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Customer</value>
+            <value>Customer, Intercompany</value>
         </filterItems>
         <isOptional>true</isOptional>
     </lookupFilter>

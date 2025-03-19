@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cabinet_Chassis_Weight_lbs__c</fullName>
+    <description>Weight of the Cabinet Chassis when empty.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Weight of the Cabinet Chassis when empty.</inlineHelpText>
+    <label>Cabinet Chassis Weight (lbs)</label>
+    <precision>6</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>
