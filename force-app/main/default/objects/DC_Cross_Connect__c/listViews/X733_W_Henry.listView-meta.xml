@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X733_W_Henry</fullName>
+    <columns>NAME</columns>
+    <columns>Building__c</columns>
+    <columns>Origination_Account__c</columns>
+    <columns>Destination_Account__c</columns>
+    <columns>Xconnect_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NAME</field>
+        <operation>startsWith</operation>
+        <value>733</value>
+    </filters>
+    <label>733 W Henry</label>
+</ListView>
