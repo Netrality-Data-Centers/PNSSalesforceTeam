@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>For Expansion of Services Record Types.</description>
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
@@ -99,118 +100,10 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_Reason_For_Hold__c</fieldItem>
-                <identifier>RecordDX_Reason_For_Hold_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Status}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>On Hold</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.DX_How_Help_You__c</fieldItem>
                 <identifier>RecordDX_How_Help_You_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_Service_Order_Number__c</fieldItem>
-                <identifier>RecordDX_Service_Order_Number_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Disconnect Request</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_Time_Period_Covered__c</fieldItem>
-                <identifier>RecordDX_Time_Period_Covered_cField2</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Strategic Business Review Request</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_Time_of_Issue__c</fieldItem>
-                <identifier>RecordDX_Time_of_Issue_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Feedback</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_Related_Service_Order__c</fieldItem>
-                <identifier>RecordDX_Related_Service_Order_cField2</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>General Questions</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_Related_Ticket__c</fieldItem>
-                <identifier>RecordDX_Related_Ticket_cField2</identifier>
-                <visibilityRule>
-                    <booleanFilter>1 OR 2</booleanFilter>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Feedback</rightValue>
-                    </criteria>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>General Questions</rightValue>
-                    </criteria>
-                </visibilityRule>
             </fieldInstance>
         </itemInstances>
         <name>Facet-15e2f199-306c-48c9-a2db-5ecc0ab7b67b</name>
@@ -255,118 +148,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Status</fieldItem>
                 <identifier>RecordStatusField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_Date_of_Disconnect__c</fieldItem>
-                <identifier>RecordDX_Date_of_Disconnect_cField2</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Disconnect Request</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_Disconnect_Type__c</fieldItem>
-                <identifier>RecordDX_Disconnect_Type_cField2</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Disconnect Request</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_Billing_Account_Number__c</fieldItem>
-                <identifier>RecordDX_Billing_Account_Number_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_When_would_you_like_the_meeting__c</fieldItem>
-                <identifier>RecordDX_When_would_you_like_the_meeting_cField2</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Strategic Business Review Request</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_When_would_you_like_the_meeting__c</fieldItem>
-                <identifier>RecordDX_When_would_you_like_the_meeting_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Training/Portal Help</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_Type_of_Inventory__c</fieldItem>
-                <identifier>RecordDX_Type_of_Inventory_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Inventory Related Questions</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.DX_Services_to_disconnect__c</fieldItem>
-                <identifier>RecordDX_Services_to_disconnect_cField2</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Type}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Disconnect Request</rightValue>
-                    </criteria>
-                </visibilityRule>
             </fieldInstance>
         </itemInstances>
         <name>Facet-7860bf08-664f-4321-96f3-078ebf6c81da</name>
@@ -554,7 +335,7 @@
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Customer Experience Request Record Page</masterLabel>
+    <masterLabel>Expansion of Services Request Record Page</masterLabel>
     <sobjectType>Case</sobjectType>
     <template>
         <name>flexipage:recordHomeSimpleViewTemplate</name>
