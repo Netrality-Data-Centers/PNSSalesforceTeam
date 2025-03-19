@@ -3,6 +3,7 @@
     <fullName>DX_Accounting_Request</fullName>
     <active>true</active>
     <businessProcess>PNS Service Request</businessProcess>
+
     <compactLayoutAssignment>Case_Compact_Layout</compactLayoutAssignment>
     <description>Billing, Invoice, W9 and other Accounting requests.</description>
     <label>Accounting Request</label>
