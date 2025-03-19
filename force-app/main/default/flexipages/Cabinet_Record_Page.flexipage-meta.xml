@@ -36,8 +36,8 @@
         <mode>Replace</mode>
         <name>header</name>
         <type>Region</type>
-    </>
-    <>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
@@ -90,8 +90,8 @@
         </itemInstances>
         <name>Facet-40ab449d-34fb-44bf-b865-f80491ea7f18</name>
         <type>Facet</type>
-    </>
-    <>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
@@ -134,8 +134,8 @@
         </itemInstances>
         <name>Facet-4210f7e8-3853-4f87-b358-0b0e43f901ef</name>
         <type>Facet</type>
-    </>
-    <>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
@@ -158,8 +158,8 @@
         </itemInstances>
         <name>Facet-b1416501-8373-4145-be3d-691c10f17ee3</name>
         <type>Facet</type>
-    </>
-    <>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
