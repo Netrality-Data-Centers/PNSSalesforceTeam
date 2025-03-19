@@ -36,8 +36,8 @@
         <mode>Replace</mode>
         <name>header</name>
         <type>Region</type>
-    </>
-    <>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
@@ -99,8 +99,8 @@
             </fieldInstance>
         </itemInstances>
         <type>Facet</type>
-    </>
-    <>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
