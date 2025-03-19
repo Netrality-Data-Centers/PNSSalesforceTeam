@@ -67,10 +67,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Emergency_Notifications__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Order_Change_Cancel_Cross_Connects__c</field>
             </layoutItems>
             <layoutItems>

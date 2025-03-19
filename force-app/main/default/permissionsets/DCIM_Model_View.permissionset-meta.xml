@@ -613,11 +613,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DC_Cross_Connect__c.Building__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>DC_Cross_Connect__c.Circuit_Ref__c</field>
         <readable>true</readable>
     </fieldPermissions>
