@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>Cabinet Record Page</masterLabel>
     <name>Cabinet_Record_Page</name>
     <description>Cabinet Record Page</description>
     <flexiPageRegions>
@@ -516,7 +517,6 @@
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Cabinet Record Page</masterLabel>
     <parentFlexiPage>force__Default_rec_simple</parentFlexiPage>
     <sobjectType>DC_Cabinet__c</sobjectType>
     <template>
