@@ -417,6 +417,7 @@
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>Cabinet Record Page</masterLabel>
+    <name>Cabinet_Record_Page</name>
     <parentFlexiPage>force__Default_rec_simple</parentFlexiPage>
     <sobjectType>DC_Cabinet__c</sobjectType>
     <template>
