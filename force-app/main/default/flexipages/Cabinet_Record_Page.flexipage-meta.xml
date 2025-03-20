@@ -2,6 +2,7 @@
 <FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
     <masterLabel>Cabinet Record Page</masterLabel>
     <name>Cabinet_Record_Page</name>
+    <type>RecordPage</type>
     <description>Cabinet Record Page</description>
     <flexiPageRegions>
         <itemInstances>
@@ -522,5 +523,4 @@
     <template>
         <name>flexipage:recordHomeSimpleViewTemplate</name>
     </template>
-    <type>RecordPage</type>
 </FlexiPage>
