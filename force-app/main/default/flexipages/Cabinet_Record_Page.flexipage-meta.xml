@@ -515,6 +515,7 @@
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
+    <fullname>Cabinet_Record_Page</fullname>
     <masterLabel>Cabinet Record Page</masterLabel>
     <name>Cabinet_Record_Page</name>
     <parentFlexiPage>force__Default_rec_simple</parentFlexiPage>
