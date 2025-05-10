@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <dataset xsi:nil="true"/>
+    <dimensions>
+        <defaultAction>openSfdcRecord</defaultAction>
+        <field>lens_5_2.PDU_RPP.Name</field>
+        <isDerived>false</isDerived>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <defaultAction>openSfdcRecord</defaultAction>
+        <field>lens_5_2.UPS.Name</field>
+        <isDerived>false</isDerived>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+    <dimensions>
+        <defaultAction>openSfdcRecord</defaultAction>
+        <field>lens_5_2.UPS.DC_Data_Hall.DC_Floor.Name</field>
+        <isDerived>false</isDerived>
+        <label>Floor Name</label>
+        <sortIndex>2</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>lens_5_1.UPS.DC_Data_Hall.DC_Floor.Name</field>
+        <isDerived>false</isDerived>
+        <label>Floor Name</label>
+        <sortIndex>3</sortIndex>
+    </dimensions>
+    <dimensions>
+        <defaultAction>openSfdcRecord</defaultAction>
+        <field>lens_6.Name</field>
+        <isDerived>false</isDerived>
+        <sortIndex>4</sortIndex>
+    </dimensions>
+    <dimensions>
+        <defaultAction>openSfdcRecord</defaultAction>
+        <field>lens_5.PDU_RPP.Name</field>
+        <isDerived>false</isDerived>
+        <sortIndex>5</sortIndex>
+    </dimensions>
+    <dimensions>
+        <defaultAction>openSfdcRecord</defaultAction>
+        <field>lens_5.UPS.Name</field>
+        <isDerived>false</isDerived>
+        <sortIndex>6</sortIndex>
+    </dimensions>
+    <dimensions>
+        <defaultAction>openSfdcRecord</defaultAction>
+        <field>lens_5.UPS.DC_Data_Hall.DC_Floor.Name</field>
+        <isDerived>false</isDerived>
+        <label>Floor Name</label>
+        <sortIndex>7</sortIndex>
+    </dimensions>
+    <measures>
+        <field>lens_2_1.TotalBuildingLoadMW</field>
+        <isDerived>false</isDerived>
+        <label>Total Building Load (MW)</label>
+        <sortIndex>0</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_5_2.% of Capacity</field>
+        <formatCustomFormat>[&quot;#,###.##%&quot;,100]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>1</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_4.TotalBuildingCommitMW</field>
+        <isDerived>false</isDerived>
+        <label>Total Building Commit (MW)</label>
+        <sortIndex>2</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_3.TotalBuildingCapacityMW</field>
+        <isDerived>false</isDerived>
+        <label>Total Building Capacity (MW)</label>
+        <sortIndex>3</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_2.TotalBuildingLoadMW</field>
+        <isDerived>false</isDerived>
+        <label>Total Building Load (MW)</label>
+        <sortIndex>4</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_5_1.% of Capacity</field>
+        <formatCustomFormat>[&quot;#,###.##%&quot;,100]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>5</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_5.% of Capacity</field>
+        <formatCustomFormat>[&quot;#,###.##%&quot;,100]</formatCustomFormat>
+        <isDerived>false</isDerived>
+        <sortIndex>6</sortIndex>
+    </measures>
+    <measures>
+        <field>lens_2_2.TotalBuildingLoadMW</field>
+        <isDerived>false</isDerived>
+        <label>Total Building Load (MW)</label>
+        <sortIndex>7</sortIndex>
+    </measures>
+    <type>Asset</type>
+    <waveVisualization>CCC_Overview</waveVisualization>
+</WaveXmd>

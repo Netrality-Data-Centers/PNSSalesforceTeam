@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "f4766f3a-0a9c-4558-a720-1083cec129c4",
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "configurationTags" : [ ],
+  "devName" : "Service_Request_List__c",
+  "id" : "4f0a3726-a4bc-4fdd-936f-1350000345a1",
+  "label" : "Service Request List",
+  "routeType" : "list-500",
+  "type" : "route",
+  "urlPrefix" : "case"
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Max_Capacity_kw__c</fullName>
+    <description>The maximum electrical capacity, in kW, the PDU RPP can handle.</description>
+    <externalId>false</externalId>
+    <label>Max Capacity (kw)</label>
+    <precision>5</precision>
+    <required>true</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>POE_Allocations__c</fullName>
+    <description>COUNT the total number of POE Allocations within this POE.</description>
+    <externalId>false</externalId>
+    <label>POE Allocations</label>
+    <summaryForeignKey>DC_POE_Allocation__c.POE__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

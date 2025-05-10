@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Power_Source__c</fullName>
+    <description>What type of power source is this coming from?</description>
+    <externalId>false</externalId>
+    <label>Power Source</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Main Utility</fullName>
+                <default>false</default>
+                <label>Main Utility</label>
+            </value>
+            <value>
+                <fullName>Switchgear</fullName>
+                <default>false</default>
+                <label>Switchgear</label>
+            </value>
+            <value>
+                <fullName>UPS</fullName>
+                <default>false</default>
+                <label>UPS</label>
+            </value>
+            <value>
+                <fullName>PDU RPP</fullName>
+                <default>false</default>
+                <label>PDU RPP</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

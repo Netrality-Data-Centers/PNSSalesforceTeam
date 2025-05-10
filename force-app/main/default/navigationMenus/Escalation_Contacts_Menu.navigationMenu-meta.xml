@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>Customer Account Portal</container>
+    <containerType>Network</containerType>
+    <label>Escalation Contacts Menu</label>
+    <navigationMenuItem>
+        <label>Chicago</label>
+        <menuItemBranding>
+            <tileImage>Chicago_Contacts</tileImage>
+        </menuItemBranding>
+        <position>1</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/escalation-contacts/escalation-contacts-chicago</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Houston</label>
+        <menuItemBranding>
+            <tileImage>Houston_Campus</tileImage>
+        </menuItemBranding>
+        <position>2</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/escalation-contacts/escalation-contacts-houston</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Indy Telecom Campus</label>
+        <menuItemBranding>
+            <tileImage>Indy_Telecom_Campus</tileImage>
+        </menuItemBranding>
+        <position>3</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/escalation-contacts/escalation-contacts-indy-telecom-campus</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Kansas City</label>
+        <menuItemBranding>
+            <tileImage>Kansas_City_Icon</tileImage>
+        </menuItemBranding>
+        <position>4</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/escalation-contacts/escalation-contacts-kansas-city</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>KC2 - Nieman</label>
+        <menuItemBranding>
+            <tileImage>KC2_Nieman_Icon</tileImage>
+        </menuItemBranding>
+        <position>5</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/escalation-contacts/escalation-contact-kc2-nieman</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Philadelphia</label>
+        <menuItemBranding>
+            <tileImage>Philadelphia_Icon</tileImage>
+        </menuItemBranding>
+        <position>6</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/escalation-contacts/escalation-contacts-philadelphia</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>St. Louis</label>
+        <menuItemBranding>
+            <tileImage>St_Louis_Icon</tileImage>
+        </menuItemBranding>
+        <position>7</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/escalation-contacts/escalation-contacts-st-louis</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+</NavigationMenu>

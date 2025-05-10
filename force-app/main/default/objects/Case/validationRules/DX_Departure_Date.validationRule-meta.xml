@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_Departure_Date</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(DX_Departure_Date__c &gt;=  DX_Arrival_Date__c + 14)</errorConditionFormula>
+    <errorDisplayField>DX_Departure_Date__c</errorDisplayField>
+    <errorMessage>Departure Date can&apos;t exceed 14 calendar Days from Arrival Date</errorMessage>
+</ValidationRule>

@@ -1,0 +1,49 @@
+{
+  "appPageId" : "e1ea57e4-303b-429b-9f24-b3166eda8fa3",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "db84e1c7-5987-4e89-9eb6-964e79f92556",
+  "label" : "Edit Service Requests",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"recordIdToFlow\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!recordIdToFlow}\"}]",
+        "flowName" : "DX_Edit_Service_Request"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "96bfd3f5-556b-4bf0-84e6-cd7cd12409e8",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "fe88590e-295d-426a-b498-60e9217d6eb5",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "75e431af-892d-4466-827d-4b77816cae28",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "ef864f19-5c85-4d3c-9f4c-183be25433e2",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Edit Service Requests"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "24ac6d6f-d5fa-4a16-b7f7-47692388ae18",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6551d6e1-5934-4409-8493-af2072730428",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "st6p5FrQGvlQLVWlLeNvunpNBzdAwf",
+  "type" : "view",
+  "viewType" : "custom-edit-service-requests"
+}

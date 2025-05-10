@@ -1,0 +1,47 @@
+<!--
+  @Description       : 
+  @Author            : cristianivan.ruiz@salesforce.com
+  @Code Coverage     : 
+  @last modified on  : 12-09-2024
+  @last modified by  : cristianivan.ruiz@salesforce.com
+-->
+<template>
+  <div class="slds-box">
+
+    <div class="slds-grid slds-gutters">
+      <div class="slds-col slds-size_1-of-2">
+        <span>
+          <lightning-select data-name="Floors" name="Floors" label="Floor" value={floorID} options={optionsFloors}
+          onchange={handleChangeFloors}>
+          </lightning-select>
+        </span>
+      </div>
+      <div class="slds-col slds-size_1-of-2">
+        <span>
+          <lightning-select data-name="DataHalls" name="DataHalls" label="Data Hall" value={datHallID} options={optionsDataHalls}
+          onchange={handleChangeDataHalls}>
+          </lightning-select>
+        </span>
+      </div>
+    </div>
+
+    <div class="slds-grid slds-gutters">
+      <div class="slds-col slds-size_1-of-2">
+        <span>
+          <lightning-select data-name="MeetMeRooms" name="MeetMeRooms" label="Meet Me Room" value={meetMeRoomID} options={optionsMeetMeRooms}
+          onchange={handleChangeMeetMeRooms}>
+          </lightning-select>
+        </span>
+      </div>
+      <div class="slds-col slds-size_1-of-2">
+        <span>
+          <lightning-select data-name="Racks" name="Racks" label="Rack" value={rackId} options={optionsRacks}
+          onchange={handleChangeRacks}>
+          </lightning-select>
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+</template>

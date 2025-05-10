@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Hall__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>The associated Datahall connected to this UPS.</description>
+    <externalId>false</externalId>
+    <label>Data Hall</label>
+    <referenceTo>DC_Data_Hall__c</referenceTo>
+    <relationshipLabel>Datahall UPSs</relationshipLabel>
+    <relationshipName>Datahall_UPSs</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

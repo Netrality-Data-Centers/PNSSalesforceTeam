@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Panel__c</fullName>
+    <description>The Panel this Port is on.</description>
+    <externalId>false</externalId>
+    <label>Panel</label>
+    <referenceTo>DC_Panel__c</referenceTo>
+    <relationshipLabel>Ports</relationshipLabel>
+    <relationshipName>Ports</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

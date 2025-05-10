@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PDU_Panel__c</fullName>
+    <externalId>false</externalId>
+    <label>PDU Panel</label>
+    <referenceTo>DC_PDU_Panel__c</referenceTo>
+    <relationshipLabel>Circuit Breakers</relationshipLabel>
+    <relationshipName>Circuit_Breakers</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

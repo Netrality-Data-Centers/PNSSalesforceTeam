@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Order__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&apos;/&apos; &amp;   Asset__r.Service_Order__r.Id ,  Asset__r.Service_Order__r.QuoteNumber, &quot;_self&quot;  )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Service Order</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

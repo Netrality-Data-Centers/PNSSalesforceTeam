@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataset>Power_Consumption</dataset>
+    <dimensions>
+        <field>PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Name</field>
+        <isDerived>false</isDerived>
+        <label>Building (Power)</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Id</recordIdField>
+        <salesforceActionsEnabled>true</salesforceActionsEnabled>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>UPS.DC_Data_Hall.DC_Floor.Building.Name</field>
+        <isDerived>false</isDerived>
+        <label>Building (Space)</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>UPS.DC_Data_Hall.DC_Floor.Building.Id</recordIdField>
+        <salesforceActionsEnabled>true</salesforceActionsEnabled>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.City__c</field>
+        <isDerived>false</isDerived>
+        <label>City (Power)</label>
+        <sortIndex>2</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>UPS.DC_Data_Hall.DC_Floor.Building.City__c</field>
+        <isDerived>false</isDerived>
+        <label>City (Space)</label>
+        <sortIndex>3</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>UPS.DC_Data_Hall.Name</field>
+        <isDerived>false</isDerived>
+        <label>Data Hall (Space)</label>
+        <sortIndex>4</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>UPS.DC_Data_Hall.DC_Floor.Name</field>
+        <isDerived>false</isDerived>
+        <label>Floor Name (Space)</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>UPS.DC_Data_Hall.DC_Floor.Id</recordIdField>
+        <salesforceActionsEnabled>true</salesforceActionsEnabled>
+        <sortIndex>5</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Location__c</field>
+        <isDerived>false</isDerived>
+        <label>Location (Power)</label>
+        <sortIndex>6</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>UPS.DC_Data_Hall.DC_Floor.Building.Location__c</field>
+        <isDerived>false</isDerived>
+        <label>Location (Space)</label>
+        <sortIndex>7</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Name</field>
+        <isDerived>false</isDerived>
+        <label>Power Consumption Name</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>Id</recordIdField>
+        <salesforceActionsEnabled>true</salesforceActionsEnabled>
+        <sortIndex>8</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Name</field>
+        <isDerived>false</isDerived>
+        <label>Main Utility</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Id</recordIdField>
+        <salesforceActionsEnabled>true</salesforceActionsEnabled>
+        <sortIndex>9</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>PDU_RPP.DC_UPS.DC_Switchgear.Name</field>
+        <isDerived>false</isDerived>
+        <label>Switchgear</label>
+        <sortIndex>10</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>PDU_RPP.DC_UPS.Name</field>
+        <isDerived>false</isDerived>
+        <label>DC UPS</label>
+        <sortIndex>11</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>PDU_RPP.Name</field>
+        <isDerived>false</isDerived>
+        <label>PDU RPP</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>PDU_RPP.Id</recordIdField>
+        <salesforceActionsEnabled>true</salesforceActionsEnabled>
+        <sortIndex>12</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>UPS.DC_Datahall_UPS.Name</field>
+        <isDerived>false</isDerived>
+        <label>Datahall UPS</label>
+        <sortIndex>13</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>UPS.Name</field>
+        <isDerived>false</isDerived>
+        <label>UPS</label>
+        <linkTemplateEnabled>true</linkTemplateEnabled>
+        <recordIdField>UPS.Id</recordIdField>
+        <salesforceActionsEnabled>true</salesforceActionsEnabled>
+        <sortIndex>14</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Id</field>
+        <isDerived>false</isDerived>
+        <label>Power Consumption Id</label>
+        <sortIndex>15</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Building.Id</field>
+        <isDerived>false</isDerived>
+        <label>Building Id (Power)</label>
+        <sortIndex>16</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>PDU_RPP.DC_UPS.DC_Switchgear.DC_Main_Utility.Id</field>
+        <isDerived>false</isDerived>
+        <label>Main Utility Id</label>
+        <sortIndex>17</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>PDU_RPP.DC_UPS.DC_Switchgear.Id</field>
+        <isDerived>false</isDerived>
+        <label>Switchgear Id</label>
+        <sortIndex>18</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>PDU_RPP.DC_UPS.Id</field>
+        <isDerived>false</isDerived>
+        <label>DC UPS Id</label>
+        <sortIndex>19</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>PDU_RPP.Id</field>
+        <isDerived>false</isDerived>
+        <label>PDU RPP Id</label>
+        <sortIndex>20</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>UPS.DC_Data_Hall.DC_Floor.Building.Id</field>
+        <isDerived>false</isDerived>
+        <label>Building Id (Space)</label>
+        <sortIndex>21</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>UPS.DC_Data_Hall.DC_Floor.Id</field>
+        <isDerived>false</isDerived>
+        <label>Floor Id (Space)</label>
+        <sortIndex>22</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>UPS.DC_Data_Hall.Id</field>
+        <isDerived>false</isDerived>
+        <label>Data Hall Id (Space)</label>
+        <sortIndex>23</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>UPS.DC_Datahall_UPS.Id</field>
+        <isDerived>false</isDerived>
+        <label>Data Hall UPS Id</label>
+        <sortIndex>24</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>UPS.Id</field>
+        <isDerived>false</isDerived>
+        <label>UPS Id</label>
+        <sortIndex>25</sortIndex>
+    </dimensions>
+    <measures>
+        <field>*</field>
+        <isDerived>true</isDerived>
+        <label>Power Consumptions</label>
+        <showInExplorer>true</showInExplorer>
+        <sortIndex>0</sortIndex>
+    </measures>
+</WaveXmd>

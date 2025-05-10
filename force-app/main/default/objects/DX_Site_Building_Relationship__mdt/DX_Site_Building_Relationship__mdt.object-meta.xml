@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This object will be used to save relationship between Site and Building so that it can be used when creating a Cross Connect Record from Service Request Page via Flow</description>
+    <label>DX Site Building Relationship</label>
+    <pluralLabel>DX Site Building Relationships</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DX_CRN_Date</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(text(Status) = &apos;Closed&apos;, ISBLANK(DX_CRN_Date__c),  RecordType.DeveloperName = &apos;DX_CRN&apos;)</errorConditionFormula>
+    <errorMessage>CRN date is required to be filled for a case to be closed</errorMessage>
+</ValidationRule>

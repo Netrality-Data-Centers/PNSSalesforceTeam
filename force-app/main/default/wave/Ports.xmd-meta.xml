@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataset>Ports</dataset>
+    <dimensions>
+        <field>DC_Panel.DC_Rack.Id</field>
+        <isDerived>false</isDerived>
+        <label>Rack Id</label>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Panel.Id</field>
+        <isDerived>false</isDerived>
+        <label>Panel Id</label>
+        <sortIndex>1</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Id</field>
+        <isDerived>false</isDerived>
+        <label>Port Id</label>
+        <sortIndex>2</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Building.Id</field>
+        <isDerived>false</isDerived>
+        <label>Building Id</label>
+        <sortIndex>3</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.DC_Floor.Id</field>
+        <isDerived>false</isDerived>
+        <label>Floor Id</label>
+        <sortIndex>4</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Panel.DC_Rack.DC_Meet_Me_Room.DC_Data_Hall.Id</field>
+        <isDerived>false</isDerived>
+        <label>Data Hall Id</label>
+        <sortIndex>5</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Panel.DC_Rack.DC_Meet_Me_Room.Id</field>
+        <isDerived>false</isDerived>
+        <label>Meet Me Room Id</label>
+        <sortIndex>6</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Panel.Status__c</field>
+        <isDerived>false</isDerived>
+        <label>Panel Status</label>
+        <sortIndex>7</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Panel.Short_Name__c</field>
+        <isDerived>false</isDerived>
+        <label>Panel Short Name</label>
+        <sortIndex>8</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Panel.DC_Rack.Short_Name__c</field>
+        <isDerived>false</isDerived>
+        <label>Rack Short Name</label>
+        <sortIndex>9</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>DC_Panel.DC_Rack.DC_Meet_Me_Room.Short_Name__c</field>
+        <isDerived>false</isDerived>
+        <label>Meet Me Room Short Name</label>
+        <sortIndex>10</sortIndex>
+    </dimensions>
+</WaveXmd>
